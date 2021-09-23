@@ -8,7 +8,7 @@ module Api
       end
 
       def show
-        @user = User.find(params[:id]) 
+        @user = User.find(params[:id])
         render json: { users: @user }, status: :ok
       end
 
@@ -24,17 +24,16 @@ module Api
           log_in @user
           redirect_to @user
         else
-          render 'new'  
+          render 'new'
         end
-
+      end
 
       private
-        
+
       # Strong Parameters
-        def user_params
-          params.require(:user).permit(:name, :email, :password, :password_confirmation)
-        end
-      
+      def user_params
+        params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      end
     end
   end
 end

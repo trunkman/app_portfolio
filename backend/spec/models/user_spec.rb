@@ -77,4 +77,10 @@ RSpec.describe User, type: :model do
       expect(user).not_to be_valid
     end
   end
+
+  describe 'remember meのテスト' do
+    it 'nil digestの時、authenticated?はfalseであるべき' do
+      expect(user.authenticated?('')).to be_falsey
+    end
+  end
 end
