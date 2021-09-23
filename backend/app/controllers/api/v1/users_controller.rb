@@ -21,7 +21,7 @@ module Api
       def create
         @user = User.new(paramas[user_params])
         if @user.save
-          flash[:success] = "ユーザーが登録されました"
+          log_in @user
           redirect_to @user
         else
           render 'new'  
