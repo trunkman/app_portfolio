@@ -1,0 +1,6 @@
+<%= @greeting %>様
+
+現在、仮登録の状態となります。
+こちらのリンクををクリックして、アカウントの有効化をしてください。
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>

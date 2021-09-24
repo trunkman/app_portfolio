@@ -6,12 +6,14 @@ module Api
       before_action :admin_user,     only: [:destroy]
 
       def index
-        @users = User.all
+        @users = User.where(activated: true)
         render json: { users: @users }, status: :ok
       end
 
       def show
         @user = User.find(params[:id])
+        redirect_to root_url and return unless user.activated?
+
         render json: { user: @user }, status: :ok
       end
 
@@ -23,8 +25,8 @@ module Api
       def create
         @user = User.new(params[user_params])
         if @user.save
-          log_in @user
-          redirect_back @user
+          @user.send_activation_email
+          redirect_to root_url
         else
           render 'new'
         end

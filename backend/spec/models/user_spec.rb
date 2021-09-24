@@ -80,7 +80,7 @@ RSpec.describe User, type: :model do
 
   describe 'remember meのテスト' do
     it 'nil digestの時、authenticated?はfalseであるべき' do
-      expect(user.authenticated?('')).to be_falsey
+      expect(user.authenticated?(:remember, '')).to be_falsey
     end
   end
 end
