@@ -1,6 +1,18 @@
 class User < ApplicationRecord
+  # 関連付け
+  has_many :active_relationships,  class_name: 'Relationship',
+                                   foreign_key: 'follower_id',
+                                   dependent:  :destroy
+  has_many :passive_relationships, class_name: 'Relationship',
+                                   foreign_key: 'followed_id',
+                                   dependent:  :destroy
+  has_many :following, through: :active_relationships,  source: :followed
+  has_many :followers, through: :passive_relationships, source: :follower
+
+  # setter, getter属性を定義
   attr_accessor :remember_token, :activation_token, :reset_token
 
+  # beforeフィルター
   before_save   { email.downcase! }
   before_create :create_activation_digest
 
@@ -10,8 +22,7 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: true
-  # passwordとpassword_confirmationの仮想属性が利用できるようになり、DBにpassword_digestで保存。
-  has_secure_password
+  has_secure_password # 仮想属性が利用可(password, password_confirmation)
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   ## クラスメソッド
@@ -78,6 +89,21 @@ class User < ApplicationRecord
   # パスワード再設定が期限切れの場合、trueを返す
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
+  end
+
+  # ユーザーをフォローする
+  def follow(other_user)
+    following << other_user
+  end
+  
+  # ユーザーのフォローを解除する
+  def unfollow(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+  # 現在のユーザーをフォローしている場合、trueを返す
+  def following?(other_user)
+    following.include?(other_user)
   end
 
   private
