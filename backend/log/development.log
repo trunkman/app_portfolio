@@ -1131,3 +1131,25 @@ Processing by Api::V1::StaticPagesController#home as HTML
 Completed 204 No Content in 0ms (Allocations: 143)
 
 
+Started GET "/api/v1/" for 133.32.240.184 at 2021-09-30 09:45:50 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-09-30 14:02:18 +0000
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 3ms (ActiveRecord: 0.0ms | Allocations: 2247)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-09-30 14:02:36 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 43)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-09-30 14:02:43 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 32)
+
+
