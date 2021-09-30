@@ -1091,3 +1091,43 @@ Migrating to CreateRelationships (20210925025401)
   [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mcommit transaction[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/v1/home" for 133.32.240.184 at 2021-09-30 08:35:04 +0000
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2246)
+
+
+  
+NameError (undefined local variable or method `cookies' for #<Api::V1::UsersController:0x00000000006ab8>):
+  
+app/helpers/sessions_helper.rb:18:in `current_user'
+app/helpers/sessions_helper.rb:29:in `logged_in?'
+app/controllers/api/v1/users_controller.rb:62:in `logged_in_user'
+Started GET "/api/v1/home" for 133.32.240.184 at 2021-09-30 08:42:13 +0000
+Processing by Api::V1::UsersController#index as HTML
+Completed 500 Internal Server Error in 4ms (Allocations: 2185)
+
+
+  
+NameError (undefined local variable or method `cookies' for #<Api::V1::UsersController:0x000000000082f0>):
+  
+app/helpers/sessions_helper.rb:18:in `current_user'
+app/helpers/sessions_helper.rb:29:in `logged_in?'
+app/controllers/api/v1/users_controller.rb:62:in `logged_in_user'
+Started GET "/api/v1/home" for 133.32.240.184 at 2021-09-30 08:42:15 +0000
+Processing by Api::V1::UsersController#index as HTML
+Completed 500 Internal Server Error in 4ms (Allocations: 2092)
+
+
+  
+NameError (undefined local variable or method `cookies' for #<Api::V1::UsersController:0x000000000084f8>):
+  
+app/helpers/sessions_helper.rb:18:in `current_user'
+app/helpers/sessions_helper.rb:29:in `logged_in?'
+app/controllers/api/v1/users_controller.rb:62:in `logged_in_user'
+Started GET "/api/v1/" for 133.32.240.184 at 2021-09-30 08:44:47 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 143)
+
+

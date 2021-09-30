@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from "react";
-
 // api
 import { fetchHome } from "../apis/home";
+
 
 export const Home = () => {
 
@@ -14,7 +14,8 @@ export const Home = () => {
 
   return (
     <Fragment>
-      Home画面
+      <Link to={/signup}>新規登録</Link >
+        <Link to={/login}>ログイン</Link >
     </Fragment>
   )
 }
