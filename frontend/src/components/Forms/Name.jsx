@@ -1,21 +1,16 @@
-import React from "react"
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
+import React from "react";
 import TextField from '@mui/material/TextField';
 
 export const Name = () => {
-  <DialogContent>
-    <DialogContentText>
-      名前
-    </DialogContentText>
+  return (
     <TextField
       autoFocus
       margin="dense"
       id="name"
-      label="name"
+      label="名前"
       type="text"
       fullWidth
       variant="standard"
     />
-  </DialogContent>
+  );
 }

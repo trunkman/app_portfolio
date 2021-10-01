@@ -1153,3 +1153,566 @@ Processing by Api::V1::StaticPagesController#home as HTML
 Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 32)
 
 
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-01 01:54:00 +0000
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 6ms (ActiveRecord: 0.0ms | Allocations: 2248)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-01 01:56:27 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 43)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-01 02:16:53 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 32)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-01 02:17:08 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 32)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-01 02:17:18 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-01 02:20:05 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/" for 162.142.125.42 at 2021-10-01 02:22:48 +0000
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/ubuntu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ubuntu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 9.5ms | Allocations: 484)
+Completed 200 OK in 23ms (Views: 13.0ms | Allocations: 3741)
+
+
+Started GET "/" for 162.142.125.42 at 2021-10-01 02:22:49 +0000
+Processing by Rails::WelcomeController#index as */*
+  Rendering /home/ubuntu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ubuntu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 5.3ms | Allocations: 265)
+Completed 200 OK in 8ms (Views: 6.6ms | Allocations: 1111)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-01 02:23:25 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 44)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-01 02:25:15 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-01 02:25:28 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-01 02:25:29 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-01 02:25:41 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 35)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-01 02:28:47 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-01 02:30:48 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-01 02:34:33 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-01 02:37:44 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-01 02:38:28 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-01 02:38:33 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-01 02:38:53 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-01 02:42:30 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-01 06:40:05 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 4ms (ActiveRecord: 0.0ms | Allocations: 2248)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-01 06:42:10 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 43)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-01 06:45:49 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 32)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-01 07:01:43 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-01 07:07:40 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 32)
+
+
+Started GET "/" for 121.4.37.132 at 2021-10-01 07:42:11 +0000
+Processing by Rails::WelcomeController#index as */*
+  Rendering /home/ubuntu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ubuntu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.0ms | Allocations: 484)
+Completed 200 OK in 12ms (Views: 7.7ms | Allocations: 3392)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-01 10:04:30 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 4ms (ActiveRecord: 0.0ms | Allocations: 2248)
+
+
+Started POST "/api/v1/signup" for 133.32.240.184 at 2021-10-01 10:05:08 +0000
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/signup"):
+  
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Example User"], ["email", "example@example.com"], ["password_digest", "$2a$12$LUTA0LEJPa5LTwCB0AiCauDqIP09DeRtkEoFtPrRTn.guCmZnNkka"], ["admin", 1], ["activation_digest", "$2a$12$y8oMAtHQEUC6zM7qCn7OSuVxsGVFJMsFDylXhNIgqCJ8QiwUeZYte"], ["activated", 1], ["activated_at", "2021-10-01 10:07:13.582600"], ["created_at", "2021-10-01 10:07:13.872933"], ["updated_at", "2021-10-01 10:07:13.872933"]]
+  [1m[36mTRANSACTION (7.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-1@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "1君"], ["email", "example-1@example.com"], ["password_digest", "$2a$12$YUYMIe4e4lkwtF/LKzVOGO6S9LIv9La4.WH5a4zT81nd.vMWJeN0G"], ["activation_digest", "$2a$12$lC2bT7/hkR5bUbX.zFwNEuGFCwfX6YnPoEJtRkeCPM5dp59EIZcke"], ["activated", 1], ["activated_at", "2021-10-01 10:07:14.158096"], ["created_at", "2021-10-01 10:07:14.435065"], ["updated_at", "2021-10-01 10:07:14.435065"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-2@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "2君"], ["email", "example-2@example.com"], ["password_digest", "$2a$12$AfKz5KTLJ6QC0Axw4wvqv.FfvRYcPkp.dda1Z/2A3QGFE6Rto6vZe"], ["activation_digest", "$2a$12$S/b9rzg87SInquvmW2emIe0SqAYmVitlQ3qM2tRfFtQjV0uekDLiu"], ["activated", 1], ["activated_at", "2021-10-01 10:07:14.714357"], ["created_at", "2021-10-01 10:07:14.990866"], ["updated_at", "2021-10-01 10:07:14.990866"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-3@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "3君"], ["email", "example-3@example.com"], ["password_digest", "$2a$12$VUCg5gQMj0U8ddZ6BnyWBumdS1CvoFcB.I7hkh/jlpHAfANSaqIXC"], ["activation_digest", "$2a$12$YEK1y502UQi2FDqWfl8zI.lVJoL1juKr.x6aDfephvvV7r6dj1ZHO"], ["activated", 1], ["activated_at", "2021-10-01 10:07:15.271169"], ["created_at", "2021-10-01 10:07:15.546808"], ["updated_at", "2021-10-01 10:07:15.546808"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-4@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "4君"], ["email", "example-4@example.com"], ["password_digest", "$2a$12$Yp8KgWf.Qmv/4bplsIRXFeRkIrtw0fg.NF0ZwNxblHayHL1eTv.9S"], ["activation_digest", "$2a$12$mfW1uwqR14f76hI4rgHRWuR64jtafSqXCCAc5Uh3Rca2sDc0l.vge"], ["activated", 1], ["activated_at", "2021-10-01 10:07:15.827202"], ["created_at", "2021-10-01 10:07:16.103653"], ["updated_at", "2021-10-01 10:07:16.103653"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-5@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "5君"], ["email", "example-5@example.com"], ["password_digest", "$2a$12$QHfihVubi7FVrqtLVwrjD.oxofadxlToIPH.ayVtotRqEfWsrvglu"], ["activation_digest", "$2a$12$7tB4XzB5X1CVPiJniPbGeOXmXjDxc0wfG/emzgZ5q8X46fBtLrRq2"], ["activated", 1], ["activated_at", "2021-10-01 10:07:16.383324"], ["created_at", "2021-10-01 10:07:16.658623"], ["updated_at", "2021-10-01 10:07:16.658623"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-6@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "6君"], ["email", "example-6@example.com"], ["password_digest", "$2a$12$x.YhMkeTa1L9aZmWvAuVI.klO7bpBJKnZTSk0n43KJgfjVLOWC7Gi"], ["activation_digest", "$2a$12$zl9wdzJMgG4OeXiN62nl3OQtYehQn3QE36qtmBXr4t.TTZ1LB4fgW"], ["activated", 1], ["activated_at", "2021-10-01 10:07:16.939143"], ["created_at", "2021-10-01 10:07:17.214733"], ["updated_at", "2021-10-01 10:07:17.214733"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-7@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "7君"], ["email", "example-7@example.com"], ["password_digest", "$2a$12$uDtfbY7I.amHwHRryff9reSmaQXayKPO7Ob9JDo8sIHA2BLILFL8S"], ["activation_digest", "$2a$12$3PiBSGkOl7cPttzVKt.Uie74elzcxPNMeE.pdNinYiW24xW/NDla6"], ["activated", 1], ["activated_at", "2021-10-01 10:07:17.496070"], ["created_at", "2021-10-01 10:07:17.771106"], ["updated_at", "2021-10-01 10:07:17.771106"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-8@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "8君"], ["email", "example-8@example.com"], ["password_digest", "$2a$12$9P4xTRHncfDZUF/YpoJ1ROmsdqsPvv4P1l6dx1aYeMxEHXIsR68sq"], ["activation_digest", "$2a$12$vpSwS.WzzSirqONQg267P.q4jbCpAghbRnIi0r0uD5T4wKy7Ia8Ti"], ["activated", 1], ["activated_at", "2021-10-01 10:07:18.060381"], ["created_at", "2021-10-01 10:07:18.336156"], ["updated_at", "2021-10-01 10:07:18.336156"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-9@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "9君"], ["email", "example-9@example.com"], ["password_digest", "$2a$12$1hL3JzcfLT5Zp8uVvdq/seTv66J08l64aHMdIuTQbG8QDg/I93JMm"], ["activation_digest", "$2a$12$mLS0bwzOg2YsJUDWiWGg4Oq1e8QKXlTDxeZVwypbjuG5zqUcacsdG"], ["activated", 1], ["activated_at", "2021-10-01 10:07:18.615285"], ["created_at", "2021-10-01 10:07:18.890473"], ["updated_at", "2021-10-01 10:07:18.890473"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-10@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "10君"], ["email", "example-10@example.com"], ["password_digest", "$2a$12$SkzxZklr2ND/49vwdrmdM.HWdHpzRW0Y4bDp2QIvI2tenShIUM8qO"], ["activation_digest", "$2a$12$zqgIy23TCQ36JimxmQX.VejChLIzIUxaWuO8HT.KzoqiMjxdE.PWi"], ["activated", 1], ["activated_at", "2021-10-01 10:07:19.169950"], ["created_at", "2021-10-01 10:07:19.445946"], ["updated_at", "2021-10-01 10:07:19.445946"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-11@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "11君"], ["email", "example-11@example.com"], ["password_digest", "$2a$12$F5Nce102tSB1Lmk1YrEzienGlLzlkXFOTQdjiKXwj9IpKZizwna8a"], ["activation_digest", "$2a$12$gPC0HmPkvhceKMaHNWydO.zCbpRRTtauwduxJirk9sD7RovYPY.oi"], ["activated", 1], ["activated_at", "2021-10-01 10:07:19.725627"], ["created_at", "2021-10-01 10:07:20.002407"], ["updated_at", "2021-10-01 10:07:20.002407"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-12@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "12君"], ["email", "example-12@example.com"], ["password_digest", "$2a$12$AD.VFyp1LLRIwpzauun3Rubw3ojkycvzwj4IS9LlwZ2ohI1o/YO7S"], ["activation_digest", "$2a$12$mWheV2L3xapEtrFpQJAPGe5GatsqbbrHFrwBWFzwBK4IWlukJOPHy"], ["activated", 1], ["activated_at", "2021-10-01 10:07:20.282696"], ["created_at", "2021-10-01 10:07:20.557683"], ["updated_at", "2021-10-01 10:07:20.557683"]]
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-13@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "13君"], ["email", "example-13@example.com"], ["password_digest", "$2a$12$eHmjPoWJi9Du2N.pSFl1Tu0YnNSRAslbtqz46wnzEBe5fcy1bFhh6"], ["activation_digest", "$2a$12$c8dZcR.WiB9rRhViBqK.a.ArbFhdYru23BLTxOC96/cTt6pHUrAU."], ["activated", 1], ["activated_at", "2021-10-01 10:07:20.838967"], ["created_at", "2021-10-01 10:07:21.114130"], ["updated_at", "2021-10-01 10:07:21.114130"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-14@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "14君"], ["email", "example-14@example.com"], ["password_digest", "$2a$12$xHUYY5F79DhYLFWrzuAUfeHDU0/alQHYrovFuV6JL0jEkzre2Utpy"], ["activation_digest", "$2a$12$4djTeHoPYQJREMZjxOyTm.TXs1GmInN/nSU3WzOQb0edc5yRnx/iC"], ["activated", 1], ["activated_at", "2021-10-01 10:07:21.393560"], ["created_at", "2021-10-01 10:07:21.668508"], ["updated_at", "2021-10-01 10:07:21.668508"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-15@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "15君"], ["email", "example-15@example.com"], ["password_digest", "$2a$12$ZA5whfJyUmubnAYQXiXjEeJYvdkSeGqH5ScZQS7MlxwL3ECj81LkS"], ["activation_digest", "$2a$12$hcNlKaA8LWZYXz7K5CL2L.AV06M9Dz/9ZWY6MBfcrY1TSeukwpixu"], ["activated", 1], ["activated_at", "2021-10-01 10:07:21.948782"], ["created_at", "2021-10-01 10:07:22.223831"], ["updated_at", "2021-10-01 10:07:22.223831"]]
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-16@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "16君"], ["email", "example-16@example.com"], ["password_digest", "$2a$12$DClujhqdKc0f9TZ6kYgM0e/eUNqeWxKkyaE1/q1U2tzYYQAiSfJa."], ["activation_digest", "$2a$12$PzewGcY4uwd0JLxDchOfjeA4IBXOu1Fse5TNFBilO2Ka0Ozn/.jPK"], ["activated", 1], ["activated_at", "2021-10-01 10:07:22.504196"], ["created_at", "2021-10-01 10:07:22.780020"], ["updated_at", "2021-10-01 10:07:22.780020"]]
+  [1m[36mTRANSACTION (6.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-17@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "17君"], ["email", "example-17@example.com"], ["password_digest", "$2a$12$LSkM9JrtyYPTvqaXR/xpP.K70Thqsjuxual2WW1jASRWGclkWTaNq"], ["activation_digest", "$2a$12$AbHVkcMVJdB9NuGPbS3IwuJJ9wx49.I74BQbEPy.aBUogjTQTJPTO"], ["activated", 1], ["activated_at", "2021-10-01 10:07:23.061443"], ["created_at", "2021-10-01 10:07:23.337333"], ["updated_at", "2021-10-01 10:07:23.337333"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-18@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "18君"], ["email", "example-18@example.com"], ["password_digest", "$2a$12$Ma0qcmeOv5nVkF2gmxed.OymqjMUM.tS7owDGJ82xj2KBNqxe/jiu"], ["activation_digest", "$2a$12$ChJ/MVO3Z7d1RX50Yd1BTekryk9AYCq63Qko6lITcZ8F3dqJwZ8By"], ["activated", 1], ["activated_at", "2021-10-01 10:07:23.617662"], ["created_at", "2021-10-01 10:07:23.893398"], ["updated_at", "2021-10-01 10:07:23.893398"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-19@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "19君"], ["email", "example-19@example.com"], ["password_digest", "$2a$12$NEzypbJ9qG/7W6Z/C7Qmse5udzeMIRmd7nwLEgCUyw20UEX7.FiQC"], ["activation_digest", "$2a$12$IQpATtldktyHvKE9cUpEpes7EwTLwIq0wYflhkUyS5PY.Qq89.eb6"], ["activated", 1], ["activated_at", "2021-10-01 10:07:24.174329"], ["created_at", "2021-10-01 10:07:24.449712"], ["updated_at", "2021-10-01 10:07:24.449712"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-20@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "20君"], ["email", "example-20@example.com"], ["password_digest", "$2a$12$6/xcDa/Q/8igqiXieGB8a.E.8Mx2YyLOpUBIRt/b0MUahkAbprxlC"], ["activation_digest", "$2a$12$PhJfw7622b7qVR4CpnlojuZwMMAVcloVlkobXtDiSIlzhXDqpbX3S"], ["activated", 1], ["activated_at", "2021-10-01 10:07:24.729387"], ["created_at", "2021-10-01 10:07:25.005263"], ["updated_at", "2021-10-01 10:07:25.005263"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-21@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "21君"], ["email", "example-21@example.com"], ["password_digest", "$2a$12$9Cm3Nh1fCnGNKmQ9Bb3WpOQzx6RiD38PA.ktO/3gI7HrTVQdID9J6"], ["activation_digest", "$2a$12$f4ry25AR7Bs4KvObYrBJpuNCEa0iMoz9sVrA3lL0W32TpJ55oSD8W"], ["activated", 1], ["activated_at", "2021-10-01 10:07:25.287408"], ["created_at", "2021-10-01 10:07:25.563360"], ["updated_at", "2021-10-01 10:07:25.563360"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-22@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "22君"], ["email", "example-22@example.com"], ["password_digest", "$2a$12$NCuE5/fw9DUpdHFf8NOhq.M3kR0Dq4STmo7OlpTW9xlsdBG7eHzRW"], ["activation_digest", "$2a$12$PP7XxHxsXmJKOCgjlm4KouinrJ/L5K.unkJHmKq6y/81S7XoSBlJS"], ["activated", 1], ["activated_at", "2021-10-01 10:07:25.843438"], ["created_at", "2021-10-01 10:07:26.118886"], ["updated_at", "2021-10-01 10:07:26.118886"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-23@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "23君"], ["email", "example-23@example.com"], ["password_digest", "$2a$12$qoTsKJLVGSSdQ0hKzgIzaeuOXpQj1YKLwTQ2/spW1JTo5D7QPJOxi"], ["activation_digest", "$2a$12$MIgKQKlBhfWoddAxsjV03OVQMQ.VpY2hVMO8fKjsI4V4pm4z4lCe."], ["activated", 1], ["activated_at", "2021-10-01 10:07:26.398648"], ["created_at", "2021-10-01 10:07:26.674087"], ["updated_at", "2021-10-01 10:07:26.674087"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-24@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "24君"], ["email", "example-24@example.com"], ["password_digest", "$2a$12$tCe2ANWoGIjdkudDFndXYOpKZT5NSGhcLFCcecHpBS1WSZXLnHbzu"], ["activation_digest", "$2a$12$li6KenFewCLDJgf1E5l.TuMemfXQhwPb.VQb5mHhz7z1ERpT4AnO2"], ["activated", 1], ["activated_at", "2021-10-01 10:07:26.953706"], ["created_at", "2021-10-01 10:07:27.229378"], ["updated_at", "2021-10-01 10:07:27.229378"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-25@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "25君"], ["email", "example-25@example.com"], ["password_digest", "$2a$12$IorzxSChmKcLRDbOvhCKzus1H5ZIHh6lG7jYKWmfXYFyCPuL4L/XS"], ["activation_digest", "$2a$12$tVvG6Dq.qOHhPebCeBBZNu1NyTlpCGw45pXbNYQ.23GBrQUDlHKeC"], ["activated", 1], ["activated_at", "2021-10-01 10:07:27.510619"], ["created_at", "2021-10-01 10:07:27.785874"], ["updated_at", "2021-10-01 10:07:27.785874"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-26@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "26君"], ["email", "example-26@example.com"], ["password_digest", "$2a$12$BCLCOYY7L/syHXhDRm.vRuU9NP2cKwaBXiaT75jsJEyIJY.kFjzbi"], ["activation_digest", "$2a$12$5uJWQIaYyfnPJgSA6T3bq.IxA2tpmkrZlRoeyaluCmoGO8g1aegtu"], ["activated", 1], ["activated_at", "2021-10-01 10:07:28.066613"], ["created_at", "2021-10-01 10:07:28.341673"], ["updated_at", "2021-10-01 10:07:28.341673"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-27@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "27君"], ["email", "example-27@example.com"], ["password_digest", "$2a$12$DWjvZmD5gVz/g.FfVc3yb.7R58tiZ.eiM/Qai6pbE6QWIJb/c8i4q"], ["activation_digest", "$2a$12$xzWS5Ec55MfcP1bnwm4dHexdWPaIKV3stQBTh/rCW3c363M203sqy"], ["activated", 1], ["activated_at", "2021-10-01 10:07:28.621591"], ["created_at", "2021-10-01 10:07:28.897487"], ["updated_at", "2021-10-01 10:07:28.897487"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-28@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "28君"], ["email", "example-28@example.com"], ["password_digest", "$2a$12$E8zPDOsrftxnrVRXQ31RcuZt46qh7IIaO11OnqNupxJ56KQr2Vtba"], ["activation_digest", "$2a$12$lV8p4Mb6LAz/GbnbzTKv.eNWaAzJpdP1tGtgjP/bGBNggsLQi404S"], ["activated", 1], ["activated_at", "2021-10-01 10:07:29.177813"], ["created_at", "2021-10-01 10:07:29.454021"], ["updated_at", "2021-10-01 10:07:29.454021"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-29@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "29君"], ["email", "example-29@example.com"], ["password_digest", "$2a$12$WzAxEuubLYIWxT..sTNsz.RVzuo6AwDl5W9SfYRHND19DuEa2oCq6"], ["activation_digest", "$2a$12$nvsjgO1Fw2f66WxzHW7Xfejqlbza0VOlfXdLabz/DojbnQAq/CjJ2"], ["activated", 1], ["activated_at", "2021-10-01 10:07:29.733706"], ["created_at", "2021-10-01 10:07:30.008880"], ["updated_at", "2021-10-01 10:07:30.008880"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-30@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "30君"], ["email", "example-30@example.com"], ["password_digest", "$2a$12$WcpFB356wd/844OjxSH.I.3Y//VexpQpNieV1tqrzCDjT7Aks8MMi"], ["activation_digest", "$2a$12$jgDuRw75jc908PXM0mL.nuKyH3//wDF.Yq7wTUg5bilRF..8osHlO"], ["activated", 1], ["activated_at", "2021-10-01 10:07:30.289525"], ["created_at", "2021-10-01 10:07:30.565651"], ["updated_at", "2021-10-01 10:07:30.565651"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-31@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "31君"], ["email", "example-31@example.com"], ["password_digest", "$2a$12$N5lsKFH1su1ijTx1TOoKKOIaPFbveKIy8DZsvMSD79r0Qo.yuqbSa"], ["activation_digest", "$2a$12$XJ2jpBqyfdqs7kFu79ezzuaoJijBrweFVvltJqxUrnIl9seEdIYl2"], ["activated", 1], ["activated_at", "2021-10-01 10:07:30.845101"], ["created_at", "2021-10-01 10:07:31.121091"], ["updated_at", "2021-10-01 10:07:31.121091"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-32@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "32君"], ["email", "example-32@example.com"], ["password_digest", "$2a$12$cF.ACqF60ufINNvhCMYMru.byvSlq8MB/9pRoTLFA.w3rkNz5vIGy"], ["activation_digest", "$2a$12$QrjkZPUO7ccgqufE.T1SsORevs935eTY4rzD4ki/VUdyexPozaAbK"], ["activated", 1], ["activated_at", "2021-10-01 10:07:31.401370"], ["created_at", "2021-10-01 10:07:31.676942"], ["updated_at", "2021-10-01 10:07:31.676942"]]
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-33@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "33君"], ["email", "example-33@example.com"], ["password_digest", "$2a$12$bl.nmn0kj9hb3R3GibsicOiXGIDtI0pm2bJkHmJHjqWxUQfnTkk3W"], ["activation_digest", "$2a$12$BtZIy20rInVvnarGxbOW9OAh8W1XbHv1oBEkhOlEHC2VnoZBvNh7S"], ["activated", 1], ["activated_at", "2021-10-01 10:07:31.961318"], ["created_at", "2021-10-01 10:07:32.238684"], ["updated_at", "2021-10-01 10:07:32.238684"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-34@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "34君"], ["email", "example-34@example.com"], ["password_digest", "$2a$12$0DKoJpaYHoZzzBzJPklw6u3xljWDrS18uu32.swmRd68ePXiVguPq"], ["activation_digest", "$2a$12$JVloe5FilWm2B5S99CWR9.FyW7J8A93MK1qAkTL.KijPlUbD7S7Iy"], ["activated", 1], ["activated_at", "2021-10-01 10:07:32.518973"], ["created_at", "2021-10-01 10:07:32.795629"], ["updated_at", "2021-10-01 10:07:32.795629"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-35@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "35君"], ["email", "example-35@example.com"], ["password_digest", "$2a$12$UbCIdU8zpGBnXs/yf1XJZukps0s7hQPbwG8m3yYvq3zsPgqQG9Bou"], ["activation_digest", "$2a$12$5k2jyvLugaBupc1WNpsFSOOG9/MKVMH2OKszmwai7xx2x8vmQBFO6"], ["activated", 1], ["activated_at", "2021-10-01 10:07:33.075248"], ["created_at", "2021-10-01 10:07:33.350691"], ["updated_at", "2021-10-01 10:07:33.350691"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-36@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "36君"], ["email", "example-36@example.com"], ["password_digest", "$2a$12$OE4QBUL/DCd6wufs4PUsrOWRWqctFcrn.rxHNv5mcD9OwiFSoVlqK"], ["activation_digest", "$2a$12$5ja3xyIZWAAEnzb5SiIvGu3mgUYsOpejTnLpX.giws9VBuXHEyZmW"], ["activated", 1], ["activated_at", "2021-10-01 10:07:33.632058"], ["created_at", "2021-10-01 10:07:33.907301"], ["updated_at", "2021-10-01 10:07:33.907301"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-37@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "37君"], ["email", "example-37@example.com"], ["password_digest", "$2a$12$iYNY.ElvWlG3XlbItEFqEOZm8EY26Qr939H9oP6iGAIr2SYxuB6qW"], ["activation_digest", "$2a$12$C3IBlFoESfR8N5z7NmqNpebOLcPSYQlwC4xAwx2Tc5okh2uRWdsg6"], ["activated", 1], ["activated_at", "2021-10-01 10:07:34.187455"], ["created_at", "2021-10-01 10:07:34.462570"], ["updated_at", "2021-10-01 10:07:34.462570"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-38@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "38君"], ["email", "example-38@example.com"], ["password_digest", "$2a$12$aNigXMnT6mdRDuE8osMlyOKAgDbps8Bczr5lxzRfJeMBdn2iC/NeC"], ["activation_digest", "$2a$12$BgwJ7D6TPZyBaKkwf0DHT.LuT1N5lvr3IEmsy2ReoxB/Xem6O4xo2"], ["activated", 1], ["activated_at", "2021-10-01 10:07:34.743236"], ["created_at", "2021-10-01 10:07:35.018416"], ["updated_at", "2021-10-01 10:07:35.018416"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-39@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "39君"], ["email", "example-39@example.com"], ["password_digest", "$2a$12$tmPAqt4QvjT8KKnitu3uUeoZJH/iC4RSNi.86K3IVRUCSG0/gko4C"], ["activation_digest", "$2a$12$MyXD/je47ieeyYqMfSfa7u/D.6YYnM/abcHsS3OofPN3sVbHL6cPG"], ["activated", 1], ["activated_at", "2021-10-01 10:07:35.298897"], ["created_at", "2021-10-01 10:07:35.574186"], ["updated_at", "2021-10-01 10:07:35.574186"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-40@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "40君"], ["email", "example-40@example.com"], ["password_digest", "$2a$12$7B0ATBLGlY0p7fAqmQTNmunfre5OO9UKgXKuvBsMb7BJABTqKsO2a"], ["activation_digest", "$2a$12$6orLB0.faHqGlQyLXtLZDunESw02.97f/CrUkUZws4yWlDzk95PJa"], ["activated", 1], ["activated_at", "2021-10-01 10:07:35.854565"], ["created_at", "2021-10-01 10:07:36.129649"], ["updated_at", "2021-10-01 10:07:36.129649"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-41@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "41君"], ["email", "example-41@example.com"], ["password_digest", "$2a$12$vIOd62cGRiDnkUduYhqOguqc9RueFQg/c5PdYsINOztNxknNvlSLq"], ["activation_digest", "$2a$12$XHR1xYj8nDd36OQNdu2BJO9jCQZrPQfqzyyW4BGOmhFao6TDRx26S"], ["activated", 1], ["activated_at", "2021-10-01 10:07:36.410337"], ["created_at", "2021-10-01 10:07:36.685552"], ["updated_at", "2021-10-01 10:07:36.685552"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-42@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "42君"], ["email", "example-42@example.com"], ["password_digest", "$2a$12$VE6Yc8SEPw92rR3jXjSKk.LEdXV9331f.LltMnjPCS3rvesSF665e"], ["activation_digest", "$2a$12$ThsVp6g8x8hToYWZWM9J8exCQrwgidjgomKSj6gbAeAnl3WVqMMqe"], ["activated", 1], ["activated_at", "2021-10-01 10:07:36.966471"], ["created_at", "2021-10-01 10:07:37.241520"], ["updated_at", "2021-10-01 10:07:37.241520"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-43@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "43君"], ["email", "example-43@example.com"], ["password_digest", "$2a$12$X704gS7XVnnvHGcIYrR1lu1ihJ8o1ms6LTONsyyIpgRGbAD1ANCBS"], ["activation_digest", "$2a$12$u/lMTLuM.fNC1DugR18/3.G.xJ/Di0NedoHuaqMYcc3l.mqqXFIy6"], ["activated", 1], ["activated_at", "2021-10-01 10:07:37.520617"], ["created_at", "2021-10-01 10:07:37.796661"], ["updated_at", "2021-10-01 10:07:37.796661"]]
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-44@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "44君"], ["email", "example-44@example.com"], ["password_digest", "$2a$12$DyTgSWsVxb1wcQHUaPT59uBpOaWy3r0tFR/er8wEtM4fCvpJXRbT6"], ["activation_digest", "$2a$12$N9WQawWbc6YbS/3LE0Pf7.gWjEthx14.EHcnV/Zey1bAlbn5SChv2"], ["activated", 1], ["activated_at", "2021-10-01 10:07:38.077103"], ["created_at", "2021-10-01 10:07:38.353103"], ["updated_at", "2021-10-01 10:07:38.353103"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-45@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "45君"], ["email", "example-45@example.com"], ["password_digest", "$2a$12$MbxEWl9zAqU16DdCLlb3KeSFodNHGrgn.LIhC7RwkTsa3ElPK741."], ["activation_digest", "$2a$12$5NhzVkM8.CNshh02JOAB1uHf/2IQohYgTRQqDr2UTx8iI/7Iogb/q"], ["activated", 1], ["activated_at", "2021-10-01 10:07:38.632720"], ["created_at", "2021-10-01 10:07:38.908700"], ["updated_at", "2021-10-01 10:07:38.908700"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-46@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "46君"], ["email", "example-46@example.com"], ["password_digest", "$2a$12$RGcmD9RR7e0DtH1hMcC5Q.3Hj9mXSNG53idjUnwarpUCbIFH2bCr2"], ["activation_digest", "$2a$12$QQbItWO7txI9aNxXuWeh6OcJaLX/JTJku7SQaFWvjbBj8eXHaw0dS"], ["activated", 1], ["activated_at", "2021-10-01 10:07:39.190281"], ["created_at", "2021-10-01 10:07:39.466122"], ["updated_at", "2021-10-01 10:07:39.466122"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-47@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "47君"], ["email", "example-47@example.com"], ["password_digest", "$2a$12$ZpeYC./wjBhJgEwmaVqV3.HP4CNihNQpHkF/368gONg25MVXit2oO"], ["activation_digest", "$2a$12$qaQTB9wIcLVh5Ke/mNeQFegm4S2YW9YjlTsiFJK.XDGImKXUEGYIC"], ["activated", 1], ["activated_at", "2021-10-01 10:07:39.746012"], ["created_at", "2021-10-01 10:07:40.021764"], ["updated_at", "2021-10-01 10:07:40.021764"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-48@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "48君"], ["email", "example-48@example.com"], ["password_digest", "$2a$12$uQea4oPPdYJ4n5QaXHodpeI28FrzA4Lk5ZzzQQxA7TF4QUl2s9f2m"], ["activation_digest", "$2a$12$7TjF19cpGN7JjRSRJK399e/jKZPOOhx67WHqE6FGm5Ppu8a3oWxTi"], ["activated", 1], ["activated_at", "2021-10-01 10:07:40.301125"], ["created_at", "2021-10-01 10:07:40.577443"], ["updated_at", "2021-10-01 10:07:40.577443"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-49@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "49君"], ["email", "example-49@example.com"], ["password_digest", "$2a$12$GLqbEf4a1aLbQF.8AvvEn.CZyOesJnwOEaKZ4dXTpvWkjTLorW.yG"], ["activation_digest", "$2a$12$TuDnJOjxxOg/.yorXoq.meIBqd/EgPHaXkP.QXgotf8blfy1ABzeW"], ["activated", 1], ["activated_at", "2021-10-01 10:07:40.858875"], ["created_at", "2021-10-01 10:07:41.133968"], ["updated_at", "2021-10-01 10:07:41.133968"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-50@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "50君"], ["email", "example-50@example.com"], ["password_digest", "$2a$12$.ZT95n4lCqgWW4ec2cDqbulfhJ1lYdv9IqtW/VREocjR2vU9vUnle"], ["activation_digest", "$2a$12$HEKDXeNMzxZ.vGPcA/eRqe1QEvwd8KSv5pY1I8MZ0LYIwnkNsPSRi"], ["activated", 1], ["activated_at", "2021-10-01 10:07:41.413623"], ["created_at", "2021-10-01 10:07:41.690242"], ["updated_at", "2021-10-01 10:07:41.690242"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-51@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "51君"], ["email", "example-51@example.com"], ["password_digest", "$2a$12$dZGLshaIG3k40dxqHUC8HuGSiWd2p5YFDKY/9Sz3H8ZL/c1x7IQGK"], ["activation_digest", "$2a$12$wVkX0yrr7dDIiuBLFqolZerlq5T50Wr9q33o1He8GrkzzbQwRsAum"], ["activated", 1], ["activated_at", "2021-10-01 10:07:41.971084"], ["created_at", "2021-10-01 10:07:42.246186"], ["updated_at", "2021-10-01 10:07:42.246186"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-52@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "52君"], ["email", "example-52@example.com"], ["password_digest", "$2a$12$JHpcdTvQ7caF.x9qTqKqZOREvQKLTlyb8o.IZv2EpuHo.PKp0Clwm"], ["activation_digest", "$2a$12$05u7/vyeszY9crMiqxldxe9OvGW2Z.KmD.EsR6ok61/5l3yx5BgoS"], ["activated", 1], ["activated_at", "2021-10-01 10:07:42.526056"], ["created_at", "2021-10-01 10:07:42.802001"], ["updated_at", "2021-10-01 10:07:42.802001"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-53@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "53君"], ["email", "example-53@example.com"], ["password_digest", "$2a$12$nURKYrCbt0556idX1MrLuem6hhHCS3DGqf0oFfgxNnZPY1uQ.Oc2W"], ["activation_digest", "$2a$12$RRXyDPLcjxDwGZjTtkTzWetI/zovv.aYE2/jCsdYoA50fQ7EBuwrm"], ["activated", 1], ["activated_at", "2021-10-01 10:07:43.081872"], ["created_at", "2021-10-01 10:07:43.357977"], ["updated_at", "2021-10-01 10:07:43.357977"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-54@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "54君"], ["email", "example-54@example.com"], ["password_digest", "$2a$12$vst98HmnnNDGx8XWjt6TceWldDSkXHI4U/y2agITtZ9Q2n15l1t32"], ["activation_digest", "$2a$12$gmBheKb2169Nv.4E94TAq.6soX5GfiHLF2NaZnkrV3FLiCvIUjwS6"], ["activated", 1], ["activated_at", "2021-10-01 10:07:43.639130"], ["created_at", "2021-10-01 10:07:43.914821"], ["updated_at", "2021-10-01 10:07:43.914821"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-55@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "55君"], ["email", "example-55@example.com"], ["password_digest", "$2a$12$lduu32KLC6/LGd6wD8QXCuw9zC3LlbiX.VbMlEMOxYwK0NRdW2bvW"], ["activation_digest", "$2a$12$b20PQFHeknIoCYVJzeD9uOWXHFOwvmWIhtPnjGAj/IuR3oIqRADki"], ["activated", 1], ["activated_at", "2021-10-01 10:07:44.194934"], ["created_at", "2021-10-01 10:07:44.471204"], ["updated_at", "2021-10-01 10:07:44.471204"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-56@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "56君"], ["email", "example-56@example.com"], ["password_digest", "$2a$12$YJzbcJ2H0jWR3hx9cYJRpuQkJh6381GseU3X.Y9JMDc/H8mEESW7S"], ["activation_digest", "$2a$12$seCvw0mB.kwMc97w3bl.rekcou3RO0ppbaZq3tVPN.vjAYIZSo9Cq"], ["activated", 1], ["activated_at", "2021-10-01 10:07:44.754338"], ["created_at", "2021-10-01 10:07:45.034894"], ["updated_at", "2021-10-01 10:07:45.034894"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-57@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "57君"], ["email", "example-57@example.com"], ["password_digest", "$2a$12$FGczI1Ey4oHEdAd8L5Zqleefo8gJgq9FZZGMYZrIRt14zzbvgM0n."], ["activation_digest", "$2a$12$5TCuWhW5FDo15QwUiTI7euoQLVdvO3qh/TwwTXwiP.1OLM9vJqUDm"], ["activated", 1], ["activated_at", "2021-10-01 10:07:45.314710"], ["created_at", "2021-10-01 10:07:45.590882"], ["updated_at", "2021-10-01 10:07:45.590882"]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-58@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "58君"], ["email", "example-58@example.com"], ["password_digest", "$2a$12$ZJCV7SeqVqvkPFUYVjs.7.z2DmiMxJk/272PiSZgspZydD/YELqKO"], ["activation_digest", "$2a$12$RbBhmdUyi4OrgAVq3EgRNO5XYZcmFNjckCMJARGRt3UkX.SV5osuu"], ["activated", 1], ["activated_at", "2021-10-01 10:07:45.870905"], ["created_at", "2021-10-01 10:07:46.147217"], ["updated_at", "2021-10-01 10:07:46.147217"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-59@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "59君"], ["email", "example-59@example.com"], ["password_digest", "$2a$12$JiZ5cjz.I8/j7uVsxPmyDeuqARgLKYPEDuN0ZPbjQHvR5w16SNxES"], ["activation_digest", "$2a$12$yjKMWLVMAYTbD9tAzAo1Bu5pVld73bf4Cas7ktu01dqktjwCDzs2K"], ["activated", 1], ["activated_at", "2021-10-01 10:07:46.431757"], ["created_at", "2021-10-01 10:07:46.707426"], ["updated_at", "2021-10-01 10:07:46.707426"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-60@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "60君"], ["email", "example-60@example.com"], ["password_digest", "$2a$12$S1aVueCektW7aJ1ndvBFWunMujP0c58Fcg6aM3e6NXwxFb5cjWma6"], ["activation_digest", "$2a$12$PxLajDoZAMs6NNp8zA2D/Oq92Ix65BfrJ01ABwXEo77XMVJFY5T1K"], ["activated", 1], ["activated_at", "2021-10-01 10:07:46.988354"], ["created_at", "2021-10-01 10:07:47.264378"], ["updated_at", "2021-10-01 10:07:47.264378"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-61@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "61君"], ["email", "example-61@example.com"], ["password_digest", "$2a$12$LbGa.m0x6DdJ5lIz0hnfweo/tyb6Guwi.QAXkcNByT.Ul6KJF7VHW"], ["activation_digest", "$2a$12$NKYP2g8vjUX06H2yDfKViOexdGES6tgTfpecwcYnKl8iHzpK.u2JS"], ["activated", 1], ["activated_at", "2021-10-01 10:07:47.544856"], ["created_at", "2021-10-01 10:07:47.820236"], ["updated_at", "2021-10-01 10:07:47.820236"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-62@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "62君"], ["email", "example-62@example.com"], ["password_digest", "$2a$12$OoFdE06zabHNnmAQMfJHmu5yGyeDAqooyDfoaYfhzv2UaTfz./9Su"], ["activation_digest", "$2a$12$ZPJR4lwnZ23SqJHsg/YzkuLP17lbCNBl1p.0mLkX3oXO.Yzjwv00W"], ["activated", 1], ["activated_at", "2021-10-01 10:07:48.100003"], ["created_at", "2021-10-01 10:07:48.376328"], ["updated_at", "2021-10-01 10:07:48.376328"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-63@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "63君"], ["email", "example-63@example.com"], ["password_digest", "$2a$12$VqseHYMz8nsVZtWD0Ei.UOG5TAzFMR90RC5GrGBEpluQ8fbR61n6q"], ["activation_digest", "$2a$12$teGeofmLPC4.fKMMvuN18uNPMCM/KcZtdpG2KLe8RJJvIEB5UlhGa"], ["activated", 1], ["activated_at", "2021-10-01 10:07:48.656159"], ["created_at", "2021-10-01 10:07:48.931572"], ["updated_at", "2021-10-01 10:07:48.931572"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-64@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "64君"], ["email", "example-64@example.com"], ["password_digest", "$2a$12$30yhgd84HS/8.hmedk6Oi.DHFBhs.B.XWeLTYCuHeK1BBKhSGriLa"], ["activation_digest", "$2a$12$ketRghleXj2Ltzb2pe1.v.IS62y5qUl0Yl.X.yOCKN7pvuiTmkoFS"], ["activated", 1], ["activated_at", "2021-10-01 10:07:49.212560"], ["created_at", "2021-10-01 10:07:49.488202"], ["updated_at", "2021-10-01 10:07:49.488202"]]
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-65@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "65君"], ["email", "example-65@example.com"], ["password_digest", "$2a$12$j8BmmUl8rnF1iiiOSiznju.xy5IJTf1sbUlruaQEBuBVRnTnI5cw2"], ["activation_digest", "$2a$12$nDiYcoF81KFPIV.xbbLp1enJrGuowWbepmLaF.LHJSpK9ffkPuM9C"], ["activated", 1], ["activated_at", "2021-10-01 10:07:49.769363"], ["created_at", "2021-10-01 10:07:50.045182"], ["updated_at", "2021-10-01 10:07:50.045182"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-66@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "66君"], ["email", "example-66@example.com"], ["password_digest", "$2a$12$IKCtr.hQU3Y5jEf0y7JCiOwaP/0nqUOnQaZ.uj6rd6ujnvf7Ump16"], ["activation_digest", "$2a$12$RyATblhy6rwgO/HQ06Sx4udryLOLn6/2rMTyWLl5sM64n/w3H/VNC"], ["activated", 1], ["activated_at", "2021-10-01 10:07:50.329426"], ["created_at", "2021-10-01 10:07:50.605695"], ["updated_at", "2021-10-01 10:07:50.605695"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-67@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "67君"], ["email", "example-67@example.com"], ["password_digest", "$2a$12$N7Bt5Xx9wo.OshKCT7udmeBqJmvX6O2GKJhZ7B7Xbk35TYS/o20BK"], ["activation_digest", "$2a$12$/S7bj6DsNTQdUjMHqLNacu21u7X3M9n1ummjvFeZrL3axVdLt5PE2"], ["activated", 1], ["activated_at", "2021-10-01 10:07:50.884714"], ["created_at", "2021-10-01 10:07:51.159684"], ["updated_at", "2021-10-01 10:07:51.159684"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-68@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "68君"], ["email", "example-68@example.com"], ["password_digest", "$2a$12$kSzcJSO3R2KRNzIwfaBQTuRtAy27MB3Gu7t9A69xMX393INBg3B7a"], ["activation_digest", "$2a$12$AFZ9URgA2ACrz69cmJVUfeWLpTcDySyppxaIKEvu/JDo0qKNj3P0W"], ["activated", 1], ["activated_at", "2021-10-01 10:07:51.440522"], ["created_at", "2021-10-01 10:07:51.715771"], ["updated_at", "2021-10-01 10:07:51.715771"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-69@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "69君"], ["email", "example-69@example.com"], ["password_digest", "$2a$12$IOMfhpNMHjYEAGQFohZXr.hDacfqBI5sYEjKZQPgawckas2oOE7sy"], ["activation_digest", "$2a$12$RZCUc6lFKafebbH8s8/oHO.UBRIzNUvGpW9S1T44YmthPL/U27QVS"], ["activated", 1], ["activated_at", "2021-10-01 10:07:51.996046"], ["created_at", "2021-10-01 10:07:52.271325"], ["updated_at", "2021-10-01 10:07:52.271325"]]
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-70@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "70君"], ["email", "example-70@example.com"], ["password_digest", "$2a$12$Zf.PGYfcycLoZ06tyRx.quHMapfj8anasPq/KhJYM.Atjn8caZr6u"], ["activation_digest", "$2a$12$RrXvRFcc9u9It9Uvuxas/eMz5jD5AsjL35tbCBQNcjyBKBUfD0pP."], ["activated", 1], ["activated_at", "2021-10-01 10:07:52.552536"], ["created_at", "2021-10-01 10:07:52.827644"], ["updated_at", "2021-10-01 10:07:52.827644"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-71@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "71君"], ["email", "example-71@example.com"], ["password_digest", "$2a$12$pmlBPKHn04AZqI1qLax8IeqR3gv5lDNVyrP4h2Javwc6YhQAj9lFy"], ["activation_digest", "$2a$12$INhul1M2cGtfSzd3TLFPF.naAoYAWH5zC0qQs02v7TOlkP/gBvA7W"], ["activated", 1], ["activated_at", "2021-10-01 10:07:53.107512"], ["created_at", "2021-10-01 10:07:53.384725"], ["updated_at", "2021-10-01 10:07:53.384725"]]
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-72@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "72君"], ["email", "example-72@example.com"], ["password_digest", "$2a$12$1PV7IYKixOOojxfIXNgm3ut8OE/EroZ.vI41hbzKuKvMwr0UJGMia"], ["activation_digest", "$2a$12$DpXrHwWAsWgElgqBJmvsM.1l0HyE6VEaOEWZWBLDPncNWoPXRbe4G"], ["activated", 1], ["activated_at", "2021-10-01 10:07:53.664821"], ["created_at", "2021-10-01 10:07:53.940465"], ["updated_at", "2021-10-01 10:07:53.940465"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-73@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "73君"], ["email", "example-73@example.com"], ["password_digest", "$2a$12$jp6kX/6jpwXWWsMKDfDPgOgaq10xJBw.SsfQB52zALAwc2MpQwQzu"], ["activation_digest", "$2a$12$DXstZaetjJEV/CrKNrej5uMFVcz7XZxMqRuh7Or5OYpXgNsE1HZHy"], ["activated", 1], ["activated_at", "2021-10-01 10:07:54.221607"], ["created_at", "2021-10-01 10:07:54.499518"], ["updated_at", "2021-10-01 10:07:54.499518"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-74@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "74君"], ["email", "example-74@example.com"], ["password_digest", "$2a$12$0CnJmj53Zdv1aIXlhpl9/.VC02z3wM5u/LNDEG/7p0bvDD84ridOe"], ["activation_digest", "$2a$12$UDma0gUF1Nti8XpJk7I4zukIUYs0MWBCOSBOBF4cgvRA.2EvCGSey"], ["activated", 1], ["activated_at", "2021-10-01 10:07:54.780698"], ["created_at", "2021-10-01 10:07:55.057578"], ["updated_at", "2021-10-01 10:07:55.057578"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-75@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "75君"], ["email", "example-75@example.com"], ["password_digest", "$2a$12$2kMyAhejweRNIKHIfcyj4eb7ZO.14tLRA2r4W.OuyoALtHw5Xgdla"], ["activation_digest", "$2a$12$7vqR47cIOKnvRkPRWCPft.ugPG1KjDfvJaDpy57ZYDMEeUSoY5IEW"], ["activated", 1], ["activated_at", "2021-10-01 10:07:55.338165"], ["created_at", "2021-10-01 10:07:55.614561"], ["updated_at", "2021-10-01 10:07:55.614561"]]
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-76@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "76君"], ["email", "example-76@example.com"], ["password_digest", "$2a$12$oICf2I3I0fNUE92K04s3EOuBwKVV06lBNJnWJ0WqIrGFBFR6/PSum"], ["activation_digest", "$2a$12$O7ic/QEGIDeP9Stf6N/GCebyvVwm.E1qVamEKC/5Zp8RCYa/IJ2da"], ["activated", 1], ["activated_at", "2021-10-01 10:07:55.896212"], ["created_at", "2021-10-01 10:07:56.172563"], ["updated_at", "2021-10-01 10:07:56.172563"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-77@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "77君"], ["email", "example-77@example.com"], ["password_digest", "$2a$12$OjsbMTuzcRFVn3FLgGjkOugGKic2dJzEi8Itvnhy3uZSYYx0pMbRC"], ["activation_digest", "$2a$12$AQrtUojc03OjhJMLeOBYw.wYyixxPx3BrRfwRT.I3IGc2oWvTMpDC"], ["activated", 1], ["activated_at", "2021-10-01 10:07:56.451828"], ["created_at", "2021-10-01 10:07:56.728273"], ["updated_at", "2021-10-01 10:07:56.728273"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-78@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "78君"], ["email", "example-78@example.com"], ["password_digest", "$2a$12$sAS357HZcVNWuHtahcZfOuVPnpjYHHTk8ehACCbO0Za1EQr.1rlwq"], ["activation_digest", "$2a$12$Ga7gYhN4pqKp.DZ7uPSQk.URusN33kUit/Ky2zDF6XjsJv4Xl2v1y"], ["activated", 1], ["activated_at", "2021-10-01 10:07:57.010766"], ["created_at", "2021-10-01 10:07:57.286763"], ["updated_at", "2021-10-01 10:07:57.286763"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-79@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "79君"], ["email", "example-79@example.com"], ["password_digest", "$2a$12$piv/5Hr4A8nnU1J89FhPcuPJGI5kFi8cbl7S2bMg8Vqcweoem5QMu"], ["activation_digest", "$2a$12$zcncT9kuDzEKdJemnMzPT.dibqDXaKUSx0e0zbIq7A9qw/lS5otea"], ["activated", 1], ["activated_at", "2021-10-01 10:07:57.566940"], ["created_at", "2021-10-01 10:07:57.842555"], ["updated_at", "2021-10-01 10:07:57.842555"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-80@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "80君"], ["email", "example-80@example.com"], ["password_digest", "$2a$12$jD3F8gttOkTqkh6XcRWvTOvdyD8bNjLHDhmMPHf5QO8BsIa6Y0Ede"], ["activation_digest", "$2a$12$7f4EKI1WhSNClEGwqfHIZO50HdQep4/5YDZUVO7wTV9gEoNv4PZfG"], ["activated", 1], ["activated_at", "2021-10-01 10:07:58.122245"], ["created_at", "2021-10-01 10:07:58.399658"], ["updated_at", "2021-10-01 10:07:58.399658"]]
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-81@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "81君"], ["email", "example-81@example.com"], ["password_digest", "$2a$12$EFa0jP/bX6uA2bIEhQ9GVOWt6jFWZiFY3MAalNVGSnCLUlQjDff2S"], ["activation_digest", "$2a$12$fnGWD5EnFl19nMtBxS7yn.K4b8wnp0JdsXVVzxDddwVT8wsSzWE.W"], ["activated", 1], ["activated_at", "2021-10-01 10:07:58.681927"], ["created_at", "2021-10-01 10:07:58.958083"], ["updated_at", "2021-10-01 10:07:58.958083"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-82@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "82君"], ["email", "example-82@example.com"], ["password_digest", "$2a$12$cFzgze4fxpDbZ8fiLKlMLu/0stkCNn.gthUMSki0rZtGld9LpJMYC"], ["activation_digest", "$2a$12$H4iBy2/9WND4XG27Z4L0zuOfnV/G.b9aXUVjkB8sMWf.OmidxpGX6"], ["activated", 1], ["activated_at", "2021-10-01 10:07:59.239157"], ["created_at", "2021-10-01 10:07:59.514260"], ["updated_at", "2021-10-01 10:07:59.514260"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-83@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "83君"], ["email", "example-83@example.com"], ["password_digest", "$2a$12$j/YFQ.UQgJJCVVIDs2ugM.915tizvAUl1JKrPaB13X3lB/TYa4Svy"], ["activation_digest", "$2a$12$OHVHXpJzcZjWqSUgdkKTdubJT/LTJZTXC6AR29YZBGXSpEnvlGXgq"], ["activated", 1], ["activated_at", "2021-10-01 10:07:59.793874"], ["created_at", "2021-10-01 10:08:00.069950"], ["updated_at", "2021-10-01 10:08:00.069950"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-84@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "84君"], ["email", "example-84@example.com"], ["password_digest", "$2a$12$3Eoy6G8CS8VkayvWhE4iCO5DvywtcLfXV52Owo8nxBL.H9T9lNKGu"], ["activation_digest", "$2a$12$LV0h8v72j8Z2GoK/cQFMuOnM2vH.QxxAQhlYD9CcniukzlgbqxXV6"], ["activated", 1], ["activated_at", "2021-10-01 10:08:00.351132"], ["created_at", "2021-10-01 10:08:00.627812"], ["updated_at", "2021-10-01 10:08:00.627812"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-85@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "85君"], ["email", "example-85@example.com"], ["password_digest", "$2a$12$TBFlgZveYXObYIBq6jt0Ge.jvPKBorbOJGoKTpcr2pQ84.1fjj1Am"], ["activation_digest", "$2a$12$UiNLCk0VGTVrzq6owELSie9TidH/2hphXH0EJjAh.9dVsq65lTYs6"], ["activated", 1], ["activated_at", "2021-10-01 10:08:00.908266"], ["created_at", "2021-10-01 10:08:01.183674"], ["updated_at", "2021-10-01 10:08:01.183674"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-86@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "86君"], ["email", "example-86@example.com"], ["password_digest", "$2a$12$zAFQ0o8uPGwMRP31qP3JAuvnRglL1BNZMdqMGKe.rqYeleqIu614K"], ["activation_digest", "$2a$12$0cYJGIEkOBsMqHVJ1zTxD.uF5NUDK4V0.mQeof17jgVlfCECNVEmC"], ["activated", 1], ["activated_at", "2021-10-01 10:08:01.465429"], ["created_at", "2021-10-01 10:08:01.741232"], ["updated_at", "2021-10-01 10:08:01.741232"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-87@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "87君"], ["email", "example-87@example.com"], ["password_digest", "$2a$12$I7bxzTj8DpgFKoYVB1GSGuQbsj4pjk2nHr2QS0YgAWz.64Gd6NRsC"], ["activation_digest", "$2a$12$N4KjASJXaiN3dO9rBIB27.mUbqS7FDpDY2EZnuFBZ/Kxx4P0jqQnW"], ["activated", 1], ["activated_at", "2021-10-01 10:08:02.021523"], ["created_at", "2021-10-01 10:08:02.298400"], ["updated_at", "2021-10-01 10:08:02.298400"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-88@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "88君"], ["email", "example-88@example.com"], ["password_digest", "$2a$12$QQaigXZ0X2CSQxNm4mGx3.vT2CleyiSF91SObS5mUWK5IdH32.GW2"], ["activation_digest", "$2a$12$Daw9ZiD5XGiuAIFj09nLDOMGB/EIqT6t5Ic1r7PbneKFEHj9rrRoS"], ["activated", 1], ["activated_at", "2021-10-01 10:08:02.578634"], ["created_at", "2021-10-01 10:08:02.855494"], ["updated_at", "2021-10-01 10:08:02.855494"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-89@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "89君"], ["email", "example-89@example.com"], ["password_digest", "$2a$12$2PUefa1dHaLYZkrtwKX5EeOm.0MOLKlEUWKMds3emRvm1W9T4JycK"], ["activation_digest", "$2a$12$I7z1C0E1dqP.44k171vqIOL19mM1xnNXGTtrXzTe2yQ5/gcB1PwTq"], ["activated", 1], ["activated_at", "2021-10-01 10:08:03.136557"], ["created_at", "2021-10-01 10:08:03.413603"], ["updated_at", "2021-10-01 10:08:03.413603"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-90@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "90君"], ["email", "example-90@example.com"], ["password_digest", "$2a$12$sSZFKHeGxpubJjf/ItzScuQfss7V3zMhceCCIZwclMXU5ZSV4xk1O"], ["activation_digest", "$2a$12$7XA1KQ2puXWYCzebBExDfOjHVTyWYOVJji1H9U42qaFJ/dSBVJNVm"], ["activated", 1], ["activated_at", "2021-10-01 10:08:03.694050"], ["created_at", "2021-10-01 10:08:03.970389"], ["updated_at", "2021-10-01 10:08:03.970389"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-91@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "91君"], ["email", "example-91@example.com"], ["password_digest", "$2a$12$eURRbrHmqqnrRYhfTEyEkOJFVmzK/t8uQArtpliGbjT07D7zHo9Eq"], ["activation_digest", "$2a$12$LvzcymkQ713q9zcZXrQyQOqN6unqXkRehLlpK1U.oUzmOJXvb3bjG"], ["activated", 1], ["activated_at", "2021-10-01 10:08:04.250851"], ["created_at", "2021-10-01 10:08:04.527365"], ["updated_at", "2021-10-01 10:08:04.527365"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-92@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "92君"], ["email", "example-92@example.com"], ["password_digest", "$2a$12$VxBIY698xLsAf7Lw/W.SEON02V172OHxIVYdD9twAQl3Xp1zLGQ5S"], ["activation_digest", "$2a$12$eMqoC0yR5SueUElms.B3Du4g5HhzMqsUCWOmbnZvwInMyx4he9Kui"], ["activated", 1], ["activated_at", "2021-10-01 10:08:04.808405"], ["created_at", "2021-10-01 10:08:05.084781"], ["updated_at", "2021-10-01 10:08:05.084781"]]
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-93@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "93君"], ["email", "example-93@example.com"], ["password_digest", "$2a$12$Fqh0pCEfAF083Gzdfhtazusn4vB9YB/zhhWR0SgmggnU1FpnUfasG"], ["activation_digest", "$2a$12$MBpeN75J0VrL6nBDmQdzyebu2t2/6aL9jvHLsLJk3ziT25Funo2Q6"], ["activated", 1], ["activated_at", "2021-10-01 10:08:05.366503"], ["created_at", "2021-10-01 10:08:05.641898"], ["updated_at", "2021-10-01 10:08:05.641898"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-94@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "94君"], ["email", "example-94@example.com"], ["password_digest", "$2a$12$1FJPOAcz4M9d4/oksbggIOWOY4WHOuJmwqwpK68lrJ8XE1euoq9Rq"], ["activation_digest", "$2a$12$pTQshFZOE0buw2HQI9uYeOlyjfyW.nS.V7p81sB8QHYwTxWSlYiZm"], ["activated", 1], ["activated_at", "2021-10-01 10:08:05.922436"], ["created_at", "2021-10-01 10:08:06.198500"], ["updated_at", "2021-10-01 10:08:06.198500"]]
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-95@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "95君"], ["email", "example-95@example.com"], ["password_digest", "$2a$12$d0tCEd9eHg1xroKxdflZJ.1tTLqi6pnmQjRnVkqxA8SWU/s9MBB2m"], ["activation_digest", "$2a$12$ltnQpOJoOzPJRlgh.z7.W.pwzHa1l1Me9xhtLpxK7EdB5zBVhhbMS"], ["activated", 1], ["activated_at", "2021-10-01 10:08:06.479960"], ["created_at", "2021-10-01 10:08:06.756526"], ["updated_at", "2021-10-01 10:08:06.756526"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-96@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "96君"], ["email", "example-96@example.com"], ["password_digest", "$2a$12$7MQGge0IhRfXdgB4gLpnEut3XveES97CNlg2S2/gmxp0rNZzDaRuu"], ["activation_digest", "$2a$12$e8qphhzbr/GvUbnAb87b6.3SHzba5HEdVhQHoWor1MTfD16cFkSbe"], ["activated", 1], ["activated_at", "2021-10-01 10:08:07.036448"], ["created_at", "2021-10-01 10:08:07.314091"], ["updated_at", "2021-10-01 10:08:07.314091"]]
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-97@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "97君"], ["email", "example-97@example.com"], ["password_digest", "$2a$12$a6DBqXukIQP8eNx/Do0aiegy6FC/sh4e3jEDayZQuJJCCFSHaof.y"], ["activation_digest", "$2a$12$2zt.MNf38vmAd9pP2lHcqeOXwSz7SHxOx.rRdDshtignZ1BAJEfgG"], ["activated", 1], ["activated_at", "2021-10-01 10:08:07.595836"], ["created_at", "2021-10-01 10:08:07.872059"], ["updated_at", "2021-10-01 10:08:07.872059"]]
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-98@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "98君"], ["email", "example-98@example.com"], ["password_digest", "$2a$12$e6UoPPwg0B4w6tSwfqXm9ePjKpef8WGONwAOn2oA5HY36Aabout/G"], ["activation_digest", "$2a$12$UHdTLOY2uda1g9H0vdJ9f.tUtAvqMx.EGiguctXVyBtF.UB0kMRv."], ["activated", 1], ["activated_at", "2021-10-01 10:08:08.152734"], ["created_at", "2021-10-01 10:08:08.428662"], ["updated_at", "2021-10-01 10:08:08.428662"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-99@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "99君"], ["email", "example-99@example.com"], ["password_digest", "$2a$12$x2iIpxlBELvkdDcvk7StCemF2OiQekZs5yQ3hPVKMhDPaU2u8QztG"], ["activation_digest", "$2a$12$ex61tjm3hKUUojutaSfjPOVAY3LYhpWkafUw5O5tQN8gBRP.drneK"], ["activated", 1], ["activated_at", "2021-10-01 10:08:08.709260"], ["created_at", "2021-10-01 10:08:08.985073"], ["updated_at", "2021-10-01 10:08:08.985073"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]

@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from "react";
 // api
 import { fetchHome } from "../apis/home";
 import { SignUpDialog } from "../components/SignUpDialog"
+import { LogInDialog } from "../components/LogInDialog"
 
 export const Home = () => {
 
@@ -15,9 +16,7 @@ export const Home = () => {
   return (
     <Fragment>
       <SignUpDialog />
-
-      <p>新規登録</p>
-      <p>ログイン</p>
+      <LogInDialog />
     </Fragment>
   )
 }
