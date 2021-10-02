@@ -12,21 +12,25 @@ module Api
 
       def show
         @user = User.find(params[:id])
-        redirect_to root_url and return unless user.activated?
-
-        render json: { user: @user }, status: :ok
+        if user.activated?
+          render json: { users: @users }, status: :ok
+        else
+          render json: {}, status: :internal_server_error
+          # redirect_to root_url and return unless user.activated?
+        end
       end
 
-      def new
-        @user = User.new
-        render json: { user: @user }, status: :ok
-      end
+      # def new
+      #   @user = User.new
+      #   render json: { user: @user }, status: :ok
+      # end
 
       def create
-        @user = User.new(params[user_params])
+        @user = User.new(user_params)
         if @user.save
-          @user.send_activation_email
-          redirect_to root_url
+          render json: {user: @user}, status: :created
+          # @user.send_activation_email
+          # redirect_to root_url
         else
           render 'new'
         end
