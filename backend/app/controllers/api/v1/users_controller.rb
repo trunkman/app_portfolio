@@ -28,11 +28,11 @@ module Api
       def create
         @user = User.new(user_params)
         if @user.save
-          render json: {user: @user}, status: :created
-          # @user.send_activation_email
-          # redirect_to root_url
+          # @user.send_activation_email(メール実装は後でする)
+          @user.activate
+          render json: {user: @user, status: :created}
         else
-          render 'new'
+          render json: {}, status: :unprocessable_entity
         end
       end
 

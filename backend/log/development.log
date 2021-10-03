@@ -2081,3 +2081,328 @@ Processing by Api::V1::UsersController#create as HTML
 Completed 201 Created in 601ms (Views: 0.6ms | ActiveRecord: 10.8ms | Allocations: 11964)
 
 
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 01:00:16 +0000
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 9ms (ActiveRecord: 0.0ms | Allocations: 3065)
+
+
+Started POST "/api/v1/signup" for 133.32.240.184 at 2021-10-03 01:00:55 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"sato", "email"=>"sato@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sato@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 296ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 13652)
+
+
+Started POST "/api/v1/signup" for 133.32.240.184 at 2021-10-03 01:02:03 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"sato", "email"=>"sato@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sato@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 294ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 2611)
+
+
+Started POST "/api/v1/signup" for 133.32.240.184 at 2021-10-03 01:02:47 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"sato", "email"=>"sato@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sato@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 303ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 2534)
+
+
+Started POST "/api/v1/signup" for 133.32.240.184 at 2021-10-03 01:05:43 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"sato", "email"=>"sato@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sato@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 278ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 2546)
+
+
+Started POST "/api/v1/signup" for 133.32.240.184 at 2021-10-03 01:06:23 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"sato", "email"=>"sato@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sato@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 278ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 2599)
+
+
+Started POST "/api/v1/signup" for 133.32.240.184 at 2021-10-03 01:07:02 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"sato", "email"=>"sato@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sato@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "sato"], ["email", "sato@example.com"], ["password_digest", "$2a$12$qy76BCe3hf2L3lzViN5aIugF/wizlADkzThKxqeRSkc7d8wvOW/6G"], ["activation_digest", "$2a$12$SR74JgChoystet5OuG9l4On9VOAjV.wasUZ.cWRO5NX0F/qg2L9nq"], ["created_at", "2021-10-03 01:07:02.720451"], ["updated_at", "2021-10-03 01:07:02.720451"]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Update (4.5ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-03 01:07:03.004157"], ["id", 105]]
+  ↳ app/models/user.rb:68:in `activate'
+Completed 201 Created in 569ms (Views: 0.5ms | ActiveRecord: 10.2ms | Allocations: 7764)
+
+
+Started POST "/api/v1/signup" for 133.32.240.184 at 2021-10-03 01:13:17 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"takahashi", "email"=>"takahashi@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "takahashi@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "takahashi"], ["email", "takahashi@example.com"], ["password_digest", "$2a$12$isxokUOaWDZEgkrrfK9WsOxgAOM/CZXJ4vc50LPUro7u46Ii0TFUy"], ["activation_digest", "$2a$12$wnzY1qUmOHiE6w4Kl4T9munwTYvAg.tJPjSUuwvda2Eb5xc57qYxG"], ["created_at", "2021-10-03 01:13:17.877445"], ["updated_at", "2021-10-03 01:13:17.877445"]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Update (4.3ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-03 01:13:18.158887"], ["id", 106]]
+  ↳ app/models/user.rb:68:in `activate'
+Completed 201 Created in 566ms (Views: 0.6ms | ActiveRecord: 10.0ms | Allocations: 7204)
+
+
+Started POST "/api/v1/signup" for 133.32.240.184 at 2021-10-03 01:15:46 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"takahashi2", "email"=>"takahashi2@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "takahashi2@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "takahashi2"], ["email", "takahashi2@example.com"], ["password_digest", "$2a$12$gMYqimjadEHkvdDvyUH1wOYtaplvL.672qOaPYr1ZHacdx7CNE9Q."], ["activation_digest", "$2a$12$Nha7vlBhFRVgLpgmFrAzSejOhrNUK/mVDzJoG4gB8iqpG./0WbK9C"], ["created_at", "2021-10-03 01:15:46.516148"], ["updated_at", "2021-10-03 01:15:46.516148"]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (6.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Update (5.1ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-03 01:15:46.799171"], ["id", 107]]
+  ↳ app/models/user.rb:68:in `activate'
+Completed 201 Created in 568ms (Views: 0.7ms | ActiveRecord: 12.2ms | Allocations: 5396)
+
+
+Started POST "/api/v1/signup" for 133.32.240.184 at 2021-10-03 01:17:35 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"takahashi3", "email"=>"takahashi3@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "takahashi3@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "takahashi3"], ["email", "takahashi3@example.com"], ["password_digest", "$2a$12$hzi1KY05BDXvDu8OQFEls.kYnG2FAk09nYtsYZKkgfZOw5PxuXzVy"], ["activation_digest", "$2a$12$2tdQDQpFqzPmYyF02ZIRMuOTyod3D5WbH6QbPq.NqlEeU33KDvDEe"], ["created_at", "2021-10-03 01:17:35.885445"], ["updated_at", "2021-10-03 01:17:35.885445"]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Update (3.5ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-03 01:17:36.165746"], ["id", 108]]
+  ↳ app/models/user.rb:68:in `activate'
+Completed 201 Created in 562ms (Views: 0.4ms | ActiveRecord: 8.3ms | Allocations: 5948)
+
+
+Started POST "/api/v1/signup" for 133.32.240.184 at 2021-10-03 01:17:49 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"takahashi3", "email"=>"takahashi3@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "takahashi3@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 277ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 2547)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 02:00:45 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 31)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 02:00:50 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/" for 35.80.17.134 at 2021-10-03 02:02:34 +0000
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/ubuntu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ubuntu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 10.6ms | Allocations: 589)
+Completed 200 OK in 25ms (Views: 16.5ms | Allocations: 4437)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 02:05:16 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 45)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 02:07:07 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 02:08:14 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 02:48:56 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started POST "/api/v1/signup" for 133.32.240.184 at 2021-10-03 02:49:48 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"hiromi", "email"=>"hiromi@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "hiromi@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "hiromi"], ["email", "hiromi@example.com"], ["password_digest", "$2a$12$MlBOohidif1.EVlRNAOpze1z1F/MPpsQRtcsQfZU2ZtD.xF5DSdBu"], ["activation_digest", "$2a$12$3O64PqIN26hkWlS85P5tO.nDs2N6VGv2TI2qNIw.RjHY5O.yY2.Gm"], ["created_at", "2021-10-03 02:49:48.755741"], ["updated_at", "2021-10-03 02:49:48.755741"]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Update (5.3ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-03 02:49:49.037001"], ["id", 109]]
+  ↳ app/models/user.rb:68:in `activate'
+Completed 201 Created in 568ms (Views: 0.5ms | ActiveRecord: 10.2ms | Allocations: 6858)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 02:58:14 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 02:58:27 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 03:20:52 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 3ms (ActiveRecord: 0.0ms | Allocations: 2248)
+
+
+Started POST "/api/v1/signup" for 133.32.240.184 at 2021-10-03 03:24:06 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"misaki", "email"=>"misaki@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "misaki@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "misaki"], ["email", "misaki@gmail.com"], ["password_digest", "$2a$12$bAiJ9G7yDCJuuIRaJBbZFeNzLxzOTB1Fi/YnlkBd3Ob0YvGY2FvnC"], ["activation_digest", "$2a$12$MKjQgcRszsTEBHEGdP5jNew/acENGtTnXRxkQt.zLaTNt.YdFzAhO"], ["created_at", "2021-10-03 03:24:06.451663"], ["updated_at", "2021-10-03 03:24:06.451663"]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Update (3.6ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-03 03:24:06.734606"], ["id", 110]]
+  ↳ app/models/user.rb:68:in `activate'
+Completed 200 OK in 577ms (Views: 0.5ms | ActiveRecord: 10.5ms | Allocations: 14845)
+
+
+Started POST "/api/v1/signup" for 133.32.240.184 at 2021-10-03 03:25:32 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"misaki2", "email"=>"misaki2@gmail,@com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "misaki2@gmail,@com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 278ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 2647)
+
+
+Started POST "/api/v1/signup" for 133.32.240.184 at 2021-10-03 03:27:53 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"misaki2", "email"=>"misaki2@gmail,@com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "misaki2@gmail,@com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 277ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 2534)
+
+
+Started POST "/api/v1/signup" for 133.32.240.184 at 2021-10-03 03:30:44 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"misaki2", "email"=>"misaki2@gmail,@com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "misaki2@gmail,@com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 278ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 2532)
+
+
+Started POST "/api/v1/signup" for 133.32.240.184 at 2021-10-03 03:31:07 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"misaki2", "email"=>"misaki2@gmail,@com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "misaki2@gmail,@com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 277ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 2548)
+
+
+Started POST "/api/v1/signup" for 133.32.240.184 at 2021-10-03 03:34:18 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"misaki2", "email"=>"misaki2@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "misaki2@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "misaki2"], ["email", "misaki2@gmail.com"], ["password_digest", "$2a$12$EBYv2s9HktOvhuSUJ6o8dOKb24xZ76dp2DoZrzhkNL6oe2AtEQEty"], ["activation_digest", "$2a$12$3sHFOCBk5j/LM8OOG4VXEep9d9cUNEU6p76k.fvBsQrClYGWHCBsK"], ["created_at", "2021-10-03 03:34:18.906990"], ["updated_at", "2021-10-03 03:34:18.906990"]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Update (3.5ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-03 03:34:19.186876"], ["id", 111]]
+  ↳ app/models/user.rb:68:in `activate'
+Completed 200 OK in 561ms (Views: 0.4ms | ActiveRecord: 8.3ms | Allocations: 4678)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 03:35:28 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 31)
+
+
+Started POST "/api/v1/signup" for 133.32.240.184 at 2021-10-03 03:40:03 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"nishiiki", "email"=>"nishiki@exampl.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "nishiki@exampl.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "nishiiki"], ["email", "nishiki@exampl.com"], ["password_digest", "$2a$12$S6jPIk7sNsxX5YS0giflZ.JtU8BGtWVJBW2lzYvisTrLO4ZPRx8oq"], ["activation_digest", "$2a$12$kZQizg4ddpqwku2fWkK/8OdTJ2G1QyaP0xJnLeJjj940fuaMmgp9q"], ["created_at", "2021-10-03 03:40:03.756932"], ["updated_at", "2021-10-03 03:40:03.756932"]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Update (4.3ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-03 03:40:04.039061"], ["id", 112]]
+  ↳ app/models/user.rb:68:in `activate'
+Completed 200 OK in 568ms (Views: 0.5ms | ActiveRecord: 9.7ms | Allocations: 7208)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 03:41:53 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
