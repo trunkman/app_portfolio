@@ -10,9 +10,10 @@ module Api
         render json: { users: @users }, status: :ok
       end
 
+      # ユーザーを表示するアクション
       def show
         @user = User.find(params[:id])
-        if user.activated?
+        if @user.activated?
           render json: { user: @user, status: :ok }
         else
           render json: { status: :internal_server_error }
@@ -25,6 +26,7 @@ module Api
       #   render json: { user: @user }, status: :ok
       # end
 
+      #ユーザーを登録するアクション
       def create
         @user = User.new(user_params)
         if @user.save
@@ -50,8 +52,12 @@ module Api
       end
 
       def destroy
-        User.find(params[id]).destroy
-        redirect_to api_v1_users_url
+        if
+          User.find(params[id]).destroy
+          render json: {status: :ok}
+        else
+          render json: { status: :internal_server_error }
+        end
       end
 
       private

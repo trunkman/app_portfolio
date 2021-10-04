@@ -3,6 +3,7 @@ module Api
     class SessionsController < ApplicationController
       # def new; end
 
+      # ログインするアクション
       def create
         user = User.find_by(email: params[:session][:email].downcase)
         if user&.authenticate(params[:session][:password])
@@ -18,9 +19,9 @@ module Api
         end
       end
 
+      # ログアウトするアクション
       def destroy
         log_out if logged_in?
-        redirect_to root_url
       end
     end
   end

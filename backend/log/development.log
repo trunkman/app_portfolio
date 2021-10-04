@@ -3005,3 +3005,203 @@ Processing by Api::V1::StaticPagesController#home as HTML
 Completed 204 No Content in 0ms (Allocations: 29)
 
 
+Started GET "/api/v1/user/%7Bid%7D" for 133.32.240.184 at 2021-10-04 11:19:17 +0000
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/user/%7Bid%7D"):
+  
+Started GET "/api/v1/user/%7Bid%7D" for 133.32.240.184 at 2021-10-04 11:19:50 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/user/%7Bid%7D"):
+  
+Started GET "/api/v1/user/%7Bid%7D" for 133.32.240.184 at 2021-10-04 11:20:11 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/user/%7Bid%7D"):
+  
+Started GET "/api/v1/user/%7Bid%7D" for 133.32.240.184 at 2021-10-04 11:27:08 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/user/%7Bid%7D"):
+  
+Started GET "/api/v1/user/%7Bid%7D" for 133.32.240.184 at 2021-10-04 11:27:11 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/user/%7Bid%7D"):
+  
+Started GET "/api/v1/user/%7BuserId%7D" for 133.32.240.184 at 2021-10-04 11:29:10 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/user/%7BuserId%7D"):
+  
+Started GET "/api/v1/user/1" for 133.32.240.184 at 2021-10-04 11:29:28 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/user/1"):
+  
+Started GET "/api/v1/user/1" for 133.32.240.184 at 2021-10-04 11:29:31 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/user/1"):
+  
+Started GET "/api/v1/users/1" for 133.32.240.184 at 2021-10-04 11:32:34 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 1.2ms | Allocations: 15755)
+
+
+  
+NameError (undefined local variable or method `user' for #<Api::V1::UsersController:0x00000000008d18>
+Did you mean?  @user):
+  
+app/controllers/api/v1/users_controller.rb:16:in `show'
+Started GET "/api/v1/users/1" for 133.32.240.184 at 2021-10-04 11:32:48 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms | Allocations: 2787)
+
+
+  
+NameError (undefined local variable or method `user' for #<Api::V1::UsersController:0x00000000008ef8>
+Did you mean?  @user):
+  
+app/controllers/api/v1/users_controller.rb:16:in `show'
+Started GET "/api/v1/users/1" for 133.32.240.184 at 2021-10-04 11:34:02 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 2669)
+
+
+  
+NameError (undefined local variable or method `user' for #<Api::V1::UsersController:0x00000000009088>
+Did you mean?  @user):
+  
+app/controllers/api/v1/users_controller.rb:16:in `show'
+Started GET "/api/v1/users/1" for 133.32.240.184 at 2021-10-04 11:34:30 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+Completed 200 OK in 19ms (Views: 0.7ms | ActiveRecord: 1.4ms | Allocations: 11466)
+
+
+Started GET "/api/v1/users/2" for 133.32.240.184 at 2021-10-04 11:34:55 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 868)
+
+
+Started GET "/api/v1/users/2" for 133.32.240.184 at 2021-10-04 11:36:53 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 839)
+
+
+Started GET "/api/v1/users/2" for 133.32.240.184 at 2021-10-04 11:40:17 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 839)
+
+
+Started GET "/api/v1/users/2" for 133.32.240.184 at 2021-10-04 11:40:56 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 839)
+
+
+Started GET "/api/v1/users/2" for 133.32.240.184 at 2021-10-04 11:54:31 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 1417)
+
+
+Started GET "/api/v1/users/2" for 133.32.240.184 at 2021-10-04 12:01:49 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+Completed 200 OK in 18ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 10549)
+
+
+Started GET "/api/v1/users/2" for 133.32.240.184 at 2021-10-04 12:02:35 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 852)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 12:04:31 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 112)
+
+
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-04 12:04:55 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Completed 200 OK in 276ms (Views: 0.7ms | ActiveRecord: 0.3ms | Allocations: 1312)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 12:18:33 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 32)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 12:19:54 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 3ms (ActiveRecord: 0.0ms | Allocations: 2248)
+
+
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-04 12:20:28 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Completed 200 OK in 291ms (Views: 0.8ms | ActiveRecord: 0.8ms | Allocations: 12737)
+
+
+Started DELETE "/api/v1/logout" for 133.32.240.184 at 2021-10-04 12:20:32 +0000
+Processing by Api::V1::SessionsController#destroy as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2130)
+
+
+  
+NameError (undefined local variable or method `cookies' for #<Api::V1::SessionsController:0x00000000006ea0>):
+  
+app/helpers/sessions_helper.rb:18:in `current_user'
+app/helpers/sessions_helper.rb:29:in `logged_in?'
+app/controllers/api/v1/sessions_controller.rb:24:in `destroy'
+Started DELETE "/api/v1/logout" for 133.32.240.184 at 2021-10-04 12:31:26 +0000
+Processing by Api::V1::SessionsController#destroy as HTML
+Completed 500 Internal Server Error in 3ms (Allocations: 2136)
+
+
+  
+NameError (undefined local variable or method `cookies' for #<Api::V1::SessionsController:0x00000000008548>):
+  
+app/helpers/sessions_helper.rb:18:in `current_user'
+app/helpers/sessions_helper.rb:29:in `logged_in?'
+app/controllers/api/v1/sessions_controller.rb:24:in `destroy'

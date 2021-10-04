@@ -24,7 +24,7 @@ module SessionsHelper
     end
   end
 
-  # ユーザーがログインしているかをbooleanで返す
+  # ユーザーがログインしている場合、tureで返す
   def logged_in?
     !current_user.nil?
   end

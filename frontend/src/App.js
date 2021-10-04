@@ -15,6 +15,11 @@ function App() {
     setUser(data.user)
   }
 
+  const handleLogout = () => {
+    setLoggedInStatus("未ログイン")
+    setUser({})
+  }
+
 
   return (
     <Router>
@@ -24,6 +29,7 @@ function App() {
           <Home
             loggedInStatus={loggedInStatus}
             handleLogin={handleLogin}
+            handleLogout={handleLogout}
           />
         </Route>
       </Switch>
@@ -33,6 +39,7 @@ function App() {
           render={({ match }) =>
             <User
               match={match}
+              loggedInStatus={loggedInStatus}
             />
           }>
         </Route>
