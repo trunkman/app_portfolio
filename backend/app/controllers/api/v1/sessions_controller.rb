@@ -1,20 +1,20 @@
 module Api
   module V1
     class SessionsController < ApplicationController
-      def new; end
+      # def new; end
 
       def create
-        user = User.find_by(params[:session][:email].downcase)
-        if user&.authenticated(params[:session][:password])
+        user = User.find_by(email: params[:session][:email].downcase)
+        if user&.authenticate(params[:session][:password])
           if user.activated?
             log_in user
-            params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-            redirect_back_or user
+            # params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+            render json: {user: user, status: :created}
           else
-            redirect_to root_url
+            render json: {}, status: :unprocessable_entity
           end
         else
-          render 'new'
+          render json: {}, status: :unprocessable_entity
         end
       end
 

@@ -1,16 +1,17 @@
 import { getThemeProps } from '@mui/system'
 import axios from 'axios'
-import { signUp, logIn, usersIndex } from '../urls/index'
+import { signUp, logIn, userShow } from '../urls/index'
 
-export const fetchUsers = () => {
-  return axios.get(usersIndex)
+export const fetchUser = () => {
+  return axios.get(userShow)
     .then(res => {
       return res.data
     })
     .catch((e) => console.error(e))
 }
 
-export const postSignUp = (params, props) => {
+// 新規登録するためのapi
+export const postSignUp = (params) => {
   return axios.post(signUp, {
     user: {
       name: params.name,
@@ -30,16 +31,21 @@ export const postSignUp = (params, props) => {
     })
 }
 
-// export const logIn = (params) => {
-//   return axios.post(login, {
-//     user: {
-//       email: params.email,
-//       password: params.password,
-//     }
-//   })
-//     .then(res => {
-//       console.log(res.data)
-//       return res.data
-//     })
-//     .catch((e) => console.error(e))
-// }
+// ログインするためのapi
+export const postLogIn = (params) => {
+  return axios.post(logIn, {
+    session: {
+      email: params.email,
+      password: params.password,
+    },
+    withCredentials: true
+  })
+    .then(res => {
+      console.log(res.data);
+      return res.data;
+    })
+    .catch(e => {
+      console.error(e);
+      return 'nil'
+    })
+}

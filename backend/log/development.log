@@ -2406,3 +2406,602 @@ Processing by Api::V1::StaticPagesController#home as HTML
 Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
 
 
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 04:56:46 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 3ms (ActiveRecord: 0.0ms | Allocations: 2248)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 04:56:49 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 43)
+
+
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-03 04:58:33 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@exaple.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (example@exaple.com) LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.5ms | Allocations: 5456)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: near "@exaple": syntax error):
+  
+app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-03 05:00:10 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (example@example.com) LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.5ms | Allocations: 870)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: near "@example": syntax error):
+  
+app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-03 05:00:42 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (example@example.com) LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms | Allocations: 736)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: near "@example": syntax error):
+  
+app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-03 05:09:17 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE (example@example.com) LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.6ms | Allocations: 4928)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: near "@example": syntax error):
+  
+app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Started GET "/" for 162.142.125.193 at 2021-10-03 05:13:00 +0000
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/ubuntu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ubuntu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 5.5ms | Allocations: 272)
+Completed 200 OK in 10ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 2270)
+
+
+Started GET "/" for 162.142.125.193 at 2021-10-03 05:13:01 +0000
+Processing by Rails::WelcomeController#index as */*
+  Rendering /home/ubuntu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ubuntu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 4.6ms | Allocations: 264)
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.0ms | Allocations: 1156)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 06:11:34 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 110)
+
+
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-03 06:13:06 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 1.1ms | Allocations: 14878)
+
+
+  
+NoMethodError (undefined method `authenticated' for #<User id: 1, name: "Example User", email: "example@example.com", password_digest: [FILTERED], remember_digest: nil, admin: true, activation_digest: "$2a$12$y8oMAtHQEUC6zM7qCn7OSuVxsGVFJMsFDylXhNIgqCJ...", activated: true, activated_at: "2021-10-01 10:07:13.582600000 +0000", reset_digest: nil, reset_sent_at: nil, created_at: "2021-10-01 10:07:13.872933000 +0000", updated_at: "2021-10-01 10:07:13.872933000 +0000">
+Did you mean?  authenticated?
+               authenticate):
+  
+app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-03 06:15:02 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.8ms | Allocations: 18198)
+
+
+  
+NoMethodError (undefined method `authenticated' for #<User id: 1, name: "Example User", email: "example@example.com", password_digest: [FILTERED], remember_digest: nil, admin: true, activation_digest: "$2a$12$y8oMAtHQEUC6zM7qCn7OSuVxsGVFJMsFDylXhNIgqCJ...", activated: true, activated_at: "2021-10-01 10:07:13.582600000 +0000", reset_digest: nil, reset_sent_at: nil, created_at: "2021-10-01 10:07:13.872933000 +0000", updated_at: "2021-10-01 10:07:13.872933000 +0000">
+Did you mean?  authenticated?
+               authenticate):
+  
+app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-03 06:16:25 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.1ms | Allocations: 3597)
+
+
+  
+NoMethodError (undefined method `authenticated' for #<User id: 1, name: "Example User", email: "example@example.com", password_digest: [FILTERED], remember_digest: nil, admin: true, activation_digest: "$2a$12$y8oMAtHQEUC6zM7qCn7OSuVxsGVFJMsFDylXhNIgqCJ...", activated: true, activated_at: "2021-10-01 10:07:13.582600000 +0000", reset_digest: nil, reset_sent_at: nil, created_at: "2021-10-01 10:07:13.872933000 +0000", updated_at: "2021-10-01 10:07:13.872933000 +0000">
+Did you mean?  authenticated?
+               authenticate):
+  
+app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-03 06:17:38 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 200 OK in 292ms (Views: 0.8ms | ActiveRecord: 1.9ms | Allocations: 11495)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 06:18:08 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 112)
+
+
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-03 06:18:22 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 200 OK in 274ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 1005)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 06:18:40 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 06:18:58 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 108)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 06:18:59 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 35)
+
+
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-03 06:19:08 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 500 Internal Server Error in 296ms (ActiveRecord: 1.3ms | Allocations: 13495)
+
+
+  
+NameError (undefined local variable or method `cookies' for #<Api::V1::SessionsController:0x0000000000a000>):
+  
+app/helpers/sessions_helper.rb:35:in `forget'
+app/controllers/api/v1/sessions_controller.rb:11:in `create'
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-03 06:20:44 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 200 OK in 291ms (Views: 0.7ms | ActiveRecord: 1.2ms | Allocations: 11261)
+
+
+Started GET "/api/v1/users" for 133.32.240.184 at 2021-10-03 06:25:16 +0000
+Processing by Api::V1::UsersController#index as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2176)
+
+
+  
+NameError (undefined local variable or method `cookies' for #<Api::V1::UsersController:0x0000000000b928>):
+  
+app/helpers/sessions_helper.rb:18:in `current_user'
+app/helpers/sessions_helper.rb:29:in `logged_in?'
+app/controllers/api/v1/users_controller.rb:66:in `logged_in_user'
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 06:25:22 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 103)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 06:27:05 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 06:27:16 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 06:27:36 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 06:49:57 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/users" for 133.32.240.184 at 2021-10-03 06:49:58 +0000
+Processing by Api::V1::UsersController#index as HTML
+Completed 500 Internal Server Error in 4ms (Allocations: 2092)
+
+
+  
+NameError (undefined local variable or method `cookies' for #<Api::V1::UsersController:0x0000000000bc20>):
+  
+app/helpers/sessions_helper.rb:18:in `current_user'
+app/helpers/sessions_helper.rb:29:in `logged_in?'
+app/controllers/api/v1/users_controller.rb:66:in `logged_in_user'
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 06:53:48 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 4ms (ActiveRecord: 0.0ms | Allocations: 2248)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 06:57:38 +0000
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 13ms (ActiveRecord: 0.0ms | Allocations: 2248)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 06:59:48 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 43)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 06:59:52 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 32)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 06:59:53 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 32)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 07:00:47 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 32)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 07:00:49 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 07:02:30 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 07:02:47 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started POST "/api/v1/signup" for 133.32.240.184 at 2021-10-03 07:03:03 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 20ms (Views: 0.2ms | ActiveRecord: 1.7ms | Allocations: 10570)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 07:05:01 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 44)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 07:05:09 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-03 07:05:38 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 200 OK in 277ms (Views: 0.8ms | ActiveRecord: 1.1ms | Allocations: 1580)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 07:05:49 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 32)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 07:12:59 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 07:13:02 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 07:14:49 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 07:16:26 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 2ms (Allocations: 29)
+
+
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-03 07:16:31 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 422 Unprocessable Entity in 3ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 1219)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 07:18:51 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 07:21:04 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 07:21:06 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 07:25:48 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-03 07:27:41 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 04:25:10 +0000
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 6ms (ActiveRecord: 0.0ms | Allocations: 2248)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 04:26:09 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 43)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 04:26:43 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 32)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 04:30:46 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 32)
+
+
+Started POST "/api/v1/signup" for 133.32.240.184 at 2021-10-04 04:30:55 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 17ms (Views: 0.2ms | ActiveRecord: 1.5ms | Allocations: 10566)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 05:23:03 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 54)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 05:25:06 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started POST "/api/v1/signup" for 133.32.240.184 at 2021-10-04 05:29:38 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 8ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 3351)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 05:38:26 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 05:40:34 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 4ms (ActiveRecord: 0.0ms | Allocations: 2248)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 05:41:02 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 43)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 05:43:31 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 32)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 06:12:05 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 06:12:07 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 32)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 06:12:09 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 06:12:09 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 32)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 06:12:13 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 06:12:15 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 06:12:15 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 06:12:22 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 06:12:51 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 06:12:51 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 06:14:13 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 06:19:41 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 06:28:30 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 3ms (ActiveRecord: 0.0ms | Allocations: 2248)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 06:31:40 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 43)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 06:38:00 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 32)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 06:38:03 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 06:45:36 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 06:46:18 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-04 06:52:43 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 422 Unprocessable Entity in 293ms (Views: 0.3ms | ActiveRecord: 2.6ms | Allocations: 13141)
+
+
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-04 06:53:48 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 422 Unprocessable Entity in 273ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 670)
+
+
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-04 06:54:46 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 422 Unprocessable Entity in 274ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 630)
+
+
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-04 06:56:53 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 422 Unprocessable Entity in 273ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 629)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 08:03:48 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 108)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 08:03:49 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-04 08:04:42 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+

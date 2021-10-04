@@ -13,9 +13,9 @@ module Api
       def show
         @user = User.find(params[:id])
         if user.activated?
-          render json: { users: @users }, status: :ok
+          render json: { user: @user, status: :ok }
         else
-          render json: {}, status: :internal_server_error
+          render json: { status: :internal_server_error }
           # redirect_to root_url and return unless user.activated?
         end
       end

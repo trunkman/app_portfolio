@@ -1,45 +1,57 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
+import TextField from '@mui/material/TextField';
+import { postLogIn } from '../apis/users';
 
-// 入力フォーム
-import { Email } from './Forms/Email';
-import { Password } from './Forms/Password';
 
-export const LogInDialog = () => {
-  const [open, setOpen] = React.useState(false);
+export const LogInDialog = (props) => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
-  const handleClickOpen = () => {
-    setOpen(true);
+  // 情報を送信し、ログインするCallback関数
+  const handleSubmit = (event) => {
+    postLogIn({
+      email: email,
+      password: password,
+    }).then((data) => {
+      if (data.status === 'created') {
+        props.handleLogin(data)
+        alert('ログインしました')
+        props.handleClose()
+      }
+      else
+        alert('メールアドレスまたはパスワードに誤りがあります');
+    })
+    event.preventDefault()
   };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
-
+  // 新規登録ダイアログの内容を返す
   return (
-    <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        ログイン
-      </Button>
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>ログイン</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            下記項目に入力し、ログインしてください。
-          </DialogContentText>
-          <Email />
-          <Password />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>キャンセル</Button>
-          <Button onClick={handleClose}>ログイン</Button>
-        </DialogActions>
-      </Dialog>
-    </div>
+    <Dialog open={props.open} onClose={props.handleClose}>
+      <DialogTitle>ログイン</DialogTitle>
+      <DialogContent>
+        <DialogContentText>
+          下記項目を入力し、ログインください。
+        </DialogContentText>
+
+        <TextField autoFocus margin="dense" id="email" label="E-mail" type="email"
+          required value={email} onChange={e => setEmail(e.target.value)} fullWidth variant="standard" />
+
+        <TextField autoFocus margin="dense" id="password" label="パスワード" type="password"
+          required value={password} onChange={e => setPassword(e.target.value)} fullWidth variant="standard" />
+
+      </DialogContent>
+
+      <DialogActions>
+        <Button onClick={props.handleClose}>キャンセル</Button>
+        <Button onClick={handleSubmit}>ログイン</Button>
+      </DialogActions>
+
+    </Dialog>
   );
 }

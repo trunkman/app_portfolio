@@ -9,7 +9,7 @@ import TextField from '@mui/material/TextField';
 import { postSignUp } from '../apis/users';
 
 
-export const SignUpDialog = ({ open, handleClose, handleLogin }) => {
+export const SignUpDialog = (props) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -23,19 +23,19 @@ export const SignUpDialog = ({ open, handleClose, handleLogin }) => {
       password_confirmation: passwordConfirmation,
     }).then((data) => {
       if (data.status === 'created') {
-        handleLogin(data)
+        props.handleLogin(data)
         alert('送信完了しました')
-        handleClose()
+        props.handleClose()
       }
       else
-        alert('入力内容に謝りがあります');
+        alert('入力内容に誤りがあります')
     })
-    event.preventDefault()
+    event.preventDefault() // 検討の余地あり
   };
 
   // 新規登録ダイアログの内容を返す
   return (
-    <Dialog open={open} onClose={handleClose}>
+    <Dialog open={props.open} onClose={props.handleClose}>
       <DialogTitle>新規登録</DialogTitle>
       <DialogContent>
         <DialogContentText>
@@ -56,7 +56,7 @@ export const SignUpDialog = ({ open, handleClose, handleLogin }) => {
       </DialogContent>
 
       <DialogActions>
-        <Button onClick={handleClose}>キャンセル</Button>
+        <Button onClick={props.handleClose}>キャンセル</Button>
         <Button onClick={handleSubmit}>新規登録</Button>
       </DialogActions>
 
