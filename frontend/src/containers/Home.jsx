@@ -38,7 +38,6 @@ export const Home = (props) => {
       .catch(e => console.log("ログアウトエラー", e))
   }
 
-
   //Homeの更新？
   useEffect(() => {
     fetchHome()

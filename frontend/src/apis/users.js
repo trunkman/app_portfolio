@@ -1,11 +1,11 @@
 import axios from 'axios'
-import { signUp, logIn, logOut, userShow } from '../urls/index'
-
+import { signUp, logIn, logOut, loggedIn, userShow } from '../urls/index'
 
 // ユーザーページを表示するapi
 export const fetchUser = (userId) => {
   return axios.get(userShow(userId))
     .then(res => {
+      console.log(res)
       return res.data
     })
     .catch((e) => console.error(e))
@@ -23,7 +23,7 @@ export const postSignUp = (params) => {
     withCredentials: true // クレデンシャル(クッキー等)の許可
   })
     .then(res => {
-      console.log(res.data);
+      console.log(res);
       return res.data;
     })
     .catch(e => {
@@ -42,8 +42,10 @@ export const postLogIn = (params) => {
     withCredentials: true
   })
     .then(res => {
-      console.log(res.data)
-      return res.data
+      if (res.data.logged_in) {
+        console.log(res)
+        return res.data
+      }
     })
     .catch(e => {
       console.error(e);
@@ -51,6 +53,18 @@ export const postLogIn = (params) => {
     })
 }
 
+// ログアウトするapi
 export const deleteLogout = () => {
   return axios.delete(logOut, { withCredentials: true })
+}
+
+// ログイン状態を追跡するapi
+export const fetchLoggedIn = () => {
+  return axios.get(loggedIn, { withCredentials: true })
+    .then(res => {
+      console.log('ログイン状況', res)
+      return res
+    }).catch(error => {
+      console.log('ログインエラー', error)
+    })
 }

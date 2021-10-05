@@ -3205,3 +3205,2952 @@ NameError (undefined local variable or method `cookies' for #<Api::V1::SessionsC
 app/helpers/sessions_helper.rb:18:in `current_user'
 app/helpers/sessions_helper.rb:29:in `logged_in?'
 app/controllers/api/v1/sessions_controller.rb:24:in `destroy'
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 00:47:59 +0000
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 00:47:59 +0000
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 6ms (ActiveRecord: 0.0ms | Allocations: 2237)
+
+
+  
+SyntaxError (/home/ubuntu/app/backend/app/controllers/api/v1/sessions_controller.rb:12: syntax error, unexpected ':', expecting =>
+...er json: { log_in: true, :user: user, status: :created }
+...                              ^
+/home/ubuntu/app/backend/app/controllers/api/v1/sessions_controller.rb:30: syntax error, unexpected ':', expecting '}'
+...       render json { logged_in: true, user: @current_user }
+...                              ^
+/home/ubuntu/app/backend/app/controllers/api/v1/sessions_controller.rb:30: Can't assign to true
+...  render json { logged_in: true, user: @current_user }
+...                           ^~~~
+/home/ubuntu/app/backend/app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected ':', expecting '}'
+...       render json { logged_in: false, message: 'ユーザ...
+...                              ^
+/home/ubuntu/app/backend/app/controllers/api/v1/sessions_controller.rb:32: Can't assign to false
+... render json { logged_in: false, message: 'ユーザーが...
+...                          ^~~~~
+/home/ubuntu/app/backend/app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected '}', expecting `end'
+...ーザーが存在しません' }
+...                                ^
+):
+  
+app/controllers/api/v1/sessions_controller.rb:12: syntax error, unexpected ':', expecting =>
+app/controllers/api/v1/sessions_controller.rb:30: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/sessions_controller.rb:30: Can't assign to true
+app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/sessions_controller.rb:32: Can't assign to false
+app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected '}', expecting `end'
+app/controllers/api/v1/sessions_controller.rb:12: syntax error, unexpected ':', expecting =>
+app/controllers/api/v1/sessions_controller.rb:30: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/sessions_controller.rb:30: Can't assign to true
+app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/sessions_controller.rb:32: Can't assign to false
+app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected '}', expecting `end'
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 00:49:30 +0000
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 00:49:30 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 110)
+
+
+  
+SyntaxError (/home/ubuntu/app/backend/app/controllers/api/v1/sessions_controller.rb:30: syntax error, unexpected ':', expecting '}'
+...       render json { logged_in: true, user: @current_user }
+...                              ^
+/home/ubuntu/app/backend/app/controllers/api/v1/sessions_controller.rb:30: Can't assign to true
+...  render json { logged_in: true, user: @current_user }
+...                           ^~~~
+/home/ubuntu/app/backend/app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected ':', expecting '}'
+...       render json { logged_in: false, message: 'ユーザ...
+...                              ^
+/home/ubuntu/app/backend/app/controllers/api/v1/sessions_controller.rb:32: Can't assign to false
+... render json { logged_in: false, message: 'ユーザーが...
+...                          ^~~~~
+/home/ubuntu/app/backend/app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected '}', expecting `end'
+...ーザーが存在しません' }
+...                                ^
+):
+  
+app/controllers/api/v1/sessions_controller.rb:30: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/sessions_controller.rb:30: Can't assign to true
+app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/sessions_controller.rb:32: Can't assign to false
+app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected '}', expecting `end'
+app/controllers/api/v1/sessions_controller.rb:30: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/sessions_controller.rb:30: Can't assign to true
+app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/sessions_controller.rb:32: Can't assign to false
+app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected '}', expecting `end'
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 00:50:28 +0000
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 00:50:28 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 108)
+
+
+  
+SyntaxError (/home/ubuntu/app/backend/app/controllers/api/v1/sessions_controller.rb:30: syntax error, unexpected ':', expecting '}'
+...       render json { logged_in: true, user: @current_user }
+...                              ^
+/home/ubuntu/app/backend/app/controllers/api/v1/sessions_controller.rb:30: Can't assign to true
+...  render json { logged_in: true, user: @current_user }
+...                           ^~~~
+/home/ubuntu/app/backend/app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected ':', expecting '}'
+...       render json { logged_in: false, message: 'ユーザ...
+...                              ^
+/home/ubuntu/app/backend/app/controllers/api/v1/sessions_controller.rb:32: Can't assign to false
+... render json { logged_in: false, message: 'ユーザーが...
+...                          ^~~~~
+/home/ubuntu/app/backend/app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected '}', expecting `end'
+...ーザーが存在しません' }
+...                                ^
+):
+  
+app/controllers/api/v1/sessions_controller.rb:30: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/sessions_controller.rb:30: Can't assign to true
+app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/sessions_controller.rb:32: Can't assign to false
+app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected '}', expecting `end'
+app/controllers/api/v1/sessions_controller.rb:30: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/sessions_controller.rb:30: Can't assign to true
+app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/sessions_controller.rb:32: Can't assign to false
+app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected '}', expecting `end'
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 00:52:27 +0000
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 00:52:27 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 108)
+
+
+  
+SyntaxError (/home/ubuntu/app/backend/app/controllers/api/v1/sessions_controller.rb:30: syntax error, unexpected ':', expecting '}'
+...       render json { logged_in: true, user: @current_user }
+...                              ^
+/home/ubuntu/app/backend/app/controllers/api/v1/sessions_controller.rb:30: Can't assign to true
+...  render json { logged_in: true, user: @current_user }
+...                           ^~~~
+/home/ubuntu/app/backend/app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected ':', expecting '}'
+...       render json { logged_in: false, message: 'ユーザ...
+...                              ^
+/home/ubuntu/app/backend/app/controllers/api/v1/sessions_controller.rb:32: Can't assign to false
+... render json { logged_in: false, message: 'ユーザーが...
+...                          ^~~~~
+/home/ubuntu/app/backend/app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected '}', expecting `end'
+...ーザーが存在しません' }
+...                                ^
+):
+  
+app/controllers/api/v1/sessions_controller.rb:30: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/sessions_controller.rb:30: Can't assign to true
+app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/sessions_controller.rb:32: Can't assign to false
+app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected '}', expecting `end'
+app/controllers/api/v1/sessions_controller.rb:30: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/sessions_controller.rb:30: Can't assign to true
+app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/sessions_controller.rb:32: Can't assign to false
+app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected '}', expecting `end'
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 00:53:47 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 00:53:47 +0000
+Completed 204 No Content in 0ms (Allocations: 105)
+
+
+  
+SyntaxError (/home/ubuntu/app/backend/app/controllers/api/v1/sessions_controller.rb:30: syntax error, unexpected ':', expecting '}'
+...       render json { logged_in: true, user: @current_user }
+...                              ^
+/home/ubuntu/app/backend/app/controllers/api/v1/sessions_controller.rb:30: Can't assign to true
+...  render json { logged_in: true, user: @current_user }
+...                           ^~~~
+/home/ubuntu/app/backend/app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected ':', expecting '}'
+...       render json { logged_in: false, message: 'ユーザ...
+...                              ^
+/home/ubuntu/app/backend/app/controllers/api/v1/sessions_controller.rb:32: Can't assign to false
+... render json { logged_in: false, message: 'ユーザーが...
+...                          ^~~~~
+/home/ubuntu/app/backend/app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected '}', expecting `end'
+...ーザーが存在しません' }
+...                                ^
+):
+  
+app/controllers/api/v1/sessions_controller.rb:30: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/sessions_controller.rb:30: Can't assign to true
+app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/sessions_controller.rb:32: Can't assign to false
+app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected '}', expecting `end'
+app/controllers/api/v1/sessions_controller.rb:30: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/sessions_controller.rb:30: Can't assign to true
+app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected ':', expecting '}'
+app/controllers/api/v1/sessions_controller.rb:32: Can't assign to false
+app/controllers/api/v1/sessions_controller.rb:32: syntax error, unexpected '}', expecting `end'
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 00:56:00 +0000
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 00:56:00 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 108)
+
+
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 500 Internal Server Error in 4ms (Allocations: 2179)
+
+
+  
+NameError (undefined local variable or method `cookies' for #<Api::V1::SessionsController:0x00000000010f40>):
+  
+app/helpers/sessions_helper.rb:18:in `current_user'
+app/controllers/api/v1/sessions_controller.rb:28:in `logged_in?'
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 00:57:13 +0000
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 00:57:13 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 108)
+
+
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | Allocations: 311)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 01:02:36 +0000
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 01:02:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | Allocations: 97)
+
+
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 100)
+
+
+Started GET "/" for 162.142.125.44 at 2021-10-05 01:06:15 +0000
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/ubuntu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ubuntu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.9ms | Allocations: 275)
+Completed 200 OK in 18ms (Views: 9.9ms | Allocations: 2653)
+
+
+Started GET "/" for 162.142.125.44 at 2021-10-05 01:06:16 +0000
+Processing by Rails::WelcomeController#index as */*
+  Rendering /home/ubuntu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ubuntu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 5.4ms | Allocations: 264)
+Completed 200 OK in 7ms (Views: 6.4ms | Allocations: 1105)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 01:12:25 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 44)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 01:12:25 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | Allocations: 124)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 01:13:08 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 01:13:08 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 01:13:25 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 01:13:25 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 01:15:03 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 01:15:03 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Completed 200 OK in 0ms (Views: 0.2ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 01:15:24 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 01:15:24 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 01:16:27 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 01:16:27 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 98)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 01:16:27 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 01:16:27 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 01:17:00 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 01:17:00 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 01:17:00 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 01:17:00 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 01:21:45 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 01:21:45 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 01:25:10 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 01:25:10 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 01:25:10 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 01:25:10 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 01:25:43 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 01:25:43 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 01:29:01 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 01:29:01 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 01:30:28 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 01:30:28 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 03:54:59 +0000
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 03:54:59 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::StaticPagesController#home as HTML
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 204 No Content in 3ms (ActiveRecord: 0.0ms | Allocations: 2248)
+
+
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 325)
+
+
+Started GET "/api/v1/users/1" for 133.32.240.184 at 2021-10-05 03:55:05 +0000
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 03:55:05 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 100)
+
+
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+Completed 200 OK in 30ms (Views: 1.4ms | ActiveRecord: 1.9ms | Allocations: 12653)
+
+
+Started GET "/api/v1/users/1" for 133.32.240.184 at 2021-10-05 03:56:49 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 03:56:49 +0000
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 1723)
+
+
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/users/1" for 133.32.240.184 at 2021-10-05 04:00:14 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 872)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 04:00:14 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/users/1" for 133.32.240.184 at 2021-10-05 04:00:18 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 839)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 04:00:18 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/users/1" for 133.32.240.184 at 2021-10-05 04:06:52 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 04:06:52 +0000
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+Processing by Api::V1::SessionsController#logged_in? as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 2596)
+
+
+Started GET "/api/v1/users/1" for 133.32.240.184 at 2021-10-05 04:06:55 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 852)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 04:06:55 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 04:08:31 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 32)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 04:08:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 04:11:14 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 04:11:14 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 04:11:39 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 04:11:39 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 04:11:53 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 04:11:53 +0000
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 30)
+
+
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 04:19:03 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 04:19:03 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | Allocations: 97)
+
+
+Started GET "/" for 209.17.97.26 at 2021-10-05 05:16:11 +0000
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/ubuntu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ubuntu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 5.5ms | Allocations: 484)
+Completed 200 OK in 10ms (Views: 7.3ms | Allocations: 3319)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 08:19:25 +0000
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:19:25 +0000
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 2473)
+
+
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 96)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 08:19:54 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 35)
+
+
+Started GET "/api/v1/users/1" for 133.32.240.184 at 2021-10-05 08:20:05 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+Completed 200 OK in 26ms (Views: 0.7ms | ActiveRecord: 0.8ms | Allocations: 12653)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:20:05 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 111)
+
+
+Started GET "/api/v1/users/1" for 133.32.240.184 at 2021-10-05 08:20:06 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 858)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 08:20:14 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 38)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:20:56 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 08:21:34 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 08:23:09 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 08:23:10 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:23:10 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:23:55 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 08:23:55 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 08:24:43 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:24:43 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 08:25:01 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 08:25:01 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started GET "/api/v1/users/undefined" for 133.32.240.184 at 2021-10-05 08:25:01 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"undefined"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms | Allocations: 646)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=undefined):
+  
+app/controllers/api/v1/users_controller.rb:15:in `show'
+Started GET "/api/v1/users/undefined" for 133.32.240.184 at 2021-10-05 08:25:40 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"undefined"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms | Allocations: 710)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=undefined):
+  
+app/controllers/api/v1/users_controller.rb:15:in `show'
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:26:22 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 134)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:26:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 08:26:33 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 31)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 08:27:20 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:27:20 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 08:27:33 +0000
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:27:33 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-05 08:30:28 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example,com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example,com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 809)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 08:33:14 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:33:14 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:35:48 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 08:36:08 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:36:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:36:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 08:36:33 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (Allocations: 29)
+
+
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-05 08:37:23 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 200 OK in 276ms (Views: 0.6ms | ActiveRecord: 0.6ms | Allocations: 1506)
+
+
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-05 08:42:52 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 200 OK in 275ms (Views: 0.5ms | ActiveRecord: 0.6ms | Allocations: 1405)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 08:43:54 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:43:54 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 08:44:08 +0000
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:44:08 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started POST "/api/v1/signup" for 133.32.240.184 at 2021-10-05 08:46:59 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"nanashi", "email"=>"nanashi@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:32:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "nanashi@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:32:in `create'
+  [1m[36mUser Create (3.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "nanashi"], ["email", "nanashi@email.com"], ["password_digest", "$2a$12$zHGvCcrhW5jpELH764Fzwuw9tarXT14oJUmNqhvE6ROu5nvicP1j2"], ["activation_digest", "$2a$12$Hn0BhECYMvhnFfWQEbXR0.rEDoMWSQuwbQOV0H6qdYf6uuFMQ5sey"], ["created_at", "2021-10-05 08:47:00.231951"], ["updated_at", "2021-10-05 08:47:00.231951"]]
+  ↳ app/controllers/api/v1/users_controller.rb:32:in `create'
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:32:in `create'
+  [1m[36mUser Update (3.6ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-05 08:47:00.515355"], ["id", 113]]
+  ↳ app/models/user.rb:68:in `activate'
+Completed 200 OK in 567ms (Views: 0.4ms | ActiveRecord: 10.8ms | Allocations: 7222)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:47:00 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:47:01 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:47:01 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:47:02 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:47:02 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-05 08:47:22 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"nanashi@email.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "nanashi@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 200 OK in 274ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 827)
+
+
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-05 08:48:31 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"nanashi@email.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "nanashi@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 200 OK in 274ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 836)
+
+
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-05 08:48:31 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"nanashi@email.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "nanashi@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 200 OK in 276ms (Views: 0.5ms | ActiveRecord: 0.6ms | Allocations: 1624)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 08:51:06 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:51:06 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-05 08:51:08 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"nanashi@email.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "nanashi@email.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 200 OK in 274ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 827)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:51:09 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:51:11 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:51:11 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:51:11 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:51:11 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-05 08:51:43 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 200 OK in 274ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 829)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:51:43 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:51:46 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:51:46 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:51:46 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:51:46 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:08 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-05 08:54:12 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 200 OK in 274ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 827)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:12 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:14 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:14 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:14 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:14 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:28 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:28 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:28 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:28 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:28 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:28 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:28 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:28 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:28 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:28 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:28 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:28 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:28 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:28 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 98)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 98)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 98)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:29 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 98)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 98)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 98)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:32 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 98)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:33 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 98)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 98)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:34 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 98)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:54:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 08:56:13 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:56:13 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:56:16 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:56:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 08:56:35 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 08:59:18 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 08:59:18 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-05 08:59:22 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 595)
+
+
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-05 09:01:17 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 200 OK in 274ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 828)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 09:01:17 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 09:01:19 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 09:01:19 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 09:01:19 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 09:01:19 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 09:04:23 +0000
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 09:04:23 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 09:05:56 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 09:05:56 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-05 09:06:02 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 200 OK in 274ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 828)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 09:06:03 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 09:06:04 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 09:06:04 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 09:06:04 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 09:06:04 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-05 09:07:34 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 200 OK in 273ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 829)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 09:07:35 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 09:07:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 09:07:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 09:07:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 09:07:36 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-05 09:07:56 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 200 OK in 290ms (Views: 0.6ms | ActiveRecord: 1.1ms | Allocations: 11321)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 09:07:57 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2118)
+
+
+  
+NameError (undefined local variable or method `cookies' for #<Api::V1::SessionsController:0x0000000000d700>):
+  
+app/helpers/sessions_helper.rb:18:in `current_user'
+app/controllers/api/v1/sessions_controller.rb:28:in `logged_in?'
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 09:07:59 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 2021)
+
+
+  
+NameError (undefined local variable or method `cookies' for #<Api::V1::SessionsController:0x0000000000d890>):
+  
+app/helpers/sessions_helper.rb:18:in `current_user'
+app/controllers/api/v1/sessions_controller.rb:28:in `logged_in?'
+Started GET "/api/v1/" for 133.32.240.184 at 2021-10-05 09:08:08 +0000
+Processing by Api::V1::StaticPagesController#home as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 103)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 09:08:08 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2037)
+
+
+  
+NameError (undefined local variable or method `cookies' for #<Api::V1::SessionsController:0x0000000000da70>):
+  
+app/helpers/sessions_helper.rb:18:in `current_user'
+app/controllers/api/v1/sessions_controller.rb:28:in `logged_in?'
+Started POST "/api/v1/login" for 133.32.240.184 at 2021-10-05 09:10:19 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}, "withCredentials"=>true}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 200 OK in 274ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 979)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 09:10:20 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2021)
+
+
+  
+NameError (undefined local variable or method `cookies' for #<Api::V1::SessionsController:0x0000000000dc78>):
+  
+app/helpers/sessions_helper.rb:18:in `current_user'
+app/controllers/api/v1/sessions_controller.rb:28:in `logged_in?'
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 09:10:22 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2021)
+
+
+  
+NameError (undefined local variable or method `cookies' for #<Api::V1::SessionsController:0x0000000000de08>):
+  
+app/helpers/sessions_helper.rb:18:in `current_user'
+app/controllers/api/v1/sessions_controller.rb:28:in `logged_in?'
+Started GET "/api/v1/users/1" for 133.32.240.184 at 2021-10-05 09:12:51 +0000
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 09:12:51 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2021)
+
+
+  
+NameError (undefined local variable or method `cookies' for #<Api::V1::SessionsController:0x0000000000dfc0>):
+  
+app/helpers/sessions_helper.rb:18:in `current_user'
+app/controllers/api/v1/sessions_controller.rb:28:in `logged_in?'
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 1837)
+
+

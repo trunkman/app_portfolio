@@ -14,7 +14,7 @@ export const LogInDialog = (props) => {
   const [password, setPassword] = useState('')
 
   // 情報を送信し、ログインするCallback関数
-  const handleSubmit = (event) => {
+  const handleSubmit = () => {
     postLogIn({
       email: email,
       password: password,
@@ -27,7 +27,6 @@ export const LogInDialog = (props) => {
       else
         alert('メールアドレスまたはパスワードに誤りがあります');
     })
-    event.preventDefault()
   };
 
   // 新規登録ダイアログの内容を返す

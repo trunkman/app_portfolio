@@ -1,7 +1,5 @@
 import React, { Fragment, useEffect } from "react";
-// api
 import { fetchUser } from "../apis/users";
-
 
 export const User = (props) => {
 
