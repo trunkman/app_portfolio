@@ -6154,3 +6154,23 @@ Processing by Api::V1::UsersController#show as HTML
 Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 1837)
 
 
+Started GET "/api/v1/users/1" for 133.32.240.184 at 2021-10-05 09:17:14 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 839)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.184 at 2021-10-05 09:17:14 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2036)
+
+
+  
+NameError (undefined local variable or method `cookies' for #<Api::V1::SessionsController:0x0000000000e240>):
+  
+app/helpers/sessions_helper.rb:18:in `current_user'
+app/controllers/api/v1/sessions_controller.rb:28:in `logged_in?'
+MiniProfiler storage failure: No such file or directory @ rb_sysopen - /home/ubuntu/app/backend/tmp/miniprofiler/mp_timers_h2luycqp1bc038w6td1n
+MiniProfiler storage failure: No such file or directory @ rb_sysopen - /home/ubuntu/app/backend/tmp/miniprofiler/mp_timers_1eonn3pu2ylejtas9g48
