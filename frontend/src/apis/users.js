@@ -56,6 +56,12 @@ export const postLogIn = (params) => {
 // ログアウトするapi
 export const deleteLogout = () => {
   return axios.delete(logOut, { withCredentials: true })
+    .then(res => {
+      console.log('ログアウトapi', res)
+    })
+    .catch(e => {
+      console.error(e)
+    })
 }
 
 // ログイン状態を追跡するapi

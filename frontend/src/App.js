@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 
 import './App.css';
 import { Home } from './containers/Home'
@@ -37,34 +37,42 @@ function App() {
       })
   }
 
-  useEffect(() =>
+  useEffect(() => {
     checkLoginStatus()
-  )
+  }, [])
 
   return (
-    <Router>
-      <Switch>
-        <Route exact
-          path="/">
-          <Home
-            loggedInStatus={loggedInStatus}
-            handleLogin={handleLogin}
-            handleLogout={handleLogout}
-          />
-        </Route>
-      </Switch>
-      <Switch>
-        <Route exact
-          path="/user/:id"
-          render={({ match }) =>
-            <User
-              match={match}
+    <BrowserRouter>
+      <div>
+        <nav>
+          <ul>
+            <li><Link to='/'>Home</Link></li>
+            <li><Link to='/user/:id'>User</Link></li>
+          </ul>
+        </nav>
+        <Switch>
+          <Route exact
+            path="/">
+            <Home
               loggedInStatus={loggedInStatus}
+              handleLogin={handleLogin}
+              handleLogout={handleLogout}
             />
-          }>
-        </Route>
-      </Switch>
-    </Router>
+          </Route>
+        </Switch>
+        <Switch>
+          <Route exact
+            path="/user/:id"
+            render={({ match }) =>
+              <User
+                match={match}
+                loggedInStatus={loggedInStatus}
+              />
+            }>
+          </Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 

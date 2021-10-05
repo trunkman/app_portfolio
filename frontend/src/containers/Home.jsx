@@ -34,8 +34,8 @@ export const Home = (props) => {
 
   const handleClickLogout = () => {
     deleteLogout()
-      .then(res => props.handleLogout)
-      .catch(e => console.log("ログアウトエラー", e))
+      .then(props.handleLogout)
+      .catch(error => console.log("ログアウトエラー", error))
   }
 
   //Homeの更新？
@@ -48,7 +48,7 @@ export const Home = (props) => {
 
   return (
     <Fragment>
-      <h1>HOME</h1>
+      <h1>HOME画面</h1>
       <h2>ログイン状態：{props.loggedInStatus}</h2>
 
       <Button variant="outlined" onClick={handleClickOpenSignUp}>
