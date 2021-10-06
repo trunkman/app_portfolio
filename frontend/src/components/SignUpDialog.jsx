@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -14,6 +15,7 @@ export const SignUpDialog = (props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [passwordConfirmation, setpasswordConfirmaiton] = useState('')
+  const history = useHistory()
 
   const handleSubmit = (event) => {
     postSignUp({
@@ -24,8 +26,7 @@ export const SignUpDialog = (props) => {
     }).then((data) => {
       if (data.status === 'created') {
         props.handleLogin(data)
-        alert('送信完了しました')
-        props.handleClose()
+        history.push(`/user/${data.user.id}`)
       }
       else
         alert('入力内容に誤りがあります')

@@ -7,14 +7,12 @@ export const User = (props) => {
     fetchUser(props.match.params.id)
       .then((data) =>
         console.log(data)
-
       )
   }, [])
 
   return (
     <Fragment>
       <h1>ユーザーページ</h1>
-      <h2>ログイン状態：{props.loggedInStatus}</h2>
       <p>Idは{props.match.params.id}です</p>
       <p>名前は{ }です</p>
       <p>Emailは{props.match.params.email}です</p>

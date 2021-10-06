@@ -3,7 +3,6 @@ import Button from '@mui/material/Button';
 import { fetchHome } from "../apis/home";
 import { SignUpDialog } from "../components/SignUpDialog"
 import { LogInDialog } from "../components/LogInDialog"
-import { deleteLogout } from "../apis/users";
 
 export const Home = (props) => {
 
@@ -32,12 +31,6 @@ export const Home = (props) => {
     setOpen({ logInDialog: false })
   }
 
-  const handleClickLogout = () => {
-    deleteLogout()
-      .then(props.handleLogout)
-      .catch(error => console.log("ログアウトエラー", error))
-  }
-
   //Homeの更新？
   useEffect(() => {
     fetchHome()
@@ -49,7 +42,6 @@ export const Home = (props) => {
   return (
     <Fragment>
       <h1>HOME画面</h1>
-      <h2>ログイン状態：{props.loggedInStatus}</h2>
 
       <Button variant="outlined" onClick={handleClickOpenSignUp}>
         新規登録
@@ -59,10 +51,6 @@ export const Home = (props) => {
       <Button variant="outlined" onClick={handleClickOpenLogIn}>
         ログイン
         <LogInDialog open={open.logInDialog} handleClose={handleCloseLogIn} handleLogin={props.handleLogin} />
-      </Button>
-
-      <Button variant="outlined" onClick={handleClickLogout}>
-        ログアウト
       </Button>
 
     </Fragment>

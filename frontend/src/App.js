@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 import './App.css';
 import { Home } from './containers/Home'
 import { User } from './containers/User'
+import { Header } from './containers/Header'
 import { fetchLoggedIn } from './apis/users'
 
 function App() {
@@ -45,10 +46,10 @@ function App() {
     <BrowserRouter>
       <div>
         <nav>
-          <ul>
-            <li><Link to='/'>Home</Link></li>
-            <li><Link to='/user/:id'>User</Link></li>
-          </ul>
+          <Header
+            loggedInStatus={loggedInStatus}
+            handleLogout={handleLogout}
+          />
         </nav>
         <Switch>
           <Route exact
