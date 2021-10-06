@@ -5,7 +5,7 @@ import { signUp, logIn, logOut, loggedIn, userShow } from '../urls/index'
 export const fetchUser = (userId) => {
   return axios.get(userShow(userId))
     .then(res => {
-      console.log(res)
+      console.log('User画面', res)
       return res.data
     })
     .catch((e) => console.error(e))
@@ -23,7 +23,7 @@ export const postSignUp = (params) => {
     withCredentials: true // クレデンシャル(クッキー等)の許可
   })
     .then(res => {
-      console.log(res);
+      console.log('新規登録', res);
       return res.data;
     })
     .catch(e => {
@@ -43,7 +43,7 @@ export const postLogIn = (params) => {
   })
     .then(res => {
       if (res.data.logged_in) {
-        console.log(res)
+        console.log('ログイン', res)
         return res.data
       }
     })
@@ -71,6 +71,6 @@ export const fetchLoggedIn = () => {
       console.log('ログイン状況', res)
       return res
     }).catch(error => {
-      console.log('ログインエラー', error)
+      console.log('ログイン状況エラー', error)
     })
 }

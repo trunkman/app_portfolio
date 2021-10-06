@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Relationship, type: :model do
-  
   # let (:relationship) do
   #   Relationship.new(follower_id: 1, followed_id: 2)
   # end
@@ -23,6 +22,4 @@ RSpec.describe Relationship, type: :model do
   #     expect(relationship).not_to be_valid
   #   end
   # end
-
-
 end

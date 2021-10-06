@@ -31,12 +31,9 @@ export const Home = (props) => {
     setOpen({ logInDialog: false })
   }
 
-  //Homeの更新？
+  //Home画面の更新
   useEffect(() => {
     fetchHome()
-      .then((data) =>
-        console.log(data)
-      )
   }, [])
 
   return (

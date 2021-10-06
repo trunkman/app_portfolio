@@ -14,7 +14,6 @@ module Api
         current_user.unfollow(user)
         redirect_to user
       end
-
     end
   end
 end

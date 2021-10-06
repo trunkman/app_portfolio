@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import './App.css';
 import { Home } from './containers/Home'
@@ -33,9 +33,7 @@ function App() {
         } else if (!data.logged_in && loggedInStatus === "ログイン中") {
           handleLogout()
         }
-      }).catch(error => {
-        console.log('ログインエラー', error)
-      })
+      }).catch(e => { console.error(e) })
   }
 
   useEffect(() => {
@@ -68,6 +66,7 @@ function App() {
               <User
                 match={match}
                 loggedInStatus={loggedInStatus}
+                user={user}
               />
             }>
           </Route>

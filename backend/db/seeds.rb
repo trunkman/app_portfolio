@@ -1,20 +1,19 @@
 # ユーザー
-User.create!(name: 'Example User',
-             email: 'example@example.com',
-             password:              "password",
-             password_confirmation: "password",
-             admin:     true,
+User.create!(name: 'Admin User',
+             email: 'admin@example.com',
+             password: 'foobar',
+             password_confirmation: 'foobar',
+             admin: true,
              activated: true,
              activated_at: Time.zone.now)
 
 9.times do |n|
-  name  = "#{n+1}君"
-  email = "example-#{n+1}@example.com"
-  password = "password"
-  User.create!(name:  name,
-               email: email,
-               password:              password,
-               password_confirmation: password,
+  name  = "#{n + 1}君"
+  email = "example-#{n + 1}@example.com"
+  User.create!(name: 'name',
+               email: 'email',
+               password: 'foobar',
+               password_confirmation: 'foobar',
                activated: true,
                activated_at: Time.zone.now)
 end

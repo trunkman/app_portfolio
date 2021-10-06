@@ -26,13 +26,13 @@ module Api
       #   render json: { user: @user }, status: :ok
       # end
 
-      #ユーザーを登録するアクション
+      # ユーザーを登録するアクション
       def create
         @user = User.new(user_params)
         if @user.save
           # @user.send_activation_email(メール実装は後でする)
           @user.activate
-          render json: {user: @user, status: :created}
+          render json: { user: @user, status: :created }
         else
           render json: {}, status: :unprocessable_entity
         end
@@ -52,9 +52,8 @@ module Api
       end
 
       def destroy
-        if
-          User.find(params[id]).destroy
-          render json: {status: :ok}
+        if User.find(params[id]).destroy
+          render json: { status: :ok }
         else
           render json: { status: :internal_server_error }
         end

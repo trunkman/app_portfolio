@@ -24,11 +24,11 @@ export const Header = (props) => {
       .catch(error => console.log("ログアウトエラー", error))
   }
 
+  //返り値：ヘッダー画面
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-
           <IconButton
             size="large"
             edge="start"
@@ -43,7 +43,7 @@ export const Header = (props) => {
             <Link to='/'>Home</Link>
           </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link to='/user/:id'>User</Link>
+            <Link to='/user/1'>User</Link>
           </Typography>
           {/* 見やすくするため表示している */}
           <Typography variant="body1" component="div" sx={{ flexGrow: 1 }}>
