@@ -14,7 +14,7 @@ function App() {
 
   // ログインのコールバック関数
   const handleLogin = (data) => {
-    setLoggedInStatus("ログイン済み")
+    setLoggedInStatus("ログイン中")
     setUser(data.user)
   }
 
@@ -30,7 +30,7 @@ function App() {
       .then((data) => {
         if (data.logged_in && loggedInStatus === "未ログイン") {
           handleLogin(data)
-        } else if (!data.logged_in && loggedInStatus === "ログイン済み") {
+        } else if (!data.logged_in && loggedInStatus === "ログイン中") {
           handleLogout()
         }
       }).catch(error => {

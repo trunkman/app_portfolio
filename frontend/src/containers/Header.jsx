@@ -1,7 +1,15 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Link, useHistory } from 'react-router-dom';
-import Button from '@mui/material/Button';
 import { deleteLogout } from "../apis/users";
+
+// ヘッダー
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import HotelIcon from '@mui/icons-material/Hotel';
 
 export const Header = (props) => {
   const history = useHistory()
@@ -17,15 +25,43 @@ export const Header = (props) => {
   }
 
   return (
-    <Fragment>
-      <ul>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/user/:id'>User</Link></li>
-        <p>ログイン状態：{props.loggedInStatus}</p>
-        <Button variant="outlined" onClick={handleClickLogout}>
-          ログアウト
-        </Button>
-      </ul>
-    </Fragment>
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <HotelIcon />
+            <Typography variant="body1">睡眠負債</Typography>
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <Link to='/'>Home</Link>
+          </Typography>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <Link to='/user/:id'>User</Link>
+          </Typography>
+          {/* 見やすくするため表示している */}
+          <Typography variant="body1" component="div" sx={{ flexGrow: 1 }}>
+            ログイン状態：{props.loggedInStatus}
+          </Typography>
+          {
+            props.loggedInStatus === "ログイン中" ? (
+              <Button color="inherit" onClick={handleClickLogout} >
+                ログアウト
+              </Button>
+            ) : (
+              <Button color="inherit" >
+                ログイン
+              </Button>
+            )
+          }
+        </Toolbar>
+      </AppBar>
+    </Box>
   )
 }
