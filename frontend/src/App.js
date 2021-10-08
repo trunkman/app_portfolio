@@ -58,8 +58,10 @@ function App() {
           path="/user/:id"
           render={({ match }) =>
             <User
-              match={match}
               loggedInStatus={loggedInStatus}
+              handleLogin={handleLogin}
+              handleLogout={handleLogout}
+              match={match}
               user={user}
             />
           }>

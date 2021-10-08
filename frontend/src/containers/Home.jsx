@@ -7,58 +7,61 @@ import { SignUpDialog } from "../components/SignUpDialog"
 import { LogInDialog } from "../components/LogInDialog"
 
 export const Home = (props) => {
-
-  const [open, setOpen] = useState({
-    signUpDialog: false,
-    logInDialog: false,
-  })
+  const [openSignUpDialog, setOpenSignUpDialog] = useState(false)
+  const [openLogInDialog, setOpenLogInDialog] = useState(false)
 
   // 新規登録のDialogを開くCallback関数
-  const handleClickOpenSignUp = () => {
-    setOpen({ signUpDialog: true })
+  const handleOpenSignUp = () => {
+    setOpenSignUpDialog(true)
   }
 
   // 新規登録のDialogを閉じるCallback関数
   const handleCloseSignUp = () => {
-    setOpen({ signUpDialog: false })
+    setOpenSignUpDialog(false)
   }
 
   // ログインのDialogを開くCallback関数
-  const handleClickOpenLogIn = () => {
-    setOpen({ logInDialog: true })
+  const handleOpenLogIn = () => {
+    setOpenLogInDialog(true)
   }
 
   // ログインのDialogを閉じるCallback関数
   const handleCloseLogIn = () => {
-    setOpen({ logInDialog: false })
+    setOpenLogInDialog(false)
   }
 
   return (
     <Fragment>
       <Header
+        open={openLogInDialog}
+        handleClickOpenLogIn={handleOpenLogIn}
+        handleClose={handleCloseLogIn}
         loggedInStatus={props.loggedInStatus}
         handleLogin={props.handleLogin}
         handleLogout={props.handleLogout}
-        open={open.logInDialog}
-        handleClose={handleCloseLogIn}
-        handleClickOpenLogIn={handleClickOpenLogIn}
       />
 
       <h1>HOME画面</h1>
 
-      <Button variant="outlined" onClick={handleClickOpenSignUp}>
+      <Button
+        ariant="outlined"
+        onClick={handleOpenSignUp}
+      >
         新規登録
         <SignUpDialog
-          open={open.signUpDialog}
+          open={openSignUpDialog}
           handleClose={handleCloseSignUp}
           handleLogin={props.handleLogin}
         />
       </Button>
 
-      <Button variant="outlined" onClick={handleClickOpenLogIn}>
+      <Button
+        variant="outlined"
+        onClick={handleOpenLogIn}
+      >
         ログイン
         <LogInDialog
-          open={open.logInDialog}
+          open={openLogInDialog}
           handleClose={handleCloseLogIn}
           handleLogin={props.handleLogin}
         />

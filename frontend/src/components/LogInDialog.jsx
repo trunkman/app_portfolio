@@ -71,7 +71,13 @@ export const LogInDialog = (props) => {
       </DialogContent>
       <DialogActions>
         <Button onClick={props.handleClose}>キャンセル</Button>
-        <Button type='submit' onClick={handleSubmit} autoFocus>ログイン</Button>
+        <Button
+          type='submit'
+          onClick={handleSubmit}
+          autoFocus
+        >
+          ログイン
+        </Button>
       </DialogActions>
     </Dialog>
   );
