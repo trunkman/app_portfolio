@@ -6,9 +6,13 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-import TextField from '@mui/material/TextField';
 import { postSignUp } from '../apis/users';
 
+// Forms
+import { Name } from './Forms/Name';
+import { Email } from './Forms/Email';
+import { Password } from './Forms/Password';
+import { PasswordConfirmation } from './Forms/PasswordConfirmation';
 
 export const SignUpDialog = (props) => {
   const [name, setName] = useState('')
@@ -48,56 +52,23 @@ export const SignUpDialog = (props) => {
           下記項目を入力し、登録をお願いします。
         </DialogContentText>
 
-        <TextField
-          autoFocus
-          margin="dense"
-          id="name"
-          label="名前"
-          type="text"
-          required
-          value={name}
-          onChange={e => setName(e.target.value)}
-          fullWidth
-          variant="standard"
+        <Name
+          name={name}
+          handleChange={e => setName(e.target.value)}
+        />
+        <Email
+          email={email}
+          handleChange={e => setEmail(e.target.value)}
+        />
+        <Password
+          password={password}
+          handleChange={e => setPassword(e.target.value)}
+        />
+        <PasswordConfirmation
+          passwordConfirmation={passwordConfirmation}
+          handleChange={e => setpasswordConfirmaiton(e.target.value)}
         />
 
-        <TextField
-          autoFocus
-          margin="dense"
-          id="email"
-          label="E-mail"
-          type="email"
-          required
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          fullWidth
-          variant="standard"
-        />
-
-        <TextField
-          autoFocus
-          margin="dense"
-          id="password"
-          label="パスワード"
-          type="password"
-          required
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          fullWidth
-          variant="standard"
-        />
-
-        <TextField
-          autoFocus
-          margin="dense"
-          id="password_confirmation"
-          label="パスワードの確認"
-          type="password"
-          required
-          value={passwordConfirmation}
-          onChange={e => setpasswordConfirmaiton(e.target.value)}
-          fullWidth variant="standard"
-        />
       </DialogContent>
 
       <DialogActions>

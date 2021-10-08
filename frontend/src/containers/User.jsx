@@ -1,11 +1,9 @@
-import React, { Fragment, useState, useEffect } from "react";
-import { fetchUser } from "../apis/users";
+import React, { Fragment, useState } from "react";
 
 // コンポーネント
 import { Header } from "../components/Header"
 
 export const User = (props) => {
-
   const [openLogInDialog, setOpenLogInDialog] = useState(false)
 
   // ログインのDialogを開くCallback関数
@@ -17,10 +15,6 @@ export const User = (props) => {
   const handleCloseLogIn = () => {
     setOpenLogInDialog(false)
   }
-
-  useEffect(() => {
-    fetchUser(props.user.id)
-  })
 
   // 返り値：ユーザー画面
   return (

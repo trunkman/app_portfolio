@@ -9,8 +9,10 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-import TextField from '@mui/material/TextField';
 
+// Forms
+import { Email } from './Forms/Email';
+import { Password } from './Forms/Password';
 
 export const LogInDialog = (props) => {
   const [email, setEmail] = useState('')
@@ -45,29 +47,15 @@ export const LogInDialog = (props) => {
         <DialogContentText>
           下記項目を入力し、ログインください。
         </DialogContentText>
-        <TextField
-          autoFocus
-          margin="dense"
-          id="email"
-          label="E-mail"
-          type="email"
-          required
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          fullWidth variant="standard"
+        <Email
+          email={email}
+          handleChange={e => setEmail(e.target.value)}
         />
-        <TextField
-          autoFocus
-          margin="dense"
-          id="password"
-          label="パスワード"
-          type="password"
-          required
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          fullWidth
-          variant="standard"
+        <Password
+          password={password}
+          handleChange={e => setPassword(e.target.value)}
         />
+
       </DialogContent>
       <DialogActions>
         <Button onClick={props.handleClose}>キャンセル</Button>

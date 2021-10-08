@@ -44,7 +44,7 @@ export const Home = (props) => {
       <h1>HOME画面</h1>
 
       <Button
-        ariant="outlined"
+        variant="outlined"
         onClick={handleOpenSignUp}
       >
         新規登録
