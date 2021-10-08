@@ -4,9 +4,10 @@ import { fetchUser } from "../apis/users";
 export const User = (props) => {
 
   useEffect(() => {
-    fetchUser(props.match.params.id)
-  }, [])
+    fetchUser(props.user.id)
+  })
 
+  // 返り値：ユーザー画面
   return (
     <Fragment>
       <h1>ユーザーページ</h1>

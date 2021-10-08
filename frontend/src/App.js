@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-
 import './App.css';
+import { fetchLoggedIn } from './apis/users'
+
+// コンテイナー
 import { Home } from './containers/Home'
 import { User } from './containers/User'
-import { Header } from './containers/Header'
-import { fetchLoggedIn } from './apis/users'
 
 function App() {
 
@@ -24,6 +24,7 @@ function App() {
     setUser({})
   }
 
+
   // ログイン状態を追跡するコールバック関数
   const checkLoginStatus = () => {
     fetchLoggedIn()
@@ -37,41 +38,33 @@ function App() {
   }
 
   useEffect(() => {
-    checkLoginStatus()
-  }, [])
+    checkLoginStatus();
+  })
 
   return (
     <BrowserRouter>
-      <div>
-        <nav>
-          <Header
+      <Switch>
+        <Route exact
+          path="/">
+          <Home
             loggedInStatus={loggedInStatus}
+            handleLogin={handleLogin}
             handleLogout={handleLogout}
           />
-        </nav>
-        <Switch>
-          <Route exact
-            path="/">
-            <Home
+        </Route>
+      </Switch>
+      <Switch>
+        <Route exact
+          path="/user/:id"
+          render={({ match }) =>
+            <User
+              match={match}
               loggedInStatus={loggedInStatus}
-              handleLogin={handleLogin}
-              handleLogout={handleLogout}
+              user={user}
             />
-          </Route>
-        </Switch>
-        <Switch>
-          <Route exact
-            path="/user/:id"
-            render={({ match }) =>
-              <User
-                match={match}
-                loggedInStatus={loggedInStatus}
-                user={user}
-              />
-            }>
-          </Route>
-        </Switch>
-      </div>
+          }>
+        </Route>
+      </Switch>
     </BrowserRouter>
   );
 }

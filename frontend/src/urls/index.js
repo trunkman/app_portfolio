@@ -5,6 +5,5 @@ export const signUp = `${DEFAULT_API_LOCALHOST}/signup`;
 export const logIn = `${DEFAULT_API_LOCALHOST}/login`;
 export const logOut = `${DEFAULT_API_LOCALHOST}/logout`;
 export const loggedIn = `${DEFAULT_API_LOCALHOST}/logged_in`;
-export const userShow = (userId) =>
-  `${DEFAULT_API_LOCALHOST}/users/${userId}`;
+export const userShow = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}`;
 
