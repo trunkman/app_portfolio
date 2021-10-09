@@ -37,8 +37,8 @@ export const Home = (props) => {
         handleClickOpenLogIn={handleOpenLogIn}
         handleClose={handleCloseLogIn}
         loggedInStatus={props.loggedInStatus}
-        handleLogin={props.handleLogin}
-        handleLogout={props.handleLogout}
+        handleLogIn={props.handleLogIn}
+        handleLogOut={props.handleLogOut}
       />
 
       <h1>HOME画面</h1>
@@ -51,7 +51,7 @@ export const Home = (props) => {
         <SignUpDialog
           open={openSignUpDialog}
           handleClose={handleCloseSignUp}
-          handleLogin={props.handleLogin}
+          handleLogIn={props.handleLogIn}
         />
       </Button>
 
@@ -63,7 +63,7 @@ export const Home = (props) => {
         <LogInDialog
           open={openLogInDialog}
           handleClose={handleCloseLogIn}
-          handleLogin={props.handleLogin}
+          handleLogIn={props.handleLogIn}
         />
       </Button>
 

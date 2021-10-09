@@ -9,14 +9,16 @@ module Api
           if user.activated?
             log_in user
             # params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-            render json: { logged_in: true, user: user, status: :created }
+            render json: { logged_in: true,
+                           user: user },
+                   status: :created
           else
-            render status: :unauthorized, 
-                   json:   { error: 'activatedされていません' }
+            render json:   { error: 'activatedされていません' }, 
+                   status: :unauthorized
           end
         else
-          render status: :unauthorized,
-                 json:   { error: 'emailまたはパスワードが違います' }
+          render json:   { error: 'emailまたはパスワードが違います' },
+                 status: :unauthorized
         end
       end
 

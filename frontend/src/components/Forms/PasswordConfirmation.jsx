@@ -11,7 +11,6 @@ export const PasswordConfirmation = (props) => {
       id="password_confirmation"
       label="パスワードの確認"
       type="password"
-      required
       value={props.passwordConfirmation}
       onChange={props.handleChange}
       fullWidth variant="standard"

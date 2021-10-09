@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, useHistory } from 'react-router-dom';
+//api
 import { deleteLogout } from "../apis/users";
-import { LogInDialog } from "./LogInDialog";
 
-// ヘッダー
+// ヘッダーのstyle
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,6 +12,9 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import HotelIcon from '@mui/icons-material/Hotel';
 
+// コンポーネント
+import { LogInDialog } from "./LogInDialog";
+
 export const Header = (props) => {
   const history = useHistory()
 
@@ -19,7 +22,7 @@ export const Header = (props) => {
   const handleClickLogout = () => {
     deleteLogout()
       .then(() => {
-        props.handleLogout()
+        props.handleLogOut()
         props.handleCloseLogIn()
         history.push(`/`)
       })
@@ -59,7 +62,7 @@ export const Header = (props) => {
             ) : (
               <Button color="inherit" onClick={props.handleClickOpenLogIn}>
                 ログイン
-                <LogInDialog open={props.open} handleClose={props.handleCloseLogIn} handleLogin={props.handleLogin} />
+                <LogInDialog open={props.open} handleClose={props.handleCloseLogIn} handleLogin={props.handleLogIn} />
               </Button>
             )
           }

@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
+
+// api
+import { postSignUp } from '../apis/users';
+
+// ダイアログのstyles
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-import { postSignUp } from '../apis/users';
 
-// Forms
+// Formsコンポーネント
 import { Name } from './Forms/Name';
 import { Email } from './Forms/Email';
 import { Password } from './Forms/Password';
@@ -29,7 +33,7 @@ export const SignUpDialog = (props) => {
       password_confirmation: passwordConfirmation,
     }).then((data) => {
       if (data.status === 'created') {
-        props.handleLogin(data)
+        props.handleLogIn(data)
         history.push(`/user/${data.user.id}`)
       }
       else

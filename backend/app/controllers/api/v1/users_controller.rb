@@ -32,9 +32,12 @@ module Api
         if @user.save
           # @user.send_activation_email(メール実装は後でする)
           @user.activate
-          render json: { user: @user, status: :created }
+          log_in @user
+          render json: { user: @user},
+                 status: :created
         else
-          render json: {}, status: :unprocessable_entity
+          render json: {}, 
+                 status: :unprocessable_entity
         end
       end
 

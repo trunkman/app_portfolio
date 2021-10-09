@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { postLogIn } from '../apis/users';
+
+//api
+import { postLogIn } from '../apis/sessions';
 
 // ダイアログのstyle
 import Button from '@mui/material/Button';
@@ -10,7 +12,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 
-// Forms
+// Formsコンポーネント
 import { Email } from './Forms/Email';
 import { Password } from './Forms/Password';
 
@@ -25,8 +27,8 @@ export const LogInDialog = (props) => {
       email: email,
       password: password,
     }).then((data) => {
-      if (data.status === 'created') {
-        props.handleLogin(data)
+      if (data) {
+        props.handleLogIn(data)
         history.push(`/user/${data.user.id}`)
       }
       else

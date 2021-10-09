@@ -7,19 +7,18 @@ import { fetchLoggedIn } from './apis/users'
 import { Home } from './containers/Home'
 import { User } from './containers/User'
 
-function App() {
-
+export default function App() {
   const [loggedInStatus, setLoggedInStatus] = useState("未ログイン");
   const [user, setUser] = useState({});
 
   // ログインのコールバック関数
-  const handleLogin = (data) => {
+  const handleLogIn = (data) => {
     setLoggedInStatus("ログイン中")
     setUser(data.user)
   }
 
   // ログアウトのコールバック関数
-  const handleLogout = () => {
+  const handleLogOut = () => {
     setLoggedInStatus("未ログイン")
     setUser({})
   }
@@ -29,10 +28,10 @@ function App() {
   const checkLoginStatus = () => {
     fetchLoggedIn()
       .then((data) => {
-        if (data.logged_in && loggedInStatus === "未ログイン") {
-          handleLogin(data)
-        } else if (!data.logged_in && loggedInStatus === "ログイン中") {
-          handleLogout()
+        if (data.logged_in && loggedInStatus === '未ログイン') {
+          handleLogIn(data)
+        } else if (!data.logged_in && loggedInStatus === 'ログイン中') {
+          handleLogOut()
         }
       }).catch(e => { console.error(e) })
   }
@@ -48,8 +47,8 @@ function App() {
           path="/">
           <Home
             loggedInStatus={loggedInStatus}
-            handleLogin={handleLogin}
-            handleLogout={handleLogout}
+            handleLogIn={handleLogIn}
+            handleLogOut={handleLogOut}
           />
         </Route>
       </Switch>
@@ -59,8 +58,8 @@ function App() {
           render={({ match }) =>
             <User
               loggedInStatus={loggedInStatus}
-              handleLogin={handleLogin}
-              handleLogout={handleLogout}
+              handleLogIn={handleLogIn}
+              handleLogOut={handleLogOut}
               match={match}
               user={user}
             />
@@ -70,5 +69,3 @@ function App() {
     </BrowserRouter>
   );
 }
-
-export default App;

@@ -11,7 +11,6 @@ export const Password = (props) => {
       id="password"
       label="パスワード"
       type="password"
-      required
       value={props.password}
       onChange={props.handleChange}
       fullWidth
