@@ -8,7 +8,7 @@ export const PasswordConfirmation = (props) => {
     <TextField
       autoFocus
       margin="dense"
-      id="password_confirmation"
+      // id="password_confirmation"
       label="パスワードの確認"
       type="password"
       value={props.passwordConfirmation}

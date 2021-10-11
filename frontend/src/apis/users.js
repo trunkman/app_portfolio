@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { signUp, logOut, loggedIn, userShow } from '../urls/index'
+import { signUp, userShow } from '../urls/index'
 
 // ユーザーページを表示するapi
 export const fetchUser = (userId) => {
@@ -29,27 +29,5 @@ export const postSignUp = (params) => {
     .catch(e => {
       console.error(e);
       return 'nil'
-    })
-}
-
-// ログアウトするapi
-export const deleteLogout = () => {
-  return axios.delete(logOut, { withCredentials: true })
-    .then(res => {
-      console.log('ログアウトapi', res)
-    })
-    .catch(e => {
-      console.error(e)
-    })
-}
-
-// ログイン状態を追跡するapi
-export const fetchLoggedIn = () => {
-  return axios.get(loggedIn, { withCredentials: true })
-    .then(res => {
-      console.log('ログイン状況', res)
-      return res
-    }).catch(error => {
-      console.log('ログイン状況エラー', error)
     })
 }

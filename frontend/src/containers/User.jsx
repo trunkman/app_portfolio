@@ -20,12 +20,12 @@ export const User = (props) => {
   return (
     <Fragment>
       <Header
-        loggedInStatus={props.loggedInStatus}
-        handleLogin={props.handleLogin}
-        handleLogout={props.handleLogout}
         open={openLogInDialog}
-        handleClose={handleCloseLogIn}
         handleClickOpenLogIn={handleOpenLogIn}
+        handleClose={handleCloseLogIn}
+        loggedInStatus={props.loggedInStatus}
+        handleLogIn={props.handleLogIn}
+        handleLogOut={props.handleLogOut}
       />
       <h1>ユーザーページ</h1>
       <p>Idは{props.match.params.id}です</p>

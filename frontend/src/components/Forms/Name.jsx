@@ -8,7 +8,7 @@ export const Name = (props) => {
     <TextField
       autoFocus
       margin="dense"
-      id="name"
+      // id="name"
       label="名前"
       type="text"
       required

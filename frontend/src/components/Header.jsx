@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useHistory } from 'react-router-dom';
 //api
-import { deleteLogout } from "../apis/users";
+import { deleteLogout } from "../apis/sessions";
 
 // ヘッダーのstyle
 import AppBar from '@mui/material/AppBar';
@@ -22,9 +22,8 @@ export const Header = (props) => {
   const handleClickLogout = () => {
     deleteLogout()
       .then(() => {
-        props.handleLogOut()
-        props.handleCloseLogIn()
-        history.push(`/`)
+        props.handleLogOut();
+        history.push(`/`);
       })
       .catch(error => console.log("ログアウトエラー", error))
   }
@@ -63,7 +62,7 @@ export const Header = (props) => {
               <Button color="inherit" onClick={props.handleClickOpenLogIn}>
                 ログイン
                 <LogInDialog open={props.open}
-                  handleClose={props.handleCloseLogIn}
+                  handleClose={props.handleClose}
                   handleLogin={props.handleLogIn}
                 />
               </Button>

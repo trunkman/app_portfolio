@@ -8,7 +8,7 @@ export const Password = (props) => {
     <TextField
       autoFocus
       margin="dense"
-      id="password"
+      // id="password"
       label="パスワード"
       type="password"
       value={props.password}
