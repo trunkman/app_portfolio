@@ -33,7 +33,8 @@ module Api
           # @user.send_activation_email(メール実装は後でする)
           @user.activate
           log_in @user
-          render json: { user: @user},
+          render json: { logged_in: true,
+                         user: @user },
                  status: :created
         else
           render json: {}, 
@@ -47,10 +48,12 @@ module Api
 
       def update
         @user = User.find(@params[:id])
-        if @user.save
-          redirect_to @user
+        if @user.update(user_params)
+          render json: { user: @user },
+                 status: :created
         else
-          render 'edit'
+          render json: {}, 
+                 status: :unprocessable_entity
         end
       end
 

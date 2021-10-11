@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 
 // api
-import { postSignUp } from '../apis/users';
+import { postUpdate } from '../apis/users';
 
 // ダイアログのstyles
 import Button from '@mui/material/Button';
@@ -18,7 +18,7 @@ import { Email } from './Forms/Email';
 import { Password } from './Forms/Password';
 import { PasswordConfirmation } from './Forms/PasswordConfirmation';
 
-export const SignUpDialog = (props) => {
+export const SettingDialog = (props) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -26,33 +26,31 @@ export const SignUpDialog = (props) => {
   const history = useHistory()
 
   const handleSubmit = () => {
-    postSignUp({
+    postUpdate({
       name: name,
       email: email,
       password: password,
       password_confirmation: passwordConfirmation,
-    }).then((data) => {
-      props.handleLogIn(data.user)
+    }).then(() => {
       setName('')
       setEmail('')
       setPassword('')
       setpasswordConfirmaiton('')
-      history.push(`/user/${data.user.id}`)
     })
   }
 
-  // 新規登録ダイアログの内容を返す
+  // Settingダイアログの内容を返す
   return (
     <Dialog
       open={props.open}
       onClose={props.handleClose}
     >
       <DialogTitle>
-        新規登録
+        設定
       </DialogTitle>
       <DialogContent>
         <DialogContentText>
-          下記項目を入力し、登録をお願いします。
+          情報更新する項目を入力し、送信ボタンを押してください。
         </DialogContentText>
 
         <Name
@@ -81,7 +79,7 @@ export const SignUpDialog = (props) => {
           type='submit'
           autoFocus
         >
-          新規登録
+          情報の更新
         </Button>
       </DialogActions>
 

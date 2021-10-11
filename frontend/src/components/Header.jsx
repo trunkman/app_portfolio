@@ -63,7 +63,7 @@ export const Header = (props) => {
                 ログイン
                 <LogInDialog open={props.open}
                   handleClose={props.handleClose}
-                  handleLogin={props.handleLogIn}
+                  handleLogIn={props.handleLogIn}
                 />
               </Button>
             )
