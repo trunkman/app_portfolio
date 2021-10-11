@@ -7,6 +7,7 @@ export const postLogIn = (params) => {
     session: {
       email: params.email,
       password: params.password,
+      remember_me: params.remember_me
     },
     withCredentials: true
   })

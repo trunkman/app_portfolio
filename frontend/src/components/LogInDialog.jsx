@@ -15,10 +15,12 @@ import DialogContentText from '@mui/material/DialogContentText';
 // Formsコンポーネント
 import { Email } from './Forms/Email';
 import { Password } from './Forms/Password';
+import { RememberMe } from './Forms/RememberMe';
 
 export const LogInDialog = (props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [remenberMe, setRememberMe] = useState('1')
   const history = useHistory()
 
   // ログインapiを呼び出すCallback関数
@@ -26,11 +28,12 @@ export const LogInDialog = (props) => {
     postLogIn({
       email: email,
       password: password,
+      remember_me: remenberMe,
     }).then(data => {
-      props.handleLogIn(data)
-      setEmail('')
-      setPassword('')
-      history.push(`/user/${data.user.id}`)
+      props.handleLogIn(data);
+      setEmail('');
+      setPassword('');
+      history.push(`/user/${data.user.id}`);
     })
   }
 
@@ -54,6 +57,10 @@ export const LogInDialog = (props) => {
         <Password
           password={password}
           handleChange={e => setPassword(e.target.value)}
+        />
+        <RememberMe
+          remenberMe={remenberMe}
+          handleChange={e => setRememberMe(e.target.checked)}
         />
 
       </DialogContent>

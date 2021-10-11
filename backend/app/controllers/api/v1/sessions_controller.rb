@@ -8,7 +8,7 @@ module Api
         if user&.authenticate(params[:session][:password])
           if user.activated?
             log_in user
-            # params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+            params[:session][:remember_me] == '1' ? remember(user) : forget(user)
             render json: { logged_in: true,
                            user: user },
                    status: :created

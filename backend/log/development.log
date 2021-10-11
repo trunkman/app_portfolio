@@ -26560,3 +26560,198 @@ Processing by Api::V1::SessionsController#logged_in? as HTML
 Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 223)
 
 
+Started GET "/api/v1/logged_in" for 133.32.240.156 at 2021-10-11 02:37:41 +0000
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 2828)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.156 at 2021-10-11 02:38:04 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 237)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.156 at 2021-10-11 02:42:05 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 226)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.156 at 2021-10-11 02:42:22 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 226)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.156 at 2021-10-11 02:46:31 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 1ms (Views: 0.1ms | Allocations: 223)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.156 at 2021-10-11 02:47:13 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | Allocations: 226)
+
+
+Started POST "/api/v1/login" for 133.32.240.156 at 2021-10-11 02:48:04 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>true}, "withCredentials"=>true}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 201 Created in 301ms (Views: 0.7ms | ActiveRecord: 1.3ms | Allocations: 14867)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.156 at 2021-10-11 02:48:05 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 193)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.156 at 2021-10-11 02:48:05 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 174)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.156 at 2021-10-11 02:48:05 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 174)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.156 at 2021-10-11 02:48:05 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 174)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.156 at 2021-10-11 02:48:05 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 174)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.156 at 2021-10-11 02:49:57 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | Allocations: 344)
+
+
+Started POST "/api/v1/login" for 133.32.240.156 at 2021-10-11 02:50:32 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "withCredentials"=>true}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:50:in `remember'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", "$2a$12$79zI4pO3jLSjyxX0BOEAmutqMLeVQdk5NNbrhPHDSlbtso.FmFoBe"], ["updated_at", "2021-10-11 02:50:32.778007"], ["id", 1]]
+  ↳ app/models/user.rb:50:in `remember'
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:50:in `remember'
+Completed 500 Internal Server Error in 582ms (ActiveRecord: 5.1ms | Allocations: 19291)
+
+
+  
+NameError (undefined local variable or method `user_id' for #<Api::V1::SessionsController:0x000000000085c0>
+Did you mean?  user):
+  
+app/helpers/sessions_helper.rb:10:in `remember'
+app/controllers/api/v1/sessions_controller.rb:11:in `create'
+Started GET "/api/v1/logged_in" for 133.32.240.156 at 2021-10-11 02:52:13 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 264)
+
+
+Started POST "/api/v1/login" for 133.32.240.156 at 2021-10-11 02:52:30 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "withCredentials"=>true}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:50:in `remember'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", "$2a$12$qWNrBnAuKTMTb70yU7dBVeQVKLyfyEoCjGmLx08aYcr0fJXinV.9e"], ["updated_at", "2021-10-11 02:52:30.586281"], ["id", 1]]
+  ↳ app/models/user.rb:50:in `remember'
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:50:in `remember'
+Completed 500 Internal Server Error in 560ms (ActiveRecord: 4.9ms | Allocations: 6173)
+
+
+  
+NameError (undefined local variable or method `user_id' for #<Api::V1::SessionsController:0x00000000008908>
+Did you mean?  user):
+  
+app/helpers/sessions_helper.rb:10:in `remember'
+app/controllers/api/v1/sessions_controller.rb:11:in `create'
+Started GET "/api/v1/logged_in" for 133.32.240.156 at 2021-10-11 02:52:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 174)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.156 at 2021-10-11 02:52:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 174)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.156 at 2021-10-11 02:52:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 174)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.156 at 2021-10-11 02:52:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 174)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.156 at 2021-10-11 02:52:30 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 174)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.156 at 2021-10-11 03:02:17 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | Allocations: 344)
+
+
+Started POST "/api/v1/login" for 133.32.240.156 at 2021-10-11 03:02:37 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "withCredentials"=>true}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:50:in `remember'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", "$2a$12$Gbffk4AKVOb3Ls1WQCTe6eHDgPoAf/bUey/YPErgjbnDnt643E6va"], ["updated_at", "2021-10-11 03:02:37.918735"], ["id", 1]]
+  ↳ app/models/user.rb:50:in `remember'
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:50:in `remember'
+Completed 201 Created in 578ms (Views: 0.4ms | ActiveRecord: 4.4ms | Allocations: 13879)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.156 at 2021-10-11 03:02:38 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 188)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.156 at 2021-10-11 03:02:38 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.156 at 2021-10-11 03:02:38 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 174)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.156 at 2021-10-11 03:02:38 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 175)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.156 at 2021-10-11 03:02:38 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 174)
+
+
+Started GET "/api/v1/logged_in" for 133.32.240.156 at 2021-10-11 03:08:21 +0000
+Processing by Api::V1::SessionsController#logged_in? as HTML
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 174)
+
+
