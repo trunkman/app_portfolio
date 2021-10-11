@@ -26,15 +26,13 @@ export const LogInDialog = (props) => {
     postLogIn({
       email: email,
       password: password,
-    }).then((data) => {
-      if (data) {
-        props.handleLogIn(data)
-        history.push(`/user/${data.user.id}`)
-      }
-      else
-        alert('メールアドレスまたはパスワードに誤りがあります');
+    }).then(data => {
+      props.handleLogIn(data)
+      setEmail('')
+      setPassword('')
+      history.push(`/user/${data.user.id}`)
     })
-  };
+  }
 
   // 返り値：新規登録ダイアログの内容を返す
   return (

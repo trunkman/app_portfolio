@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { signUp, logIn, logOut, loggedIn, userShow } from '../urls/index'
+import { signUp, logOut, loggedIn, userShow } from '../urls/index'
 
 // ユーザーページを表示するapi
 export const fetchUser = (userId) => {
@@ -31,8 +31,6 @@ export const postSignUp = (params) => {
       return 'nil'
     })
 }
-
-
 
 // ログアウトするapi
 export const deleteLogout = () => {

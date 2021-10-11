@@ -62,7 +62,10 @@ export const Header = (props) => {
             ) : (
               <Button color="inherit" onClick={props.handleClickOpenLogIn}>
                 ログイン
-                <LogInDialog open={props.open} handleClose={props.handleCloseLogIn} handleLogin={props.handleLogIn} />
+                <LogInDialog open={props.open}
+                  handleClose={props.handleCloseLogIn}
+                  handleLogin={props.handleLogIn}
+                />
               </Button>
             )
           }

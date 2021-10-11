@@ -7,5 +7,8 @@ export const fetchHome = () => {
       console.log('Home画面', res)
       return res.data
     })
-    .catch((e) => console.error(e))
+    .catch((e) => {
+      console.error(e)
+      alert('メールアドレスまたはパスワードに誤りがあります')
+    })
 }
