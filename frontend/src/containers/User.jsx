@@ -1,8 +1,6 @@
-import React, { Fragment, useState } from "react";
-
+import React, { Fragment, useState, useEffect } from "react";
 // ユーザーページのstyle
 import Button from '@mui/material/Button';
-
 // コンポーネント
 import { Header } from "../components/Header"
 import { SettingDialog } from "../components/SettingDialog";
@@ -57,6 +55,7 @@ export const User = (props) => {
               <SettingDialog
                 open={openSettingDialog}
                 handleClose={handleCloseSetting}
+                user={props.user}
               />
             </Button>
           )

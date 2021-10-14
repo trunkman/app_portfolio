@@ -2,13 +2,13 @@ module Api
   module V1
     class UsersController < ApplicationController
       before_action :logged_in_user, only: %i[index edit update destroy]
-      before_action :correct_user,   only: %i[edit update]
+      before_action :correct_user,   only: %i[edit]
       before_action :admin_user,     only: :destroy
 
-      def index
-        @users = User.where(activated: true)
-        render json: { users: @users }, status: :ok
-      end
+      # def index
+      #   @users = User.where(activated: true)
+      #   render json: { users: @users }, status: :ok
+      # end
 
       # ユーザーを表示するアクション
       def show
@@ -37,28 +37,28 @@ module Api
                          user: @user },
                  status: :created
         else
-          render json: {}, 
+          render json: { errors: @user.errors.full_messages }, 
                  status: :unprocessable_entity
         end
       end
 
-      def edit
-        @user = User.find(@params[:id])
-      end
+      # def edit
+      #   @user = User.find(@params[:id])
+      # end
 
       def update
-        @user = User.find(@params[:id])
+        @user = User.find(params[:id])
         if @user.update(user_params)
           render json: { user: @user },
                  status: :created
         else
-          render json: {}, 
+          render json: { errors: @user.errors.full_messages }, 
                  status: :unprocessable_entity
         end
       end
 
       def destroy
-        if User.find(params[id]).destroy
+        if User.find(params[:id]).destroy
           render json: { status: :ok }
         else
           render json: { status: :internal_server_error }
@@ -70,20 +70,6 @@ module Api
       # Strong Parameters
       def user_params
         params.require(:user).permit(:name, :email, :password, :password_confirmation)
-      end
-
-      # ログイン済みユーザーがどうか確認
-      def logged_in_user
-        unless logged_in?
-          store_location
-          redirect_to api_v1_login_url
-        end
-      end
-
-      # 正しいユーザーかどうか確認
-      def correct_user
-        @user = User.find(params[id])
-        redirect_to(root_url) unless current_user?(@user)
       end
 
       # 管理者かどうか

@@ -19,9 +19,10 @@ export const postSignUp = (params) => {
       email: params.email,
       password: params.password,
       password_confirmation: params.password_confirmation,
-    },
-    withCredentials: true
-  })
+    }
+  },
+    { withCredentials: true }
+  )
     .then(res => {
       if (res.data.logged_in) {
         console.log('signup/user#create', res);
@@ -35,18 +36,19 @@ export const postSignUp = (params) => {
 }
 
 // ユーザー情報更新のapi
-export const postUpdate = (params) => {
-  return axios.post(userPath, {
+export const patchUpdate = (params) => {
+  return axios.patch(userPath(params.user_id), {
     user: {
       name: params.name,
       email: params.email,
       password: params.password,
       password_confirmation: params.password_confirmation,
-    },
-    withCredentials: true
-  })
+    }
+  },
+    { withCredentials: true }
+  )
     .then(res => {
-      if (res.data.logged_in) {
+      if (res.data) {
         console.log('user#update', res);
         return res.data;
       }

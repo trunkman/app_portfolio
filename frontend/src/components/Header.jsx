@@ -43,12 +43,15 @@ export const Header = (props) => {
             <HotelIcon />
             <Typography variant="body1">睡眠負債</Typography>
           </IconButton>
+
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             <Link to='/'>Home</Link>
           </Typography>
+
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             <Link to='/user/1'>User</Link>
           </Typography>
+
           {/* 見やすくするため表示している */}
           <Typography variant="body1" component="div" sx={{ flexGrow: 1 }}>
             ログイン状態：{props.loggedInStatus}

@@ -8,12 +8,13 @@ export const postLogIn = (params) => {
       email: params.email,
       password: params.password,
       remember_me: params.remember_me
-    },
-    withCredentials: true
-  })
+    }
+  },
+    { withCredentials: true }
+  )
     .then(res => {
       if (res.data.logged_in) {
-        console.log('ログイン', res)
+        console.log('login', res)
         return res
       }
     })
@@ -27,7 +28,7 @@ export const postLogIn = (params) => {
 export const deleteLogout = () => {
   return axios.delete(logOut, { withCredentials: true })
     .then(res => {
-      console.log('ログアウトapi', res)
+      console.log('logout', res)
     })
     .catch(e => {
       console.error(e)
@@ -38,7 +39,7 @@ export const deleteLogout = () => {
 export const fetchLoggedIn = () => {
   return axios.get(loggedIn, { withCredentials: true })
     .then(res => {
-      console.log('ログイン状況', res)
+      console.log('loggedIn', res)
       return res
     }).catch(error => {
       console.log('ログイン状況エラー', error)

@@ -10,7 +10,9 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
 
   # setter, getter属性を定義
-  attr_accessor :remember_token, :activation_token, :reset_token
+  attr_accessor :remember_token,
+                :activation_token,
+                :reset_token
 
   # beforeフィルター
   before_save   { email.downcase! }

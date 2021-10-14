@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 
 // api
-import { postUpdate } from '../apis/users';
+import { patchUpdate } from '../apis/users';
 
 // ダイアログのstyles
 import Button from '@mui/material/Button';
@@ -19,23 +19,27 @@ import { Password } from './Forms/Password';
 import { PasswordConfirmation } from './Forms/PasswordConfirmation';
 
 export const SettingDialog = (props) => {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
+  const [name, setName] = useState(props.user.name)
+  const [email, setEmail] = useState(props.user.email)
   const [password, setPassword] = useState('')
   const [passwordConfirmation, setpasswordConfirmaiton] = useState('')
   const history = useHistory()
 
   const handleSubmit = () => {
-    postUpdate({
+    patchUpdate({
+      user_id: props.user.id,
       name: name,
       email: email,
       password: password,
       password_confirmation: passwordConfirmation,
-    }).then(() => {
+    }).then((data) => {
       setName('')
       setEmail('')
       setPassword('')
       setpasswordConfirmaiton('')
+      history.push(`/user/${data.user.id}`)
+    }).catch(() => {
+      alert('ユーザー情報の更新失敗')
     })
   }
 
@@ -45,9 +49,7 @@ export const SettingDialog = (props) => {
       open={props.open}
       onClose={props.handleClose}
     >
-      <DialogTitle>
-        設定
-      </DialogTitle>
+      <DialogTitle>設定</DialogTitle>
       <DialogContent>
         <DialogContentText>
           情報更新する項目を入力し、送信ボタンを押してください。
@@ -69,11 +71,11 @@ export const SettingDialog = (props) => {
           passwordConfirmation={passwordConfirmation}
           handleChange={e => setpasswordConfirmaiton(e.target.value)}
         />
-
       </DialogContent>
-
       <DialogActions>
-        <Button onClick={props.handleClose}>キャンセル</Button>
+        <Button onClick={props.handleClose}>
+          キャンセル
+        </Button>
         <Button
           onClick={handleSubmit}
           type='submit'
@@ -82,7 +84,6 @@ export const SettingDialog = (props) => {
           情報の更新
         </Button>
       </DialogActions>
-
     </Dialog>
   );
 }

@@ -38,6 +38,8 @@ export const SignUpDialog = (props) => {
       setPassword('')
       setpasswordConfirmaiton('')
       history.push(`/user/${data.user.id}`)
+    }).catch(() => {
+      alert('登録失敗')
     })
   }
 

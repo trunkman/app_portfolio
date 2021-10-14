@@ -30,6 +30,7 @@ export const Home = (props) => {
     setOpenLogInDialog(false)
   }
 
+  // 返り値：HOME画面
   return (
     <Fragment>
       <Header

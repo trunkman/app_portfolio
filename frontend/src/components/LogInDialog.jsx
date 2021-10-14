@@ -34,6 +34,8 @@ export const LogInDialog = (props) => {
       setEmail('');
       setPassword('');
       history.push(`/user/${res.data.user.id}`);
+    }).catch(() => {
+      alert('ログイン失敗')
     })
   }
 
