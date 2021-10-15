@@ -10,8 +10,8 @@ User.create!(name: 'Admin User',
 9.times do |n|
   name  = "#{n + 1}君"
   email = "example-#{n + 1}@example.com"
-  User.create!(name: 'name',
-               email: 'email',
+  User.create!(name: name,
+               email: email,
                password: 'foobar',
                password_confirmation: 'foobar',
                activated: true,

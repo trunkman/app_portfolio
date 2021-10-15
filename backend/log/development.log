@@ -28339,3 +28339,578 @@ Processing by Api::V1::UsersController#index as HTML
 Completed 200 OK in 6ms (Views: 2.9ms | ActiveRecord: 0.4ms | Allocations: 2691)
 
 
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 09:01:06 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 32ms (Views: 3.6ms | ActiveRecord: 1.3ms | Allocations: 16839)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 09:01:40 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.2ms | Allocations: 2554)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 09:09:23 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 7ms (Views: 2.8ms | ActiveRecord: 0.7ms | Allocations: 3147)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 09:13:45 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 21ms (Views: 2.8ms | ActiveRecord: 1.4ms | Allocations: 13041)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 09:30:05 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/ubuntu/app/backend/app/controllers/api/v1/users_controller.rb:64: syntax error, unexpected ':', expecting `end'
+                 status: :no_content 
+                       ^
+/home/ubuntu/app/backend/app/controllers/api/v1/users_controller.rb:67: syntax error, unexpected ':', expecting `end'
+                 status: :unprocessable_entity
+                       ^
+/home/ubuntu/app/backend/app/controllers/api/v1/users_controller.rb:82: syntax error, unexpected ':', expecting `end'
+               status: :unprocessable_entity
+                     ^
+/home/ubuntu/app/backend/app/controllers/api/v1/users_controller.rb:86: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/api/v1/users_controller.rb:64: syntax error, unexpected ':', expecting `end'
+app/controllers/api/v1/users_controller.rb:67: syntax error, unexpected ':', expecting `end'
+app/controllers/api/v1/users_controller.rb:82: syntax error, unexpected ':', expecting `end'
+app/controllers/api/v1/users_controller.rb:86: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/api/v1/users_controller.rb:64: syntax error, unexpected ':', expecting `end'
+app/controllers/api/v1/users_controller.rb:67: syntax error, unexpected ':', expecting `end'
+app/controllers/api/v1/users_controller.rb:82: syntax error, unexpected ':', expecting `end'
+app/controllers/api/v1/users_controller.rb:86: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 09:31:04 +0000
+  
+SyntaxError (/home/ubuntu/app/backend/app/controllers/api/v1/users_controller.rb:64: syntax error, unexpected ':', expecting `end'
+                 status: :no_content 
+                       ^
+/home/ubuntu/app/backend/app/controllers/api/v1/users_controller.rb:67: syntax error, unexpected ':', expecting `end'
+                 status: :unprocessable_entity
+                       ^
+/home/ubuntu/app/backend/app/controllers/api/v1/users_controller.rb:82: syntax error, unexpected ':', expecting `end'
+               status: :unprocessable_entity
+                     ^
+):
+  
+app/controllers/api/v1/users_controller.rb:64: syntax error, unexpected ':', expecting `end'
+app/controllers/api/v1/users_controller.rb:67: syntax error, unexpected ':', expecting `end'
+app/controllers/api/v1/users_controller.rb:82: syntax error, unexpected ':', expecting `end'
+app/controllers/api/v1/users_controller.rb:64: syntax error, unexpected ':', expecting `end'
+app/controllers/api/v1/users_controller.rb:67: syntax error, unexpected ':', expecting `end'
+app/controllers/api/v1/users_controller.rb:82: syntax error, unexpected ':', expecting `end'
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 09:34:02 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 25ms (Views: 3.1ms | ActiveRecord: 1.7ms | Allocations: 15395)
+
+
+Started DELETE "/api/v1/users/1" for 133.32.216.92 at 2021-10-15 09:34:02 +0000
+Processing by Api::V1::UsersController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:62:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:62:in `destroy'
+  [1m[36mRelationship Load (0.1ms)[0m  [1m[34mSELECT "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:62:in `destroy'
+  [1m[36mRelationship Load (0.1ms)[0m  [1m[34mSELECT "relationships".* FROM "relationships" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:62:in `destroy'
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:62:in `destroy'
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[36mcommit transaction[0m
+Started DELETE "/api/v1/users/1" for 133.32.216.92 at 2021-10-15 09:34:02 +0000
+  ↳ app/controllers/api/v1/users_controller.rb:62:in `destroy'
+Completed 204 No Content in 41ms (Views: 0.2ms | ActiveRecord: 6.4ms | Allocations: 14313)
+
+
+Processing by Api::V1::UsersController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 422 Unprocessable Entity in 5ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 1541)
+
+
+Started POST "/api/v1/login" for 133.32.216.92 at 2021-10-15 09:34:52 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1051)
+
+
+Started POST "/api/v1/login" for 133.32.216.92 at 2021-10-15 09:35:02 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 612)
+
+
+Started POST "/api/v1/login" for 133.32.216.92 at 2021-10-15 09:35:20 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"admin@example,com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example,com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 601)
+
+
+Started POST "/api/v1/login" for 133.32.216.92 at 2021-10-15 09:37:01 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 602)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/api/v1/login" for 133.32.216.92 at 2021-10-15 09:39:41 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"inoue@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "inoue@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mUser Update (1.8ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", "$2a$12$TB6lpdNWYK.vZNRAghyzNu31SMo2pMFNaMdKSQKhVwKiGA9GU.nOm"], ["updated_at", "2021-10-15 09:39:41.679955"], ["id", 2]]
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+Completed 201 Created in 563ms (Views: 0.4ms | ActiveRecord: 7.6ms | Allocations: 4997)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 09:39:51 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 26ms (Views: 15.2ms | ActiveRecord: 0.4ms | Allocations: 2339)
+
+
+Started DELETE "/api/v1/users/2" for 133.32.216.92 at 2021-10-15 09:39:51 +0000
+Processing by Api::V1::UsersController#destroy as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Filter chain halted as :admin_user rendered or redirected
+Completed 422 Unprocessable Entity in 4ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 801)
+
+
+Started DELETE "/api/v1/users/2" for 133.32.216.92 at 2021-10-15 09:39:51 +0000
+Processing by Api::V1::UsersController#destroy as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Filter chain halted as :admin_user rendered or redirected
+Completed 422 Unprocessable Entity in 4ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 800)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 09:44:10 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 15ms (Views: 7.8ms | ActiveRecord: 2.0ms | Allocations: 2299)
+
+
+Started DELETE "/api/v1/users/2" for 133.32.216.92 at 2021-10-15 09:44:11 +0000
+Processing by Api::V1::UsersController#destroy as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Filter chain halted as :admin_user rendered or redirected
+Completed 422 Unprocessable Entity in 8ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 800)
+
+
+Started DELETE "/api/v1/users/2" for 133.32.216.92 at 2021-10-15 09:44:11 +0000
+Processing by Api::V1::UsersController#destroy as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Filter chain halted as :admin_user rendered or redirected
+Completed 422 Unprocessable Entity in 7ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 800)
+
+
+Started POST "/api/v1/login" for 133.32.216.92 at 2021-10-15 09:45:19 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"inoue@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "inoue@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mUser Update (1.8ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", "$2a$12$TJGrDZr6oX6xt8O0jb4dge2QfhKaHgl59mVt5ehYywpmtugbG2ysa"], ["updated_at", "2021-10-15 09:45:19.679911"], ["id", 2]]
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mTRANSACTION (6.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+Completed 201 Created in 563ms (Views: 0.4ms | ActiveRecord: 8.5ms | Allocations: 5187)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 09:46:04 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.2ms | Allocations: 2298)
+
+
+Started DELETE "/api/v1/users/2" for 133.32.216.92 at 2021-10-15 09:46:04 +0000
+Processing by Api::V1::UsersController#destroy as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Filter chain halted as :admin_user rendered or redirected
+Completed 422 Unprocessable Entity in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 800)
+
+
+Started DELETE "/api/v1/users/2" for 133.32.216.92 at 2021-10-15 09:46:04 +0000
+Processing by Api::V1::UsersController#destroy as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Filter chain halted as :admin_user rendered or redirected
+Completed 422 Unprocessable Entity in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 800)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 09:47:38 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.2ms | Allocations: 2298)
+
+
+Started DELETE "/api/v1/users/2" for 133.32.216.92 at 2021-10-15 09:47:38 +0000
+Processing by Api::V1::UsersController#destroy as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Filter chain halted as :admin_user rendered or redirected
+Completed 422 Unprocessable Entity in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 800)
+
+
+Started DELETE "/api/v1/users/2" for 133.32.216.92 at 2021-10-15 09:47:38 +0000
+Processing by Api::V1::UsersController#destroy as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Filter chain halted as :admin_user rendered or redirected
+Completed 422 Unprocessable Entity in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 800)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 09:48:36 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 8ms (Views: 2.8ms | ActiveRecord: 0.2ms | Allocations: 2298)
+
+
+Started DELETE "/api/v1/users/2" for 133.32.216.92 at 2021-10-15 09:48:36 +0000
+Processing by Api::V1::UsersController#destroy as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Filter chain halted as :admin_user rendered or redirected
+Completed 422 Unprocessable Entity in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 800)
+
+
+Started DELETE "/api/v1/users/2" for 133.32.216.92 at 2021-10-15 09:48:36 +0000
+Processing by Api::V1::UsersController#destroy as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Filter chain halted as :admin_user rendered or redirected
+Completed 422 Unprocessable Entity in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 800)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 09:49:11 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 5ms (Views: 2.6ms | ActiveRecord: 0.2ms | Allocations: 2298)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 09:50:43 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 6ms (Views: 2.9ms | ActiveRecord: 0.2ms | Allocations: 2298)
+
+
+Started DELETE "/api/v1/users/3" for 133.32.216.92 at 2021-10-15 09:50:47 +0000
+Processing by Api::V1::UsersController#destroy as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Filter chain halted as :admin_user rendered or redirected
+Completed 422 Unprocessable Entity in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 800)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 09:50:58 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 5ms (Views: 2.6ms | ActiveRecord: 0.2ms | Allocations: 2298)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 10:01:25 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 7ms (Views: 3.0ms | ActiveRecord: 0.7ms | Allocations: 2962)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20210919003013)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password_digest" varchar, "remember_digest" varchar, "admin" boolean DEFAULT 0, "activation_digest" varchar, "activated" boolean DEFAULT 0, "activated_at" datetime, "reset_digest" varchar, "reset_sent_at" datetime, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210919003013"]]
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateRelationships (20210925025401)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "relationships" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "follower_id" integer, "followed_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_relationships_on_follower_id" ON "relationships" ("follower_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_relationships_on_followed_id" ON "relationships" ("followed_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_relationships_on_follower_id_and_follower_id" ON "relationships" ("follower_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210925025401"]]
+  [1m[36mTRANSACTION (6.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-10-15 10:04:45.925711"], ["updated_at", "2021-10-15 10:04:45.925711"]]
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Admin User"], ["email", "admin@example.com"], ["password_digest", "$2a$12$7q/FZMZ7MQuKu.xWMkcTCOQi8zJdF24kX.UBBIk1CdSfgpKOA/km."], ["admin", 1], ["activation_digest", "$2a$12$WtGurML7CGrtQEKoWqIPiOpdkeirwvo2LGTgEafpSA7hbVMcuGnpC"], ["activated", 1], ["activated_at", "2021-10-15 10:05:00.042348"], ["created_at", "2021-10-15 10:05:00.330955"], ["updated_at", "2021-10-15 10:05:00.330955"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-1@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "1君"], ["email", "example-1@example.com"], ["password_digest", "$2a$12$ljrtz4fr0tmQcZQMBpZgpeowd9hCacJp6pQf1RuYlX/18yVY/F5xe"], ["activation_digest", "$2a$12$CgZzvbY58IfXnTG.te40rOpwZlQoUWOhuiWd6QXfmxHZ0mIjKjUBm"], ["activated", 1], ["activated_at", "2021-10-15 10:05:00.613809"], ["created_at", "2021-10-15 10:05:00.890298"], ["updated_at", "2021-10-15 10:05:00.890298"]]
+  [1m[36mTRANSACTION (7.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-2@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "2君"], ["email", "example-2@example.com"], ["password_digest", "$2a$12$SuuuNwZpKgKuA7APrJ1UPezcAVP0TNrYEYJ2tF11lvjFxuIe.Z25u"], ["activation_digest", "$2a$12$of1CDKIDIdVYr6/OiQGdE.bRG3NIouiFf5lfTv.A1GAng60SRpKLy"], ["activated", 1], ["activated_at", "2021-10-15 10:05:01.174318"], ["created_at", "2021-10-15 10:05:01.452135"], ["updated_at", "2021-10-15 10:05:01.452135"]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-3@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "3君"], ["email", "example-3@example.com"], ["password_digest", "$2a$12$cjOV220cCn9Atz6uPAhbz.VpMpgurez5avZDFSrWZMUyr9.Smx.XG"], ["activation_digest", "$2a$12$Ptxd1Zq6yguw8CF2dctaf.MrKe0fnFe1ov9kE1yMgMvIIL/De172."], ["activated", 1], ["activated_at", "2021-10-15 10:05:01.734937"], ["created_at", "2021-10-15 10:05:02.027935"], ["updated_at", "2021-10-15 10:05:02.027935"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-4@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "4君"], ["email", "example-4@example.com"], ["password_digest", "$2a$12$0QU.H1xWd1unmDyPEBY8euazc8ah05k2LFjQweiVr/cSQ1xOShpaO"], ["activation_digest", "$2a$12$J2kQewNZeC9i.ZGl3QhQEug5C5fU/MJubk6t7QnYiPXCubgNIFKJ."], ["activated", 1], ["activated_at", "2021-10-15 10:05:02.308537"], ["created_at", "2021-10-15 10:05:02.585766"], ["updated_at", "2021-10-15 10:05:02.585766"]]
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-5@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "5君"], ["email", "example-5@example.com"], ["password_digest", "$2a$12$azhGu.mjeLCv/23zwvzfPOASZerBXaDSWiEEZu1KLXNMqUX63gyJi"], ["activation_digest", "$2a$12$4pM3nNfvwLJmmYh0l1s0nObwvwRAhEqAd2CZBsv.j35XOG7amp836"], ["activated", 1], ["activated_at", "2021-10-15 10:05:02.866293"], ["created_at", "2021-10-15 10:05:03.142583"], ["updated_at", "2021-10-15 10:05:03.142583"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-6@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "6君"], ["email", "example-6@example.com"], ["password_digest", "$2a$12$5lQzFnjgGm8xDX0RzK2HAuq6PxJUoDCO/sZYb22/HryyMZQ377eVW"], ["activation_digest", "$2a$12$XvtRxdTo40gup1cAYPpOJu.9xs48iqll6rVql0vl6uLXsLiInqI26"], ["activated", 1], ["activated_at", "2021-10-15 10:05:03.422850"], ["created_at", "2021-10-15 10:05:03.699623"], ["updated_at", "2021-10-15 10:05:03.699623"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-7@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "7君"], ["email", "example-7@example.com"], ["password_digest", "$2a$12$hh50f/FdIHPeBvJSKh2ZPuXGvuRUd8ti2uPnUXiX59H1igtnCeqC2"], ["activation_digest", "$2a$12$kSOysX/1XkCydXmaXzqNKuhy7ofIOPPMS4wOQaz.5F3GFKPyyP3Nq"], ["activated", 1], ["activated_at", "2021-10-15 10:05:03.981888"], ["created_at", "2021-10-15 10:05:04.258780"], ["updated_at", "2021-10-15 10:05:04.258780"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-8@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "8君"], ["email", "example-8@example.com"], ["password_digest", "$2a$12$nC.cSuAxuHpa2xgMD/Mf1OTv/1XwXg9bVU5D5SsiKbHkooiIREfwm"], ["activation_digest", "$2a$12$fbMdw4pjr60FQMKFYeAvxeye92AjNi83U7G8bSgT8Ghpf2zIdNSva"], ["activated", 1], ["activated_at", "2021-10-15 10:05:04.539152"], ["created_at", "2021-10-15 10:05:04.815884"], ["updated_at", "2021-10-15 10:05:04.815884"]]
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example-9@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "9君"], ["email", "example-9@example.com"], ["password_digest", "$2a$12$rT6ZfcQJNSrJEHjRa5wGSu4HIYHPrI1vJFqctgxJp3ccInTdRTK0y"], ["activation_digest", "$2a$12$7nby/8TfctRAOSyU2vg8huxBfryTJqqgKNFEAl0EOrSo4.0oVqLja"], ["activated", 1], ["activated_at", "2021-10-15 10:05:05.101292"], ["created_at", "2021-10-15 10:05:05.376996"], ["updated_at", "2021-10-15 10:05:05.376996"]]
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 10:05:17 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 32ms (Views: 4.7ms | ActiveRecord: 1.1ms | Allocations: 17921)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 10:05:56 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 7ms (Views: 4.4ms | ActiveRecord: 0.4ms | Allocations: 3575)
+
+
+Started POST "/api/v1/login" for 133.32.216.92 at 2021-10-15 10:06:22 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", "$2a$12$ZHINnP1tK1mEOChdN0ZF3eiKTBedX1TN3NtZwl3eOqU/syNNYtTwK"], ["updated_at", "2021-10-15 10:06:22.952518"], ["id", 1]]
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+Completed 201 Created in 561ms (Views: 0.4ms | ActiveRecord: 5.0ms | Allocations: 5251)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 10:06:27 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.3ms | Allocations: 3500)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 10:07:22 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 11ms (Views: 8.0ms | ActiveRecord: 0.3ms | Allocations: 3491)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 10:09:35 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.2ms | Allocations: 3492)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 10:10:37 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.3ms | Allocations: 3509)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 10:10:41 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 7ms (Views: 4.2ms | ActiveRecord: 0.3ms | Allocations: 3491)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 10:11:03 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.3ms | Allocations: 3491)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 10:12:01 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.2ms | Allocations: 3491)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 10:12:13 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 0.2ms | Allocations: 3491)
+
+
+Started POST "/api/v1/login" for 133.32.216.92 at 2021-10-15 10:13:25 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", "$2a$12$r8Dc392uyELW5Svj79xXAeDbRI1UD4wXrDiFw2HkX18LVVnWTtMbm"], ["updated_at", "2021-10-15 10:13:26.137985"], ["id", 1]]
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+Completed 201 Created in 559ms (Views: 0.4ms | ActiveRecord: 5.1ms | Allocations: 5192)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 10:13:28 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.3ms | Allocations: 3491)
+
+

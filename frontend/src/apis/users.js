@@ -70,3 +70,15 @@ export const fetchUsers = () => {
       console.error(e)
     })
 }
+
+// ユーザーを削除するapi
+export const deleteUser = (userId) => {
+  return axios.delete(userPath(userId), { withCredentials: true })
+    .then(res => {
+      console.log('user#destroy', res)
+      return res.data
+    })
+    .catch.error(e => {
+      console.error(e)
+    })
+}

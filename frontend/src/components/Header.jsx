@@ -52,6 +52,10 @@ export const Header = (props) => {
             <Link to='/user/1'>User</Link>
           </Typography>
 
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <Link to='/users'>一覧</Link>
+          </Typography>
+
           {/* 見やすくするため表示している */}
           <Typography variant="body1" component="div" sx={{ flexGrow: 1 }}>
             ログイン状態：{props.loggedInStatus}

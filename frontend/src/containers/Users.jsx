@@ -1,14 +1,21 @@
 import React, { Fragment, useState, useEffect } from "react";
+import Link from '@mui/material/Link';
 // api
-import { fetchUsers } from "../apis/users";
-// コンポーネント
-import { Header } from "../components/Header";
+import { fetchUsers, deleteUser } from "../apis/users";
 
 export const Users = (props) => {
-
   const [users, setUsers] = useState([])
+
   const UsersList = users.map((user) =>
-    <li>user.name</li>
+    <li key={user.id}>
+      {user.name}
+      {
+        props.user.admin &&
+        <Link component="button" onClick={() => deleteUser(user.id)}>
+          delete
+        </Link>
+      }
+    </li >
   );
 
   useEffect(() => {
@@ -21,7 +28,6 @@ export const Users = (props) => {
   // 返り値：ユーザー一覧の画面
   return (
     <Fragment>
-
       <h1>ユーザー一覧</h1>
       <ul>{UsersList}</ul>
     </Fragment>

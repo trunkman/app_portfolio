@@ -6,7 +6,7 @@ module Api
       before_action :admin_user,     only: :destroy
 
       def index
-        @users = User.all
+        @users = User.where(activated: true)
         render json: { users: @users },
                status: :ok
       end
@@ -60,9 +60,11 @@ module Api
 
       def destroy
         if User.find(params[:id]).destroy
-          render json: { status: :ok }
+          render json: {message: '削除完了'},
+                 status: :no_content 
         else
-          render json: { status: :internal_server_error }
+          render json: {message: '削除失敗'},
+                 status: :unprocessable_entity
         end
       end
 
@@ -75,7 +77,10 @@ module Api
 
       # 管理者かどうか
       def admin_user
-        redirect_to(root_url) unless current_user.admin?
+        unless current_user.admin?
+          render json: {message: '管理者ではない'},
+                 status: :unprocessable_entity
+        end
       end
     end
   end
