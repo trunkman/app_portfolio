@@ -6,6 +6,7 @@ import { fetchLoggedIn } from './apis/sessions'
 // コンテイナー
 import { Home } from './containers/Home'
 import { User } from './containers/User'
+import { Users } from './containers/Users'
 
 export default function App() {
   const [loggedInStatus, setLoggedInStatus] = useState("未ログイン");
@@ -64,6 +65,17 @@ export default function App() {
               user={user}
             />
           }>
+        </Route>
+      </Switch>
+      <Switch>
+        <Route exact
+          path="/users">
+          <Users
+            loggedInStatus={loggedInStatus}
+            handleLogIn={handleLogIn}
+            handleLogOut={handleLogOut}
+            user={user}
+          />
         </Route>
       </Switch>
     </BrowserRouter>

@@ -37,6 +37,7 @@ export const SettingDialog = (props) => {
       setEmail('')
       setPassword('')
       setpasswordConfirmaiton('')
+      alert('ユーザー情報の更新に成功しました')
       history.push(`/user/${data.user.id}`)
     }).catch(() => {
       alert('ユーザー情報の更新失敗')

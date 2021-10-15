@@ -28142,3 +28142,200 @@ Processing by Api::V1::UsersController#update as HTML
 Completed 422 Unprocessable Entity in 53ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 18575)
 
 
+Started POST "/api/v1/login" for 133.32.224.124 at 2021-10-14 05:42:24 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", "$2a$12$sDRPTUhLK9PRILa3KisnS.Rv8wpwdGx5j4c77ZXWn88RBCVWQj6kC"], ["updated_at", "2021-10-14 05:42:25.261762"], ["id", 1]]
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+Completed 201 Created in 584ms (Views: 0.5ms | ActiveRecord: 5.0ms | Allocations: 19764)
+
+
+Started PATCH "/api/v1/users/1" for 133.32.224.124 at 2021-10-14 05:42:46 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"Admin user", "email"=>"admin@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:50:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:51:in `update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "admin@example.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:51:in `update'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "name" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["name", "Admin user"], ["updated_at", "2021-10-14 05:42:46.767662"], ["id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:51:in `update'
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:51:in `update'
+Completed 201 Created in 20ms (Views: 0.5ms | ActiveRecord: 5.0ms | Allocations: 7971)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started PATCH "/api/v1/users/1" for 133.32.224.124 at 2021-10-14 05:45:54 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"Admin User", "email"=>"admin@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/application_controller.rb:19:in `correct_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:50:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:51:in `update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "admin@example.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:51:in `update'
+  [1m[36mUser Update (1.7ms)[0m  [1m[33mUPDATE "users" SET "name" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["name", "Admin User"], ["updated_at", "2021-10-14 05:45:54.695147"], ["id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:51:in `update'
+  [1m[36mTRANSACTION (6.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:51:in `update'
+Completed 201 Created in 45ms (Views: 0.5ms | ActiveRecord: 9.6ms | Allocations: 14517)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 06:48:41 +0000
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for Api::V1::UsersController
+Did you mean?  update
+               destroy
+               redirect_back_or
+               forget):
+  
+actionpack (6.1.4.1) lib/abstract_controller/base.rb:160:in `process'
+actionpack (6.1.4.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.4.1) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.4.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.4.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.4.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.4.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.4.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.4.1) lib/action_dispatch/routing/route_set.rb:842:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.1.4.1) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.4.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.4.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.4.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.4.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.4.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.4.1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-mini-profiler (2.3.3) lib/mini_profiler/profiler.rb:393:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.1.4.1) lib/rails/engine.rb:539:in `call'
+puma (5.0.0) lib/puma/configuration.rb:238:in `call'
+puma (5.0.0) lib/puma/server.rb:620:in `handle_request'
+puma (5.0.0) lib/puma/server.rb:377:in `process_client'
+puma (5.0.0) lib/puma/server.rb:231:in `block in run'
+puma (5.0.0) lib/puma/thread_pool.rb:141:in `block in spawn_thread'
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 06:50:21 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 422 Unprocessable Entity in 6ms (Views: 0.3ms | Allocations: 585)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 06:53:08 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | Allocations: 214)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 06:54:27 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 422 Unprocessable Entity in 1ms (Views: 0.1ms | Allocations: 212)
+
+
+Started POST "/api/v1/login" for 133.32.216.92 at 2021-10-15 06:55:32 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", "$2a$12$J7DaHM2yU9kBPo0Cz4qsUOvfNvHGhyiZE6z1HcRTmLV0L8qxBYq9."], ["updated_at", "2021-10-15 06:55:33.301731"], ["id", 1]]
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+Completed 201 Created in 583ms (Views: 0.5ms | ActiveRecord: 6.2ms | Allocations: 17800)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 06:55:38 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 215)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 06:56:17 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | Allocations: 364)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 06:58:00 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | Allocations: 210)
+
+
+Started POST "/api/v1/login" for 133.32.216.92 at 2021-10-15 06:58:24 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", "$2a$12$bkTWrvBBHNKqnUYCZm6QBeWqZRAoOT7jBPNyPCSAhGyAThBdMKen."], ["updated_at", "2021-10-15 06:58:24.972413"], ["id", 1]]
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+Completed 201 Created in 587ms (Views: 0.5ms | ActiveRecord: 6.5ms | Allocations: 14987)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 06:58:31 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 215)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-15 07:03:11 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 6ms (Views: 2.9ms | ActiveRecord: 0.4ms | Allocations: 2691)
+
+

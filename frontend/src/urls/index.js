@@ -6,7 +6,7 @@ export const home = `${DEFAULT_API_LOCALHOST}/`;
 //UsersController
 export const signUp = `${DEFAULT_API_LOCALHOST}/signup`;
 export const userPath = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}`;
-
+export const users = `${DEFAULT_API_LOCALHOST}/users`;
 //SessionssController
 export const logIn = `${DEFAULT_API_LOCALHOST}/login`;
 export const logOut = `${DEFAULT_API_LOCALHOST}/logout`;

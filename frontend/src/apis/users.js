@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { signUp, userPath } from '../urls/index'
+import { signUp, userPath, users } from '../urls/index'
 
 // ユーザーページを表示するapi
 export const fetchUser = (userId) => {
@@ -56,5 +56,17 @@ export const patchUpdate = (params) => {
     .catch(e => {
       console.error(e);
       return 'nil'
+    })
+}
+
+// ユーザー一覧を表示するapi
+export const fetchUsers = () => {
+  return axios.get(users, { withCredentials: true })
+    .then(res => {
+      console.log('user#index', res)
+      return res.data
+    })
+    .catch(e => {
+      console.error(e)
     })
 }
