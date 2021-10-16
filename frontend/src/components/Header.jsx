@@ -1,52 +1,32 @@
 import React from "react";
 import { useHistory } from 'react-router-dom';
-//api
-import { deleteLogout } from "../apis/sessions";
 // ヘッダーのstyle
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuItem from '@mui/material/MenuItem';
-
+import { Menu } from "@mui/material";
 // アイコン
 import HotelIcon from '@mui/icons-material/Hotel';
 import PeopleIcon from '@mui/icons-material/People';
 import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
 import AirlineSeatFlatAngledIcon from '@mui/icons-material/AirlineSeatFlatAngled';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-
 // コンポーネント
 import { LogInButton } from "./Buttons/LogInButton";
 import { LogOutButton } from "./Buttons/LogOutButton";
-import { Menu } from "@mui/material";
-
 
 export const Header = (props) => {
   const history = useHistory()
-  // ログアウトする関数
-  const handleClickLogout = () => {
-    deleteLogout()
-      .then(() => {
-        props.handleLogOut();
-        history.push(`/`);
-      })
-      .catch(error => console.log("ログアウトエラー", error))
-  }
-
   const [anchorEl, setAnchorEl] = React.useState(null);
-
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
-
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-
 
   //返り値：ヘッダー画面
   return (
@@ -59,14 +39,14 @@ export const Header = (props) => {
             <HotelIcon sx={{ fontSize: 40 }} />
             <Typography variant="body1">睡眠負債</Typography>
           </IconButton>
-          {(props.loggedInStatus === "ログイン中") &&
+          {(props.isLoggedIn) &&
             <IconButton color="inherit" aria-label="menu" sx={{ mr: 2 }}
-              onClick={() => history.push(`/user/1`)} >
+              onClick={() => history.push(`/user/{props.user.id}`)} >
               <HotelIcon />
               <Typography variant="body1">マイページ</Typography>
             </IconButton>
           }
-          {(props.loggedInStatus === "ログイン中") &&
+          {(props.isLoggedIn) &&
             <IconButton color="inherit" aria-label="menu" sx={{ mr: 2 }}
               onClick={() => history.push(`/users`)} >
               <PeopleIcon />
@@ -86,13 +66,13 @@ export const Header = (props) => {
           </IconButton>
 
           {
-            props.loggedInStatus === "ログイン中" ? (
+            props.isLoggedIn ? (
               <LogOutButton
                 handleLogOut={props.handleLogOut}
               />
             ) : (
               <LogInButton
-                handleOpen={props.handleClickOpenLogIn}
+                handleOpen={props.handleOpenLogIn}
                 open={props.open}
                 handleClose={props.handleClose}
                 handleLogIn={props.handleLogIn}

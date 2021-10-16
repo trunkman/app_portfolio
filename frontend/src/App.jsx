@@ -1,53 +1,50 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import './App.css';
-import { fetchLoggedIn } from './apis/sessions'
-
 // コンテイナー
 import { Home } from './containers/Home'
 import { User } from './containers/User'
 import { Users } from './containers/Users'
+import { Header } from "./components/Header"
+
 
 export default function App() {
-  const [loggedInStatus, setLoggedInStatus] = useState("未ログイン");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
 
   // ログインのコールバック関数
   const handleLogIn = (user) => {
-    setLoggedInStatus("ログイン中");
+    setIsLoggedIn(true);
     setUser(user);
   }
 
   // ログアウトのコールバック関数
   const handleLogOut = () => {
-    setLoggedInStatus("未ログイン");
+    setIsLoggedIn(false);
     setUser({});
   }
 
-
-  // ログイン状態を追跡するコールバック関数
-  const checkLoginStatus = () => {
-    fetchLoggedIn()
-      .then((data) => {
-        if (data.logged_in && loggedInStatus === '未ログイン') {
-          handleLogIn(data)
-        } else if (!data.logged_in && loggedInStatus === 'ログイン中') {
-          handleLogOut()
-        }
-      }).catch(e => { console.error(e) })
-  }
-
-  // useEffect(() => {
-  //   checkLoginStatus();
-  // }, [loggedInStatus])
+  // ログインDialogを開閉する関数
+  const [openLogInDialog, setOpenLogInDialog] = useState(false)
+  const handleOpenLogIn = () => setOpenLogInDialog(true)
+  const handleCloseLogIn = () => setOpenLogInDialog(false)
 
   return (
     <BrowserRouter>
+      <Header
+        open={openLogInDialog}
+        handleOpenLogIn={handleOpenLogIn}
+        handleClose={handleCloseLogIn}
+        isLoggedIn={isLoggedIn}
+        handleLogIn={handleLogIn}
+        handleLogOut={handleLogOut}
+        user={user}
+      />
       <Switch>
         <Route exact
           path="/">
           <Home
-            loggedInStatus={loggedInStatus}
+            isLoggedIn={isLoggedIn}
             handleLogIn={handleLogIn}
             handleLogOut={handleLogOut}
           />
@@ -58,7 +55,7 @@ export default function App() {
           path="/user/:id"
           render={({ match }) =>
             <User
-              loggedInStatus={loggedInStatus}
+              isLoggedIn={isLoggedIn}
               handleLogIn={handleLogIn}
               handleLogOut={handleLogOut}
               match={match}
@@ -71,7 +68,7 @@ export default function App() {
         <Route exact
           path="/users">
           <Users
-            loggedInStatus={loggedInStatus}
+            isLoggedIn={isLoggedIn}
             handleLogIn={handleLogIn}
             handleLogOut={handleLogOut}
             user={user}
