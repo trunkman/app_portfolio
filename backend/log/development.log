@@ -28914,3 +28914,150 @@ Processing by Api::V1::UsersController#index as HTML
 Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.3ms | Allocations: 3491)
 
 
+Started GET "/" for 162.142.125.195 at 2021-10-16 07:59:13 +0000
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/ubuntu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ubuntu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 11.0ms | Allocations: 495)
+Completed 200 OK in 24ms (Views: 14.6ms | ActiveRecord: 0.0ms | Allocations: 3420)
+
+
+Started GET "/" for 162.142.125.195 at 2021-10-16 07:59:14 +0000
+Processing by Rails::WelcomeController#index as */*
+  Rendering /home/ubuntu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ubuntu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 5.3ms | Allocations: 265)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.0ms | Allocations: 1122)
+
+
+Started POST "/api/v1/login" for 133.32.216.92 at 2021-10-16 08:11:31 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", "$2a$12$oWmEhJEqtUuxi1DIuvSAk.5abMIDWDTqu2z8fIC4D.2dQ8OSYo9ii"], ["updated_at", "2021-10-16 08:11:31.932137"], ["id", 1]]
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+Completed 201 Created in 591ms (Views: 0.4ms | ActiveRecord: 8.5ms | Allocations: 17537)
+
+
+Started POST "/api/v1/login" for 133.32.216.92 at 2021-10-16 08:14:14 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", "$2a$12$QdwqDo4bOf3B1D0KNvT/Nu3YuIMohDD5wbcMEnfV15NBw7jbXk1WC"], ["updated_at", "2021-10-16 08:14:14.653161"], ["id", 1]]
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+Completed 201 Created in 558ms (Views: 0.4ms | ActiveRecord: 5.8ms | Allocations: 5208)
+
+
+Started POST "/api/v1/login" for 133.32.216.92 at 2021-10-16 08:21:04 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", "$2a$12$vxcphmr98FvO5bGvIaG6wepEJuW89uWRL4f/EUy2nlDpWLS.dc7qe"], ["updated_at", "2021-10-16 08:21:05.139391"], ["id", 1]]
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+Completed 201 Created in 561ms (Views: 0.4ms | ActiveRecord: 5.9ms | Allocations: 4909)
+
+
+Started POST "/api/v1/login" for 133.32.216.92 at 2021-10-16 08:24:06 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", "$2a$12$S.6iFDJFrV7eJjTwH.tFueIo9rn/pLqIdhsE6ZV67h8jtPG2LnJo."], ["updated_at", "2021-10-16 08:24:07.406122"], ["id", 1]]
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+Completed 201 Created in 558ms (Views: 0.5ms | ActiveRecord: 4.7ms | Allocations: 4647)
+
+
+Started DELETE "/api/v1/logout" for 133.32.216.92 at 2021-10-16 08:24:43 +0000
+Processing by Api::V1::SessionsController#destroy as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 155)
+
+
+Started POST "/api/v1/login" for 133.32.216.92 at 2021-10-16 08:25:42 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", "$2a$12$GdJZT6kYfLwIoSVN0AElDOe7VHS4XMCy4iILnuwzTZDm57XnqX/Fi"], ["updated_at", "2021-10-16 08:25:43.344354"], ["id", 1]]
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+Completed 201 Created in 558ms (Views: 0.4ms | ActiveRecord: 4.9ms | Allocations: 4262)
+
+
+Started DELETE "/api/v1/logout" for 133.32.216.92 at 2021-10-16 08:25:45 +0000
+Processing by Api::V1::SessionsController#destroy as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 140)
+
+
+Started POST "/api/v1/login" for 133.32.216.92 at 2021-10-16 08:31:04 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", "$2a$12$c9vA1hT0vdU.xenCkChg/OEI3K.02FgbXbDOCRmqrcMKpIqELmuqC"], ["updated_at", "2021-10-16 08:31:05.022292"], ["id", 1]]
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+Completed 201 Created in 559ms (Views: 0.4ms | ActiveRecord: 5.9ms | Allocations: 4286)
+
+
+Started POST "/api/v1/login" for 133.32.216.92 at 2021-10-16 08:33:09 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", "$2a$12$lGIGFxtlzzEl951cefmWBOIPgkzFatesEohEUhen2RgfSaACeBJY."], ["updated_at", "2021-10-16 08:33:10.533672"], ["id", 1]]
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+Completed 201 Created in 563ms (Views: 0.4ms | ActiveRecord: 6.2ms | Allocations: 5183)
+
+
+Started POST "/api/v1/login" for 133.32.216.92 at 2021-10-16 08:36:35 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", "$2a$12$qHf23H5C1Dp7KHrKdCBKB.SZLLDMo8gvjUQ7R2ZYAtdAsMH9MJgyy"], ["updated_at", "2021-10-16 08:36:36.159466"], ["id", 1]]
+  ↳ app/models/user.rb:52:in `remember'
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:52:in `remember'
+Completed 201 Created in 557ms (Views: 0.5ms | ActiveRecord: 4.8ms | Allocations: 4584)
+
+
+Started DELETE "/api/v1/logout" for 133.32.216.92 at 2021-10-16 08:36:39 +0000
+Processing by Api::V1::SessionsController#destroy as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 140)
+
+

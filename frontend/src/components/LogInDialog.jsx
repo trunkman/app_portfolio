@@ -29,13 +29,11 @@ export const LogInDialog = (props) => {
       email: email,
       password: password,
       remember_me: remenberMe,
-    }).then(res => {
-      props.handleLogIn(res.data.user);
+    }).then(data => {
+      props.handleLogIn(data.user);
       setEmail('');
       setPassword('');
-      history.push(`/user/${res.data.user.id}`);
-    }).catch(() => {
-      alert('ログイン失敗')
+      history.push(`/user/${data.user.id}`);
     })
   }
 

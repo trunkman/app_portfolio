@@ -15,11 +15,12 @@ export const postLogIn = (params) => {
     .then(res => {
       if (res.data.logged_in) {
         console.log('login', res)
-        return res
+        return res.data
       }
     })
     .catch(e => {
       console.error(e);
+      alert('ログイン失敗')
       return 'nil'
     })
 }

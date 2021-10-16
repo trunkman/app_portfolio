@@ -13,7 +13,9 @@ import IconButton from '@mui/material/IconButton';
 import HotelIcon from '@mui/icons-material/Hotel';
 
 // コンポーネント
-import { LogInDialog } from "./LogInDialog";
+import { LogInButton } from "./Buttons/LogInButton";
+import { LogOutButton } from "./Buttons/LogOutButton";
+
 
 export const Header = (props) => {
   const history = useHistory()
@@ -62,17 +64,16 @@ export const Header = (props) => {
           </Typography>
           {
             props.loggedInStatus === "ログイン中" ? (
-              <Button color="inherit" onClick={handleClickLogout} >
-                ログアウト
-              </Button>
+              <LogOutButton
+                handleLogOut={props.handleLogOut}
+              />
             ) : (
-              <Button color="inherit" onClick={props.handleClickOpenLogIn}>
-                ログイン
-                <LogInDialog open={props.open}
-                  handleClose={props.handleClose}
-                  handleLogIn={props.handleLogIn}
-                />
-              </Button>
+              <LogInButton
+                handleOpen={props.handleClickOpenLogIn}
+                open={props.open}
+                handleClose={props.handleClose}
+                handleLogIn={props.handleLogIn}
+              />
             )
           }
         </Toolbar>

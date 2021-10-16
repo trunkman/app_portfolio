@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import { Header } from "../components/Header"
 import { SignUpDialog } from "../components/SignUpDialog"
 import { LogInDialog } from "../components/LogInDialog"
+import { LogInButton } from "../components/Buttons/LogInButton";
 
 export const Home = (props) => {
   const [openSignUpDialog, setOpenSignUpDialog] = useState(false)
@@ -56,18 +57,12 @@ export const Home = (props) => {
         />
       </Button>
 
-      <Button
-        variant="outlined"
-        onClick={handleOpenLogIn}
-      >
-        ログイン
-        <LogInDialog
-          open={openLogInDialog}
-          handleClose={handleCloseLogIn}
-          handleLogIn={props.handleLogIn}
-        />
-      </Button>
-
+      <LogInButton
+        handleOpen={handleOpenLogIn}
+        open={openLogInDialog}
+        handleClose={handleCloseLogIn}
+        handleLogIn={props.handleLogIn}
+      />
     </Fragment>
   )
 }
