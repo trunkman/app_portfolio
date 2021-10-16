@@ -1,8 +1,7 @@
 import React from "react";
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 //api
 import { deleteLogout } from "../apis/sessions";
-
 // ヘッダーのstyle
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -10,17 +9,24 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
+import MenuItem from '@mui/material/MenuItem';
+
+// アイコン
 import HotelIcon from '@mui/icons-material/Hotel';
+import PeopleIcon from '@mui/icons-material/People';
+import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
+import AirlineSeatFlatAngledIcon from '@mui/icons-material/AirlineSeatFlatAngled';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 
 // コンポーネント
 import { LogInButton } from "./Buttons/LogInButton";
 import { LogOutButton } from "./Buttons/LogOutButton";
+import { Menu } from "@mui/material";
 
 
 export const Header = (props) => {
   const history = useHistory()
-
-  // ログアウトするコールバック関数
+  // ログアウトする関数
   const handleClickLogout = () => {
     deleteLogout()
       .then(() => {
@@ -30,38 +36,55 @@ export const Header = (props) => {
       .catch(error => console.log("ログアウトエラー", error))
   }
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+
+
   //返り値：ヘッダー画面
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <HotelIcon />
+
+          <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}
+            onClick={() => history.push(`/`)} >
+            <HotelIcon sx={{ fontSize: 40 }} />
             <Typography variant="body1">睡眠負債</Typography>
           </IconButton>
+          {(props.loggedInStatus === "ログイン中") &&
+            <IconButton color="inherit" aria-label="menu" sx={{ mr: 2 }}
+              onClick={() => history.push(`/user/1`)} >
+              <HotelIcon />
+              <Typography variant="body1">マイページ</Typography>
+            </IconButton>
+          }
+          {(props.loggedInStatus === "ログイン中") &&
+            <IconButton color="inherit" aria-label="menu" sx={{ mr: 2 }}
+              onClick={() => history.push(`/users`)} >
+              <PeopleIcon />
+              <Typography variant="body1">フォロー</Typography>
+            </IconButton>
+          }
+          <IconButton color="inherit" aria-label="menu" sx={{ mr: 2 }}
+            onClick={() => history.push(`/`)} >
+            <FormatListNumberedIcon />
+            <Typography variant="body1">ランキング</Typography>
+          </IconButton>
 
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link to='/'>Home</Link>
-          </Typography>
+          <IconButton color="inherit" aria-label="menu" sx={{ mr: 2 }}
+            onClick={() => history.push(`/`)} >
+            <AirlineSeatFlatAngledIcon />
+            <Typography variant="body1">About</Typography>
+          </IconButton>
 
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link to='/user/1'>User</Link>
-          </Typography>
-
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link to='/users'>一覧</Link>
-          </Typography>
-
-          {/* 見やすくするため表示している */}
-          <Typography variant="body1" component="div" sx={{ flexGrow: 1 }}>
-            ログイン状態：{props.loggedInStatus}
-          </Typography>
           {
             props.loggedInStatus === "ログイン中" ? (
               <LogOutButton
@@ -76,6 +99,33 @@ export const Header = (props) => {
               />
             )
           }
+
+          <IconButton
+            size="large" aria-label="account of current user"
+            onClick={handleMenu} color="inherit"
+          >
+            <AccountCircle />
+          </IconButton>
+          <Menu
+            id="menu-appbar"
+            anchorEl={anchorEl}
+            anchorOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            <MenuItem onClick={handleClose}>プロフィール</MenuItem>
+            <MenuItem onClick={handleClose}>設定</MenuItem>
+            <MenuItem onClick={handleClose}>ログアウト</MenuItem>
+          </Menu>
+
         </Toolbar>
       </AppBar>
     </Box>
