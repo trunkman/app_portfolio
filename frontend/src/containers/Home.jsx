@@ -24,12 +24,12 @@ export const Home = (props) => {
         onClick={handleOpenSignUp}
       >
         新規登録
-        <SignUpDialog
-          open={openSignUpDialog}
-          handleClose={handleCloseSignUp}
-          handleLogIn={props.handleLogIn}
-        />
       </Button>
+      <SignUpDialog
+        open={openSignUpDialog}
+        handleClose={handleCloseSignUp}
+        handleLogIn={props.handleLogIn}
+      />
 
       <LogInButton
         handleOpen={handleOpenLogIn}

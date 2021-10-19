@@ -54,7 +54,7 @@ export const SignUpDialog = (props) => {
       </DialogTitle>
       <DialogContent>
         <DialogContentText>
-          下記項目を入力し、登録をお願いします。
+          下記項目を入力し「登録する」を押してください。
         </DialogContentText>
 
         <Name
@@ -83,7 +83,7 @@ export const SignUpDialog = (props) => {
           type='submit'
           autoFocus
         >
-          新規登録
+          登録する
         </Button>
       </DialogActions>
 

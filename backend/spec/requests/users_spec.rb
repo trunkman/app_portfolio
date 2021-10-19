@@ -1,10 +1,17 @@
 require 'rails_helper'
 
-RSpec.describe 'Users', type: :request do
-  describe '#new' do
-    it '登録画面の表示に成功' do
-      get api_v1_signup_path
-      expect(response).to have_http_status(:success)
+RSpec.describe 'users_api', type: :request do
+
+  let(:user) do
+    FactoryBot.create(:alice)
+  end
+
+  describe 'ユーザーページ' do
+    it 'ユーザーページを取得する' do
+      get api_v1_user_path(user)
+      json = JSON.parse(response.body)
+      expect(response.status).to eq(200)
+      expect(json['user']['email']).to eq(user.email)
     end
   end
 end

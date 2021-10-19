@@ -7,10 +7,10 @@ module SessionsHelper
   # ユーザーのセッションを永続的にする
   def remember(user)
     user.remember
-    cookies.permanent.signed[:user_id] = {value: user.id,
-                                          httponly: true}
-    cookies.permanent[:remember_token] = {value: user.remember_token,
-                                          httponly: true}
+    cookies.permanent.signed[:user_id] = { value: user.id,
+                                           httponly: true }
+    cookies.permanent[:remember_token] = { value: user.remember_token,
+                                           httponly: true }
   end
 
   # 現在ログイン中のユーザーを返す（いる場合）

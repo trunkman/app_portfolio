@@ -29203,3 +29203,4 @@ Processing by Api::V1::SessionsController#create as HTML
 Completed 201 Created in 559ms (Views: 0.4ms | ActiveRecord: 5.1ms | Allocations: 4503)
 
 
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m

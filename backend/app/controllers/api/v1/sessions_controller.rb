@@ -1,7 +1,6 @@
 module Api
   module V1
     class SessionsController < ApplicationController
-      
       # ログインするアクション
       def create
         user = User.find_by(email: params[:session][:email].downcase)
@@ -13,12 +12,12 @@ module Api
                            user: user },
                    status: :created
           else
-            render json:   { error: 'activatedされていません' }, 
+            render json: { error: 'activatedされていません' },
                    status: :unauthorized
           end
         else
-          render json:   { error: 'emailまたはパスワードが違います' },
-                 status: :unauthorized
+          render json: { error: 'emailまたはパスワードが違います' },
+                 status: :unprocessable_entity	
         end
       end
 
@@ -32,8 +31,10 @@ module Api
         current_user
         if @current_user
           render json: { logged_in: true, user: @current_user }
+                 status: :ok
         else
           render json: { logged_in: false, message: 'ログインしていません' }
+                 status: :unauthorized
         end
       end
     end

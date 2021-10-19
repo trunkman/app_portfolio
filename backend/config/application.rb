@@ -27,5 +27,10 @@ module Backend
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
     config.middleware.use ActionDispatch::ContentSecurityPolicy::Middleware
+
+    config.generators do |g|
+      g.test_framework :rspec
+    end
+    
   end
 end

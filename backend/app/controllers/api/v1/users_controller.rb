@@ -15,10 +15,9 @@ module Api
       def show
         @user = User.find(params[:id])
         if @user.activated?
-          render json: { user: @user, status: :ok }
+          render json: { user: @user }, status: :ok
         else
-          render json: { status: :internal_server_error }
-          # redirect_to root_url and return unless user.activated?
+          render json: {},  status: :unauthorized 
         end
       end
 
@@ -38,7 +37,7 @@ module Api
                          user: @user },
                  status: :created
         else
-          render json: { errors: @user.errors.full_messages }, 
+          render json: { errors: @user.errors.full_messages },
                  status: :unprocessable_entity
         end
       end
@@ -53,17 +52,17 @@ module Api
           render json: { user: @user },
                  status: :created
         else
-          render json: { errors: @user.errors.full_messages }, 
+          render json: { errors: @user.errors.full_messages },
                  status: :unprocessable_entity
         end
       end
 
       def destroy
         if User.find(params[:id]).destroy
-          render json: {message: '削除完了'},
-                 status: :no_content 
+          render json: { message: '削除完了' },
+                 status: :no_content
         else
-          render json: {message: '削除失敗'},
+          render json: { message: '削除失敗' },
                  status: :unprocessable_entity
         end
       end
@@ -78,8 +77,8 @@ module Api
       # 管理者かどうか
       def admin_user
         unless current_user.admin?
-          render json: {message: '管理者ではない'},
-                 status: :unprocessable_entity
+          render json: { message: '管理者ではない' },
+                 status: :unauthorized
         end
       end
     end
