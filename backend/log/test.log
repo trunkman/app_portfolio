@@ -5174,3 +5174,1738 @@ Processing by Api::V1::UsersController#show as HTML
   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
 Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 4043)
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$HzplXd6V8JaDGvLpk/rf3ewvn0OiEoOTrIxcBhPYS45n4qW.TZpL2"], ["admin", 1], ["activation_digest", "$2a$04$WdrKjaGm68eOpF2XKCtjdeGM3hCePhU.asSk95ZXkaXzF.RqTCLcS"], ["activated", 1], ["activated_at", "2021-10-19 01:47:47.553638"], ["created_at", "2021-10-19 01:47:47.555526"], ["updated_at", "2021-10-19 01:47:47.555526"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 01:47:47 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 4042)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$PaJjSruhB9vw0QomLDuPs.jx3ds84FKdRl3JGLgijJ.nCCSf5pYQO"], ["admin", 1], ["activation_digest", "$2a$04$ClyMJCVwU80SC1Z7r1hauOMBYn7nu4jsiDfGnvSS.P/EZSS8aN7r2"], ["activated", 1], ["activated_at", "2021-10-19 01:49:23.475179"], ["created_at", "2021-10-19 01:49:23.477007"], ["updated_at", "2021-10-19 01:49:23.477007"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 01:49:23 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 4042)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$hfgbo9jQAUb0/89R2O4Rm.ZKjnNarXjafeYHfNVuAUimBzKOq02JW"], ["admin", 1], ["activation_digest", "$2a$04$fEl1lJp259JO9jL0lJHQy.2fHnNp1gA2Iil2nsAbrWCY23BfnZNGu"], ["activated", 1], ["activated_at", "2021-10-19 01:50:28.088377"], ["created_at", "2021-10-19 01:50:28.090270"], ["updated_at", "2021-10-19 01:50:28.090270"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 01:50:28 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 4043)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 01:50:28 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$zy8pkWPIsawTpWD9dSK5L.89ikVXRzLT3ONRfA3foTEFOolVBeBoa"], ["admin", 1], ["activation_digest", "$2a$04$3SraOtuP1r8Dyl3M9Jzinu7kooeC8v7.J5kZ/tphrizsuse4JWX1W"], ["activated", 1], ["activated_at", "2021-10-19 01:55:27.037611"], ["created_at", "2021-10-19 01:55:27.039499"], ["updated_at", "2021-10-19 01:55:27.039499"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 01:55:27 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 4042)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 01:55:27 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 01:55:27 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"name"=>"Example User", "email"=>"user@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 288)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$vthDrmZlXO0Z4xISaBx0iesIvb1ZsK6w7l5nGqA6n9MaOhUUVMBc2"], ["admin", 1], ["activation_digest", "$2a$04$CerzgAfWu0flFf6hkGfW5ur1k4xYvOF5QXsyKkkyEsjUDRZa1AI/S"], ["activated", 1], ["activated_at", "2021-10-19 01:56:52.043177"], ["created_at", "2021-10-19 01:56:52.045015"], ["updated_at", "2021-10-19 01:56:52.045015"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 01:56:52 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 4042)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 01:56:52 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 01:56:52 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"users"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 278)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$BqbFfTWI.9x.0CMJph8Y8uckjYCOrE0tkps.IM30VWyVcpS9S3CEC"], ["admin", 1], ["activation_digest", "$2a$04$xCf1MhOxnbkqO/Zp56xRiu0HLUSWm4We2nrlKqhXm.d8BkHD/.57O"], ["activated", 1], ["activated_at", "2021-10-19 01:57:11.074348"], ["created_at", "2021-10-19 01:57:11.076249"], ["updated_at", "2021-10-19 01:57:11.076249"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 01:57:11 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 4042)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 01:57:11 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 01:57:11 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Example User"], ["email", "user@example.com"], ["password_digest", "$2a$04$54tlTWHUPFSw6VMensSd8eE5s6gjKAPl1pPe9anDXUYb5pAPgnHW6"], ["activation_digest", "$2a$04$jXo1pHvaVW5UFJK5uV9M8u87r4tLLmSCaft4LjpCKzPFcHEzd37Ha"], ["created_at", "2021-10-19 01:57:11.116280"], ["updated_at", "2021-10-19 01:57:11.116280"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-19 01:57:11.118913"], ["id", 1]]
+Completed 201 Created in 7ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 1986)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$8VhyueX3noCGjfmPdhr5R.8M1stoXh5K1oo6JLEvDOrk27r.QYTD."], ["admin", 1], ["activation_digest", "$2a$04$ixr1cTYBXDx995b8Ogazhu2Tk.TkHil9FO7Mz2LCD1w6DQcBIG6Yi"], ["activated", 1], ["activated_at", "2021-10-19 02:00:17.698779"], ["created_at", "2021-10-19 02:00:17.700989"], ["updated_at", "2021-10-19 02:00:17.700989"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 02:00:17 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 4042)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 02:00:17 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$cGovIF.W1aOQEm/nT9d3dO/U8BDbOWIRrOjMOKBKjTY2/B9aVF7GK"], ["admin", 1], ["activation_digest", "$2a$04$4Jp/jSPHsdOEU/70Vh4uKeYxC32c9oHzw264s6qU/VGEbErSIBEfK"], ["activated", 1], ["activated_at", "2021-10-19 02:00:17.736364"], ["created_at", "2021-10-19 02:00:17.737603"], ["updated_at", "2021-10-19 02:00:17.737603"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 02:00:17 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"alice", "email"=>"alice@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 9ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 2699)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$7tmmwrE2C5onXDdPxzkpjuXTUMKMFkm2ktQhxIRnyOi22ZlrqpAM2"], ["admin", 1], ["activation_digest", "$2a$04$s7zx8PM7mtq6s5cMxq3WnOmx7xN7vHFjgZ/583RBZPWvaHGJ0G4U6"], ["activated", 1], ["activated_at", "2021-10-19 02:00:17.762535"], ["created_at", "2021-10-19 02:00:17.763666"], ["updated_at", "2021-10-19 02:00:17.763666"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 02:00:17 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"alice", "email"=>"alice@@example,com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@@example,com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 5ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1934)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$NNJzDjPVUZkbc/FxrzTSse7L7bnQsbFgQahIrbWniMikjkLxDbKf6"], ["admin", 1], ["activation_digest", "$2a$04$kHEJlCbDY0gsu5vt6Tmu/.xmFoBk9ZtmVZ5nO33ZC2p4AO9be94gG"], ["activated", 1], ["activated_at", "2021-10-19 02:03:32.182177"], ["created_at", "2021-10-19 02:03:32.183980"], ["updated_at", "2021-10-19 02:03:32.183980"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 02:03:32 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 4043)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 02:03:32 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 02:03:32 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"正しいユーザー", "email"=>"correct@examle.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "correct@examle.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "正しいユーザー"], ["email", "correct@examle.com"], ["password_digest", "$2a$04$l0lcpsujlR3wepjTiZJi1uugrk8D3jqz..WI5pVqXuop32IWzbp8u"], ["activation_digest", "$2a$04$eTFjsyay8rXqMAgo0H0N7u6ChA0aYhjAELAyy7JcFVdF9RVOFC096"], ["created_at", "2021-10-19 02:03:32.221889"], ["updated_at", "2021-10-19 02:03:32.221889"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-19 02:03:32.224326"], ["id", 1]]
+Completed 201 Created in 6ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1991)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 02:03:32 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"誤ったユーザー", "email"=>"wrong@@example,com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wrong@@example,com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 3177)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$KYuY2eVEgfa5VE2b.1u/qe5LFFcmpXc0SNVSI33tKl10fGueuTXGm"], ["admin", 1], ["activation_digest", "$2a$04$nwRAg7Ma3C2iwFo3wlAViOTqOdukpuRSvZk3jcwB4iMBW5ailEkWC"], ["activated", 1], ["activated_at", "2021-10-19 02:25:29.484919"], ["created_at", "2021-10-19 02:25:29.486717"], ["updated_at", "2021-10-19 02:25:29.486717"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 02:25:29 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 4042)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 02:25:29 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 02:25:29 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"正しいユーザー", "email"=>"correct@examle.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "correct@examle.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "正しいユーザー"], ["email", "correct@examle.com"], ["password_digest", "$2a$04$x8SYfA1uZJLu27LW7ju/Ber1iSQss2MAp5pux1ZlMQjanYfAvSbd6"], ["activation_digest", "$2a$04$kSSoonCvO0gdTHEMGQe8z.8XFdDqvNjKVquXey/DZDobtlTqTykq6"], ["created_at", "2021-10-19 02:25:29.526116"], ["updated_at", "2021-10-19 02:25:29.526116"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-19 02:25:29.528747"], ["id", 1]]
+Completed 201 Created in 7ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1991)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 02:25:29 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"誤ったユーザー", "email"=>"wrong@@example,com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wrong@@example,com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 3177)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$4LCqtPtYeKiGXvFUcV8TWu/bhbkdMzyvmY/yN6eWgTvwTQkrua8TG"], ["admin", 1], ["activation_digest", "$2a$04$9XHY9yJ8fyHAFHIfh5tMTO08PVBMxQnGC2lD5zxqufi4NSQir.zGK"], ["activated", 1], ["activated_at", "2021-10-19 02:25:29.543056"], ["created_at", "2021-10-19 02:25:29.544006"], ["updated_at", "2021-10-19 02:25:29.544006"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$wCxgd05pjnV8r4BUftU8MulAE3y48q4MrDSQs1fe5pbkSjiFAyPXS"], ["admin", 1], ["activation_digest", "$2a$04$ZySOXRlthvXqW0J5IGiOZ.yV1nEQgvnfMIxoUg7ctg43hLOU7RRRy"], ["activated", 1], ["activated_at", "2021-10-19 02:25:45.209373"], ["created_at", "2021-10-19 02:25:45.211357"], ["updated_at", "2021-10-19 02:25:45.211357"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 02:25:45 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 4042)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 02:25:45 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 02:25:45 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"正しいユーザー", "email"=>"correct@examle.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "correct@examle.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "正しいユーザー"], ["email", "correct@examle.com"], ["password_digest", "$2a$04$uiEV8P.0lLxNFscPb76I.OitYzdwqttHcZcG6dAb4lpVlnSFfrCR2"], ["activation_digest", "$2a$04$C7pDT9n2dnM1o5CO1CbhXulj9RHrO/5OzuXDhrSslnS6lXPW3sOCy"], ["created_at", "2021-10-19 02:25:45.250565"], ["updated_at", "2021-10-19 02:25:45.250565"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-19 02:25:45.253218"], ["id", 1]]
+Completed 201 Created in 6ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1991)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 02:25:45 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"誤ったユーザー", "email"=>"wrong@@example,com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wrong@@example,com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 3177)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$482dKT74AeNf9tS/s9Fj.O5mo6F62zlevfxvwjwuxJQCBlD812p/y"], ["admin", 1], ["activation_digest", "$2a$04$gR2.p4G1HBs0dBweFVZLj.A6iJejapB/Be4LPVqN1fD6AvXxhBCbm"], ["activated", 1], ["activated_at", "2021-10-19 02:25:45.267616"], ["created_at", "2021-10-19 02:25:45.268536"], ["updated_at", "2021-10-19 02:25:45.268536"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$zgiDkFn3fmkJ/dEsQFf7..x6p9puthRnuEgeMFaQivXX60J6j/q8."], ["admin", 1], ["activation_digest", "$2a$04$f9h5NWffxlSDOomDFpJl7OEYemhU5lqGdwawuX5wy55orAkoR9Va."], ["activated", 1], ["activated_at", "2021-10-19 02:26:51.292684"], ["created_at", "2021-10-19 02:26:51.294540"], ["updated_at", "2021-10-19 02:26:51.294540"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 02:26:51 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 4043)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 02:26:51 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 02:26:51 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"正しいユーザー", "email"=>"correct@examle.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "correct@examle.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "正しいユーザー"], ["email", "correct@examle.com"], ["password_digest", "$2a$04$aaI4idCdgsaWEQ47oKe2Oes.aW13J2clTgfV8XrdBh76VnMK4oQTu"], ["activation_digest", "$2a$04$95o5PVZ9tpEJSAmg3C109ux8j826uxanriddCjEGAPPKfDYUHbhKO"], ["created_at", "2021-10-19 02:26:51.332935"], ["updated_at", "2021-10-19 02:26:51.332935"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-19 02:26:51.335467"], ["id", 1]]
+Completed 201 Created in 6ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1991)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 02:26:51 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"誤ったユーザー", "email"=>"wrong@@example,com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wrong@@example,com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 3177)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$fRjhGW1AiKIolmxYiD8rI.5rmiDLEV/N2pTjJNhyTlEUlRFVB.oQ2"], ["admin", 1], ["activation_digest", "$2a$04$jqtFfytut7eXSGtvH7QegOwBomRb5H0oTQE4NF/1xLmI.BgqMyh.i"], ["activated", 1], ["activated_at", "2021-10-19 02:26:51.349592"], ["created_at", "2021-10-19 02:26:51.350667"], ["updated_at", "2021-10-19 02:26:51.350667"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PATCH "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 02:26:51 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"未ログインユーザー", "email"=>"not_login@example.com"}, "id"=>"1"}
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 279)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 02:33:08 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 594)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 02:33:08 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"正しいユーザー", "email"=>"correct@examle.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "correct@examle.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "正しいユーザー"], ["email", "correct@examle.com"], ["password_digest", "$2a$04$0evk3xib5bV79BPb3XkUUe1gdl.EHR644CQaoBvXfyAug9JcjueyK"], ["activation_digest", "$2a$04$5PPEl4zZfbeSBCtgLC89aepaFhwdXQLe38K03BWD.LxCZQKqCFheu"], ["created_at", "2021-10-19 02:33:08.257212"], ["updated_at", "2021-10-19 02:33:08.257212"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-19 02:33:08.260165"], ["id", 1]]
+Completed 201 Created in 21ms (Views: 0.4ms | ActiveRecord: 1.1ms | Allocations: 12408)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 02:33:08 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"誤ったユーザー", "email"=>"wrong@@example,com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wrong@@example,com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 3180)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 02:33:33 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 593)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 02:33:33 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"正しいユーザー", "email"=>"correct@examle.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "correct@examle.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "正しいユーザー"], ["email", "correct@examle.com"], ["password_digest", "$2a$04$7E0DiFDuCZr1ccC.zQCXw.B20O.I.jXo/vrRIz64n6rsGOCVuslD2"], ["activation_digest", "$2a$04$4WZKqvUFfER1YZR7E8z/Re5NZhUnIDcCmiBy9B2YNI54h5oLlJ2Ru"], ["created_at", "2021-10-19 02:33:33.431954"], ["updated_at", "2021-10-19 02:33:33.431954"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-19 02:33:33.434762"], ["id", 1]]
+Completed 201 Created in 11ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 6033)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 02:33:33 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"誤ったユーザー", "email"=>"wrong@@example,com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wrong@@example,com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 3188)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started PATCH "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 02:33:33 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"未ログインユーザー", "email"=>"not_login@example.com"}, "id"=>"1"}
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 279)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$DyiFaFOmT453kAR8cBR7XOSJzDFJG7Lu31lHCK9Pj4vd2YYGfHvTi"], ["admin", 1], ["activation_digest", "$2a$04$Bx5cossylsjAF2to2tXZleQ2NrdfcRNFtQWIdQsX/FLRyhMlS3/Li"], ["activated", 1], ["activated_at", "2021-10-19 02:39:04.181433"], ["created_at", "2021-10-19 02:39:04.183499"], ["updated_at", "2021-10-19 02:39:04.183499"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 02:39:04 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 4042)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 02:39:04 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 02:39:04 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"正しいユーザー", "email"=>"correct@examle.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "correct@examle.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "正しいユーザー"], ["email", "correct@examle.com"], ["password_digest", "$2a$04$oQpF1aE/0IDxRmMBcBc1iuo.uRXQsmZ7l7CkLP8tpJJbHauLCPJRm"], ["activation_digest", "$2a$04$m0MmGm6COCquKJL5OiUuNeIm.BuWrVWx0KHbprsFbx3P.OsLRT0q6"], ["created_at", "2021-10-19 02:39:04.224229"], ["updated_at", "2021-10-19 02:39:04.224229"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-19 02:39:04.226834"], ["id", 1]]
+Completed 201 Created in 7ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 1983)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 02:39:04 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"誤ったユーザー", "email"=>"wrong@@example,com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wrong@@example,com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 3177)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$PM7BT6A.S.P2U0acunyzMOBbsPlf8t.V/v0jlZ70hKNALROEXloLa"], ["admin", 1], ["activation_digest", "$2a$04$1/Pr13knAokauVxJzwB7iO3POBcJfHG9jB/l3tsUduy6DianI2rXK"], ["activated", 1], ["activated_at", "2021-10-19 02:39:04.242320"], ["created_at", "2021-10-19 02:39:04.243476"], ["updated_at", "2021-10-19 02:39:04.243476"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PATCH "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 02:39:04 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"ログインユーザー", "email"=>"login@example.com"}, "id"=>"1"}
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 279)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started PATCH "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 02:39:04 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"未ログインユーザー", "email"=>"not_login@example.com"}, "id"=>"1"}
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 279)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$4NYGYq4ksUjMY2y3JBXnNeS1dT4n6IQyNlO8qIdxDxADrMrsY.x8."], ["admin", 1], ["activation_digest", "$2a$04$DMKPzYnUYmWhSsjljmbx6OB2ehFohcAE15aSmOrmXOmhNYKOa1J2S"], ["activated", 1], ["activated_at", "2021-10-19 02:40:31.780046"], ["created_at", "2021-10-19 02:40:31.781978"], ["updated_at", "2021-10-19 02:40:31.781978"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 02:40:31 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 4042)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 02:40:31 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 02:40:31 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"正しいユーザー", "email"=>"correct@examle.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "correct@examle.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "正しいユーザー"], ["email", "correct@examle.com"], ["password_digest", "$2a$04$j3wTRygDBbMVt0KOTfS.SuA6gvhTtuBOwGp8kAvo1WeRi82HHQVRa"], ["activation_digest", "$2a$04$DjpdLoS572YI6RrmN0lH7uXUtJ43/lCofhwBAY0UMGjy4.qMqmMiK"], ["created_at", "2021-10-19 02:40:31.821061"], ["updated_at", "2021-10-19 02:40:31.821061"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-19 02:40:31.823600"], ["id", 1]]
+Completed 201 Created in 7ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 1983)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 02:40:31 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"誤ったユーザー", "email"=>"wrong@@example,com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wrong@@example,com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 3177)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$bX6nb/wOBZM.ub5crHojYO.6dsHmnl042WwrOFCxeD.F3pHF1s5Hu"], ["admin", 1], ["activation_digest", "$2a$04$9qtHyhyp09CIS2JgOKbpluBuogXA8xt4G3RUfJSuM6IGHOoloqRZe"], ["activated", 1], ["activated_at", "2021-10-19 02:40:31.838317"], ["created_at", "2021-10-19 02:40:31.839407"], ["updated_at", "2021-10-19 02:40:31.839407"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started PATCH "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 02:40:31 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"未ログインユーザー", "email"=>"not_login@example.com"}, "id"=>"1"}
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 279)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$Zap5X0ZtiJ.c6riExz4GXukqId8y9.C8F0mTxyjlzYQzDyF77rwPS"], ["admin", 1], ["activation_digest", "$2a$04$x26GW18CQO8/CJJ0bakwgef5tB.uuEsBc6c2MejVIdbZSeKL9cvO."], ["activated", 1], ["activated_at", "2021-10-19 03:06:27.774759"], ["created_at", "2021-10-19 03:06:27.776769"], ["updated_at", "2021-10-19 03:06:27.776769"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:06:27 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 4043)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 03:06:27 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:06:27 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"正しいユーザー", "email"=>"correct@examle.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "correct@examle.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "正しいユーザー"], ["email", "correct@examle.com"], ["password_digest", "$2a$04$JBNGXKM.58rY5BeWX8nMFe2.c1AaO.oXpuTIOHSYh.NWK1d9AKN1m"], ["activation_digest", "$2a$04$zCWgMuA34dIQRhzXR1KUjeLlOa96zxgWrLlOo5X5WY45.Se4Y6eOq"], ["created_at", "2021-10-19 03:06:27.816782"], ["updated_at", "2021-10-19 03:06:27.816782"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-19 03:06:27.819380"], ["id", 1]]
+Completed 201 Created in 7ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 1983)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:06:27 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"誤ったユーザー", "email"=>"wrong@@example,com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wrong@@example,com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 3177)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$xEguRHk8Ji43uzGTat9oC.fQ83QuDzU9.KmUAL0EwOSH8LH8sW7ou"], ["admin", 1], ["activation_digest", "$2a$04$2oRWsMWXD0e9nN7U1LGi/uHlq3zR6lOEUZX60hXsA0DZleKv7yXpm"], ["activated", 1], ["activated_at", "2021-10-19 03:06:27.833868"], ["created_at", "2021-10-19 03:06:27.834939"], ["updated_at", "2021-10-19 03:06:27.834939"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started PATCH "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:06:27 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"未ログインユーザー", "email"=>"not_login@example.com"}, "id"=>"1"}
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 279)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$Llcp1UyoZ0DTiIPumO77RO8W69nYGrTYAb8TRyFEPxvCSJU7vkdW."], ["admin", 1], ["activation_digest", "$2a$04$USMKWKhq0E8gHYXJYgepPe89evuDmk0Ij2db3LKWgwIEweM6vr7fi"], ["activated", 1], ["activated_at", "2021-10-19 03:09:33.265106"], ["created_at", "2021-10-19 03:09:33.267241"], ["updated_at", "2021-10-19 03:09:33.267241"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:09:33 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 4042)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 03:09:33 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:09:33 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"正しいユーザー", "email"=>"correct@examle.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "correct@examle.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "正しいユーザー"], ["email", "correct@examle.com"], ["password_digest", "$2a$04$nbgqpKWz8BR2BMX1MCxPIObeb5yK7wiDJgkOLh.o2g55qWPUy9TpG"], ["activation_digest", "$2a$04$ghsTZ3P2SP/mBFimS16yGus9lfgk7nZazD1e/Ht5JOqiRREZcC5T2"], ["created_at", "2021-10-19 03:09:33.306542"], ["updated_at", "2021-10-19 03:09:33.306542"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-19 03:09:33.309081"], ["id", 1]]
+Completed 201 Created in 7ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 1983)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:09:33 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"誤ったユーザー", "email"=>"wrong@@example,com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wrong@@example,com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 3177)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$m4YLGySCu209i4eJAxHQReW8XwYWFCyRDuiiHiYZTOP/toDj6dpze"], ["admin", 1], ["activation_digest", "$2a$04$xrPv3yOoVHiNZWAcvZibKeTmhxfmiKAZjO.lu5IwvhMKZsjaZlwU2"], ["activated", 1], ["activated_at", "2021-10-19 03:09:33.323818"], ["created_at", "2021-10-19 03:09:33.324907"], ["updated_at", "2021-10-19 03:09:33.324907"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started PATCH "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:09:33 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"未ログインユーザー", "email"=>"not_login@example.com"}, "id"=>"1"}
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 279)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$ig9RPsC7jRGfbaOcGUZ1s.fnh5RRgnY22n.0m.4.5WOd9FRb5Haqq"], ["admin", 1], ["activation_digest", "$2a$04$N9Aib9lEE56EWq8RI5LSc.GrmxFFzS4S0KB1lGxLnBXdGbBhyE52y"], ["activated", 1], ["activated_at", "2021-10-19 03:10:00.170036"], ["created_at", "2021-10-19 03:10:00.172076"], ["updated_at", "2021-10-19 03:10:00.172076"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:10:00 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 4041)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 03:10:00 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:10:00 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"正しいユーザー", "email"=>"correct@examle.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "correct@examle.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "正しいユーザー"], ["email", "correct@examle.com"], ["password_digest", "$2a$04$jT6KdfZ2H5mFng7hxJukIe8Z8IlIw./YmvWUs9/5N44LQaoZMlhSS"], ["activation_digest", "$2a$04$mvM2iPpAxvvOrXYNBxoc7.oUsy50Jn79RtD8CUeFL4ZEAqBxNiyuW"], ["created_at", "2021-10-19 03:10:00.212209"], ["updated_at", "2021-10-19 03:10:00.212209"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-19 03:10:00.214762"], ["id", 1]]
+Completed 201 Created in 7ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 1983)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:10:00 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"誤ったユーザー", "email"=>"wrong@@example,com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wrong@@example,com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 3177)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$iF3hWGK6pNLeAkCK/K5X8eXl63a0Dp9ckL.dI7XqF592x5aebJKCO"], ["admin", 1], ["activation_digest", "$2a$04$aW9X47TVsFvRgFz486SCWulS3fhmRVzTBwiyVYIvxLcV0F3QwwQ4u"], ["activated", 1], ["activated_at", "2021-10-19 03:10:00.229876"], ["created_at", "2021-10-19 03:10:00.231082"], ["updated_at", "2021-10-19 03:10:00.231082"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started PATCH "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:10:00 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"未ログインユーザー", "email"=>"not_login@example.com"}, "id"=>"1"}
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 279)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$GWGKGHMMhOd23oxpEtxy/uJSIJ1kjNOQzfuiW/fCASaiUexE5xuGC"], ["admin", 1], ["activation_digest", "$2a$04$/oyBYPsViLajNcr3cX.6fOTJf2hirtt9T6timLRA/6NFpNupUn7C2"], ["activated", 1], ["activated_at", "2021-10-19 03:10:35.159326"], ["created_at", "2021-10-19 03:10:35.161168"], ["updated_at", "2021-10-19 03:10:35.161168"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:10:35 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 4043)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 03:10:35 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:10:35 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"正しいユーザー", "email"=>"correct@examle.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "correct@examle.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "正しいユーザー"], ["email", "correct@examle.com"], ["password_digest", "$2a$04$qSj6pAjHRIaE4Q2L.OTfJehA6tfPwCzNctbrvqPJbe/rzBbLQ8fk2"], ["activation_digest", "$2a$04$2gXGmvjFXIiEldofSSklxeN034ABvDD0zqnJOffC4nemVKDK6FR/e"], ["created_at", "2021-10-19 03:10:35.199963"], ["updated_at", "2021-10-19 03:10:35.199963"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-19 03:10:35.202410"], ["id", 1]]
+Completed 201 Created in 6ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1983)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:10:35 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"誤ったユーザー", "email"=>"wrong@@example,com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wrong@@example,com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 3177)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$cU47PsbGkyYZpXd0tEHyduzdTOa7bhg6Y1t.dBoE6tn3psKVN96s6"], ["admin", 1], ["activation_digest", "$2a$04$4fksVLXSQMuIxmBn6Bi9OewDs1Pjv7DY0gWstnd1bcuvvdnTCNPJe"], ["activated", 1], ["activated_at", "2021-10-19 03:10:35.216591"], ["created_at", "2021-10-19 03:10:35.217654"], ["updated_at", "2021-10-19 03:10:35.217654"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started PATCH "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:10:35 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"未ログインユーザー", "email"=>"not_login@example.com"}, "id"=>"1"}
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 279)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$EWmO0soUKPhOkmIZkh7XH.KKpns9uWEF.Uf.Ly5uoMAhq48ETrIK2"], ["admin", 1], ["activation_digest", "$2a$04$Pug2HlUtdsSeT5cMD65gj.uHBQLeXs8VXA/wRciEIaJ4Mztw5XoX."], ["activated", 1], ["activated_at", "2021-10-19 03:10:54.948503"], ["created_at", "2021-10-19 03:10:54.950220"], ["updated_at", "2021-10-19 03:10:54.950220"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:10:54 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 4041)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 03:10:54 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:10:54 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"正しいユーザー", "email"=>"correct@examle.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "correct@examle.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "正しいユーザー"], ["email", "correct@examle.com"], ["password_digest", "$2a$04$gNd6M2rMxZRnATMmdXyXSuCB0142sqWfrosmLeVrii5iOPlWB3jsy"], ["activation_digest", "$2a$04$Jz4A094kgSEblfgYYHgXJec.W5vqVkLHE9O51pvoKTdAOlF0CRGZK"], ["created_at", "2021-10-19 03:10:54.988873"], ["updated_at", "2021-10-19 03:10:54.988873"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-19 03:10:54.991414"], ["id", 1]]
+Completed 201 Created in 6ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 1983)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:10:54 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"誤ったユーザー", "email"=>"wrong@@example,com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wrong@@example,com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 3177)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$K6CjDHWevTBJgm/YgQG7yOP73BDvQBLvqoPWK0koaEJJMj7n00UD."], ["admin", 1], ["activation_digest", "$2a$04$k.fp6WH33iu90i07318q5.VFmaTDHODWm4Oi/jTTV46vCj1HMKwfm"], ["activated", 1], ["activated_at", "2021-10-19 03:10:55.005587"], ["created_at", "2021-10-19 03:10:55.006662"], ["updated_at", "2021-10-19 03:10:55.006662"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started PATCH "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:10:55 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"未ログインユーザー", "email"=>"not_login@example.com"}, "id"=>"1"}
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 279)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$C.z/cDDdhqOAGm775fNrUuhPt6HzYEcB2lLnj9qHFrknPtJ/.b05W"], ["admin", 1], ["activation_digest", "$2a$04$.8fe3uvQFDYfdsThpibrJO7hN2.gbQzxLdifCL25h6GPMaaiJjAbu"], ["activated", 1], ["activated_at", "2021-10-19 03:11:23.270657"], ["created_at", "2021-10-19 03:11:23.272322"], ["updated_at", "2021-10-19 03:11:23.272322"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:11:23 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 4041)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 03:11:23 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:11:23 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"正しいユーザー", "email"=>"correct@examle.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "correct@examle.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "正しいユーザー"], ["email", "correct@examle.com"], ["password_digest", "$2a$04$p3JrC2VpeX97fs9jVz0MaOle9La/vOzOI0Ypv4QU7HIWeuyLIdV9."], ["activation_digest", "$2a$04$ZEUfLEDFCkhiQ1HzCeH9W.L.H/i7LSti5nk7MXcRw.Y9XFx9ITAsy"], ["created_at", "2021-10-19 03:11:23.310703"], ["updated_at", "2021-10-19 03:11:23.310703"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-19 03:11:23.313252"], ["id", 1]]
+Completed 201 Created in 6ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1983)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:11:23 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"誤ったユーザー", "email"=>"wrong@@example,com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wrong@@example,com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 3177)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$LMBEC5PG5ET6efQkcpr24Of55F9E3L4zbV13g3oDAUDA5dIYOgIqe"], ["admin", 1], ["activation_digest", "$2a$04$3gaJkrFJ7qyNdaNTPOxJ4OBV47Ks1gMYLovpZyPZ0R.HvDzX62fci"], ["activated", 1], ["activated_at", "2021-10-19 03:11:23.327442"], ["created_at", "2021-10-19 03:11:23.328517"], ["updated_at", "2021-10-19 03:11:23.328517"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started PATCH "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:11:23 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"未ログインユーザー", "email"=>"not_login@example.com"}, "id"=>"1"}
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 279)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$Bw1weH/I1GOTaOlSQ3wuNeOsoU0.bze.rjl8y8UulVyGUg8T5d2qS"], ["admin", 1], ["activation_digest", "$2a$04$M95kbAuoTQPtdvcfXdJV5.BJXtHreeX3QWt41nAoBYnDkW2RcVgzW"], ["activated", 1], ["activated_at", "2021-10-19 03:13:00.094147"], ["created_at", "2021-10-19 03:13:00.096111"], ["updated_at", "2021-10-19 03:13:00.096111"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:13:00 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 4041)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 03:13:00 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:13:00 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"正しいユーザー", "email"=>"correct@examle.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "correct@examle.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "正しいユーザー"], ["email", "correct@examle.com"], ["password_digest", "$2a$04$8JGFzun1c3I1KYnJf4gwHew9Y59Q7OUgi2zXq2nLWr15zSo9dUoZS"], ["activation_digest", "$2a$04$A6g3by8fAP1HmWdCMshneuGKuDo64mMXCVEVM.kSV817Llwp6Ly52"], ["created_at", "2021-10-19 03:13:00.136027"], ["updated_at", "2021-10-19 03:13:00.136027"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-19 03:13:00.138517"], ["id", 1]]
+Completed 201 Created in 7ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 1983)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:13:00 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"誤ったユーザー", "email"=>"wrong@@example,com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wrong@@example,com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 3177)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$OCAED3J4qwtXCZFHoNPH5eiGfTk9EuXR8TSDDHuVH0ieJORo4bN4a"], ["admin", 1], ["activation_digest", "$2a$04$5M/mPeqBz.mAUzbHGYnB6eba5zCTkOdP.0qwxk9zDENim8/BCKCgm"], ["activated", 1], ["activated_at", "2021-10-19 03:13:00.152986"], ["created_at", "2021-10-19 03:13:00.154075"], ["updated_at", "2021-10-19 03:13:00.154075"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started PATCH "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:13:00 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"未ログインユーザー", "email"=>"not_login@example.com"}, "id"=>"1"}
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 279)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$uysqv8VLS.GZt.ROEVNf9ulFIKcE3xfTugSk8NAKeaooakur2F7hC"], ["admin", 1], ["activation_digest", "$2a$04$HKzgKA43eoLafBqpp3eVVOd3.QM6JgYAjVS4emmJOiGWMkEb3LqmK"], ["activated", 1], ["activated_at", "2021-10-19 03:17:10.429127"], ["created_at", "2021-10-19 03:17:10.430902"], ["updated_at", "2021-10-19 03:17:10.430902"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:17:10 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 4041)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 03:17:10 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:17:10 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"正しいユーザー", "email"=>"correct@examle.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "correct@examle.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "正しいユーザー"], ["email", "correct@examle.com"], ["password_digest", "$2a$04$dkV/ivCtXErw5bhNM0cRAupBuxZYB7hsQhDd6kQ/bIu5..6pmJiua"], ["activation_digest", "$2a$04$XSqtC.OQ5pD1a/C3ePOjeOWjWH1O457HmJl8ziC8cXl24J.MPcVtq"], ["created_at", "2021-10-19 03:17:10.470584"], ["updated_at", "2021-10-19 03:17:10.470584"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-19 03:17:10.473144"], ["id", 1]]
+Completed 201 Created in 7ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 1983)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:17:10 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"誤ったユーザー", "email"=>"wrong@@example,com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wrong@@example,com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 3177)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$h4nbTIDI.4Rn2GIdAQAdtu2zqoDyv9iLyNKwA2r70/iUsLh2vcqvO"], ["admin", 1], ["activation_digest", "$2a$04$49e9KT1uu5SakS2gYSj10.tbvDbF7lVrzR5ON0BWHRPyqB4Gk22am"], ["activated", 1], ["activated_at", "2021-10-19 03:17:10.488127"], ["created_at", "2021-10-19 03:17:10.489057"], ["updated_at", "2021-10-19 03:17:10.489057"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started PATCH "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:17:10 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"未ログインユーザー", "email"=>"not_login@example.com"}, "id"=>"1"}
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 279)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$uIWZi/vN.UghqFXZD0cfDeFuTLxPjLgBp9SlgRK0SJvAlF4C2nKvO"], ["admin", 1], ["activation_digest", "$2a$04$QMrm4/fCp8jISpkHPrkV0OKcLzWLrQgO2TJp8YkBNGj3ffHaG35F6"], ["activated", 1], ["activated_at", "2021-10-19 03:17:28.259270"], ["created_at", "2021-10-19 03:17:28.261123"], ["updated_at", "2021-10-19 03:17:28.261123"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:17:28 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 4041)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 03:17:28 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:17:28 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"正しいユーザー", "email"=>"correct@examle.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "correct@examle.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "正しいユーザー"], ["email", "correct@examle.com"], ["password_digest", "$2a$04$H/49EQKjRpGaDf0J4hyij.gfEf.ONGvHnXNMr7Uvc1luqXbsvexna"], ["activation_digest", "$2a$04$Jv7ORS7VyUn6ixnrUTrkZOizNrHYrbzFZpWBEQF4A.cAnIcj2GtZK"], ["created_at", "2021-10-19 03:17:28.301163"], ["updated_at", "2021-10-19 03:17:28.301163"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-19 03:17:28.303759"], ["id", 1]]
+Completed 201 Created in 7ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 1983)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:17:28 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"誤ったユーザー", "email"=>"wrong@@example,com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wrong@@example,com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 3177)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$RXC/TvoTpeBBczJ3UMH76Ogew41ERUhQ2tXGf8weYGUey72Pl.Dfu"], ["admin", 1], ["activation_digest", "$2a$04$xkrwXStr440qeSrWLLWJWefG8xSpnGyZRQlfDPjIgVjmlpvqDvs0u"], ["activated", 1], ["activated_at", "2021-10-19 03:17:28.318761"], ["created_at", "2021-10-19 03:17:28.319775"], ["updated_at", "2021-10-19 03:17:28.319775"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PATCH "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:17:28 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"ログインユーザー", "email"=>"login@example.com"}, "id"=>"1"}
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 329)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started PATCH "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:17:28 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"未ログインユーザー", "email"=>"not_login@example.com"}, "id"=>"1"}
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 279)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$dN5z8WI/EHiywWw7b.wm0ORP5Ivcj8n3pAm6DJ867ln/D7TXhPZTy"], ["admin", 1], ["activation_digest", "$2a$04$KjoL5uvwvSSFe7BhM.869eY2EQ/di490FeasH.8MKThSY/p6FUaiC"], ["activated", 1], ["activated_at", "2021-10-19 03:24:56.299934"], ["created_at", "2021-10-19 03:24:56.302128"], ["updated_at", "2021-10-19 03:24:56.302128"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:24:56 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 4042)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 03:24:56 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:24:56 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"正しいユーザー", "email"=>"correct@examle.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "correct@examle.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "正しいユーザー"], ["email", "correct@examle.com"], ["password_digest", "$2a$04$TsHf1fBjuAqoEX45ojyBP.7ZKxCeCoSctDf8c5NpQxQTVbASohovG"], ["activation_digest", "$2a$04$7xdWcNzOdLPHkNJLWM7GC.n3AGBtreMGS6K/VKs02fwu4UdvY909i"], ["created_at", "2021-10-19 03:24:56.343955"], ["updated_at", "2021-10-19 03:24:56.343955"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-19 03:24:56.346626"], ["id", 1]]
+Completed 201 Created in 7ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 1983)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:24:56 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"誤ったユーザー", "email"=>"wrong@@example,com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wrong@@example,com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 3177)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$AMUsjRLiDsJMllaZSH2gwOt8384FB4Z566p8fPN4wO9.s9NbZRWte"], ["admin", 1], ["activation_digest", "$2a$04$6Gc1ytrtAaV7KvePJ7Hp5exFGyPJHBFFATkPw5TlhT1UC7iLr0kmi"], ["activated", 1], ["activated_at", "2021-10-19 03:24:56.361965"], ["created_at", "2021-10-19 03:24:56.363128"], ["updated_at", "2021-10-19 03:24:56.363128"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started PATCH "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:24:56 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"未ログインユーザー", "email"=>"not_login@example.com"}, "id"=>"1"}
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 279)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$HBprcpCXQx.IlMkpYqtUiOoxHm995RP204/EXuduDeW76J76FayWu"], ["admin", 1], ["activation_digest", "$2a$04$WSGp078hJCFh/sSONeppr.BFC6r4YNFEkoskm9KASnULBrJz5DBLe"], ["activated", 1], ["activated_at", "2021-10-19 03:25:11.096966"], ["created_at", "2021-10-19 03:25:11.099098"], ["updated_at", "2021-10-19 03:25:11.099098"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:25:11 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 4042)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 03:25:11 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:25:11 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"正しいユーザー", "email"=>"correct@examle.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "correct@examle.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "正しいユーザー"], ["email", "correct@examle.com"], ["password_digest", "$2a$04$OMhYj36zD81ymGGfHzsOBuRvnuulr0J5ajpF7Ao3qzJgpJbICQk6y"], ["activation_digest", "$2a$04$7KkGYv3lms4f3BiZ97Khoupu3nOqELYVWA.j7kNkZI4l91SDC.a5C"], ["created_at", "2021-10-19 03:25:11.140916"], ["updated_at", "2021-10-19 03:25:11.140916"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-19 03:25:11.143555"], ["id", 1]]
+Completed 201 Created in 7ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 1983)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:25:11 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"誤ったユーザー", "email"=>"wrong@@example,com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wrong@@example,com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 3177)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$Gh/XUBbOJvmB0f5NAlvrLeTjRHQ2QeFqZBjSJl8asn1hm57RWBHpu"], ["admin", 1], ["activation_digest", "$2a$04$f0TbUqIWvMRv/5A.GAGz9OpGE7Aemqla2hrHIDXYypulkzSDRghx6"], ["activated", 1], ["activated_at", "2021-10-19 03:25:11.159368"], ["created_at", "2021-10-19 03:25:11.160733"], ["updated_at", "2021-10-19 03:25:11.160733"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/login" for 127.0.0.1 at 2021-10-19 03:25:11 +0000
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started PATCH "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:25:11 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"未ログインユーザー", "email"=>"not_login@example.com"}, "id"=>"1"}
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 279)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$zDXchGEGpJQgIh49ttqvYOUCTV5MlC8zuR74/tBYRL8VIUU9eD.vK"], ["admin", 1], ["activation_digest", "$2a$04$vHXUz0qZL.BhhSCi1/dZK.SpEKuMN/nnDiEKU.LY4gM3tOevAzePK"], ["activated", 1], ["activated_at", "2021-10-19 03:26:18.926287"], ["created_at", "2021-10-19 03:26:18.928484"], ["updated_at", "2021-10-19 03:26:18.928484"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:26:18 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 4041)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 03:26:18 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:26:18 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"正しいユーザー", "email"=>"correct@examle.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "correct@examle.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "正しいユーザー"], ["email", "correct@examle.com"], ["password_digest", "$2a$04$d/4zu8gkQa2c8ohTBXHmfe8Bl5g940IV8wuY.hjgx2Klcmbhqukh6"], ["activation_digest", "$2a$04$3PnN/.FEEKDAFoZhXZHCl.Z9yhQ2JH6MzUieg3QvM9wlFD1lfdcce"], ["created_at", "2021-10-19 03:26:18.970320"], ["updated_at", "2021-10-19 03:26:18.970320"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-19 03:26:18.972919"], ["id", 1]]
+Completed 201 Created in 7ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 1983)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:26:18 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"誤ったユーザー", "email"=>"wrong@@example,com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wrong@@example,com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 3177)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$eIsipRf113RHvNXmJbQmheCvv22NzOWilNt6Fn0OPOm17d7KT2Lri"], ["admin", 1], ["activation_digest", "$2a$04$UY.hf6EVNUFi66NdK9SFpee7e9B/Wr7amKvuLHheITlV804/gCLDi"], ["activated", 1], ["activated_at", "2021-10-19 03:26:18.988234"], ["created_at", "2021-10-19 03:26:18.989320"], ["updated_at", "2021-10-19 03:26:18.989320"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/login" for 127.0.0.1 at 2021-10-19 03:26:18 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"email"=>"alice@example.com", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 726)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started PATCH "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:26:19 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"未ログインユーザー", "email"=>"not_login@example.com"}, "id"=>"1"}
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 279)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$OwpEApOBsHrM0fKt8EESBuUgmmNXgt0jzk01mhpicaPVi9KQjmrgC"], ["admin", 1], ["activation_digest", "$2a$04$mFnBa3x79NDpJaCBVOsSluJ1cx3ScjEudJKCCFIz8qfD8f8fCbwNy"], ["activated", 1], ["activated_at", "2021-10-19 03:27:08.456873"], ["created_at", "2021-10-19 03:27:08.458712"], ["updated_at", "2021-10-19 03:27:08.458712"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:27:08 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 4041)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 03:27:08 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:27:08 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"正しいユーザー", "email"=>"correct@examle.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "correct@examle.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "正しいユーザー"], ["email", "correct@examle.com"], ["password_digest", "$2a$04$RzHNnXcqCJFHTSOQj6oR8OERoUuV8uqSGhIKk83bDlUdxT.tzHxY2"], ["activation_digest", "$2a$04$mSNF21S5HvWg5AWQUm65.ONXLJf3WNsd9yGvsorp2m5AYvjnY.k1u"], ["created_at", "2021-10-19 03:27:08.498348"], ["updated_at", "2021-10-19 03:27:08.498348"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-19 03:27:08.500891"], ["id", 1]]
+Completed 201 Created in 7ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 1983)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:27:08 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"誤ったユーザー", "email"=>"wrong@@example,com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wrong@@example,com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 3177)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$mu3jsIFfq7.O4iFE0vAOg.3SEg5ak6181SVoW/7sDJ1/cEgd2xUzu"], ["admin", 1], ["activation_digest", "$2a$04$6DMLwdn1hYwcw1cxUvHP0uxPQ7piX7yM0l79m11W37vtdCkts8nIW"], ["activated", 1], ["activated_at", "2021-10-19 03:27:08.515336"], ["created_at", "2021-10-19 03:27:08.516469"], ["updated_at", "2021-10-19 03:27:08.516469"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/login" for 127.0.0.1 at 2021-10-19 03:27:08 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"alice@example.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+Completed 201 Created in 3ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 1265)
+Started PATCH "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:27:08 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"ログインユーザー", "email"=>"login@example.com"}, "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "login@example.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "name" = ?, "email" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["name", "ログインユーザー"], ["email", "login@example.com"], ["updated_at", "2021-10-19 03:27:08.531760"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1897)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started PATCH "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:27:08 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"未ログインユーザー", "email"=>"not_login@example.com"}, "id"=>"1"}
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 281)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$43OsS2e7ZRscUcCWyr6ZWuhjrY0vTVRwGmtJ9E/gzJ5ccej/Vn/.S"], ["admin", 1], ["activation_digest", "$2a$04$CZe3shOhDZPmFBKuUczM5eDfoj1Dc6HEseu06QuBSv4swV2l/C3Ba"], ["activated", 1], ["activated_at", "2021-10-19 03:29:38.914857"], ["created_at", "2021-10-19 03:29:38.916810"], ["updated_at", "2021-10-19 03:29:38.916810"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:29:38 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 4041)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 03:29:38 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:29:38 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"正しいユーザー", "email"=>"correct@examle.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "correct@examle.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "正しいユーザー"], ["email", "correct@examle.com"], ["password_digest", "$2a$04$ETybc3nvh97MkZaynLM6YOm7mtD.lsm1XfxKZzNjye/Yp9Ywpsip."], ["activation_digest", "$2a$04$8ZfVUqRnX.vVeabhJzw6k.rdCWbXZCMVbJKIkD0AysCbio/eae7Em"], ["created_at", "2021-10-19 03:29:38.956260"], ["updated_at", "2021-10-19 03:29:38.956260"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-19 03:29:38.958733"], ["id", 1]]
+Completed 201 Created in 6ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1991)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:29:38 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"誤ったユーザー", "email"=>"wrong@@example,com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wrong@@example,com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 3177)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$DaddWJJVjjuqd.70iKQFB.aIn7gKMEYDGTxj1nl9MMobm6PYpW1eO"], ["admin", 1], ["activation_digest", "$2a$04$T88qpPmCU3MmiYRXlP7VveKNAbvRi7QstXf5Azn21rDXHeHbMM7M6"], ["activated", 1], ["activated_at", "2021-10-19 03:29:38.972923"], ["created_at", "2021-10-19 03:29:38.974013"], ["updated_at", "2021-10-19 03:29:38.974013"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/login" for 127.0.0.1 at 2021-10-19 03:29:38 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"alice@example.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+Completed 201 Created in 3ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 1265)
+Started PATCH "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:29:38 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"ログインユーザー", "email"=>"login@example.com"}, "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "login@example.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "name" = ?, "email" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["name", "ログインユーザー"], ["email", "login@example.com"], ["updated_at", "2021-10-19 03:29:38.989158"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1901)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$V0hhsDnpGVMyP5atR9ScbeZEostUDRWGIpyp2TVqqIexndQnbRhG2"], ["admin", 1], ["activation_digest", "$2a$04$rxudOtKMH/Wm0GdOcx4vAOZWpYxcMiPg6luJ63NG0ET4GKwrOu44i"], ["activated", 1], ["activated_at", "2021-10-19 03:29:38.994018"], ["created_at", "2021-10-19 03:29:38.994945"], ["updated_at", "2021-10-19 03:29:38.994945"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PATCH "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:29:38 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"未ログインユーザー", "email"=>"not_login@example.com"}, "id"=>"1"}
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 281)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bob@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 2], ["name", "Bob"], ["email", "bob@example.com"], ["password_digest", "$2a$04$I0dg/IPW.1WfzlCnKuQzXee5IjGUa/JRf6kqe6Q5onLRph9sEnvU."], ["activation_digest", "$2a$04$kyx/p56Mh8ClrwcXTGq8Gea4xy7JLYh5Gv7fJauEcmnB207d93lLO"], ["activated", 1], ["activated_at", "2021-10-19 03:29:39.003089"], ["created_at", "2021-10-19 03:29:39.004174"], ["updated_at", "2021-10-19 03:29:39.004174"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/login" for 127.0.0.1 at 2021-10-19 03:29:39 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"bob@example.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bob@example.com"], ["LIMIT", 1]]
+Completed 201 Created in 3ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 803)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$nqn.hWWjWC2s8wgWAX3DuuZpnD9GyggJ/4CuO1Eff.ruwhtWPBO6C"], ["admin", 1], ["activation_digest", "$2a$04$A7yo1Cug/TCmr1if7Jk0Hu2MBsKVNT/T3VCIvIM1e4jASJuEifpRm"], ["activated", 1], ["activated_at", "2021-10-19 03:29:39.013656"], ["created_at", "2021-10-19 03:29:39.014542"], ["updated_at", "2021-10-19 03:29:39.014542"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PATCH "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:29:39 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"別のユーザー", "email"=>"not_login@example.com"}, "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Filter chain halted as :correct_user rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 503)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$t7IjFDF7f15QNPJ43R/jdeEyoGPcdcfifzre3fi9/7GC5Rf6lMXKK"], ["admin", 1], ["activation_digest", "$2a$04$7xOaGFIspjqqbE8h35.MhOoJX1Wt2CQYsD4NqZRpdtlVRykIXsCmS"], ["activated", 1], ["activated_at", "2021-10-19 03:33:42.379762"], ["created_at", "2021-10-19 03:33:42.381643"], ["updated_at", "2021-10-19 03:33:42.381643"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:33:42 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 4041)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-10-19 03:33:42 +0000
+Processing by Api::V1::UsersController#index as HTML
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 404)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:33:42 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"正しいユーザー", "email"=>"correct@examle.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "correct@examle.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "activation_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "正しいユーザー"], ["email", "correct@examle.com"], ["password_digest", "$2a$04$jZLoonba7fnmAXLTGs8Gv.pYwC19McLHqJqw2qCqdnh17KrYU1psy"], ["activation_digest", "$2a$04$jD0xN0pivT.lMLzyikbym.zxVNNqnhHVGBUGq301dPg20486eLeZK"], ["created_at", "2021-10-19 03:33:42.422019"], ["updated_at", "2021-10-19 03:33:42.422019"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "activated" = ?, "activated_at" = ? WHERE "users"."id" = ?[0m  [["activated", 1], ["activated_at", "2021-10-19 03:33:42.424493"], ["id", 1]]
+Completed 201 Created in 6ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 1991)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/signup" for 127.0.0.1 at 2021-10-19 03:33:42 +0000
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"誤ったユーザー", "email"=>"wrong@@example,com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "wrong@@example,com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 3177)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$3zIFRA9FfaIHnK4IcfmOpuN8L/nSXlfk4VOf/8p32UDfNHT8pWo0."], ["admin", 1], ["activation_digest", "$2a$04$eAaVEOOQFmjBLALTx0APg.5/TXKvcAzCssJDGxiWAmSXvBV6vunI."], ["activated", 1], ["activated_at", "2021-10-19 03:33:42.438591"], ["created_at", "2021-10-19 03:33:42.439500"], ["updated_at", "2021-10-19 03:33:42.439500"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/login" for 127.0.0.1 at 2021-10-19 03:33:42 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"alice@example.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+Completed 201 Created in 3ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 1265)
+Started PATCH "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:33:42 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"ログインユーザー", "email"=>"login@example.com"}, "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "login@example.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "name" = ?, "email" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["name", "ログインユーザー"], ["email", "login@example.com"], ["updated_at", "2021-10-19 03:33:42.453843"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 1901)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$9Oubgg5bPkdeESgJSSGTkO.Olu40rCnUdbDmDMFA.g.UK6wvAk8qi"], ["admin", 1], ["activation_digest", "$2a$04$PFn2MkAv9LoECspghHT9r./.8p5cFZnsHnmN82maZbAHo.7jzvHwi"], ["activated", 1], ["activated_at", "2021-10-19 03:33:42.458344"], ["created_at", "2021-10-19 03:33:42.459273"], ["updated_at", "2021-10-19 03:33:42.459273"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PATCH "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:33:42 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"未ログインユーザー", "email"=>"not_login@example.com"}, "id"=>"1"}
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 281)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bob@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 2], ["name", "Bob"], ["email", "bob@example.com"], ["password_digest", "$2a$04$IxrIg5UpLyW2Vf4PNqb2s.jP7VhK.wDSz3ehVaFC6Roza1iyz2may"], ["activation_digest", "$2a$04$hbBPMnag3eRmEDFloSrHzOURvRMvZ7e3yPUpKKA/IGozAa4T3WWGa"], ["activated", 1], ["activated_at", "2021-10-19 03:33:42.467387"], ["created_at", "2021-10-19 03:33:42.468287"], ["updated_at", "2021-10-19 03:33:42.468287"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/login" for 127.0.0.1 at 2021-10-19 03:33:42 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"bob@example.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bob@example.com"], ["LIMIT", 1]]
+Completed 201 Created in 3ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 803)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$2vlXhi5XlFRdi209txxuXeYg1FWT9qCjPARVIfkcUPTcURqIXre7a"], ["admin", 1], ["activation_digest", "$2a$04$c00GCyRvEs.X6cuwlxcOFOd3Kh6iPmdn6oaUQ4V0aL0cX.bkz6rui"], ["activated", 1], ["activated_at", "2021-10-19 03:33:42.477620"], ["created_at", "2021-10-19 03:33:42.478447"], ["updated_at", "2021-10-19 03:33:42.478447"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PATCH "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:33:42 +0000
+Processing by Api::V1::UsersController#update as HTML
+  Parameters: {"user"=>{"name"=>"別のユーザー", "email"=>"not_login@example.com"}, "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Filter chain halted as :correct_user rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 513)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$Ok0klrvYvN26ZEZMsj8Q9eDpLUsgdQAtDA5A1JwPmSAC11iW5GfOK"], ["admin", 1], ["activation_digest", "$2a$04$11mpp3yOirVEVGFBgnAjJ.Qj1mZqpM764/OjA3WyyZqtzWbKpXl6m"], ["activated", 1], ["activated_at", "2021-10-19 03:33:42.487402"], ["created_at", "2021-10-19 03:33:42.488316"], ["updated_at", "2021-10-19 03:33:42.488316"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started DELETE "/api/v1/users/1" for 127.0.0.1 at 2021-10-19 03:33:42 +0000
+Processing by Api::V1::UsersController#destroy as HTML
+  Parameters: {"id"=>"1"}
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 281)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bob@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 2], ["name", "Bob"], ["email", "bob@example.com"], ["password_digest", "$2a$04$/AbANp1pJ1Wm2qJeU9k5aOm.pszGMuGHyOfu.Zssti/25HPdGyZQ."], ["activation_digest", "$2a$04$IDqSZkbiNMKEkUEWZJ96puQItUuBCS68gd34DXFNwWVP/.ER7jcjK"], ["activated", 1], ["activated_at", "2021-10-19 03:33:42.496218"], ["created_at", "2021-10-19 03:33:42.497120"], ["updated_at", "2021-10-19 03:33:42.497120"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/api/v1/login" for 127.0.0.1 at 2021-10-19 03:33:42 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"bob@example.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bob@example.com"], ["LIMIT", 1]]
+Completed 201 Created in 3ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 803)
+Started DELETE "/api/v1/users/2" for 127.0.0.1 at 2021-10-19 03:33:42 +0000
+Processing by Api::V1::UsersController#destroy as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Filter chain halted as :admin_user rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 413)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m

@@ -17,7 +17,7 @@ module Api
         if @user.activated?
           render json: { user: @user }, status: :ok
         else
-          render json: {},  status: :unauthorized 
+          render json: {}, status: :unauthorized
         end
       end
 
@@ -50,7 +50,7 @@ module Api
         @user = User.find(params[:id])
         if @user.update(user_params)
           render json: { user: @user },
-                 status: :created
+                 status: :ok
         else
           render json: { errors: @user.errors.full_messages },
                  status: :unprocessable_entity
@@ -63,7 +63,7 @@ module Api
                  status: :no_content
         else
           render json: { message: '削除失敗' },
-                 status: :unprocessable_entity
+                 status: :not_found
         end
       end
 
