@@ -26,16 +26,17 @@ module Api
       end
 
       # ログイン状態を返すアクション
-      def logged_in?
-        current_user
-        if @current_user
-          render json: { logged_in: true, user: @current_user },
-                 status: :ok
-        else
-          render json: { logged_in: false, message: 'ログインしていません' },
-                 status: :unauthorized
-        end
-      end
+      # def logged_in?
+      #   current_user
+      #   if @current_user
+      #     render json: { logged_in: true, user: @current_user },
+      #            status: :ok
+      #   else
+      #     render json: { logged_in: false, message: 'ログインしていません' },
+      #            status: :unauthorized
+      #    end
+      # end
+      
     end
   end
 end

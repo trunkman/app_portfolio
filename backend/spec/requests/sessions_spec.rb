@@ -1,10 +1,6 @@
 require 'rails_helper'
 
-# RSpec.describe 'Sessions', type: :request do
-#   describe '#new' do
-#     it 'ログイン画面の表示に成功' do
-#       get api_v1_login_path
-#       expect(response).to have_http_status(:success)
-#     end
-#   end
-# end
+RSpec.describe 'sessions_api', type: :request do
+  let(:user)       { FactoryBot.create(:alice) }
+  let(:other_user) { FactoryBot.create(:bob) }
+end

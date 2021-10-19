@@ -71,7 +71,7 @@ export const LogInDialog = (props) => {
           onClick={handleSubmit}
           autoFocus
         >
-          ログイン
+          ログインする
         </Button>
       </DialogActions>
     </Dialog>
