@@ -4,6 +4,7 @@
 * frontend
 React
 Material-UI
+react testing library
 
 * backend
 Ruby
