@@ -1,10 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) do
-    User.new(name: 'Example User', email: 'user@example.com',
-             password: 'foobar', password_confirmation: 'foobar')
-  end
+  let(:user) { FactoryBot.create(:alice) }
 
   it 'ユーザーが存在している確認' do
     user.valid?
