@@ -36,7 +36,6 @@ module Api
       #            status: :unauthorized
       #    end
       # end
-      
     end
   end
 end

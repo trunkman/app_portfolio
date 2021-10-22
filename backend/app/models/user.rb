@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   # 関連付け
-  has_many :posts, dependent: :destroy
+  has_one_attached :image
+  has_many :microposts, dependent: :destroy
   has_many :active_relationships,  class_name: 'Relationship',
                                    foreign_key: 'follower_id',
                                    dependent: :destroy
@@ -107,6 +108,10 @@ class User < ApplicationRecord
   # 現在のユーザーをフォローしている場合、trueを返す
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  def feed
+    Micropost.where("user_id = ?",id)
   end
 
   private

@@ -17,17 +17,17 @@ RSpec.describe 'users_api', type: :request do
 
   it '新規ユーザーを登録する' do
     post api_v1_signup_path, params: { user: { name: '正しいユーザー',
-                                                email: 'correct@examle.com',
-                                                password: 'foobar',
-                                                password_confirmation: 'foobar' } }
+                                               email: 'correct@examle.com',
+                                               password: 'foobar',
+                                               password_confirmation: 'foobar' } }
     expect(response.status).to eq(201)
   end
 
   it '新規ユーザーが保存できなかった時はエラーを返す' do
     post api_v1_signup_path, params: { user: { name: '誤ったユーザー',
-                                                email: 'wrong@@example,com',
-                                                password: 'foobar',
-                                                password_confirmation: 'password' } }
+                                               email: 'wrong@@example,com',
+                                               password: 'foobar',
+                                               password_confirmation: 'password' } }
     expect(response.status).to eq(422)
   end
 

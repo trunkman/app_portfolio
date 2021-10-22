@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       end
       resources :accountactivations, only: [:edit]
       resources :password_resets,    only: %i[new create edit update]
+      resources :microposts,         only: %i[create destroy]
     end
   end
 end

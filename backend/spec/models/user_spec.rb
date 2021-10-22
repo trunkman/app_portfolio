@@ -83,9 +83,8 @@ RSpec.describe User, type: :model do
 
   describe 'ユーザーと投稿の紐付けテスト' do
     it 'ユーザー削除に紐づいて投稿も削除' do
-      user.posts.create(content: 'Lorem ipsum')
-      expect{user.destroy}.to change{Post.count}.from(1).to(0)
+      user.microposts.create(content: 'Lorem ipsum')
+      expect { user.destroy }.to change { Micropost.count }.by(-1)
     end
   end
-
 end
