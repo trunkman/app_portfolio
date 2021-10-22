@@ -80,4 +80,12 @@ RSpec.describe User, type: :model do
       expect(user.authenticated?(:remember, '')).to be_falsey
     end
   end
+
+  describe 'ユーザーと投稿の紐付けテスト' do
+    it 'ユーザー削除に紐づいて投稿も削除' do
+      user.posts.create(content: 'Lorem ipsum')
+      expect{user.destroy}.to change{Post.count}.from(1).to(0)
+    end
+  end
+
 end
