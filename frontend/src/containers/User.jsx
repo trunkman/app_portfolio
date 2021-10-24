@@ -3,12 +3,19 @@ import React, { Fragment, useState } from "react";
 import Button from '@mui/material/Button';
 // コンポーネント
 import { SettingDialog } from "../components/SettingDialog";
+import { MicropostDialog } from "../components/MicropostDialog";
 
 export const User = (props) => {
-  // 設定変更Dialogを開閉する関数(ログイン)
   const [openSettingDialog, setOpenSettingDialog] = useState(false)
+  const [openDialogPost, setOpenDialogPost] = useState(false)
+
+  // 設定変更Dialogを開閉する関数
   const handleOpenSetting = () => { setOpenSettingDialog(true) }
   const handleCloseSetting = () => { setOpenSettingDialog(false) }
+
+  // 投稿Dialogを開閉する関数
+  const handleOpenPost = () => { setOpenDialogPost(true) }
+  const handleClosePost = () => { setOpenDialogPost(false) }
 
   // 返り値：ユーザー画面
   return (
@@ -18,21 +25,42 @@ export const User = (props) => {
       <p>Idは{props.user.id}です</p>
       <p>名前は{props.user.name}です</p>
       <p>Emailは{props.user.email}です</p>
+
       {
         props.isLoggedIn &&
-        <Button
-          variant="outlined"
-          onClick={handleOpenSetting}
-        >
+        <Button variant="outlined" onClick={handleOpenSetting}>
           設定（ユーザー情報の更新）
           <SettingDialog
-            open={openSettingDialog}
             handleClose={handleCloseSetting}
+            open={openSettingDialog}
             user={props.user}
           />
         </Button>
-
       }
+
+      <Button variant="outlined" onClick={handleOpenPost}>
+        投稿
+        <MicropostDialog
+          handleClose={handleClosePost}
+          open={openDialogPost}
+          user={props.user}
+        />
+      </Button>
+
+      <div>
+        <p>user.</p>
+        <p>投稿時間</p>
+        <p>投稿内容1</p>
+        {/* 削除リンク */}
+      </div>
+
+      <div>
+        <p>ユーザー名</p>
+        <p>投稿時間</p>
+        <p>投稿内容2</p>
+        {/* 削除リンク */}
+
+      </div>
     </Fragment>
   )
 }
