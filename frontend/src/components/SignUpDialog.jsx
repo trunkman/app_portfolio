@@ -77,7 +77,7 @@ export const SignUpDialog = (props) => {
       </DialogContent>
 
       <DialogActions>
-        <Button onClick={props.handleClose}>キャンセル</Button>
+        <Button onClick={() => { props.handleClose() }}>キャンセル</Button>
         <Button
           onClick={handleSubmit}
           type='submit'

@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
-
-// api
-import { patchUpdate } from '../apis/users';
-
 // ダイアログのstyles
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -11,7 +7,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-
+// api
+import { patchUpdate } from '../apis/users';
 // Formsコンポーネント
 import { Name } from './Forms/Name';
 import { Email } from './Forms/Email';
@@ -24,7 +21,7 @@ export const SettingDialog = (props) => {
   const [password, setPassword] = useState('')
   const [passwordConfirmation, setpasswordConfirmaiton] = useState('')
   const history = useHistory()
-
+  // 送信のCallback関数
   const handleSubmit = () => {
     patchUpdate({
       user_id: props.user.id,
@@ -53,9 +50,8 @@ export const SettingDialog = (props) => {
       <DialogTitle>設定</DialogTitle>
       <DialogContent>
         <DialogContentText>
-          情報更新する項目を入力し、送信ボタンを押してください。
+          変更したい項目を入力し、「情報の更新」を押してください。
         </DialogContentText>
-
         <Name
           name={name}
           handleChange={e => setName(e.target.value)}
@@ -74,14 +70,10 @@ export const SettingDialog = (props) => {
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={props.handleClose}>
-          キャンセル
+        <Button onClick={() => { props.handleClose() }}>
+          閉じる
         </Button>
-        <Button
-          onClick={handleSubmit}
-          type='submit'
-          autoFocus
-        >
+        <Button onClick={handleSubmit} type='submit'>
           情報の更新
         </Button>
       </DialogActions>

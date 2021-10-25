@@ -6,12 +6,12 @@ import { SignUpDialog } from "../components/SignUpDialog"
 import { LogInButton } from "../components/Buttons/LogInButton";
 
 export const Home = (props) => {
-  // 新規登録Dialogを開閉する関数
   const [openSignUpDialog, setOpenSignUpDialog] = useState(false)
+  const [openLogInDialog, setOpenLogInDialog] = useState(false)
+  // 新規登録Dialogを開閉する関数
   const handleOpenSignUp = () => setOpenSignUpDialog(true)
   const handleCloseSignUp = () => setOpenSignUpDialog(false)
   // ログインDialogを開閉する関数
-  const [openLogInDialog, setOpenLogInDialog] = useState(false)
   const handleOpenLogIn = () => setOpenLogInDialog(true)
   const handleCloseLogIn = () => setOpenLogInDialog(false)
 

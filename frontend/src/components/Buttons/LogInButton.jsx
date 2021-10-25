@@ -6,16 +6,18 @@ import { LogInDialog } from "../LogInDialog";
 
 export const LogInButton = (props) => {
   return (
-    <Button
-      color="inherit"
-      onClick={props.handleOpen}
-    >
-      ログイン
+    <div>
+      <Button
+        color="inherit"
+        onClick={props.handleOpen}
+      >
+        ログイン
+      </Button>
       <LogInDialog
         open={props.open}
         handleClose={props.handleClose}
         handleLogIn={props.handleLogIn}
       />
-    </Button>
+    </div>
   )
 }

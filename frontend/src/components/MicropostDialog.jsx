@@ -39,7 +39,7 @@ export const MicropostDialog = (props) => {
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={() => props.handleClose}>
+        <Button onClick={() => { props.handleClose() }}>
           閉じる
         </Button>
         <Button type='submit' onClick={handleSubmit} >

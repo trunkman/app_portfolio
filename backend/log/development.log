@@ -29589,3 +29589,31 @@ Processing by Api::V1::MicropostsController#create as HTML
 Completed 422 Unprocessable Entity in 6ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 2325)
 
 
+Started POST "/api/v1/login" for 133.32.216.92 at 2021-10-25 01:48:08 +0000
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:54:in `remember'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", "$2a$12$30egZ/nmtP5HQ/OOa/YJOO5NfEE3NYGPTl9iI5EJ3X/YLsg4BVg7G"], ["updated_at", "2021-10-25 01:48:09.172934"], ["id", 1]]
+  ↳ app/models/user.rb:54:in `remember'
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:54:in `remember'
+Completed 201 Created in 603ms (Views: 0.7ms | ActiveRecord: 6.4ms | Allocations: 16219)
+
+
+Started GET "/" for 185.180.143.13 at 2021-10-25 01:48:49 +0000
+Processing by Rails::WelcomeController#index as */*
+  Rendering /home/ubuntu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ubuntu/.rbenv/versions/3.0.2/lib/ruby/gems/3.0.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.8ms | Allocations: 588)
+Completed 200 OK in 24ms (Views: 14.2ms | ActiveRecord: 0.0ms | Allocations: 4505)
+
+
+Started DELETE "/api/v1/logout" for 133.32.216.92 at 2021-10-25 02:02:31 +0000
+Processing by Api::V1::SessionsController#destroy as HTML
+Completed 204 No Content in 0ms (Allocations: 207)
+
+
