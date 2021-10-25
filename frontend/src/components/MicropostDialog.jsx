@@ -19,7 +19,8 @@ export const MicropostDialog = (props) => {
       content: content,
       user_id: props.user.id
     }).then(data => {
-      setContent('');
+      setContent('')
+      props.handleClose()
     })
   }
 

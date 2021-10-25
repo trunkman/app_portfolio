@@ -29,7 +29,7 @@ export const postLogIn = (params) => {
 export const deleteLogout = () => {
   return axios.delete(logOut, { withCredentials: true })
     .then(res => {
-      console.log('logout', res)
+      console.log('logout', res.status)
     })
     .catch(e => {
       console.error(e)
@@ -41,8 +41,8 @@ export const fetchLoggedIn = () => {
   return axios.get(loggedIn, { withCredentials: true })
     .then(res => {
       console.log('loggedIn', res)
-      return res
+      return res.data
     }).catch(error => {
-      console.log('ログイン状況エラー', error)
+      console.log('loggedIn', error)
     })
 }

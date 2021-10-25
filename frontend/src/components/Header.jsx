@@ -101,6 +101,7 @@ export const Header = (props) => {
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
+            {/* 仮のonClickを記載 */}
             <MenuItem onClick={handleClose}>プロフィール</MenuItem>
             <MenuItem onClick={handleClose}>設定</MenuItem>
             <MenuItem onClick={handleClose}>ログアウト</MenuItem>

@@ -11,9 +11,7 @@ export const Users = (props) => {
       {user.name}
       {
         props.user.admin &&
-        <Link component="button" onClick={() => deleteUser(user.id)}>
-          delete
-        </Link>
+        <Link component="button" onClick={() => deleteUser(user.id)}>delete</Link>
       }
     </li >
   );

@@ -26,10 +26,12 @@ export const LogInDialog = (props) => {
       password: password,
       remember_me: remenberMe,
     }).then(data => {
-      props.handleLogIn(data.user);
-      setEmail('');
-      setPassword('');
-      history.push(`/user/${data.user.id}`);
+      if (data.user) {
+        props.handleLogIn(data.user);
+        setEmail('');
+        setPassword('');
+        history.push(`/user/{data.user.id}`);
+      }
     })
   }
 

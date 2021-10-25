@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
-
-// api
-import { postSignUp } from '../apis/users';
-
 // ダイアログのstyles
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -11,7 +7,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-
+// api
+import { postSignUp } from '../apis/users';
 // Formsコンポーネント
 import { Name } from './Forms/Name';
 import { Email } from './Forms/Email';

@@ -7,15 +7,15 @@ module Api
 
       def index
         @users = User.where(activated: true)
-        render json: { users: @users },
-               status: :ok
+        render json: { users: @users }, status: :ok
       end
 
       # ユーザーを表示するアクション
       def show
         @user = User.find(params[:id])
+        @microposts = @user.microposts
         if @user.activated?
-          render json: { user: @user }, status: :ok
+          render json: { user: @user , microposts: @microposts  }, status: :ok
         else
           render json: {}, status: :unauthorized
         end
@@ -33,8 +33,7 @@ module Api
           # @user.send_activation_email(メール実装は後でする)
           @user.activate
           log_in @user
-          render json: { logged_in: true,
-                         user: @user },
+          render json: { logged_in: true, user: @user },
                  status: :created
         else
           render json: { errors: @user.errors.full_messages },
