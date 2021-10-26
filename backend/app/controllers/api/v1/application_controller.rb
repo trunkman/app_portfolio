@@ -13,15 +13,6 @@ module Api
                  status: :unauthorized
         end
       end
-
-      # 正しいユーザーかどうか確認
-      def correct_user
-        @user = User.find(params[:id])
-        unless current_user?(@user)
-          render json: {},
-                 status: :unauthorized
-        end
-      end
     end
   end
 end

@@ -26,7 +26,7 @@ module Api
       end
 
       # ログイン状態を返すアクション
-      def logged_in?
+      def logged_in
         if current_user
           render json: { logged_in: true, user: @current_user },
                  status: :ok

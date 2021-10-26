@@ -68,18 +68,27 @@ module Api
 
       private
 
-      # Strong Parameters
-      def user_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
-      end
+        # Strong Parameters
+        def user_params
+          params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
+        end
 
-      # 管理者かどうか
-      def admin_user
-        unless current_user.admin?
-          render json: { message: '管理者ではない' },
-                 status: :unauthorized
+        # 管理者かどうか
+        def admin_user
+          unless current_user.admin?
+            render json: { message: '管理者ではない' },
+                  status: :unauthorized
+          end
+        end
+
+        # 正しいユーザーかどうか確認
+        def correct_user
+          @user = User.find(params[:id])
+          unless current_user?(@user)
+            render json: {}, status: :unauthorized
+          end
         end
       end
-    end
+
   end
 end

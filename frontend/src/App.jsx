@@ -31,9 +31,13 @@ export default function App() {
   useEffect(() => {
     fetchLoggedIn()
       .then(data => {
-        if (data.user) { handleLogIn(data.user) }
+        if (data.logged_in && isLoggedIn === false) {
+          handleLogIn(data.user)
+        } else if (!data.logged_in && isLoggedIn === true) {
+          handleLogOut()
+        }
       })
-  }, [isLoggedIn])
+  }, [])
 
   return (
     <BrowserRouter>
@@ -54,8 +58,6 @@ export default function App() {
             handleLogOut={handleLogOut}
           />
         </Route>
-      </Switch>
-      <Switch>
         <Route exact path="/user/:id">
           <User
             isLoggedIn={isLoggedIn}
@@ -64,8 +66,6 @@ export default function App() {
             user={user}
           />
         </Route>
-      </Switch>
-      <Switch>
         <Route exact path="/users">
           <Users
             isLoggedIn={isLoggedIn}

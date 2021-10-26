@@ -16,16 +16,23 @@ module Api
 
       def destroy; 
         @micropost.destroy
-        render json: { message: '削除完了' },
-               status: :no_content
+        render json: { message: '削除完了' }, status: :ok
       end
 
       private
 
-      def micropost_params
-        params.require(:micropost).permit(:content, :image)
-      end
+        # StrongParameter
+        def micropost_params
+          params.require(:micropost).permit(:content, :image)
+        end
 
+        # 自身のマイクロポストであるかを確認
+        def correct_user
+          @micropost = current_user.microposts.find_by(id: params[:id])
+          if @micropost.nil?
+            render json: {}, status: :unauthorized
+          end
+        end
     end
   end
 end

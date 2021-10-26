@@ -13,4 +13,4 @@ export const logOut = `${DEFAULT_API_LOCALHOST}/logout`;
 export const loggedIn = `${DEFAULT_API_LOCALHOST}/logged_in`;
 // MicropostController
 export const micropostCreate = `${DEFAULT_API_LOCALHOST}/microposts`;
-export const micropostDestroy = (userId) => `${DEFAULT_API_LOCALHOST}/microposts/${userId}`;
+export const micropostDestroy = (micropostId) => `${DEFAULT_API_LOCALHOST}/microposts/${micropostId}`;

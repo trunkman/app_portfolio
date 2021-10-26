@@ -3,7 +3,9 @@ import { signUp, userPath, users } from '../urls/index'
 
 // ユーザーページを表示するapi
 export const fetchUser = (params) => {
-  return axios.get(userPath(params.user_id), { withCredentials: true })
+  return axios.get(userPath(params.user_id), {
+    user: { id: params.user_id }
+  }, { withCredentials: true })
     .then(res => {
       console.log('user#show', res)
       return res.data

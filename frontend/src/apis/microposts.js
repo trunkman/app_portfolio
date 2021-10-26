@@ -16,19 +16,21 @@ export const postMicropost = (params) => {
         return res.data;
       }
     })
-    .catch(e => {
-      console.error(e);
+    .catch(error => {
+      console.log('micropost#create', error)
       return 'nil'
     })
 }
 
-export const deleteMicropost = () => {
-  return axios.delete(micropostDestroy, { withCredentials: true })
+// マイクロポストを削除するapi
+export const deleteMicropost = (micropostId) => {
+  return axios.delete(micropostDestroy(micropostId), { withCredentials: true })
     .then(res => {
       console.log('micropost#destroy', res)
+      alert('投稿を削除しました')
       return res.data
     })
-    .catch.error(e => {
-      console.error(e)
+    .catch(error => {
+      console.log('micropost#destroy', error)
     })
 }

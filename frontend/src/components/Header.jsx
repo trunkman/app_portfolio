@@ -41,7 +41,7 @@ export const Header = (props) => {
           </IconButton>
           {(props.isLoggedIn) &&
             <IconButton color="inherit" aria-label="menu" sx={{ mr: 2 }}
-              onClick={() => history.push(`/user/{props.user.id}`)} >
+              onClick={() => history.push(`/user/${props.user.id}`)} >
               <HotelIcon />
               <Typography variant="body1">マイページ</Typography>
             </IconButton>

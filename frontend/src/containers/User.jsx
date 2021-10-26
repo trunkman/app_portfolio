@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
+import Link from '@mui/material/Link';
 // ユーザーページのstyle
 import Button from '@mui/material/Button';
 import List from '@mui/material/List';
@@ -6,10 +7,10 @@ import { ListItem } from "@mui/material";
 import ListItemText from '@mui/material/ListItemText';
 // api
 import { fetchUser } from "../apis/users";
+import { deleteMicropost } from "../apis/microposts";
 // コンポーネント
 import { SettingDialog } from "../components/SettingDialog";
 import { MicropostDialog } from "../components/MicropostDialog";
-
 
 export const User = (props) => {
   const [openSettingDialog, setOpenSettingDialog] = useState(false)
@@ -22,23 +23,27 @@ export const User = (props) => {
   const handleOpenPost = () => { setOpenDialogPost(true) }
   const handleClosePost = () => { setOpenDialogPost(false) }
   // 投稿一覧の画面
-  const MicropostsList = microposts.map((micropost) =>
+  const MicropostsList = microposts.map(micropost =>
     <ListItem key={micropost.id}>
       <ListItemText
         primary={micropost.content}
         secondary={micropost.created_at}
       />
-      {props.user && <p >delete</p>}
-    </ListItem>
+      {
+        props.user &&
+        <Link component="button" onClick={() => deleteMicropost(micropost.id)}>delete</Link>
+      }
+    </ListItem >
   )
 
-  // 投稿内容が更新した際にレンダーする
+  // 投稿ボタンが押された際にレンダーする
   useEffect(() => {
     fetchUser({ user_id: props.user.id })
       .then(data => {
         setMicroposts(data.microposts)
       })
-  }, [])
+    return setMicroposts([])
+  }, [openDialogPost])
 
   // 返り値：ユーザー画面
   return (
