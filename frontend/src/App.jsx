@@ -37,7 +37,7 @@ export default function App() {
           handleLogOut()
         }
       })
-  }, [])
+  }, [isLoggedIn])
 
   return (
     <BrowserRouter>

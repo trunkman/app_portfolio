@@ -30,20 +30,20 @@ export const User = (props) => {
         secondary={micropost.created_at}
       />
       {
-        props.user &&
+        props.user.id === micropost.user_id &&
         <Link component="button" onClick={() => deleteMicropost(micropost.id)}>delete</Link>
       }
     </ListItem >
   )
 
-  // 投稿ボタンが押された際にレンダーする
+  // レンダーされた際に投稿内容を描画する。更新はまだしない
   useEffect(() => {
     fetchUser({ user_id: props.user.id })
       .then(data => {
         setMicroposts(data.microposts)
       })
     return setMicroposts([])
-  }, [openDialogPost])
+  }, [])
 
   // 返り値：ユーザー画面
   return (

@@ -8,8 +8,8 @@ export const LogInButton = (props) => {
   return (
     <div>
       <Button
-        color="inherit"
         onClick={props.handleOpen}
+        variant="outlined"
       >
         ログイン
       </Button>
