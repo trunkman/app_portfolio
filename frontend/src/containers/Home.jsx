@@ -4,8 +4,8 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Skeleton from '@material-ui/lab/Skeleton';
 // コンポーネント
-import { SignUpDialog } from "../components/SignUpDialog"
-import { LogInButton } from "../components/Buttons/LogInButton";
+import { SignUpDialog } from "../components/SignUpDialog";
+import { LogInDialog } from "../components/LogInDialog";
 
 export const Home = (props) => {
   const [openSignUpDialog, setOpenSignUpDialog] = useState(false)
@@ -38,7 +38,7 @@ export const Home = (props) => {
           flexDirection: 'row',
           justifyContent: 'center',
         }}>
-          <Button variant="outlined" onClick={handleOpenSignUp} >
+          <Button variant="contained" sx={{ mr: 3 }} onClick={handleOpenSignUp} >
             新規登録
           </Button>
           <SignUpDialog
@@ -46,9 +46,10 @@ export const Home = (props) => {
             handleClose={handleCloseSignUp}
             handleLogIn={props.handleLogIn}
           />
-
-          <LogInButton
-            handleOpen={handleOpenLogIn}
+          <Button variant="contained" sx={{ mr: 3 }} onClick={handleOpenLogIn}>
+            ログイン
+          </Button>
+          <LogInDialog
             open={openLogInDialog}
             handleClose={handleCloseLogIn}
             handleLogIn={props.handleLogIn}

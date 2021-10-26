@@ -1,112 +1,98 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
 // ヘッダーのstyle
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
+import { Button } from "@mui/material";
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuItem from '@mui/material/MenuItem';
 import { Menu } from "@mui/material";
 // アイコン
-import HotelIcon from '@mui/icons-material/Hotel';
-import PeopleIcon from '@mui/icons-material/People';
-import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
-import AirlineSeatFlatAngledIcon from '@mui/icons-material/AirlineSeatFlatAngled';
+import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+//api
+import { deleteLogout } from "../apis/sessions"
 // コンポーネント
-import { LogInButton } from "./Buttons/LogInButton";
-import { LogOutButton } from "./Buttons/LogOutButton";
+import { LogInDialog } from "./LogInDialog";
 
 export const Header = (props) => {
   const history = useHistory()
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
+  // アンカーを開閉する関数
+  const [anchorEl, setAnchorEl] = useState(null);
+  const handleMenu = (event) => { setAnchorEl(event.currentTarget); };
+  const handleClose = () => { setAnchorEl(null); };
+  // ログアウトするコールバック関数
+  const handleLogOut = () => {
+    deleteLogout()
+      .then(() => {
+        props.handleLogOut();
+        history.push(`/`);
+        alert('ログアウトを成功しました');
+      })
+  }
   //返り値：ヘッダー画面
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-
-          <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}
-            onClick={() => history.push(`/`)} >
-            <HotelIcon sx={{ fontSize: 40 }} />
-            <Typography variant="body1">睡眠負債</Typography>
+          <IconButton color="inherit" aria-label="menu" sx={{ mr: 2 }} onClick={() => history.push(`/`)} >
+            <HealthAndSafetyIcon sx={{ fontSize: 40 }} />
           </IconButton>
+          <Typography sx={{ mr: 4 }} variant="body1" onClick={() => history.push(`/}`)}>
+            ホーム
+          </Typography>
           {(props.isLoggedIn) &&
-            <IconButton color="inherit" aria-label="menu" sx={{ mr: 2 }}
-              onClick={() => history.push(`/user/${props.user.id}`)} >
-              <HotelIcon />
-              <Typography variant="body1">マイページ</Typography>
-            </IconButton>
+            <Typography sx={{ mr: 4 }} variant="body1" onClick={() => history.push(`/user/${props.user.id}`)}>
+              プロフィール
+            </Typography>
           }
           {(props.isLoggedIn) &&
-            <IconButton color="inherit" aria-label="menu" sx={{ mr: 2 }}
-              onClick={() => history.push(`/users`)} >
-              <PeopleIcon />
-              <Typography variant="body1">フォロー</Typography>
-            </IconButton>
+            <Typography sx={{ mr: 4 }} variant="body1" onClick={() => history.push(`/users`)}>
+              タイムライン
+            </Typography>
           }
-          <IconButton color="inherit" aria-label="menu" sx={{ mr: 2 }}
-            onClick={() => history.push(`/`)} >
-            <FormatListNumberedIcon />
-            <Typography variant="body1">ランキング</Typography>
-          </IconButton>
-
-          <IconButton color="inherit" aria-label="menu" sx={{ mr: 2 }}
-            onClick={() => history.push(`/`)} >
-            <AirlineSeatFlatAngledIcon />
-            <Typography variant="body1">About</Typography>
-          </IconButton>
-
-          {
-            props.isLoggedIn ? (
-              <LogOutButton
-                handleLogOut={props.handleLogOut}
-              />
-            ) : (
-              <LogInButton
-                handleOpen={props.handleOpenLogIn}
-                open={props.open}
-                handleClose={props.handleClose}
-                handleLogIn={props.handleLogIn}
-              />
-            )
-          }
-
-          <IconButton
-            size="large" aria-label="account of current user"
-            onClick={handleMenu} color="inherit"
-          >
-            <AccountCircle />
-          </IconButton>
-          <Menu
-            id="menu-appbar"
-            anchorEl={anchorEl}
-            anchorOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            keepMounted
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-          >
-            {/* 仮のonClickを記載 */}
-            <MenuItem onClick={handleClose}>プロフィール</MenuItem>
-            <MenuItem onClick={handleClose}>設定</MenuItem>
-            <MenuItem onClick={handleClose}>ログアウト</MenuItem>
-          </Menu>
-
+          <Typography sx={{ mr: 4, flexGrow: 1 }} variant="body1" onClick={() => history.push(`/`)}>
+            ランキング
+          </Typography>
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+            {
+              props.isLoggedIn ? (
+                <IconButton color="inherit" onClick={handleMenu}>
+                  <AccountCircle />
+                </IconButton>
+              ) : (
+                <Button variant="inherit" onClick={() => { props.handleOpenLogIn() }}>
+                  ログイン
+                </Button>
+              )
+            }
+            {/* ダイアログおよびアコーディオンメニュー */}
+            <LogInDialog
+              open={props.open}
+              handleClose={props.handleClose}
+              handleLogIn={props.handleLogIn}
+            />
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorEl}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              <MenuItem onClick={handleClose}>設定</MenuItem>       {/* 仮のonClickを記載 */}
+              <MenuItem onClick={handleLogOut}>ログアウト</MenuItem>
+            </Menu>
+          </Box>
         </Toolbar>
       </AppBar>
     </Box>
