@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
-// ヘッダーのstyle
+// styled
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import { Button } from "@mui/material";
@@ -12,15 +12,15 @@ import { Menu } from "@mui/material";
 // アイコン
 import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-//api
+// api
 import { deleteLogout } from "../apis/sessions"
 // コンポーネント
 import { LogInDialog } from "./LogInDialog";
 
 export const Header = (props) => {
   const history = useHistory()
-  // アンカーを開閉する関数
   const [anchorEl, setAnchorEl] = useState(null);
+  // アンカーを開閉する関数群
   const handleMenu = (event) => { setAnchorEl(event.currentTarget); };
   const handleClose = () => { setAnchorEl(null); };
   // ログアウトするコールバック関数
@@ -40,7 +40,7 @@ export const Header = (props) => {
           <IconButton color="inherit" aria-label="menu" sx={{ mr: 2 }} onClick={() => history.push(`/`)} >
             <HealthAndSafetyIcon sx={{ fontSize: 40 }} />
           </IconButton>
-          <Typography sx={{ mr: 4 }} variant="body1" onClick={() => history.push(`/}`)}>
+          <Typography sx={{ mr: 4 }} variant="body1" onClick={() => history.push(`/`)}>
             ホーム
           </Typography>
           {(props.isLoggedIn) &&
@@ -63,7 +63,7 @@ export const Header = (props) => {
                   <AccountCircle />
                 </IconButton>
               ) : (
-                <Button variant="inherit" onClick={() => { props.handleOpenLogIn() }}>
+                <Button variant="inherit" onClick={() => props.handleOpenLogIn()}>
                   ログイン
                 </Button>
               )
@@ -71,7 +71,7 @@ export const Header = (props) => {
             {/* ダイアログおよびアコーディオンメニュー */}
             <LogInDialog
               open={props.open}
-              handleClose={props.handleClose}
+              handleClose={props.handleCloseLogIn}
               handleLogIn={props.handleLogIn}
             />
             <Menu

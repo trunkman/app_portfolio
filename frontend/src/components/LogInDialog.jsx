@@ -19,7 +19,6 @@ export const LogInDialog = (props) => {
   const [password, setPassword] = useState('')
   const [remenberMe, setRememberMe] = useState('1')
   const history = useHistory()
-  // ログインapiを呼び出すCallback関数
   const handleSubmit = () => {
     postLogIn({
       email: email,

@@ -43,7 +43,7 @@ export const User = (props) => {
         setMicroposts(data.microposts)
       })
     return setMicroposts([])
-  }, [])
+  }, [props.user.id])
 
   // 返り値：ユーザー画面
   return (

@@ -12,21 +12,20 @@ import { Header } from "./components/Header"
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
-  // ログインのコールバック関数
+  const [openLogInDialog, setOpenLogInDialog] = useState(false)
+  // ログイン実行のコールバック関数
   const handleLogIn = (user) => {
     setIsLoggedIn(true);
     setUser(user);
   }
-  // ログアウトのコールバック関数
+  // ログアウト実行のコールバック関数
   const handleLogOut = () => {
     setIsLoggedIn(false);
     setUser({});
   }
-  // ログインDialogを開閉する関数
-  const [openLogInDialog, setOpenLogInDialog] = useState(false)
+  // ログインDialogを開閉する関数群
   const handleOpenLogIn = () => setOpenLogInDialog(true)
   const handleCloseLogIn = () => setOpenLogInDialog(false)
-
   // ログイン状態を保持する
   useEffect(() => {
     fetchLoggedIn()
@@ -42,35 +41,38 @@ export default function App() {
   return (
     <BrowserRouter>
       <Header
-        open={openLogInDialog}
-        handleOpenLogIn={handleOpenLogIn}
-        handleClose={handleCloseLogIn}
-        isLoggedIn={isLoggedIn}
-        handleLogIn={handleLogIn}
+        handleCloseLogIn={handleCloseLogIn}
         handleLogOut={handleLogOut}
+        handleLogIn={handleLogIn}
+        handleOpenLogIn={handleOpenLogIn}
+        isLoggedIn={isLoggedIn}
+        open={openLogInDialog}
         user={user}
       />
       <Switch>
         <Route exact path="/">
           <Home
-            isLoggedIn={isLoggedIn}
-            handleLogIn={handleLogIn}
+            handleCloseLogIn={handleCloseLogIn}
             handleLogOut={handleLogOut}
+            handleLogIn={handleLogIn}
+            handleOpenLogIn={handleOpenLogIn}
+            isLoggedIn={isLoggedIn}
+            open={openLogInDialog}
           />
         </Route>
         <Route exact path="/user/:id">
           <User
-            isLoggedIn={isLoggedIn}
-            handleLogIn={handleLogIn}
             handleLogOut={handleLogOut}
+            handleLogIn={handleLogIn}
+            isLoggedIn={isLoggedIn}
             user={user}
           />
         </Route>
         <Route exact path="/users">
           <Users
-            isLoggedIn={isLoggedIn}
-            handleLogIn={handleLogIn}
             handleLogOut={handleLogOut}
+            handleLogIn={handleLogIn}
+            isLoggedIn={isLoggedIn}
             user={user}
           />
         </Route>

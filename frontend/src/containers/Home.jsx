@@ -9,13 +9,9 @@ import { LogInDialog } from "../components/LogInDialog";
 
 export const Home = (props) => {
   const [openSignUpDialog, setOpenSignUpDialog] = useState(false)
-  const [openLogInDialog, setOpenLogInDialog] = useState(false)
   // 新規登録Dialogを開閉する関数
   const handleOpenSignUp = () => setOpenSignUpDialog(true)
   const handleCloseSignUp = () => setOpenSignUpDialog(false)
-  // ログインDialogを開閉する関数
-  const handleOpenLogIn = () => setOpenLogInDialog(true)
-  const handleCloseLogIn = () => setOpenLogInDialog(false)
 
   // 返り値：HOME画面
   return (
@@ -46,12 +42,12 @@ export const Home = (props) => {
             handleClose={handleCloseSignUp}
             handleLogIn={props.handleLogIn}
           />
-          <Button variant="contained" sx={{ mr: 3 }} onClick={handleOpenLogIn}>
+          <Button variant="contained" sx={{ mr: 3 }} onClick={() => props.handleOpenLogIn()}>
             ログイン
           </Button>
           <LogInDialog
-            open={openLogInDialog}
-            handleClose={handleCloseLogIn}
+            open={props.open}
+            handleClose={props.handleCloseLogIn}
             handleLogIn={props.handleLogIn}
           />
         </Box>
