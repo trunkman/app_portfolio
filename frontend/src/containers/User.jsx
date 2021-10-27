@@ -10,7 +10,7 @@ import { Microposts } from "../components/Microposts";
 export const User = (props) => {
   const [user, setUser] = useState([])
   const [microposts, setMicroposts] = useState([])
-  // ユーザー情報の取得
+  // ユーザー情報の取得 ※未完：micropost登録・削除で更新しない
   useEffect(() => {
     fetchUser({ user_id: props.match.params.id })
       .then(data => {
@@ -18,7 +18,7 @@ export const User = (props) => {
         setMicroposts(data.microposts)
       })
   }, [])
-  // 返り値：Userページ
+
   return (
     <Grid container sx={{ width: 1000, mx: "auto", bgcolor: 'grey.300' }}>
       <Grid item xs={12} sm={4} sx={{ px: 2, bgcolor: 'grey.200' }}>
