@@ -15,7 +15,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 // api
 import { deleteLogout } from "../apis/sessions"
 // コンポーネント
-import { LogInDialog } from "./LogInDialog";
+import { LogInDialog } from "./Dialogs/LogInDialog";
 
 export const Header = (props) => {
   const history = useHistory()
@@ -34,9 +34,9 @@ export const Header = (props) => {
   }
   //返り値：ヘッダー画面
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar sx={{ width: 1000, mx: "auto", px: 2 }}>
           <IconButton color="inherit" aria-label="menu" sx={{ mr: 2 }} onClick={() => history.push(`/`)} >
             <HealthAndSafetyIcon sx={{ fontSize: 40 }} />
           </IconButton>

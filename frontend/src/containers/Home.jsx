@@ -4,8 +4,8 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Skeleton from '@material-ui/lab/Skeleton';
 // コンポーネント
-import { SignUpDialog } from "../components/SignUpDialog";
-import { LogInDialog } from "../components/LogInDialog";
+import { SignUpDialog } from "../components/Dialogs/SignUpDialog";
+import { LogInDialog } from "../components/Dialogs/LogInDialog";
 
 export const Home = (props) => {
   const [openSignUpDialog, setOpenSignUpDialog] = useState(false)
@@ -15,7 +15,7 @@ export const Home = (props) => {
 
   // 返り値：HOME画面
   return (
-    <Fragment>
+    <Fragment >
       <Box sx={{
         bgcolor: 'grey.300',
         overflow: 'hidden',

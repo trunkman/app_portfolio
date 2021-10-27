@@ -60,14 +60,17 @@ export default function App() {
             open={openLogInDialog}
           />
         </Route>
-        <Route exact path="/user/:id">
-          <User
-            handleLogOut={handleLogOut}
-            handleLogIn={handleLogIn}
-            isLoggedIn={isLoggedIn}
-            user={user}
-          />
-        </Route>
+        <Route exact path="/user/:id"
+          render={({ match }) =>
+            <User
+              handleLogOut={handleLogOut}
+              handleLogIn={handleLogIn}
+              isLoggedIn={isLoggedIn}
+              match={match}
+              loginUser={user}
+            />
+          }
+        />
         <Route exact path="/users">
           <Users
             handleLogOut={handleLogOut}
