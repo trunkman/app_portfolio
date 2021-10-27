@@ -17,7 +17,7 @@ export const Profile = (props) => {
   // 投稿Dialogを開閉する関数群
   const handleOpenPost = () => { setOpenDialogPost(true) }
   const handleClosePost = () => { setOpenDialogPost(false) }
-  // 返り値：ユーザー画面
+
   return (
     <Fragment>
       <h2>プロフィール</h2>
@@ -25,13 +25,13 @@ export const Profile = (props) => {
         <AccountCircle sx={{ fontSize: 65 }} />
       </Avatar>
       <Typography variant="h6">
-        {props.loginUser.name}
+        {props.user.name}
       </Typography>
       <Typography variant="body1">
         プロフィールを追加予定
       </Typography>
       {
-        props.isLoggedIn &&
+        (props.loginUser.id === props.user.id) &&
         <Fragment>
           <div>
             <Button onClick={handleOpenSetting}>
@@ -48,13 +48,13 @@ export const Profile = (props) => {
               投稿
             </Button>
           </div>
+          <MicropostDialog
+            handleClose={handleClosePost}
+            open={openDialogPost}
+            user={props.loginUser}
+          />
         </Fragment>
       }
-      <MicropostDialog
-        handleClose={handleClosePost}
-        open={openDialogPost}
-        user={props.loginUser}
-      />
     </Fragment >
   )
 }

@@ -11,17 +11,17 @@ import { Header } from "./components/Header"
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState({});
+  const [loginUser, setLoginUser] = useState({});
   const [openLogInDialog, setOpenLogInDialog] = useState(false)
   // ログイン実行のコールバック関数
-  const handleLogIn = (user) => {
+  const handleLogIn = (loginUser) => {
     setIsLoggedIn(true);
-    setUser(user);
+    setLoginUser(loginUser);
   }
   // ログアウト実行のコールバック関数
   const handleLogOut = () => {
     setIsLoggedIn(false);
-    setUser({});
+    setLoginUser({});
   }
   // ログインDialogを開閉する関数群
   const handleOpenLogIn = () => setOpenLogInDialog(true)
@@ -47,7 +47,7 @@ export default function App() {
         handleOpenLogIn={handleOpenLogIn}
         isLoggedIn={isLoggedIn}
         open={openLogInDialog}
-        user={user}
+        user={loginUser}
       />
       <Switch>
         <Route exact path="/">
@@ -67,7 +67,7 @@ export default function App() {
               handleLogIn={handleLogIn}
               isLoggedIn={isLoggedIn}
               match={match}
-              loginUser={user}
+              loginUser={loginUser}
             />
           }
         />
@@ -76,7 +76,7 @@ export default function App() {
             handleLogOut={handleLogOut}
             handleLogIn={handleLogIn}
             isLoggedIn={isLoggedIn}
-            user={user}
+            user={loginUser}
           />
         </Route>
       </Switch>
