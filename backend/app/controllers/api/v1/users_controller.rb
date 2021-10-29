@@ -1,7 +1,7 @@
 module Api
   module V1
     class UsersController < ApplicationController
-      before_action :logged_in_user, only: %i[index edit update destroy followers] # followingを一時削除
+      before_action :logged_in_user, only: %i[index edit update destroy] # following, followersを一時削除
       before_action :correct_user,   only: %i[edit update]
       before_action :admin_user,     only: :destroy
 
@@ -14,8 +14,11 @@ module Api
       def show
         @user = User.find(params[:id])
         @microposts = @user.microposts
+        @following = @user.following
+        # @followers = @user.followers
         if @user.activated?
-          render json: { user: @user , microposts: @microposts  }, status: :ok
+          render json: { user: @user , microposts: @microposts,
+                         following: @following }, status: :ok
         else
           render json: {}, status: :unauthorized
         end

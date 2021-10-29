@@ -1,7 +1,9 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState } from "react"
+import { Link } from "react-router-dom";
 // style
-import { Avatar, Typography } from "@mui/material";
+import { Avatar, ListItem, Typography } from "@mui/material";
 import Button from '@mui/material/Button';
+import { Grid } from "@mui/material";
 // アイコン
 import AccountCircle from "@mui/icons-material/AccountCircle";
 // コンポーネント
@@ -28,14 +30,32 @@ export const Profile = (props) => {
         {props.user.name}
       </Typography>
       <Typography variant="body1">
-        プロフィールを追加予定
+        プロフィールを追加予定。ここにプロフィールが追加されます。ユーザーのプロフィールです。
+        ユーザーの自己紹介となります。趣味などが記載されます。
       </Typography>
+      <Grid container spacing={2}>
+        <Grid item sm={6}>
+          <ListItem
+            component={Link}
+            to={`/users/${props.user.id}/following`}>
+            {props.following.length} フォロー中
+          </ListItem>
+        </Grid>
+        <Grid item sm={6}>
+          <ListItem
+            component={Link}
+            to={`/users/${props.user.id}/followers`}>
+            {props.following.length} フォロワー
+          </ListItem>
+        </Grid>
+      </Grid>
       {
         (props.loginUser.id === props.user.id) &&
         <Fragment>
           <div>
             <Button onClick={handleOpenSetting}>
               プロフィールの編集
+
             </Button>
             <SettingDialog
               handleClose={handleCloseSetting}

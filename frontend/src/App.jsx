@@ -60,7 +60,7 @@ export default function App() {
             open={openLogInDialog}
           />
         </Route>
-        <Route exact path="/users/:id"
+        <Route path="/users/:id"
           render={({ match }) =>
             <User
               handleLogOut={handleLogOut}
