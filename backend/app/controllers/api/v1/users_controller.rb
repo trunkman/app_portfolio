@@ -15,10 +15,10 @@ module Api
         @user = User.find(params[:id])
         @microposts = @user.microposts
         @following = @user.following
-        # @followers = @user.followers
+        @followers = @user.followers
         if @user.activated?
           render json: { user: @user , microposts: @microposts,
-                         following: @following }, status: :ok
+                         following: @following, followers: @followers }, status: :ok
         else
           render json: {}, status: :unauthorized
         end

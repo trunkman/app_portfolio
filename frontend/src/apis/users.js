@@ -80,27 +80,27 @@ export const deleteUser = (userId) => {
     .catch(e => { console.error(e) })
 }
 
-// Folloingをfetchする ※cookieが送れない問題あり
-export const fetchFollowing = (params) => {
-  return axios.get(following(params.userId), {
-    user: { id: params.userId }
-  }, { withCredentials: true }
-  )
-    .then(res => {
-      console.log('user#following', res)
-      return res.data
-    })
-    .catch(e => console.log(e))
-}
+// // Folloingをfetchする ※cookieが送れない問題あり
+// export const fetchFollowing = (params) => {
+//   return axios.get(following(params.userId), {
+//     user: { id: params.userId }
+//   }, { withCredentials: true }
+//   )
+//     .then(res => {
+//       console.log('user#following', res)
+//       return res.data
+//     })
+//     .catch(e => console.log(e))
+// }
 
-// Followersをfetchする
-export const fetchFollowers = (params) => {
-  return axios.get(followers(params.userId), {
-    user: { id: params.userId }
-  }, { withCredentials: true })
-    .then(res => {
-      console.log('user#followers', res)
-      return res.data
-    })
-    .catch(e => { console.error(e) })
-}
+// // Followersをfetchする
+// export const fetchFollowers = (params) => {
+//   return axios.get(followers(params.userId), {
+//     user: { id: params.userId }
+//   }, { withCredentials: true })
+//     .then(res => {
+//       console.log('user#followers', res)
+//       return res.data
+//     })
+//     .catch(e => { console.error(e) })
+// }

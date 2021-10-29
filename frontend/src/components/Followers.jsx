@@ -4,26 +4,26 @@ import { Link } from "react-router-dom";
 import { List, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
 // アイコン
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import { fetchFollowing } from "../apis/users";
+import { fetchFollowers } from "../apis/users";
 
-export const Following = (props) => {
-  // const [following, setFollowing] = useState([])
+export const Followers = (props) => {
+  // const [followers, setFollowers] = useState([])
   // const [title, setTitle] = useState(null)
-  // // ユーザーのFollowing情報を取得
+  // ユーザーのFollowers情報を取得
   // useEffect(() => {
-  //   fetchFollowing({ userId: props.userId })
+  //   fetchFollowers({ userId: props.userId })
   //     .then(data => {
-  //       setFollowing(data.users)
+  //       // setFollowers(data.users)
   //       setTitle(data.title)
   //     })
   // }, [])
 
   return (
     <Fragment>
-      <h2>フォロー中</h2>
+      <h2>フォロワー</h2>
       <List sx={{ bgcolor: 'background.paper' }}>
         {
-          props.following.map(user =>
+          props.followers.map(user =>
             <ListItem
               button
               component={Link}
@@ -36,7 +36,7 @@ export const Following = (props) => {
               </ListItemAvatar>
               <ListItemText
                 primary={user.name}
-                secondary='Following:ユーザーのプロフィール内容が記載されます。とりあえず仮テキストを入力しています。'
+                secondary='Follower:ユーザーのプロフィール内容が記載されます。とりあえず仮テキストを入力しています。'
               />
             </ListItem >
           )

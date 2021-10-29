@@ -54882,3 +54882,833 @@ Processing by Api::V1::UsersController#following as HTML
 Completed 200 OK in 12ms (Views: 8.1ms | ActiveRecord: 1.0ms | Allocations: 7963)
 
 
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 11:49:44 +0000
+Started GET "/api/v1/logged_in" for 133.32.216.92 at 2021-10-29 11:49:44 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+Processing by Api::V1::SessionsController#logged_in as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Completed 200 OK in 74ms (Views: 23.6ms | ActiveRecord: 2.1ms | Allocations: 31884)
+
+
+Completed 200 OK in 67ms (Views: 0.5ms | ActiveRecord: 0.7ms | Allocations: 27242)
+
+
+Started GET "/api/v1/logged_in" for 133.32.216.92 at 2021-10-29 11:49:44 +0000
+Processing by Api::V1::SessionsController#logged_in as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 969)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 11:52:48 +0000
+Started GET "/api/v1/logged_in" for 133.32.216.92 at 2021-10-29 11:52:48 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 36ms (Views: 17.5ms | ActiveRecord: 2.7ms | Allocations: 22483)
+
+
+Processing by Api::V1::SessionsController#logged_in as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Completed 200 OK in 15ms (Views: 0.6ms | ActiveRecord: 1.5ms | Allocations: 8254)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 11:53:49 +0000
+Started GET "/api/v1/logged_in" for 133.32.216.92 at 2021-10-29 11:53:49 +0000
+Processing by Api::V1::SessionsController#logged_in as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 909)
+
+
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 24ms (Views: 17.8ms | ActiveRecord: 1.4ms | Allocations: 15780)
+
+
+Started GET "/api/v1/logged_in" for 133.32.216.92 at 2021-10-29 11:53:49 +0000
+Processing by Api::V1::SessionsController#logged_in as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 972)
+
+
+Started GET "/api/v1/users/1/following" for 133.32.216.92 at 2021-10-29 11:54:17 +0000
+Processing by Api::V1::UsersController#following as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:75:in `following'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:77:in `following'
+Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 0.5ms | Allocations: 7265)
+
+
+Started GET "/api/v1/users/1/following" for 133.32.216.92 at 2021-10-29 11:56:33 +0000
+Processing by Api::V1::UsersController#following as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 11:56:33 +0000
+  ↳ app/controllers/api/v1/users_controller.rb:75:in `following'
+Processing by Api::V1::UsersController#show as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  Parameters: {"id"=>"1"}
+  ↳ app/controllers/api/v1/users_controller.rb:77:in `following'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Completed 200 OK in 13ms (Views: 9.7ms | ActiveRecord: 0.5ms | Allocations: 7827)
+
+
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 27ms (Views: 14.6ms | ActiveRecord: 1.1ms | Allocations: 17486)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-29 11:56:55 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 10ms (Views: 8.1ms | ActiveRecord: 0.4ms | Allocations: 7558)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 11:56:56 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 16ms (Views: 13.1ms | ActiveRecord: 0.5ms | Allocations: 10707)
+
+
+Started GET "/api/v1/users/1/following" for 133.32.216.92 at 2021-10-29 11:56:58 +0000
+Processing by Api::V1::UsersController#following as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:75:in `following'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:77:in `following'
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.3ms | Allocations: 7258)
+
+
+Started GET "/api/v1/users/1/following" for 133.32.216.92 at 2021-10-29 11:57:00 +0000
+Processing by Api::V1::UsersController#following as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:75:in `following'
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:77:in `following'
+Completed 200 OK in 54ms (Views: 48.5ms | ActiveRecord: 3.8ms | Allocations: 7258)
+
+
+Started GET "/api/v1/users/1/following" for 133.32.216.92 at 2021-10-29 11:57:01 +0000
+Processing by Api::V1::UsersController#following as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:75:in `following'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:77:in `following'
+Completed 200 OK in 42ms (Views: 36.8ms | ActiveRecord: 0.4ms | Allocations: 7262)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 11:57:09 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 0.5ms | Allocations: 10708)
+
+
+Started GET "/api/v1/users/1/following" for 133.32.216.92 at 2021-10-29 11:57:22 +0000
+Processing by Api::V1::UsersController#following as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:75:in `following'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:77:in `following'
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.3ms | Allocations: 7258)
+
+
+Started GET "/api/v1/users/1/following" for 133.32.216.92 at 2021-10-29 11:57:23 +0000
+Processing by Api::V1::UsersController#following as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:75:in `following'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:77:in `following'
+Completed 200 OK in 10ms (Views: 8.1ms | ActiveRecord: 0.3ms | Allocations: 7258)
+
+
+Started GET "/api/v1/users/1/following" for 133.32.216.92 at 2021-10-29 11:57:59 +0000
+Processing by Api::V1::UsersController#following as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:75:in `following'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:77:in `following'
+Completed 200 OK in 12ms (Views: 9.9ms | ActiveRecord: 0.3ms | Allocations: 7259)
+
+
+Started GET "/api/v1/logged_in" for 133.32.216.92 at 2021-10-29 11:58:48 +0000
+Processing by Api::V1::SessionsController#logged_in as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 11:58:48 +0000
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Processing by Api::V1::UsersController#show as HTML
+Started GET "/api/v1/users/1/following" for 133.32.216.92 at 2021-10-29 11:58:48 +0000
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 1544)
+
+
+Processing by Api::V1::UsersController#following as HTML
+  Parameters: {"id"=>"1"}
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:75:in `following'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:77:in `following'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Completed 200 OK in 12ms (Views: 8.5ms | ActiveRecord: 0.3ms | Allocations: 7443)
+
+
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.4ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 47ms (Views: 17.1ms | ActiveRecord: 1.3ms | Allocations: 19265)
+
+
+Started GET "/api/v1/logged_in" for 133.32.216.92 at 2021-10-29 11:58:48 +0000
+Processing by Api::V1::SessionsController#logged_in as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 909)
+
+
+Started GET "/api/v1/users/3" for 133.32.216.92 at 2021-10-29 11:58:57 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 3]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 9ms (Views: 6.8ms | ActiveRecord: 0.4ms | Allocations: 5100)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 11:59:00 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 15ms (Views: 12.9ms | ActiveRecord: 0.5ms | Allocations: 10708)
+
+
+Started GET "/api/v1/users/1/following" for 133.32.216.92 at 2021-10-29 11:59:03 +0000
+Processing by Api::V1::UsersController#following as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:75:in `following'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:77:in `following'
+Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 0.3ms | Allocations: 7258)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 12:02:00 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 18ms (Views: 15.7ms | ActiveRecord: 0.4ms | Allocations: 10708)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 12:02:00 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 16ms (Views: 13.6ms | ActiveRecord: 0.5ms | Allocations: 10710)
+
+
+Started GET "/api/v1/users/1/following" for 133.32.216.92 at 2021-10-29 12:02:32 +0000
+Processing by Api::V1::UsersController#following as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:75:in `following'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:77:in `following'
+Completed 200 OK in 11ms (Views: 8.4ms | ActiveRecord: 0.3ms | Allocations: 7259)
+
+
+Started GET "/api/v1/users/1/following" for 133.32.216.92 at 2021-10-29 12:02:35 +0000
+Processing by Api::V1::UsersController#following as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:75:in `following'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:77:in `following'
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.3ms | Allocations: 7258)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 12:02:59 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+Started GET "/api/v1/logged_in" for 133.32.216.92 at 2021-10-29 12:02:59 +0000
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 16ms (Views: 13.4ms | ActiveRecord: 0.5ms | Allocations: 10725)
+
+
+Processing by Api::V1::SessionsController#logged_in as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 909)
+
+
+Started GET "/api/v1/logged_in" for 133.32.216.92 at 2021-10-29 12:02:59 +0000
+Processing by Api::V1::SessionsController#logged_in as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 909)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 12:05:57 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 15ms (Views: 12.4ms | ActiveRecord: 0.5ms | Allocations: 10707)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 12:08:06 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+Started GET "/api/v1/logged_in" for 133.32.216.92 at 2021-10-29 12:08:06 +0000
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 18ms (Views: 15.9ms | ActiveRecord: 0.5ms | Allocations: 11287)
+
+
+Processing by Api::V1::SessionsController#logged_in as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 972)
+
+
+Started GET "/api/v1/logged_in" for 133.32.216.92 at 2021-10-29 12:08:06 +0000
+Processing by Api::V1::SessionsController#logged_in as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 909)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-29 12:08:13 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 11ms (Views: 8.3ms | ActiveRecord: 0.4ms | Allocations: 7522)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 12:08:14 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 15ms (Views: 12.6ms | ActiveRecord: 0.5ms | Allocations: 10707)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 12:10:32 +0000
+Started GET "/api/v1/logged_in" for 133.32.216.92 at 2021-10-29 12:10:32 +0000
+Processing by Api::V1::SessionsController#logged_in as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Processing by Api::V1::UsersController#show as HTML
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Parameters: {"id"=>"1"}
+Completed 200 OK in 15ms (Views: 0.5ms | ActiveRecord: 1.3ms | Allocations: 8299)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 35ms (Views: 25.0ms | ActiveRecord: 2.2ms | Allocations: 21705)
+
+
+Started GET "/api/v1/logged_in" for 133.32.216.92 at 2021-10-29 12:10:33 +0000
+Processing by Api::V1::SessionsController#logged_in as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 972)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-29 12:12:39 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 11ms (Views: 8.1ms | ActiveRecord: 0.7ms | Allocations: 7544)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 12:12:40 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 22ms (Views: 19.6ms | ActiveRecord: 0.6ms | Allocations: 15259)
+
+
+Started GET "/api/v1/users/1/following" for 133.32.216.92 at 2021-10-29 12:12:42 +0000
+Processing by Api::V1::UsersController#following as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:75:in `following'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:77:in `following'
+Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 0.3ms | Allocations: 7259)
+
+
+Started GET "/api/v1/users/1/following" for 133.32.216.92 at 2021-10-29 12:12:45 +0000
+Processing by Api::V1::UsersController#following as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:75:in `following'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:77:in `following'
+Completed 200 OK in 10ms (Views: 8.1ms | ActiveRecord: 0.3ms | Allocations: 7258)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 12:13:30 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 21ms (Views: 18.4ms | ActiveRecord: 0.6ms | Allocations: 15253)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 12:15:40 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 30ms (Views: 26.3ms | ActiveRecord: 0.7ms | Allocations: 15252)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 12:17:14 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 77ms (Views: 65.1ms | ActiveRecord: 0.7ms | Allocations: 15255)
+
+
+Started DELETE "/api/v1/logout" for 133.32.216.92 at 2021-10-29 12:18:26 +0000
+Processing by Api::V1::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:63:in `forget'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", nil], ["updated_at", "2021-10-29 12:18:26.302041"], ["id", 1]]
+  ↳ app/models/user.rb:63:in `forget'
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:63:in `forget'
+Completed 204 No Content in 12ms (ActiveRecord: 4.0ms | Allocations: 4205)
+
+
+Started GET "/api/v1/logged_in" for 133.32.216.92 at 2021-10-29 12:18:26 +0000
+Processing by Api::V1::SessionsController#logged_in as HTML
+Completed 202 Accepted in 3ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 250)
+
+
+Started POST "/api/v1/login" for 133.32.216.92 at 2021-10-29 12:18:49 +0000
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"1"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:51:in `remember'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "remember_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_digest", "$2a$12$RdGA7iNa0WImK39Ekn5R2uiv32xA490m.inXWZsCh7p8Ddns.jTr."], ["updated_at", "2021-10-29 12:18:49.624956"], ["id", 1]]
+  ↳ app/models/user.rb:51:in `remember'
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:51:in `remember'
+Completed 201 Created in 558ms (Views: 0.4ms | ActiveRecord: 5.1ms | Allocations: 4593)
+
+
+Started GET "/api/v1/logged_in" for 133.32.216.92 at 2021-10-29 12:18:49 +0000
+Processing by Api::V1::SessionsController#logged_in as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 909)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 12:19:18 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 22ms (Views: 19.3ms | ActiveRecord: 0.7ms | Allocations: 15252)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 12:19:44 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 22ms (Views: 19.1ms | ActiveRecord: 0.8ms | Allocations: 15253)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 12:20:01 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+Started GET "/api/v1/logged_in" for 133.32.216.92 at 2021-10-29 12:20:01 +0000
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Processing by Api::V1::SessionsController#logged_in as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Completed 200 OK in 27ms (Views: 24.4ms | ActiveRecord: 0.7ms | Allocations: 16774)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Completed 200 OK in 13ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 8887)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-29 12:20:10 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 11ms (Views: 8.4ms | ActiveRecord: 0.5ms | Allocations: 7522)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 12:20:19 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.3ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 28ms (Views: 24.5ms | ActiveRecord: 1.1ms | Allocations: 15433)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 12:22:15 +0000
+Started GET "/api/v1/logged_in" for 133.32.216.92 at 2021-10-29 12:22:15 +0000
+Processing by Api::V1::SessionsController#logged_in as HTML
+Processing by Api::V1::UsersController#show as HTML
+Completed 202 Accepted in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 496)
+
+
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 23ms (Views: 20.4ms | ActiveRecord: 0.6ms | Allocations: 15496)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 12:22:31 +0000
+Started GET "/api/v1/logged_in" for 133.32.216.92 at 2021-10-29 12:22:31 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+Processing by Api::V1::SessionsController#logged_in as HTML
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 202 Accepted in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 174)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 25ms (Views: 21.4ms | ActiveRecord: 0.7ms | Allocations: 15867)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 12:28:43 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 25ms (Views: 20.0ms | ActiveRecord: 1.6ms | Allocations: 16002)
+
+
+Started GET "/api/v1/users" for 133.32.216.92 at 2021-10-29 12:28:44 +0000
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."activated" = ?[0m  [["activated", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 11ms (Views: 8.3ms | ActiveRecord: 0.4ms | Allocations: 7522)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 12:28:46 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 0.7ms | Allocations: 15252)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 12:35:29 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 26ms (Views: 21.0ms | ActiveRecord: 1.4ms | Allocations: 16004)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 12:40:00 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 33ms (Views: 30.5ms | ActiveRecord: 0.7ms | Allocations: 15253)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 12:40:01 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+Started GET "/api/v1/logged_in" for 133.32.216.92 at 2021-10-29 12:40:01 +0000
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Processing by Api::V1::SessionsController#logged_in as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Completed 200 OK in 27ms (Views: 23.9ms | ActiveRecord: 0.7ms | Allocations: 16740)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Completed 200 OK in 13ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 8858)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 12:40:51 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (1.0ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 25ms (Views: 21.0ms | ActiveRecord: 1.7ms | Allocations: 15416)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 12:40:52 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+Started GET "/api/v1/logged_in" for 133.32.216.92 at 2021-10-29 12:40:52 +0000
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Processing by Api::V1::SessionsController#logged_in as HTML
+Completed 200 OK in 23ms (Views: 20.2ms | ActiveRecord: 0.6ms | Allocations: 16152)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 1006)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 12:41:47 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 21ms (Views: 18.7ms | ActiveRecord: 0.7ms | Allocations: 15252)
+
+
+Started GET "/api/v1/users/1" for 133.32.216.92 at 2021-10-29 12:45:41 +0000
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `show'
+Completed 200 OK in 21ms (Views: 18.1ms | ActiveRecord: 0.7ms | Allocations: 15252)
+
+

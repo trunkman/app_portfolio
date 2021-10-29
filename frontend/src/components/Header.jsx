@@ -36,7 +36,7 @@ export const Header = (props) => {
   return (
     <Box>
       <AppBar position="static">
-        <Toolbar sx={{ width: 1000, mx: "auto", px: 2 }}>
+        <Toolbar sx={{ maxWidth: 1000, mx: "auto", px: 2 }}>
           <IconButton color="inherit" aria-label="menu" sx={{ mr: 2 }} onClick={() => history.push(`/`)} >
             <HealthAndSafetyIcon sx={{ fontSize: 40 }} />
           </IconButton>

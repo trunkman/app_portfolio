@@ -45,7 +45,8 @@ export const Profile = (props) => {
           <ListItem
             component={Link}
             to={`/users/${props.user.id}/followers`}>
-            {props.following.length} フォロワー
+            {props.followers.length}
+            フォロワー
           </ListItem>
         </Grid>
       </Grid>
@@ -55,7 +56,6 @@ export const Profile = (props) => {
           <div>
             <Button onClick={handleOpenSetting}>
               プロフィールの編集
-
             </Button>
             <SettingDialog
               handleClose={handleCloseSetting}
