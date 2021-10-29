@@ -14,7 +14,7 @@ export const RememberMe = (props) => {
           inputProps={{ 'aria-label': 'controlled' }}
         />
       }
-      label="Remember me on this computer"
+      label="このアカウントを記憶する"
     />
   );
 }

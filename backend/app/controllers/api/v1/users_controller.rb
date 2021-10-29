@@ -1,7 +1,7 @@
 module Api
   module V1
     class UsersController < ApplicationController
-      before_action :logged_in_user, only: %i[index edit update destroy]
+      before_action :logged_in_user, only: %i[index edit update destroy followers] # followingを一時削除
       before_action :correct_user,   only: %i[edit update]
       before_action :admin_user,     only: :destroy
 
@@ -64,6 +64,22 @@ module Api
           render json: { message: '削除失敗' },
                  status: :not_found
         end
+      end
+
+      # フォローされている方を返す
+      def following
+        @title = 'Following'
+        user = User.find(params[:id])
+        @users = user.following
+        render json: {title: @title, users: @users}, status: :ok
+      end
+
+      # フォロワーを返す
+      def followers
+        @title = 'Followers'
+        user = User.find(params[:id])
+        @users = user.followers
+        render json: {title: @title, users: @users}, status: :ok
       end
 
       private

@@ -19,7 +19,7 @@ export const SettingDialog = (props) => {
   const [name, setName] = useState(props.user.name)
   const [email, setEmail] = useState(props.user.email)
   const [password, setPassword] = useState('')
-  const [passwordConfirmation, setpasswordConfirmaiton] = useState('')
+  const [passwordConfirmation, setPasswordConfirmaiton] = useState('')
   const history = useHistory()
   // 送信のCallback関数
   const handleSubmit = () => {
@@ -30,11 +30,8 @@ export const SettingDialog = (props) => {
       password: password,
       password_confirmation: passwordConfirmation,
     }).then((data) => {
-      setName('')
-      setEmail('')
-      setPassword('')
-      setpasswordConfirmaiton('')
-      alert('ユーザー情報の更新に成功しました')
+      alert('ユーザー情報を更新しました')
+      props.handleClose()
       history.push(`/user/${data.user.id}`)
     }).catch(() => {
       alert('ユーザー情報の更新失敗')
@@ -47,10 +44,10 @@ export const SettingDialog = (props) => {
       open={props.open}
       onClose={props.handleClose}
     >
-      <DialogTitle>設定</DialogTitle>
+      <DialogTitle>プロフィールを編集する</DialogTitle>
       <DialogContent>
         <DialogContentText>
-          変更したい項目を入力し、「情報の更新」を押してください。
+          変更したい項目を入力し、「更新」を押してください。
         </DialogContentText>
         <Name
           name={name}
@@ -66,7 +63,7 @@ export const SettingDialog = (props) => {
         />
         <PasswordConfirmation
           passwordConfirmation={passwordConfirmation}
-          handleChange={e => setpasswordConfirmaiton(e.target.value)}
+          handleChange={e => setPasswordConfirmaiton(e.target.value)}
         />
       </DialogContent>
       <DialogActions>
@@ -74,7 +71,7 @@ export const SettingDialog = (props) => {
           閉じる
         </Button>
         <Button onClick={handleSubmit} type='submit'>
-          情報の更新
+          更新
         </Button>
       </DialogActions>
     </Dialog>

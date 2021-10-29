@@ -1,16 +1,15 @@
 import axios from 'axios'
-import { signUp, userPath, users } from '../urls/index'
+import { signUp, userPath, users, following, followers } from '../urls/index'
 
 // ユーザーページを表示するapi
 export const fetchUser = (params) => {
-  return axios.get(userPath(params.user_id), {
-    user: { id: params.user_id }
+  return axios.get(userPath(params.userId), {
+    user: { id: params.userId }
   }, { withCredentials: true })
     .then(res => {
       console.log('user#show', res)
       return res.data
-    })
-    .catch((e) => console.error(e))
+    }).catch((e) => console.error(e))
 }
 
 // 新規登録するためのapi
@@ -68,19 +67,40 @@ export const fetchUsers = () => {
       console.log('user#index', res)
       return res.data
     })
-    .catch(e => {
-      console.error(e)
-    })
+    .catch(e => { console.error(e) })
 }
 
-// ユーザーを削除するapi
+// ユーザーを削除する
 export const deleteUser = (userId) => {
   return axios.delete(userPath(userId), { withCredentials: true })
     .then(res => {
       console.log('user#destroy', res)
       return res.data
     })
-    .catch.error(e => {
-      console.error(e)
+    .catch(e => { console.error(e) })
+}
+
+// Folloingをfetchする ※cookieが送れない
+export const fetchFollowing = (params) => {
+  return axios.get(following(params.userId), {
+    user: { id: params.userId }
+  }, { withCredentials: true }
+  )
+    .then(res => {
+      console.log('user#following', res)
+      return res.data
     })
+    .catch(e => console.log(e))
+}
+
+// Followersをfetchする
+export const fetchFollowers = (params) => {
+  return axios.get(followers(params.userId), {
+    user: { id: params.userId }
+  }, { withCredentials: true })
+    .then(res => {
+      console.log('user#followers', res)
+      return res.data
+    })
+    .catch(e => { console.error(e) })
 }
