@@ -8,7 +8,7 @@ import { fetchFollowing } from "../apis/users";
 
 export const Following = (props) => {
   const [following, setFollowing] = useState([])
-  const [title, setTitle] = useState('No title')
+  const [title, setTitle] = useState(null)
   // ユーザーのFollowing情報を取得
   useEffect(() => {
     fetchFollowing({ userId: props.userId })
@@ -16,7 +16,7 @@ export const Following = (props) => {
         setFollowing(data.users)
         setTitle(data.title)
       })
-  }, [])
+  }, [props.userId])
 
   return (
     <Fragment>

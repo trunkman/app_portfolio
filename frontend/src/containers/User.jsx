@@ -18,7 +18,7 @@ export const User = (props) => {
         setUser(data.user)
         setMicroposts(data.microposts)
       })
-  }, [])
+  }, [props.match.url])
 
   return (
     <Grid container sx={{ width: 1000, mx: "auto", bgcolor: 'grey.300' }}>

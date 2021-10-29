@@ -44,7 +44,7 @@ export const Header = (props) => {
             ホーム
           </Typography>
           {(props.isLoggedIn) &&
-            <Typography sx={{ mr: 4 }} variant="body1" onClick={() => history.push(`/user/${props.user.id}`)}>
+            <Typography sx={{ mr: 4 }} variant="body1" onClick={() => history.push(`/users/${props.user.id}`)}>
               プロフィール
             </Typography>
           }

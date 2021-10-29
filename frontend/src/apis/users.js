@@ -80,7 +80,7 @@ export const deleteUser = (userId) => {
     .catch(e => { console.error(e) })
 }
 
-// Folloingをfetchする ※cookieが送れない
+// Folloingをfetchする ※cookieが送れない問題あり
 export const fetchFollowing = (params) => {
   return axios.get(following(params.userId), {
     user: { id: params.userId }
