@@ -21,6 +21,7 @@ export const MicropostDialog = (props) => {
     }).then(data => {
       setContent('')
       props.handleClose()
+      props.dataFetching()
     })
   }
 

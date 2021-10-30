@@ -13,6 +13,11 @@ import { deleteMicropost } from "../apis/microposts";
 // コンポーネント
 
 export const Microposts = (props) => {
+  const deleteSubmit = (micropostId) => {
+    deleteMicropost(micropostId)
+      .then(props.dataFetching())
+  }
+
   return (
     <Fragment>
       <h2>投稿一覧</h2>
@@ -30,7 +35,7 @@ export const Microposts = (props) => {
                   secondary={micropost.created_at}
                 />
                 {props.loginUser.id === micropost.user_id && (
-                  <Link component="div" onClick={() => deleteMicropost(micropost.id)}>
+                  <Link component="div" onClick={() => deleteSubmit(micropost.id)}>
                     delete
                   </Link>
                 )}

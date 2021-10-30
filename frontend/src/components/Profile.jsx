@@ -61,6 +61,7 @@ export const Profile = (props) => {
               handleClose={handleCloseSetting}
               open={openSettingDialog}
               user={props.loginUser}
+              dataFetching={props.dataFetching}
             />
           </div>
           <div>
@@ -72,6 +73,7 @@ export const Profile = (props) => {
             handleClose={handleClosePost}
             open={openDialogPost}
             user={props.loginUser}
+            dataFetching={props.dataFetching}
           />
         </Fragment>
       }

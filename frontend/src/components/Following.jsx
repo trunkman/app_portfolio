@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { List, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
 // アイコン
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import { fetchFollowing } from "../apis/users";
+// import { fetchFollowing } from "../apis/users";
 
 export const Following = (props) => {
   // const [following, setFollowing] = useState([])

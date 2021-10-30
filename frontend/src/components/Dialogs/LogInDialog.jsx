@@ -30,7 +30,7 @@ export const LogInDialog = (props) => {
         setEmail('')
         setPassword('')
         props.handleClose()
-        history.push(`/user/{data.user.id}`)
+        history.push(`/users/{data.user.id}`)
       }
     })
   }

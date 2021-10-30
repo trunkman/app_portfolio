@@ -32,7 +32,7 @@ export const SettingDialog = (props) => {
     }).then((data) => {
       alert('ユーザー情報を更新しました')
       props.handleClose()
-      history.push(`/user/${data.user.id}`)
+      props.dataFetching()
     }).catch(() => {
       alert('ユーザー情報の更新失敗')
     })
