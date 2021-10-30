@@ -16,6 +16,7 @@ export const User = (props) => {
   const [following, setFollowing] = useState([])
   const [followers, setFollowers] = useState([])
   const [isFetching, setIsFetching] = useState(false)
+
   // ユーザー情報の取得
   useEffect(() => {
     fetchUser({ userId: props.match.params.id })
@@ -47,37 +48,33 @@ export const User = (props) => {
             followers={followers}
           />
         </Grid>
-        <Switch>
-          <Route exact path={`${props.match.url}`}>
-            <Grid item xs={12} sm={8} sx={{ px: 2, bgcolor: 'grey.100' }}>
+        <Grid item xs={12} sm={8} sx={{ px: 2, bgcolor: 'grey.100' }}>
+          <Switch>
+            <Route exact path={`${props.match.url}`}>
               <Microposts
                 dataFetching={() => setIsFetching(true)}
                 loginUser={props.loginUser}
                 microposts={microposts}
               />
-            </Grid>
-          </Route>
-        </Switch>
-        <Switch>
-          <Route exact path={`${props.match.url}/following`}>
-            <Grid item xs={12} sm={8} sx={{ px: 2, bgcolor: 'grey.100' }}>
+            </Route>
+          </Switch>
+          <Switch>
+            <Route exact path={`${props.match.url}/following`}>
               <Following
                 dataFetching={() => setIsFetching(true)}
                 following={following}
               />
-            </Grid>
-          </Route>
-        </Switch>
-        <Switch>
-          <Route exact path={`${props.match.url}/followers`}>
-            <Grid item xs={12} sm={8} sx={{ px: 2, bgcolor: 'grey.400' }}>
+            </Route>
+          </Switch>
+          <Switch>
+            <Route exact path={`${props.match.url}/followers`}>
               <Followers
                 dataFetching={() => setIsFetching(true)}
                 followers={followers}
               />
-            </Grid>
-          </Route>
-        </Switch>
+            </Route>
+          </Switch>
+        </Grid>
       </Grid>
     </BrowserRouter>
   )
