@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router';
 // ダイアログのstyles
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -20,7 +19,6 @@ export const SettingDialog = (props) => {
   const [email, setEmail] = useState(props.user.email)
   const [password, setPassword] = useState('')
   const [passwordConfirmation, setPasswordConfirmaiton] = useState('')
-  const history = useHistory()
   // 送信のCallback関数
   const handleSubmit = () => {
     patchUpdate({

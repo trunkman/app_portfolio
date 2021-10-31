@@ -1,25 +1,13 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 // styled
 import { List, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
 // アイコン
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import { fetchFollowers } from "../apis/users";
 
 export const Followers = (props) => {
-  // const [followers, setFollowers] = useState([])
-  // const [title, setTitle] = useState(null)
-  // ユーザーのFollowers情報を取得
-  // useEffect(() => {
-  //   fetchFollowers({ userId: props.userId })
-  //     .then(data => {
-  //       // setFollowers(data.users)
-  //       setTitle(data.title)
-  //     })
-  // }, [])
-
   return (
-    <Fragment>
+    <>
       <h2>フォロワー</h2>
       <List sx={{ bgcolor: 'background.paper' }}>
         {
@@ -42,6 +30,6 @@ export const Followers = (props) => {
           )
         }
       </List>
-    </Fragment>
+    </>
   )
 }

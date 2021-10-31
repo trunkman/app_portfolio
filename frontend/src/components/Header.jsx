@@ -28,6 +28,7 @@ export const Header = (props) => {
     deleteLogout()
       .then(() => {
         props.handleLogOut();
+        handleClose()
         history.push(`/`);
         alert('ログアウトを成功しました');
       })

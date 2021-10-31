@@ -1,35 +1,28 @@
-import React, { Fragment, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { useHistory } from "react-router-dom";
 // styled
 import { List, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
 // アイコン
 import AccountCircle from "@mui/icons-material/AccountCircle";
-// import { fetchFollowing } from "../apis/users";
 
 export const Following = (props) => {
-  // const [following, setFollowing] = useState([])
-  // const [title, setTitle] = useState(null)
-  // // ユーザーのFollowing情報を取得
-  // useEffect(() => {
-  //   fetchFollowing({ userId: props.userId })
-  //     .then(data => {
-  //       setFollowing(data.users)
-  //       setTitle(data.title)
-  //     })
-  // }, [])
+  const history = useHistory()
+  const PageTransition = (userId) => {
+    history.push(`/users/${userId}`)
+    props.dataFetching()
+  }
 
   return (
-    <Fragment>
+    <>
       <h2>フォロー中</h2>
       <List sx={{ bgcolor: 'background.paper' }}>
         {
           props.following.map(user =>
             <ListItem
               button
-              component={Link}
               divider
               key={user.id}
-              to={`/users/${user.id}`}
+              onClick={() => PageTransition(user.id)}
             >
               <ListItemAvatar>
                 <AccountCircle sx={{ fontSize: 60 }} />
@@ -42,6 +35,6 @@ export const Following = (props) => {
           )
         }
       </List>
-    </Fragment>
+    </>
   )
 }

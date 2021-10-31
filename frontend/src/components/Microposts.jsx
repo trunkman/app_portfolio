@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { Fragment } from "react";
 import Link from '@mui/material/Link';
 // styled
 import { ListItemAvatar, Typography } from "@mui/material";
@@ -8,7 +8,6 @@ import ListItemText from '@mui/material/ListItemText';
 // アイコン
 import AccountCircle from "@mui/icons-material/AccountCircle";
 // api
-import { fetchUser } from "../apis/users";
 import { deleteMicropost } from "../apis/microposts";
 // コンポーネント
 

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { signUp, userPath, users, following, followers } from '../urls/index'
+import { signUp, userPath, users } from '../urls/index'
 
 // ユーザーページを表示するapi
 export const fetchUser = (params) => {
