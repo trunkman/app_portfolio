@@ -7,6 +7,8 @@ import { fetchLoggedIn } from './apis/sessions';
 import { Home } from './containers/Home'
 import { User } from './containers/User'
 import { Users } from './containers/Users'
+import { Contact } from './containers/Contact';
+// コンポーネント
 import { Header } from "./components/Header"
 
 export default function App() {
@@ -47,7 +49,7 @@ export default function App() {
         handleOpenLogIn={handleOpenLogIn}
         isLoggedIn={isLoggedIn}
         open={openLogInDialog}
-        user={loginUser}
+        loginUser={loginUser}
       />
       <Switch>
         <Route exact path="/">
@@ -78,6 +80,9 @@ export default function App() {
             isLoggedIn={isLoggedIn}
             user={loginUser}
           />
+        </Route>
+        <Route exact path="/contact">
+          <Contact />
         </Route>
       </Switch>
     </BrowserRouter>

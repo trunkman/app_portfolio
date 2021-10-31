@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuItem from '@mui/material/MenuItem';
 import { Menu } from "@mui/material";
+import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 // アイコン
 import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
 import AccountCircle from '@mui/icons-material/AccountCircle';
@@ -18,6 +19,7 @@ import { deleteLogout } from "../apis/sessions"
 import { LogInDialog } from "./Dialogs/LogInDialog";
 
 export const Header = (props) => {
+  const loginUserId = props.loginUser.id
   const history = useHistory()
   const [anchorEl, setAnchorEl] = useState(null);
   // アンカーを開閉する関数群
@@ -41,11 +43,37 @@ export const Header = (props) => {
           <IconButton color="inherit" aria-label="menu" sx={{ mr: 2 }} onClick={() => history.push(`/`)} >
             <HealthAndSafetyIcon sx={{ fontSize: 40 }} />
           </IconButton>
+
           <Typography sx={{ mr: 4 }} variant="body1" onClick={() => history.push(`/`)}>
             ホーム
           </Typography>
+
+          {/* <Accordion>
+            <AccordionSummary
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+              variant="body1"
+            >
+              <Typography>プロフィール</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography sx={{ mr: 4 }} variant="body1">
+                睡眠記録
+              </Typography>
+              <Typography sx={{ mr: 4 }} variant="body1" onClick={() => history.push(`/users/${loginUserId}/microposts`)}>
+                投稿一覧
+              </Typography>
+              <Typography sx={{ mr: 4 }} variant="body1">
+                睡眠本
+              </Typography>
+              <Typography sx={{ mr: 4 }} variant="body1">
+                睡眠グッズ
+              </Typography>
+            </AccordionDetails>
+          </Accordion> */}
+
           {(props.isLoggedIn) &&
-            <Typography sx={{ mr: 4 }} variant="body1" onClick={() => history.push(`/users/${props.user.id}`)}>
+            <Typography sx={{ mr: 4 }} variant="body1" onClick={() => history.push(`/users/${loginUserId}`)}>
               プロフィール
             </Typography>
           }
@@ -76,21 +104,14 @@ export const Header = (props) => {
               handleLogIn={props.handleLogIn}
             />
             <Menu
-              id="menu-appbar"
               anchorEl={anchorEl}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+              transformOrigin={{ vertical: 'top', horizontal: 'right' }}
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-              <MenuItem onClick={handleClose}>設定</MenuItem>       {/* 仮のonClickを記載 */}
+              <MenuItem onClick={() => history.push(`/users/${loginUserId}`)}>設定</MenuItem>
+              <MenuItem onClick={() => history.push(`/contact`)}>お問い合わせ</MenuItem>
               <MenuItem onClick={handleLogOut}>ログアウト</MenuItem>
             </Menu>
           </Box>
