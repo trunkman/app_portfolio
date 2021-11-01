@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { signUp, userPath, users } from '../urls/index'
+import { signUp, userPath, users, userMicroposts } from '../urls/index'
 
 // ユーザーページを表示するapi
 export const fetchUser = (params) => {
@@ -78,6 +78,20 @@ export const deleteUser = (userId) => {
       return res.data
     })
     .catch(e => { console.error(e) })
+}
+
+// 投稿一覧を取得するapi
+export const fetchMicroposts = (userId) => {
+  return axios.get(userMicroposts(userId),
+    { id: userId },
+    { withCredentials: true })
+    .then(res => {
+      console.log('users#microposts', res)
+      return res.data
+    })
+    .catch(error => {
+      console.log('users#microposts', error)
+    })
 }
 
 // // Folloingをfetchする ※cookieが送れない問題あり

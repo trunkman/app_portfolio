@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
-
 // styles
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -27,6 +26,7 @@ import { FollowsButton } from '../components/Navigations/FollowsButton';
 import { MessageButton } from '../components/Navigations/MessageButton';
 import { PostsButton } from '../components/Navigations/PostsButton';
 import { AvatarButton } from '../components/Navigations/AvatarButton';
+import { RankingButton } from '../components/Navigations/RankingButton';
 
 const drawerWidth = 240;
 const openedMixin = (theme) => ({
@@ -94,15 +94,13 @@ export const MiniDrawer = (props) => {
   const theme = useTheme();
   const init = window.innerWidth < 600 ? false : true
   const [open, setOpen] = useState(init)
+  const [openLogInDialog, setOpenLogInDialog] = useState(false)
+  // Drawerを開閉する関数群
   const handleDrawerOpen = () => setOpen(true)
   const handleDrawerClose = () => setOpen(false)
-
-  const [openLogInDialog, setOpenLogInDialog] = useState(false)
-
   // ログインDialogを開閉する関数群
   const handleOpenLogIn = () => setOpenLogInDialog(true)
   const handleCloseLogIn = () => setOpenLogInDialog(false)
-
 
   return (
     <BrowserRouter>
@@ -142,7 +140,7 @@ export const MiniDrawer = (props) => {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <AvatarButton loginUser={props.loginUser} size="45" />
+        <AvatarButton user={props.loginUser} size="45" />
         <Divider />
         <HomeButton loginUserId={props.loginUser.id} />
         <Divider />
@@ -153,6 +151,8 @@ export const MiniDrawer = (props) => {
         <PostsButton loginUserId={props.loginUser.id} />
         <Divider />
         <MessageButton loginUserId={props.loginUser.id} />
+        <Divider />
+        <RankingButton loginUserId={props.loginUser.id} />
       </Drawer>
 
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
@@ -179,10 +179,16 @@ export const MiniDrawer = (props) => {
               />
             }
           />
+          {/* <Route exact epath="/users/:id/microposts"
+            render={({ match }) =>
+              <Microposts
+                match={match}
+                loginUser={props.loginUser}
+              />
+            }
+          /> */}
           <Route exact path="/users">
             <Users
-              handleLogOut={props.handleLogOut}
-              handleLogIn={props.handleLogIn}
               isLoggedIn={props.isLoggedIn}
               user={props.loginUser}
             />

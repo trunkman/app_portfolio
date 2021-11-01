@@ -10,8 +10,10 @@ import { MyProfile } from "../components/Users/MyProfile";
 import { Microposts } from "../components/Users/Microposts";
 import { Following } from "../components/Users/Following";
 import { Followers } from "../components/Users/Followers";
+import { AvatarButton } from "../components/Navigations/AvatarButton";
 
 export const User = (props) => {
+  const userId = props.match.params.id
   const [user, setUser] = useState('No Name')
   const [microposts, setMicroposts] = useState([])
   const [following, setFollowing] = useState([])
@@ -19,7 +21,7 @@ export const User = (props) => {
   const [isFetching, setIsFetching] = useState(false)
   // ユーザー情報の取得
   useEffect(() => {
-    fetchUser({ userId: props.match.params.id })
+    fetchUser({ userId: userId })
       .then(data => {
         setUser(data.user)
         setMicroposts(data.microposts)
@@ -38,7 +40,7 @@ export const User = (props) => {
   return (
     <BrowserRouter>
       <Grid container sx={{ maxWidth: 1000, mx: "auto", bgcolor: 'grey.300' }}>
-        <Grid item xs={12} sm={4} sx={{ px: 2, bgcolor: 'grey.100' }}>
+        {/* <Grid item xs={12} sm={4} sx={{ px: 2, bgcolor: 'grey.100' }}>
           <SideProfile
             dataFetching={() => setIsFetching(true)}
             loginUser={props.loginUser}
@@ -48,9 +50,9 @@ export const User = (props) => {
             following={following}
             followers={followers}
           />
-        </Grid>
-        <Grid item xs={12} sm={8} sx={{ px: 2, bgcolor: 'grey.100' }}>
-
+        </Grid> */}
+        <AvatarButton user={user} size="45" />
+        <Grid item xs={12} sm={12} sx={{ px: 2, bgcolor: 'grey.100' }}>
           <Switch>
             <Route exact path={`${props.match.url}`}>
               <MyProfile
@@ -61,33 +63,32 @@ export const User = (props) => {
                 microposts={microposts}
                 following={following}
                 followers={followers}
-              />            </Route>
-          </Switch>
+              />
+            </Route>
 
-          <Switch>
-            <Route exact path={`${props.match.url}/microposts`}>
+            <Route path={`${props.match.url}/microposts`}>
               <Microposts
                 dataFetching={() => setIsFetching(true)}
                 loginUser={props.loginUser}
                 microposts={microposts}
+                userId={user.id}
               />
             </Route>
-          </Switch>
 
-          <Switch>
-            <Route exact path={`${props.match.url}/following`}>
+
+            <Route path={`${props.match.url}/following`}>
               <Following
                 dataFetching={() => setIsFetching(true)}
                 following={following}
+                userId={user.id}
               />
             </Route>
-          </Switch>
 
-          <Switch>
-            <Route exact path={`${props.match.url}/followers`}>
+            <Route path={`${props.match.url}/followers`}>
               <Followers
                 dataFetching={() => setIsFetching(true)}
                 followers={followers}
+                userId={user.id}
               />
             </Route>
           </Switch>

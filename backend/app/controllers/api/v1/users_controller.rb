@@ -84,6 +84,13 @@ module Api
         @users = user.followers
         render json: {title: @title, users: @users}, status: :ok
       end
+      
+      # マイクロポストを返す
+      def microposts
+        user = User.find(params[:id])
+        @microposts = @user.microposts
+        render json: {microposts: @microposts}, status: :ok
+      end
 
       private
 

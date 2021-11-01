@@ -15,13 +15,13 @@ export const AvatarButton = (props) => {
           <Avatar
             sx={{ width: props.size, height: props.size }}
             component={Link}
-            to={`/users/${props.loginUser.id}`}
+            to={`/users/${props.user.id}`}
           >
             <AccountCircle sx={{ fontSize: props.size }} />
           </Avatar>
         </ListItemIcon>
         <ListItemText>
-          {props.loginUser.name}
+          {props.user.name}
         </ListItemText>
       </ListItem>
     </List>
