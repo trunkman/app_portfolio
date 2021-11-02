@@ -6,8 +6,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { red } from "@mui/material/colors";
 // api
-import { postLike, deleteLike } from "../../apis/likes";
-import axios from "axios";
+import { postLike, postUnlike } from "../../apis/likes";
 
 export const LikeBottun = (props) => {
   const likeInit = false
@@ -18,13 +17,17 @@ export const LikeBottun = (props) => {
       userId: props.loginUserId,
       micropostId: props.micropostId,
     })
-      .then(setLike(true))
+      .then(setLike(true)
+      )
   }
 
   const handleUnlike = () => {
-    return axios(deleteLike()
-      .then(setLike(false))
-    )
+    postUnlike({
+      userId: props.loginUserId,
+      micropostId: props.micropostId,
+    })
+      .then(setLike(false)
+      )
   }
 
   return (

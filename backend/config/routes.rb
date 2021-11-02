@@ -17,11 +17,13 @@ Rails.application.routes.draw do
       resources :accountactivations, only: [:edit]
       resources :password_resets,    only: %i[new create edit update]
       resources :microposts,         only: %i[create destroy]
-      resources :likes,              only: %i[create destroy]
       # resources :relationships,      only: %i[create destroy]
       get    '/follow',   to: 'relationships#following_status'
       post   '/follow',   to: 'relationships#create'
       delete '/unfollow', to: 'relationships#destroy'
+      # resources :likes,              only: %i[create destroy]
+      post   '/likes',    to: 'likes#like'
+      post   '/unlikes',  to: 'likes#unlike'
     end
   end
 end

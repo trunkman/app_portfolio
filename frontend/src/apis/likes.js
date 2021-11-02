@@ -18,12 +18,18 @@ export const postLike = (params) => {
     })
     .catch(error => {
       console.log('like#create', error)
-      return 'nil'
     })
 }
 
-export const deleteLike = (params) => {
-  return axios.delete(unlike(params.likeId), { withCredentials: true })
+export const postUnlike = (params) => {
+  return axios.post(unlike, {
+    like: {
+      user_id: params.userId,
+      micropost_id: params.micropostId
+    }
+  },
+    { withCredentials: true }
+  )
     .then(res => {
       console.log('like#destroy', res)
       return res.data
