@@ -56,7 +56,7 @@ export const Microposts = (props) => {
               </Typography>
               <LikeBottun
                 loginUserId={props.loginUser.id}
-                micropostid={micropost.id}
+                micropostId={micropost.id}
               />
             </ListItem >
           )

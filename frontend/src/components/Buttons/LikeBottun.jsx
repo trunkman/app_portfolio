@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { IconButton } from "@mui/material";
 // アイコン
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import { red } from "@mui/material/colors";
 // api
 import { postLike, deleteLike } from "../../apis/likes";
@@ -31,7 +32,7 @@ export const LikeBottun = (props) => {
       {like === true
         ?
         <IconButton onClick={handleUnlike} >
-          <FavoriteBorderIcon sx={{ color: red[500] }} />
+          <FavoriteIcon sx={{ color: red[500] }} />
         </IconButton>
         :
         <IconButton onClick={handleLike} >

@@ -4,8 +4,8 @@ import { like, unlike } from "../urls";
 export const postLike = (params) => {
   return axios.post(like, {
     like: {
-      user_id: params.userId,
-      micropost_id: params.micropostId,
+      "user_id": params.userId,
+      "micropost_id": params.micropostId
     }
   },
     { withCredentials: true }

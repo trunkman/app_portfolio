@@ -4,7 +4,7 @@ module Api
       before_action :logged_in_user, only: %i[create destroy]
 
       def create
-        @like = current_user.likes.create(like_params)
+        @like = current_user.likes.create!(like_params)
         render json: { like: @like }, status: :ok
       end
 
@@ -19,6 +19,7 @@ module Api
       def like_params
         params.require(:like).permit(:user_id, :micropost_id)
       end
+
     end
   end
 end

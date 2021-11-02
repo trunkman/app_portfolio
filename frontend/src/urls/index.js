@@ -20,4 +20,4 @@ export const follow = `${DEFAULT_API_LOCALHOST}/follow`;
 export const unfollow = `${DEFAULT_API_LOCALHOST}/unfollow`;
 // LikesController
 export const like = `${DEFAULT_API_LOCALHOST}/likes`;
-export const unlike = (likeId) => `${DEFAULT_API_LOCALHOST}/like/${likeId}`;
+export const unlike = (likeId) => `${DEFAULT_API_LOCALHOST}/likes/${likeId}`;
