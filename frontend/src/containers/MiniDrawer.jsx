@@ -28,6 +28,7 @@ import { PostsButton } from '../components/Navigations/PostsButton';
 import { AvatarButton } from '../components/Navigations/AvatarButton';
 import { RankingButton } from '../components/Navigations/RankingButton';
 import { Microposts } from '../components/Users/Microposts';
+import { Following } from '../components/Users/Following';
 
 const drawerWidth = 240;
 const openedMixin = (theme) => ({
@@ -169,6 +170,7 @@ export const MiniDrawer = (props) => {
               open={openLogInDialog}
             />
           </Route>
+
           <Route exact path="/users/:id"
             render={({ match }) =>
               <User
@@ -180,23 +182,33 @@ export const MiniDrawer = (props) => {
               />
             }
           />
-          <Route exact epath="/users/:id/microposts"
-            render={({ match }) =>
-              <Microposts
-                match={match}
-                loginUser={props.loginUser}
-              />
-            }
+
+
+          <Route exact path="/users/:id/microposts"
+            render={({ match }) => <Microposts
+              match={match}
+              loginUser={props.loginUser}
+            />}
           />
+
+          <Route exact path="/users/:id/following"
+            render={({ match }) => <Following
+              match={match}
+            />}
+          />
+
+
           <Route exact path="/users">
             <Users
               isLoggedIn={props.isLoggedIn}
               user={props.loginUser}
             />
           </Route>
-          {/* <Route exact path="/contact">
+
+          <Route exact path="/contact">
             <Contact />
-          </Route> */}
+          </Route>
+
         </Switch>
       </Box>
     </BrowserRouter>

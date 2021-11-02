@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 // styled
 import { List, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
 // アイコン
 import AccountCircle from "@mui/icons-material/AccountCircle";
+// api
+import { fetchFollowing } from "../../apis/users";
 
 export const Following = (props) => {
+  const userId = props.match.params.id
+  const [following, setFollowing] = useState([])
+  // 投稿一覧を取得する
+  useEffect(() => {
+    fetchFollowing({ userId: userId })
+      .then(data => setFollowing(data.users))
+    return () => setFollowing([])
+  }, [])
+
   const history = useHistory()
-  const PageTransition = (userId) => {
-    history.push(`/users/${userId}`)
+  const PageTransition = (followingUserId) => {
+    history.push(`/users/${followingUserId}`)
     props.dataFetching()
   }
 
@@ -17,7 +28,7 @@ export const Following = (props) => {
       <h2>フォロー中</h2>
       <List sx={{ bgcolor: 'background.paper' }}>
         {
-          props.following.map(user =>
+          following.map(user =>
             <ListItem
               button
               divider

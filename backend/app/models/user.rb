@@ -10,10 +10,12 @@ class User < ApplicationRecord
                                    dependent: :destroy
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :likes, dependent: :destroy
   # setter, getter属性を定義
   attr_accessor :remember_token,
                 :activation_token,
                 :reset_token
+
   # beforeフィルター
   before_save   { email.downcase! }
   before_create :create_activation_digest
@@ -55,6 +57,7 @@ class User < ApplicationRecord
   def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")
     return false if digest.nil?
+
     BCrypt::Password.new(digest).is_password?(token)
   end
 
@@ -107,14 +110,14 @@ class User < ApplicationRecord
   end
 
   def feed
-    Micropost.where("user_id = ?",id)
+    Micropost.where('user_id = ?', id)
   end
 
   private
 
-    # 有効化トークンとダイジェストの作成および代入
-    def create_activation_digest
-      self.activation_token = User.new_token
-      self.activation_digest = User.digest(activation_token)
-    end
+  # 有効化トークンとダイジェストの作成および代入
+  def create_activation_digest
+    self.activation_token = User.new_token
+    self.activation_digest = User.digest(activation_token)
+  end
 end

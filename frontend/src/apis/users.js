@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { signUp, userPath, users, userMicroposts } from '../urls/index'
+import { signUp, userPath, users, userMicroposts, following } from '../urls/index'
 
 // ユーザーページを表示するapi
 export const fetchUser = (params) => {
@@ -83,7 +83,7 @@ export const deleteUser = (userId) => {
 // 投稿一覧を取得するapi
 export const fetchMicroposts = (params) => {
   return axios.get(userMicroposts(1), {
-    user: { id: 1 }
+    user: { id: params.userId }
   }, { withCredentials: true })
     .then(res => {
       console.log('users#microposts', res)
@@ -94,19 +94,17 @@ export const fetchMicroposts = (params) => {
     })
 }
 
-
-// // Folloingをfetchする ※cookieが送れない問題あり
-// export const fetchFollowing = (params) => {
-//   return axios.get(following(params.userId), {
-//     user: { id: params.userId }
-//   }, { withCredentials: true }
-//   )
-//     .then(res => {
-//       console.log('user#following', res)
-//       return res.data
-//     })
-//     .catch(e => console.log(e))
-// }
+// Folloingをfetchする ※cookieが送れない問題あり
+export const fetchFollowing = (params) => {
+  return axios.get(following(1), {
+    user: { id: params.userId }
+  }, { withCredentials: true })
+    .then(res => {
+      console.log('user#following', res)
+      return res.data
+    })
+    .catch(e => console.log(e))
+}
 
 // // Followersをfetchする
 // export const fetchFollowers = (params) => {

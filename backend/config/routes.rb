@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'likes/create'
+  get 'likes/destroy'
   namespace :api do
     namespace :v1 do
       root   'static_pages#home'
@@ -15,6 +17,7 @@ Rails.application.routes.draw do
       resources :accountactivations, only: [:edit]
       resources :password_resets,    only: %i[new create edit update]
       resources :microposts,         only: %i[create destroy]
+      resources :likes,              only: %i[create destroy]
       # resources :relationships,      only: %i[create destroy]
       get    '/follow',   to: 'relationships#following_status'
       post   '/follow',   to: 'relationships#create'

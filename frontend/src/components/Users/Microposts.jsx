@@ -10,22 +10,23 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 // api
 import { deleteMicropost } from "../../apis/microposts";
 import { fetchMicroposts } from "../../apis/users";
+import { LikeBottun } from "../Buttons/LikeBottun";
 // コンポーネント
 
 export const Microposts = (props) => {
   const userId = props.match.params.id
   const [microposts, setMicroposts] = useState([])
-  // 投稿を削除する（管理者のみ実行可能）
-  const deleteSubmit = (micropostId) => {
-    deleteMicropost(micropostId)
-    //     .then(props.dataFetching())
-  }
   // 投稿一覧を取得する
   useEffect(() => {
     fetchMicroposts({ userId: userId })
       .then(data => setMicroposts(data.microposts))
     return () => setMicroposts([])
   }, [])
+  // 投稿を削除する（管理者のみ実行可能）
+  const deleteSubmit = (micropostId) => {
+    deleteMicropost(micropostId)
+    //     .then(props.dataFetching())
+  }
 
   return (
     <>
@@ -53,6 +54,10 @@ export const Microposts = (props) => {
               <Typography variant="body1" pl={2}>
                 {micropost.content}
               </Typography>
+              <LikeBottun
+                loginUserId={props.loginUser.id}
+                micropostid={micropost.id}
+              />
             </ListItem >
           )
         }

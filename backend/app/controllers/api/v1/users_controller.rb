@@ -17,7 +17,7 @@ module Api
         @following = @user.following
         @followers = @user.followers
         if @user.activated?
-          render json: { user: @user , microposts: @microposts,
+          render json: { user: @user, microposts: @microposts,
                          following: @following, followers: @followers }, status: :ok
         else
           render json: {}, status: :unauthorized
@@ -74,7 +74,7 @@ module Api
         @title = 'Following'
         user = User.find(params[:id])
         @users = user.following
-        render json: {title: @title, users: @users}, status: :ok
+        render json: { title: @title, users: @users }, status: :ok
       end
 
       # フォロワーを返す
@@ -82,39 +82,36 @@ module Api
         @title = 'Followers'
         user = User.find(params[:id])
         @users = user.followers
-        render json: {title: @title, users: @users}, status: :ok
+        render json: { title: @title, users: @users }, status: :ok
       end
-      
+
       # マイクロポストを返す
       def microposts
         user = User.find(params[:id])
         @microposts = user.microposts
-        render json: {microposts: @microposts}, status: :ok
+        render json: { microposts: @microposts }, status: :ok
       end
 
       private
 
-        # Strong Parameters
-        def user_params
-          params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
-        end
+      # Strong Parameters
+      def user_params
+        params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
+      end
 
-        # 管理者かどうか
-        def admin_user
-          unless current_user.admin?
-            render json: { message: '管理者ではない' },
-                  status: :unauthorized
-          end
-        end
-
-        # 正しいユーザーかどうか確認
-        def correct_user
-          @user = User.find(params[:id])
-          unless current_user?(@user)
-            render json: {}, status: :unauthorized
-          end
+      # 管理者かどうか
+      def admin_user
+        unless current_user.admin?
+          render json: { message: '管理者ではない' },
+                 status: :unauthorized
         end
       end
 
+      # 正しいユーザーかどうか確認
+      def correct_user
+        @user = User.find(params[:id])
+        render json: {}, status: :unauthorized unless current_user?(@user)
+      end
+    end
   end
 end

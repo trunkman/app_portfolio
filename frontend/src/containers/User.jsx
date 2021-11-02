@@ -76,13 +76,13 @@ export const User = (props) => {
             </Route> */}
 
 
-            <Route exact path={`${props.match.url}/following`}>
+            {/* <Route exact path={`${props.match.url}/following`}>
               <Following
                 dataFetching={() => setIsFetching(true)}
                 following={following}
                 userId={user.id}
               />
-            </Route>
+            </Route> */}
 
             <Route exact path={`${props.match.url}/followers`}>
               <Followers
