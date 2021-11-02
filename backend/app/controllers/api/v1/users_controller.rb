@@ -88,7 +88,7 @@ module Api
       # マイクロポストを返す
       def microposts
         user = User.find(params[:id])
-        @microposts = @user.microposts
+        @microposts = user.microposts
         render json: {microposts: @microposts}, status: :ok
       end
 

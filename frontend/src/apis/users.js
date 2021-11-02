@@ -81,10 +81,10 @@ export const deleteUser = (userId) => {
 }
 
 // 投稿一覧を取得するapi
-export const fetchMicroposts = (userId) => {
-  return axios.get(userMicroposts(userId),
-    { id: userId },
-    { withCredentials: true })
+export const fetchMicroposts = (params) => {
+  return axios.get(userMicroposts(1), {
+    user: { id: 1 }
+  }, { withCredentials: true })
     .then(res => {
       console.log('users#microposts', res)
       return res.data
@@ -93,6 +93,7 @@ export const fetchMicroposts = (userId) => {
       console.log('users#microposts', error)
     })
 }
+
 
 // // Folloingをfetchする ※cookieが送れない問題あり
 // export const fetchFollowing = (params) => {

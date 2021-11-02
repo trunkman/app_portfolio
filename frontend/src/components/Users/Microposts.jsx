@@ -13,25 +13,27 @@ import { fetchMicroposts } from "../../apis/users";
 // コンポーネント
 
 export const Microposts = (props) => {
-  const userId = props.userId
-  // const [microposts, setMicroposts] = useState([])
+  const userId = props.match.params.id
+  const [microposts, setMicroposts] = useState([])
   // 投稿を削除する（管理者のみ実行可能）
   const deleteSubmit = (micropostId) => {
     deleteMicropost(micropostId)
-      .then(props.dataFetching())
+    //     .then(props.dataFetching())
   }
   // 投稿一覧を取得する
-  // useEffect(() => {
-  //   fetchMicroposts(userId)
-  //     .then(data => setMicroposts(data.microposts))
-  // }, [])
+  useEffect(() => {
+    fetchMicroposts({ userId: userId })
+      .then(data => setMicroposts(data.microposts))
+    return () => setMicroposts([])
+  }, [])
 
   return (
     <>
       <h2>投稿一覧</h2>
+      <p>{microposts.length} つぶやき</p>
       <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
         {
-          props.microposts.map(micropost =>
+          microposts.map(micropost =>
             <ListItem key={micropost.id}>
               <ListItemAvatar>
                 <AccountCircle sx={{ fontSize: 40 }} />

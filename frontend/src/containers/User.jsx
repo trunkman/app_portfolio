@@ -66,17 +66,17 @@ export const User = (props) => {
               />
             </Route>
 
-            <Route path={`${props.match.url}/microposts`}>
+            {/* <Route path={`${props.match.url}/microposts`}>
               <Microposts
                 dataFetching={() => setIsFetching(true)}
                 loginUser={props.loginUser}
                 microposts={microposts}
                 userId={user.id}
               />
-            </Route>
+            </Route> */}
 
 
-            <Route path={`${props.match.url}/following`}>
+            <Route exact path={`${props.match.url}/following`}>
               <Following
                 dataFetching={() => setIsFetching(true)}
                 following={following}
@@ -84,7 +84,7 @@ export const User = (props) => {
               />
             </Route>
 
-            <Route path={`${props.match.url}/followers`}>
+            <Route exact path={`${props.match.url}/followers`}>
               <Followers
                 dataFetching={() => setIsFetching(true)}
                 followers={followers}
