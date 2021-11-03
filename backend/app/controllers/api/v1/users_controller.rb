@@ -89,7 +89,8 @@ module Api
       def microposts
         user = User.find(params[:id])
         @microposts = user.microposts
-        render json: { microposts: @microposts }, status: :ok
+        @comments = user.comments
+        render json: { microposts: @microposts, comments: @comments }, status: :ok
       end
 
       private
