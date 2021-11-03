@@ -1,7 +1,7 @@
 module Api
   module V1
     class LikesController < ApplicationController
-      before_action :logged_in_user, only: %i[create destroy]
+      before_action :logged_in_user, only: %i[like unlike]
 
       def like
         @like = current_user.likes.create!(like_params)

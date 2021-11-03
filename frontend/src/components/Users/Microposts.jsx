@@ -2,16 +2,18 @@ import React, { useState, useEffect } from "react";
 import Link from '@mui/material/Link';
 // styled
 import { ListItemAvatar, Typography } from "@mui/material";
-import { ListItem } from "@mui/material";
+import ListItem from "@mui/material/ListItem";
 import List from '@mui/material/List';
 import ListItemText from '@mui/material/ListItemText';
+import Grid from '@mui/material/Grid'
 // アイコン
 import AccountCircle from "@mui/icons-material/AccountCircle";
 // api
 import { deleteMicropost } from "../../apis/microposts";
 import { fetchMicroposts } from "../../apis/users";
-import { LikeBottun } from "../Buttons/LikeBottun";
 // コンポーネント
+import { LikeButton } from "../Buttons/LikeButton";
+import { CommentButton } from "../Buttons/CommentButton"
 
 export const Microposts = (props) => {
   const userId = props.match.params.id
@@ -39,22 +41,24 @@ export const Microposts = (props) => {
               <ListItemAvatar>
                 <AccountCircle sx={{ fontSize: 40 }} />
               </ListItemAvatar>
-              <div>
-                <ListItemText
-                  component="div"
-                  primary={micropost.id}
-                  secondary={micropost.created_at}
-                />
-                {props.loginUser.id === micropost.user_id && (
-                  <Link component="div" onClick={() => deleteSubmit(micropost.id)}>
-                    delete
-                  </Link>
-                )}
-              </div>
+              <ListItemText
+                component="div"
+                primary={micropost.id}
+                secondary={micropost.created_at}
+              />
+              {props.loginUser.id === micropost.user_id && (
+                <Link component="div" onClick={() => deleteSubmit(micropost.id)}>
+                  delete
+                </Link>
+              )}
               <Typography variant="body1" pl={2}>
                 {micropost.content}
               </Typography>
-              <LikeBottun
+              <LikeButton
+                loginUserId={props.loginUser.id}
+                micropostId={micropost.id}
+              />
+              <CommentButton
                 loginUserId={props.loginUser.id}
                 micropostId={micropost.id}
               />

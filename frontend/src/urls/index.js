@@ -21,3 +21,6 @@ export const unfollow = `${DEFAULT_API_LOCALHOST}/unfollow`;
 // LikesController
 export const like = `${DEFAULT_API_LOCALHOST}/likes`;
 export const unlike = `${DEFAULT_API_LOCALHOST}/unlikes/`;
+// CommentController
+export const commentCreate = `${DEFAULT_API_LOCALHOST}/comments`;
+export const commentDestroy = (commentId) => `${DEFAULT_API_LOCALHOST}/comments/${commentId}`;

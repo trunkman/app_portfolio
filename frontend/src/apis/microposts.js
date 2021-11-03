@@ -1,6 +1,7 @@
 import axios from "axios";
 import { micropostCreate, micropostDestroy } from "../urls";
 
+// マイクロポストを作成するapi
 export const postMicropost = (params) => {
   return axios.post(micropostCreate, {
     micropost: {

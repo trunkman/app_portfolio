@@ -26,7 +26,7 @@ module Api
         params.require(:micropost).permit(:content, :image)
       end
 
-      # 自身のマイクロポストであるかを確認
+      # 本人のマイクロポストであるかを確認
       def correct_user
         @micropost = current_user.microposts.find_by(id: params[:id])
         render json: {}, status: :unauthorized if @micropost.nil?
