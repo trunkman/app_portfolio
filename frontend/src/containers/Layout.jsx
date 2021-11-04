@@ -29,6 +29,7 @@ import { PostsButton } from '../components/Navigations/PostsButton';
 import { AvatarButton } from '../components/Navigations/AvatarButton';
 import { RankingButton } from '../components/Navigations/RankingButton';
 import { Microposts } from './Pages/Microposts';
+// import { Rooms } from  './Pages/Rooms';
 import { Following } from '../components/Users/Following';
 
 const drawerWidth = 240;
@@ -152,7 +153,6 @@ export const Layout = (props) => {
             }
           />
 
-
           <Route exact path="/users/:id/microposts"
             render={({ match }) => <Microposts
               match={match}
@@ -160,12 +160,18 @@ export const Layout = (props) => {
             />}
           />
 
+          {/* <Route exact path="/users/:id/rooms"
+            render={({ match }) => <Rooms
+              match={match}
+              loginUser={props.loginUser}
+            />}
+          /> */}
+
           <Route exact path="/users/:id/following"
             render={({ match }) => <Following
               match={match}
             />}
           />
-
 
           <Route exact path="/users">
             <Users

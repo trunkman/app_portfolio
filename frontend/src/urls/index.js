@@ -24,3 +24,5 @@ export const unlike = `${DEFAULT_API_LOCALHOST}/unlikes/`;
 // CommentController
 export const commentCreate = `${DEFAULT_API_LOCALHOST}/comments`;
 export const commentDestroy = (commentId) => `${DEFAULT_API_LOCALHOST}/comments/${commentId}`;
+// RoomsController
+export const roomShow = `${DEFAULT_API_LOCALHOST}/rooms`;

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { signUp, userPath, users, userMicroposts, following } from '../urls/index'
+import { signUp, userPath, users, userMicroposts, following, roomShow } from '../urls/index'
 
 // ユーザーページを表示するapi
 export const fetchUser = (params) => {
@@ -92,6 +92,21 @@ export const fetchMicroposts = (params) => {
     .catch(error => {
       console.log('users#microposts', error)
     })
+}
+
+// メッセージルーム一覧を取得する
+export const fetchRooms = (params) => {
+  return axios({
+    url: roomShow,
+    method: 'get',
+    params: { user_id: params.userId },
+    withCredentials: true,
+  }).then(res => {
+    console.log('users#rooms', res)
+    return res.data
+  }).catch(error => {
+    console.log('users#rooms', error)
+  })
 }
 
 // Folloingをfetchする ※cookieが送れない問題あり
