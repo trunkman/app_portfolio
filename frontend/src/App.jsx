@@ -7,7 +7,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 // api
 import { fetchLoggedIn } from './apis/sessions';
 // コンテイナー
-import { MiniDrawer } from './containers/MiniDrawer';
+import { Layout } from './containers/Layout';
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -37,7 +37,7 @@ export default function App() {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <BrowserRouter>
-        <MiniDrawer
+        <Layout
           handleLogOut={handleLogOut}
           handleLogIn={handleLogIn}
           isLoggedIn={isLoggedIn}

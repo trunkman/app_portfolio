@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { useHistory } from "react-router";
 // styled
 import Box from '@mui/material/Box';
-import { Button } from "@mui/material";
+import Button from "@mui/material/Button";
 import IconButton from '@mui/material/IconButton';
 import MenuItem from '@mui/material/MenuItem';
-import { Menu } from "@mui/material";
+import Menu from "@mui/material/Menu";
 // アイコン
 import AccountCircle from '@mui/icons-material/AccountCircle';
 // api
@@ -53,13 +53,20 @@ export const LoginControlBottun = (props) => {
       <Menu
         anchorEl={anchorEl}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        keepMounted
         transformOrigin={{ vertical: 'top', horizontal: 'right' }}
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={() => history.push(`/users/${loginUserId}`)}>設定</MenuItem>
-        <MenuItem onClick={() => history.push(`/contact`)}>お問い合わせ</MenuItem>
-        <MenuItem onClick={handleLogOut}>ログアウト</MenuItem>
+        <MenuItem onClick={() => history.push(`/users/${loginUserId}`)}>
+          設定
+        </MenuItem>
+        <MenuItem onClick={() => history.push(`/contact`)}>
+          お問い合わせ
+        </MenuItem>
+        <MenuItem onClick={handleLogOut}>
+          ログアウト
+        </MenuItem>
       </Menu>
     </Box>
   )
