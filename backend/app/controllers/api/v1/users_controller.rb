@@ -96,8 +96,9 @@ module Api
       # トークルームの一覧を返す
       def rooms
         user = User.find(params[:id])
-        @rooms = Room.entries.find_by(user_id: params[:user][:id])
-        render json: { rooms: @rooms  }, status: :ok 
+        @entries = Entry.find_by(user_id: user.id)
+        render json: { entries: @entries }, status: :ok 
+
         # user = User.find(params[:id])
         # current_user_entries = Entry.where(user_id: current_user.id)
         # user_entries = Entry.where(user_id: user.id)

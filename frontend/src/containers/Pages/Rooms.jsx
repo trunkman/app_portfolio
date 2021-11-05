@@ -9,12 +9,12 @@ import { fetchRooms } from "../../apis/users";
 
 export const Rooms = (props) => {
   const history = useHistory()
-  const [rooms, setRooms] = useState([])
+  const [entries, setEntries] = useState([])
   // メッセージルームの一覧を取得する
   useEffect(() => {
     fetchRooms({ userId: props.loginUser.id })
-      .then(data => setRooms(data.rooms))
-    return () => setRooms([])
+      .then(data => setEntries(data.entries))
+    return () => setEntries([])
   }, [])
 
   return (
@@ -22,25 +22,29 @@ export const Rooms = (props) => {
       <h2>トークルーム</h2>
       <List sx={{ bgcolor: 'background.paper' }}>
         {
-          rooms.map(room =>
-            <ListItem
-              button
-              divider
-              key={room.id}
-              onClick={() => history.push(`/rooms/${room.id}`)}
-            >
-              <ListItemAvatar>
-                <AccountCircle sx={{ fontSize: 60 }} />
-              </ListItemAvatar>
-              <ListItemText
-                primary={room.id}
-                secondary='メッセージルームの最後の投稿を記載する予定'
-              />
-              <p>
-                メッセージルーム削除する
-              </p>
-            </ListItem >
-          )
+          true
+            ? (<p> トークしている人はいません </p>
+            ) : (
+              entries.map(entry => {
+                <ListItem
+                  button
+                  divider
+                  key={entry.id}
+                  onClick={() => history.push(`/rooms/${entry.room_id}`)}
+                >
+                  <ListItemAvatar>
+                    <AccountCircle sx={{ fontSize: 60 }} />
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary={entry.user_id}
+                    secondary='メッセージルームの最後の投稿を記載する予定'
+                  />
+                  <p>
+                    ルームを削除する
+                  </p>
+                </ListItem >
+              })
+            )
         }
       </List>
     </>

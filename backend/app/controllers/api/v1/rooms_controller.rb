@@ -4,11 +4,13 @@ module Api
       before_action :logged_in_user, only: %i[show create destroy]
       before_action :correct_user,   only: [:destroy]
 
+      # トークのメッセージ一覧を返す
       def show
           @messages = Message.find_by(room_id: params[:room][:id])
           render json: { messages: @messages }, status: :ok
       end
 
+      # トークルームを作成する
       def create
         @room = Room.create
         current_user_entry = Entry.create(user_id: current_user.id, room_id: @room.id)
