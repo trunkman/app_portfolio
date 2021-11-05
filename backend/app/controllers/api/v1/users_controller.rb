@@ -96,23 +96,10 @@ module Api
       # トークルームの一覧を返す
       def rooms
         user = User.find(params[:id])
-        @entries = Entry.find_by(user_id: user.id)
+        @entries = user.entries
         render json: { entries: @entries }, status: :ok 
-
-        # user = User.find(params[:id])
-        # current_user_entries = Entry.where(user_id: current_user.id)
-        # user_entries = Entry.where(user_id: user.id)
-        # unless current_user.id === user.id
-        #   current_user_entries.each do |current_user_entry|
-        #     user_entries.each do |user_entry|
-        #       if current_user_entry.room_id === user_entry.room_id 
-        #         is_room = true
-        #         @room_id = current_user_entry.room_id
-        #       end
-        #     end
-        #   end
-        # end
       end
+      # @entries = Entry.find_by(user_id: current_user.id)
 
       private
 

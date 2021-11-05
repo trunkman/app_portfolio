@@ -6,7 +6,8 @@ module Api
 
       # トークのメッセージ一覧を返す
       def show
-          @messages = Message.find_by(room_id: params[:room][:id])
+          room = Room.find(params[:id])
+          @messages = room.messages
           render json: { messages: @messages }, status: :ok
       end
 
@@ -16,6 +17,16 @@ module Api
         current_user_entry = Entry.create(user_id: current_user.id, room_id: @room.id)
         user_entry = Entry.create(room_params.merge(room_id: @room.id))
         render json: { room: @room }, status: :ok
+        # unless current_user.id === user.id
+        #   current_user_entries.each do |current_user_entry|
+        #     user_entries.each do |user_entry|
+        #       if current_user_entry.room_id === user_entry.room_id 
+        #         is_room = true
+        #         @room_id = current_user_entry.room_id
+        #       end
+        #     end
+        #   end
+        # end
       end
 
       def destroy

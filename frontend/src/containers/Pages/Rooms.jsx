@@ -21,30 +21,30 @@ export const Rooms = (props) => {
     <>
       <h2>トークルーム</h2>
       <List sx={{ bgcolor: 'background.paper' }}>
-        {
-          true
-            ? (<p> トークしている人はいません </p>
-            ) : (
-              entries.map(entry => {
-                <ListItem
-                  button
-                  divider
-                  key={entry.id}
-                  onClick={() => history.push(`/rooms/${entry.room_id}`)}
-                >
-                  <ListItemAvatar>
-                    <AccountCircle sx={{ fontSize: 60 }} />
-                  </ListItemAvatar>
-                  <ListItemText
-                    primary={entry.user_id}
-                    secondary='メッセージルームの最後の投稿を記載する予定'
-                  />
-                  <p>
-                    ルームを削除する
-                  </p>
-                </ListItem >
-              })
-            )
+        {entries.length === 0 ? (
+          <ListItemText>
+            トークしている人はいません。
+          </ListItemText>
+        ) : (
+          entries.map(entry =>
+            <div>
+              <ListItem
+                button
+                divider
+                key={entry.id}
+                onClick={() => history.push(`/rooms/${entry.room_id}`)}
+              >
+                <ListItemAvatar>
+                  <AccountCircle sx={{ fontSize: 60 }} />
+                </ListItemAvatar>
+                <ListItemText
+                  primary={entry.user_id}
+                  secondary='メッセージルームの最後の投稿を記載する予定'
+                />
+              </ListItem >
+            </div>
+          )
+        )
         }
       </List>
     </>

@@ -11,25 +11,25 @@ module Api
         else
           render status: :unprocessable_entity
         end
-      end
+      end 
 
-      def destroy
-        @message.destroy
-        render json: { message: '削除完了' }, status: :ok
-      end
+      # def destroy
+      #   @message.destroy
+      #   render json: { message: '削除完了' }, status: :ok
+      # end
 
       private
 
       # StrongParameter
       def message_params
-        params.require(:message).permit(:content, :user_id)
+        params.require(:message).permit(:content, :user_id, :room_id)
       end
 
-      # 本人のマイクロポストであるかを確認
-      def correct_user
-        @message = current_user.messages.find_by(id: params[:id])
-        render json: {}, status: :unauthorized if @message.nil?
-      end
+      # 本人のメッセージであるかを確認
+      # def correct_user
+      #   @message = current_user.messages.find_by(id: params[:id])
+      #   render json: {}, status: :unauthorized if @message.nil?
+      # end
     end
   end
 end

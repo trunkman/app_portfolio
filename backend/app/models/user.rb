@@ -12,8 +12,8 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :likes    , dependent: :destroy
   has_many :comments , dependent: :destroy
-  has_many :entry    , dependent: :destroy
-  has_many :message  , dependent: :destroy
+  has_many :entries  , dependent: :destroy
+  has_many :messages , dependent: :destroy
   # setter, getter属性を定義
   attr_accessor :remember_token,
                 :activation_token,

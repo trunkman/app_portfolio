@@ -1,7 +1,7 @@
 import axios from "axios";
 import { rooms, roomPath } from "../urls";
 
-// ルームのメッセージを表示するapi
+// ルームのメッセージ一覧を取得するapi
 export const fetchMessages = (params) => {
   return axios({
     method: 'get',

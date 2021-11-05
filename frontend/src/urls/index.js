@@ -28,3 +28,5 @@ export const commentDestroy = (commentId) => `${DEFAULT_API_LOCALHOST}/comments/
 // RoomsController
 export const rooms = `${DEFAULT_API_LOCALHOST}/rooms`;
 export const roomPath = (roomId) => `${DEFAULT_API_LOCALHOST}/rooms/${roomId}`;
+// MessagesConteroller
+export const messages = `${DEFAULT_API_LOCALHOST}/messages`;
