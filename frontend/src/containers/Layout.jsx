@@ -4,22 +4,19 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
-import MuiAppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 // アイコン
-import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 // コンテイナー
 import { Header } from './Navigations/Header';
-import { SideBar } from './Navigations/SideBar';
 import { Home } from './Pages/Home'
 import { User } from './Pages/User'
 import { Users } from './Pages/Users'
 import { Contact } from './Pages/Contact';
+import { Rooms } from './Pages/Rooms';
+import { MessageRoom } from './Pages/MessageRoom';
 // コンポーネント
 import { HomeButton } from '../components/Navigations/HomeButton'
 import { ProfileButton } from '../components/Navigations/ProfileButton';
@@ -29,7 +26,6 @@ import { PostsButton } from '../components/Navigations/PostsButton';
 import { AvatarButton } from '../components/Navigations/AvatarButton';
 import { RankingButton } from '../components/Navigations/RankingButton';
 import { Microposts } from './Pages/Microposts';
-// import { Rooms } from  './Pages/Rooms';
 import { Following } from '../components/Users/Following';
 
 const drawerWidth = 240;
@@ -94,6 +90,7 @@ export const Layout = (props) => {
     <BrowserRouter>
       <Header
         open={open}
+        openLogIn={openLogInDialog}
         theme={theme}
         drawerWidth={drawerWidth}
         handleDrawerOpen={handleDrawerOpen}
@@ -160,12 +157,19 @@ export const Layout = (props) => {
             />}
           />
 
-          {/* <Route exact path="/users/:id/rooms"
+          <Route exact path="/users/:id/rooms"
             render={({ match }) => <Rooms
               match={match}
               loginUser={props.loginUser}
             />}
-          /> */}
+          />
+
+          <Route exact path="/rooms/:id"
+            render={({ match }) => <MessageRoom
+              match={match}
+              loginUser={props.loginUser}
+            />}
+          />
 
           <Route exact path="/users/:id/following"
             render={({ match }) => <Following

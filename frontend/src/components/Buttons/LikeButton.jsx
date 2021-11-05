@@ -44,5 +44,4 @@ export const LikeButton = (props) => {
       }
     </>
   )
-
 }

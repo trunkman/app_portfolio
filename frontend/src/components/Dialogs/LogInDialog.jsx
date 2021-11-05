@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-//api
-import { postLogIn } from '../../apis/sessions';
-// ダイアログのstyle
+// style
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
+//api
+import { postLogIn } from '../../apis/sessions';
 // Formsコンポーネント
 import { Email } from '../Forms/Email';
 import { Password } from '../Forms/Password';
@@ -41,7 +41,9 @@ export const LogInDialog = (props) => {
       open={props.open}
       onClose={props.handleClose}
     >
-      <DialogTitle>ログイン画面</DialogTitle>
+      <DialogTitle>
+        ログイン画面
+      </DialogTitle>
       <DialogContent>
         <DialogContentText>
           下記項目を入力し、ログインください。
@@ -61,7 +63,7 @@ export const LogInDialog = (props) => {
       </DialogContent>
       <DialogActions>
         <Button onClick={() => { props.handleClose() }}>
-          キャンセル
+          閉じる
         </Button>
         <Button type='submit' onClick={handleSubmit}>
           ログインする

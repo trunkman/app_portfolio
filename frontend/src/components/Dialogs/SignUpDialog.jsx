@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router';
-// ダイアログのstyles
+import { useHistory } from 'react-router-dom';
+// styles
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -74,16 +74,13 @@ export const SignUpDialog = (props) => {
       </DialogContent>
 
       <DialogActions>
-        <Button onClick={() => { props.handleClose() }}>キャンセル</Button>
-        <Button
-          onClick={handleSubmit}
-          type='submit'
-          autoFocus
-        >
+        <Button onClick={() => { props.handleClose() }}>
+          閉じる
+        </Button>
+        <Button onClick={handleSubmit} type='submit'>
           登録する
         </Button>
       </DialogActions>
-
     </Dialog>
   );
 }

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 // styled
-import { List, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
+import { Divider, List, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
 // アイコン
 import AccountCircle from "@mui/icons-material/AccountCircle";
 // api
 import { fetchFollowing } from "../../apis/users";
+// コンポーネント
+import { RoomButton } from "../Buttons/RoomButton";
 
 export const Following = (props) => {
   const userId = props.match.params.id
@@ -29,20 +31,25 @@ export const Following = (props) => {
       <List sx={{ bgcolor: 'background.paper' }}>
         {
           following.map(user =>
-            <ListItem
-              button
-              divider
-              key={user.id}
-              onClick={() => PageTransition(user.id)}
-            >
-              <ListItemAvatar>
-                <AccountCircle sx={{ fontSize: 60 }} />
-              </ListItemAvatar>
-              <ListItemText
-                primary={user.name}
-                secondary='Following:ユーザーのプロフィール内容が記載されます。とりあえず仮テキストを入力しています。'
-              />
-            </ListItem >
+            <div>
+              <ListItem
+                button
+                divider
+                key={user.id}
+                onClick={() => PageTransition(user.id)}
+              >
+                <ListItemAvatar>
+                  <AccountCircle sx={{ fontSize: 60 }} />
+                </ListItemAvatar>
+                <ListItemText
+                  primary={user.name}
+                  secondary='Following:ユーザーのプロフィール内容が記載されます。とりあえず仮テキストを入力しています。'
+                />
+                <RoomButton
+                  userId={user.id}
+                />
+              </ListItem >
+            </div>
           )
         }
       </List>

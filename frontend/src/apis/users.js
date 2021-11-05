@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { signUp, userPath, users, userMicroposts, following, roomShow } from '../urls/index'
+import { signUp, userPath, users, userMicroposts, following, userRooms } from '../urls/index'
 
 // ユーザーページを表示するapi
 export const fetchUser = (params) => {
@@ -94,12 +94,12 @@ export const fetchMicroposts = (params) => {
     })
 }
 
-// メッセージルーム一覧を取得する
+// トークルームの一覧を取得するapi
 export const fetchRooms = (params) => {
   return axios({
-    url: roomShow,
     method: 'get',
-    params: { user_id: params.userId },
+    baseURL: userRooms(params.userId),
+    data: { user: { id: params.userId } },
     withCredentials: true,
   }).then(res => {
     console.log('users#rooms', res)
@@ -109,16 +109,19 @@ export const fetchRooms = (params) => {
   })
 }
 
-// Folloingをfetchする ※cookieが送れない問題あり
+// フォローしているユーザーを取得する
 export const fetchFollowing = (params) => {
-  return axios.get(following(1), {
-    user: { id: params.userId }
-  }, { withCredentials: true })
-    .then(res => {
-      console.log('user#following', res)
-      return res.data
-    })
-    .catch(e => console.log(e))
+  return axios({
+    method: 'get',
+    baseURL: following(params.userId),
+    data: { user: { id: params.userId } },
+    withCredentials: true,
+  }).then(res => {
+    console.log('user#following', res)
+    return res.data
+  }).catch(error => {
+    console.log('users#following', error)
+  })
 }
 
 // // Followersをfetchする

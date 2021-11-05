@@ -8,6 +8,7 @@ export const userPath = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}`;
 export const userMicroposts = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}/microposts`;
 export const following = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}/following`;
 export const followers = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}/followers`;
+export const userRooms = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}/rooms`;
 // SessionssController
 export const logIn = `${DEFAULT_API_LOCALHOST}/login`;
 export const logOut = `${DEFAULT_API_LOCALHOST}/logout`;
@@ -25,4 +26,5 @@ export const unlike = `${DEFAULT_API_LOCALHOST}/unlikes/`;
 export const commentCreate = `${DEFAULT_API_LOCALHOST}/comments`;
 export const commentDestroy = (commentId) => `${DEFAULT_API_LOCALHOST}/comments/${commentId}`;
 // RoomsController
-export const roomShow = `${DEFAULT_API_LOCALHOST}/rooms`;
+export const rooms = `${DEFAULT_API_LOCALHOST}/rooms`;
+export const roomPath = (roomId) => `${DEFAULT_API_LOCALHOST}/rooms/${roomId}`;

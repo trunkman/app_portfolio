@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
-// styled
-import { Button } from "@mui/material";
+// styles
+import Button from "@mui/material/Button";
 //api
 import { postFollow } from "../../apis/relationships";
 import { deleteUnfollow } from "../../apis/relationships";

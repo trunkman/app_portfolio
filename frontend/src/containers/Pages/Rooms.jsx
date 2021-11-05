@@ -8,19 +8,18 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import { fetchRooms } from "../../apis/users";
 
 export const Rooms = (props) => {
-  const userId = props.match.params.id
-  const history = useHistory
+  const history = useHistory()
   const [rooms, setRooms] = useState([])
-  // メッセージルーム一覧を取得する
+  // メッセージルームの一覧を取得する
   useEffect(() => {
-    fetchRooms({ userId: userId })
+    fetchRooms({ userId: props.loginUser.id })
       .then(data => setRooms(data.rooms))
     return () => setRooms([])
   }, [])
 
   return (
     <>
-      <h2>メッセージルーム</h2>
+      <h2>トークルーム</h2>
       <List sx={{ bgcolor: 'background.paper' }}>
         {
           rooms.map(room =>
@@ -28,15 +27,18 @@ export const Rooms = (props) => {
               button
               divider
               key={room.id}
-              onClick={() => history.push(room.id)}
+              onClick={() => history.push(`/rooms/${room.id}`)}
             >
               <ListItemAvatar>
                 <AccountCircle sx={{ fontSize: 60 }} />
               </ListItemAvatar>
               <ListItemText
-                primary={user.name}
-                secondary='メッセージルームの最後の投稿を記載する'
+                primary={room.id}
+                secondary='メッセージルームの最後の投稿を記載する予定'
               />
+              <p>
+                メッセージルーム削除する
+              </p>
             </ListItem >
           )
         }

@@ -5,9 +5,7 @@ import { Grid } from "@mui/material";
 // api
 import { fetchUser } from "../../apis/users";
 // コンポーネント
-import { SideProfile } from "../../components/Users/SideProfile";
 import { MyProfile } from "../../components/Users/MyProfile";
-import { Following } from "../../components/Users/Following";
 import { Followers } from "../../components/Users/Followers";
 import { AvatarButton } from "../../components/Navigations/AvatarButton";
 
@@ -64,14 +62,6 @@ export const User = (props) => {
                 followers={followers}
               />
             </Route>
-
-            {/* <Route exact path={`${props.match.url}/following`}>
-              <Following
-                dataFetching={() => setIsFetching(true)}
-                following={following}
-                userId={user.id}
-              />
-            </Route> */}
 
             <Route exact path={`${props.match.url}/followers`}>
               <Followers

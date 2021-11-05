@@ -85,12 +85,32 @@ module Api
         render json: { title: @title, users: @users }, status: :ok
       end
 
-      # マイクロポストを返す
+      # マイクロポスト&コメント一覧を返す
       def microposts
         user = User.find(params[:id])
         @microposts = user.microposts
         @comments = user.comments
         render json: { microposts: @microposts, comments: @comments }, status: :ok
+      end
+
+      # トークルームの一覧を返す
+      def rooms
+        user = User.find(params[:id])
+        @rooms = Room.entries.find_by(user_id: params[:user][:id])
+        render json: { rooms: @rooms  }, status: :ok 
+        # user = User.find(params[:id])
+        # current_user_entries = Entry.where(user_id: current_user.id)
+        # user_entries = Entry.where(user_id: user.id)
+        # unless current_user.id === user.id
+        #   current_user_entries.each do |current_user_entry|
+        #     user_entries.each do |user_entry|
+        #       if current_user_entry.room_id === user_entry.room_id 
+        #         is_room = true
+        #         @room_id = current_user_entry.room_id
+        #       end
+        #     end
+        #   end
+        # end
       end
 
       private

@@ -30,7 +30,7 @@ export const LoginControlBottun = (props) => {
         alert('ログアウトを成功しました');
       })
   }
-  //返り値：ヘッダー画面
+
   return (
     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
       {props.isLoggedIn ? (

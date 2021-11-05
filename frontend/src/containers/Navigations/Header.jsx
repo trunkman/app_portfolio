@@ -12,7 +12,6 @@ import { LoginControlBottun } from '../../components/Buttons/LoginControlButton'
 
 export const Header = (props) => {
   const open = props.open
-  const theme = props.theme
   const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
   })(({ theme, open }) => ({
@@ -37,11 +36,11 @@ export const Header = (props) => {
         <IconButton
           color="inherit"
           aria-label="open drawer"
-          onClick={props.handleDrawerOpen}
+          onClick={() => props.handleDrawerOpen}
           edge="start"
           sx={{
             marginRight: '36px',
-            ...(props.open && { display: 'none' }),
+            ...(open && { display: 'none' }),
           }}
         >
           <MenuIcon />
@@ -56,7 +55,7 @@ export const Header = (props) => {
           handleOpenLogIn={props.handleOpenLogIn}
           loginUser={props.loginUser}
           isLoggedIn={props.isLoggedIn}
-          open={props.openLogInDialog}
+          open={props.openLogIn}
         />
       </Toolbar>
     </AppBar>
