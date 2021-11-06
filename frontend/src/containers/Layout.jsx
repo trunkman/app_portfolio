@@ -4,7 +4,6 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
-import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 // アイコン
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -17,6 +16,9 @@ import { Users } from './Pages/Users'
 import { Contact } from './Pages/Contact';
 import { Rooms } from './Pages/Rooms';
 import { MessageRoom } from './Pages/MessageRoom';
+import { Mybooks } from './Pages/Mybooks';
+import { BooksList } from './Books/BooksList';
+import { DetailsBook } from './Books/DetailsBook';
 // コンポーネント
 import { HomeButton } from '../components/Navigations/HomeButton'
 import { ProfileButton } from '../components/Navigations/ProfileButton';
@@ -25,6 +27,7 @@ import { MessageButton } from '../components/Navigations/MessageButton';
 import { PostsButton } from '../components/Navigations/PostsButton';
 import { AvatarButton } from '../components/Navigations/AvatarButton';
 import { RankingButton } from '../components/Navigations/RankingButton';
+import { BooksButton } from '../components/Navigations/BooksButton';
 import { Microposts } from './Pages/Microposts';
 import { Following } from '../components/Users/Following';
 
@@ -108,20 +111,16 @@ export const Layout = (props) => {
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </DrawerHeader>
-        <Divider />
-        <AvatarButton user={props.loginUser} size="45" />
-        <Divider />
-        <HomeButton loginUserId={props.loginUser.id} />
-        <Divider />
-        <ProfileButton loginUserId={props.loginUser.id} />
-        <Divider />
-        <FollowsButton loginUserId={props.loginUser.id} />
-        <Divider />
-        <PostsButton loginUserId={props.loginUser.id} />
-        <Divider />
-        <MessageButton loginUserId={props.loginUser.id} />
-        <Divider />
-        <RankingButton loginUserId={props.loginUser.id} />
+        <>
+          <AvatarButton user={props.loginUser} size="45" />
+          <HomeButton loginUserId={props.loginUser.id} />
+          <ProfileButton loginUserId={props.loginUser.id} />
+          <FollowsButton loginUserId={props.loginUser.id} />
+          <PostsButton loginUserId={props.loginUser.id} />
+          <MessageButton loginUserId={props.loginUser.id} />
+          <BooksButton loginUserId={props.loginUser.id} />
+          <RankingButton loginUserId={props.loginUser.id} />
+        </>
       </Drawer>
 
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
@@ -177,6 +176,12 @@ export const Layout = (props) => {
             />}
           />
 
+          <Route exact path="/users/:id/books"
+            render={({ match }) => <Mybooks
+              match={match}
+            />}
+          />
+
           <Route exact path="/users">
             <Users
               isLoggedIn={props.isLoggedIn}
@@ -184,9 +189,18 @@ export const Layout = (props) => {
             />
           </Route>
 
+          <Route exact path="/books">
+            <BooksList />
+          </Route>
+
+          <Route exact path="/books/:id">
+            <DetailsBook />
+          </Route>
+
           <Route exact path="/contact">
             <Contact />
           </Route>
+
 
         </Switch>
       </Box>

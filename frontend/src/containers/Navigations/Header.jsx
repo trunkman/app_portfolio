@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 // styles
 import { styled } from '@mui/material/styles';
 import MuiAppBar from '@mui/material/AppBar';
@@ -47,6 +48,14 @@ export const Header = (props) => {
         </IconButton>
         <Typography variant="h6" noWrap component="div" flexGrow={1}>
           睡眠負債
+        </Typography>
+        <Typography
+          sx={{ px: 4 }}
+          variant="body1"
+          component={Link}
+          to={`/books`}
+        >
+          本の検索
         </Typography>
         <LoginControlBottun
           handleCloseLogIn={props.handleCloseLogIn}

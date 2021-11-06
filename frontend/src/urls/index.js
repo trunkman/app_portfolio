@@ -28,5 +28,8 @@ export const commentDestroy = (commentId) => `${DEFAULT_API_LOCALHOST}/comments/
 // RoomsController
 export const rooms = `${DEFAULT_API_LOCALHOST}/rooms`;
 export const roomPath = (roomId) => `${DEFAULT_API_LOCALHOST}/rooms/${roomId}`;
-// MessagesConteroller
+// MessagesController
 export const messages = `${DEFAULT_API_LOCALHOST}/messages`;
+// BooksController
+export const books = `${DEFAULT_API_LOCALHOST}/books`;
+export const bookPath = (bookId) => `${DEFAULT_API_LOCALHOST}/books/${bookId}`;
