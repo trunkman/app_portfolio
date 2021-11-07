@@ -12,7 +12,7 @@ import { books, booksearch, bookPath } from "../urls";
 //   })
 // }
 
-// 本検索結果を取得するapi fetchRakutenBooks
+// 本検索結果を取得するapi
 export const fetchBooks = (params) => {
   return axios.post(booksearch, {
     book: { title: params.keyword }
@@ -21,6 +21,17 @@ export const fetchBooks = (params) => {
     return res.data
   }).catch(error => {
     console.log('book#search', error)
+  })
+}
+
+// ISBNで特定した本を取得するapi
+export const fetchBook = (bookIsbn) => {
+  return axios.get(bookPath(bookIsbn)
+  ).then(res => {
+    console.log('book#show', res)
+    return res.data
+  }).catch(error => {
+    console.log('book#show', error)
   })
 }
 

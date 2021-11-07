@@ -11,11 +11,13 @@ export const BookSearch = (props) => {
       <SearchIcon />
       <TextField
         autoFocus
+        label="書籍名を入力してください"
         margin="dense"
         // id="bookSerch"
-        label="書籍名を入力してください"
         sx={{ m: 1, width: '50ch' }}
         type="text"
+        onChange={props.handleChange}
+        value={props.keyword}
         required
         variant="standard"
       />

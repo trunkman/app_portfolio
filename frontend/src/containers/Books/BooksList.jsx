@@ -13,7 +13,7 @@ export const BooksList = () => {
   const [results, setResults] = useState([])
   const handleSubmit = () => {
     fetchBooks({
-      keyword: '睡眠負債',
+      keyword: keyword,
     }).then(data => {
       setKeyword('')
       setResults(data.books)
@@ -21,7 +21,7 @@ export const BooksList = () => {
   }
 
   useEffect(() => {
-    return () => setResults(false)
+    return () => setResults([])
   }, [])
 
   return (
@@ -29,6 +29,7 @@ export const BooksList = () => {
       <Grid item sm={12} sx={{ px: 2, bgcolor: 'grey.200' }}>
         <p>書籍名で検索</p>
         <BookSearch
+          keyword={keyword}
           handleChange={e => setKeyword(e.target.value)}
         />
         <BookSearchButton
@@ -39,26 +40,17 @@ export const BooksList = () => {
         <h3>検索結果</h3>
         <h4>書籍 : {results.length} 件</h4>
       </Grid>
-
-      <Grid item xs={6} sm={4} sx={{ p: 2, bgcolor: 'grey.100' }}>
-        <BookCard />
-      </Grid>
-      <Grid item xs={6} sm={4} sx={{ p: 2, bgcolor: 'grey.100' }}>
-        <BookCard />
-      </Grid>
-      <Grid item xs={6} sm={4} sx={{ p: 2, bgcolor: 'grey.100' }}>
-        <BookCard />
-      </Grid>
-      <Grid item xs={6} sm={4} sx={{ p: 2, bgcolor: 'grey.100' }}>
-        <BookCard />
-      </Grid>
-      <Grid item xs={6} sm={4} sx={{ p: 2, bgcolor: 'grey.100' }}>
-        <BookCard />
-      </Grid>
-      <Grid item xs={6} sm={4} sx={{ p: 2, bgcolor: 'grey.100' }}>
-        <BookCard />
-      </Grid>
-
+      {
+        results && (
+          results.map(result =>
+            <Grid item xs={6} sm={4} sx={{ p: 2, bgcolor: 'grey.100' }}>
+              <BookCard
+                book={result.params}
+              />
+            </Grid>
+          )
+        )
+      }
     </Grid>
   )
 }

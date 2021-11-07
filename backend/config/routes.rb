@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       resources :comments,    only: %i[create destroy]
       resources :rooms,       only: %i[show create destroy]
       resources :messages,    only: %i[create destroy]
-      resources :books,       only: %i[index create]
+      resources :books,       only: %i[show create]
       post    '/booksearch', to: 'books#search'
 
 

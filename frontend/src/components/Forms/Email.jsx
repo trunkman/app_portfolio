@@ -7,14 +7,14 @@ export const Email = (props) => {
   return (
     <TextField
       autoFocus
+      fullWidth variant="standard"
+      label="E-mail"
       margin="dense"
       // id="email"
-      label="E-mail"
       type="email"
-      required
-      value={props.email}
       onChange={props.handleChange}
-      fullWidth variant="standard"
+      value={props.email}
+      required
     />
   )
 }

@@ -193,9 +193,11 @@ export const Layout = (props) => {
             <BooksList />
           </Route>
 
-          <Route exact path="/books/:id">
-            <DetailsBook />
-          </Route>
+          <Route exact path="/books/:isbn"
+            render={({ match }) => <DetailsBook
+              match={match}
+            />}
+          />
 
           <Route exact path="/contact">
             <Contact />
@@ -204,6 +206,6 @@ export const Layout = (props) => {
 
         </Switch>
       </Box>
-    </BrowserRouter>
+    </BrowserRouter >
   );
 }
