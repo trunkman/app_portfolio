@@ -10,6 +10,7 @@ gem 'bcrypt',     '3.1.16'                # ハッシュ値生成
 gem 'bootsnap',   '1.4.5', require: false # rails起動時間の最適化
 gem 'puma',       '5.0'                   # APサーバ
 gem 'rack-cors',  '1.1.1'                 # CORS設定
+gem 'rakuten_web_service'                 # 楽天APIの利用
 
 group :development, :test do
   gem 'byebug',      '11.1.3', platforms: %i[mri mingw x64_mingw] # デバック

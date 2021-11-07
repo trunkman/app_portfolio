@@ -13,7 +13,7 @@ module Api
           render status: :unprocessable_entity
         end
       end
-      
+
       def destroy
         @comment.destroy
         render json: { message: '削除完了' }, status: :ok
@@ -31,7 +31,6 @@ module Api
         @comment = current_user.comments.find_by(id: params[:id])
         render json: {}, status: :unauthorized if @comment.nil?
       end
-
     end
   end
 end

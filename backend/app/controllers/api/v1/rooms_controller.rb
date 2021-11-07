@@ -6,9 +6,9 @@ module Api
 
       # トークのメッセージ一覧を返す
       def show
-          room = Room.find(params[:id])
-          @messages = room.messages
-          render json: { messages: @messages }, status: :ok
+        room = Room.find(params[:id])
+        @messages = room.messages
+        render json: { messages: @messages }, status: :ok
       end
 
       # トークルームを作成する
@@ -20,7 +20,7 @@ module Api
         # unless current_user.id === user.id
         #   current_user_entries.each do |current_user_entry|
         #     user_entries.each do |user_entry|
-        #       if current_user_entry.room_id === user_entry.room_id 
+        #       if current_user_entry.room_id === user_entry.room_id
         #         is_room = true
         #         @room_id = current_user_entry.room_id
         #       end
@@ -29,8 +29,7 @@ module Api
         # end
       end
 
-      def destroy
-      end
+      def destroy; end
 
       private
 
@@ -47,4 +46,3 @@ module Api
     end
   end
 end
-

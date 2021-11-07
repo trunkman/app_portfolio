@@ -20,7 +20,6 @@ module Api
       def like_params
         params.require(:like).permit(:user_id, :micropost_id)
       end
-
     end
   end
 end

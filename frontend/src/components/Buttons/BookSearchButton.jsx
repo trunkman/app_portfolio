@@ -2,7 +2,7 @@ import React from "react";
 // styles
 import Button from "@mui/material/Button";
 
-export const BookSearchButton = () => {
+export const BookSearchButton = (props) => {
 
   return (
     <Button

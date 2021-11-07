@@ -6,7 +6,6 @@ export const fetchMessages = (params) => {
   return axios({
     method: 'get',
     baseURL: roomPath(params.roomId),
-    data: { room: { id: params.roomId } },
     withCredentials: true,
   }).then(res => {
     console.log('rooms#show', res)

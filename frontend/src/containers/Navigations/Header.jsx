@@ -53,7 +53,7 @@ export const Header = (props) => {
           sx={{ px: 4 }}
           variant="body1"
           component={Link}
-          to={`/books`}
+          to={`/booksearch`}
         >
           本の検索
         </Typography>

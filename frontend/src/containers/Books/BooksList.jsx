@@ -1,34 +1,35 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 // styles
 import Grid from "@mui/material/Grid";
+// api
+import { fetchBooks } from "../../apis/books";
 // コンポーネント
 import { BookCard } from '../../components/Books/BookCard'
 import { BookSearch } from "../../components/Forms/BookSearch";
 import { BookSearchButton } from "../../components/Buttons/BookSearchButton"
 
 export const BooksList = () => {
-  const [search, setSearch] = useState('')
-  const [result, setResult] = useState(false)
+  const [keyword, setKeyword] = useState('')
+  const [results, setResults] = useState([])
   const handleSubmit = () => {
-    postBookSearch({
-      // 送るparams: search,
+    fetchBooks({
+      keyword: '睡眠負債',
     }).then(data => {
-      setSearch('')
-      setResult(true)
+      setKeyword('')
+      setResults(data.books)
     })
   }
 
   useEffect(() => {
-    return () => setResult(false)
+    return () => setResults(false)
   }, [])
 
   return (
     <Grid container sx={{ maxWidth: 1000, mx: "auto", bgcolor: 'grey.300' }}>
       <Grid item sm={12} sx={{ px: 2, bgcolor: 'grey.200' }}>
         <p>書籍名で検索</p>
-        <BookSerch
-          search={search}
-          handleChange={e => setSearch(e.target.value)}
+        <BookSearch
+          handleChange={e => setKeyword(e.target.value)}
         />
         <BookSearchButton
           handleSubmit={handleSubmit}
@@ -36,7 +37,7 @@ export const BooksList = () => {
       </Grid>
       <Grid item sm={12} sx={{ px: 2, bgcolor: 'grey.300' }}>
         <h3>検索結果</h3>
-        <h4>書籍（？？件）</h4>
+        <h4>書籍 : {results.length} 件</h4>
       </Grid>
 
       <Grid item xs={6} sm={4} sx={{ p: 2, bgcolor: 'grey.100' }}>

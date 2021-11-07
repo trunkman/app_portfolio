@@ -11,7 +11,7 @@ module Api
         else
           render status: :unprocessable_entity
         end
-      end 
+      end
 
       # def destroy
       #   @message.destroy

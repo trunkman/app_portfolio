@@ -189,7 +189,7 @@ export const Layout = (props) => {
             />
           </Route>
 
-          <Route exact path="/books">
+          <Route exact path="/booksearch">
             <BooksList />
           </Route>
 

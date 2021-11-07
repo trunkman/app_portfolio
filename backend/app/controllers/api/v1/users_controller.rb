@@ -97,7 +97,7 @@ module Api
       def rooms
         user = User.find(params[:id])
         @entries = user.entries
-        render json: { entries: @entries }, status: :ok 
+        render json: { entries: @entries }, status: :ok
       end
       # @entries = Entry.find_by(user_id: current_user.id)
 
