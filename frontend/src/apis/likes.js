@@ -1,6 +1,7 @@
 import axios from "axios";
 import { like, unlike } from "../urls";
 
+// いいねするapi
 export const postLike = (params) => {
   return axios.post(like, {
     like: {
@@ -21,6 +22,7 @@ export const postLike = (params) => {
     })
 }
 
+// いいねを解除するapi
 export const postUnlike = (params) => {
   return axios.post(unlike, {
     like: {
@@ -38,3 +40,5 @@ export const postUnlike = (params) => {
       console.log('like#destroy', error)
     })
 }
+
+

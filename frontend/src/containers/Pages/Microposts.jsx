@@ -19,12 +19,14 @@ export const Microposts = (props) => {
   const userId = props.match.params.id
   const [microposts, setMicroposts] = useState([])
   const [comments, setComments] = useState([])
+  const [likedMicropostIds, setLikedMicropostIds] = useState([])
   // 投稿一覧を取得する
   useEffect(() => {
     fetchMicroposts({ userId: userId })
       .then(data => {
         setMicroposts(data.microposts)
         setComments(data.comments)
+        setLikedMicropostIds(data.liked_micropost_ids)
       })
     return () => setMicroposts([])
   }, [])
@@ -47,7 +49,7 @@ export const Microposts = (props) => {
       <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
         {
           microposts.map(micropost =>
-            <ListItem key={micropost.id}>
+            <ListItem key={micropost.id.toString()}>
               <ListItemAvatar>
                 <AccountCircle sx={{ fontSize: 40 }} />
               </ListItemAvatar>
@@ -67,6 +69,7 @@ export const Microposts = (props) => {
               <LikeButton
                 loginUserId={props.loginUser.id}
                 micropostId={micropost.id}
+                likedStatus={likedMicropostIds.includes(micropost.id)}
               />
               <CommentButton
                 loginUserId={props.loginUser.id}

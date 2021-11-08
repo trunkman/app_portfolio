@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // styles
 import Grid from "@mui/material/Grid";
 import Box from '@mui/material/Box';
@@ -6,30 +6,29 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
+// api
+import { fetchUserBooks } from '../../apis/users'
 // コンポーネント
 import { BookCard } from '../../components/Books/BookCard';
 
-export const Mybooks = () => {
-  const [value, setValue] = React.useState('read');
+export const Mybooks = (props) => {
+  const [books, setBooks] = useState(true)
+  const [value, setValue] = useState('read');
+  // タブ機能
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
-  const BookCards = () => {
-    return (
-      <>
-        <Grid item xs={6} sm={4} sx={{ p: 2, bgcolor: 'grey.100' }}>
-          <BookCard />
-        </Grid>
-        <Grid item xs={6} sm={4} sx={{ p: 2, bgcolor: 'grey.100' }}>
-          <BookCard />
-        </Grid>
-        <Grid item xs={6} sm={4} sx={{ p: 2, bgcolor: 'grey.100' }}>
-          <BookCard />
-        </Grid>
-      </>
-    )
+  // ユーザーの本一覧を取得
+  const fetchBooks = () => {
+    fetchUserBooks(props.loginUser.id)
+      .then(data => {
+        setBooks(data.books)
+      })
   }
+
+  useEffect(() => {
+    fetchBooks()
+  }, [])
 
   return (
     <Grid container sx={{ maxWidth: 1000, mx: "auto", bgcolor: 'grey.300' }}>
@@ -45,15 +44,15 @@ export const Mybooks = () => {
         <TabContext value={value}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
             <TabList onChange={handleChange} aria-label="lab API tabs example">
-              <Tab label="読んだ本" value="read" />
-              <Tab label="積んでいる本" value="stack" />
+              <Tab label="読んだ本(？冊)" value="read" />
+              <Tab label="積んでいる本(？冊)" value="stack" />
             </TabList>
           </Box>
           <TabPanel value="read">
-            <BookCards />
+            <p>読んだbook一覧</p>
           </TabPanel>
           <TabPanel value="stack">
-            <BookCards />
+            <p>読もうと思っているbook一覧</p>
           </TabPanel>
         </TabContext>
       </Box>

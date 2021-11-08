@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // styles
 import { IconButton } from "@mui/material";
 // アイコン
@@ -9,30 +9,30 @@ import { red } from "@mui/material/colors";
 import { postLike, postUnlike } from "../../apis/likes";
 
 export const LikeButton = (props) => {
-  const likeInit = false
-  const [like, setLike] = useState(likeInit)
-
+  const [likeStatus, setLikeStatus] = useState(false)
   const handleLike = () => {
     postLike({
       userId: props.loginUserId,
       micropostId: props.micropostId,
-    })
-      .then(setLike(true)
-      )
+    }).then(setLikeStatus(true)
+    )
   }
 
   const handleUnlike = () => {
     postUnlike({
       userId: props.loginUserId,
       micropostId: props.micropostId,
-    })
-      .then(setLike(false)
-      )
+    }).then(setLikeStatus(false)
+    )
   }
+
+  useEffect(() => {
+    setLikeStatus(props.likedStatus)
+  })
 
   return (
     <>
-      {like === true
+      {likeStatus === true
         ?
         <IconButton onClick={handleUnlike} >
           <FavoriteIcon sx={{ color: red[500] }} />

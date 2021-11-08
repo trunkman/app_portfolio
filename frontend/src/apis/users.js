@@ -1,5 +1,9 @@
 import axios from 'axios'
-import { signUp, userPath, users, userMicroposts, following, userRooms } from '../urls/index'
+import {
+  signUp, userPath, users,
+  userMicroposts, following, userRooms,
+  userBooks,
+} from '../urls/index'
 
 // ユーザーページを表示するapi
 export const fetchUser = (params) => {
@@ -80,6 +84,33 @@ export const deleteUser = (userId) => {
     .catch(e => { console.error(e) })
 }
 
+// フォロー中のユーザーを取得する
+export const fetchFollowing = (params) => {
+  return axios({
+    method: 'get',
+    baseURL: following(params.userId),
+    data: { user: { id: params.userId } },
+    withCredentials: true,
+  }).then(res => {
+    console.log('user#following', res)
+    return res.data
+  }).catch(error => {
+    console.log('users#following', error)
+  })
+}
+
+// フォロワーを取得する
+// export const fetchFollowers = (params) => {
+//   return axios.get(followers(params.userId), {
+//     user: { id: params.userId }
+//   }, { withCredentials: true })
+//     .then(res => {
+//       console.log('user#followers', res)
+//       return res.data
+//     })
+//     .catch(e => { console.error(e) })
+// }
+
 // 投稿一覧を取得するapi
 export const fetchMicroposts = (params) => {
   return axios.get(userMicroposts(1), {
@@ -109,29 +140,14 @@ export const fetchRooms = (params) => {
   })
 }
 
-// フォローしているユーザーを取得する
-export const fetchFollowing = (params) => {
-  return axios({
-    method: 'get',
-    baseURL: following(params.userId),
-    data: { user: { id: params.userId } },
+// 本の一覧を取得するapi
+export const fetchUserBooks = (userId) => {
+  return axios.get(userBooks(userId), {
     withCredentials: true,
   }).then(res => {
-    console.log('user#following', res)
+    console.log('users#books', res)
     return res.data
   }).catch(error => {
-    console.log('users#following', error)
+    console.log('users#books', error)
   })
 }
-
-// // Followersをfetchする
-// export const fetchFollowers = (params) => {
-//   return axios.get(followers(params.userId), {
-//     user: { id: params.userId }
-//   }, { withCredentials: true })
-//     .then(res => {
-//       console.log('user#followers', res)
-//       return res.data
-//     })
-//     .catch(e => { console.error(e) })
-// }

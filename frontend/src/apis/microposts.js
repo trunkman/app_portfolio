@@ -1,9 +1,9 @@
 import axios from "axios";
-import { micropostCreate, micropostDestroy } from "../urls";
+import { microposts, micropostPath } from "../urls";
 
 // マイクロポストを作成するapi
 export const postMicropost = (params) => {
-  return axios.post(micropostCreate, {
+  return axios.post(microposts, {
     micropost: {
       content: params.content,
       user_id: params.user_id,
@@ -25,13 +25,25 @@ export const postMicropost = (params) => {
 
 // マイクロポストを削除するapi
 export const deleteMicropost = (micropostId) => {
-  return axios.delete(micropostDestroy(micropostId), { withCredentials: true })
-    .then(res => {
-      console.log('micropost#destroy', res)
-      alert('投稿を削除しました')
-      return res.data
-    })
-    .catch(error => {
-      console.log('micropost#destroy', error)
-    })
+  return axios.delete(micropostPath(micropostId), {
+    withCredentials: true
+  }).then(res => {
+    console.log('micropost#destroy', res)
+    alert('投稿を削除しました')
+    return res.data
+  }).catch(error => {
+    console.log('micropost#destroy', error)
+  })
+}
+
+// いいねの状態を確認するapi
+export const fetchLikedMicropost = (micropostId) => {
+  return axios.get(micropostPath(micropostId), {
+    withCredentials: true
+  }).then(res => {
+    console.log('micropost#liked_micropost', res)
+    return res.data
+  }).catch(error => {
+    console.log('micropost#liked_micropost', error)
+  })
 }

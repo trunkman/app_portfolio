@@ -179,6 +179,7 @@ export const Layout = (props) => {
           <Route exact path="/users/:id/books"
             render={({ match }) => <Mybooks
               match={match}
+              loginUser={props.loginUser}
             />}
           />
 

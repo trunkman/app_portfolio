@@ -9,19 +9,21 @@ export const userMicroposts = (userId) => `${DEFAULT_API_LOCALHOST}/users/${user
 export const following = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}/following`;
 export const followers = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}/followers`;
 export const userRooms = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}/rooms`;
+export const userBooks = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}/books`;
 // SessionssController
 export const logIn = `${DEFAULT_API_LOCALHOST}/login`;
 export const logOut = `${DEFAULT_API_LOCALHOST}/logout`;
 export const loggedIn = `${DEFAULT_API_LOCALHOST}/logged_in`;
 // MicropostController
-export const micropostCreate = `${DEFAULT_API_LOCALHOST}/microposts`;
-export const micropostDestroy = (micropostId) => `${DEFAULT_API_LOCALHOST}/microposts/${micropostId}`;
+export const microposts = `${DEFAULT_API_LOCALHOST}/microposts`;
+export const micropostPath = (micropostId) => `${DEFAULT_API_LOCALHOST}/microposts/${micropostId}`;
 // RelationshipsContoller
 export const follow = `${DEFAULT_API_LOCALHOST}/follow`;
 export const unfollow = `${DEFAULT_API_LOCALHOST}/unfollow`;
 // LikesController
 export const like = `${DEFAULT_API_LOCALHOST}/likes`;
 export const unlike = `${DEFAULT_API_LOCALHOST}/unlikes/`;
+export const likedMicropost = `${DEFAULT_API_LOCALHOST}/liked_micropost/`;
 // CommentController
 export const commentCreate = `${DEFAULT_API_LOCALHOST}/comments`;
 export const commentDestroy = (commentId) => `${DEFAULT_API_LOCALHOST}/comments/${commentId}`;

@@ -90,7 +90,14 @@ module Api
         user = User.find(params[:id])
         @microposts = user.microposts
         @comments = user.comments
-        render json: { microposts: @microposts, comments: @comments }, status: :ok
+        liked_microposts = user.liked_microposts
+        @liked_micropost_ids = []
+          liked_microposts.each do |liked_micropost|
+            @liked_micropost_ids << liked_micropost.id
+          end
+        render json: { microposts: @microposts, comments: @comments,
+                       liked_micropost_ids: @liked_micropost_ids },
+               status: :ok
       end
 
       # トークルームの一覧を返す
@@ -100,6 +107,13 @@ module Api
         render json: { entries: @entries }, status: :ok
       end
       # @entries = Entry.find_by(user_id: current_user.id)
+
+      # 登録している本の一覧を返す
+      def books
+        user = User.find(params[:id])
+        @books = Subscription.find_by(user_id: user.id)
+        render json: { books: @books }, status: :ok
+      end
 
       private
 
