@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       resources :messages,    only: %i[create destroy]
       resources :books,       only: %i[show create update]
       post    '/booksearch',   to: 'books#search'
+      resources :diaries,     only: %i[create update destroy]
 
 
       resources :accountactivations, only: [:edit]
