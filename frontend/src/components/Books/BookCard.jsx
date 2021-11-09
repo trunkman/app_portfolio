@@ -31,14 +31,14 @@ export const BookCard = (props) => {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      {/* <CardActions>
         <Button size="small" color="primary">
           積む
         </Button>
         <Button size="small" color="primary">
           読了
         </Button>
-      </CardActions>
+      </CardActions> */}
     </Card>
   )
 }

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 //styles
 import Grid from "@mui/material/Grid";
-import Skeleton from '@material-ui/lab/Skeleton';
-import Button from "@material-ui/core/Button";
+
 // api
 import { fetchBook } from "../../apis/books";
+// コンポーネント
+import { ReadButton } from "../../components/Buttons/ReadButton";
 
 export const DetailsBook = (props) => {
   const bookIsbn = props.match.params.isbn
@@ -38,12 +39,9 @@ export const DetailsBook = (props) => {
         <p>URL      {book.itemUrl}</p>
         <p>楽天レビュー平均   星：{book.reviewAverage}</p>
         <p>楽天レビュー件数   {book.reviewCount}件</p>
-        <Button>
-          この本を積む
-        </Button>
-        <Button>
-          読了
-        </Button>
+        <ReadButton
+          book={book}
+        />
       </Grid>
       <Grid item sm={12} sx={{ p: 2, bgcolor: 'grey.100' }}>
         <p>投稿内容を表示する</p>

@@ -43,7 +43,8 @@ export const BooksList = () => {
       {
         results && (
           results.map(result =>
-            <Grid item xs={6} sm={4} sx={{ p: 2, bgcolor: 'grey.100' }}>
+            <Grid item key={result.params.isbn}
+              xs={6} sm={4} sx={{ p: 2, bgcolor: 'grey.100' }}>
               <BookCard
                 book={result.params}
               />

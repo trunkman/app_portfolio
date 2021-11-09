@@ -8,8 +8,6 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 // api
 import { fetchUserBooks } from '../../apis/users'
-// コンポーネント
-import { BookCard } from '../../components/Books/BookCard';
 
 export const Mybooks = (props) => {
   const [books, setBooks] = useState(true)

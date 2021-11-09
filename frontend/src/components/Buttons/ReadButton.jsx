@@ -1,44 +1,38 @@
-import React, { useState } from "react";
+import React from "react";
 // styles
 import { Button } from "@mui/material";
-
 // api
-import { postLike, postUnlike } from "../../apis/likes";
+import { postbook } from "../../apis/books";
 
 export const ReadButton = (props) => {
-  const likeInit = false
-  const [like, setLike] = useState(likeInit)
-
-  const handleLike = () => {
-    postLike({
-      userId: props.loginUserId,
-      micropostId: props.micropostId,
+  const handleClick = (boolean) => {
+    postbook({
+      read: boolean,
+      book: props.book
     })
-      .then(setLike(true)
-      )
-  }
-
-  const handleUnlike = () => {
-    postUnlike({
-      userId: props.loginUserId,
-      micropostId: props.micropostId,
-    })
-      .then(setLike(false)
-      )
+      .then(data => {
+        data.subscription.read
+          ? (alert('読んだ本に登録しました'))
+          : (alert('積んでいる本に登録しました'))
+      })
   }
 
   return (
     <>
-      {like === true
-        ?
-        <IconButton onClick={handleUnlike} >
-          <FavoriteIcon sx={{ color: red[500] }} />
-        </IconButton>
-        :
-        <IconButton onClick={handleLike} >
-          <FavoriteBorderIcon color="primary" />
-        </IconButton>
-      }
+      <Button
+        color="primary"
+        onClick={() => handleClick(false)}
+        size="small"
+      >
+        積む
+      </Button>
+      <Button
+        color="primary"
+        onClick={() => handleClick(true)}
+        size="small"
+      >
+        読了
+      </Button>
     </>
   )
 }
