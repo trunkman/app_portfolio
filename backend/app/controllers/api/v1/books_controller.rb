@@ -12,19 +12,19 @@ module Api
       end
 
       def create
-        @book = Book.new(title:          params[:book][:read],
+        @book = Book.new(title:          params[:book][:title],
                             auther:         params[:book][:auther],
-                            publiser_name:   params[:book][:publisherName],
-                            # sales_date:     params[:book][:salesDate],
-                            # item_price:     params[:book][:itemPrice],
-                            # item_url:       params[:book][:itemUrl],
-                            # item_caption:   params[:book][:itemCaption],
-                            # image_url:      params[:book][:largeImageUrl],
-                            # isbn:           params[:book][:isbn],
-                            # review_count:   params[:book][:reviewCount],
-                            # review_average: params[:book][:reviewAverage]
+                            publisher_name:   params[:book][:publisherName],
+                            sales_date:     params[:book][:salesDate],
+                            item_price:     params[:book][:itemPrice],
+                            item_url:       params[:book][:itemUrl],
+                            item_caption:   params[:book][:itemCaption],
+                            image_url:      params[:book][:largeImageUrl],
+                            isbn:           params[:book][:isbn],
+                            review_count:   params[:book][:reviewCount],
+                            review_average: params[:book][:reviewAverage]
                             ) 
-        if Book.find_by(title: params[:book][:title])
+        unless Book.find_by(title: params[:book][:title])
           @book.save
         end
 
@@ -32,9 +32,9 @@ module Api
                                             book_id: @book.id,
                                             read:    params[:book][:read]
                                            )
-        if Subscription.find_by(user_id: current_user.id,
+        unless Subscription.find_by(user_id: current_user.id,
                                 book_id: @book.id)
-          @book.save
+          @subscription.save
         end                                 
         render json: {subscription: @subscription}, status: :ok
       end

@@ -111,9 +111,18 @@ module Api
       # 登録している本の一覧を返す
       def books
         user = User.find(params[:id])
-        subscriptions = Subscription.find_by(user_id: user.id)
-        subscriptions.map
-        render json: { books: @books }, status: :ok
+        subscriptions = user.subscriptions
+        @read_books = []
+        @stack_books = []
+        subscriptions.map do |subscription|
+          if subscription.read === true
+            @read_books << Book.find(subscription.book_id)
+          else
+            @stack_books << Book.find(subscription.book_id)
+          end 
+        end
+        render json: { read_books: @read_books, stack_books: @stack_books }, 
+               status: :ok
       end
 
       private

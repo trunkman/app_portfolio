@@ -17,6 +17,7 @@ export const ReadButton = (props) => {
       })
   }
 
+  // 読んだ積んだがわかるように設定する
   return (
     <>
       <Button
