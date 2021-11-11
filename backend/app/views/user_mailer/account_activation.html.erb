@@ -1,9 +1,11 @@
 <h1>アカウントの有効化</h1>
 
+<p><%= @user.name %>様</p>
+
 <p>
 現在、仮登録の状態となります。<br>
-こちらのリンクををクリックして、アカウントの有効化をしてください。
+"睡眠負債"のアカウントを有効化するにこちらのリンクをクリックしてください。
 </p>
 
 <%= link_to "アカウント有効化",
-    edit_account_activation_url(@user.activation_token, email: @user.email) %>
+    edit_api_v1_account_activation_url(@user.activation_token, email: @user.email) %>

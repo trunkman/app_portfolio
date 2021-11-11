@@ -34,7 +34,8 @@ export const SignUpDialog = (props) => {
       setEmail('')
       setPassword('')
       setpasswordConfirmaiton('')
-      history.push(`/users/${data.user.id}`)
+      alert('アカウント有効化メールを送信しました')
+      // history.push(`/users/${data.user.id}`)
     }).catch(() => {
       alert('登録失敗')
     })

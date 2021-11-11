@@ -4,9 +4,11 @@ class Api::V1::AccountActivationsController < ApplicationController
     if user && !user.activated? && user.authenticated(:activation, params[:id])
       user.activate
       log_in user
-      redirect_back_or user
+      render json: { logged_in: true, user: user },
+             status: :ok
     else
-      redirect_to root_url
+      render json: { errors: user.errors.full_messages },
+             status: :unprocessable_entity
     end
   end
 end

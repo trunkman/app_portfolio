@@ -33,10 +33,8 @@ module Api
       def create
         @user = User.new(user_params)
         if @user.save
-          # @user.send_activation_email(メール実装は後でする)
-          @user.activate
-          log_in @user
-          render json: { logged_in: true, user: @user },
+          @user.send_activation_email
+          render json: {messaage: 'アカウント有効化メール送信'},
                  status: :created
         else
           render json: { errors: @user.errors.full_messages },
