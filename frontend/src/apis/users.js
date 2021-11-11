@@ -2,7 +2,7 @@ import axios from 'axios'
 import {
   signUp, userPath, users,
   userMicroposts, following, userRooms,
-  userBooks,
+  userBooks, userDiaries,
 } from '../urls/index'
 
 // ユーザーページを表示するapi
@@ -149,5 +149,17 @@ export const fetchUserBooks = (userId) => {
     return res.data
   }).catch(error => {
     console.log('users#books', error)
+  })
+}
+
+// 日記の一覧を取得するapi
+export const fetchUserDiaries = (userId) => {
+  return axios.get(userDiaries(userId), {
+    withCredentials: true,
+  }).then(res => {
+    console.log('users#diaries', res)
+    return res.data
+  }).catch(error => {
+    console.log('users#diaries', error)
   })
 }

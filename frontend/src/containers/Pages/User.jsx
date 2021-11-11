@@ -8,6 +8,8 @@ import { fetchUser } from "../../apis/users";
 import { MyProfile } from "../../components/Users/MyProfile";
 import { Followers } from "../../components/Users/Followers";
 import { AvatarButton } from "../../components/Navigations/AvatarButton";
+import { Calendar } from "../../components/Diaries/Calendar";
+
 
 export const User = (props) => {
   const userId = props.match.params.id
@@ -37,17 +39,6 @@ export const User = (props) => {
   return (
     <BrowserRouter>
       <Grid container sx={{ maxWidth: 1000, mx: "auto", bgcolor: 'grey.300' }}>
-        {/* <Grid item xs={12} sm={4} sx={{ px: 2, bgcolor: 'grey.100' }}>
-          <SideProfile
-            dataFetching={() => setIsFetching(true)}
-            loginUser={props.loginUser}
-            isLoggedIn={props.isLoggedIn}
-            user={user}
-            microposts={microposts}
-            following={following}
-            followers={followers}
-          />
-        </Grid> */}
         <AvatarButton user={user} size="45" />
         <Grid item xs={12} sm={12} sx={{ px: 2, bgcolor: 'grey.100' }}>
           <Switch>
@@ -71,6 +62,10 @@ export const User = (props) => {
               />
             </Route>
           </Switch>
+
+          <Calendar
+            user={user}
+          />
 
         </Grid>
       </Grid>

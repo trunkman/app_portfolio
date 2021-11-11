@@ -8,7 +8,8 @@ Rails.application.routes.draw do
       get    '/logged_in', to: 'sessions#logged_in'
       resources :users do
         member do
-          get :following, :followers, :microposts, :rooms, :books
+          get :following, :followers, :microposts,
+              :rooms, :books, :diaries
         end
       end
       resources :microposts,  only: %i[create destroy]

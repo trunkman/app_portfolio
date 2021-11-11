@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 //styled
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
@@ -15,7 +15,7 @@ export const Home = (props) => {
 
   // 返り値：HOME画面
   return (
-    <Fragment >
+    <>
       <Box sx={{
         bgcolor: 'grey.300',
         overflow: 'hidden',
@@ -52,6 +52,6 @@ export const Home = (props) => {
           />
         </Box>
       </Box>
-    </Fragment>
+    </>
   )
 }

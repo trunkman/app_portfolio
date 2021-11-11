@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many :entries, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
+  has_many :diaries, dependent: :destroy
   # setter, getter属性を定義
   attr_accessor :remember_token,
                 :activation_token,

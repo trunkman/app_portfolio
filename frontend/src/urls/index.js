@@ -10,6 +10,7 @@ export const following = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}/f
 export const followers = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}/followers`;
 export const userRooms = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}/rooms`;
 export const userBooks = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}/books`;
+export const userDiaries = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}/diaries`;
 // SessionssController
 export const logIn = `${DEFAULT_API_LOCALHOST}/login`;
 export const logOut = `${DEFAULT_API_LOCALHOST}/logout`;
@@ -36,3 +37,6 @@ export const messages = `${DEFAULT_API_LOCALHOST}/messages`;
 export const books = `${DEFAULT_API_LOCALHOST}/books`;
 export const booksearch = `${DEFAULT_API_LOCALHOST}/booksearch`;
 export const bookPath = (bookId) => `${DEFAULT_API_LOCALHOST}/books/${bookId}`;
+// DiarisController
+export const diaries = `${DEFAULT_API_LOCALHOST}/diaries`;
+export const diaryPath = (diaryId) => `${DEFAULT_API_LOCALHOST}diaries/${diaryId}`;

@@ -125,6 +125,16 @@ module Api
                status: :ok
       end
 
+      def diaries
+        user = User.find(params[:id])
+        diaries = user.diaries
+        @diaries = []
+        diaries.map do |diary|
+          @diaries << {title: diary.feeling, start: diary.date}
+        end
+        render json: { diaries: @diaries }, status: :ok
+      end
+
       private
 
       # Strong Parameters
