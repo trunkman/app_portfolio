@@ -64,7 +64,7 @@ export const User = (props) => {
           </Switch>
 
           <Calendar
-            user={user}
+            userId={userId}
           />
 
         </Grid>

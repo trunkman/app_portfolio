@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useCallback } from 'react';
 // styles
-// import Grid from "@mui/material/Grid";
+import { Emoji } from 'emoji-mart';
 import Button from "@mui/material/Button";
 import FullCalendar, { EventContentArg } from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -13,7 +13,7 @@ import { DiaryDialog } from "../Dialogs/DiaryDialog"
 import { DiaryShowDialog } from "../Dialogs/DiaryShowDialog"
 
 export const Calendar = (props) => {
-  const [diaries, setDiaries] = useState([{ title: "good", start: "2021-11-09" }])
+  const [diaries, setDiaries] = useState([])
   const [open, setOpen] = useState(false)
   const [openShow, setShowOpen] = useState(false)
   // 日記Dialogを開閉する関数群
@@ -21,7 +21,7 @@ export const Calendar = (props) => {
   const handleClose = () => setOpen(false)
 
   useEffect(() => {
-    fetchUserDiaries(1)
+    fetchUserDiaries(props.userId)
       .then(data => {
         setDiaries(data.diaries)
       })
@@ -32,7 +32,13 @@ export const Calendar = (props) => {
   }, [])
 
   const renderEventContent = (eventInfo: EventContentArg) => (
-    <b>{eventInfo.event.title}</b>
+    <>
+      <Emoji
+        emoji={eventInfo.event.title}
+        size={32}
+        onClick={() => setShowOpen(true)}
+      />
+    </>
   )
 
   return (
@@ -47,8 +53,13 @@ export const Calendar = (props) => {
       />
 
       <Button variant="inherit" onClick={handleOpen}>
-        記録する
+        日記を書く
       </Button>
+
+      <Emoji emoji="laughing" size={16} />
+      <Emoji emoji="blush" size={16} />
+      <Emoji emoji="neutral_face" size={16} />
+      <Emoji emoji="dizzy_face" size={16} />
 
       <DiaryDialog
         open={open}
