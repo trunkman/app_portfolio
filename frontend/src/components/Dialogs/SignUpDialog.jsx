@@ -29,12 +29,12 @@ export const SignUpDialog = (props) => {
       password: password,
       password_confirmation: passwordConfirmation,
     }).then((data) => {
-      props.handleLogIn(data.user)
+      // props.handleLogIn(data.user)
       setName('')
       setEmail('')
       setPassword('')
       setpasswordConfirmaiton('')
-      alert('アカウント有効化メールを送信しました')
+      alert(data.message)
       // history.push(`/users/${data.user.id}`)
     }).catch(() => {
       alert('登録失敗')

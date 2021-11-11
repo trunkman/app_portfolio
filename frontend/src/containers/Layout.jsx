@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 // styles
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -137,6 +137,10 @@ export const Layout = (props) => {
             />
           </Route>
 
+          <Route exact path="/account_activations/:id/edit">
+            <Redirect to="/" />
+          </Route>
+
           <Route exact path="/users/:id"
             render={({ match }) =>
               <User
@@ -203,6 +207,7 @@ export const Layout = (props) => {
           <Route exact path="/contact">
             <Contact />
           </Route>
+
 
 
         </Switch>
