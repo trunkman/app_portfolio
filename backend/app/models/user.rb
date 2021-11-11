@@ -91,7 +91,7 @@ class User < ApplicationRecord
 
   # パスワード再設定のメールを送信する
   def send_reset_email
-    UserMailer.account_reset(self).deliver.now
+    UserMailer.account_reset(self).deliver_now
   end
 
   # パスワード再設定が期限切れの場合、trueを返す

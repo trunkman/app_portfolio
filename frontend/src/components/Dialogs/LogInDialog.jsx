@@ -52,6 +52,12 @@ export const LogInDialog = (props) => {
           email={email}
           handleChange={e => setEmail(e.target.value)}
         />
+        <Typography
+          variant="body1"
+        // onClick={() =>  }
+        >
+          パスワードを忘れてしまった方はこちら
+        </Typography>
         <Password
           password={password}
           handleChange={e => setPassword(e.target.value)}

@@ -26,7 +26,6 @@ Rails.application.routes.draw do
       post    '/booksearch',   to: 'books#search'
       resources :diaries,     only: %i[create update destroy]
       resources :account_activations, only: [:edit]
-      
       resources :password_resets,    only: %i[new create edit update]
     end
   end
