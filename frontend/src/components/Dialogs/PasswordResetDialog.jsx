@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useState, useReducer } from 'react';
 // style
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -8,24 +7,26 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 //api
-import { postLogIn } from '../../apis/sessions';
+import { postPasswordReset } from '../../apis/passwordReset';
 // Formsコンポーネント
 import { Email } from '../Forms/Email';
-import { Password } from '../Forms/Password';
-import { RememberMe } from '../Forms/RememberMe';
 
 export const PasswordResetDialog = (props) => {
   const [email, setEmail] = useState('')
-
-  const history = useHistory()
   const handleSubmit = () => {
+    postPasswordReset({
+      email: email
+    }).then(data => {
+      setEmail('')
+      props.handleClose()
+    })
   }
 
-  // 返り値：新規登録ダイアログの内容を返す
+  // パスワードリセットのダイアログを返す
   return (
     <Dialog
       open={props.open}
-      onClose={props.handleClose}
+      onClose={() => props.handleClose()}
     >
       <DialogTitle>
         パスワード再設定画面
@@ -40,7 +41,7 @@ export const PasswordResetDialog = (props) => {
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={() => { props.handleClose() }}>
+        <Button onClick={() => props.handleClose()}>
           閉じる
         </Button>
         <Button type='submit' onClick={handleSubmit}>

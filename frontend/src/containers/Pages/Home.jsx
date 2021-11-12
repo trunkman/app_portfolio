@@ -8,14 +8,10 @@ import { dialogInitialState, dialogReducer } from '../../reducer/DialogReducer'
 // コンポーネント
 import { SignUpDialog } from "../../components/Dialogs/SignUpDialog";
 import { LogInDialog } from "../../components/Dialogs/LogInDialog";
+import { PasswordResetDialog } from "../../components/Dialogs/PasswordResetDialog";
 
 export const Home = (props) => {
   const [openState, dispatch] = useReducer(dialogReducer, dialogInitialState)
-
-  // const [openSignUpDialog, setOpenSignUpDialog] = useState(false)
-  // // 新規登録Dialogを開閉する関数
-  // const handleOpenSignUp = () => setOpenSignUpDialog(true)
-  // const handleCloseSignUp = () => setOpenSignUpDialog(false)
 
   // 返り値：HOME画面
   return (
@@ -48,13 +44,19 @@ export const Home = (props) => {
             handleClose={() => dispatch({ type: 'close' })}
             handleLogIn={props.handleLogIn}
           />
-          <Button variant="contained" sx={{ mr: 3 }} onClick={() => props.handleOpenLogIn()}>
+          <Button variant="contained" sx={{ mr: 3 }}
+            onClick={() => dispatch({ type: 'login' })}>
             ログイン
           </Button>
           <LogInDialog
-            open={props.open}
-            handleClose={props.handleCloseLogIn}
+            open={openState.login}
+            handleClose={() => dispatch({ type: 'close' })}
             handleLogIn={props.handleLogIn}
+            handlePasswordReset={() => dispatch({ type: 'passwordReset' })}
+          />
+          <PasswordResetDialog
+            open={openState.passwordReset}
+            handleClose={() => dispatch({ type: 'close' })}
           />
         </Box>
       </Box>

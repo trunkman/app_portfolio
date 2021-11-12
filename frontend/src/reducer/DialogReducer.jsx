@@ -14,7 +14,7 @@ export const dialogReducer = (openState, action) => {
     case 'login':
       return { ...openState, login: true }
     case 'passwordReset':
-      return { ...openState, passwordReset: true }
+      return { ...openState, login: false, passwordReset: true }
     case 'close':
       return dialogInitialState
     default:

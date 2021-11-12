@@ -40,3 +40,6 @@ export const bookPath = (bookId) => `${DEFAULT_API_LOCALHOST}/books/${bookId}`;
 // DiarisController
 export const diaries = `${DEFAULT_API_LOCALHOST}/diaries`;
 export const diaryPath = (diaryId) => `${DEFAULT_API_LOCALHOST}diaries/${diaryId}`;
+// PasswordResetController
+export const passwordResets = `${DEFAULT_API_LOCALHOST}/password_resets`;
+export const passwordResetPath = (passwordResetId) => `${DEFAULT_API_LOCALHOST}/password_resets/${passwordResetId}`;

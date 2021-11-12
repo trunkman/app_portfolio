@@ -14,11 +14,13 @@ import { Home } from './Pages/Home'
 import { User } from './Pages/User'
 import { Users } from './Pages/Users'
 import { Contact } from './Pages/Contact';
+import { Microposts } from './Pages/Microposts';
 import { Rooms } from './Pages/Rooms';
 import { MessageRoom } from './Pages/MessageRoom';
 import { Mybooks } from './Pages/Mybooks';
 import { BooksList } from './Books/BooksList';
 import { DetailsBook } from './Books/DetailsBook';
+import { PasswordReset } from './Pages/PasswordReset';
 // コンポーネント
 import { HomeButton } from '../components/Navigations/HomeButton'
 import { ProfileButton } from '../components/Navigations/ProfileButton';
@@ -28,7 +30,6 @@ import { PostsButton } from '../components/Navigations/PostsButton';
 import { AvatarButton } from '../components/Navigations/AvatarButton';
 import { RankingButton } from '../components/Navigations/RankingButton';
 import { BooksButton } from '../components/Navigations/BooksButton';
-import { Microposts } from './Pages/Microposts';
 import { Following } from '../components/Users/Following';
 
 const drawerWidth = 240;
@@ -208,6 +209,11 @@ export const Layout = (props) => {
             <Contact />
           </Route>
 
+          <Route exact path="/password_resets/:id/edit"
+            render={({ match }) => <PasswordReset
+              match={match}
+            />}
+          />
 
 
         </Switch>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import { useHistory } from "react-router";
 // styled
 import Box from '@mui/material/Box';
@@ -10,12 +10,15 @@ import Menu from "@mui/material/Menu";
 import AccountCircle from '@mui/icons-material/AccountCircle';
 // api
 import { deleteLogout } from "../../apis/sessions"
+// reducer
+import { dialogInitialState, dialogReducer } from '../../reducer/DialogReducer'
 // コンポーネント
 import { LogInDialog } from "../Dialogs/LogInDialog";
 
 export const LoginControlBottun = (props) => {
   const loginUserId = props.loginUser.id
   const history = useHistory()
+  const [openState, dispatch] = useReducer(dialogReducer, dialogInitialState)
   const [anchorEl, setAnchorEl] = useState(null);
   // アンカーを開閉する関数群
   const handleMenu = (event) => { setAnchorEl(event.currentTarget); };
@@ -38,15 +41,15 @@ export const LoginControlBottun = (props) => {
           <AccountCircle />
         </IconButton>
       ) : (
-        <Button variant="inherit" onClick={() => props.handleOpenLogIn()}>
+        <Button variant="inherit" onClick={() => dispatch({ type: 'login' })}>
           ログイン
         </Button>
       )
       }
 
       <LogInDialog
-        open={props.open}
-        handleClose={props.handleCloseLogIn}
+        open={openState.login}
+        handleClose={() => dispatch({ type: 'close' })}
         handleLogIn={props.handleLogIn}
       />
 

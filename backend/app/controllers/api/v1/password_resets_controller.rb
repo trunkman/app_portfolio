@@ -5,16 +5,16 @@ module Api
       before_action :valid_user,       only: %i[edit update]
       before_action :check_expiration, only: %i[edit update]
 
-      def new; end
-
       def create
-        @user = User.find_by(email: params[:password][:email].downcase)
+        @user = User.find_by(email: params[:password_reset][:email].downcase)
         if @user
           @user.create_reset_digest
-          @user.create_password_reset_email
-          redirect_to root_url
+          @user.send_password_reset_email
+          render json: { message: 'パスワードリセットを送信しました'},
+                 status: :ok
         else
-          render 'new'
+          render json: { message: 'アカウントが見つかりませんでした'},
+                 status: :unprocessable_entity
         end
       end
 
@@ -22,14 +22,13 @@ module Api
 
       def update
         if params[:user][:password].empty?
-          @user.error.add(:password, :blank)
-          render 'edit'
+          render json: { message: 'パスワードが空です'}
         elsif @user.update(user_params)
           log_in @user
           @user.update_attribute(:reset_digest, nil)
-          redirect_to @user
+          render json: { user: @user }, status: :ok
         else
-          render 'edit'
+          render json: { message: '無効なパスワードです'}
         end
       end
 
@@ -47,13 +46,15 @@ module Api
       def valid_user
         unless @user && @user.activated? &&
                @user.authenticated?(:reset, params[:id])
-          redirect_to root_url
+          render json: {}, status: :unprocessable_entity
         end
       end
 
       # トークンが期限切れかどうか確認する
       def check_expiration
-        redirect_to api_v1_new_password_reset_url if @user.password_reset_expired?
+        if @user.password_reset_expired?
+          render json: { message: 'トークンの有効期限が切れています'}
+        end
       end
     end
   end

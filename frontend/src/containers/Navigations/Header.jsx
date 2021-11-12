@@ -58,13 +58,10 @@ export const Header = (props) => {
           本の検索
         </Typography>
         <LoginControlBottun
-          handleCloseLogIn={props.handleCloseLogIn}
           handleLogOut={props.handleLogOut}
           handleLogIn={props.handleLogIn}
-          handleOpenLogIn={props.handleOpenLogIn}
           loginUser={props.loginUser}
           isLoggedIn={props.isLoggedIn}
-          open={props.openLogIn}
         />
       </Toolbar>
     </AppBar>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import { useHistory } from 'react-router-dom';
 // style
 import Button from '@mui/material/Button';
@@ -7,7 +7,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-import Typography from '@mui/material/Typography';
+import Link from '@mui/material/Link';
 // api
 import { postLogIn } from '../../apis/sessions';
 // Formsコンポーネント
@@ -36,7 +36,7 @@ export const LogInDialog = (props) => {
     })
   }
 
-  // 返り値：新規登録ダイアログの内容を返す
+  // ログインのダイアログを返す
   return (
     <Dialog
       open={props.open}
@@ -53,12 +53,13 @@ export const LogInDialog = (props) => {
           email={email}
           handleChange={e => setEmail(e.target.value)}
         />
-        <Typography
-          variant="body1"
-        // onClick={() =>  }
+        <Link
+          component="button"
+          variant="body2"
+          onClick={() => props.handlePasswordReset()}
         >
           パスワードを忘れてしまった方はこちら
-        </Typography>
+        </Link>
         <Password
           password={password}
           handleChange={e => setPassword(e.target.value)}
@@ -69,7 +70,7 @@ export const LogInDialog = (props) => {
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={() => { props.handleClose() }}>
+        <Button onClick={() => props.handleClose()}>
           閉じる
         </Button>
         <Button type='submit' onClick={handleSubmit}>

@@ -28,7 +28,7 @@ export const SignUpDialog = (props) => {
       email: email,
       password: password,
       password_confirmation: passwordConfirmation,
-    }).then((data) => {
+    }).then(data => {
       // props.handleLogIn(data.user)
       setName('')
       setEmail('')
