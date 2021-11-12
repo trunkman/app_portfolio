@@ -5,58 +5,54 @@ import Box from '@mui/material/Box';
 import Skeleton from '@material-ui/lab/Skeleton';
 // reducer
 import { dialogInitialState, dialogReducer } from '../../reducer/DialogReducer'
+import { loginInitialState, loginReducer } from '../../reducer/LoginReducer'
 // コンポーネント
 import { SignUpDialog } from "../../components/Dialogs/SignUpDialog";
 import { LogInDialog } from "../../components/Dialogs/LogInDialog";
 import { PasswordResetDialog } from "../../components/Dialogs/PasswordResetDialog";
 
 export const Home = (props) => {
-  const [openState, dispatch] = useReducer(dialogReducer, dialogInitialState)
+  const [loginState, loginDispatch] = useReducer(loginReducer, loginInitialState)
+  const [openState, openDispatch] = useReducer(dialogReducer, dialogInitialState)
 
-  // 返り値：HOME画面
+  const handleClose = () => openDispatch({ type: 'close' })
+  const handleLogin = () => loginDispatch({ type: 'login' })
+  const haddleOpenLogin = () => openDispatch({ type: 'login' })
+  const handleOpenPasswordReset = () => openDispatch({ type: 'passwordReset' })
+  const handleOpenSignup = () => openDispatch({ type: 'signup' })
+
+  // ホームへ返す
   return (
     <>
-      <Box sx={{
-        bgcolor: 'grey.300',
-        overflow: 'hidden',
-        p: 1,
-      }}>
-        <Box sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          p: 1,
-        }}>
+      <Box sx={{ bgcolor: 'grey.300', overflow: 'hidden', p: 1, }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', p: 1, }}>
           <Skeleton variant="rect" width={450} height={300} />
         </Box>
-
-        <Box sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'center',
-        }}>
+        <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', }}>
           <Button variant="contained" sx={{ mr: 3 }}
-            onClick={() => dispatch({ type: 'signup' })}
+            onClick={handleOpenSignup}
           >
             新規登録
           </Button>
           <SignUpDialog
             open={openState.signup}
-            handleClose={() => dispatch({ type: 'close' })}
-            handleLogIn={props.handleLogIn}
+            handleClose={handleClose}
+            handleLogIn={handleLogin}
           />
           <Button variant="contained" sx={{ mr: 3 }}
-            onClick={() => dispatch({ type: 'login' })}>
+            onClick={haddleOpenLogin}
+          >
             ログイン
           </Button>
           <LogInDialog
             open={openState.login}
-            handleClose={() => dispatch({ type: 'close' })}
-            handleLogIn={props.handleLogIn}
-            handlePasswordReset={() => dispatch({ type: 'passwordReset' })}
+            handleClose={handleClose}
+            handleLogIn={handleLogin}
+            handlePasswordReset={handleOpenPasswordReset}
           />
           <PasswordResetDialog
             open={openState.passwordReset}
-            handleClose={() => dispatch({ type: 'close' })}
+            handleClose={handleClose}
           />
         </Box>
       </Box>

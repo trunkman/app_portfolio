@@ -82,26 +82,18 @@ export const Layout = (props) => {
   const theme = useTheme();
   const init = window.innerWidth < 600 ? false : true
   const [open, setOpen] = useState(init)
-  const [openLogInDialog, setOpenLogInDialog] = useState(false)
   // Drawerを開閉する関数群
   const handleDrawerOpen = () => setOpen(true)
   const handleDrawerClose = () => setOpen(false)
-  // ログインDialogを開閉する関数群
-  const handleOpenLogIn = () => setOpenLogInDialog(true)
-  const handleCloseLogIn = () => setOpenLogInDialog(false)
+
 
   return (
     <BrowserRouter>
       <Header
         open={open}
-        openLogIn={openLogInDialog}
         theme={theme}
         drawerWidth={drawerWidth}
         handleDrawerOpen={handleDrawerOpen}
-        handleOpenLogIn={handleOpenLogIn}
-        handleCloseLogIn={handleCloseLogIn}
-        handleLogOut={props.handleLogOut}
-        handleLogIn={props.handleLogIn}
         loginUser={props.loginUser}
         isLoggedIn={props.isLoggedIn}
       />
@@ -129,12 +121,7 @@ export const Layout = (props) => {
         <Switch>
           <Route exact path="/">
             <Home
-              handleCloseLogIn={handleCloseLogIn}
-              handleLogOut={props.handleLogOut}
-              handleLogIn={props.handleLogIn}
-              handleOpenLogIn={handleOpenLogIn}
               isLoggedIn={props.isLoggedIn}
-              open={openLogInDialog}
             />
           </Route>
 
@@ -145,8 +132,6 @@ export const Layout = (props) => {
           <Route exact path="/users/:id"
             render={({ match }) =>
               <User
-                handleLogOut={props.handleLogOut}
-                handleLogIn={props.handleLogIn}
                 isLoggedIn={props.isLoggedIn}
                 match={match}
                 loginUser={props.loginUser}
