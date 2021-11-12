@@ -7,7 +7,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-//api
+import Typography from '@mui/material/Typography';
+// api
 import { postLogIn } from '../../apis/sessions';
 // Formsコンポーネント
 import { Email } from '../Forms/Email';
