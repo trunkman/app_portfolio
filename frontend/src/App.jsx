@@ -36,14 +36,12 @@ export default function App() {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <BrowserRouter>
-        <Layout
-          handleLogOut={handleLogOut}
-          handleLogIn={handleLogIn}
-          isLoggedIn={isLoggedIn}
-          loginUser={loginUser}
-        />
-      </BrowserRouter>
+      <Layout
+        handleLogOut={handleLogOut}
+        handleLogIn={handleLogIn}
+        isLoggedIn={isLoggedIn}
+        loginUser={loginUser}
+      />
     </Box>
   );
 }

@@ -23,39 +23,37 @@ export const Home = (props) => {
 
   // ホームへ返す
   return (
-    <>
-      <Box sx={{ bgcolor: 'grey.300', overflow: 'hidden', p: 1, }}>
-        <Box sx={{ display: 'flex', justifyContent: 'center', p: 1, }}>
-          <Skeleton variant="rect" width={450} height={300} />
-        </Box>
-        <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', }}>
-          <Button variant="contained" sx={{ mr: 3 }}
-            onClick={handleOpenSignup}
-          >
-            新規登録
-          </Button>
-          <SignUpDialog
-            open={openState.signup}
-            handleClose={handleClose}
-            handleLogIn={handleLogin}
-          />
-          <Button variant="contained" sx={{ mr: 3 }}
-            onClick={haddleOpenLogin}
-          >
-            ログイン
-          </Button>
-          <LogInDialog
-            open={openState.login}
-            handleClose={handleClose}
-            handleLogIn={handleLogin}
-            handlePasswordReset={handleOpenPasswordReset}
-          />
-          <PasswordResetDialog
-            open={openState.passwordReset}
-            handleClose={handleClose}
-          />
-        </Box>
+    <Box sx={{ bgcolor: 'grey.300', overflow: 'hidden', p: 1, }}>
+      <Box sx={{ display: 'flex', justifyContent: 'center', p: 1, }}>
+        <Skeleton variant="rect" width={450} height={300} />
       </Box>
-    </>
+      <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', }}>
+        <Button variant="contained" sx={{ mr: 3 }}
+          onClick={handleOpenSignup}
+        >
+          新規登録
+        </Button>
+        <SignUpDialog
+          open={openState.signup}
+          handleClose={handleClose}
+          handleLogIn={handleLogin}
+        />
+        <Button variant="contained" sx={{ mr: 3 }}
+          onClick={haddleOpenLogin}
+        >
+          ログイン
+        </Button>
+        <LogInDialog
+          open={openState.login}
+          handleClose={handleClose}
+          handleLogIn={handleLogin}
+          handlePasswordReset={handleOpenPasswordReset}
+        />
+        <PasswordResetDialog
+          open={openState.passwordReset}
+          handleClose={handleClose}
+        />
+      </Box>
+    </Box>
   )
 }

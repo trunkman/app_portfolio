@@ -47,16 +47,23 @@ export const Header = (props) => {
         <IconButton
           color="inherit"
           aria-label="open drawer"
-          onClick={() => props.handleDrawerOpen}
+          onClick={() => props.handleDrawerOpen()}
           edge="start"
           sx={{
             marginRight: '36px',
             ...(open && { display: 'none' }),
           }}
         >
-          <MenuIcon />
+          <MenuIcon
+            sx={{
+              marginRight: '36px',
+              ...(open && { display: 'none' }),
+            }}
+          />
         </IconButton>
-        <Typography variant="h6" noWrap component="div" flexGrow={1}>
+        <Typography variant="h6" component="div" flexGrow={1}
+          sx={open && { display: 'none' }}
+        >
           睡眠負債
         </Typography>
         <Typography
