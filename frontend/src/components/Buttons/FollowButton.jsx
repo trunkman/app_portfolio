@@ -1,35 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 // styles
 import Button from "@mui/material/Button";
 //api
 import { postFollow } from "../../apis/relationships";
 import { deleteUnfollow } from "../../apis/relationships";
+import { fetchFollow } from "../../apis/relationships";
 
+// 改善中
 export const FollowButton = (props) => {
+  const [followStatus, setFollowStatus] = useState(true)
+
   // フォローする
   const submitFollow = () => {
-    return axios(postFollow({ userId: props.userId }))
-      .then(props.handleFollow(true))
+    postFollow({ userId: props.userId })
+      .then(setFollowStatus(true))
   }
   // フォローを解除する
   const submitUnfollow = () => {
-    return axios(deleteUnfollow({ relationshipId: props.users.id }))
-      .then(props.handleFollow(false))
+    deleteUnfollow({ relationshipId: props.users.id })
+      .then(setFollowStatus(false))
   }
+
+  useEffect(() => {
+    // フォロー有無を確認する
+    fetchFollow({ userId: props.userId })
+      .then(data => setFollowStatus(data))
+  }, [])
 
   return (
     <>
-      {(props.followStatus)
+      {(followStatus === true)
         ? <Button
-          fullWidth={true}
           onClick={submitUnfollow}
           variant="contained"
         >
-          フォローを解除する
+          フォロー中
         </Button>
         : <Button
-          fullWidth={true}
           onClick={submitFollow}
           variant="contained"
         >

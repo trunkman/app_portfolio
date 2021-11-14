@@ -34,7 +34,7 @@ export const deleteUnfollow = (params) => {
     })
 }
 
-// フォロー状態を確認するapi
+// フォロー有無を確認するapi
 export const fetchFollow = (params) => {
   return axios.get(follow, {
     id: params.userId

@@ -24,6 +24,7 @@ import { BooksList } from './Books/BooksList';
 import { DetailsBook } from './Books/DetailsBook';
 import { PasswordReset } from './Pages/PasswordReset';
 import { Diaries } from './Pages/Diaries';
+import { FollowUsers } from './Pages/FollowUsers';
 // コンポーネント
 import { HomeButton } from '../components/Navigations/HomeButton'
 import { ProfileButton } from '../components/Navigations/ProfileButton';
@@ -33,8 +34,7 @@ import { PostsButton } from '../components/Navigations/PostsButton';
 import { AvatarButton } from '../components/Navigations/AvatarButton';
 import { RankingButton } from '../components/Navigations/RankingButton';
 import { BooksButton } from '../components/Navigations/BooksButton';
-import { Following } from '../components/Users/Following';
-import { Followers } from '../components/Users/Followers';
+
 
 const drawerWidth = 300;
 const openedMixin = (theme) => ({
@@ -168,13 +168,13 @@ export const Layout = (props) => {
             />
 
             <Route exact path="/users/:id/following"
-              render={({ match }) => <Following
+              render={({ match }) => <FollowUsers
                 match={match}
               />}
             />
 
             <Route exact path="/users/:id/followers"
-              render={({ match }) => <Followers
+              render={({ match }) => <FollowUsers
                 match={match}
               />}
             />

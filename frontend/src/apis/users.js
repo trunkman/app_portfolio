@@ -1,8 +1,8 @@
 import axios from 'axios'
 import {
   signUp, userPath, users,
-  userMicroposts, following, userRooms,
-  userBooks, userDiaries,
+  userMicroposts, following, followers,
+  userRooms, userBooks, userDiaries,
 } from '../urls/index'
 
 // ユーザーページを表示するapi
@@ -100,16 +100,16 @@ export const fetchFollowing = (params) => {
 }
 
 // フォロワーを取得する
-// export const fetchFollowers = (params) => {
-//   return axios.get(followers(params.userId), {
-//     user: { id: params.userId }
-//   }, { withCredentials: true })
-//     .then(res => {
-//       console.log('user#followers', res)
-//       return res.data
-//     })
-//     .catch(e => { console.error(e) })
-// }
+export const fetchFollowers = (params) => {
+  return axios.get(followers(params.userId), {
+    withCredentials: true
+  }).then(res => {
+    console.log('user#followers', res)
+    return res.data
+  }).catch(error => {
+    console.log('users#following', error)
+  })
+}
 
 // 投稿一覧を取得するapi
 export const fetchMicroposts = (params) => {
