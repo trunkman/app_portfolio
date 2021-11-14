@@ -7,8 +7,8 @@ import Grid from "@mui/material/Grid";
 // アイコン
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 // reducer
-import { dialogInitialState, dialogReducer } from '../../reducer/DialogReducer'
-import { loginInitialState, loginReducer } from '../../reducer/LoginReducer'
+import { dialogInitialState, dialogReducer } from '../../reducer/DialogReducer';
+import { loginInitialState, loginReducer } from '../../reducer/LoginReducer';
 // コンポーネント
 import { SignUpDialog } from "../../components/Dialogs/SignUpDialog";
 import { LogInDialog } from "../../components/Dialogs/LogInDialog";
