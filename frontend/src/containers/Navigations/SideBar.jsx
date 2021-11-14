@@ -15,6 +15,7 @@ import { MessageButton } from '../../components/Navigations/MessageButton';
 import { PostsButton } from '../../components/Navigations/PostsButton';
 import { AvatarButton } from '../../components/Navigations/AvatarButton';
 import { RankingButton } from '../../components/Navigations/RankingButton';
+import { DiariesButton } from '../../components/Navigations/DiariesButton';
 
 export const SideBar = (props) => {
   const open = props.open
@@ -76,6 +77,8 @@ export const SideBar = (props) => {
       <PostsButton loginUserId={props.loginUser.id} />
       <Divider />
       <MessageButton loginUserId={props.loginUser.id} />
+      <Divider />
+      <DiariesButton loginUserId={props.loginUser.id} />
       <Divider />
       <RankingButton loginUserId={props.loginUser.id} />
     </Drawer>

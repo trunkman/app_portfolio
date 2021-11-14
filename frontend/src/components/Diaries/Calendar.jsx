@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import FullCalendar, { EventContentArg } from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin, { DateClickArg } from '@fullcalendar/interaction';
+import Box from '@mui/material/Box';
 // api
 import { fetchUserDiaries } from "../../apis/users";
 // コンポーネント
@@ -42,7 +43,7 @@ export const Calendar = (props) => {
   )
 
   return (
-    <>
+    <Box>
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
         initialView="dayGridMonth"
@@ -56,11 +57,6 @@ export const Calendar = (props) => {
         日記を書く
       </Button>
 
-      <Emoji emoji="laughing" size={16} />
-      <Emoji emoji="blush" size={16} />
-      <Emoji emoji="neutral_face" size={16} />
-      <Emoji emoji="dizzy_face" size={16} />
-
       <DiaryDialog
         open={open}
         handleClose={handleClose}
@@ -70,6 +66,6 @@ export const Calendar = (props) => {
         handleClose={() => setShowOpen(false)}
       // date={arg.dateStr}
       />
-    </>
+    </Box>
   )
 }

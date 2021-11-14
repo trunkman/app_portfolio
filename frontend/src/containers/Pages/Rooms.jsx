@@ -38,7 +38,7 @@ export const Rooms = (props) => {
                   <AccountCircle sx={{ fontSize: 60 }} />
                 </ListItemAvatar>
                 <ListItemText
-                  primary={entry.user_id}
+                  primary={entry.room_id}
                   secondary='メッセージルームの最後の投稿を記載する予定'
                 />
               </ListItem >

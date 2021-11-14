@@ -13,7 +13,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 // コンテイナー
 import { Header } from './Navigations/Header';
 import { Home } from './Pages/Home'
-import { User } from './Pages/User'
+import { Profile } from './Pages/Profile'
 import { Users } from './Pages/Users'
 import { Contact } from './Pages/Contact';
 import { Microposts } from './Pages/Microposts';
@@ -23,6 +23,7 @@ import { Mybooks } from './Pages/Mybooks';
 import { BooksList } from './Books/BooksList';
 import { DetailsBook } from './Books/DetailsBook';
 import { PasswordReset } from './Pages/PasswordReset';
+import { Diaries } from './Pages/Diaries';
 // コンポーネント
 import { HomeButton } from '../components/Navigations/HomeButton'
 import { ProfileButton } from '../components/Navigations/ProfileButton';
@@ -84,7 +85,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export const Layout = (props) => {
   const theme = useTheme();
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
   // Drawerを開閉する関数群
   const handleDrawerOpen = () => setOpen(true)
   const handleDrawerClose = () => setOpen(false)
@@ -123,9 +124,14 @@ export const Layout = (props) => {
 
       <Box
         component="main"
-        sx={{ width: '100%', maxWidth: 1000, mt: 10, mx: 'auto', bgcolor: 'grey.500' }}
+        sx={{ width: '100%', maxWidth: 1000, mt: 9, mx: 'auto' }}
       >
-        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Box sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
           <Switch>
             <Route exact path="/">
               <Home
@@ -139,7 +145,7 @@ export const Layout = (props) => {
 
             <Route exact path="/users/:id"
               render={({ match }) =>
-                <User
+                <Profile
                   isLoggedIn={props.isLoggedIn}
                   match={match}
                   loginUser={props.loginUser}
@@ -156,13 +162,6 @@ export const Layout = (props) => {
 
             <Route exact path="/users/:id/rooms"
               render={({ match }) => <Rooms
-                match={match}
-                loginUser={props.loginUser}
-              />}
-            />
-
-            <Route exact path="/rooms/:id"
-              render={({ match }) => <MessageRoom
                 match={match}
                 loginUser={props.loginUser}
               />}
@@ -187,12 +186,25 @@ export const Layout = (props) => {
               />}
             />
 
+            <Route exact path="/users/:id/diaries"
+              render={({ match }) => <Diaries
+                match={match}
+              />}
+            />
+
             <Route exact path="/users">
               <Users
                 isLoggedIn={props.isLoggedIn}
                 user={props.loginUser}
               />
             </Route>
+
+            <Route exact path="/rooms/:id"
+              render={({ match }) => <MessageRoom
+                match={match}
+                loginUser={props.loginUser}
+              />}
+            />
 
             <Route exact path="/booksearch">
               <BooksList />
@@ -213,6 +225,8 @@ export const Layout = (props) => {
                 match={match}
               />}
             />
+
+
 
 
           </Switch>

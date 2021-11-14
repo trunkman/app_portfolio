@@ -17,6 +17,7 @@ export const Chat = (props) => {
       room_id: props.room_id,
     }).then(() => {
       setChat('')
+      props.handleFetch()
     })
   }
 

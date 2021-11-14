@@ -6,6 +6,8 @@ import ListItem from "@mui/material/ListItem";
 import List from '@mui/material/List';
 import ListItemText from '@mui/material/ListItemText';
 import Grid from "@mui/material/Grid";
+import Box from '@mui/material/Box';
+
 // アイコン
 import AccountCircle from "@mui/icons-material/AccountCircle";
 // api
@@ -15,6 +17,7 @@ import { fetchMicroposts } from "../../apis/users";
 // コンポーネント
 import { LikeButton } from "../../components/Buttons/LikeButton";
 import { CommentButton } from "../../components/Buttons/CommentButton"
+import { Micropost } from "../../components/Microposts/Micropost";
 
 export const Microposts = (props) => {
   const [microposts, setMicroposts] = useState([])
@@ -42,40 +45,45 @@ export const Microposts = (props) => {
   }
 
   return (
-    <>
-      <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
+    <Box>
+      <List sx={{ bgcolor: 'background.paper' }}>
         <h2>投稿一覧</h2>
         <p>{microposts.length} つぶやき</p>
         <p>{comments.length} コメント</p>
         {
           microposts.map(micropost =>
-            <ListItem key={micropost.id.toString()}>
-              <ListItemAvatar>
-                <AccountCircle sx={{ fontSize: 40 }} />
-              </ListItemAvatar>
-              <ListItemText
-                component="div"
-                primary={micropost.id}
-                secondary={micropost.created_at}
-              />
-              {props.loginUser.id === micropost.user_id && (
-                <Link component="div" onClick={() => deleteSubmit(micropost.id)}>
-                  delete
-                </Link>
-              )}
-              <Typography variant="body1" pl={2}>
-                {micropost.content}
-              </Typography>
-              <LikeButton
-                loginUserId={props.loginUser.id}
-                micropostId={micropost.id}
-                likedStatus={likedMicropostIds.includes(micropost.id)}
-              />
-              <CommentButton
-                loginUserId={props.loginUser.id}
-                micropostId={micropost.id}
-              />
-            </ListItem >
+            <Micropost
+              micropost={micropost}
+              loginUserId={props.loginUser.id}
+              likedStatus={likedMicropostIds.includes(micropost.id)}
+            />
+            // <ListItem key={micropost.id.toString()}>
+            //   <ListItemAvatar>
+            //     <AccountCircle sx={{ fontSize: 40 }} />
+            //   </ListItemAvatar>
+            //   <ListItemText
+            //     component="div"
+            //     primary={micropost.id}
+            //     secondary={micropost.created_at}
+            //   />
+            //   {props.loginUser.id === micropost.user_id && (
+            //     <Link component="div" onClick={() => deleteSubmit(micropost.id)}>
+            //       delete
+            //     </Link>
+            //   )}
+            //   <Typography variant="body1" pl={2}>
+            //     {micropost.content}
+            //   </Typography>
+            //   <LikeButton
+            //     loginUserId={props.loginUser.id}
+            //     micropostId={micropost.id}
+            //     likedStatus={likedMicropostIds.includes(micropost.id)}
+            //   />
+            //   <CommentButton
+            //     loginUserId={props.loginUser.id}
+            //     micropostId={micropost.id}
+            //   />
+            // </ListItem >
           )
         }
 
@@ -110,6 +118,6 @@ export const Microposts = (props) => {
           )
         }
       </List>
-    </>
+    </Box>
   )
 }

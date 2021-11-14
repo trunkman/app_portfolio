@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 // styled
-import { Divider, List, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
+import { Divider, List, ListItem, ListItemAvatar, ListItemText, Typography } from "@mui/material";
 // アイコン
 import AccountCircle from "@mui/icons-material/AccountCircle";
 // api
 import { fetchFollowing } from "../../apis/users";
 // コンポーネント
 import { RoomButton } from "../Buttons/RoomButton";
+
 
 export const Following = (props) => {
   const userId = props.match.params.id
@@ -27,7 +28,12 @@ export const Following = (props) => {
 
   return (
     <>
-      <h2>フォロー中</h2>
+      <Typography
+        variant="h4"
+        sx={{ py: 2 }}
+      >
+        フォロー中
+      </Typography>
       <List sx={{ bgcolor: 'background.paper' }}>
         {
           following.map(user =>
@@ -48,7 +54,7 @@ export const Following = (props) => {
                 <RoomButton
                   userId={user.id}
                 />
-              </ListItem >
+              </ListItem>
             </div>
           )
         }

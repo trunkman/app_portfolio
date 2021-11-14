@@ -6,7 +6,6 @@ export const Email = (props) => {
   // 返り値：Emailフォーム
   return (
     <TextField
-      autoFocus
       fullWidth variant="standard"
       label="E-mail"
       margin="dense"
