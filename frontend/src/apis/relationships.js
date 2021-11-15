@@ -20,18 +20,14 @@ export const postFollow = (params) => {
 }
 
 export const deleteUnfollow = (params) => {
-  return axios.delete(unfollow, {
-    followed_id: params.userId
-  },
-    { withCredentials: true }
-  )
-    .then(res => {
-      console.log('unfollow#destroy', res)
-      return res.data
-    })
-    .catch(error => {
-      console.log('unfollow#destroy', error)
-    })
+  return axios.delete(unfollow(params.userId), {
+    withCredentials: true
+  }).then(res => {
+    console.log('unfollow#destroy', res)
+    return res.data
+  }).catch(error => {
+    console.log('unfollow#destroy', error)
+  })
 }
 
 // フォロー有無を確認するapi

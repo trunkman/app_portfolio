@@ -11,6 +11,7 @@ import { Layout } from './containers/Layout';
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loginUser, setLoginUser] = useState({});
+
   // ログイン&ログアウト実行のコールバック関数
   const handleLogIn = (loginUser) => {
     setIsLoggedIn(true);

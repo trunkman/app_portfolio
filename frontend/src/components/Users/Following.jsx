@@ -18,6 +18,7 @@ export const Following = (props) => {
   const userId = props.userId
   const history = useHistory()
   const [following, setFollowing] = useState([])
+  const [followingIds, setFollowingIds] = useState([])
 
   const PageTransition = (followingUserId) => {
     history.push(`/users/${followingUserId}`)
@@ -28,6 +29,7 @@ export const Following = (props) => {
     fetchFollowing({ userId: userId })
       .then(data => {
         setFollowing(data.users)
+        setFollowingIds(data.following_ids)
       })
     return () => setFollowing([])
   }, [])
@@ -60,7 +62,9 @@ export const Following = (props) => {
                 userId={user.id}
               />
               <FollowButton
-                userId={user.id} />
+                userId={user.id}
+                followingIds={followingIds}
+              />
             </Box>
           )
         }

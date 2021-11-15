@@ -13,12 +13,18 @@ module Api
       # ユーザーを表示するアクション
       def show
         @user = User.find(params[:id])
-        @microposts = @user.microposts
-        @following = @user.following
-        @followers = @user.followers
+        @following_ids = []
+          @user.following.each do |following|
+            @following_ids << following.id
+          end
+        @followers_ids = [] 
+          @user.followers.each do |follower|
+            @followers_ids << follower.id
+          end
         if @user.activated?
-          render json: { user: @user, microposts: @microposts,
-                         following: @following, followers: @followers }, status: :ok
+          render json: { user: @user, following_ids: @following_ids,
+                                      followers_ids: @followers_ids },
+                 status: :ok
         else
           render json: {}, status: :unauthorized
         end
@@ -67,20 +73,28 @@ module Api
         end
       end
 
-      # フォローされている方を返す
+      # フォロー中のユーザーを返す
       def following
-        @title = 'Following'
         user = User.find(params[:id])
         @users = user.following
-        render json: { title: @title, users: @users }, status: :ok
+        @following_ids = [] 
+          current_user.following.each do |follow|
+            @following_ids << follow.id
+          end
+        render json: { users: @users, following_ids: @following_ids },
+               status: :ok
       end
 
       # フォロワーを返す
       def followers
-        @title = 'Followers'
         user = User.find(params[:id])
         @users = user.followers
-        render json: { title: @title, users: @users }, status: :ok
+        @following_ids = [] 
+          current_user.following.each do |follow|
+            @following_ids << follow.id
+          end
+        render json: { users: @users, following_ids: @following_ids },
+              status: :ok
       end
 
       # マイクロポスト&コメント一覧を返す

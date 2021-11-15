@@ -31,11 +31,11 @@ export const MessageRoom = (props) => {
   // ルームのメッセージ一覧を取得する
   useEffect(() => {
     fetchMessages({ roomId: roomId })
-      .then(data => setMessages(data.messages))
-    return () => {
-      setMessages([])
-      dataDispatch({ type: 'complete' })
-    }
+      .then(data => {
+        setMessages(data.messages)
+        dataDispatch({ type: 'complete' })
+      })
+    return () => setMessages([])
   }, [dataState.messages])
 
   return (

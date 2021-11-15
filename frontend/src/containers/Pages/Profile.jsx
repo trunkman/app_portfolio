@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 // styled
 import { Grid, Typography } from "@mui/material";
 import Box from '@mui/material/Box';
-
 // api
 import { fetchUser } from "../../apis/users";
+// reducer
+import { dataInitialState, dataReducer } from '../../reducer/DataFetchReducer';
 // コンポーネント
 import { MyProfile } from "../../components/Users/MyProfile";
 import { Followers } from "../../components/Users/Followers";
@@ -17,19 +18,22 @@ import { Microposts } from "./Microposts";
 export const Profile = (props) => {
   const userId = props.match.params.id
   const [user, setUser] = useState('No Name')
-  const [microposts, setMicroposts] = useState([])
-  const [isFetching, setIsFetching] = useState(false)
+  const [followingIds, setFollowingIds] = useState([])
+  const [followersIds, setFollowersIds] = useState([])
+  const [dataState, dataDispatch] = useReducer(dataReducer, dataInitialState)
   // ユーザー情報の取得
   useEffect(() => {
     fetchUser({ userId: userId })
       .then(data => {
         setUser(data.user)
-        setIsFetching(false)
+        setFollowingIds(data.following_ids)
+        setFollowersIds(data.followers_ids)
+        dataDispatch({ type: 'complete' })
       })
     return () => {
       setUser([])
     }
-  }, [isFetching])
+  }, [dataState.user])
 
   return (
     <Box sx={{
@@ -42,10 +46,12 @@ export const Profile = (props) => {
       maxWidth: 800,
     }}>
       <MyProfile
-        dataFetching={() => setIsFetching(true)}
+        dataUserFetching={() => dataDispatch({ type: 'user' })}
         loginUser={props.loginUser}
         isLoggedIn={props.isLoggedIn}
         user={user}
+        followingIds={followingIds}
+        followersIds={followersIds}
       />
       <Microposts
         userId={userId}

@@ -7,42 +7,47 @@ import { postFollow } from "../../apis/relationships";
 import { deleteUnfollow } from "../../apis/relationships";
 import { fetchFollow } from "../../apis/relationships";
 
-// 改善中
-export const FollowButton = (props) => {
-  const [followStatus, setFollowStatus] = useState(true)
 
+export const FollowButton = ({ userId, followingIds }) => {
+  const [followStatus, setFollowStatus] = useState(false)
   // フォローする
   const submitFollow = () => {
-    postFollow({ userId: props.userId })
-      .then(setFollowStatus(true))
+    postFollow({ userId: userId })
+      .then(() => {
+        setFollowStatus(true)
+        alert('フォローしました')
+      })
   }
   // フォローを解除する
   const submitUnfollow = () => {
-    deleteUnfollow({ relationshipId: props.users.id })
-      .then(setFollowStatus(false))
+    deleteUnfollow({ userId: userId })
+      .then(() => {
+        setFollowStatus(false)
+        alert('フォローを解除しました')
+      })
   }
 
   useEffect(() => {
-    // フォロー有無を確認する
-    fetchFollow({ userId: props.userId })
-      .then(data => setFollowStatus(data))
-  }, [])
+    // フォロー有無の確認
+    setFollowStatus(followingIds.includes(userId))
+  })
 
   return (
     <>
-      {(followStatus === true)
-        ? <Button
-          onClick={submitUnfollow}
-          variant="contained"
-        >
-          フォロー中
-        </Button>
-        : <Button
+      {followStatus === true ? (<Button
+        onClick={submitUnfollow}
+        variant="contained"
+      >
+        フォロー中
+      </Button>
+      ) : (
+        <Button
           onClick={submitFollow}
           variant="contained"
         >
           フォローする
         </Button>
+      )
       }
     </>
   )

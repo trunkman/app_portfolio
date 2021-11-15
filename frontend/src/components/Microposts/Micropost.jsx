@@ -51,6 +51,7 @@ export const Micropost = (props) => {
             <LikeButton
               loginUserId={props.loginUserId}
               micropostId={props.micropost.id}
+              likedStatus={props.likedStatus}
             />
             <CommentButton
               loginUserId={props.loginUserId}

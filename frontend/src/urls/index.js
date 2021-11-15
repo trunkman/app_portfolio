@@ -19,8 +19,8 @@ export const loggedIn = `${DEFAULT_API_LOCALHOST}/logged_in`;
 export const microposts = `${DEFAULT_API_LOCALHOST}/microposts`;
 export const micropostPath = (micropostId) => `${DEFAULT_API_LOCALHOST}/microposts/${micropostId}`;
 // RelationshipsContoller
-export const follow = `${DEFAULT_API_LOCALHOST}/follow`;
-export const unfollow = `${DEFAULT_API_LOCALHOST}/unfollow`;
+export const follow = `${DEFAULT_API_LOCALHOST}/relationships`;
+export const unfollow = (userId) => `${DEFAULT_API_LOCALHOST}/unfollow/${userId}`;
 // LikesController
 export const like = `${DEFAULT_API_LOCALHOST}/likes`;
 export const unlike = `${DEFAULT_API_LOCALHOST}/unlikes/`;

@@ -5,10 +5,12 @@ import { Button } from "@mui/material";
 import { postbook } from "../../apis/books";
 
 export const ReadButton = (props) => {
+
+  // 本を登録する
   const handleClick = (boolean) => {
     postbook({
       read: boolean,
-      book: props.book
+      book: props.book,
     })
       .then(data => {
         data.subscription.read
@@ -17,19 +19,19 @@ export const ReadButton = (props) => {
       })
   }
 
-  // 読んだ積んだがわかるように設定する
+  // 読んだ積んだがわかるように設定する予定
   return (
     <>
       <Button
         color="primary"
-        onClick={() => handleClick(false)}
+        onClick={() => handleClick("false")}
         size="small"
       >
         積む
       </Button>
       <Button
         color="primary"
-        onClick={() => handleClick(true)}
+        onClick={() => handleClick("true")}
         size="small"
       >
         読了

@@ -10,6 +10,7 @@ import Box from '@mui/material/Box';
 import AccountCircle from "@mui/icons-material/AccountCircle";
 // コンポーネント
 import { SettingDialog } from "../Dialogs/SettingDialog";
+import { FollowButton } from "../Buttons/FollowButton";
 
 export const MyProfile = (props) => {
   const [openSettingDialog, setOpenSettingDialog] = useState(false)
@@ -35,7 +36,7 @@ export const MyProfile = (props) => {
               component={Link}
               to={`/users/${props.user.id}/following`}
             >
-              99フォロー中
+              {props.followingIds.length} フォロー中
             </ListItem>
           </Grid>
           <Grid item sm={6} xs={12}>
@@ -43,23 +44,29 @@ export const MyProfile = (props) => {
               component={Link}
               to={`/users/${props.user.id}/followers`}
             >
-              99フォロワー
+              {props.followersIds.length} フォロワー
             </ListItem>
           </Grid>
         </Grid>
         {
-          (props.loginUser.id === props.user.id) &&
-          <>
-            <Button onClick={handleOpenSetting}>
-              プロフィール編集
-            </Button>
-            <SettingDialog
-              handleClose={handleCloseSetting}
-              open={openSettingDialog}
-              user={props.loginUser}
-              dataFetching={props.dataFetching}
+          (props.loginUser.id === props.user.id) ? (
+            <>
+              <Button onClick={handleOpenSetting}>
+                プロフィール編集
+              </Button>
+              <SettingDialog
+                handleClose={handleCloseSetting}
+                open={openSettingDialog}
+                user={props.loginUser}
+                dataFetching={props.dataUserFetching}
+              />
+            </>
+          ) : (
+            <FollowButton
+              userId={props.user.id}
+              followingIds={props.followingIds}
             />
-          </>
+          )
         }
         <Typography variant="body1">お気に入りの本</Typography>
         <Typography variant="h6">本のタイトル</Typography>

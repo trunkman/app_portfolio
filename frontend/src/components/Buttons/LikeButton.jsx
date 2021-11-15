@@ -28,7 +28,7 @@ export const LikeButton = (props) => {
 
   useEffect(() => {
     setLikeStatus(props.likedStatus)
-  })
+  }, [])
 
   return (
     <>

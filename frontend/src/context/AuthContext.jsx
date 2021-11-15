@@ -1,9 +1,9 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
 import { fetchLoggedIn } from "../apis/sessions";
 
-const AuthContext = createContext()
+export const Auth = createContext()
 
-export const useAuthContext = () => {
+export const AuthContext = () => {
   return useContext(AuthContext)
 }
 
@@ -36,9 +36,5 @@ export const AuthProvider = ({ children }) => {
       })
   }, [])
 
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  )
+
 }
