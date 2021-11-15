@@ -155,14 +155,14 @@ export const Layout = (props) => {
 
             <Route exact path="/users/:id/microposts"
               render={({ match }) => <Microposts
-                match={match}
+                userId={match.params.id}
                 loginUser={props.loginUser}
               />}
             />
 
             <Route exact path="/users/:id/rooms"
               render={({ match }) => <Rooms
-                match={match}
+                usrmatch={match}
                 loginUser={props.loginUser}
               />}
             />

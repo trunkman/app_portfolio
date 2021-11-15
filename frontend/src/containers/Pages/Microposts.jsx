@@ -23,7 +23,7 @@ import { CommentButton } from "../../components/Buttons/CommentButton"
 import { Micropost } from "../../components/Microposts/Micropost";
 import { MicropostDialog } from "../../components/Dialogs/MicropostDialog";
 
-export const Microposts = (props) => {
+export const Microposts = ({ userId, loginUser }) => {
   const [microposts, setMicroposts] = useState([])
   const [comments, setComments] = useState([])
   const [likedMicropostIds, setLikedMicropostIds] = useState([])
@@ -36,7 +36,7 @@ export const Microposts = (props) => {
 
   // 投稿一覧を取得する
   useEffect(() => {
-    fetchMicroposts({ userId: props.userId })
+    fetchMicroposts({ userId: userId })
       .then(data => {
         setMicroposts(data.microposts)
         setComments(data.comments)
@@ -67,14 +67,14 @@ export const Microposts = (props) => {
         <MicropostDialog
           handleClose={handleClose}
           open={openState.micropost}
-          user={props.loginUser}
+          user={loginUser}
           dataFetching={dataFetching}
         />
         {
           microposts.map(micropost =>
             <Micropost
               micropost={micropost}
-              loginUserId={props.loginUser.id}
+              loginUserId={loginUser.id}
               likedStatus={likedMicropostIds.includes(micropost.id)}
             />
             // <ListItem key={micropost.id.toString()}>
@@ -86,7 +86,7 @@ export const Microposts = (props) => {
             //     primary={micropost.id}
             //     secondary={micropost.created_at}
             //   />
-            //   {props.loginUser.id === micropost.user_id && (
+            //   {loginUser.id === micropost.user_id && (
             //     <Link component="div" onClick={() => deleteSubmit(micropost.id)}>
             //       delete
             //     </Link>
@@ -95,12 +95,12 @@ export const Microposts = (props) => {
             //     {micropost.content}
             //   </Typography>
             //   <LikeButton
-            //     loginUserId={props.loginUser.id}
+            //     loginUserId={loginUser.id}
             //     micropostId={micropost.id}
             //     likedStatus={likedMicropostIds.includes(micropost.id)}
             //   />
             //   <CommentButton
-            //     loginUserId={props.loginUser.id}
+            //     loginUserId={loginUser.id}
             //     micropostId={micropost.id}
             //   />
             // </ListItem >
@@ -118,7 +118,7 @@ export const Microposts = (props) => {
                 primary={comment.id}
                 secondary={comment.created_at}
               />
-              {props.loginUser.id === comment.user_id && (
+              {loginUser.id === comment.user_id && (
                 <Link component="div" onClick={() => deleteCommentSubmit(comment.id)}>
                   delete
                 </Link>
@@ -127,11 +127,11 @@ export const Microposts = (props) => {
                 {comment.content}
               </Typography>
               <LikeButton
-                loginUserId={props.loginUser.id}
+                loginUserId={loginUser.id}
                 micropostId={comment.id}
               />
               <CommentButton
-                loginUserId={props.loginUser.id}
+                loginUserId={loginUser.id}
                 micropostId={comment.id}
               />
             </ListItem >

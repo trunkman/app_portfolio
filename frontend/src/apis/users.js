@@ -8,12 +8,11 @@ import {
 // ユーザーページを表示するapi
 export const fetchUser = (params) => {
   return axios.get(userPath(params.userId), {
-    user: { id: params.userId }
-  }, { withCredentials: true })
-    .then(res => {
-      console.log('user#show', res)
-      return res.data
-    }).catch((e) => console.error(e))
+    withCredentials: true
+  }).then(res => {
+    console.log('user#show', res)
+    return res.data
+  }).catch((e) => console.error(e))
 }
 
 // 新規登録するためのapi
@@ -113,16 +112,14 @@ export const fetchFollowers = (params) => {
 
 // 投稿一覧を取得するapi
 export const fetchMicroposts = (params) => {
-  return axios.get(userMicroposts(1), {
-    user: { id: params.userId }
-  }, { withCredentials: true })
-    .then(res => {
-      console.log('users#microposts', res)
-      return res.data
-    })
-    .catch(error => {
-      console.log('users#microposts', error)
-    })
+  return axios.get(userMicroposts(params.userId), {
+    withCredentials: true
+  }).then(res => {
+    console.log('users#microposts', res)
+    return res.data
+  }).catch(error => {
+    console.log('users#microposts', error)
+  })
 }
 
 // トークルームの一覧を取得するapi
