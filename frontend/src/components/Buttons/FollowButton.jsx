@@ -9,12 +9,13 @@ import { fetchFollow } from "../../apis/relationships";
 
 
 export const FollowButton = ({ userId, followingIds }) => {
-  const [followStatus, setFollowStatus] = useState(false)
+  const Initialfollowing = followingIds.includes(userId)
+  const [following, setFollowing] = useState(Initialfollowing)
   // フォローする
   const submitFollow = () => {
     postFollow({ userId: userId })
       .then(() => {
-        setFollowStatus(true)
+        setFollowing(true)
         alert('フォローしました')
       })
   }
@@ -22,32 +23,34 @@ export const FollowButton = ({ userId, followingIds }) => {
   const submitUnfollow = () => {
     deleteUnfollow({ userId: userId })
       .then(() => {
-        setFollowStatus(false)
+        setFollowing(false)
         alert('フォローを解除しました')
       })
   }
 
   useEffect(() => {
     // フォロー有無の確認
-    setFollowStatus(followingIds.includes(userId))
+    setFollowing(Initialfollowing)
   })
 
   return (
     <>
-      {followStatus === true ? (<Button
-        onClick={submitUnfollow}
-        variant="contained"
-      >
-        フォロー中
-      </Button>
-      ) : (
-        <Button
-          onClick={submitFollow}
-          variant="contained"
-        >
-          フォローする
-        </Button>
-      )
+      {following === true
+        ? (
+          <Button
+            onClick={submitUnfollow}
+            variant="contained"
+          >
+            フォロー中
+          </Button>
+        ) : (
+          <Button
+            onClick={submitFollow}
+            variant="outlined"
+          >
+            フォローする
+          </Button>
+        )
       }
     </>
   )

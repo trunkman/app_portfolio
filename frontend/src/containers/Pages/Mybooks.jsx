@@ -11,7 +11,7 @@ import { fetchUserBooks } from '../../apis/users'
 // reducer
 import { dataInitialState, dataReducer } from '../../reducer/DataFetchReducer';
 // コンポーネント
-import { BookCards } from '../../components/Books/BookCards'
+import { BookCards } from '../../components/Lists/BookCards'
 
 export const Mybooks = ({ match, loginUser }) => {
   const [readBooks, setReadBooks] = useState([])

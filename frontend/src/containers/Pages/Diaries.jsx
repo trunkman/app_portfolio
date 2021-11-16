@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from "@mui/material/Typography";
 // コンポーネント
-import { Calendar } from "../../components/Diaries/Calendar";
+import { Calendar } from "../../components/UserInfomation/Calendar";
 
 export const Diaries = (props) => {
   const userId = props.match.params.id

@@ -1,4 +1,5 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, useContext } from "react";
+import { AuthContext } from "../../App";
 //styled
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
@@ -6,9 +7,10 @@ import Skeleton from '@material-ui/lab/Skeleton';
 import Grid from "@mui/material/Grid";
 // アイコン
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
+// api
+import { postLogIn } from '../../apis/sessions';
 // reducer
 import { dialogInitialState, dialogReducer } from '../../reducer/DialogReducer';
-import { loginInitialState, loginReducer } from '../../reducer/LoginReducer';
 // コンポーネント
 import { SignUpDialog } from "../../components/Dialogs/SignUpDialog";
 import { LogInDialog } from "../../components/Dialogs/LogInDialog";
@@ -16,14 +18,45 @@ import { PasswordResetDialog } from "../../components/Dialogs/PasswordResetDialo
 import { Typography } from "@mui/material";
 
 export const Home = (props) => {
-  const [loginState, loginDispatch] = useReducer(loginReducer, loginInitialState)
   const [openState, openDispatch] = useReducer(dialogReducer, dialogInitialState)
+  const { authState, authDispatch } = useContext(AuthContext)
 
   const handleClose = () => openDispatch({ type: 'close' })
-  const handleLogin = () => loginDispatch({ type: 'login' })
+  // const handleLogin = () => loginDispatch({ type: 'login' })
   const haddleOpenLogin = () => openDispatch({ type: 'login' })
   const handleOpenPasswordReset = () => openDispatch({ type: 'passwordReset' })
   const handleOpenSignup = () => openDispatch({ type: 'signup' })
+
+  const initialState = {
+    name: '',
+    email: '',
+    password: '',
+    passwordConfirmation: '',
+    rememberMe: '1',
+    openSignup: false,
+    openLogin: false,
+  };
+  const [state, setState] = useState(initialState);
+
+  const handleLogin = (data) => {
+    authDispatch({
+      type: 'login',
+      payload: data.user,
+    })
+  }
+
+  const submitLogin = () => {
+    postLogIn({
+      email: state.email,
+      password: state.password,
+      remember_me: state.remenberMe,
+    }).then(data => {
+      handleLogin(data)
+      setState({ openLogin: false })
+    }
+    )
+  }
+
 
   // ホームへ返す
   return (
@@ -54,14 +87,14 @@ export const Home = (props) => {
             handleLogIn={handleLogin}
           />
           <Button variant="contained" sx={{ mr: 3 }}
-            onClick={haddleOpenLogin}
+            onClick={setState({ openSignup: true })}
           >
             ログイン
           </Button>
           <LogInDialog
             open={openState.login}
-            handleClose={handleClose}
-            handleLogIn={handleLogin}
+            handleClose={setState({ openSignup: false })}
+            handleLogIn={submitLogin}
             handlePasswordReset={handleOpenPasswordReset}
           />
           <PasswordResetDialog

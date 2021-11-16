@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { AuthContext } from '../App';
 // styles
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -11,29 +12,29 @@ import Typography from '@mui/material/Typography';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 // コンテイナー
+import { Book } from './Pages/Book';
+import { BookSearch } from './Pages/BookSearch';
+import { Contact } from './Pages/Contact';
+import { Diaries } from './Pages/Diaries';
+import { Follow } from './Pages/Follow';
+import { Friends } from './Pages/Friends';
 import { Header } from './Navigations/Header';
 import { Home } from './Pages/Home'
-import { Profile } from './Pages/Profile'
-import { Users } from './Pages/Users'
-import { Contact } from './Pages/Contact';
-import { Microposts } from './Pages/Microposts';
-import { Rooms } from './Pages/Rooms';
-import { MessageRoom } from './Pages/MessageRoom';
 import { Mybooks } from './Pages/Mybooks';
-import { BooksList } from './Books/BooksList';
-import { DetailsBook } from './Books/DetailsBook';
 import { PasswordReset } from './Pages/PasswordReset';
-import { Diaries } from './Pages/Diaries';
-import { FollowUsers } from './Pages/FollowUsers';
+import { Profile } from './Pages/Profile'
+import { TalkRoom } from './Pages/TalkRoom';
+import { Timeline } from './Pages/Timeline';
+import { Users } from './Pages/Users'
 // コンポーネント
-import { HomeButton } from '../components/Navigations/HomeButton'
-import { ProfileButton } from '../components/Navigations/ProfileButton';
-import { FollowsButton } from '../components/Navigations/FollowsButton';
-import { MessageButton } from '../components/Navigations/MessageButton';
-import { PostsButton } from '../components/Navigations/PostsButton';
-import { AvatarButton } from '../components/Navigations/AvatarButton';
-import { RankingButton } from '../components/Navigations/RankingButton';
-import { BooksButton } from '../components/Navigations/BooksButton';
+import { HomeButton } from '../components/Links/HomeButton'
+import { ProfileButton } from '../components/Links/ProfileButton';
+import { FollowsButton } from '../components/Links/FollowsButton';
+import { MessageButton } from '../components/Links/MessageButton';
+import { PostsButton } from '../components/Links/PostsButton';
+import { AvatarButton } from '../components/Links/AvatarButton';
+import { RankingButton } from '../components/Links/RankingButton';
+import { BooksButton } from '../components/Links/BooksButton';
 
 
 const drawerWidth = 300;
@@ -90,6 +91,7 @@ export const Layout = (props) => {
   const handleDrawerOpen = () => setOpen(true)
   const handleDrawerClose = () => setOpen(false)
 
+  const { authState, authDispatch } = useContext(AuthContext)
 
   return (
     <BrowserRouter>
@@ -97,8 +99,8 @@ export const Layout = (props) => {
         open={open}
         drawerWidth={drawerWidth}
         handleDrawerOpen={handleDrawerOpen}
-        loginUser={props.loginUser}
-        isLoggedIn={props.isLoggedIn}
+        loginUser={authState.loginUser}
+        isLoggedIn={authState.loggedIn}
       />
 
       <Drawer variant="permanent" open={open}>
@@ -111,14 +113,14 @@ export const Layout = (props) => {
           </IconButton>
         </DrawerHeader>
         <>
-          <AvatarButton user={props.loginUser} size="45" />
-          <HomeButton loginUserId={props.loginUser.id} />
-          <ProfileButton loginUserId={props.loginUser.id} />
-          <FollowsButton loginUserId={props.loginUser.id} />
-          <PostsButton loginUserId={props.loginUser.id} />
-          <MessageButton loginUserId={props.loginUser.id} />
-          <BooksButton loginUserId={props.loginUser.id} />
-          <RankingButton loginUserId={props.loginUser.id} />
+          <AvatarButton user={authState.loginUser} size="45" />
+          <HomeButton loginUserId={authState.loginUser.id} />
+          <ProfileButton loginUserId={authState.loginUser.id} />
+          <FollowsButton loginUserId={authState.loginUser.id} />
+          <PostsButton loginUserId={authState.loginUser.id} />
+          <MessageButton loginUserId={authState.loginUser.id} />
+          <BooksButton loginUserId={authState.loginUser.id} />
+          <RankingButton loginUserId={authState.loginUser.id} />
         </>
       </Drawer>
 
@@ -135,7 +137,8 @@ export const Layout = (props) => {
           <Switch>
             <Route exact path="/">
               <Home
-                isLoggedIn={props.isLoggedIn}
+                isLoggedIn={authState.loggedIn}
+                handleLogin={authDispatch}
               />
             </Route>
 
@@ -146,35 +149,35 @@ export const Layout = (props) => {
             <Route exact path="/users/:id"
               render={({ match }) =>
                 <Profile
-                  isLoggedIn={props.isLoggedIn}
+                  isLoggedIn={authState.loggedIn}
                   match={match}
-                  loginUser={props.loginUser}
+                  loginUser={authState.loginUser}
                 />
               }
             />
 
-            <Route exact path="/users/:id/microposts"
-              render={({ match }) => <Microposts
+            <Route exact path="/users/:id/timeline"
+              render={({ match }) => <Timeline
                 userId={match.params.id}
-                loginUser={props.loginUser}
+                loginUser={authState.loginUser}
               />}
             />
 
             <Route exact path="/users/:id/rooms"
-              render={({ match }) => <Rooms
+              render={({ match }) => <Friends
                 usrmatch={match}
-                loginUser={props.loginUser}
+                loginUser={authState.loginUser}
               />}
             />
 
             <Route exact path="/users/:id/following"
-              render={({ match }) => <FollowUsers
+              render={({ match }) => <Follow
                 match={match}
               />}
             />
 
             <Route exact path="/users/:id/followers"
-              render={({ match }) => <FollowUsers
+              render={({ match }) => <Follow
                 match={match}
               />}
             />
@@ -182,7 +185,7 @@ export const Layout = (props) => {
             <Route exact path="/users/:id/books"
               render={({ match }) => <Mybooks
                 match={match}
-                loginUser={props.loginUser}
+                loginUser={authState.loginUser}
               />}
             />
 
@@ -194,24 +197,24 @@ export const Layout = (props) => {
 
             <Route exact path="/users">
               <Users
-                isLoggedIn={props.isLoggedIn}
-                user={props.loginUser}
+                isLoggedIn={authState.loggedIn}
+                user={authState.loginUser}
               />
             </Route>
 
-            <Route exact path="/rooms/:id"
-              render={({ match }) => <MessageRoom
+            <Route exact path="/Friends/:id"
+              render={({ match }) => <TalkRoom
                 match={match}
-                loginUser={props.loginUser}
+                loginUser={authState.loginUser}
               />}
             />
 
             <Route exact path="/booksearch">
-              <BooksList />
+              <BookSearch />
             </Route>
 
             <Route exact path="/books/:isbn"
-              render={({ match }) => <DetailsBook
+              render={({ match }) => <Book
                 match={match}
               />}
             />

@@ -5,7 +5,6 @@ import { Button } from "@mui/material";
 import { postbook } from "../../apis/books";
 
 export const ReadButton = (props) => {
-
   // 本を登録する
   const handleClick = (boolean) => {
     postbook({
@@ -13,9 +12,13 @@ export const ReadButton = (props) => {
       book: props.book,
     })
       .then(data => {
-        data.subscription.read
-          ? (alert('読んだ本に登録しました'))
-          : (alert('積んでいる本に登録しました'))
+        if (data.message) {
+          alert(data.message)
+        } else {
+          data.subscription.read
+            ? (alert('読んだ本に登録しました'))
+            : (alert('積んでいる本に登録しました'))
+        }
       })
   }
 

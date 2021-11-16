@@ -1,5 +1,6 @@
-import React, { useReducer } from 'react';
-import { Link } from "react-router-dom";
+import React, { useState, useReducer, useContext } from 'react';
+import { Link, useHistory } from "react-router-dom";
+import { AuthContext } from "../../App";
 // styles
 import { styled } from '@mui/material/styles';
 import MuiAppBar from '@mui/material/AppBar';
@@ -8,19 +9,64 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 // アイコン
 import MenuIcon from '@mui/icons-material/Menu';
+// api
+import { postLogIn } from '../../apis/sessions';
+import { deleteLogout } from "../../apis/sessions"
 // reducer
 import { dialogReducer, dialogInitialState } from '../../reducer/DialogReducer'
-import { loginReducer, loginInitialState } from '../../reducer/LoginReducer'
 // コンポーネント
 import { LoginControlBottun } from '../../components/Buttons/LoginControlButton'
 
 export const Header = (props) => {
-  const [loginState, loginDispatch] = useReducer(loginReducer, loginInitialState)
   const [openState, openDispatch] = useReducer(dialogReducer, dialogInitialState)
   const handleClose = () => openDispatch({ type: 'close' })
-  const handleLogin = () => loginDispatch({ type: 'login' })
-  const handleLogout = () => loginDispatch({ type: 'logout' })
+  // const handleLogin = () => loginDispatch({ type: 'login' })
+  // const handleLogout = () => loginDispatch({ type: 'logout' })
   const haddleOpenLogin = () => openDispatch({ type: 'login' })
+
+  const history = useHistory()
+  const { authState, authDispatch } = useContext(AuthContext)
+  const initialState = {
+    email: '',
+    password: '',
+    rememberMe: '1',
+    openLogin: false,
+  };
+  const [state, setState] = useState(initialState);
+
+  const handleLogin = (data) => {
+    authDispatch({
+      type: 'login',
+      payload: data.user,
+    });
+  };
+
+  const handleLogout = () => {
+    authDispatch({
+      type: 'logout',
+    });
+  };
+
+  const submitLogout = () => {
+    deleteLogout()
+      .then(() => {
+        handleLogout();
+        history.push(`/`);
+        alert('ログアウトを成功しました');
+      })
+  }
+
+  const submitLogin = () => {
+    postLogIn({
+      email: state.email,
+      password: state.password,
+      remember_me: state.remenberMe,
+    }).then(data => {
+      handleLogin(data)
+      setState({ openLogin: false })
+    }
+    )
+  }
 
   const open = props.open
   const AppBar = styled(MuiAppBar, {
@@ -75,8 +121,8 @@ export const Header = (props) => {
           本の検索
         </Typography>
         <LoginControlBottun
-          handleLogOut={handleLogout}
-          handleLogIn={handleLogin}
+          handleLogOut={submitLogout}
+          handleLogIn={submitLogin}
           loginUser={props.loginUser}
           isLoggedIn={props.isLoggedIn}
         />

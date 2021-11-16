@@ -23,7 +23,8 @@ module Api
                           isbn:           params[:book][:isbn],
                           review_count:   params[:book][:reviewCount],
                           review_average: params[:book][:reviewAverage]
-                          ) 
+                          )
+        # すでにDBに登録している本であるかを判断 
         if Book.find_by(title: params[:book][:title]).nil?
           @book.save!
         end
@@ -31,10 +32,16 @@ module Api
                                          book_id: @book.id,
                                          read:    params[:book][:read]
                                         )
+        # すでにユーザーが登録している本であるか判断
         if Subscription.find_by(user_id: current_user.id, book_id: @book.id).nil?
           @subscription.save!
+        else
+          @subscription = Subscription.find_by(user_id: current_user.id, book_id: @book.id)
+          @subscription.update(read: params[:book][:read])
+          @message = @subscription.read ? 'すでに読了している本です。' : 'いま積んでいる本です。'
         end
-        render json: {subscription: @subscription}, status: :ok
+        render json: {subscription: @subscription, message: @message},
+               status: :ok
       end
 
       # def update

@@ -8,11 +8,8 @@ import { fetchUser } from "../../apis/users";
 // reducer
 import { dataInitialState, dataReducer } from '../../reducer/DataFetchReducer';
 // コンポーネント
-import { MyProfile } from "../../components/Users/MyProfile";
-import { Followers } from "../../components/Users/Followers";
-import { AvatarButton } from "../../components/Navigations/AvatarButton";
-import { Calendar } from "../../components/Diaries/Calendar";
-import { Microposts } from "./Microposts";
+import { UserProfile } from "../../components/UserInfomation/UserProfile";
+import { Timeline } from "./Timeline";
 
 
 export const Profile = (props) => {
@@ -45,7 +42,7 @@ export const Profile = (props) => {
       p: 2,
       maxWidth: 800,
     }}>
-      <MyProfile
+      <UserProfile
         dataUserFetching={() => dataDispatch({ type: 'user' })}
         loginUser={props.loginUser}
         isLoggedIn={props.isLoggedIn}
@@ -53,7 +50,7 @@ export const Profile = (props) => {
         followingIds={followingIds}
         followersIds={followersIds}
       />
-      <Microposts
+      <Timeline
         userId={userId}
         loginUser={props.loginUser}
       />
@@ -68,7 +65,7 @@ export const Profile = (props) => {
     loginUser={props.loginUser}
     isLoggedIn={props.isLoggedIn}
     user={user}
-    microposts={microposts}
+    Timeline={Timeline}
     following={following}
     followers={followers}
   />
