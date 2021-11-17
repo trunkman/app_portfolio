@@ -9,7 +9,7 @@ import TabPanel from '@mui/lab/TabPanel';
 // api
 import { fetchUserBooks } from '../../apis/users'
 // reducer
-import { dataInitialState, dataReducer } from '../../reducer/DataFetchReducer';
+import { dataInitialState, dataReducer } from '../../reducer/DataReducer';
 // コンポーネント
 import { BookCards } from '../../components/Lists/BookCards'
 

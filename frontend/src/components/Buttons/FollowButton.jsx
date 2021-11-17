@@ -1,41 +1,42 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useReducer, useEffect } from "react";
 import axios from "axios";
 // styles
 import Button from "@mui/material/Button";
 //api
 import { postFollow } from "../../apis/relationships";
 import { deleteUnfollow } from "../../apis/relationships";
-import { fetchFollow } from "../../apis/relationships";
 
+export const FollowButton = ({
+  userId,
+  followStatus,
+}) => {
 
-export const FollowButton = ({ userId, followingIds }) => {
-  const Initialfollowing = followingIds.includes(userId)
-  const [following, setFollowing] = useState(Initialfollowing)
-  // フォローする
+  const [follow, setFollow] = useState(false)
+
   const submitFollow = () => {
     postFollow({ userId: userId })
       .then(() => {
-        setFollowing(true)
+        setFollow(true)
         alert('フォローしました')
       })
   }
-  // フォローを解除する
+
   const submitUnfollow = () => {
     deleteUnfollow({ userId: userId })
       .then(() => {
-        setFollowing(false)
+        setFollow(false)
         alert('フォローを解除しました')
       })
   }
 
+  // もっと綺麗にできると思う
   useEffect(() => {
-    // フォロー有無の確認
-    setFollowing(Initialfollowing)
+    setFollow(followStatus)
   })
 
   return (
     <>
-      {following === true
+      {follow === true
         ? (
           <Button
             onClick={submitUnfollow}

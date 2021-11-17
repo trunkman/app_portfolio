@@ -4,9 +4,6 @@ export const authInitialState = {
   password: '',
   passwordConfirmation: '',
   rememberMe: '1',
-  openSignup: false,
-  openLogin: false,
-  openPasswordReset: false,
   loginUser: '',
   loggedIn: false,
 }
@@ -38,22 +35,6 @@ export const authReducer = (state, action) => {
         ...state,
         rememberMe: action.payload,
       };
-    case 'openSignup':
-      return {
-        ...state,
-        openSignup: true,
-      };
-    case 'openLogin':
-      return {
-        ...state,
-        openLogin: true
-      };
-    case 'openPasswordReset':
-      return {
-        ...state,
-        openLogin: false,
-        openPasswordReset: true,
-      };
     case 'login':
       return {
         ...state,
@@ -66,6 +47,12 @@ export const authReducer = (state, action) => {
         loginUser: '',
         loggedIn: false,
       };
+    case 'preUpdata':
+      return {
+        ...state,
+        name: action.name,
+        email: action.email,
+      };
     case 'reset':
       return {
         ...state,
@@ -74,13 +61,6 @@ export const authReducer = (state, action) => {
         password: '',
         passwordConfirmation: '',
         rememberMe: '1',
-      };
-    case 'close':
-      return {
-        ...state,
-        openSignup: false,
-        openLogin: false,
-        openPasswordReset: false,
       };
     default:
       return authInitialState;

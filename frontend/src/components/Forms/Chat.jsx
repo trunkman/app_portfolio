@@ -1,23 +1,27 @@
 import React, { useState } from "react";
-// styles
+// Style
 import { Divider } from "@mui/material";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-// アイコン
+// Icon
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
-// api
+// Api
 import { postMessage } from "../../apis/messages";
 
-export const Chat = (props) => {
+export const Chat = ({
+  user_id,
+  room_id,
+  dataFetch,
+}) => {
   const [chat, setChat] = useState(null)
   const handleSubmit = () => {
     postMessage({
       content: chat,
-      user_id: props.user_id,
-      room_id: props.room_id,
+      user_id: user_id,
+      room_id: room_id,
     }).then(() => {
       setChat('')
-      props.dataFatching()
+      dataFetch()
     })
   }
 

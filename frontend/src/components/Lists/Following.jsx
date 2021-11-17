@@ -6,11 +6,11 @@ import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemText from "@mui/material/ListItemText";
 import Box from "@mui/material/Box";
-// アイコン
+// Icon
 import AccountCircle from "@mui/icons-material/AccountCircle";
-// api
+// Api
 import { fetchFollowing } from "../../apis/users";
-// コンポーネント
+// Component
 import { RoomButton } from "../Buttons/RoomButton";
 import { FollowButton } from "../Buttons/FollowButton";
 
@@ -31,7 +31,6 @@ export const Following = (props) => {
         setFollowing(data.users)
         setFollowingIds(data.following_ids)
       })
-    return () => setFollowing([])
   }, [])
 
   return (
@@ -63,7 +62,7 @@ export const Following = (props) => {
               />
               <FollowButton
                 userId={user.id}
-                followingIds={followingIds}
+                followStatus={followingIds.includes(user.id)}
               />
             </Box>
           )

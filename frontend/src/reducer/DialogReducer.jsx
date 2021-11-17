@@ -1,5 +1,3 @@
-import React from "react";
-
 export const dialogInitialState = {
   signup: false,
   login: false,
@@ -25,8 +23,6 @@ export const dialogReducer = (openState, action) => {
     case 'diary':
       return { ...openState, diary: true }
     case 'close':
-      return dialogInitialState
-    default:
       return dialogInitialState
   }
 }

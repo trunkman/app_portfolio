@@ -7,13 +7,16 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { fetchLoggedIn } from './apis/sessions';
 // reducer
 import { authInitialState, authReducer } from './reducer/AuthReducer'
+import { dataInitialState, dataReducer } from './reducer/DataReducer'
 // コンテイナー
 import { Layout } from './containers/Layout';
 
 export const AuthContext = createContext()
+export const DataContext = createContext()
 
 export default function App() {
   const [authState, authDispatch] = useReducer(authReducer, authInitialState)
+  const [dataState, dataDispatch] = useReducer(dataReducer, dataInitialState)
 
   useEffect(() => {
     fetchLoggedIn()
@@ -35,7 +38,9 @@ export default function App() {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AuthContext.Provider value={{ authState, authDispatch }}>
-        <Layout />
+        <DataContext.Provider value={{ dataState, dataDispatch }}>
+          <Layout />
+        </DataContext.Provider>
       </AuthContext.Provider>
     </Box>
   );

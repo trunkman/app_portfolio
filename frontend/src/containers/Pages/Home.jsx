@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useReducer } from "react";
+import React, { useContext, useReducer } from "react";
 import { AuthContext } from "../../App";
 // Style
 import Button from '@mui/material/Button';
@@ -16,7 +16,6 @@ import { PasswordResetDialog } from "../../components/Dialogs/PasswordResetDialo
 import { Typography } from "@mui/material";
 
 export const Home = (props) => {
-
   const { authDispatch } = useContext(AuthContext);
   const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState);
 

@@ -10,7 +10,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 // Api
 import { postLogIn } from '../../apis/sessions';
 import { postSignUp } from '../../apis/users';
-// Components
+// Component
 import { Name } from '../Forms/Name';
 import { Email } from '../Forms/Email';
 import { Password } from '../Forms/Password';
@@ -69,7 +69,7 @@ export const SignUpDialog = ({
           email={authState.email}
           handleChange={e =>
             authDispatch({
-              type: 'email',
+              type: 'name',
               payload: e.target.value,
             })
           }

@@ -13,10 +13,7 @@ import { SettingDialog } from "../Dialogs/SettingDialog";
 import { FollowButton } from "../Buttons/FollowButton";
 
 export const UserProfile = (props) => {
-  const [openSettingDialog, setOpenSettingDialog] = useState(false)
-  // 設定変更Dialogを開閉する関数群
-  const handleOpenSetting = () => { setOpenSettingDialog(true) }
-  const handleCloseSetting = () => { setOpenSettingDialog(false) }
+  const [open, setOpen] = useState(false)
 
   return (
     <>
@@ -51,14 +48,13 @@ export const UserProfile = (props) => {
         {
           (props.loginUser.id === props.user.id) ? (
             <>
-              <Button onClick={handleOpenSetting}>
+              <Button onClick={() => { setOpen(true) }}>
                 プロフィール編集
               </Button>
               <SettingDialog
-                handleClose={handleCloseSetting}
-                open={openSettingDialog}
-                user={props.loginUser}
-                dataFetching={props.dataUserFetching}
+                handleClose={() => { setOpen(false) }}
+                open={open}
+                dataUserFetch={props.dataUserFetch}
               />
             </>
           ) : (

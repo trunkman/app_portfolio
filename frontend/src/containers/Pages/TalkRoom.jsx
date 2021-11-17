@@ -6,7 +6,7 @@ import ListItemText from "@mui/material/ListItemText";
 // api
 import { fetchMessages } from "../../apis/rooms"
 // reducer
-import { dataInitialState, dataReducer } from '../../reducer/DataFetchReducer';
+import { dataInitialState, dataReducer } from '../../reducer/DataReducer';
 // Presentational Cpmponent
 import { Chat } from "../../components/Forms/Chat";
 import { Message } from "../../components/Lists/Message";
@@ -22,11 +22,11 @@ const useStyles = makeStyles(() =>
 );
 
 export const TalkRoom = (props) => {
-  const roomId = props.match.params.id
   const classes = useStyles();
+  const roomId = props.match.params.id
   const [messages, setMessages] = useState([])
   const [dataState, dataDispatch] = useReducer(dataReducer, dataInitialState)
-  const dataFatching = () => dataDispatch({ type: 'messages' })
+
   // ルームのメッセージ一覧を取得する
   useEffect(() => {
     fetchMessages({ roomId: roomId })
@@ -43,7 +43,7 @@ export const TalkRoom = (props) => {
       <List className={classes.messages} id={"scroll-area"}>
         {messages.length === 0 ? (
           <ListItemText>
-            メッセージはありません
+            メッセージはありません。
           </ListItemText>
         ) : (
           messages.map((message, index) =>
@@ -63,7 +63,7 @@ export const TalkRoom = (props) => {
       <Chat
         user_id={props.loginUser.id}
         room_id={roomId}
-        dataFatching={dataFatching}
+        dataFetch={() => dataDispatch({ type: 'messages' })}
       />
     </>
   )

@@ -32,7 +32,7 @@ export const Friends = (props) => {
                 button
                 divider
                 key={entry.id}
-                onClick={() => history.push(`/rooms/${entry.room_id}`)}
+                onClick={() => history.push(`/talk_rooms/${entry.room_id}`)}
               >
                 <ListItemAvatar>
                   <AccountCircle sx={{ fontSize: 60 }} />

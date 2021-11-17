@@ -5,7 +5,6 @@ import { ListItemAvatar, Typography } from "@mui/material";
 import ListItem from "@mui/material/ListItem";
 import List from '@mui/material/List';
 import ListItemText from '@mui/material/ListItemText';
-import Grid from "@mui/material/Grid";
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 // アイコン
@@ -15,7 +14,7 @@ import { deleteMicropost } from "../../apis/microposts";
 import { deleteComment } from "../../apis/comments";
 import { fetchMicroposts } from "../../apis/users";
 // reducer
-import { dataInitialState, dataReducer } from '../../reducer/DataFetchReducer';
+import { dataInitialState, dataReducer } from '../../reducer/DataReducer';
 import { dialogInitialState, dialogReducer } from '../../reducer/DialogReducer';
 // Presentational Cpmponent
 import { LikeButton } from "../../components/Buttons/LikeButton";

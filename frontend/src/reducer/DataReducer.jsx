@@ -1,5 +1,3 @@
-import React from "react";
-
 export const dataInitialState = {
   // fetchState: success,
   // fetchData: success,

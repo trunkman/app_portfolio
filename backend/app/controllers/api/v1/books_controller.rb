@@ -8,7 +8,11 @@ module Api
 
       def show
         @book = RakutenWebService::Books::Book.search(isbn: params[:id])
-        render json: { book: @book }, status: :ok
+        if Book.find_by(isbn: params[:id])
+          @registration = true
+        end
+        render json: { book: @book, registration: @registration },
+               status: :ok
       end
 
       def create

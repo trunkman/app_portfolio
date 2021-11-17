@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useReducer } from "react";
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-// styled
-import { Grid, Typography } from "@mui/material";
+// Style
 import Box from '@mui/material/Box';
-// api
+// Api
 import { fetchUser } from "../../apis/users";
-// reducer
-import { dataInitialState, dataReducer } from '../../reducer/DataFetchReducer';
-// コンポーネント
+// Reducer
+import { dataInitialState, dataReducer } from '../../reducer/DataReducer';
+// Component
 import { UserProfile } from "../../components/UserInfomation/UserProfile";
 import { Timeline } from "./Timeline";
 
@@ -43,7 +42,7 @@ export const Profile = (props) => {
       maxWidth: 800,
     }}>
       <UserProfile
-        dataUserFetching={() => dataDispatch({ type: 'user' })}
+        dataUserFetch={() => dataDispatch({ type: 'user' })}
         loginUser={props.loginUser}
         isLoggedIn={props.isLoggedIn}
         user={user}
@@ -57,16 +56,3 @@ export const Profile = (props) => {
     </Box>
   )
 }
-
-{/* <Grid item xs={12} sm={8} sx={{ px: 2, bgcolor: 'grey.200' }}>
-  <AvatarButton user={user} size="45" />
-  <MyProfile
-    dataFetching={() => setIsFetching(true)}
-    loginUser={props.loginUser}
-    isLoggedIn={props.isLoggedIn}
-    user={user}
-    Timeline={Timeline}
-    following={following}
-    followers={followers}
-  />
-</Grid> */}
