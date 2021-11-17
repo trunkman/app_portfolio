@@ -1,25 +1,36 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useReducer } from "react";
 import { useCallback } from 'react';
-// styles
+// Style
 import { Emoji } from 'emoji-mart';
 import Button from "@mui/material/Button";
 import FullCalendar, { EventContentArg } from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin, { DateClickArg } from '@fullcalendar/interaction';
 import Box from '@mui/material/Box';
-// api
+// Api
 import { fetchUserDiaries } from "../../apis/users";
-// コンポーネント
+// Reducer
+import { dialogReducer, dialogInitialState } from '../../reducer/DialogReducer'
+// Component
+import { RecordDialog } from "../Dialogs/RecordDialog"
 import { DiaryDialog } from "../Dialogs/DiaryDialog"
-import { DiaryShowDialog } from "../Dialogs/DiaryShowDialog"
 
 export const Calendar = (props) => {
   const [diaries, setDiaries] = useState([])
-  const [open, setOpen] = useState(false)
-  const [openShow, setShowOpen] = useState(false)
-  // 日記Dialogを開閉する関数群
-  const handleOpen = () => setOpen(true)
-  const handleClose = () => setOpen(false)
+  const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState);
+  const handleClose = () => dialogDispatch({ type: 'close' })
+
+  const handleDateClick = useCallback((arg: DateClickArg) => {
+    dialogDispatch({ type: 'diary' })
+  }, [])
+
+  const renderEventContent = (eventInfo: EventContentArg) => (
+    <Emoji
+      emoji={eventInfo.event.title}
+      size={32}
+      onClick={() => dialogDispatch({ type: 'diary' })}
+    />
+  )
 
   useEffect(() => {
     fetchUserDiaries(props.userId)
@@ -28,19 +39,6 @@ export const Calendar = (props) => {
       })
   }, [])
 
-  const handleDateClick = useCallback((arg: DateClickArg) => {
-    setShowOpen(true)
-  }, [])
-
-  const renderEventContent = (eventInfo: EventContentArg) => (
-    <>
-      <Emoji
-        emoji={eventInfo.event.title}
-        size={32}
-        onClick={() => setShowOpen(true)}
-      />
-    </>
-  )
 
   return (
     <Box>
@@ -53,17 +51,18 @@ export const Calendar = (props) => {
         eventContent={renderEventContent}
       />
 
-      <Button variant="inherit" onClick={handleOpen}>
+      <Button variant="inherit" onClick={() => dialogDispatch({ type: 'record' })}>
         日記を書く
       </Button>
 
-      <DiaryDialog
-        open={open}
+      <RecordDialog
         handleClose={handleClose}
+        open={dialogState.record}
       />
-      < DiaryShowDialog
-        open={openShow}
-        handleClose={() => setShowOpen(false)}
+
+      < DiaryDialog
+        handleClose={handleClose}
+        open={dialogState.diary}
       // date={arg.dateStr}
       />
     </Box>

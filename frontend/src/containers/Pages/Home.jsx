@@ -1,62 +1,24 @@
-import React, { useState, useReducer, useContext } from "react";
+import React, { useEffect, useContext, useReducer } from "react";
 import { AuthContext } from "../../App";
-//styled
+// Style
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Skeleton from '@material-ui/lab/Skeleton';
 import Grid from "@mui/material/Grid";
-// アイコン
+// Icon
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
-// api
-import { postLogIn } from '../../apis/sessions';
-// reducer
-import { dialogInitialState, dialogReducer } from '../../reducer/DialogReducer';
-// コンポーネント
+// Reducer
+import { dialogReducer, dialogInitialState } from '../../reducer/DialogReducer'
+// Component
 import { SignUpDialog } from "../../components/Dialogs/SignUpDialog";
 import { LogInDialog } from "../../components/Dialogs/LogInDialog";
 import { PasswordResetDialog } from "../../components/Dialogs/PasswordResetDialog";
 import { Typography } from "@mui/material";
 
 export const Home = (props) => {
-  const [openState, openDispatch] = useReducer(dialogReducer, dialogInitialState)
-  const { authState, authDispatch } = useContext(AuthContext)
 
-  const handleClose = () => openDispatch({ type: 'close' })
-  // const handleLogin = () => loginDispatch({ type: 'login' })
-  const haddleOpenLogin = () => openDispatch({ type: 'login' })
-  const handleOpenPasswordReset = () => openDispatch({ type: 'passwordReset' })
-  const handleOpenSignup = () => openDispatch({ type: 'signup' })
-
-  const initialState = {
-    name: '',
-    email: '',
-    password: '',
-    passwordConfirmation: '',
-    rememberMe: '1',
-    openSignup: false,
-    openLogin: false,
-  };
-  const [state, setState] = useState(initialState);
-
-  const handleLogin = (data) => {
-    authDispatch({
-      type: 'login',
-      payload: data.user,
-    })
-  }
-
-  const submitLogin = () => {
-    postLogIn({
-      email: state.email,
-      password: state.password,
-      remember_me: state.remenberMe,
-    }).then(data => {
-      handleLogin(data)
-      setState({ openLogin: false })
-    }
-    )
-  }
-
+  const { authDispatch } = useContext(AuthContext);
+  const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState);
 
   // ホームへ返す
   return (
@@ -74,32 +36,28 @@ export const Home = (props) => {
           display: 'flex',
           flexDirection: 'row',
           justifyContent: 'center',
-          my: 2
-        }}>
-          <Button variant="contained" sx={{ mr: 3 }}
-            onClick={handleOpenSignup}
-          >
+          my: 2,
+        }}
+        >
+          <Button onClick={() => dialogDispatch({ type: 'signup' })}>
             新規登録
           </Button>
-          <SignUpDialog
-            open={openState.signup}
-            handleClose={handleClose}
-            handleLogIn={handleLogin}
-          />
-          <Button variant="contained" sx={{ mr: 3 }}
-            onClick={setState({ openSignup: true })}
-          >
+          <Button onClick={() => dialogDispatch({ type: 'login' })}>
             ログイン
           </Button>
+
+          <SignUpDialog
+            handleClose={() => dialogDispatch({ type: 'close' })}
+            open={dialogState.signup}
+          />
           <LogInDialog
-            open={openState.login}
-            handleClose={setState({ openSignup: false })}
-            handleLogIn={submitLogin}
-            handlePasswordReset={handleOpenPasswordReset}
+            handleClose={() => dialogDispatch({ type: 'close' })}
+            handlePasswordReset={() => dialogDispatch({ type: 'passwordReset' })}
+            open={dialogState.login}
           />
           <PasswordResetDialog
-            open={openState.passwordReset}
-            handleClose={handleClose}
+            handleClose={() => dialogDispatch({ type: 'close' })}
+            open={dialogState.passwordReset}
           />
         </Box>
 

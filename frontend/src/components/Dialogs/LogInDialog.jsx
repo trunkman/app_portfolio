@@ -1,5 +1,5 @@
-import React, { useState, useReducer } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { AuthContext } from "../../App";
 // style
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -8,39 +8,45 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import Link from '@mui/material/Link';
-// api
+// Api
 import { postLogIn } from '../../apis/sessions';
-// Formsコンポーネント
+// Components
 import { Email } from '../Forms/Email';
 import { Password } from '../Forms/Password';
 import { RememberMe } from '../Forms/RememberMe';
 
-export const LogInDialog = (props) => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [remenberMe, setRememberMe] = useState('1')
-  const history = useHistory()
-  const handleSubmit = () => {
+export const LogInDialog = ({
+  handleClose,
+  handlePasswordReset,
+  open,
+}) => {
+  const { authState, authDispatch } = useContext(AuthContext);
+
+  const handleLogin = (data) => {
+    authDispatch({
+      type: 'login',
+      payload: data.user,
+    })
+  }
+
+  const submitLogin = () => {
     postLogIn({
-      email: email,
-      password: password,
-      remember_me: remenberMe,
+      email: authState.email,
+      password: authState.password,
+      remember_me: authState.remenberMe,
     }).then(data => {
-      if (data.user) {
-        props.handleLogIn(data.user)
-        setEmail('')
-        setPassword('')
-        props.handleClose()
-        history.push(`/users/${data.user.id}`)
-      }
+      handleLogin(data)
+      handleClose()
+    }).catch(() => {
+      alert('ログイン失敗')
     })
   }
 
   // ログインのダイアログを返す
   return (
     <Dialog
-      open={props.open}
-      onClose={props.handleClose}
+      open={open}
+      onClose={() => handleClose()}
     >
       <DialogTitle>
         ログイン画面
@@ -50,30 +56,45 @@ export const LogInDialog = (props) => {
           下記項目を入力し、ログインください。
         </DialogContentText>
         <Email
-          email={email}
-          handleChange={e => setEmail(e.target.value)}
+          email={authState.email}
+          handleChange={e =>
+            authDispatch({
+              type: 'email',
+              payload: e.target.value,
+            })
+          }
+        />
+        <Password
+          password={authState.password}
+          handleChange={e =>
+            authDispatch({
+              type: 'password',
+              payload: e.target.value,
+            })
+          }
         />
         <Link
           component="button"
           variant="body2"
-          onClick={() => props.handlePasswordReset()}
+          onClick={() => handlePasswordReset()}
         >
           パスワードを忘れてしまった方はこちら
         </Link>
-        <Password
-          password={password}
-          handleChange={e => setPassword(e.target.value)}
-        />
         <RememberMe
-          remenberMe={remenberMe}
-          handleChange={e => setRememberMe(e.target.checked)}
+          remenberMe={authState.remenberMe}
+          handleChange={e =>
+            authDispatch({
+              type: 'rememberMe',
+              payload: (e.target.value)
+            })
+          }
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={() => props.handleClose()}>
+        <Button onClick={() => handleClose()}>
           閉じる
         </Button>
-        <Button type='submit' onClick={handleSubmit}>
+        <Button onClick={submitLogin} type='submit'>
           ログインする
         </Button>
       </DialogActions>

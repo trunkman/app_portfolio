@@ -1,50 +1,60 @@
-import React, { useState } from 'react';
-// ダイアログのstyle
+import React, { useReducer, useContext } from 'react';
+import { AuthContext } from "../../App";
+// Style
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
-// api
+// Api
 import { postMicropost } from '../../apis/microposts';
-// Formsコンポーネント
+// Reducer
+import { postReducer, postInitialState } from '../../reducer/PostReducer'
+// Component
 import { Content } from '../Forms/Content';
 
-export const MicropostDialog = (props) => {
-  const [content, setContent] = useState('')
+export const MicropostDialog = ({
+  open,
+  handleClose,
+}) => {
 
-  // 投稿apiを呼び出すCallback関数
-  const handleSubmit = () => {
+  const { authState } = useContext(AuthContext);
+  const [postState, postDispatch] = useReducer(postReducer, postInitialState);
+
+  const submitPost = () => {
     postMicropost({
-      content: content,
-      user_id: props.user.id
+      content: postState.content,
+      user_id: authState.loginUser.id,
     }).then(data => {
-      setContent('')
-      props.handleClose()
-      props.dataFetching()
-    })
-  }
+      postDispatch({ type: 'reset' });
+      handleClose()
+    });
+  };
 
-  // 返り値：投稿ダイアログの内容を返す
   return (
     <Dialog
-      open={props.open}
-      onClose={props.handleClose}
+      open={open}
+      onClose={() => handleClose()}
     >
       <DialogTitle>
         投稿画面
       </DialogTitle>
       <DialogContent>
         <Content
-          content={content}
-          handleChange={e => setContent(e.target.value)}
+          content={postState.content}
+          handleChange={e =>
+            postDispatch({
+              type: 'content',
+              payload: e.target.value,
+            })
+          }
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={() => { props.handleClose() }}>
+        <Button onClick={() => handleClose()}>
           閉じる
         </Button>
-        <Button type='submit' onClick={handleSubmit} >
+        <Button onClick={submitPost} type='submit'  >
           投稿する
         </Button>
       </DialogActions>

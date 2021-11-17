@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { AuthContext } from "../../App";
 // styles
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -7,35 +7,37 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-// api
+// Api
+import { postLogIn } from '../../apis/sessions';
 import { postSignUp } from '../../apis/users';
-// Formsコンポーネント
+// Components
 import { Name } from '../Forms/Name';
 import { Email } from '../Forms/Email';
 import { Password } from '../Forms/Password';
 import { PasswordConfirmation } from '../Forms/PasswordConfirmation';
 
-export const SignUpDialog = (props) => {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [passwordConfirmation, setpasswordConfirmaiton] = useState('')
-  const history = useHistory()
+export const SignUpDialog = ({
+  handleClose,
+  open,
+}) => {
+  const { authState, authDispatch } = useContext(AuthContext);
 
-  const handleSubmit = () => {
+  const handleLogin = (data) => {
+    authDispatch({
+      type: 'login',
+      payload: data.user,
+    })
+  }
+
+  const submitSignup = () => {
     postSignUp({
-      name: name,
-      email: email,
-      password: password,
-      password_confirmation: passwordConfirmation,
+      name: authState.name,
+      email: authState.email,
+      password: authState.password,
+      password_confirmation: authState.passwordConfirmation,
     }).then(data => {
-      // props.handleLogIn(data.user)
-      setName('')
-      setEmail('')
-      setPassword('')
-      setpasswordConfirmaiton('')
-      alert(data.message)
-      // history.push(`/users/${data.user.id}`)
+      handleLogin(data)
+      handleClose()
     }).catch(() => {
       alert('登録失敗')
     })
@@ -44,8 +46,8 @@ export const SignUpDialog = (props) => {
   // 新規登録ダイアログの内容を返す
   return (
     <Dialog
-      open={props.open}
-      onClose={props.handleClose}
+      open={open}
+      onClose={() => handleClose()}
     >
       <DialogTitle>
         新規登録
@@ -54,31 +56,48 @@ export const SignUpDialog = (props) => {
         <DialogContentText>
           下記項目を入力し「登録する」を押してください。
         </DialogContentText>
-
         <Name
-          name={name}
-          handleChange={e => setName(e.target.value)}
+          name={authState.name}
+          handleChange={e =>
+            authDispatch({
+              type: 'name',
+              payload: e.target.value,
+            })
+          }
         />
         <Email
-          email={email}
-          handleChange={e => setEmail(e.target.value)}
+          email={authState.email}
+          handleChange={e =>
+            authDispatch({
+              type: 'email',
+              payload: e.target.value,
+            })
+          }
         />
         <Password
-          password={password}
-          handleChange={e => setPassword(e.target.value)}
+          password={authState.password}
+          handleChange={e =>
+            authDispatch({
+              type: 'password',
+              payload: e.target.value,
+            })
+          }
         />
         <PasswordConfirmation
-          passwordConfirmation={passwordConfirmation}
-          handleChange={e => setpasswordConfirmaiton(e.target.value)}
+          passwordConfirmation={authState.passwordConfirmation}
+          handleChange={e =>
+            authDispatch({
+              type: 'passwordConfirmation',
+              payload: e.target.value,
+            })
+          }
         />
-
       </DialogContent>
-
       <DialogActions>
-        <Button onClick={() => { props.handleClose() }}>
+        <Button onClick={() => handleClose()}>
           閉じる
         </Button>
-        <Button onClick={handleSubmit} type='submit'>
+        <Button onClick={submitSignup} type='submit'>
           登録する
         </Button>
       </DialogActions>

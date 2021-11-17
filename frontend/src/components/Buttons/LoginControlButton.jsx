@@ -1,56 +1,48 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useContext, useReducer } from "react";
 import { useHistory } from "react-router";
-// styled
+import { AuthContext } from "../../App";
+// Style
 import Box from '@mui/material/Box';
 import Button from "@mui/material/Button";
 import IconButton from '@mui/material/IconButton';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from "@mui/material/Menu";
-// アイコン
+// Icon
 import AccountCircle from '@mui/icons-material/AccountCircle';
-// api
-import { deleteLogout } from "../../apis/sessions"
-// reducer
+// Reducer
 import { dialogInitialState, dialogReducer } from '../../reducer/DialogReducer'
-// コンポーネント
+// Component
 import { LogInDialog } from "../Dialogs/LogInDialog";
+import { PasswordResetDialog } from "../Dialogs/PasswordResetDialog";
 
-export const LoginControlBottun = (props) => {
-  const loginUserId = props.loginUser.id
+export const LoginControlBottun = ({ handleLogout }) => {
   const history = useHistory()
-  const [openState, dispatch] = useReducer(dialogReducer, dialogInitialState)
+  const { authState } = useContext(AuthContext);
+  const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState)
   const [anchorEl, setAnchorEl] = useState(null);
-  // アンカーを開閉する関数群
-  const handleMenu = (event) => { setAnchorEl(event.currentTarget); };
-  const handleClose = () => { setAnchorEl(null); };
-  // ログアウトするコールバック関数
-  const handleLogOut = () => {
-    deleteLogout()
-      .then(() => {
-        props.handleLogOut();
-        handleClose()
-        history.push(`/`);
-        alert('ログアウトを成功しました');
-      })
-  }
 
+  // ヘッダーのログインは文字入力ごとにDialogが閉じてしまう
   return (
     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-      {props.isLoggedIn ? (
-        <IconButton color="inherit" onClick={handleMenu}>
+      {authState.loggedIn ? (
+        <IconButton color="inherit" onClick={e => { setAnchorEl(e.currentTarget) }}>
           <AccountCircle />
         </IconButton>
       ) : (
-        <Button variant="inherit" onClick={() => dispatch({ type: 'login' })}>
+        <Button variant="inherit" onClick={() => dialogDispatch({ type: 'login' })}>
           ログイン
         </Button>
       )
       }
 
       <LogInDialog
-        open={openState.login}
-        handleClose={() => dispatch({ type: 'close' })}
-        handleLogIn={props.handleLogIn}
+        handleClose={() => dialogDispatch({ type: 'close' })}
+        handlePasswordReset={() => dialogDispatch({ type: 'passwordReset' })}
+        open={dialogState.login}
+      />
+      <PasswordResetDialog
+        handleClose={() => dialogDispatch({ type: 'close' })}
+        open={dialogState.passwordReset}
       />
 
       <Menu
@@ -59,15 +51,15 @@ export const LoginControlBottun = (props) => {
         keepMounted
         transformOrigin={{ vertical: 'top', horizontal: 'right' }}
         open={Boolean(anchorEl)}
-        onClose={handleClose}
+        onClose={() => { setAnchorEl(null) }}
       >
-        <MenuItem onClick={() => history.push(`/users/${loginUserId}`)}>
-          設定
+        <MenuItem onClick={() => history.push(`/users/${authState.loginUser.id}`)}>
+          プロフィール
         </MenuItem>
         <MenuItem onClick={() => history.push(`/contact`)}>
           お問い合わせ
         </MenuItem>
-        <MenuItem onClick={handleLogOut}>
+        <MenuItem onClick={handleLogout}>
           ログアウト
         </MenuItem>
       </Menu>

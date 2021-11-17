@@ -1,18 +1,18 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
 
-export const Password = (props) => {
+export const Password = ({ password, handleChange }) => {
 
   // 返り値：Passwordフォーム
   return (
     <TextField
-      margin="dense"
-      // id="password"
-      label="パスワード"
-      type="password"
-      value={props.password}
-      onChange={props.handleChange}
       fullWidth
+      // id="passwordForm"
+      label="パスワード"
+      margin="dense"
+      onChange={handleChange}
+      type="password"
+      value={password}
       variant="standard"
     />
   )

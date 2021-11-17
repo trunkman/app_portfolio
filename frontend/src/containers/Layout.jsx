@@ -26,7 +26,7 @@ import { Profile } from './Pages/Profile'
 import { TalkRoom } from './Pages/TalkRoom';
 import { Timeline } from './Pages/Timeline';
 import { Users } from './Pages/Users'
-// コンポーネント
+// Component
 import { HomeButton } from '../components/Links/HomeButton'
 import { ProfileButton } from '../components/Links/ProfileButton';
 import { FollowsButton } from '../components/Links/FollowsButton';
@@ -35,7 +35,7 @@ import { PostsButton } from '../components/Links/PostsButton';
 import { AvatarButton } from '../components/Links/AvatarButton';
 import { RankingButton } from '../components/Links/RankingButton';
 import { BooksButton } from '../components/Links/BooksButton';
-
+import { DiariesLink } from '../components/Links/DiariesLink'
 
 const drawerWidth = 300;
 const openedMixin = (theme) => ({
@@ -121,6 +121,7 @@ export const Layout = (props) => {
           <MessageButton loginUserId={authState.loginUser.id} />
           <BooksButton loginUserId={authState.loginUser.id} />
           <RankingButton loginUserId={authState.loginUser.id} />
+          <DiariesLink loginUserId={authState.loginUser.id} />
         </>
       </Drawer>
 
@@ -202,7 +203,7 @@ export const Layout = (props) => {
               />
             </Route>
 
-            <Route exact path="/Friends/:id"
+            <Route exact path="/friends/:id"
               render={({ match }) => <TalkRoom
                 match={match}
                 loginUser={authState.loginUser}

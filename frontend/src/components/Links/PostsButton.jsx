@@ -15,7 +15,7 @@ export const PostsButton = (props) => {
           button
           color="inherit"
           component={Link}
-          to={`/users/${props.loginUserId}/microposts`}
+          to={`/users/${props.loginUserId}/timeline`}
         >
           <ListItemIcon>
             <FormatListBulletedOutlinedIcon />

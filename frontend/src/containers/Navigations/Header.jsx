@@ -1,45 +1,28 @@
-import React, { useState, useReducer, useContext } from 'react';
+import React, { useReducer, useContext } from 'react';
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../../App";
-// styles
+// Style
 import { styled } from '@mui/material/styles';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
-// アイコン
+import Button from '@mui/material/Button';
+// Icon
 import MenuIcon from '@mui/icons-material/Menu';
-// api
-import { postLogIn } from '../../apis/sessions';
+// Api
 import { deleteLogout } from "../../apis/sessions"
-// reducer
+// Reducer
 import { dialogReducer, dialogInitialState } from '../../reducer/DialogReducer'
-// コンポーネント
+// Component
 import { LoginControlBottun } from '../../components/Buttons/LoginControlButton'
+import { MicropostDialog } from '../../components/Dialogs/MicropostDialog';
+import { RecordDialog } from "../../components/Dialogs/RecordDialog"
 
 export const Header = (props) => {
-  const [openState, openDispatch] = useReducer(dialogReducer, dialogInitialState)
-  const handleClose = () => openDispatch({ type: 'close' })
-  // const handleLogin = () => loginDispatch({ type: 'login' })
-  // const handleLogout = () => loginDispatch({ type: 'logout' })
-  const haddleOpenLogin = () => openDispatch({ type: 'login' })
-
   const history = useHistory()
-  const { authState, authDispatch } = useContext(AuthContext)
-  const initialState = {
-    email: '',
-    password: '',
-    rememberMe: '1',
-    openLogin: false,
-  };
-  const [state, setState] = useState(initialState);
-
-  const handleLogin = (data) => {
-    authDispatch({
-      type: 'login',
-      payload: data.user,
-    });
-  };
+  const { authDispatch } = useContext(AuthContext);
+  const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState);
 
   const handleLogout = () => {
     authDispatch({
@@ -53,20 +36,8 @@ export const Header = (props) => {
         handleLogout();
         history.push(`/`);
         alert('ログアウトを成功しました');
-      })
-  }
-
-  const submitLogin = () => {
-    postLogIn({
-      email: state.email,
-      password: state.password,
-      remember_me: state.remenberMe,
-    }).then(data => {
-      handleLogin(data)
-      setState({ openLogin: false })
-    }
-    )
-  }
+      });
+  };
 
   const open = props.open
   const AppBar = styled(MuiAppBar, {
@@ -112,6 +83,26 @@ export const Header = (props) => {
         >
           睡眠負債
         </Typography>
+        <Button
+          variant="body1"
+          onClick={() => dialogDispatch({ type: 'micropost' })}
+        >
+          投稿
+        </Button>
+        <MicropostDialog
+          handleClose={() => dialogDispatch({ type: 'close' })}
+          open={dialogState.micropost}
+        />
+        <Button
+          variant="body1"
+          onClick={() => dialogDispatch({ type: 'diary' })}
+        >
+          日記
+        </Button>
+        <RecordDialog
+          handleClose={() => dialogDispatch({ type: 'close' })}
+          open={dialogState.diary}
+        />
         <Typography
           sx={{ px: 4 }}
           variant="body1"
@@ -121,10 +112,7 @@ export const Header = (props) => {
           本の検索
         </Typography>
         <LoginControlBottun
-          handleLogOut={submitLogout}
-          handleLogIn={submitLogin}
-          loginUser={props.loginUser}
-          isLoggedIn={props.isLoggedIn}
+          handleLogout={submitLogout}
         />
       </Toolbar>
     </AppBar>

@@ -1,18 +1,20 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
 
-export const PasswordConfirmation = (props) => {
+export const PasswordConfirmation = ({ passwordConfirmation, handleChange }) => {
 
   // 返り値：PasswordConfirmationフォーム
   return (
     <TextField
+      fullWidth
+      // id="passwordConfirmationForm"
+      label="確認のため再度パスワードをご入力ください"
       margin="dense"
-      // id="password_confirmation"
-      label="パスワードの確認"
+      onChange={handleChange}
+      required
       type="password"
-      value={props.passwordConfirmation}
-      onChange={props.handleChange}
-      fullWidth variant="standard"
+      value={passwordConfirmation}
+      variant="standard"
     />
   )
 }
