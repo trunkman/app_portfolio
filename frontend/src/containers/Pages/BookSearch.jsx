@@ -20,10 +20,6 @@ export const BookSearch = () => {
     })
   }
 
-  useEffect(() => {
-    return () => setResults([])
-  }, [])
-
   return (
     <Grid container sx={{ maxWidth: 1000, mx: "auto", bgcolor: 'grey.300' }}>
       <Grid item sm={12} sx={{ px: 2, bgcolor: 'grey.200' }}>
@@ -42,14 +38,9 @@ export const BookSearch = () => {
       </Grid>
       {
         results && (
-          results.map(result =>
-            <Grid item key={result.params.isbn}
-              xs={6} sm={4} sx={{ p: 2, bgcolor: 'grey.100' }}>
-              <BookList
-                book={result.params}
-              />
-            </Grid>
-          )
+          <BookList
+            books={results.params}
+          />
         )
       }
     </Grid>

@@ -10,13 +10,14 @@ import { ReadButton } from "../../components/Buttons/ReadButton";
 export const Book = (props) => {
   const bookIsbn = props.match.params.isbn
   const [book, setBook] = useState([])
+  const [registration, setResistration] = useState(null)
   // ISBNで特定した本情報を取得
   useEffect(() => {
     fetchBook(bookIsbn)
       .then(data => {
         setBook(data.book[0].params)
+        setResistration(data.registration)
       })
-    return () => setBook(null)
   }, [])
 
   return (
@@ -41,6 +42,7 @@ export const Book = (props) => {
         <p>楽天レビュー件数   {book.reviewCount}件</p>
         <ReadButton
           book={book}
+          registration={registration}
         />
       </Grid>
       {/* <Grid item sm={12} sx={{ p: 2, bgcolor: 'grey.100' }}>
