@@ -1,8 +1,8 @@
 FactoryBot.define do
-  factory :micropost, class: Micropost do
-    content { 'Lorem ipsum' }
+  factory :micropost do
+    sequence(:content) { |n| "#{n} Lorem ipsum" } 
     created_at { 10.minutes.ago }
-    association :user, factory: :alice
+    association :user
   end
 
   factory :micropost_now, class: Micropost do
@@ -16,4 +16,5 @@ FactoryBot.define do
     created_at { 1.days.ago }
     association :user, factory: :bob
   end
+
 end

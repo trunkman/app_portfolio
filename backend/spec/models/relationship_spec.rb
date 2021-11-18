@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Relationship, type: :model do
   let(:user) { FactoryBot.create(:user) }
   let(:other_user) { FactoryBot.create(:user) }
-  let(:relationship) { user.active_relationships.create(followed_id: other_user.id) }
+  let(:relationship) { user.active_relationships.build(followed_id: other_user.id) }
   
   it 'Relationshipが存在しているかどうか' do
     expect(relationship).to be_valid
