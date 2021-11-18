@@ -4,6 +4,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   let(:user) { FactoryBot.create(:user) }
+  let(:other_user) { FactoryBot.create(:user) }
 
   it 'ユーザーが存在している確認' do
     user.valid?
@@ -79,4 +80,9 @@ RSpec.describe User, type: :model do
     user.microposts.create(content: 'Lorem ipsum')
     expect { user.destroy }.to change { Micropost.count }.by(-1)
   end
+
+  # it 'ユーザー削除に紐づいてフォローも解除される' do
+  #   user.microposts.create(content: 'Lorem ipsum')
+  #   expect { user.destroy }.to change { Micropost.count }.by(-1)
+  # end
 end
