@@ -3,7 +3,6 @@ class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :micropost
   has_many_attached :image
-
   # スコープ
   default_scope -> { order(created_at: :desc) }
   # バリデーション
