@@ -1,22 +1,26 @@
-import React, { useEffect, useState } from "react";
-// styles
+import React, { useState } from "react";
+// Style
 import Grid from "@mui/material/Grid";
-// api
+// Api
 import { fetchBooks } from "../../apis/books";
-// コンポーネント
-import { BookList } from '../../components/Lists/BookList'
+// Component
+import { BookCard } from '../../components/Lists/BookCard'
 import { Search } from "../../components/Forms/Search";
 import { BookSearchButton } from "../../components/Buttons/BookSearchButton"
 
 export const BookSearch = () => {
   const [keyword, setKeyword] = useState('')
-  const [results, setResults] = useState([])
+  const [books, setBooks] = useState([])
+  const dataSet = []
   const handleSubmit = () => {
     fetchBooks({
       keyword: keyword,
     }).then(data => {
       setKeyword('')
-      setResults(data.books)
+      data.books.map(book =>
+        dataSet.push(book.params)
+      );
+      setBooks(data.books)
     })
   }
 
@@ -34,13 +38,18 @@ export const BookSearch = () => {
       </Grid>
       <Grid item sm={12} sx={{ px: 2, bgcolor: 'grey.300' }}>
         <h3>検索結果</h3>
-        <h4>書籍 : {results.length} 件</h4>
+        <h4>書籍 : {books.length} 件</h4>
       </Grid>
       {
-        results && (
-          <BookList
-            books={results.params}
-          />
+        books.length && (
+          books.map(book =>
+            <Grid item key={book.params.isbn.toString()}
+              xs={6} sm={4} sx={{ p: 2, bgcolor: 'grey.100' }}>
+              <BookCard
+                book={book.params}
+              />
+            </Grid>
+          )
         )
       }
     </Grid>

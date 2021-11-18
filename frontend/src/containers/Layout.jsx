@@ -164,7 +164,7 @@ export const Layout = (props) => {
               />}
             />
 
-            <Route exact path="/users/:id/rooms"
+            <Route exact path="/users/:id/talk_rooms"
               render={({ match }) => <Friends
                 usrmatch={match}
                 loginUser={authState.loginUser}

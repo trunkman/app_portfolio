@@ -1,7 +1,7 @@
 export const recordInitialState = {
-  date: Date.now(),
+  date: new Date().toLocaleString(),
   sleepingHours: '',
-  feeling: '',
+  feeling: 'satisfied',
 }
 
 export const recordReducer = (state, action) => {

@@ -1,12 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 // Style
 import Grid from "@mui/material/Grid";
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+// Component
+import { BookCard } from '../../components/Lists/BookCard'
 
 export const BookList = ({ books }) => {
 
@@ -18,13 +14,12 @@ export const BookList = ({ books }) => {
     }}>
       {
         books.map(book =>
-          <Grid item key={book.id}
+          <Grid item key={book.isbn.toString()}
             xs={6} sm={4} sx={{ p: 2, bgcolor: 'grey.100' }}>
-            {/* <BookList
+            <BookCard
               book={book}
-              dataFatching={dataFatching}
-            /> */}
-            <Card>
+            />
+            {/* <Card>
               <CardActionArea
                 component={Link}
                 to={`/books/${book.isbn}`}
@@ -44,7 +39,7 @@ export const BookList = ({ books }) => {
                   </Typography>
                 </CardContent>
               </CardActionArea>
-            </Card>
+            </Card> */}
           </Grid>
         )
       }

@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from "react";
-//styles
+//Style
 import Grid from "@mui/material/Grid";
-
-// api
+// Api
 import { fetchBook } from "../../apis/books";
-// コンポーネント
+// Component
 import { ReadButton } from "../../components/Buttons/ReadButton";
 
 export const Book = (props) => {
   const bookIsbn = props.match.params.isbn
   const [book, setBook] = useState([])
-  const [registration, setResistration] = useState(null)
+  const [registration, setResistration] = useState(false)
+  const [subscribed, setSubscribed] = useState(false)
   // ISBNで特定した本情報を取得
   useEffect(() => {
     fetchBook(bookIsbn)
       .then(data => {
         setBook(data.book[0].params)
         setResistration(data.registration)
+        setSubscribed(data.subscribed)
       })
   }, [])
 
@@ -43,6 +44,7 @@ export const Book = (props) => {
         <ReadButton
           book={book}
           registration={registration}
+          subscribed={subscribed}
         />
       </Grid>
       {/* <Grid item sm={12} sx={{ p: 2, bgcolor: 'grey.100' }}>

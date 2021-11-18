@@ -18,7 +18,7 @@ export const MessageButton = (props) => {
           button
           color="inherit"
           component={Link}
-          to={`/users/${props.loginUserId}/rooms`}
+          to={`/users/${props.loginUserId}/talk_rooms`}
         >
           <ListItemIcon>
             <MailIcon />

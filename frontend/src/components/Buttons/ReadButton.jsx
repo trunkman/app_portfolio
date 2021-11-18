@@ -2,42 +2,40 @@ import React from "react";
 // styles
 import { Button } from "@mui/material";
 // api
-import { postbook } from "../../apis/books";
+import { postBook, updateBook } from "../../apis/books";
 
 export const ReadButton = ({
   book,
   registration,
+  subscribed,
 }) => {
+
   const handleClick = (boolean) => {
-    registration === true
-      // 登済みの本の場合、読了/積読情報の更新
-      ? (postbook({
-        read: boolean,
-        book: book,
-      })
-        .then(data => {
-          if (data.message) {
-            alert(data.message)
-          } else {
-            data.subscription.read
-              ? (alert('読んだ本に登録しました'))
-              : (alert('積んでいる本に登録しました'))
-          }
-        }))
-      // 未登録本の場合、読書リストに登録
-      : (postbook({
-        read: boolean,
-        book: book,
-      })
-        .then(data => {
-          if (data.message) {
-            alert(data.message)
-          } else {
-            data.subscription.read
-              ? (alert('読んだ本に登録しました'))
-              : (alert('積んでいる本に登録しました'))
-          }
-        }))
+    { // ユーザー未登録本の場合、CreateでDBに登録する
+      !subscribed && (
+        postBook({
+          read: boolean,
+          registration: registration,
+          book: book,
+        })
+          .then(data => {
+            data.message &&
+              alert(data.message)
+          })
+      )
+    }
+    { // ユーザー登録済み本の場合、UpdateでDBを更新する
+      subscribed && (
+        updateBook({
+          read: boolean,
+          book: book,
+        })
+          .then(data => {
+            data.message &&
+              alert(data.message)
+          })
+      )
+    }
   }
 
   // 読んだ積んだがわかるように設定する予定
@@ -46,14 +44,14 @@ export const ReadButton = ({
       <Button
         color="primary"
         onClick={() => handleClick("false")}
-        size="small"
+      // {!book.read && subscribed && (variant = "contained")}
       >
         積む
       </Button>
       <Button
         color="primary"
         onClick={() => handleClick("true")}
-        size="small"
+      // {book.read && subscribed && (variant = "contained")}
       >
         読了
       </Button>

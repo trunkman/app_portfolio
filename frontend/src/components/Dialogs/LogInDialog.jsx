@@ -73,13 +73,6 @@ export const LogInDialog = ({
             })
           }
         />
-        <Link
-          component="button"
-          variant="body2"
-          onClick={() => handlePasswordReset()}
-        >
-          パスワードを忘れてしまった方はこちら
-        </Link>
         <RememberMe
           remenberMe={authState.remenberMe}
           handleChange={e =>
@@ -89,6 +82,13 @@ export const LogInDialog = ({
             })
           }
         />
+        <Link
+          component="div"
+          variant="body2"
+          onClick={() => handlePasswordReset()}
+        >
+          パスワードを忘れてしまった方はこちら
+        </Link>
       </DialogContent>
       <DialogActions>
         <Button onClick={() => handleClose()}>

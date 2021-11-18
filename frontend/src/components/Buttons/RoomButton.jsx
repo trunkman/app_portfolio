@@ -11,7 +11,7 @@ export const RoomButton = (props) => {
   const handleSubmit = () => {
     postRoom({ userId: props.userId })
       .then(data =>
-        history.push(`/rooms/${data.room.id}`)
+        history.push(`/talk_rooms/${data.room.id}`)
       )
   }
 

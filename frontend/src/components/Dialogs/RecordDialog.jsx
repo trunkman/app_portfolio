@@ -25,7 +25,7 @@ export const RecordDialog = ({
 
   const tabChange = (event, newValue) => {
     recordDispatch({
-      type: 'date',
+      type: 'feeling',
       payload: newValue
     })
   };

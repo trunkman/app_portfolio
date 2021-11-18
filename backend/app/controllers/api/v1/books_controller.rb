@@ -1,75 +1,70 @@
 module Api
   module V1
     class BooksController < ApplicationController
+
       def search
         @books = RakutenWebService::Books::Book.search(title: params[:book][:title])
         render json: { books: @books }, status: :ok
       end
 
+
       def show
-        @book = RakutenWebService::Books::Book.search(isbn: params[:id])
-        if Book.find_by(isbn: params[:id])
-          @registration = true
+        @book = Book.find_by(isbn: params[:id])
+        # DBに本が登録されている場合、tureを返す
+        unless @book.nil?
+          registration = true
+          @subscription = Subscription.find_by(user_id: current_user.id, book_id: @book.id)
+          # すでにユーザー登録している本の場合、trueを返す
+          unless @subscription.nil?
+          subscribed = true
+          end  
         end
-        render json: { book: @book, registration: @registration },
+        @book = RakutenWebService::Books::Book.search(isbn: params[:id])
+        render json: { book: @book, registration: registration, subscribed: subscribed },
                status: :ok
       end
+
 
       def create
-        @book = Book.new(title:          params[:book][:title],
-                          auther:         params[:book][:auther],
-                          publisher_name:   params[:book][:publisherName],
-                          sales_date:     params[:book][:salesDate],
-                          item_price:     params[:book][:itemPrice],
-                          item_url:       params[:book][:itemUrl],
-                          item_caption:   params[:book][:itemCaption],
-                          image_url:      params[:book][:largeImageUrl],
+        @book = Book.new(title:           params[:book][:title],
+                          author:         params[:book][:author],
+                          publisherName: params[:book][:publisherName],
+                          salesDate:     params[:book][:salesDate],
+                          itemPrice:     params[:book][:itemPrice],
+                          itemUrl:       params[:book][:itemUrl],
+                          itemCaption:   params[:book][:itemCaption],
+                          largeImageUrl:      params[:book][:largeImageUrl],
                           isbn:           params[:book][:isbn],
-                          review_count:   params[:book][:reviewCount],
-                          review_average: params[:book][:reviewAverage]
+                          reviewCount:   params[:book][:reviewCount],
+                          reviewAverage: params[:book][:reviewAverage]
                           )
-        # すでにDBに登録している本であるかを判断 
-        if Book.find_by(title: params[:book][:title]).nil?
+        registration = params[:registration]
+        # DBに登録していない新規本であれば登録する
+        unless registration
           @book.save!
         end
-        @subscription = Subscription.new(user_id: current_user.id,
-                                         book_id: @book.id,
-                                         read:    params[:book][:read]
-                                        )
-        # すでにユーザーが登録している本であるか判断
-        if Subscription.find_by(user_id: current_user.id, book_id: @book.id).nil?
-          @subscription.save!
-        else
-          @subscription = Subscription.find_by(user_id: current_user.id, book_id: @book.id)
-          @subscription.update(read: params[:book][:read])
-          @message = @subscription.read ? 'すでに読了している本です。' : 'いま積んでいる本です。'
-        end
-        render json: {subscription: @subscription, message: @message},
+        @subscription = Subscription.create(user_id: current_user.id,
+                                            book_id: @book.id,
+                                            read:    params[:read]
+                                            )
+        message = @subscription.read ? '読了本に追加しました。' 
+                                     : '積読本に追加しました。'
+        render json: {subscription: @subscription, message: message},
                status: :ok
       end
 
-      # def update
-      #   if @book = Book.find_by(isbn: params[:id])
-      #     @book.update(title:          book.title,
-      #                   auther:         book.author,
-      #                   puliser_name:   book.publisherName
-      #                   sales_date:     book.salesDate
-      #                   item_price:     book.itemPrice
-      #                   item_url:       book.itemUrl
-      #                   item_caption:   book.itemCaption
-      #                   image_url:      book.largeImageUrl
-      #                   isbn:           book.isbn
-      #                   review_count:   book.reviewCount
-      #                   review_average: book.reviewAverage
-      #     ) 
-      #     render json: { isbn: @book.isbn },
-      #     status: :no_content
-      #   else
-      #     render json: { errors: @book.errors.full_messages },
-      #            status: :unprocessable_entity
-      #   end
-      # end
+
+      def update
+        book_id = Book.find_by(isbn: params[:id]).id
+        @subscription = Subscription.find_by(user_id: current_user.id, book_id: book_id)
+        @subscription.update(read: params[:read])
+        message = @subscription.read ? 'この本は読了本です。' 
+                                     : 'この本は積読本です。'
+        render json: {subscription: @subscription, message: message},
+               status: :ok
+      end
 
     end
   end
 end
+

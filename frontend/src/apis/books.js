@@ -12,34 +12,38 @@ import { books, booksearch, bookPath } from "../urls";
 //   })
 // }
 
-// 本検索結果を取得するapi
+// 検索した本一覧を取得するapi
 export const fetchBooks = (params) => {
   return axios.post(booksearch, {
     book: { title: params.keyword }
+  }, {
+    withCredentials: true
   }).then(res => {
     console.log('book#search', res)
-    return res.data
+    return res.data;
   }).catch(error => {
     console.log('book#search', error)
-  })
+  });
 }
 
-// ISBNで特定した本を取得するapi
+// 本を取得するapi (ISBNで特定する)
 export const fetchBook = (bookIsbn) => {
-  return axios.get(bookPath(bookIsbn)
-  ).then(res => {
+  return axios.get(bookPath(bookIsbn), {
+    withCredentials: true
+  }).then(res => {
     console.log('book#show', res)
-    return res.data
+    return res.data;
   }).catch(error => {
     console.log('book#show', error)
-  })
+  });
 }
 
-// 本情報をDBに登録するapi create
-export const postbook = (params) => {
+// 本をDBに登録するapi
+export const postBook = (params) => {
   return axios.post(books, {
+    read: params.read,
+    registration: params.registration,
     book: {
-      read: params.read,
       title: params.book.title,
       auther: params.book.author,
       publisherName: params.book.publisherName,
@@ -58,8 +62,22 @@ export const postbook = (params) => {
     console.log('book#create', res);
     return res.data;
   }).catch(error => {
-    console.log('book#create', error)
-  })
+    console.log('book#create', error);
+  });
+}
+
+// 読了・積読情報を更新するapi
+export const updateBook = (params) => {
+  return axios.patch(bookPath(params.book.isbn), {
+    read: params.read,
+  }, {
+    withCredentials: true
+  }).then(res => {
+    console.log('book#update', res);
+    return res.data;
+  }).catch(error => {
+    console.log('book#update', error);
+  });
 }
 
 // 本詳細情報を表示するapi

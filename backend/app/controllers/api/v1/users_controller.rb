@@ -102,6 +102,7 @@ module Api
         user = User.find(params[:id])
         @microposts = user.microposts
         @comments = user.comments
+        # 修正予定
         liked_microposts = user.liked_microposts
         @liked_micropost_ids = []
           liked_microposts.each do |liked_micropost|
