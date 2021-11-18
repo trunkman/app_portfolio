@@ -27,7 +27,7 @@ RSpec.describe Micropost, type: :model do
     expect(micropost).not_to be_valid
   end
 
-  it '最新順に投稿が表示されるか' do
+  it '最新順に投稿が表示される' do
     @micropost_yesterday = FactoryBot.create(:micropost_yesterday)
     @micropost_now = FactoryBot.create(:micropost_now)
     expect(@micropost_now).to eq Micropost.first

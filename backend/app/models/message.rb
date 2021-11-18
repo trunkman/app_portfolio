@@ -8,5 +8,6 @@ class Message < ApplicationRecord
   default_scope -> { order(created_at: :desc) }
   # バリデーション
   validates :user_id, presence: true
-  validates :content, presence: true, length: { maximum: 140 }
+  validates :room_id, presence: true
+  validates :content, presence: true, length: { maximum: 250 }
 end
