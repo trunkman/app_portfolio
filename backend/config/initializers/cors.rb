@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     origins 'http://54.250.110.27:3001'

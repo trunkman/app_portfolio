@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Relationship, type: :model do
   let(:user) { FactoryBot.create(:user) }
   let(:other_user) { FactoryBot.create(:user) }
   let(:relationship) { user.active_relationships.build(followed_id: other_user.id) }
-  
+
   it 'Relationshipが存在しているかどうか' do
     expect(relationship).to be_valid
   end
@@ -18,5 +20,4 @@ RSpec.describe Relationship, type: :model do
     relationship.followed_id = nil
     expect(relationship).not_to be_valid
   end
-
 end

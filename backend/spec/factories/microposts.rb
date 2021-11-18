@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :micropost do
-    sequence(:content) { |n| "#{n} Lorem ipsum" } 
+    sequence(:content) { |n| "#{n} Lorem ipsum" }
     created_at { 10.minutes.ago }
     association :user
   end
@@ -16,5 +18,4 @@ FactoryBot.define do
     created_at { 1.days.ago }
     association :user, factory: :bob
   end
-
 end

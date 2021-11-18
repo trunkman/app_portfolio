@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-
   let(:user) { FactoryBot.create(:user) }
   let(:micropost) { FactoryBot.create(:micropost) }
-  let(:comment) { user.comments.build( micropost_id: micropost.id,
-                                       content: 'Lorem ipsum',
-                                       )}
-  
+  let(:comment) do
+    user.comments.build(micropost_id: micropost.id,
+                        content: 'Lorem ipsum')
+  end
+
   it 'コメントが存在している確認' do
     expect(comment).to be_valid
   end
-  
+
   it 'user_idは空であってはいけない' do
     comment.user_id = nil
     expect(comment).not_to be_valid
@@ -31,5 +33,4 @@ RSpec.describe Comment, type: :model do
     comment.content = 'a' * 141
     expect(comment).not_to be_valid
   end
-
 end

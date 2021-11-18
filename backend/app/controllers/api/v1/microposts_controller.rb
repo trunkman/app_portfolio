@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api
   module V1
     class MicropostsController < ApplicationController
@@ -20,7 +22,7 @@ module Api
       end
 
       def liked_micropost
-        @liked_micropost =  Like.find_by(user_id: @current_user.id, micropost_id: params[:id]) 
+        @liked_micropost = Like.find_by(user_id: @current_user.id, micropost_id: params[:id])
         render json: { liked_micropost: @liked_micropost.nil? }, status: :ok
       end
 

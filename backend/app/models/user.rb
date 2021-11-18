@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # 関連付け
   has_one_attached :image
@@ -21,6 +23,7 @@ class User < ApplicationRecord
   attr_accessor :remember_token,
                 :activation_token,
                 :reset_token
+
   # beforeフィルター
   before_save   { email.downcase! }
   before_create :create_activation_digest

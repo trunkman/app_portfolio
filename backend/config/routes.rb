@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
@@ -24,10 +26,10 @@ Rails.application.routes.draw do
       resources :rooms,        only: %i[show create destroy]
       resources :messages,     only: %i[create destroy]
       resources :books,        only: %i[show create update]
-      post    '/booksearch',   to: 'books#search'
-      resources :diaries,     only: %i[create update destroy]
+      post '/booksearch', to: 'books#search'
+      resources :diaries, only: %i[create update destroy]
       resources :account_activations, only: [:edit]
-      resources :password_resets,    only: %i[create edit update]
+      resources :password_resets, only: %i[create edit update]
     end
   end
 end

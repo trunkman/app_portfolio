@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Relationship < ApplicationRecord
   # 関連付け
   belongs_to :follower, class_name: 'User'

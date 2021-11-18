@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # ユーザー
 User.create!(name: 'Admin User',
              email: 'admin@example.com',

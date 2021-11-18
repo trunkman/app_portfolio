@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api
   module V1
     class PasswordResetsController < ApplicationController
@@ -10,10 +12,10 @@ module Api
         if @user
           @user.create_reset_digest
           @user.send_password_reset_email
-          render json: { message: 'パスワードリセットを送信しました'},
+          render json: { message: 'パスワードリセットを送信しました' },
                  status: :ok
         else
-          render json: { message: 'アカウントが見つかりませんでした'},
+          render json: { message: 'アカウントが見つかりませんでした' },
                  status: :unprocessable_entity
         end
       end
@@ -22,13 +24,13 @@ module Api
 
       def update
         if params[:user][:password].empty?
-          render json: { message: 'パスワードが空です'}
+          render json: { message: 'パスワードが空です' }
         elsif @user.update(user_params)
           log_in @user
           @user.update_attribute(:reset_digest, nil)
           render json: { user: @user }, status: :ok
         else
-          render json: { message: '無効なパスワードです'}
+          render json: { message: '無効なパスワードです' }
         end
       end
 
@@ -44,17 +46,15 @@ module Api
 
       # 有効なユーザーかどうか確認する
       def valid_user
-        unless @user && @user.activated? &&
-               @user.authenticated?(:reset, params[:id])
+        unless @user&.activated? &&
+               @user&.authenticated?(:reset, params[:id])
           render json: {}, status: :unprocessable_entity
         end
       end
 
       # トークンが期限切れかどうか確認する
       def check_expiration
-        if @user.password_reset_expired?
-          render json: { message: 'トークンの有効期限が切れています'}
-        end
+        render json: { message: 'トークンの有効期限が切れています' } if @user.password_reset_expired?
       end
     end
   end

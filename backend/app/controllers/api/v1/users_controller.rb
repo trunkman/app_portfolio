@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api
   module V1
     class UsersController < ApplicationController
@@ -14,16 +16,16 @@ module Api
       def show
         @user = User.find(params[:id])
         @following_ids = []
-          @user.following.each do |following|
-            @following_ids << following.id
-          end
-        @followers_ids = [] 
-          @user.followers.each do |follower|
-            @followers_ids << follower.id
-          end
+        @user.following.each do |following|
+          @following_ids << following.id
+        end
+        @followers_ids = []
+        @user.followers.each do |follower|
+          @followers_ids << follower.id
+        end
         if @user.activated?
           render json: { user: @user, following_ids: @following_ids,
-                                      followers_ids: @followers_ids },
+                         followers_ids: @followers_ids },
                  status: :ok
         else
           render json: {}, status: :unauthorized
@@ -40,7 +42,7 @@ module Api
         @user = User.new(user_params)
         if @user.save
           @user.send_activation_email
-          render json: {message: 'アカウント有効化メール送信しました'},
+          render json: { message: 'アカウント有効化メール送信しました' },
                  status: :created
         else
           render json: { errors: @user.errors.full_messages },
@@ -77,10 +79,10 @@ module Api
       def following
         user = User.find(params[:id])
         @users = user.following
-        @following_ids = [] 
-          current_user.following.each do |follow|
-            @following_ids << follow.id
-          end
+        @following_ids = []
+        current_user.following.each do |follow|
+          @following_ids << follow.id
+        end
         render json: { users: @users, following_ids: @following_ids },
                status: :ok
       end
@@ -89,12 +91,12 @@ module Api
       def followers
         user = User.find(params[:id])
         @users = user.followers
-        @following_ids = [] 
-          current_user.following.each do |follow|
-            @following_ids << follow.id
-          end
+        @following_ids = []
+        current_user.following.each do |follow|
+          @following_ids << follow.id
+        end
         render json: { users: @users, following_ids: @following_ids },
-              status: :ok
+               status: :ok
       end
 
       # マイクロポスト&コメント一覧を返す
@@ -105,9 +107,9 @@ module Api
         # 修正予定
         liked_microposts = user.liked_microposts
         @liked_micropost_ids = []
-          liked_microposts.each do |liked_micropost|
-            @liked_micropost_ids << liked_micropost.id
-          end
+        liked_microposts.each do |liked_micropost|
+          @liked_micropost_ids << liked_micropost.id
+        end
         render json: { microposts: @microposts, comments: @comments,
                        liked_micropost_ids: @liked_micropost_ids },
                status: :ok
@@ -132,9 +134,9 @@ module Api
             @read_books << Book.find(subscription.book_id)
           else
             @stack_books << Book.find(subscription.book_id)
-          end 
+          end
         end
-        render json: { read_books: @read_books, stack_books: @stack_books }, 
+        render json: { read_books: @read_books, stack_books: @stack_books },
                status: :ok
       end
 
@@ -143,7 +145,7 @@ module Api
         diaries = user.diaries
         @diaries = []
         diaries.map do |diary|
-          @diaries << {title: diary.feeling, start: diary.date}
+          @diaries << { title: diary.feeling, start: diary.date }
         end
         render json: { diaries: @diaries }, status: :ok
       end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Micropost, type: :model do
@@ -37,11 +39,10 @@ RSpec.describe Micropost, type: :model do
   end
 
   it '投稿が削除されると、コメントも削除される' do
-    micropost.comments.create(user_id: 1, content:'Lorem ipsum')
+    micropost.comments.create(user_id: 1, content: 'Lorem ipsum')
     expect { micropost.destroy }.to change { Comment.count }.by(-1)
   end
 
   # it 'いいねしているユーザーを取得する' do
   # end
-
 end
