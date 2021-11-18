@@ -15800,3 +15800,520 @@ Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocati
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments"[0m
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$4C2gYgIv5nob04KJLhMQ/OJgdSq3/0LaQHuJwmGJyLr8T8Bjw9vjm"], ["admin", 1], ["activation_digest", "$2a$04$sGDZTXoewUudR/NqaNhU4ue8TVNdGCtsi9LJs5Y83xWubsLFihfzS"], ["activated", 1], ["activated_at", "2021-11-18 08:21:15.248443"], ["created_at", "2021-11-18 08:21:15.250813"], ["updated_at", "2021-11-18 08:21:15.250813"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "alice@example.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "alice@example.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$REugUPDBmeBznsHHjN6JIuePu1Kt.5rd3MTCXyig/zyrbomHTbCQe"], ["admin", 1], ["activation_digest", "$2a$04$MrgBXhOBnShVkNFgAnntseXVnhcCZ7xJo4OTsm2.UCA0MHn95z31C"], ["activated", 1], ["activated_at", "2021-11-18 08:21:15.350675"], ["created_at", "2021-11-18 08:21:15.352172"], ["updated_at", "2021-11-18 08:21:15.352172"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "alice@example.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$wr5zO2mrO5DVmA8hamfl5.pdyfu/3WsV9sRGiOYBSV1z.DFYxQZwS"], ["admin", 1], ["activation_digest", "$2a$04$kFPThtzT3fBoN.sLD.TGh.SkmOZmq4VWq9fjr7k4g6scbOBGp2ASO"], ["activated", 1], ["activated_at", "2021-11-18 08:21:15.360144"], ["created_at", "2021-11-18 08:21:15.361188"], ["updated_at", "2021-11-18 08:21:15.361188"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "alice@example.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$DrxQ4LtoJU6hntnJrcK4lukYcBt37ogNSjLXXgrKuyFAGL5TRQaj."], ["admin", 1], ["activation_digest", "$2a$04$RzjSortWMimbFVmXF28hfus/jS1gJfXSMp24ztOQDyC3Th0YV1vEC"], ["activated", 1], ["activated_at", "2021-11-18 08:21:15.367471"], ["created_at", "2021-11-18 08:21:15.368502"], ["updated_at", "2021-11-18 08:21:15.368502"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "  "], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$fMARX8s4iD7vs13tSWCo4e6rruwtWY1P0aiymfwdFOINK/bE9GsaK"], ["admin", 1], ["activation_digest", "$2a$04$2sSxDXPKZwqluyIln4oa9OAgSOOnrGpTWVRIVjLFaTlj6A1mCGw3S"], ["activated", 1], ["activated_at", "2021-11-18 08:21:15.374777"], ["created_at", "2021-11-18 08:21:15.375825"], ["updated_at", "2021-11-18 08:21:15.375825"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@example.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$k5.drbqMbDy0aIKjVdWaAu8QUPpEtCBN/vsHOPMu.yc1gy4EZBnTe"], ["admin", 1], ["activation_digest", "$2a$04$woW9uMyZHqcdrC8V6rVSUuNYiawKPFKxDmxTOTrJ/p15WDgsS3HjC"], ["activated", 1], ["activated_at", "2021-11-18 08:21:15.382056"], ["created_at", "2021-11-18 08:21:15.383157"], ["updated_at", "2021-11-18 08:21:15.383157"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "user@example.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "USER@foo.COM"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "A_US-ER@foo.bar.org"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "first.last@foo.jp"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "alice+bob@baz.cn"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$xCRuWEJju.1bXt/MjEpd3eYr/MFXGMNZrfBZ9arBAYP.z6qHbcixu"], ["admin", 1], ["activation_digest", "$2a$04$eg9oqgYWyMs8FCFWEDOOCOgWFOQ3ZmWclxwvLzC.LXH0v/V0JAaRW"], ["activated", 1], ["activated_at", "2021-11-18 08:21:15.392635"], ["created_at", "2021-11-18 08:21:15.393704"], ["updated_at", "2021-11-18 08:21:15.393704"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "user@example,com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "user_at_foo.org"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "user.name@example."], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "foo@bar_baz.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "foo@bar+baz.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$dkNKKkflPs7BlfeKQpB/Leyn7TjZMQIC.wr31Apf01Mb.yUXBeX4W"], ["admin", 1], ["activation_digest", "$2a$04$SJwYXpW8dKgnE1nJ9Jac6eWh/zdAv/fDnJ6mF8xKllzL7oU4Mjgg."], ["activated", 1], ["activated_at", "2021-11-18 08:21:15.403240"], ["created_at", "2021-11-18 08:21:15.404293"], ["updated_at", "2021-11-18 08:21:15.404293"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "alice@example.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$U/VCZwdT3ANMltD/B9jB0.PRitLOW2YHIp5HRgIzoCjchVI77wJFG"], ["admin", 1], ["activation_digest", "$2a$04$7HsFoPe3mwcKzxrFI0ZhJ.ja3TyWAlnUOTsrHaZdBVRMDwh3ZG40a"], ["activated", 1], ["activated_at", "2021-11-18 08:21:15.412120"], ["created_at", "2021-11-18 08:21:15.413415"], ["updated_at", "2021-11-18 08:21:15.413415"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "Foo@ExAMple.Com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "email" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["email", "foo@example.com"], ["updated_at", "2021-11-18 08:21:15.417167"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$7b.4szQqd/mrJUNc2wu3qeW.kbBUtELVhE2UGDKhfW14ov9IhgbXq"], ["admin", 1], ["activation_digest", "$2a$04$u781UPbE6FiWLnK3kJQAOuv4w2JMARm87UqNtzZcCsNXS.pcwYkZi"], ["activated", 1], ["activated_at", "2021-11-18 08:21:15.422053"], ["created_at", "2021-11-18 08:21:15.423109"], ["updated_at", "2021-11-18 08:21:15.423109"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "alice@example.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$hze8wF4Rbw0CdnWU11nAyeCtHimKgQTUetVhK5NNyc8W7UzoOQ.O6"], ["admin", 1], ["activation_digest", "$2a$04$HedLGLFZMxuHM8/YU/rUdOJbFuDmYfc3KoIeKvZglXk61PFhSvNca"], ["activated", 1], ["activated_at", "2021-11-18 08:21:15.430371"], ["created_at", "2021-11-18 08:21:15.431424"], ["updated_at", "2021-11-18 08:21:15.431424"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "alice@example.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$XuAckxS1vpS5uEOYQB8jHOO4hYGDut1JNYH0ZdScXiGleIl586qoW"], ["admin", 1], ["activation_digest", "$2a$04$zFv.k19olHmqc4ISYsF9L.6sqPbozRYhvqgufGPGzrmf0SJNRkDyW"], ["activated", 1], ["activated_at", "2021-11-18 08:21:15.438722"], ["created_at", "2021-11-18 08:21:15.439737"], ["updated_at", "2021-11-18 08:21:15.439737"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$OKpTpxq1Y264.DIabRUHc.NEQXDQoz9vI1CcG3rQBL3su0GdHiHJ."], ["admin", 1], ["activation_digest", "$2a$04$RxDnMbfQYq7verq42dpZBOCRAoXlbjEAILTBwqI.RAWLshTILjQ3a"], ["activated", 1], ["activated_at", "2021-11-18 08:21:15.445009"], ["created_at", "2021-11-18 08:21:15.446023"], ["updated_at", "2021-11-18 08:21:15.446023"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMicropost Create (0.2ms)[0m  [1m[32mINSERT INTO "microposts" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Lorem ipsum"], ["user_id", 1], ["created_at", "2021-11-18 08:21:15.463176"], ["updated_at", "2021-11-18 08:21:15.463176"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "microposts"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."created_at" DESC[0m  [["micropost_id", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 1], ["record_type", "Micropost"], ["name", "image"]]
+  [1m[36mMicropost Destroy (0.1ms)[0m  [1m[31mDELETE FROM "microposts" WHERE "microposts"."id" = ?[0m  [["id", 1]]
+  [1m[36mRelationship Load (0.1ms)[0m  [1m[34mSELECT "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  [1m[36mRelationship Load (0.1ms)[0m  [1m[34mSELECT "relationships".* FROM "relationships" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = ? ORDER BY "comments"."created_at" DESC[0m  [["user_id", 1]]
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ? ORDER BY "messages"."created_at" DESC[0m  [["user_id", 1]]
+  [1m[36mSubscription Load (0.1ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mDiary Load (0.1ms)[0m  [1m[34mSELECT "diaries".* FROM "diaries" WHERE "diaries"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "microposts"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test1@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "1君"], ["email", "test1@example.com"], ["password_digest", "$2a$04$N/qaEqeGdv4I.ipwlyfzsuOpO4BpD6t.s8YnYSvzkTFsbMhcaPxwm"], ["admin", 1], ["activation_digest", "$2a$04$v5tokmn0iFfJZ7kQ259ju.ifxCb5Tc64bn95JIRmY3FRgOp7h1eDi"], ["activated", 1], ["activated_at", "2021-11-18 08:21:38.568930"], ["created_at", "2021-11-18 08:21:38.571569"], ["updated_at", "2021-11-18 08:21:38.571569"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "test1@example.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "test1@example.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "2君"], ["email", "test2@example.com"], ["password_digest", "$2a$04$0nhQ1/uGQJ1u6ekE6WPGYuEfWQGe8IURtsRJesI6J5WOtbJ37Qz2y"], ["admin", 1], ["activation_digest", "$2a$04$/223MF7r7BZSY46Jrc8aEucENos1XocCuBh9lPviGixEUX/eueRga"], ["activated", 1], ["activated_at", "2021-11-18 08:21:38.667301"], ["created_at", "2021-11-18 08:21:38.668879"], ["updated_at", "2021-11-18 08:21:38.668879"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "test2@example.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test3@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "3君"], ["email", "test3@example.com"], ["password_digest", "$2a$04$GUKnl1EZXLh3zmzDH2ZK8.2bIhAvSesh3gtur5Lf67ZNTsaoVqr9q"], ["admin", 1], ["activation_digest", "$2a$04$/fUxX2EXw4xCuCJhQaSxg.ddILdc3VgamoK29n81fQEggIT//CJe2"], ["activated", 1], ["activated_at", "2021-11-18 08:21:38.675669"], ["created_at", "2021-11-18 08:21:38.676947"], ["updated_at", "2021-11-18 08:21:38.676947"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "test3@example.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test4@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "4君"], ["email", "test4@example.com"], ["password_digest", "$2a$04$6chv.mEamkbILoYIk7sUlOua7H5cfOg0zchglFcdQAMqavpoRHASG"], ["admin", 1], ["activation_digest", "$2a$04$GULkmBD5yFbkPdipe62p8.kiPMY1O/hA9fxoBJESsFBvMn1Msy4s6"], ["activated", 1], ["activated_at", "2021-11-18 08:21:38.683214"], ["created_at", "2021-11-18 08:21:38.684323"], ["updated_at", "2021-11-18 08:21:38.684323"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "  "], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test5@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "5君"], ["email", "test5@example.com"], ["password_digest", "$2a$04$ROScRYt9poQRF9mMmbWxOe5XNrxQyBiZcFHr5wD38sPOUKg9jkNoa"], ["admin", 1], ["activation_digest", "$2a$04$PtwMiIMWPSltCirQh99uYOpd/MmnqUKJVbUflys6B2NIk90UL/C42"], ["activated", 1], ["activated_at", "2021-11-18 08:21:38.690741"], ["created_at", "2021-11-18 08:21:38.691873"], ["updated_at", "2021-11-18 08:21:38.691873"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@example.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test6@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "6君"], ["email", "test6@example.com"], ["password_digest", "$2a$04$QHFykD7pTgfP3fbeBSZwIuKqez3OLzpjhLM1XlSthOa510zakvr7m"], ["admin", 1], ["activation_digest", "$2a$04$FpvIQSmjjmwAjGf2twuRFuC3uYJjXoLCPKH18X9OTKjXFRn0E.BSe"], ["activated", 1], ["activated_at", "2021-11-18 08:21:38.698782"], ["created_at", "2021-11-18 08:21:38.699791"], ["updated_at", "2021-11-18 08:21:38.699791"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "user@example.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "USER@foo.COM"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "A_US-ER@foo.bar.org"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "first.last@foo.jp"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "alice+bob@baz.cn"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test7@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "7君"], ["email", "test7@example.com"], ["password_digest", "$2a$04$wcL1nR43e2U2.eAeSdXfvuVwEGC.ZpThdlIADM0EOxi5qz6rSfTOe"], ["admin", 1], ["activation_digest", "$2a$04$UmbJL.U5IXd67ulpNCWr6.MWMQmzkYuq7SkR.Uu24FdyINYVGfTc."], ["activated", 1], ["activated_at", "2021-11-18 08:21:38.708949"], ["created_at", "2021-11-18 08:21:38.709924"], ["updated_at", "2021-11-18 08:21:38.709924"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "user@example,com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "user_at_foo.org"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "user.name@example."], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "foo@bar_baz.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "foo@bar+baz.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test8@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "8君"], ["email", "test8@example.com"], ["password_digest", "$2a$04$Seqa4e5KUASlx0bLpvIFRe.PbpFHcR8fu0FRHnHH2DGS1qKeMELx2"], ["admin", 1], ["activation_digest", "$2a$04$07oSu2uGKbP6ffwKFwApz.bnHUh8D.hd75US7HTp0ZWLgZC9Badha"], ["activated", 1], ["activated_at", "2021-11-18 08:21:38.719064"], ["created_at", "2021-11-18 08:21:38.720045"], ["updated_at", "2021-11-18 08:21:38.720045"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "test8@example.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test8@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test9@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "9君"], ["email", "test9@example.com"], ["password_digest", "$2a$04$Ad9RsoZijHC7s.B54FM2weGBpFCyqZ6EgDvq3FgxRP/qPgsESnrOS"], ["admin", 1], ["activation_digest", "$2a$04$teBcB5uK5SGCnSAscP.L4.CZSDjXHvKGdKPtVxH1CVkAogjjYKgxq"], ["activated", 1], ["activated_at", "2021-11-18 08:21:38.727581"], ["created_at", "2021-11-18 08:21:38.728557"], ["updated_at", "2021-11-18 08:21:38.728557"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "Foo@ExAMple.Com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "email" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["email", "foo@example.com"], ["updated_at", "2021-11-18 08:21:38.732414"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test10@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "10君"], ["email", "test10@example.com"], ["password_digest", "$2a$04$RD2BDb/tfNlxNDtKE7775OKrAf30ml5oP/E6Vd6k4PTjN5uwYXva6"], ["admin", 1], ["activation_digest", "$2a$04$zJTm5rpH5JDXhsP/zRIOpuOv0rd83kj7BLgRxg8oVlO.ibo.wm/3O"], ["activated", 1], ["activated_at", "2021-11-18 08:21:38.737303"], ["created_at", "2021-11-18 08:21:38.738269"], ["updated_at", "2021-11-18 08:21:38.738269"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "test10@example.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test11@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "11君"], ["email", "test11@example.com"], ["password_digest", "$2a$04$R8S1GCQ3N5T6QnI7FirAMerXsnp1jPIc9HixCODw87EO8axlXV466"], ["admin", 1], ["activation_digest", "$2a$04$4HEi/94RHYfp67AWmBjG0uMJaALfogVSxRQKuUpllO9nq9MZOX3nu"], ["activated", 1], ["activated_at", "2021-11-18 08:21:38.745574"], ["created_at", "2021-11-18 08:21:38.746542"], ["updated_at", "2021-11-18 08:21:38.746542"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "test11@example.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test12@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "12君"], ["email", "test12@example.com"], ["password_digest", "$2a$04$kPx0iOFpShVwmQO4ihtHDODzgz9NdL5vrC0TzRAlFxT79k0w4FR1K"], ["admin", 1], ["activation_digest", "$2a$04$cEgBq3yHzhRYFkvuZwGs8e8abSyYE/4CeE2fAXacMEDuMqW5Yxtfa"], ["activated", 1], ["activated_at", "2021-11-18 08:21:38.753770"], ["created_at", "2021-11-18 08:21:38.754765"], ["updated_at", "2021-11-18 08:21:38.754765"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test13@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "13君"], ["email", "test13@example.com"], ["password_digest", "$2a$04$mht0w.sEwX3yoBYAMTIEpOjXbitcNkwLXKpJ8IoSHSlgU2peiFnWK"], ["admin", 1], ["activation_digest", "$2a$04$F73RqEsEM03PHRGQYlMC7.rEC9c95SJlmfL2bVfU/kOApRKUalV/i"], ["activated", 1], ["activated_at", "2021-11-18 08:21:38.759984"], ["created_at", "2021-11-18 08:21:38.760948"], ["updated_at", "2021-11-18 08:21:38.760948"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMicropost Create (0.2ms)[0m  [1m[32mINSERT INTO "microposts" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Lorem ipsum"], ["user_id", 1], ["created_at", "2021-11-18 08:21:38.777596"], ["updated_at", "2021-11-18 08:21:38.777596"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "microposts"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mMicropost Load (0.1ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ? ORDER BY "microposts"."created_at" DESC[0m  [["user_id", 1]]
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."created_at" DESC[0m  [["micropost_id", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 1], ["record_type", "Micropost"], ["name", "image"]]
+  [1m[36mMicropost Destroy (0.1ms)[0m  [1m[31mDELETE FROM "microposts" WHERE "microposts"."id" = ?[0m  [["id", 1]]
+  [1m[36mRelationship Load (0.1ms)[0m  [1m[34mSELECT "relationships".* FROM "relationships" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 1]]
+  [1m[36mRelationship Load (0.1ms)[0m  [1m[34mSELECT "relationships".* FROM "relationships" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 1]]
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = ? ORDER BY "comments"."created_at" DESC[0m  [["user_id", 1]]
+  [1m[36mEntry Load (0.1ms)[0m  [1m[34mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ? ORDER BY "messages"."created_at" DESC[0m  [["user_id", 1]]
+  [1m[36mSubscription Load (0.1ms)[0m  [1m[34mSELECT "subscriptions".* FROM "subscriptions" WHERE "subscriptions"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mDiary Load (0.1ms)[0m  [1m[34mSELECT "diaries".* FROM "diaries" WHERE "diaries"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "microposts"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$w1blaC3Zc7IYCsCXIMIxduESPNtjdSrvGWOU6Zn6eGHa5WzUA5W5O"], ["admin", 1], ["activation_digest", "$2a$04$948aCH7xGgTj0kJNXB3jq.uXLh6kM2ATvsJeJ6E9QhQYcSuLbdCWS"], ["activated", 1], ["activated_at", "2021-11-18 08:23:37.600718"], ["created_at", "2021-11-18 08:23:37.603331"], ["updated_at", "2021-11-18 08:23:37.603331"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMicropost Create (0.2ms)[0m  [1m[32mINSERT INTO "microposts" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Lorem ipsum"], ["user_id", 1], ["created_at", "2021-11-18 08:13:37.590185"], ["updated_at", "2021-11-18 08:23:37.691870"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mActiveStorage::Attachment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Micropost"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Micropost"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Micropost"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Micropost"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Micropost"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Micropost"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Micropost"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Micropost"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$qlo7I4qPHkwxiBNpekUbUO8WJ2fU.eAYpya6OTqKY/jzYyiqIN/na"], ["admin", 1], ["activation_digest", "$2a$04$/QlheY7lHtu4kLYaNWsv3./CYxGO0E6g77mmapFmAyu8cE2xrDhG."], ["activated", 1], ["activated_at", "2021-11-18 08:23:37.712104"], ["created_at", "2021-11-18 08:23:37.713198"], ["updated_at", "2021-11-18 08:23:37.713198"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMicropost Create (0.2ms)[0m  [1m[32mINSERT INTO "microposts" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Lorem ipsum"], ["user_id", 1], ["created_at", "2021-11-18 08:13:37.710525"], ["updated_at", "2021-11-18 08:23:37.717405"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mActiveStorage::Attachment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Micropost"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Micropost"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Micropost"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Micropost"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$n89/aAgBTqSGYnw0qNhizOXbT8rlof1RCiN/JTNXCBb7.lx9P8Xc6"], ["admin", 1], ["activation_digest", "$2a$04$VBdaQHALz7tCctJ../ExbuECy7IDP9vMxXEXltFuXD6FOIavMBBCS"], ["activated", 1], ["activated_at", "2021-11-18 08:23:37.724390"], ["created_at", "2021-11-18 08:23:37.725625"], ["updated_at", "2021-11-18 08:23:37.725625"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMicropost Create (0.2ms)[0m  [1m[32mINSERT INTO "microposts" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Lorem ipsum"], ["user_id", 1], ["created_at", "2021-11-18 08:13:37.722924"], ["updated_at", "2021-11-18 08:23:37.729466"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mActiveStorage::Attachment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Micropost"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Micropost"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Micropost"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Micropost"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$36069eWaJBprvnU2QbjFJeGm99MquwfxsA6X3JCsvCr7rM.ccU8/q"], ["admin", 1], ["activation_digest", "$2a$04$7FuxDZnNjwVJ2WmjjyCOsOUlf8II4VG.pN0T52EpNu6yvLHSBC92e"], ["activated", 1], ["activated_at", "2021-11-18 08:23:37.736479"], ["created_at", "2021-11-18 08:23:37.737460"], ["updated_at", "2021-11-18 08:23:37.737460"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMicropost Create (0.2ms)[0m  [1m[32mINSERT INTO "microposts" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Lorem ipsum"], ["user_id", 1], ["created_at", "2021-11-18 08:13:37.735001"], ["updated_at", "2021-11-18 08:23:37.741531"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mActiveStorage::Attachment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Micropost"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Micropost"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Micropost"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Micropost"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "bob@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 2], ["name", "Bob"], ["email", "bob@example.com"], ["password_digest", "$2a$04$mh4CcncbBtc40zbium.cnekCpqxpTnUqsZi.T/8VWsEsxRyRxjnRu"], ["activation_digest", "$2a$04$JfiWiNB3yuWvuOEsxxyZzeLNJ8ErdiFFO9GeSoY0koMeNb791/lqC"], ["activated", 1], ["activated_at", "2021-11-18 08:23:37.748740"], ["created_at", "2021-11-18 08:23:37.749962"], ["updated_at", "2021-11-18 08:23:37.749962"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMicropost Create (0.2ms)[0m  [1m[32mINSERT INTO "microposts" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Yesterday"], ["user_id", 2], ["created_at", "2021-11-17 08:23:37.747046"], ["updated_at", "2021-11-18 08:23:37.753747"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$3hVViqiNgjfPHdomIWLaReJdMSo7fhJ1rRL78YcgBWdFdPtLm/a62"], ["admin", 1], ["activation_digest", "$2a$04$kraph51DXY8/eYIoKL8hUu8JZG.6iyUoW7CN8vZbvzkLngHc9eX9q"], ["activated", 1], ["activated_at", "2021-11-18 08:23:37.756927"], ["created_at", "2021-11-18 08:23:37.757801"], ["updated_at", "2021-11-18 08:23:37.757801"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMicropost Create (0.1ms)[0m  [1m[32mINSERT INTO "microposts" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Now"], ["user_id", 1], ["created_at", "2021-11-18 08:23:37.755469"], ["updated_at", "2021-11-18 08:23:37.761676"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mMicropost Load (0.2ms)[0m  [1m[34mSELECT "microposts".* FROM "microposts" ORDER BY "microposts"."created_at" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$RxesrqcEHb6M/IqFm9MsA.kcotSyMyWm2HhIJVCfthzKv5GI8vu6."], ["admin", 1], ["activation_digest", "$2a$04$R15UkOvBdRf42WfvBKemQOQ5048L9ukLXmi7k5aRzI8yBTuY/Mp8m"], ["activated", 1], ["activated_at", "2021-11-18 08:23:37.766659"], ["created_at", "2021-11-18 08:23:37.767643"], ["updated_at", "2021-11-18 08:23:37.767643"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMicropost Create (0.2ms)[0m  [1m[32mINSERT INTO "microposts" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Lorem ipsum"], ["user_id", 1], ["created_at", "2021-11-18 08:13:37.764985"], ["updated_at", "2021-11-18 08:23:37.771468"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mLike Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "likes" WHERE "likes"."micropost_id" = ? AND "likes"."user_id" = ? LIMIT ?[0m  [["micropost_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mLike Create (0.2ms)[0m  [1m[32mINSERT INTO "likes" ("user_id", "micropost_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["micropost_id", 1], ["created_at", "2021-11-18 08:23:37.781284"], ["updated_at", "2021-11-18 08:23:37.781284"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLike Load (0.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 1]]
+  [1m[36mLike Destroy (0.1ms)[0m  [1m[31mDELETE FROM "likes" WHERE "likes"."id" = ?[0m  [["id", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."created_at" DESC[0m  [["micropost_id", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 1], ["record_type", "Micropost"], ["name", "image"]]
+  [1m[36mMicropost Destroy (0.1ms)[0m  [1m[31mDELETE FROM "microposts" WHERE "microposts"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "alice@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("id", "name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id", 1], ["name", "Alice"], ["email", "alice@example.com"], ["password_digest", "$2a$04$.Ulm8q8mw0m5uo.03ud7fOZBCvzHtlhNVi.LaN.coooVlhckvWAwG"], ["admin", 1], ["activation_digest", "$2a$04$0yp9n93Ewtoqbq./tik9g.Liug298EaULu5gFIEqSjiM6wp3o2qz2"], ["activated", 1], ["activated_at", "2021-11-18 08:23:37.794873"], ["created_at", "2021-11-18 08:23:37.795867"], ["updated_at", "2021-11-18 08:23:37.795867"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mMicropost Create (0.2ms)[0m  [1m[32mINSERT INTO "microposts" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Lorem ipsum"], ["user_id", 1], ["created_at", "2021-11-18 08:13:37.793326"], ["updated_at", "2021-11-18 08:23:37.799817"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "micropost_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Lorem ipsum"], ["user_id", 1], ["micropost_id", 1], ["created_at", "2021-11-18 08:23:37.807899"], ["updated_at", "2021-11-18 08:23:37.807899"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mLike Load (0.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."micropost_id" = ?[0m  [["micropost_id", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."micropost_id" = ? ORDER BY "comments"."created_at" DESC[0m  [["micropost_id", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 1], ["record_type", "Comment"], ["name", "image"]]
+  [1m[36mComment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ?[0m  [["record_id", 1], ["record_type", "Micropost"], ["name", "image"]]
+  [1m[36mMicropost Destroy (0.1ms)[0m  [1m[31mDELETE FROM "microposts" WHERE "microposts"."id" = ?[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test1@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "1君"], ["email", "test1@example.com"], ["password_digest", "$2a$04$24vhRQ7vSdNTe1GRoJhUK.lGrPh78R0SWBQvQ7E6Tns1bWQWmvXKy"], ["admin", 1], ["activation_digest", "$2a$04$ebWZiIcuyoOZFPQbyEv9e.QPNR58ke/7V/fPi7euQgJVZ.5mtHBqO"], ["activated", 1], ["activated_at", "2021-11-18 08:31:43.054478"], ["created_at", "2021-11-18 08:31:43.056775"], ["updated_at", "2021-11-18 08:31:43.056775"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "2君"], ["email", "test2@example.com"], ["password_digest", "$2a$04$.TOofbfRVloW1yiPktxrd.D6/62eNBlaLk85z8Vv1oe2mnZrAUHhG"], ["admin", 1], ["activation_digest", "$2a$04$b4bxo91oibxd.RATspsbwOTCSvF5BqEUt0t6Aw.5bReRWR8vqL/6W"], ["activated", 1], ["activated_at", "2021-11-18 08:31:43.061770"], ["created_at", "2021-11-18 08:31:43.062789"], ["updated_at", "2021-11-18 08:31:43.062789"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test3@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "3君"], ["email", "test3@example.com"], ["password_digest", "$2a$04$EF7Dm4q5tyC1p67.gZ6yyeiJiv7Ji.0elDkaWa9PYOPo5p.5gC/ty"], ["admin", 1], ["activation_digest", "$2a$04$rYoF9X3iMhgzN8wRpmCF2Oq5a.8Wnt4lONfBQCNkGlLcuYGsZ85Am"], ["activated", 1], ["activated_at", "2021-11-18 08:31:43.159400"], ["created_at", "2021-11-18 08:31:43.161036"], ["updated_at", "2021-11-18 08:31:43.161036"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test4@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "4君"], ["email", "test4@example.com"], ["password_digest", "$2a$04$2yLYQuDyeJfwhQ5SNme6vuPfdIDmzUvkEOEIOFGc5G8INC/XSHywe"], ["admin", 1], ["activation_digest", "$2a$04$H4/w/2hPjCKbKXovyezo2uzhRzNvnq6HZ5KJ65TyhNZ9n94PfJkB2"], ["activated", 1], ["activated_at", "2021-11-18 08:31:43.165738"], ["created_at", "2021-11-18 08:31:43.166983"], ["updated_at", "2021-11-18 08:31:43.166983"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test5@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "5君"], ["email", "test5@example.com"], ["password_digest", "$2a$04$k.CIzMLQYbHbxYI.k50hLOZNiZPOwZUWFxgimRq0oD4glpI546Yee"], ["admin", 1], ["activation_digest", "$2a$04$HQ7vijUVVLIMk6Sn2yMAgeVINAqC86kYw9BUOJLeOTIfDNNC.jkQS"], ["activated", 1], ["activated_at", "2021-11-18 08:31:43.172565"], ["created_at", "2021-11-18 08:31:43.173768"], ["updated_at", "2021-11-18 08:31:43.173768"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test6@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "6君"], ["email", "test6@example.com"], ["password_digest", "$2a$04$2fSXdhizPS6hAlucNAF7.Oic20fQsR4268fZLaQ536mCDCRjc6Y7G"], ["admin", 1], ["activation_digest", "$2a$04$o/xf9R5ryLfI9NTRNSoByOEjpin5ATlG/m61FzuMfIXQrztI9lMda"], ["activated", 1], ["activated_at", "2021-11-18 08:31:43.178191"], ["created_at", "2021-11-18 08:31:43.179317"], ["updated_at", "2021-11-18 08:31:43.179317"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test1@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "1君"], ["email", "test1@example.com"], ["password_digest", "$2a$04$OTi391gyyN0OYqhV58Cy1eiQPgOZpzPnFlIyhhqWK0NJ2ZLS0i4GW"], ["admin", 1], ["activation_digest", "$2a$04$ONI5ZoEbty6rKbqRcU2dze0i.QIDvsL2B/U1XztLSOKhfwXYGqN/u"], ["activated", 1], ["activated_at", "2021-11-18 08:32:12.316490"], ["created_at", "2021-11-18 08:32:12.318604"], ["updated_at", "2021-11-18 08:32:12.318604"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "2君"], ["email", "test2@example.com"], ["password_digest", "$2a$04$dJbPiwfaPvZ0Ijzp6NAgWO34qwEtyfuuO6i/TA6KfWoemqxYoV1G6"], ["admin", 1], ["activation_digest", "$2a$04$sarmPOLD/FDWbmXdFMYYGuZpgCqtG7WQpyGx99C0A29/MESoTxBy."], ["activated", 1], ["activated_at", "2021-11-18 08:32:12.323265"], ["created_at", "2021-11-18 08:32:12.324454"], ["updated_at", "2021-11-18 08:32:12.324454"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRelationship Create (0.2ms)[0m  [1m[32mINSERT INTO "relationships" ("follower_id", "followed_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["follower_id", 1], ["followed_id", 2], ["created_at", "2021-11-18 08:32:12.419906"], ["updated_at", "2021-11-18 08:32:12.419906"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRelationship Load (0.1ms)[0m  [1m[34mSELECT "relationships".* FROM "relationships" ORDER BY "relationships"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test3@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "3君"], ["email", "test3@example.com"], ["password_digest", "$2a$04$tQ8I4b4Hh9kY6aAUPtE0nuRXpjmGfAYPCNJN1HTkOxF7KasSMJTBC"], ["admin", 1], ["activation_digest", "$2a$04$zQvRGptvVQe1.73d1CiwxuWvvd8VK3hMlGqZ19f.0Vbx96fbqP5lC"], ["activated", 1], ["activated_at", "2021-11-18 08:32:12.436549"], ["created_at", "2021-11-18 08:32:12.437813"], ["updated_at", "2021-11-18 08:32:12.437813"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test4@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "4君"], ["email", "test4@example.com"], ["password_digest", "$2a$04$UeJbOa2sjjzMZiJJhBjaueb6V8L8dV8WaY359o/TmBuYh9n7Td8ZG"], ["admin", 1], ["activation_digest", "$2a$04$RWS9B2COLqId3lhiofn2Meonfs3EyQleYVx2gvd1Y1XovoYK88cbS"], ["activated", 1], ["activated_at", "2021-11-18 08:32:12.442086"], ["created_at", "2021-11-18 08:32:12.443393"], ["updated_at", "2021-11-18 08:32:12.443393"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRelationship Create (0.2ms)[0m  [1m[32mINSERT INTO "relationships" ("follower_id", "followed_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["follower_id", 1], ["followed_id", 2], ["created_at", "2021-11-18 08:32:12.448003"], ["updated_at", "2021-11-18 08:32:12.448003"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRelationship Load (0.3ms)[0m  [1m[34mSELECT "relationships".* FROM "relationships" ORDER BY "relationships"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test5@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "5君"], ["email", "test5@example.com"], ["password_digest", "$2a$04$zucHeq5dKYQJ/PHIBSMEmOr8wQln2Fnr4hEsWjOB/F1tA98KUkgt."], ["admin", 1], ["activation_digest", "$2a$04$V6vTdI9HlTrMfBw3mXLlF.t6njH99l1uRpgJMzrgNXcK6KO6A7zEG"], ["activated", 1], ["activated_at", "2021-11-18 08:32:12.452615"], ["created_at", "2021-11-18 08:32:12.453725"], ["updated_at", "2021-11-18 08:32:12.453725"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test6@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "6君"], ["email", "test6@example.com"], ["password_digest", "$2a$04$.qX1he0HmwyZe5qkbdQuJ.EWZGxWEd.hSrISs4FvMMtyAzhYKhiYG"], ["admin", 1], ["activation_digest", "$2a$04$agvh.HCaHmZ6AkX2KCuaYu2YLiz8TT2G.Fh5g1ausl8yPs4Bw4H3y"], ["activated", 1], ["activated_at", "2021-11-18 08:32:12.458097"], ["created_at", "2021-11-18 08:32:12.459040"], ["updated_at", "2021-11-18 08:32:12.459040"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRelationship Create (0.2ms)[0m  [1m[32mINSERT INTO "relationships" ("follower_id", "followed_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["follower_id", 1], ["followed_id", 2], ["created_at", "2021-11-18 08:32:12.463409"], ["updated_at", "2021-11-18 08:32:12.463409"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRelationship Load (0.1ms)[0m  [1m[34mSELECT "relationships".* FROM "relationships" ORDER BY "relationships"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test1@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "1君"], ["email", "test1@example.com"], ["password_digest", "$2a$04$Y2p4ny07va6HjRVhUIZ2QOKb/JHId.zVfz2jv/pQiQT6JVlRMW.vW"], ["admin", 1], ["activation_digest", "$2a$04$tlN9W2lN/cqixzcwjZvAou1JV5psATi0f/fesqcO/oQUcCnhP.qfm"], ["activated", 1], ["activated_at", "2021-11-18 08:37:24.417571"], ["created_at", "2021-11-18 08:37:24.419784"], ["updated_at", "2021-11-18 08:37:24.419784"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "2君"], ["email", "test2@example.com"], ["password_digest", "$2a$04$zTO4Y6NbbtIyF/3QmnAydOJBkTE6v/TJ2MorXqTsOTZN/HpL5MV/W"], ["admin", 1], ["activation_digest", "$2a$04$/hNX1jxkZDtM.twXF6trieqsD0z5ilCG/NcjGNdUuXDAwjRYjDzJW"], ["activated", 1], ["activated_at", "2021-11-18 08:37:24.426611"], ["created_at", "2021-11-18 08:37:24.427640"], ["updated_at", "2021-11-18 08:37:24.427640"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRelationship Create (0.3ms)[0m  [1m[32mINSERT INTO "relationships" ("follower_id", "followed_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["follower_id", 1], ["followed_id", 2], ["created_at", "2021-11-18 08:37:24.519270"], ["updated_at", "2021-11-18 08:37:24.519270"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test3@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "3君"], ["email", "test3@example.com"], ["password_digest", "$2a$04$Wqc/CvG8..2AQBW7T1O.JuIKrLLIf74Ozj/iOCHJoCnOogPouadgi"], ["admin", 1], ["activation_digest", "$2a$04$J5UAlSNlqMbYu7PuA4CP5eT4JY1JmS7lo6GYnq0QgjkhWfwYxQCVm"], ["activated", 1], ["activated_at", "2021-11-18 08:37:24.534257"], ["created_at", "2021-11-18 08:37:24.535586"], ["updated_at", "2021-11-18 08:37:24.535586"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test4@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "4君"], ["email", "test4@example.com"], ["password_digest", "$2a$04$yyrNpdNK/.7bdDGwWNN9MOl7DwsU.95QUNPZMZo4hVystni2QqepC"], ["admin", 1], ["activation_digest", "$2a$04$B8A4h6Y1TRvMI/7LIiW/dObgpy5thAAKMlV2ngG4v.ugPHyelV1v6"], ["activated", 1], ["activated_at", "2021-11-18 08:37:24.540160"], ["created_at", "2021-11-18 08:37:24.541109"], ["updated_at", "2021-11-18 08:37:24.541109"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRelationship Create (0.2ms)[0m  [1m[32mINSERT INTO "relationships" ("follower_id", "followed_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["follower_id", 1], ["followed_id", 2], ["created_at", "2021-11-18 08:37:24.545551"], ["updated_at", "2021-11-18 08:37:24.545551"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test5@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "5君"], ["email", "test5@example.com"], ["password_digest", "$2a$04$qDEMDA7mIB64ddukgiekoOjvwLs2nhv1YPdXDmomJTk1PNsJ9hae."], ["admin", 1], ["activation_digest", "$2a$04$cmYVdQKlqO6.IO3D2bA95.br4Bvy/99JeZidjIJ8uG64muSj4KL3i"], ["activated", 1], ["activated_at", "2021-11-18 08:37:24.549500"], ["created_at", "2021-11-18 08:37:24.550541"], ["updated_at", "2021-11-18 08:37:24.550541"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test6@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "6君"], ["email", "test6@example.com"], ["password_digest", "$2a$04$cCfQU2s825PQJ6YU6hTSeOSwJ4JhGtpKr8phwHovYtBEyVRhit2yC"], ["admin", 1], ["activation_digest", "$2a$04$wFxYfiPsPEMtvtofLvogJelbwoDv3M8Hb6GYb/3PCPENCDH5C0Y5a"], ["activated", 1], ["activated_at", "2021-11-18 08:37:24.555060"], ["created_at", "2021-11-18 08:37:24.556003"], ["updated_at", "2021-11-18 08:37:24.556003"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRelationship Create (0.2ms)[0m  [1m[32mINSERT INTO "relationships" ("follower_id", "followed_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["follower_id", 1], ["followed_id", 2], ["created_at", "2021-11-18 08:37:24.560611"], ["updated_at", "2021-11-18 08:37:24.560611"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m

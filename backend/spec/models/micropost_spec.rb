@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Micropost, type: :model do
   let(:micropost) { FactoryBot.create(:micropost) }
-  let(:user) { FactoryBot.create(:alice) }
-  let(:other_user) { FactoryBot.create(:bob) }
+  # let(:user) { FactoryBot.create(:user) }
+  # let(:other_user) { FactoryBot.create(:user) }
 
   it '投稿が存在している確認' do
     micropost.valid?
