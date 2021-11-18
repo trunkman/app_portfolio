@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-
   factory :message do
     sequence(:content) { |n| "#{n} Lorem ipsum" }
     created_at { 10.minutes.ago }
@@ -22,5 +21,4 @@ FactoryBot.define do
     association :user, factory: :bob
     association :room, factory: :room_yesterday
   end
-
 end

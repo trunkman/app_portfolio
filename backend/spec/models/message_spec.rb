@@ -34,5 +34,4 @@ RSpec.describe Message, type: :model do
     @message_now = FactoryBot.create(:message_now)
     expect(@message_now).to eq Message.first
   end
-
 end

@@ -7,6 +7,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import TextField from '@mui/material/TextField';
+import MobileDatePicker from '@mui/lab/MobileDatePicker';
 
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -26,9 +27,16 @@ export const RecordDialog = ({
   const tabChange = (event, newValue) => {
     recordDispatch({
       type: 'feeling',
-      payload: newValue
-    })
-  };
+      payload: newValue,
+    });
+  }
+
+  const dateChange = (date) => {
+    recordDispatch({
+      type: 'feeling',
+      payload: date,
+    });
+  }
 
   const handleSubmit = () => {
     postDiary({
@@ -67,6 +75,14 @@ export const RecordDialog = ({
           })}
           value={recordState.date}
           required
+        />
+
+        <MobileDatePicker
+          label="Date mobile"
+          inputFormat="yyyy/MM/dd"
+          value={recordState.date}
+          onChange={dateChange}
+          renderInput={(params) => <TextField {...params} />}
         />
 
         <TextField

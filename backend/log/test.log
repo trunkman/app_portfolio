@@ -17616,3 +17616,335 @@ FOREIGN KEY ("user_id")
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
   [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT "messages".* FROM "messages" ORDER BY "messages"."created_at" DESC LIMIT ?[0m  [["LIMIT", 1]]
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test1@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "1君"], ["email", "test1@example.com"], ["password_digest", "$2a$04$PPrLeMLEU4n.8k6ITjyZku6cFe803dKrz5dVpjDUd1elWF.hlQKnK"], ["admin", 1], ["activation_digest", "$2a$04$ANLEg9vLXLY6GvKZKS37MuQrH0Yqvwo9vfSfyFjcgA5KZbOSjPk2S"], ["activated", 1], ["activated_at", "2021-11-18 12:37:47.042275"], ["created_at", "2021-11-18 12:37:47.085339"], ["updated_at", "2021-11-18 12:37:47.085339"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Create (0.2ms)[0m  [1m[32mINSERT INTO "diaries" ("user_id", "sleeping_hours", "feeling", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["sleeping_hours", 7], ["feeling", "good"], ["date", "2021/11/01"], ["created_at", "2021-11-18 12:37:47.095266"], ["updated_at", "2021-11-18 12:37:47.095266"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."id" != ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "2君"], ["email", "test2@example.com"], ["password_digest", "$2a$04$QXsDi6NzoBBQYM6LgvN84.Jtalz/S9EojbniHZmU.P5/pgLx0isES"], ["admin", 1], ["activation_digest", "$2a$04$kZ/XL/kjGlVRcQHVbiD.Buywvq9Af9e3ayvX6bNOrQ.VJZy9UpkCa"], ["activated", 1], ["activated_at", "2021-11-18 12:37:47.113476"], ["created_at", "2021-11-18 12:37:47.114617"], ["updated_at", "2021-11-18 12:37:47.114617"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Create (0.2ms)[0m  [1m[32mINSERT INTO "diaries" ("user_id", "sleeping_hours", "feeling", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["sleeping_hours", 7], ["feeling", "good"], ["date", "2021/11/01"], ["created_at", "2021-11-18 12:37:47.118477"], ["updated_at", "2021-11-18 12:37:47.118477"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."id" != ? AND "diaries"."user_id" IS NULL LIMIT ?[0m  [["date", "2021/11/01"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test3@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "3君"], ["email", "test3@example.com"], ["password_digest", "$2a$04$4xVxewzFBkEf.clYoOmYruVIpIg693Eq2aQGDMtIQiRPctD1gzvUq"], ["admin", 1], ["activation_digest", "$2a$04$dRu.JCMRfRpYgqeZAVa7Ce.wmLWbq3dlUIGN8.JUsZQBYYzPXjK/2"], ["activated", 1], ["activated_at", "2021-11-18 12:37:47.122844"], ["created_at", "2021-11-18 12:37:47.124187"], ["updated_at", "2021-11-18 12:37:47.124187"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Create (0.2ms)[0m  [1m[32mINSERT INTO "diaries" ("user_id", "sleeping_hours", "feeling", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["sleeping_hours", 7], ["feeling", "good"], ["date", "2021/11/01"], ["created_at", "2021-11-18 12:37:47.127822"], ["updated_at", "2021-11-18 12:37:47.127822"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" IS NULL AND "diaries"."id" != ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test4@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "4君"], ["email", "test4@example.com"], ["password_digest", "$2a$04$puHhYYk3k6LMiutNL9gxWeciB1qmeBnPueV6t2GczfvaCe6EUsKkW"], ["admin", 1], ["activation_digest", "$2a$04$zbN7ZupKPqsfDZnv.RHdnOnXdd5P7pkykglA8Vcdkhd.urLVC16lG"], ["activated", 1], ["activated_at", "2021-11-18 12:37:47.132486"], ["created_at", "2021-11-18 12:37:47.133525"], ["updated_at", "2021-11-18 12:37:47.133525"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Create (0.2ms)[0m  [1m[32mINSERT INTO "diaries" ("user_id", "sleeping_hours", "feeling", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["sleeping_hours", 7], ["feeling", "good"], ["date", "2021/11/01"], ["created_at", "2021-11-18 12:37:47.137497"], ["updated_at", "2021-11-18 12:37:47.137497"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."id" != ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "yyyy/MM/ddd"], ["id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test5@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "5君"], ["email", "test5@example.com"], ["password_digest", "$2a$04$XNLn6RkhJOGl/z.ElZWH0.bxPxvZYiSyWMXEPZlGd/CJP1UQKVx7C"], ["admin", 1], ["activation_digest", "$2a$04$RL5u2Ye5z5N3kEFb8epKte2We6RTiB277x82QdL2noyOaAXJN5z1q"], ["activated", 1], ["activated_at", "2021-11-18 12:37:47.141934"], ["created_at", "2021-11-18 12:37:47.143302"], ["updated_at", "2021-11-18 12:37:47.143302"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Create (0.2ms)[0m  [1m[32mINSERT INTO "diaries" ("user_id", "sleeping_hours", "feeling", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["sleeping_hours", 7], ["feeling", "good"], ["date", "2021/11/01"], ["created_at", "2021-11-18 12:37:47.146896"], ["updated_at", "2021-11-18 12:37:47.146896"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."id" != ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "yyyy/MM/d"], ["id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test6@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "6君"], ["email", "test6@example.com"], ["password_digest", "$2a$04$2YtnoLVM4VRQG0X5RmKBeOrDxmYDgOkMjVt1jGF0V83aYqbql3bse"], ["admin", 1], ["activation_digest", "$2a$04$1RZIrI6jQkcvg7hiEFOLQe1ZHX2BdrnAg7NLl.ez8bcNIcO578rO6"], ["activated", 1], ["activated_at", "2021-11-18 12:37:47.151579"], ["created_at", "2021-11-18 12:37:47.152618"], ["updated_at", "2021-11-18 12:37:47.152618"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Create (0.2ms)[0m  [1m[32mINSERT INTO "diaries" ("user_id", "sleeping_hours", "feeling", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["sleeping_hours", 7], ["feeling", "good"], ["date", "2021/11/01"], ["created_at", "2021-11-18 12:37:47.156227"], ["updated_at", "2021-11-18 12:37:47.156227"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."id" != ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test7@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "7君"], ["email", "test7@example.com"], ["password_digest", "$2a$04$.XQbIvPFwYpCYeZ8eAx9p.f2cQ/YP4zMQkzoL2dQ8kOoyGJE87tmi"], ["admin", 1], ["activation_digest", "$2a$04$HNkWUUDPy11We/os/jMqL.NG6UqJnYPhUOtab4Cn.gJ4h27AnD5Ja"], ["activated", 1], ["activated_at", "2021-11-18 12:37:47.160931"], ["created_at", "2021-11-18 12:37:47.161969"], ["updated_at", "2021-11-18 12:37:47.161969"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Create (0.2ms)[0m  [1m[32mINSERT INTO "diaries" ("user_id", "sleeping_hours", "feeling", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["sleeping_hours", 7], ["feeling", "good"], ["date", "2021/11/01"], ["created_at", "2021-11-18 12:37:47.165908"], ["updated_at", "2021-11-18 12:37:47.165908"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."id" != ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test8@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "8君"], ["email", "test8@example.com"], ["password_digest", "$2a$04$yanKZVyfH9C4MeFwF8.4OeLRXU0rp4PnbAuPrteGC07admIZX1uiu"], ["admin", 1], ["activation_digest", "$2a$04$Zw0ZirbV69gXfOvBlom8gu1teQBAhZFMI36ExkyrkB9Z4qdD23r6q"], ["activated", 1], ["activated_at", "2021-11-18 12:37:47.175207"], ["created_at", "2021-11-18 12:37:47.176603"], ["updated_at", "2021-11-18 12:37:47.176603"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Create (0.2ms)[0m  [1m[32mINSERT INTO "diaries" ("user_id", "sleeping_hours", "feeling", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["sleeping_hours", 7], ["feeling", "good"], ["date", "2021/11/01"], ["created_at", "2021-11-18 12:37:47.180456"], ["updated_at", "2021-11-18 12:37:47.180456"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."id" != ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test9@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "9君"], ["email", "test9@example.com"], ["password_digest", "$2a$04$NlH9xlXkZ/ZBC1RUb7unQ.Z6WQ2PCG0Yo33k4C/fOcs4DykMI.y.G"], ["admin", 1], ["activation_digest", "$2a$04$8Zx2XBpUWBirVRaJOE4lpuCUoo08h/2cvg7YFqjAeH76z9oRZ20ui"], ["activated", 1], ["activated_at", "2021-11-18 12:37:47.185357"], ["created_at", "2021-11-18 12:37:47.186390"], ["updated_at", "2021-11-18 12:37:47.186390"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Create (0.2ms)[0m  [1m[32mINSERT INTO "diaries" ("user_id", "sleeping_hours", "feeling", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["sleeping_hours", 7], ["feeling", "good"], ["date", "2021/11/01"], ["created_at", "2021-11-18 12:37:47.190210"], ["updated_at", "2021-11-18 12:37:47.190210"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."id" != ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (7.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test1@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "1君"], ["email", "test1@example.com"], ["password_digest", "$2a$04$JM0EIAIiFx4UnH4OuNFql.BuLMj0iStiO/sqgjnljLVZjgWLmICQu"], ["admin", 1], ["activation_digest", "$2a$04$3HnwMKZidSwgsR37P7eBweth.flnGwxKqdmgXll4wHFSz3neWBeGq"], ["activated", 1], ["activated_at", "2021-11-18 12:41:52.755523"], ["created_at", "2021-11-18 12:41:52.791687"], ["updated_at", "2021-11-18 12:41:52.791687"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Create (0.2ms)[0m  [1m[32mINSERT INTO "diaries" ("user_id", "sleeping_hours", "feeling", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["sleeping_hours", 7], ["feeling", "good"], ["date", "2021/11/01"], ["created_at", "2021-11-18 12:41:52.801649"], ["updated_at", "2021-11-18 12:41:52.801649"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."id" != ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "2君"], ["email", "test2@example.com"], ["password_digest", "$2a$04$HRbp6p7vE3Sziuaz2cnJjOU6oiDaWxuyjLkD3DJkpPW3L/CkuVOw."], ["admin", 1], ["activation_digest", "$2a$04$YPt.UlyFllFtJEjQVhftxORtn2puNEvHK9vJ4KPRvDAbgR2bTvqaa"], ["activated", 1], ["activated_at", "2021-11-18 12:41:52.819212"], ["created_at", "2021-11-18 12:41:52.820497"], ["updated_at", "2021-11-18 12:41:52.820497"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Create (0.2ms)[0m  [1m[32mINSERT INTO "diaries" ("user_id", "sleeping_hours", "feeling", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["sleeping_hours", 7], ["feeling", "good"], ["date", "2021/11/01"], ["created_at", "2021-11-18 12:41:52.824487"], ["updated_at", "2021-11-18 12:41:52.824487"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."id" != ? AND "diaries"."user_id" IS NULL LIMIT ?[0m  [["date", "2021/11/01"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test3@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "3君"], ["email", "test3@example.com"], ["password_digest", "$2a$04$jRaLCS.HYfw8MqFr5044rOpAIAppWhfffC1UwpA6..9AeeUXb.mBS"], ["admin", 1], ["activation_digest", "$2a$04$7FpO1bN9NS3UFj7sSQpiXOpjSOS.oCjlqTLp/sVfr2wBAy90k4fMi"], ["activated", 1], ["activated_at", "2021-11-18 12:41:52.830122"], ["created_at", "2021-11-18 12:41:52.831206"], ["updated_at", "2021-11-18 12:41:52.831206"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Create (0.2ms)[0m  [1m[32mINSERT INTO "diaries" ("user_id", "sleeping_hours", "feeling", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["sleeping_hours", 7], ["feeling", "good"], ["date", "2021/11/01"], ["created_at", "2021-11-18 12:41:52.835127"], ["updated_at", "2021-11-18 12:41:52.835127"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" IS NULL AND "diaries"."id" != ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test4@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "4君"], ["email", "test4@example.com"], ["password_digest", "$2a$04$Ahl1ssY.RNDeL991MFJSAOzSQV3icx/E1HLzIcxrh6iuzYLCRs/32"], ["admin", 1], ["activation_digest", "$2a$04$cEBtB0VkVIuaZiHuyEiXcea4yubgu/lTT1zXR5GCbxA1YbNNMy2JC"], ["activated", 1], ["activated_at", "2021-11-18 12:41:52.839343"], ["created_at", "2021-11-18 12:41:52.840679"], ["updated_at", "2021-11-18 12:41:52.840679"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Create (0.2ms)[0m  [1m[32mINSERT INTO "diaries" ("user_id", "sleeping_hours", "feeling", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["sleeping_hours", 7], ["feeling", "good"], ["date", "2021/11/01"], ["created_at", "2021-11-18 12:41:52.844275"], ["updated_at", "2021-11-18 12:41:52.844275"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."id" != ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "yyyy/MM/ddd"], ["id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test5@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "5君"], ["email", "test5@example.com"], ["password_digest", "$2a$04$UP9Q25mF2KWLhUenDmnbYuzYo40JdTqaBlF1b5Aa6W8CHGo4oCpAO"], ["admin", 1], ["activation_digest", "$2a$04$sOmeMkBHPlLjngrrL6esuuYUgSNcNf1lvb2yYjDEViL7m6OAGbqaC"], ["activated", 1], ["activated_at", "2021-11-18 12:41:52.848902"], ["created_at", "2021-11-18 12:41:52.849911"], ["updated_at", "2021-11-18 12:41:52.849911"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Create (0.2ms)[0m  [1m[32mINSERT INTO "diaries" ("user_id", "sleeping_hours", "feeling", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["sleeping_hours", 7], ["feeling", "good"], ["date", "2021/11/01"], ["created_at", "2021-11-18 12:41:52.853521"], ["updated_at", "2021-11-18 12:41:52.853521"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."id" != ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "yyyy/MM/d"], ["id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test6@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "6君"], ["email", "test6@example.com"], ["password_digest", "$2a$04$nHxq67J8eGWPCT9b6q.y0.Y14H6xQnZXlB2MWTIeuAeh0sBzV9UP."], ["admin", 1], ["activation_digest", "$2a$04$DRUor//ffX.vz2LDy.ijA.c6XXNtMkvXsEmIWDCl8YNjqnbjtYLe."], ["activated", 1], ["activated_at", "2021-11-18 12:41:52.858050"], ["created_at", "2021-11-18 12:41:52.859089"], ["updated_at", "2021-11-18 12:41:52.859089"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Create (0.2ms)[0m  [1m[32mINSERT INTO "diaries" ("user_id", "sleeping_hours", "feeling", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["sleeping_hours", 7], ["feeling", "good"], ["date", "2021/11/01"], ["created_at", "2021-11-18 12:41:52.862978"], ["updated_at", "2021-11-18 12:41:52.862978"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."id" != ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test7@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "7君"], ["email", "test7@example.com"], ["password_digest", "$2a$04$wV0QXs.oXID6Qo2g059NheInkaXqO1JkyOsjjxNo0P4kTqjdfY/Fu"], ["admin", 1], ["activation_digest", "$2a$04$sZQTG.oOkXi819E4eHQO/usFk.4KkqcHc56t7ZwPjBgN4xZeoi2yW"], ["activated", 1], ["activated_at", "2021-11-18 12:41:52.867547"], ["created_at", "2021-11-18 12:41:52.868589"], ["updated_at", "2021-11-18 12:41:52.868589"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Create (0.2ms)[0m  [1m[32mINSERT INTO "diaries" ("user_id", "sleeping_hours", "feeling", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["sleeping_hours", 7], ["feeling", "good"], ["date", "2021/11/01"], ["created_at", "2021-11-18 12:41:52.872168"], ["updated_at", "2021-11-18 12:41:52.872168"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."id" != ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test8@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "8君"], ["email", "test8@example.com"], ["password_digest", "$2a$04$aOigW0C7MhsiiI7yfqSFNuA4QzZE..Ra.cOwTmLywnzw90qPDCO/G"], ["admin", 1], ["activation_digest", "$2a$04$zS0IigbN6unVayg2uNaef./q3pH/fZ81osFtVwFN2vtyjycAA1pbi"], ["activated", 1], ["activated_at", "2021-11-18 12:41:52.881284"], ["created_at", "2021-11-18 12:41:52.882295"], ["updated_at", "2021-11-18 12:41:52.882295"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Create (0.2ms)[0m  [1m[32mINSERT INTO "diaries" ("user_id", "sleeping_hours", "feeling", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["sleeping_hours", 7], ["feeling", "good"], ["date", "2021/11/01"], ["created_at", "2021-11-18 12:41:52.886126"], ["updated_at", "2021-11-18 12:41:52.886126"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."id" != ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test9@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "9君"], ["email", "test9@example.com"], ["password_digest", "$2a$04$xS0dyBLLK4UM46p2Q6jxh.mfI140u1WPBqt/DlNI4v.pkbflH9dD2"], ["admin", 1], ["activation_digest", "$2a$04$WbQ.dzI41Dl9h0uZ2XDlBeUlEzRugKhmXJF/KpzZHesrJVKRLar16"], ["activated", 1], ["activated_at", "2021-11-18 12:41:52.890416"], ["created_at", "2021-11-18 12:41:52.891736"], ["updated_at", "2021-11-18 12:41:52.891736"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Create (0.2ms)[0m  [1m[32mINSERT INTO "diaries" ("user_id", "sleeping_hours", "feeling", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["sleeping_hours", 7], ["feeling", "good"], ["date", "2021/11/01"], ["created_at", "2021-11-18 12:41:52.895356"], ["updated_at", "2021-11-18 12:41:52.895356"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."id" != ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test1@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "1君"], ["email", "test1@example.com"], ["password_digest", "$2a$04$AN.Y/L0Y4hXGRfvj1TVNqepKatvyxFhVR.WDOxp0c8KZEiy/D1YB2"], ["admin", 1], ["activation_digest", "$2a$04$xRXUh9oDIe0PJ9Q7LbHWyu6BpQCL2JRcnmbrkI7ZwVyfaicHSmGWm"], ["activated", 1], ["activated_at", "2021-11-18 12:47:10.428482"], ["created_at", "2021-11-18 12:47:10.469423"], ["updated_at", "2021-11-18 12:47:10.469423"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Create (0.4ms)[0m  [1m[32mINSERT INTO "diaries" ("user_id", "sleeping_hours", "feeling", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["sleeping_hours", 7], ["feeling", "good"], ["date", "2021/11/01"], ["created_at", "2021-11-18 12:47:10.488636"], ["updated_at", "2021-11-18 12:47:10.488636"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."id" != ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "2君"], ["email", "test2@example.com"], ["password_digest", "$2a$04$rRFvHCcDSL.rXPLuH6pm/uCCqIhyHlRs6/xfLhEVx5fkFdvYsd38."], ["admin", 1], ["activation_digest", "$2a$04$dzo04DPE1BB0Y3GrwdZfVOOfPqdrYlro8r0F.JD8Qq8RK0HwCLQHS"], ["activated", 1], ["activated_at", "2021-11-18 12:47:10.504225"], ["created_at", "2021-11-18 12:47:10.505390"], ["updated_at", "2021-11-18 12:47:10.505390"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Create (0.2ms)[0m  [1m[32mINSERT INTO "diaries" ("user_id", "sleeping_hours", "feeling", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["sleeping_hours", 7], ["feeling", "good"], ["date", "2021/11/01"], ["created_at", "2021-11-18 12:47:10.509473"], ["updated_at", "2021-11-18 12:47:10.509473"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."id" != ? AND "diaries"."user_id" IS NULL LIMIT ?[0m  [["date", "2021/11/01"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test3@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "3君"], ["email", "test3@example.com"], ["password_digest", "$2a$04$JqUNXM4Lv600BksHx3o9BebSFbgFQmv8UqbaEVotb.limPEelXMqe"], ["admin", 1], ["activation_digest", "$2a$04$GKwrN8EcHUcJ09JuabWbM.h2wI2B58sf9CRdrAkBNHTwkE3gT1wHa"], ["activated", 1], ["activated_at", "2021-11-18 12:47:10.514295"], ["created_at", "2021-11-18 12:47:10.515579"], ["updated_at", "2021-11-18 12:47:10.515579"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Create (0.2ms)[0m  [1m[32mINSERT INTO "diaries" ("user_id", "sleeping_hours", "feeling", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["sleeping_hours", 7], ["feeling", "good"], ["date", "2021/11/01"], ["created_at", "2021-11-18 12:47:10.519339"], ["updated_at", "2021-11-18 12:47:10.519339"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" IS NULL AND "diaries"."id" != ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test4@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "4君"], ["email", "test4@example.com"], ["password_digest", "$2a$04$U4xCfsC9qjYLpEymaCL/tOmoAr3gEMz93WrVcMME15hMU3OyDkgG6"], ["admin", 1], ["activation_digest", "$2a$04$To2rTMqy0PQMjKIncajW4ugJG4CtGYuhe64yyx4d6nX8537B6hFue"], ["activated", 1], ["activated_at", "2021-11-18 12:47:10.524147"], ["created_at", "2021-11-18 12:47:10.525207"], ["updated_at", "2021-11-18 12:47:10.525207"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Create (0.2ms)[0m  [1m[32mINSERT INTO "diaries" ("user_id", "sleeping_hours", "feeling", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["sleeping_hours", 7], ["feeling", "good"], ["date", "2021/11/01"], ["created_at", "2021-11-18 12:47:10.529152"], ["updated_at", "2021-11-18 12:47:10.529152"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."id" != ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "yyyy/MM/ddd"], ["id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test5@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "5君"], ["email", "test5@example.com"], ["password_digest", "$2a$04$fM/MbehoyrYzMuiiCD4dOO7TZarCHjbEHm8gnLGRR3LCcLgp1KzfK"], ["admin", 1], ["activation_digest", "$2a$04$9IJ8ATKU58vJkYO4sWW8u.w2TAK5bq5zQqa3huW7yCj0crTEhmUQO"], ["activated", 1], ["activated_at", "2021-11-18 12:47:10.533508"], ["created_at", "2021-11-18 12:47:10.534800"], ["updated_at", "2021-11-18 12:47:10.534800"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Create (0.2ms)[0m  [1m[32mINSERT INTO "diaries" ("user_id", "sleeping_hours", "feeling", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["sleeping_hours", 7], ["feeling", "good"], ["date", "2021/11/01"], ["created_at", "2021-11-18 12:47:10.538373"], ["updated_at", "2021-11-18 12:47:10.538373"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."id" != ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "yyyy/MM/d"], ["id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test6@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "6君"], ["email", "test6@example.com"], ["password_digest", "$2a$04$EKK3t4RlhByF/b8.Q/L/guqoMCmEFrW2VNsVaqnNqRvZutJVUcp2."], ["admin", 1], ["activation_digest", "$2a$04$GiZfpv354bmeo3WsNMk68e/w8VWMfgX8hRDaHQ15ndvcMg/z6lInO"], ["activated", 1], ["activated_at", "2021-11-18 12:47:10.542914"], ["created_at", "2021-11-18 12:47:10.543930"], ["updated_at", "2021-11-18 12:47:10.543930"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Create (0.2ms)[0m  [1m[32mINSERT INTO "diaries" ("user_id", "sleeping_hours", "feeling", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["sleeping_hours", 7], ["feeling", "good"], ["date", "2021/11/01"], ["created_at", "2021-11-18 12:47:10.547730"], ["updated_at", "2021-11-18 12:47:10.547730"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."id" != ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test7@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "7君"], ["email", "test7@example.com"], ["password_digest", "$2a$04$0KteZ9wIxQnYt6Sd5.KPn.WzrSH0sf340zqdA8l.B4a38OsNVCQfG"], ["admin", 1], ["activation_digest", "$2a$04$OI5hZx2nkK5mUlt5buBUTOvEh9GH61EbkhFfPenoKHwPkMjSMv0fK"], ["activated", 1], ["activated_at", "2021-11-18 12:47:10.552152"], ["created_at", "2021-11-18 12:47:10.553445"], ["updated_at", "2021-11-18 12:47:10.553445"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Create (0.2ms)[0m  [1m[32mINSERT INTO "diaries" ("user_id", "sleeping_hours", "feeling", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["sleeping_hours", 7], ["feeling", "good"], ["date", "2021/11/01"], ["created_at", "2021-11-18 12:47:10.557166"], ["updated_at", "2021-11-18 12:47:10.557166"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."id" != ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test8@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "8君"], ["email", "test8@example.com"], ["password_digest", "$2a$04$ydJ8DWmJUUqqyeqDte6VLuAzYSZFXgCELjByzsRUQ7zwrXtF.pFS."], ["admin", 1], ["activation_digest", "$2a$04$d/ibgFhx5MKIhOZEcR0wy.vAfrqMXeHpKHdSmXZ80VMBsPVF0zlfy"], ["activated", 1], ["activated_at", "2021-11-18 12:47:10.561944"], ["created_at", "2021-11-18 12:47:10.563053"], ["updated_at", "2021-11-18 12:47:10.563053"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Create (0.2ms)[0m  [1m[32mINSERT INTO "diaries" ("user_id", "sleeping_hours", "feeling", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["sleeping_hours", 7], ["feeling", "good"], ["date", "2021/11/01"], ["created_at", "2021-11-18 12:47:10.567062"], ["updated_at", "2021-11-18 12:47:10.567062"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."id" != ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDiary Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "diaries" WHERE "diaries"."date" = ? AND "diaries"."user_id" = ? LIMIT ?[0m  [["date", "2021/11/01"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
