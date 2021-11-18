@@ -6,4 +6,6 @@ class Entry < ApplicationRecord
   belongs_to :room
   # バリデーション
   validates :user_id, presence: true
+  validates :room_id, presence: true
+  validates_uniqueness_of :room_id, scope: :user_id
 end

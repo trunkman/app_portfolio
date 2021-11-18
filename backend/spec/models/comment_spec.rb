@@ -33,4 +33,5 @@ RSpec.describe Comment, type: :model do
     comment.content = 'a' * 141
     expect(comment).not_to be_valid
   end
+  
 end

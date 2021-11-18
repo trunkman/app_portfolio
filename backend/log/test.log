@@ -17214,3 +17214,104 @@ FOREIGN KEY ("user_id")
   [1m[36mRoom Create (2.1ms)[0m  [1m[32mINSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2021-11-18 09:37:17.763315"], ["updated_at", "2021-11-18 09:37:17.763823"]]
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
   [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test1@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "1君"], ["email", "test1@example.com"], ["password_digest", "$2a$04$c0EdgTz/hbZ8nzTt7.n8g.bY3AY.ruh9QVw8l7UA0UfZdJN19v6vO"], ["admin", 1], ["activation_digest", "$2a$04$hvcUn5YuZf7JfXoD.bhPFevFPKM7cy4zxoK5lyjIZ0ORmapbvTPPS"], ["activated", 1], ["activated_at", "2021-11-18 09:48:31.274062"], ["created_at", "2021-11-18 09:48:31.276690"], ["updated_at", "2021-11-18 09:48:31.276690"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRoom Create (0.2ms)[0m  [1m[32mINSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2021-11-18 09:48:31.357935"], ["updated_at", "2021-11-18 09:48:31.358366"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "2君"], ["email", "test2@example.com"], ["password_digest", "$2a$04$luJ59SwvqHI246XeR5Rkl.vIzP7nhQRa3m8UpNklbddtLX0Zx1cG6"], ["admin", 1], ["activation_digest", "$2a$04$HQPhtCzQKC4mFe29mIs0beZuo.4uk9pWBMVMdZsT97BSZIFof/4vC"], ["activated", 1], ["activated_at", "2021-11-18 09:48:31.390800"], ["created_at", "2021-11-18 09:48:31.391956"], ["updated_at", "2021-11-18 09:48:31.391956"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRoom Create (0.1ms)[0m  [1m[32mINSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2021-11-18 09:48:31.394850"], ["updated_at", "2021-11-18 09:48:31.395029"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test3@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "3君"], ["email", "test3@example.com"], ["password_digest", "$2a$04$bYhNABzAnm.sJGvyS7q6N.QyM92Hhy1Iqu9LYV0mwBK.Pq3BkArGy"], ["admin", 1], ["activation_digest", "$2a$04$ZvN0fpljeJMY5jlUmVyws.FQdXh2a078mYPT19VVsC/xS4w6G22qe"], ["activated", 1], ["activated_at", "2021-11-18 09:48:31.399834"], ["created_at", "2021-11-18 09:48:31.400850"], ["updated_at", "2021-11-18 09:48:31.400850"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRoom Create (0.1ms)[0m  [1m[32mINSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2021-11-18 09:48:31.403905"], ["updated_at", "2021-11-18 09:48:31.404078"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test4@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "4君"], ["email", "test4@example.com"], ["password_digest", "$2a$04$DJb9lMGoDHcRHOhUbYJ7eujQdRkzwJaYc7/bATCShS9/X/qbYpLXy"], ["admin", 1], ["activation_digest", "$2a$04$4tyTEHG0MHIqTznqC7.jfeCi2m/1pbSxPJ9Fb31NLi079uDocMvwu"], ["activated", 1], ["activated_at", "2021-11-18 09:48:31.407959"], ["created_at", "2021-11-18 09:48:31.409209"], ["updated_at", "2021-11-18 09:48:31.409209"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRoom Create (0.1ms)[0m  [1m[32mINSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2021-11-18 09:48:31.411950"], ["updated_at", "2021-11-18 09:48:31.412118"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEntry Create (0.2ms)[0m  [1m[32mINSERT INTO "entries" ("user_id", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["room_id", 1], ["created_at", "2021-11-18 09:48:31.414751"], ["updated_at", "2021-11-18 09:48:31.414751"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test1@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "1君"], ["email", "test1@example.com"], ["password_digest", "$2a$04$pcpQLFAY3rjwzldr1K6v.Ojh0AbHKBWCjGARvZpoLmh4IQNV3i0UC"], ["admin", 1], ["activation_digest", "$2a$04$mC/4hbeb1G3DOcpitUuQCO/CF7kWCRIu0uh4Egi1l1HoeBNdRoxNO"], ["activated", 1], ["activated_at", "2021-11-18 09:48:41.859014"], ["created_at", "2021-11-18 09:48:41.861309"], ["updated_at", "2021-11-18 09:48:41.861309"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRoom Create (0.2ms)[0m  [1m[32mINSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2021-11-18 09:48:41.935349"], ["updated_at", "2021-11-18 09:48:41.945341"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEntry Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "entries" WHERE "entries"."room_id" = ? AND "entries"."user_id" = ? LIMIT ?[0m  [["room_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test2@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "2君"], ["email", "test2@example.com"], ["password_digest", "$2a$04$pYr0Bt4qzTEQEBSpuXjJhev61J36TDQtmJGdlKPQexoUNiqb.qW0e"], ["admin", 1], ["activation_digest", "$2a$04$0bk2.okTNl8lpuCqF7YRH.bd6WIi9oxCEMT5C2lP0DZHGVm86k8kO"], ["activated", 1], ["activated_at", "2021-11-18 09:48:41.982352"], ["created_at", "2021-11-18 09:48:41.983929"], ["updated_at", "2021-11-18 09:48:41.983929"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRoom Create (0.1ms)[0m  [1m[32mINSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2021-11-18 09:48:41.986972"], ["updated_at", "2021-11-18 09:48:41.987161"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEntry Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "entries" WHERE "entries"."room_id" = ? AND "entries"."user_id" IS NULL LIMIT ?[0m  [["room_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test3@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "3君"], ["email", "test3@example.com"], ["password_digest", "$2a$04$puI2MPMjaLCrKV23e7j8OOMxJX/DuiF1pEMmClB4idOgTc73SqTqq"], ["admin", 1], ["activation_digest", "$2a$04$INXAgxyLr3wk0QDrbX5w7e.qz5.jLJf2x.753nWVCwOO4/0Xr.TMu"], ["activated", 1], ["activated_at", "2021-11-18 09:48:41.992777"], ["created_at", "2021-11-18 09:48:41.993801"], ["updated_at", "2021-11-18 09:48:41.993801"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRoom Create (0.2ms)[0m  [1m[32mINSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2021-11-18 09:48:41.996646"], ["updated_at", "2021-11-18 09:48:41.996827"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEntry Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "entries" WHERE "entries"."room_id" IS NULL AND "entries"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test4@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "admin", "activation_digest", "activated", "activated_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "4君"], ["email", "test4@example.com"], ["password_digest", "$2a$04$GGOdGeO9yY/qXX66Pl2Fv.l7Vwzjv5GscmLe9CanKqpeZP1PKgp5S"], ["admin", 1], ["activation_digest", "$2a$04$JpyJrrQ0QSTAu1X5uhd5Ne/EUpxOyacyCUnldUyoYMR4eFX7j9y/W"], ["activated", 1], ["activated_at", "2021-11-18 09:48:42.001702"], ["created_at", "2021-11-18 09:48:42.002771"], ["updated_at", "2021-11-18 09:48:42.002771"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRoom Create (0.1ms)[0m  [1m[32mINSERT INTO "rooms" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2021-11-18 09:48:42.005876"], ["updated_at", "2021-11-18 09:48:42.006056"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEntry Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "entries" WHERE "entries"."room_id" = ? AND "entries"."user_id" = ? LIMIT ?[0m  [["room_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mEntry Create (0.2ms)[0m  [1m[32mINSERT INTO "entries" ("user_id", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["room_id", 1], ["created_at", "2021-11-18 09:48:42.009176"], ["updated_at", "2021-11-18 09:48:42.009176"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEntry Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "entries" WHERE "entries"."room_id" = ? AND "entries"."user_id" = ? LIMIT ?[0m  [["room_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
