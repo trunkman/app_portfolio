@@ -43,6 +43,4 @@ RSpec.describe Micropost, type: :model do
     expect { micropost.destroy }.to change { Comment.count }.by(-1)
   end
 
-  # it 'いいねしているユーザーを取得する' do
-  # end
 end

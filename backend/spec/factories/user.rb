@@ -12,7 +12,6 @@ FactoryBot.define do
   end
 
   factory :alice, class: User do
-    id { '1' }
     name { 'Alice' }
     email { 'alice@example.com' }
     password { 'foobar' }
@@ -23,7 +22,6 @@ FactoryBot.define do
   end
 
   factory :bob, class: User do
-    id { '2' }
     name { 'Bob' }
     email { 'bob@example.com' }
     password { 'foobar' }
