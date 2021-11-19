@@ -4,8 +4,8 @@ require 'rails_helper'
 
 RSpec.describe 'microposts_api', type: :request do
   let(:micropost) { FactoryBot.create(:micropost) }
-  let(:user)       { FactoryBot.create(:alice) }
-  let(:other_user) { FactoryBot.create(:bob) }
+  let(:other_micropost) { FactoryBot.create(:other_micropost) }
+  let(:user)       { FactoryBot.create(:user) }
 
   it '未ログインユーザーは投稿できない' do
     post api_v1_microposts_path, params: { micropost: { content: 'Lorem ipsum' } }
@@ -17,9 +17,10 @@ RSpec.describe 'microposts_api', type: :request do
     expect(response.status).to eq(401)
   end
 
-  # it '他ユーザーのマイクロポストは削除できない' do
-  #   log_in_as(user)
-  #   micropost = other_user.microposts.first
-  #   expect { micropost.destroy }.to change{ other_user.microposts.count }.from(1).to(1)
-  # end
+  it '他ユーザーのマイクロポストは削除できない' do
+    log_in_as(user)
+    delete api_v1_micropost_path(other_micropost)
+    expect(response.status).to eq(403)
+  end
+
 end

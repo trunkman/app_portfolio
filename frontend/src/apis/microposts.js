@@ -8,19 +8,18 @@ export const postMicropost = (params) => {
       content: params.content,
       user_id: params.user_id,
     }
-  },
-    { withCredentials: true }
-  )
-    .then(res => {
-      if (res.data) {
-        console.log('micropost#create', res);
-        return res.data;
-      }
-    })
-    .catch(error => {
-      console.log('micropost#create', error)
-      return 'nil'
-    })
+  }, {
+    withCredentials: true
+  }).then(res => {
+    // if (res.data) 
+    {
+      console.log('micropost#create', res);
+      return res.data;
+    }
+  }).catch(error => {
+    console.log('micropost#create', error)
+    return 'nil'
+  })
 }
 
 // マイクロポストを削除するapi
@@ -36,14 +35,15 @@ export const deleteMicropost = (micropostId) => {
   })
 }
 
+// 支障がなければ削除する
 // いいねの状態を確認するapi
-export const fetchLikedMicropost = (micropostId) => {
-  return axios.get(micropostPath(micropostId), {
-    withCredentials: true
-  }).then(res => {
-    console.log('micropost#liked_micropost', res)
-    return res.data
-  }).catch(error => {
-    console.log('micropost#liked_micropost', error)
-  })
-}
+// export const fetchLikedMicropost = (micropostId) => {
+//   return axios.get(micropostPath(micropostId), {
+//     withCredentials: true
+//   }).then(res => {
+//     console.log('micropost#liked_micropost', res)
+//     return res.data
+//   }).catch(error => {
+//     console.log('micropost#liked_micropost', error)
+//   })
+// }
