@@ -7,5 +7,5 @@ class Subscription < ApplicationRecord
   # バリデーション
   validates :user_id, presence: true
   validates :book_id, presence: true
-  validates_uniqueness_of :book, scope: :user_id
+  validates_uniqueness_of :book_id, scope: :user_id
 end

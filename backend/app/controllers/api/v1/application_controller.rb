@@ -10,7 +10,10 @@ module Api
 
       # ログイン済みユーザーがどうか確認
       def logged_in_user
-        render json: { message: '未ログイン' }, status: :unauthorized unless logged_in?
+        unless logged_in?
+          render json: { message: 'ログインしていません' },
+                 status: :unauthorized
+        end
       end
     end
   end

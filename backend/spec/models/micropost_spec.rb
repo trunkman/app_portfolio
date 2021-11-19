@@ -4,8 +4,6 @@ require 'rails_helper'
 
 RSpec.describe Micropost, type: :model do
   let(:micropost) { FactoryBot.create(:micropost) }
-  # let(:user) { FactoryBot.create(:user) }
-  # let(:other_user) { FactoryBot.create(:user) }
 
   it '投稿が存在している確認' do
     micropost.valid?
@@ -42,5 +40,4 @@ RSpec.describe Micropost, type: :model do
     micropost.comments.create(user_id: 1, content: 'Lorem ipsum')
     expect { micropost.destroy }.to change { Comment.count }.by(-1)
   end
-
 end

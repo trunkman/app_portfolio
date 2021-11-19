@@ -6,14 +6,14 @@ FactoryBot.define do
     sequence(:email) { |n| "test#{n}@example.com" }
     password { 'foobar' }
     password_confirmation { 'foobar' }
-    admin { 'true' }
+    admin { 'false' }
     activated { 'true' }
     activated_at { Time.zone.now }
   end
 
-  factory :alice, class: User do
-    name { 'Alice' }
-    email { 'alice@example.com' }
+  factory :admin, class: User do
+    name { 'Admin' }
+    email { 'admin@example.com' }
     password { 'foobar' }
     password_confirmation { 'foobar' }
     admin { 'true' }
@@ -21,12 +21,12 @@ FactoryBot.define do
     activated_at { Time.zone.now }
   end
 
-  factory :bob, class: User do
-    name { 'Bob' }
-    email { 'bob@example.com' }
-    password { 'foobar' }
-    password_confirmation { 'foobar' }
-    activated { 'true' }
-    activated_at { Time.zone.now }
-  end
+  # factory :bob, class: User do
+  #   name { 'Bob' }
+  #   email { 'bob@example.com' }
+  #   password { 'foobar' }
+  #   password_confirmation { 'foobar' }
+  #   activated { 'true' }
+  #   activated_at { Time.zone.now }
+  # end
 end

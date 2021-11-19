@@ -5,6 +5,10 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   let(:user) { FactoryBot.create(:user) }
   let(:other_user) { FactoryBot.create(:user) }
+  let(:micropost) { FactoryBot.create(:micropost) }
+  let(:room) { FactoryBot.create(:room) }
+  let(:diary) { FactoryBot.create(:diary) }
+  let(:book) { FactoryBot.create(:book) }
 
   it 'ユーザーが存在している確認' do
     user.valid?
@@ -81,8 +85,36 @@ RSpec.describe User, type: :model do
     expect { user.destroy }.to change { Micropost.count }.by(-1)
   end
 
-  # it 'ユーザー削除に紐づいてフォローも解除される' do
-  #   user.microposts.create(content: 'Lorem ipsum')
-  #   expect { user.destroy }.to change { Micropost.count }.by(-1)
-  # end
+  it 'ユーザー削除に紐づいてコメントも削除される' do
+    user.comments.create(micropost_id: 1,
+                         content: 'Lorem ipsum')
+    expect { user.destroy }.to change { Comment.count }.by(-1)
+  end
+
+  it 'ユーザー削除に紐づいていいねも削除される' do
+    user.likes.create(micropost_id: micropost.id)
+    expect { user.destroy }.to change { Like.count }.by(-1)
+  end
+
+  it 'ユーザー削除に紐づいてフォローも解除される' do
+    user.active_relationships.create(followed_id: other_user.id)
+    expect { user.destroy }.to change { Relationship.count }.by(-1)
+  end
+
+  it 'ユーザー削除に紐づいてEntry(トークルームとの紐付け)も削除される' do
+    user.entries.create(room_id: room.id)
+    expect { user.destroy }.to change { Entry.count }.by(-1)
+  end
+
+  it 'ユーザー削除に紐づいて日記も削除される' do
+    user.diaries.create(date: diary.date,
+                        sleeping_hours: diary.sleeping_hours,
+                        feeling: diary.feeling)
+    expect { user.destroy }.to change { Diary.count }.by(-1)
+  end
+
+  it 'ユーザー削除に紐づいてSubscription(読了/積読)も削除される' do
+    user.subscriptions.create(book_id: book.id)
+    expect { user.destroy }.to change { Subscription.count }.by(-1)
+  end
 end

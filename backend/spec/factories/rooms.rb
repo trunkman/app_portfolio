@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :room, class: Room do
+  factory :room do
     created_at { 10.minutes.ago }
   end
 

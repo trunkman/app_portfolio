@@ -50,5 +50,4 @@ RSpec.describe Book, type: :model do
     book.save
     expect(dupulicate_book).not_to be_valid
   end
-
 end
