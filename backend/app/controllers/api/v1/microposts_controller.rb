@@ -12,7 +12,8 @@ module Api
         if @micropost.save
           render json: { micropost: @micropost }, status: :ok
         else
-          render status: :unprocessable_entity
+          render json: { message: '投稿が保存されませんでした' },
+                 status: :unprocessable_entity
         end
       end
 

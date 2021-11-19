@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'microposts_api', type: :request do
+RSpec.describe 'Api::V1::MicropostsController', type: :request do
   let(:micropost) { FactoryBot.create(:micropost) }
   let(:other_micropost) { FactoryBot.create(:other_micropost) }
   let(:user)       { FactoryBot.create(:user) }

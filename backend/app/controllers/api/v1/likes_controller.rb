@@ -6,14 +6,22 @@ module Api
       before_action :logged_in_user, only: %i[like unlike]
 
       def like
-        @like = current_user.likes.create!(like_params)
-        render json: { like: @like }, status: :ok
+        @like = current_user.likes.build(like_params)
+        if @like.save
+          render json: { like: @like }, status: :ok
+        else
+          render json: { message: 'いいねができませんでした' }, status: :unprocessable_entity
+        end
       end
 
       def unlike
         @like = current_user.likes.find_by(micropost_id: params[:like][:micropost_id])
-        @like.destroy
-        render json: { message: 'いいね削除' }, status: :ok
+        if @like.nil?
+          render json: { message: 'あなたのいいねは見当たりません' }, status: :forbidden 
+        else
+          @like.destroy
+          render json: { message: 'いいねを削除しました' }, status: :ok
+        end
       end
 
       private
