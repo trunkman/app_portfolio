@@ -14,7 +14,7 @@ import { CommentButton } from "../../components/Buttons/CommentButton"
 
 export const Micropost = (props) => {
   const deleteSubmit = (micropostId) => {
-    deleteMicropost(props.micropostId)
+    deleteMicropost(micropostId)
   }
 
   return (

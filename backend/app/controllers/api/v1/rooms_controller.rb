@@ -4,7 +4,6 @@ module Api
   module V1
     class RoomsController < ApplicationController
       before_action :logged_in_user, only: %i[show create destroy]
-      before_action :correct_user,   only: [:destroy]
 
       # トークのメッセージ一覧を返す
       def show
@@ -15,35 +14,44 @@ module Api
 
       # トークルームを作成する
       def create
-        @room = Room.create
-        current_user_entry = Entry.create(user_id: current_user.id, room_id: @room.id)
-        user_entry = Entry.create(room_params.merge(room_id: @room.id))
-        render json: { room: @room }, status: :ok
-        # unless current_user.id === user.id
-        #   current_user_entries.each do |current_user_entry|
-        #     user_entries.each do |user_entry|
-        #       if current_user_entry.room_id === user_entry.room_id
-        #         is_room = true
-        #         @room_id = current_user_entry.room_id
-        #       end
-        #     end
-        #   end
-        # end
+        # それぞれのユーザーのEntry一覧を取得する
+        current_user_entries = current_user.entries
+        @user = User.find(params[:user][:id])
+        user_entries = @user.entries
+        # 一致するroom_idがあるかを判定
+        current_user_entries.each do |current_user_entry|
+          user_entries.each do |user_entry|
+            # 一致する場合、room_idを返す
+            if current_user_entry.room_id === user_entry.room_id
+              @room = current_user_entry.room_id
+              is_room = true
+            # 一致しない場合、新規Roomと各ユーザーのEntryを作成する
+            else
+              @room = Room.create!
+              Entry.create(user_id: current_user.id, room_id: @room.id)
+              Entry.create(room_params.merge(room_id: @room.id))
+            end
+            render json: { room: @room, is_room: is_room }, status: :ok
+          end
+        end
       end
 
-      def destroy; end
+      # 管理者のみ削除する
+      # def destroy
+      #   if current_user.admin?
+      #     @room = Room.find(param[:id])
+      #     render json: { message: 'トークルームを削除しました' }, status: :ok
+      #   else
+      #     render json: { message: '管理者以外は実行できません' },
+      #            status: :forbidden
+      #   end
+      # end
 
       private
 
       # StrongParameter
       def room_params
         params.require(:room).permit(:user_id)
-      end
-
-      # 本人が所属するルームであるかを確認
-      def correct_user
-        @room = current_user.entries.find_by(room_id: room.id)
-        render json: {}, status: :unauthorized if @room.nil?
       end
     end
   end

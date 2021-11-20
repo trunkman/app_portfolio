@@ -10,15 +10,19 @@ module Api
         @comment = current_user.comments.build(comment_params)
         @comment.image.attach(params[:comment][:image])
         if @comment.save
-          render json: { comment: @comment }, status: :ok
+          render json: { comment: @comment },
+                 status: :ok
         else
-          render status: :unprocessable_entity
+          render json: { message: 'コメントが保存されませんでした' },
+                 status: :unprocessable_entity
         end
       end
 
+      # コメントを削除する
       def destroy
         @comment.destroy
-        render json: { message: '削除完了' }, status: :ok
+        render json: { message: 'コメントを削除しました' },
+               status: :ok
       end
 
       private
@@ -28,10 +32,13 @@ module Api
         params.require(:comment).permit(:user_id, :micropost_id, :content, :image)
       end
 
-      # 本人のコメントであるかを確認
+      # 正しいユーザーかどうか確認
       def correct_user
         @comment = current_user.comments.find_by(id: params[:id])
-        render json: {}, status: :unauthorized if @comment.nil?
+        if @comment.nil?
+          render json: { message: 'あなたのコメントは見当たりませんでした' },
+                 status: :forbidden
+        end
       end
     end
   end
