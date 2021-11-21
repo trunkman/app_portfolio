@@ -3,18 +3,15 @@
 module Api
   module V1
     class BooksController < ApplicationController
-      def search
-        @books = RakutenWebService::Books::Book.search(title: params[:book][:title])
-        render json: { books: @books }, status: :ok
-      end
+      before_action :logged_in_user, only: %i[show create update]
 
       def show
         @book = Book.find_by(isbn: params[:id])
-        # DBに本が登録されている場合、tureを返す
+        # DBに本が登録されている場合、registrationをtureで返す
         unless @book.nil?
           registration = true
           @subscription = Subscription.find_by(user_id: current_user.id, book_id: @book.id)
-          # すでにユーザー登録している本の場合、trueを返す
+          # ユーザーの登録本に該当する場合、subscribedをtrueで返す
           subscribed = true unless @subscription.nil?
         end
         @book = RakutenWebService::Books::Book.search(isbn: params[:id])
@@ -46,7 +43,7 @@ module Api
                     '積読本に追加しました。'
                   end
         render json: { subscription: @subscription, message: message },
-               status: :ok
+               status: :created
       end
 
       def update
@@ -60,6 +57,18 @@ module Api
                   end
         render json: { subscription: @subscription, message: message },
                status: :ok
+      end
+
+      # 本の検索結果を返す
+      def search
+        @books = RakutenWebService::Books::Book.search(title: params[:book][:title])
+        if @books.nil?
+          render json: { message: '検索に引っかかる本がありませんでした' },
+                 status: :ok
+        else
+          render json: { books: @books },
+                 status: :ok
+        end
       end
     end
   end

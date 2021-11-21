@@ -97,13 +97,15 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
   end
 
   it '未ログインは削除できない' do
-    delete api_v1_user_path(user)
+    delete_user = FactoryBot.create(:user)
+    delete api_v1_user_path(delete_user)
     expect(response.status).to eq(401)
   end
 
   it 'ユーザー削除はできない' do
     log_in_as(user)
-    delete api_v1_user_path(user)
+    delete_user = FactoryBot.create(:user)
+    delete api_v1_user_path(delete_user)
     expect(response.status).to eq(403)
   end
 

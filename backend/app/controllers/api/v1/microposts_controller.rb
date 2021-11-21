@@ -12,7 +12,7 @@ module Api
         @micropost.image.attach(params[:micropost][:image])
         if @micropost.save
           render json: { micropost: @micropost },
-                 status: :ok
+                 status: :created
         else
           render json: { message: '投稿が保存されませんでした' },
                  status: :unprocessable_entity

@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_many :liked_microposts, through: :likes, source: :micropost
   has_many :comments, dependent: :destroy
   has_many :entries, dependent: :destroy
-  has_many :messages
+  has_many :messages, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
   has_many :diaries, dependent: :destroy
   # setter, getter属性を定義
