@@ -6,18 +6,16 @@ RSpec.describe 'Api::V1::MicropostsController', type: :request do
   let(:user) { FactoryBot.create(:user) }
   let(:other_user) { FactoryBot.create(:user) }
   let(:micropost) { user.microposts.create({ content: 'Lorem ipsum' }) }
+  let(:params) { { micropost: { content: 'Lorem ipsum' } } }
 
   it '投稿する' do
     log_in_as(user)
-    expect do
-      post api_v1_microposts_path,
-           params: { micropost: { content: 'Lorem ipsum' } }
-    end.to change(Micropost, :count).by(+1)
+    expect { post api_v1_microposts_path, params: params }.to change(Micropost, :count).by(+1)
     expect(response.status).to eq(201)
   end
 
   it '未ログインユーザーは投稿できない' do
-    post api_v1_microposts_path, params: { micropost: { content: 'Lorem ipsum' } }
+    post api_v1_microposts_path, params: params
     expect(response.status).to eq(401)
   end
 

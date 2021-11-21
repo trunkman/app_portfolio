@@ -11,14 +11,13 @@ module Api
         @comment.image.attach(params[:comment][:image])
         if @comment.save
           render json: { comment: @comment },
-                 status: :ok
+                 status: :created
         else
           render json: { message: 'コメントが保存されませんでした' },
                  status: :unprocessable_entity
         end
       end
 
-      # コメントを削除する
       def destroy
         @comment.destroy
         render json: { message: 'コメントを削除しました' },
