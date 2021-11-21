@@ -23,9 +23,8 @@ Rails.application.routes.draw do
       post   '/likes',         to: 'likes#like'
       post   '/unlikes',       to: 'likes#unlike'
       resources :comments,     only: %i[create destroy]
-      resources :rooms,        only: %i[create destroy]
-      # 編集予定
-      get '/talk_room/:id', to: 'rooms#talk_room'
+      resources :rooms,        only: %i[show create destroy]
+      # get '/talk_room/:id', to: 'rooms#talk_room'
       resources :messages,     only: %i[create destroy]
       resources :books,        only: %i[show create update]
       post '/booksearch', to: 'books#search'
