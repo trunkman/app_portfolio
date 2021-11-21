@@ -6,7 +6,6 @@ module Api
       before_action :logged_in_user, only: %i[create destroy]
       before_action :correct_user,   only: [:destroy]
 
-      # 投稿を作成する
       def create
         @micropost = current_user.microposts.build(micropost_params)
         @micropost.image.attach(params[:micropost][:image])
@@ -19,7 +18,6 @@ module Api
         end
       end
 
-      # 投稿を削除する
       def destroy
         @micropost.destroy
         render json: { message: '投稿を削除しました' },

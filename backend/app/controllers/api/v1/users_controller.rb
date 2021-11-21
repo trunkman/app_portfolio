@@ -114,6 +114,34 @@ module Api
                status: :ok
       end
 
+# Add test
+      # いいねした投稿一覧を返す
+      def liked_microposts
+        @user = User.find(params[:id])
+        @liked_microposts =  @user.liked_microposts
+        if @liked_microposts.nil?
+          render status: :no_content
+        else
+          render json: { liked_microposts: @liked_microposts },
+                  status: :ok
+        end
+      end
+
+      # コメント&コメントした投稿一覧を返す
+      def commented_microposts
+        @user = User.find(params[:id])
+        @comments = @user.comments
+        @commented_microposts = @user.commented_microposts
+        if @comments.nil?
+          render status: :no_content
+        else
+          render json: { comments: @comments,
+                          commented_microposts: @commented_microposts },
+                  status: :ok
+        end
+      end
+
+
       # トークルームの一覧を返す
       def rooms
         @user = User.find(params[:id])

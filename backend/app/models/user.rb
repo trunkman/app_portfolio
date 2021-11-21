@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_microposts, through: :likes, source: :micropost
   has_many :comments, dependent: :destroy
+  has_many :commented_microposts, through: :comments, source: :micropost
   has_many :entries, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :subscriptions, dependent: :destroy

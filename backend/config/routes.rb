@@ -10,13 +10,18 @@ Rails.application.routes.draw do
       get    '/logged_in', to: 'sessions#logged_in'
       resources :users do
         member do
-          get :following, :followers, :microposts,
-              :rooms, :books, :diaries
+          get :following,
+              :followers,
+              :microposts,
+              :rooms,
+              :books,
+              :diaries,
+              :liked_microposts,
+              :commented_microposts
         end
       end
       resources :microposts,   only: %i[create destroy]
       get    '/miroposts/:id', to: 'microposts#liked_micropost'
-      # resources :relationships,only: %i[create destroy]
       get    '/follow',        to: 'relationships#following_status'
       post   '/follow',        to: 'relationships#create'
       delete '/unfollow/:id',  to: 'relationships#destroy'

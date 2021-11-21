@@ -7,6 +7,11 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
   let(:other_user) { FactoryBot.create(:user) }
   let(:admin_user) { FactoryBot.create(:admin) }
 
+  # let(:micropost) { FactoryBot.create(:micropost) }
+  # let(:like) { user.likes.create(micropost_id: micropost.id) }
+  # let(:comment) { user.comments.create(content: 'Lorem ipsum', micropost_id: micropost.id) }
+
+
   it 'ユーザー一覧を取得する' do
     log_in_as(user)
     other_user
@@ -157,6 +162,37 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     get microposts_api_v1_user_path(user)
     expect(response.status).to eq(401)
   end
+
+  # it 'いいねした投稿一覧を返す' do
+  #   like
+  #   log_in_as(user)
+  #   get api_v1_likes_path 
+  #   expect(json['liked_microposts'].length).to eq(1)
+  #   expect(response.status).to eq(200)
+  # end
+
+  # it '未ログインユーザーはいいねした投稿一覧を返せない' do
+  #   like
+  #   get api_v1_likes_path 
+  #   expect(response.status).to eq(401)
+  # end
+
+  # it 'コメント&コメントした投稿一覧を返す' do
+  #   micropost
+  #   comment
+  #   log_in_as(user)
+  #   get api_v1_comments_path 
+  #   expect(json['comments'].length).to eq(1)
+  #   expect(json['commented_microposts'].length).to eq(1)
+  #   expect(response.status).to eq(200)
+  # end
+
+  # it '未ログインユーザーはコメント&コメントした投稿一覧を返せない' do
+  #   micropost
+  #   comment
+  #   get api_v1_comments_path 
+  #   expect(response.status).to eq(401)
+  # end
 
   it 'トークルーム一覧を取得する' do
     log_in_as(user)
