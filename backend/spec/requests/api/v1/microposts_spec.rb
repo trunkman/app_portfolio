@@ -6,13 +6,13 @@ RSpec.describe 'Api::V1::MicropostsController', type: :request do
   let(:user) { FactoryBot.create(:user) }
   let(:other_user) { FactoryBot.create(:user) }
   let(:micropost) { user.microposts.create({ content: 'Lorem ipsum' }) }
-  let(:other_micropost) { other_user.microposts.create({ content: 'Lorem ipsum' }) }
 
   it '投稿する' do
     log_in_as(user)
-    expect { post api_v1_microposts_path,
-             params: { micropost: { content: 'Lorem ipsum' } }
-            }.to change(Micropost, :count).by(+1)
+    expect do
+      post api_v1_microposts_path,
+           params: { micropost: { content: 'Lorem ipsum' } }
+    end.to change(Micropost, :count).by(+1)
     expect(response.status).to eq(201)
   end
 
@@ -22,8 +22,8 @@ RSpec.describe 'Api::V1::MicropostsController', type: :request do
   end
 
   it '投稿を削除できる' do
-    log_in_as(user)
     micropost
+    log_in_as(user)
     expect { delete api_v1_micropost_path(micropost) }.to change(Micropost, :count).by(-1)
     expect(response.status).to eq(200)
   end
@@ -35,9 +35,9 @@ RSpec.describe 'Api::V1::MicropostsController', type: :request do
   end
 
   it '他ユーザーのマイクロポストは削除できない' do
-    log_in_as(user)
-    other_micropost
-    delete api_v1_micropost_path(other_micropost)
+    micropost
+    log_in_as(other_user)
+    delete api_v1_micropost_path(micropost)
     expect(response.status).to eq(403)
   end
 end

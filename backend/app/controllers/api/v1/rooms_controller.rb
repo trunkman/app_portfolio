@@ -7,7 +7,7 @@ module Api
 
       def show
         # それぞれのユーザーのEntriesを取得
-        @user = User.find(params[:id]) 
+        @user = User.find(params[:id])
         @user_entries = @user.entries
         @current_user_entries = current_user.entries
         shared_room_check
@@ -24,7 +24,7 @@ module Api
 
       def create
         # それぞれのユーザーのEntriesを取得
-        @user = User.find(params[:room][:user_id]) 
+        @user = User.find(params[:room][:user_id])
         @user_entries = @user.entries
         @current_user_entries = current_user.entries
         shared_room_check
@@ -65,7 +65,6 @@ module Api
           end
         end
       end
-
     end
   end
 end

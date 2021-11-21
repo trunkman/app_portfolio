@@ -6,9 +6,9 @@ RSpec.describe 'Api::V1::RoomsController', type: :request do
   let(:user) { FactoryBot.create(:user) }
   let(:other_user) { FactoryBot.create(:user) }
   let(:room) { FactoryBot.create(:room) }
-  let(:user_entry) { user.entries.create( room_id: room.id) }
-  let(:other_user_entry) { other_user.entries.create( room_id: room.id) }
-  let(:user_message) { user.messages.create(room_id: room.id)}
+  let(:user_entry) { user.entries.create(room_id: room.id) }
+  let(:other_user_entry) { other_user.entries.create(room_id: room.id) }
+  let(:user_message) { user.messages.create(room_id: room.id) }
   let(:other_user_message) { other_user.messages.create(room_id: room.id) }
 
   # ここのテストがまだクリアできない
@@ -31,9 +31,10 @@ RSpec.describe 'Api::V1::RoomsController', type: :request do
 
   it 'トークルームを作成する' do
     log_in_as(user)
-    expect { post api_v1_rooms_path,
-             params: { room: { user_id: other_user.id } }
-            }.to change(Room, :count).by(+1)
+    expect do
+      post api_v1_rooms_path,
+           params: { room: { user_id: other_user.id } }
+    end.to change(Room, :count).by(+1)
     expect(json['is_room']).to be_falsey
     expect(response.status).to eq(200)
   end
