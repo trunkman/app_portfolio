@@ -8,17 +8,17 @@ RSpec.describe 'Api::V1::RoomsController', type: :request do
   let(:room) { FactoryBot.create(:room) }
   let(:user_entry) { user.entries.create(room_id: room.id) }
   let(:other_user_entry) { other_user.entries.create(room_id: room.id) }
-  let(:user_message) { user.messages.create(room_id: room.id) }
-  let(:other_user_message) { other_user.messages.create(room_id: room.id) }
-
-  # ここのテストがまだクリアできない
+ 
   it 'トークのメッセージ一覧を取得する' do
+    # ユーザーとトークルームを結びつけるEntryをそれぞれ作成
     user_entry
     other_user_entry
-    user.messages
-    other_user.messages
+    # 取得するメッセージを作成
+    user.messages.create(room_id: room.id, content: 'Lorem ipsum')
+    other_user.messages.create(room_id: room.id, content: 'Lorem ipsum')
     log_in_as(user)
     get "/api/v1/rooms/#{other_user.id}"
+    expect(json['messages'].length).to eq(2)
     expect(response.status).to eq(200)
   end
 

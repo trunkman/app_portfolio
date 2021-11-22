@@ -12,7 +12,7 @@ module Api
         @current_user_entries = current_user.entries
         shared_room_check
         # 共有するRoomがある場合、ルーム内のメッセージを返す
-        if @room.nil?
+        if @is_room
           messages = @room.messages
           render json: { messages: messages },
                  status: :ok
