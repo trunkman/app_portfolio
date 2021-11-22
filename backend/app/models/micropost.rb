@@ -17,4 +17,23 @@ class Micropost < ApplicationRecord
                                     message: '正しい画像形式でお願いします' },
                     size: { less_than: 5.megabytes,
                             message: '5MB以下でお願いします' }
+
+  # いいねの通知を作成
+  def create_notification_like!(current_user)
+    # すでに「いいね」されているか検索
+    notification_liked = Notification.where(["visitor_id = ? AND visited_id = ? AND micropost_id = ? AND action = ? ",
+                                            current_user.id, user_id, id, 'like'])
+    if notification_liked.blank?
+      notification = current_user.active_notifications.new(
+        visited_id: user_id,
+        micropost_id: id,
+        action: 'like'
+      )
+      # 自分の投稿に対するいいねの場合は、通知済みとする
+      if notification.visitor_id == notification.visited_id
+        notification.checked = true
+      end
+      notification.save if notification.valid?
+    end
+  end
 end

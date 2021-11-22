@@ -8,6 +8,9 @@ module Api
       def like
         @like = current_user.likes.build(like_params)
         if @like.save
+          @micropost = Micropost.find(params[:like][:micropost_id])
+          # いいね通知を作成
+          @micropost.create_notification_like!(current_user)
           render json: { like: @like },
                  status: :created
         else

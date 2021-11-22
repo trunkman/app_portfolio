@@ -38,6 +38,7 @@ Rails.application.routes.draw do
       resources :recommends, only: %i[create destroy]
       resources :diaries, only: %i[create update destroy]
       get   '/sleep_debt/:id',          to: 'diaries#sleep_debt'
+      resources :notifications, only: %i[ index create ]
     end
   end
 end

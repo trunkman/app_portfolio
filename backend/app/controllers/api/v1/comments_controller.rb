@@ -10,6 +10,9 @@ module Api
         @comment = current_user.comments.build(comment_params)
         @comment.image.attach(params[:comment][:image])
         if @comment.save
+          @micropost = Micropost.find(params[:comment][:micropost_id])
+          # コメント通知を作成
+          @micropost.create_notification_comment!(current_user, @comment.id)
           render json: { comment: @comment },
                  status: :created
         else

@@ -28,11 +28,13 @@ module Api
         @user_entries = @user.entries
         @current_user_entries = current_user.entries
         shared_room_check
-        # 共有するRoomがある場合、部屋の作成はスキップ
+        # 共有するRoomがない場合、トークルームを作成
         if @room.nil?
           @room = Room.create!
-          Entry.create(user_id: current_user.id, room_id: @room.id)
+          @entry = Entry.create(user_id: current_user.id, room_id: @room.id)
           Entry.create(room_params.merge(room_id: @room.id))
+          # トークルーム作成の通知をつくる
+          @entry.create_notification_entry(current_user, @user.id)
         end
         render json: { room: @room, is_room: @is_room },
                status: :ok

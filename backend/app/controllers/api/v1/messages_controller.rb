@@ -8,6 +8,9 @@ module Api
       def create
         @message = current_user.messages.build(message_params)
         if @message.save
+          @other_user = Room.where("room_id = ? " , params[:message][:room_id])
+                              .not("user_id = ? " , current_user.id)
+          @message.create_notification_entry(current_user, @other_user.id)
           render json: { message: @message },
                  status: :ok
         else

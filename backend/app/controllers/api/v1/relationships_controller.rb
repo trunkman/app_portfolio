@@ -7,16 +7,17 @@ module Api
 
       # フォローする
       def create
-        user = User.find(params[:followed_id])
-        current_user.follow(user)
+        @user = User.find(params[:followed_id])
+        current_user.follow(@user)
+        @user.create_notification_follow!(current_user)
         render json: { follow_status: :follow },
                status: :created
       end
 
       # フォローを解除する
       def destroy
-        user = User.find(params[:id])
-        current_user.unfollow(user)
+        @user = User.find(params[:id])
+        current_user.unfollow(@user)
         render json: { follow_status: :unfollow },
                status: :ok
       end

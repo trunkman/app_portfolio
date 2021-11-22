@@ -11,4 +11,15 @@ class Message < ApplicationRecord
   validates :user_id, presence: true
   validates :room_id, presence: true
   validates :content, presence: true, length: { maximum: 250 }
+
+
+  # メッセージの通知を作成する
+  def create_notification_entry!(current_user, other_user_id)
+    notification = current_user.active_notifications.new(
+      visited_id: other_user_id,
+      message_id: id,
+      action: 'message'
+    )
+    notification.save if notification.valid?
+  end
 end

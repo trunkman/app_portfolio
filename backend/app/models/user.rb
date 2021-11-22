@@ -47,8 +47,7 @@ class User < ApplicationRecord
   validates :profile, length: { maximum: 150 }
   validates :ideal_sleeping_hours, presence: true, length: { maximum: 4 }
 
-  ## クラスメソッド
-
+## クラスメソッド
   # 渡された文字列のハッシュを返す
   def self.digest(string)
     cost = if ActiveModel::SecurePassword.min_cost
@@ -61,11 +60,10 @@ class User < ApplicationRecord
 
   # ランダムなトークンを返す
   def self.new_token
-    SecureRandom.urlsafe_base64
+    SecureRANDom.urlsafe_base64
   end
 
-  ## インスタンスメソッド
-
+ ## インスタンスメソッド
   # 永続セッションのためにユーザーをデータベースに記録する
   def remember
     self.remember_token = User.new_token
@@ -128,9 +126,24 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
+  # ユーザーのステータスフィードを返す
   def feed
-    Micropost.where('user_id = ?', id)
+    Micropost.where("user_id IN (?) OR user_id = ?", following_ids, id)
   end
+
+  # フォローの通知を作成する
+  def create_notification_follow!(current_user)
+    # すでにフォロー通知があるかを検索
+    notification_followed = Notification.where(["visitor_id = ? AND visited_id = ? AND action = ? ",current_user.id, id, 'follow'])
+    if notification_followed.blank?
+      notification = current_user.active_notifications.new(
+        visited_id: id,
+        action: 'follow'
+      )
+      notification.save if notification.valid?
+    end
+  end
+
 
   private
 
