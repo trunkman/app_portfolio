@@ -16,7 +16,7 @@ RSpec.describe Like, type: :model do
     expect(like).not_to be_valid
   end
 
-  it 'micropost_idはからであってはいけない' do
+  it 'micropost_idは空であってはいけない' do
     like.micropost_id = nil
     expect(like).not_to be_valid
   end

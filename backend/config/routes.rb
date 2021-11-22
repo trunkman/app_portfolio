@@ -36,6 +36,7 @@ Rails.application.routes.draw do
       resources :diaries, only: %i[create update destroy]
       resources :account_activations, only: [:edit]
       resources :password_resets, only: %i[create edit update]
+      resources :recommends, only: %i[create destroy]
     end
   end
 end

@@ -3,6 +3,7 @@
 class Book < ApplicationRecord
   # 関連付け
   has_many :subscriptions
+  has_many :recommends
   # バリデーション
   validates :title, presence: true
   validates :author, presence: true
