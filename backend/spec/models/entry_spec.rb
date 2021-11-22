@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Entry, type: :model do
   let(:user) { FactoryBot.create(:user) }
   let(:room) { FactoryBot.create(:room) }
-  let(:entry) { user.entries.build(room_id: room.id) }
+  let(:entry) { user.entries.create(room_id: room.id) }
 
   it 'Entryが存在している確認' do
     expect(entry).to be_valid

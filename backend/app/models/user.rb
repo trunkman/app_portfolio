@@ -22,6 +22,12 @@ class User < ApplicationRecord
   has_many :diaries, dependent: :destroy
   has_one  :recommend,  dependent: :destroy
   has_one  :recommend_book, through: :recommend, source: :book
+  has_many :active_notifications,  class_name: 'Notification',
+                                   foreign_key: 'visitor_id',
+                                   dependent: :destroy
+  has_many :passive_notifications, class_name: 'Notification',
+                                   foreign_key: 'visited_id',
+                                   dependent: :destroy
   # setter, getter属性を定義
   attr_accessor :remember_token,
                 :activation_token,
