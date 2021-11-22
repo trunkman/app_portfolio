@@ -5,6 +5,7 @@ User.create!(name: 'Admin User',
              email: 'admin@example.com',
              password: 'foobar',
              password_confirmation: 'foobar',
+             ideal_sleeping_hours: 7.00,
              admin: true,
              activated: true,
              activated_at: Time.zone.now)
@@ -16,6 +17,7 @@ User.create!(name: 'Admin User',
                email: email,
                password: 'foobar',
                password_confirmation: 'foobar',
+               ideal_sleeping_hours: 7.00,
                activated: true,
                activated_at: Time.zone.now)
 end

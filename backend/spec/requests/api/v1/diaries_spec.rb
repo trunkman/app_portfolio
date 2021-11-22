@@ -21,7 +21,7 @@ RSpec.describe 'Api::V1::DiariesController', type: :request do
     expect(response.status).to eq(201)
   end
 
-  it '未ログインユーザーは日記を投稿できない' do
+  it '未ログインでは日記を投稿できない' do
     post api_v1_diaries_path, params: { diary: { date: diary.date,
                                                  sleeping_hours: diary.sleeping_hours,
                                                  feeling: diary.feeling } }
@@ -37,7 +37,7 @@ RSpec.describe 'Api::V1::DiariesController', type: :request do
     expect(json['diary']['feeling']).to eq('bad')
   end
 
-  it '未ログインユーザーは日記を編集できない' do
+  it '未ログインでは日記を編集できない' do
     patch api_v1_diary_path(diary), params: { diary: { date: '1999/01/01',
                                                        sleeping_hours: 9.0,
                                                        feeling: 'bad' } }
@@ -59,7 +59,7 @@ RSpec.describe 'Api::V1::DiariesController', type: :request do
     expect(response.status).to eq(200)
   end
 
-  it '未ログインユーザーは日記を削除できない' do
+  it '未ログインでは日記を削除できない' do
     delete api_v1_diary_path(delete_diary)
     expect(response.status).to eq(401)
   end
@@ -69,4 +69,30 @@ RSpec.describe 'Api::V1::DiariesController', type: :request do
     delete api_v1_diary_path(delete_diary)
     expect(response.status).to eq(403)
   end
+
+  it '睡眠時間を計算した結果、睡眠負債を返すケース' do
+    diaries = user.diaries.create(date: diary.date, sleeping_hours: 5.25, feeling: diary.feeling)
+    log_in_as(user)
+    get "/api/v1/sleep_debt/#{user.id}"
+    total_time = diary.sleeping_hours - user.ideal_sleeping_hours
+    #ここでテストが引っかかる。保留
+    expect(json[sleep_dept]).to eq(total_time)
+    expect(response.status).to eq(200)
+  end
+
+  it '睡眠時間を計算した結果、余剰睡眠を返すケース' do
+    diaries = user.diaries.create(date: diary.date, sleeping_hours: 10.0, feeling: diary.feeling)
+    log_in_as(user)
+    get "/api/v1/sleep_debt/#{user.id}"
+    total_time = user.ideal_sleeping_hours - diary.sleeping_hours
+    expect(json[sleep_saving]).to eq(total_time)
+    expect(response.status).to eq(200)
+  end
+
+  it '未ログインでは睡眠時間を計算できない' do
+    diaries = user.diaries.create(date: diary.date, sleeping_hours: 10.0, feeling: diary.feeling)
+    get "/api/v1/sleep_debt/#{user.id}"
+    expect(response.status).to eq(401)
+  end
+
 end

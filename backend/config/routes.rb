@@ -33,10 +33,11 @@ Rails.application.routes.draw do
       resources :messages,     only: %i[create destroy]
       resources :books,        only: %i[show create update]
       post '/booksearch', to: 'books#search'
-      resources :diaries, only: %i[create update destroy]
       resources :account_activations, only: [:edit]
       resources :password_resets, only: %i[create edit update]
       resources :recommends, only: %i[create destroy]
+      resources :diaries, only: %i[create update destroy]
+      get   '/sleep_debt/:id',          to: 'diaries#sleep_debt'
     end
   end
 end
