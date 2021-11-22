@@ -9,6 +9,7 @@ RSpec.describe User, type: :model do
   let(:room) { FactoryBot.create(:room) }
   let(:diary) { FactoryBot.create(:diary) }
   let(:book) { FactoryBot.create(:book) }
+  let(:content) {'Lorem ipsum' }
 
   it 'ユーザーが存在している確認' do
     user.valid?
@@ -81,13 +82,13 @@ RSpec.describe User, type: :model do
   end
 
   it 'ユーザー削除に紐づいて投稿も削除される' do
-    user.microposts.create(content: 'Lorem ipsum')
+    user.microposts.create(content: content)
     expect { user.destroy }.to change { Micropost.count }.by(-1)
   end
 
   it 'ユーザー削除に紐づいてコメントも削除される' do
-    user.comments.create(micropost_id: 1,
-                         content: 'Lorem ipsum')
+    user.comments.create(micropost_id: micropost.id,
+                         content: content)
     expect { user.destroy }.to change { Comment.count }.by(-1)
   end
 
@@ -104,6 +105,11 @@ RSpec.describe User, type: :model do
   it 'ユーザー削除に紐づいてEntry(トークルームとの紐付け)も削除される' do
     user.entries.create(room_id: room.id)
     expect { user.destroy }.to change { Entry.count }.by(-1)
+  end
+
+  it 'ユーザー削除に紐づいてメッセージも削除される' do
+    user.messages.create(room_id: room.id, content: content)
+    expect { user.destroy }.to change { Message.count }.by(-1)
   end
 
   it 'ユーザー削除に紐づいて日記も削除される' do

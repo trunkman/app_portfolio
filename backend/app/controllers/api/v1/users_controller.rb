@@ -9,29 +9,21 @@ module Api
       before_action :correct_user,   only: %i[edit update]
       before_action :admin_user, only: %i[destroy]
 
-      # ユーザー一覧を取得する
       def index
-        users = User.where(activated: true)
-        render json: { users: users }, status: :ok
+        @users = User.where(activated: true)
+        render json: { users: @users }, status: :ok
       end
 
-      # ユーザーページを取得する
       def show
         @user = User.find(params[:id])
-        following_ids = @user.following_ids
-        followers_ids = @user.follower_ids
-        # following_ids = []
-        # @user.following.each do |following|
-        #   following_ids << following.id
-        # end
-        # followers_ids = []
-        # @user.followers.each do |follower|
-        #   followers_ids << follower.id
-        # end
+        @following_ids = @user.following_ids
+        @followers_ids = @user.follower_ids
+        @microposts = @user.microposts 
         if @user.activated?
           render json: { user: @user,
-                         following_ids: following_ids,
-                         followers_ids: followers_ids },
+                         following_ids: @following_ids,
+                         followers_ids: @followers_ids,
+                         microposts: @microposts },
                  status: :ok
         else
           render json: { message: 'ユーザーのアカウントが有効化されていません' },
@@ -39,7 +31,6 @@ module Api
         end
       end
 
-      # ユーザーを登録する
       def create
         @user = User.new(user_params)
         if @user.save
@@ -52,19 +43,17 @@ module Api
         end
       end
 
-      # ユーザー情報を更新する
       def update
         @user = User.find(params[:id])
         if @user.update(user_params)
           render json: { user: @user },
                  status: :ok
         else
-          render json: { message: '更新しようとしている情報に誤りがあります' },
+          render json: { message: '更新する情報に誤りがあります' },
                  status: :unprocessable_entity
         end
       end
 
-      # ユーザー情報を削除する
       def destroy
         User.find(params[:id]).destroy
         render json: { message: 'アカウントを削除しました' },
@@ -74,88 +63,49 @@ module Api
       # フォロー中のユーザーを返す
       def following
         @user = User.find(params[:id])
-        users = @user.following
-        following_ids = @user.following_ids
-        # @following_ids = []
-        # current_user.following.each do |follow|
-        #   @following_ids << follow.id
-        # end
-        render json: { users: users, following_ids: following_ids },
+        @users = @user.following
+        @following_ids = @user.following_ids
+        render json: { users: @users, following_ids: @following_ids },
                status: :ok
       end
 
       # フォロワーを返す
       def followers
         @user = User.find(params[:id])
-        users = @user.followers
-        following_ids = @user.following_ids
-        # @following_ids = []
-        # current_user.following.each do |follow|
-        #   @following_ids << follow.id
-        # end
-        render json: { users: users, following_ids: following_ids },
+        @users = @user.followers
+        @following_ids = @user.following_ids
+        render json: { users: @users, following_ids: @following_ids },
                status: :ok
       end
 
       # マイクロポスト&コメント一覧を返す
       def microposts
         @user = User.find(params[:id])
-        microposts = @user.microposts
-        comments = @user.comments
-        liked_micropost_ids = @user.liked_micropost_ids
-        # liked_microposts = @user.liked_microposts
-        # liked_micropost_ids = []
-        # liked_microposts.each do |liked_micropost|
-        #   @liked_micropost_ids << liked_micropost.id
-        # end
-        render json: { microposts: microposts,
-                       comments: comments,
-                       liked_micropost_ids: liked_micropost_ids },
-               status: :ok
-      end
-
-# Add test
-      # いいねした投稿一覧を返す
-      def liked_microposts
-        @user = User.find(params[:id])
-        @liked_microposts =  @user.liked_microposts
-        if @liked_microposts.nil?
-          render status: :no_content
-        else
-          render json: { liked_microposts: @liked_microposts },
-                  status: :ok
-        end
-      end
-
-      # コメント&コメントした投稿一覧を返す
-      def commented_microposts
-        @user = User.find(params[:id])
+        @microposts = @user.microposts
+        @liked_micropost_ids = @user.liked_micropost_ids
         @comments = @user.comments
         @commented_microposts = @user.commented_microposts
-        if @comments.nil?
-          render status: :no_content
-        else
-          render json: { comments: @comments,
-                          commented_microposts: @commented_microposts },
-                  status: :ok
-        end
+        render json: { microposts: @microposts,
+                       liked_micropost_ids: @liked_micropost_ids,
+                       comments: @comments,
+                       commented_microposts: @commented_microposts},
+               status: :ok
       end
-
 
       # トークルームの一覧を返す
       def rooms
         @user = User.find(params[:id])
-        entries = @user.entries
-        render json: { entries: entries }, status: :ok
+        @entries = @user.entries
+        render json: { entries: @entries }, status: :ok
       end
 
-      # ユーザーの登録本一覧を返す(読了と積読を分ける)
+      # ユーザーの登録本を読了/積読を分類して返す
       def books
         @user = User.find(params[:id])
-        subscriptions = @user.subscriptions
+        @subscriptions = @user.subscriptions
         read_books = []
         stack_books = []
-        subscriptions.map do |subscription|
+        @subscriptions.map do |subscription|
           if subscription.read === true
             # 読了本をread_booksに加える
             read_books << Book.find(subscription.book_id)
@@ -168,12 +118,13 @@ module Api
                status: :ok
       end
 
+      # 日記情報一覧を返す
       def diaries
         @user = User.find(params[:id])
-        diaries = @user.diaries
-        # 利用する情報のみに調整する
+        @diaries = @user.diaries
+        # 必要な情報のみに調整する
         modification_diaries = []
-        diaries.map do |diary|
+        @diaries.map do |diary|
           modification_diaries << { title: diary.feeling, start: diary.date }
         end
         render json: { diaries: modification_diaries }, status: :ok

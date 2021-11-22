@@ -13,18 +13,22 @@ module Api
             render json: { logged_in: true, user: user },
                    status: :created
           else
-            render json: { error: 'activatedされていません' },
+            render json: { message: 'activatedされていません' },
                    status: :unauthorized
           end
         else
-          render json: { error: 'emailまたはパスワードが違います' },
+          render json: { message: 'emailまたはパスワードが違います' },
                  status: :unprocessable_entity
         end
       end
 
       # ログアウトするアクション
       def destroy
-        log_out if logged_in?
+        if logged_in?
+          log_out
+          render json: {message: 'ログアウトを完了しました'} ,
+                  status: :ok
+        end
       end
 
       # ログイン状態を返すアクション
