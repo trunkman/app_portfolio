@@ -81,6 +81,21 @@ RSpec.describe User, type: :model do
     expect(user.authenticated?(:remember, '')).to be_falsey
   end
 
+  it 'プロフィールは長すぎてはいけない' do
+    user.profile = 'a' * 151
+    expect(user).not_to be_valid
+  end
+
+  it '理想睡眠時間は空であってはいけない' do
+    user.ideal_sleeping_hours = ' '
+    expect(user).not_to be_valid
+  end
+
+  it '理想睡眠時間は長すぎてはいけない' do
+    user.ideal_sleeping_hours = '7.125'
+    expect(user).not_to be_valid
+  end
+
   it 'ユーザー削除に紐づいて投稿も削除される' do
     user.microposts.create(content: content)
     expect { user.destroy }.to change { Micropost.count }.by(-1)

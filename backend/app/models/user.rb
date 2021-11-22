@@ -36,6 +36,8 @@ class User < ApplicationRecord
                     uniqueness: true
   has_secure_password # 仮想属性が利用可(password, password_confirmation)
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  validates :profile, length: { maximum: 150 }
+  validates :ideal_sleeping_hours, presence: true, length: { maximum: 4 }
 
   ## クラスメソッド
 

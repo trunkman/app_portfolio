@@ -6,6 +6,8 @@ FactoryBot.define do
     sequence(:email) { |n| "test#{n}@example.com" }
     password { 'foobar' }
     password_confirmation { 'foobar' }
+    profile { 'ユーザーのプロフィール。自己紹介などを記載する' }
+    ideal_sleeping_hours { 7.25 }
     admin { 'false' }
     activated { 'true' }
     activated_at { Time.zone.now }
@@ -16,6 +18,8 @@ FactoryBot.define do
     email { 'admin@example.com' }
     password { 'foobar' }
     password_confirmation { 'foobar' }
+    profile { 'ユーザーのプロフィール。自己紹介などを記載する' }
+    ideal_sleeping_hours { 7.25 }
     admin { 'true' }
     activated { 'true' }
     activated_at { Time.zone.now }
@@ -26,6 +30,8 @@ FactoryBot.define do
     email { 'non_activated@example.com' }
     password { 'foobar' }
     password_confirmation { 'foobar' }
+    profile { 'ユーザーのプロフィール。自己紹介などを記載する' }
+    ideal_sleeping_hours { 7.25 }
     admin { 'true' }
     activated { 'false' }
     activated_at { Time.zone.now }
