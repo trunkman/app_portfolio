@@ -3,17 +3,14 @@ import { AuthContext } from "../../App";
 // Style
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import Skeleton from '@material-ui/lab/Skeleton';
 import Grid from "@mui/material/Grid";
-// Icon
-import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 // Reducer
 import { dialogReducer, dialogInitialState } from '../../reducer/DialogReducer'
+import { sleepDeptReducer, sleepDeptInitialState } from '../../reducer/SleepDeptReducer'
 // Component
 import { SignUpDialog } from "../../components/Dialogs/SignUpDialog";
 import { LogInDialog } from "../../components/Dialogs/LogInDialog";
 import { PasswordResetDialog } from "../../components/Dialogs/PasswordResetDialog";
-import { Typography } from "@mui/material";
 // Image
 import { MainImage } from "../../images/MainImage.png";
 
@@ -24,8 +21,37 @@ export const Home = ({
 }) => {
   const { authDispatch } = useContext(AuthContext);
   const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState);
+  const [sleepDebtState, sleepDebtDispatch] = useReducer(sleepDebtReducer, sleepDebtInitialState);
 
-  // ホームへ返す
+  // 睡眠負債を取得する
+  const SleepDebt = () => {
+    sleepDebtDispatch({ type: 'fetching' })
+    fetchSleepDebt()
+      .then(data => {
+        { // 睡眠負債のケース
+          data.sleep_dept &&
+            sleepDebtDispatch({
+              type: 'fetchSucess',
+              payload: data.sleep_dept
+            })
+        }
+        { // 余剰睡眠のケース
+          data.sleep_saving &&
+            sleepDebtDispatch({
+              type: 'fetchSucess',
+              payload: data.sleep_saving
+            })
+        }
+      })
+  }
+
+  // ログイン時のみ実行
+  useEffect(() => {
+    loggedIn && SleepDebt()
+  }, [])
+
+  // ホーム画面を返す
+  // 睡眠負債の場合分けは未実装
   return (
     <>
       <Grid container sx={{
@@ -57,8 +83,8 @@ export const Home = ({
             maxWidth: 500,
           }}>
             <h3>{loginUser.name}さんの睡眠負債は</h3>
-            <div><h1><b>100</b></h1><h3>時間</h3></div>
-            <h3>もっと睡眠をとり</h3>
+            <div><h1>{sleepDebtState.sleepDept}</h1><h3>時間</h3></div>
+            <h3>もっと睡眠をとり、</h3>
             <h3>着実に返済していきましょう</h3>
           </Grid>
         }
@@ -67,7 +93,7 @@ export const Home = ({
           justifyContent: 'center',
           maxWidth: 500,
         }}>
-          <img src={MainCoverImage} alt="main iamge" />
+          <img src={MainImage} alt="main iamge" />
         </Grid>
       </Grid>
 
