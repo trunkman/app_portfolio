@@ -6,7 +6,7 @@ RSpec.describe Comment, type: :model do
   let(:user) { FactoryBot.create(:user) }
   let(:micropost) { FactoryBot.create(:micropost) }
   let(:comment) do
-    user.comments.build(micropost_id: micropost.id,
+    user.comments.create(micropost_id: micropost.id,
                         content: 'Lorem ipsum')
   end
 
@@ -33,4 +33,10 @@ RSpec.describe Comment, type: :model do
     comment.content = 'a' * 141
     expect(comment).not_to be_valid
   end
+
+  it 'コメントが削除されると、通知も削除される' do
+    user.active_notifications.create(visited_id: 2, micropost_id: micropost.id, comment_id: comment.id, action: 'comment')
+    expect { comment.destroy }.to change { Notification.count }.by(-1)
+  end
+
 end

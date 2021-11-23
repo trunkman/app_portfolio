@@ -16,19 +16,4 @@ class Comment < ApplicationRecord
                                     message: '正しい画像形式でお願いします' },
                     size: { less_than: 5.megabytes,
                             message: '5MB以下でお願いします' }
-
-  # コメントの通知を作成
-  def create_notification_comment!(current_user, comment_id)
-    notification = current_user.active_notifications.new(
-      visited_id: user_id,
-      micropost_id: id,
-      comment_id: comment_id,
-      action: 'comment'
-    )
-    # 自分の投稿に対するコメントの場合は、通知済みとする
-    if notification.visitor_id == notification.visited_id
-      notification.checked = true
-    end
-    notification.save if notification.valid?
-  end
 end

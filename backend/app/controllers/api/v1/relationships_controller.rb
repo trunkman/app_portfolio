@@ -9,6 +9,7 @@ module Api
       def create
         @user = User.find(params[:followed_id])
         current_user.follow(@user)
+        # 通知を作成する
         @user.create_notification_follow!(current_user)
         render json: { follow_status: :follow },
                status: :created

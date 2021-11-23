@@ -60,7 +60,7 @@ class User < ApplicationRecord
 
   # ランダムなトークンを返す
   def self.new_token
-    SecureRANDom.urlsafe_base64
+    SecureRandom.urlsafe_base64
   end
 
  ## インスタンスメソッド

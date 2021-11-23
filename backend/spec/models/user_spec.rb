@@ -138,4 +138,14 @@ RSpec.describe User, type: :model do
     user.subscriptions.create(book_id: book.id)
     expect { user.destroy }.to change { Subscription.count }.by(-1)
   end
+
+  it 'ユーザーが削除されると、通知も削除される' do
+    user.active_notifications.create(visited_id: 2, micropost_id: micropost.id, action: 'like')
+    user.active_notifications.create(visited_id: 2, micropost_id: micropost.id, comment_id: 3, action: 'comment')
+    user.active_notifications.create(visited_id: 2, action: 'follow')
+    user.active_notifications.create(visited_id: 2, entry_id: 4, action: 'entry')
+    user.active_notifications.create(visited_id: 2, message_id: 5,action: 'message')
+    expect { user.destroy }.to change { Notification.count }.by(-5)
+  end
+
 end

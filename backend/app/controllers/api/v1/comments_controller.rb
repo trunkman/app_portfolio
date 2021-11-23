@@ -6,12 +6,13 @@ module Api
       before_action :logged_in_user, only: %i[create destroy]
       before_action :correct_user,   only: [:destroy]
 
+      # コメントを作成する
       def create
         @comment = current_user.comments.build(comment_params)
         @comment.image.attach(params[:comment][:image])
         if @comment.save
+          # 通知を作成
           @micropost = Micropost.find(params[:comment][:micropost_id])
-          # コメント通知を作成
           @micropost.create_notification_comment!(current_user, @comment.id)
           render json: { comment: @comment },
                  status: :created
@@ -21,6 +22,7 @@ module Api
         end
       end
 
+      # コメントを削除する
       def destroy
         @comment.destroy
         render json: { message: 'コメントを削除しました' },

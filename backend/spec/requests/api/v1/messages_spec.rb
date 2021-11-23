@@ -5,17 +5,19 @@ require 'rails_helper'
 RSpec.describe 'Api::V1::MessagesController', type: :request do
   let(:user) { FactoryBot.create(:user) }
   let(:room) { FactoryBot.create(:room) }
+  let(:params) { { message: { room_id: room.id, content: 'Lorem ipsum' } } }
 
+  # 通知が作成されない
   it 'チャットでメッセージを送る' do
     log_in_as(user)
-    post api_v1_messages_path, params: { message: { room_id: room.id,
-                                                    content: 'Lorem ipsum' } }
+    expect{ post api_v1_messages_path, params: params }.to change(Message, :count).by(1)
+    expect( Notification.count ).to eq(1)
     expect(response.status).to eq(200)
   end
 
   it '未ログインユーザーはメッセージを送れない' do
-    post api_v1_messages_path, params: { message: { room_id: room.id,
-                                                    content: 'Lorem ipsum' } }
+    post api_v1_messages_path, params: params
     expect(response.status).to eq(401)
   end
+  
 end

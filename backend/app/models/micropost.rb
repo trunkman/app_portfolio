@@ -18,7 +18,7 @@ class Micropost < ApplicationRecord
                     size: { less_than: 5.megabytes,
                             message: '5MB以下でお願いします' }
 
-  # いいねの通知を作成
+  # いいねの通知を作成する
   def create_notification_like!(current_user)
     # すでに「いいね」されているか検索
     notification_liked = Notification.where(["visitor_id = ? AND visited_id = ? AND micropost_id = ? AND action = ? ",
@@ -36,4 +36,20 @@ class Micropost < ApplicationRecord
       notification.save if notification.valid?
     end
   end
+
+  # コメントの通知を作成する
+  def create_notification_comment!(current_user, comment_id)
+    notification = current_user.active_notifications.new(
+      visited_id: user_id,
+      micropost_id: id,
+      comment_id: comment_id,
+      action: 'comment'
+    )
+    # 自分の投稿に対するコメントの場合は、通知済みとする
+    if notification.visitor_id == notification.visited_id
+      notification.checked = true
+    end
+    notification.save if notification.valid?
+  end
+  
 end

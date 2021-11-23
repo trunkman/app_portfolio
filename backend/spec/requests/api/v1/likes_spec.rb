@@ -12,6 +12,7 @@ RSpec.describe 'Api::V1::LikesController', type: :request do
   it '投稿にいいねする' do
     log_in_as(user)
     expect { post api_v1_likes_path, params: params }.to change(Like, :count).by(+1)
+    expect( Notification.count ).to eq(1)
     expect(response.status).to eq(201)
   end
 
