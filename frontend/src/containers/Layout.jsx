@@ -138,9 +138,8 @@ export const Layout = (props) => {
           <Switch>
             <Route exact path="/">
               <Home
-                handleLogin={authDispatch}
-                loggedIn={authState.loggedIn}
-                loginUser={authState.loginUser}
+              // loggedIn={authState.loggedIn}
+              // loginUser={authState.loginUser}
               />
             </Route>
 
