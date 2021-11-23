@@ -14,105 +14,76 @@ import { SignUpDialog } from "../../components/Dialogs/SignUpDialog";
 import { LogInDialog } from "../../components/Dialogs/LogInDialog";
 import { PasswordResetDialog } from "../../components/Dialogs/PasswordResetDialog";
 import { Typography } from "@mui/material";
+// Image
+import { MainImage } from "../../images/MainImage.png";
 
-export const Home = (props) => {
+export const Home = ({
+  loggedIn,
+  handleLogin,
+  loginUser,
+}) => {
   const { authDispatch } = useContext(AuthContext);
   const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState);
 
   // ホームへ返す
   return (
     <>
-      <Box sx={{ overflow: 'hidden' }}>
-
-        <Box sx={{
-          display: 'flex',
+      <Grid container sx={{
+        p: 2,
+        maxWidth: 1000
+      }}>
+        {!loggedId &&
+          <Grid item xs={12} sm={5}>
+            <h3>"睡眠負債"の返済を手伝う</h3>
+            <h3>睡眠救済サービス</h3>
+            <h1>Pay Back 睡眠負債</h1>
+            <Box sx={{
+              alignItems: "center",
+              justifyContent: 'center',
+            }}>
+              <Button onClick={() => dialogDispatch({ type: 'signup' })}>
+                新規登録
+              </Button>
+              <Button onClick={() => dialogDispatch({ type: 'login' })}>
+                ログイン
+              </Button>
+            </Box>
+          </Grid>
+        }
+        {loggedId &&
+          <Grid item xs={12} sm={7} sx={{
+            alignItems: "center",
+            justifyContent: 'center',
+            maxWidth: 500,
+          }}>
+            <h3>{loginUser.name}さんの睡眠負債は</h3>
+            <div><h1><b>100</b></h1><h3>時間</h3></div>
+            <h3>もっと睡眠をとり</h3>
+            <h3>着実に返済していきましょう</h3>
+          </Grid>
+        }
+        <Grid item xs={12} sm={7} sx={{
+          alignItems: "center",
           justifyContent: 'center',
+          maxWidth: 500,
         }}>
-          <Skeleton variant="rect" width={400} height={200} />
-        </Box>
+          <img src={MainCoverImage} alt="main iamge" />
+        </Grid>
+      </Grid>
 
-        <Box sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'center',
-          my: 2,
-        }}
-        >
-          <Button onClick={() => dialogDispatch({ type: 'signup' })}>
-            新規登録
-          </Button>
-          <Button onClick={() => dialogDispatch({ type: 'login' })}>
-            ログイン
-          </Button>
-
-          <SignUpDialog
-            handleClose={() => dialogDispatch({ type: 'close' })}
-            open={dialogState.signup}
-          />
-          <LogInDialog
-            handleClose={() => dialogDispatch({ type: 'close' })}
-            handlePasswordReset={() => dialogDispatch({ type: 'passwordReset' })}
-            open={dialogState.login}
-          />
-          <PasswordResetDialog
-            handleClose={() => dialogDispatch({ type: 'close' })}
-            open={dialogState.passwordReset}
-          />
-        </Box>
-
-        <Box sx={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-
-        }}>
-
-          <Grid item sm={3} sx={{ display: 'flex', justifyContent: 'center' }}>
-            <Button variant="contained" sx={{ width: 200, height: 200, p: 4 }}>
-              <PermIdentityIcon />
-              <Typography variant="h5">日記</Typography>
-            </Button>
-          </Grid>
-          <Grid item sm={3} sx={{ display: 'flex', justifyContent: 'center' }}>
-            <Button variant="contained" sx={{ width: 200, height: 200, p: 4 }}>
-              <PermIdentityIcon />
-              <Typography variant="h5">タイムライン</Typography>
-            </Button>
-          </Grid>
-          <Grid item sm={3} sx={{ display: 'flex', justifyContent: 'center' }}>
-            <Button variant="contained" sx={{ width: 200, height: 200, p: 4 }}>
-              <PermIdentityIcon />
-              <Typography variant="h5">睡眠本</Typography>
-            </Button>
-          </Grid>
-          <Grid item sm={3} sx={{ display: 'flex', justifyContent: 'center' }}>
-            <Button variant="contained" sx={{ width: 200, height: 200, p: 4 }}>
-              <PermIdentityIcon />
-              <Typography variant="h5">ニュース</Typography>
-            </Button>
-          </Grid>
-          <Grid item sm={3} sx={{ display: 'flex', justifyContent: 'center' }}>
-            <Button variant="contained" sx={{ width: 200, height: 200, p: 4 }}>
-              <PermIdentityIcon />
-              <Typography variant="h5">フォロー</Typography>
-            </Button>
-          </Grid>
-          <Grid item sm={3} sx={{ display: 'flex', justifyContent: 'center' }}>
-            <Button variant="contained" sx={{ width: 200, height: 200, p: 4 }}>
-              <PermIdentityIcon />
-              <Typography variant="h5">メッセージ</Typography>
-            </Button>
-          </Grid>
-          <Grid item sm={3} sx={{ display: 'flex', justifyContent: 'center' }}>
-            <Button variant="contained" sx={{ width: 200, height: 200, p: 4 }}>
-              <PermIdentityIcon />
-              <Typography variant="h5">プロフィール</Typography>
-            </Button>
-          </Grid>
-
-        </Box>
-
-      </Box>
+      <SignUpDialog
+        handleClose={() => dialogDispatch({ type: 'close' })}
+        open={dialogState.signup}
+      />
+      <LogInDialog
+        handleClose={() => dialogDispatch({ type: 'close' })}
+        handlePasswordReset={() => dialogDispatch({ type: 'passwordReset' })}
+        open={dialogState.login}
+      />
+      <PasswordResetDialog
+        handleClose={() => dialogDispatch({ type: 'close' })}
+        open={dialogState.passwordReset}
+      />
     </>
   )
 }
