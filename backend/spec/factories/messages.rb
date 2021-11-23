@@ -11,14 +11,14 @@ FactoryBot.define do
   factory :message_now, class: Message do
     content { 'Now' }
     created_at { Time.zone.now }
-    association :user, factory: :alice
+    association :user, factory: :user
     association :room, factory: :room_now
   end
 
   factory :message_yesterday, class: Message do
     content { 'Yesterday' }
     created_at { 1.days.ago }
-    association :user, factory: :bob
+    association :user, factory: :user
     association :room, factory: :room_yesterday
   end
 end

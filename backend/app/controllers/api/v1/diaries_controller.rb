@@ -41,14 +41,14 @@ module Api
         end
         # 睡眠負債かどうか判定
         if ideal_total_time > total_time
-        sleep_debt = total_time - ideal_total_time
-        render json: { sleep_debt: sleep_debt},
-               status: :ok
+          sleep_debt = ideal_total_time - total_time
+          render json: { sleep_debt: sleep_debt.round(2)},
+                 status: :ok
         else 
-          sleep_saving = ideal_total_time - total_time
+          sleep_saving = total_time - ideal_total_time
 
-          render json: { sleep_saving: sleep_saving},
-                status: :ok
+          render json: { sleep_saving: sleep_saving.round(2)},
+                 status: :ok
         end
       end
 

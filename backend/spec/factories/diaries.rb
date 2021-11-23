@@ -5,7 +5,7 @@ FactoryBot.define do
     sleeping_hours { 7.5 }
     feeling { 'good' }
     date { '2021/11/01' }
-    association :user
+    association :user, factory: :user
   end
 
   factory :bad, class: Diary do

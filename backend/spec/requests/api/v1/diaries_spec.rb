@@ -71,21 +71,20 @@ RSpec.describe 'Api::V1::DiariesController', type: :request do
   end
 
   it '睡眠時間を計算した結果、睡眠負債を返すケース' do
-    diaries = user.diaries.create(date: diary.date, sleeping_hours: 5.25, feeling: diary.feeling)
+    debt_diary = user.diaries.create(date: '1999/01/01', sleeping_hours: 5.25, feeling: 'good')
     log_in_as(user)
     get "/api/v1/sleep_debt/#{user.id}"
-    total_time = diary.sleeping_hours - user.ideal_sleeping_hours
-    #ここでテストが引っかかる。保留
-    expect(json[sleep_dept]).to eq(total_time)
+    total_time = user.ideal_sleeping_hours - debt_diary.sleeping_hours 
+    expect(json['sleep_debt']).to eq(total_time.round(2))
     expect(response.status).to eq(200)
   end
 
   it '睡眠時間を計算した結果、余剰睡眠を返すケース' do
-    diaries = user.diaries.create(date: diary.date, sleeping_hours: 10.0, feeling: diary.feeling)
+    saving_diary = user.diaries.create(date: '1999/01/01', sleeping_hours: 10, feeling: 'good')
     log_in_as(user)
     get "/api/v1/sleep_debt/#{user.id}"
-    total_time = user.ideal_sleeping_hours - diary.sleeping_hours
-    expect(json[sleep_saving]).to eq(total_time)
+    total_time = saving_diary.sleeping_hours - user.ideal_sleeping_hours
+    expect(json['sleep_saving']).to eq(total_time.round(2))
     expect(response.status).to eq(200)
   end
 

@@ -8,9 +8,11 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
   let(:admin_user) { FactoryBot.create(:admin) }
   let(:micropost) { micropost = user.microposts.create(content: content) }
   let(:content) { 'Lorem ipsum' }
-  let(:params) { { user: { name: 'exampleユーザー',email: 'example@example.com',
-                               password: 'example', password_confirmation: 'example' } } }
-
+  let(:params) {{ user: { name: 'exampleユーザー',
+                          email: 'example@example.com',
+                          password: 'example',
+                          password_confirmation: 'example' } } }
+  
   it 'ユーザー一覧を返す' do
     other_user
     log_in_as(user)
@@ -43,17 +45,18 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     get api_v1_user_path(user)
     expect(response.status).to eq(401)
   end
-
+# 要修正箇所
   it '新規ユーザーを登録する' do
-    post api_v1_signup_path, params: params
+    expect { post api_v1_signup_path, params: params }.to change(User, :count).by(1)
+    expect(json['user']['email']).to eq('example@example.com')
     expect(response.status).to eq(201)
   end
 
   it '新規ユーザーを登録できなかった時、エラーを返す' do
     post api_v1_signup_path, params: { user: { name: 'exampleユーザー',
-                                                email: 'example@example.com',
-                                                password: 'example',
-                                                password_confirmation: '12345678' } }
+                                               email: 'example@example.com',
+                                               password: 'example',
+                                               password_confirmation: '12345678' } }
     expect(response.status).to eq(422)
   end
 
