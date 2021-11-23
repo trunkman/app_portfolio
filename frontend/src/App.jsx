@@ -2,7 +2,7 @@ import React, { useEffect, useReducer, createContext } from 'react';
 import './App.css';
 // styles
 import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
+// import CssBaseline from '@mui/material/CssBaseline';
 // api
 import { fetchLoggedIn } from './apis/sessions';
 // reducer
@@ -36,7 +36,7 @@ export default function App() {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
+      {/* <CssBaseline /> */}
       <AuthContext.Provider value={{ authState, authDispatch }}>
         <DataContext.Provider value={{ dataState, dataDispatch }}>
           <Layout />

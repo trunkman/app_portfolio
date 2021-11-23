@@ -86,7 +86,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export const Layout = (props) => {
   const theme = useTheme();
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
   // Drawerを開閉する関数群
   const handleDrawerOpen = () => setOpen(true)
   const handleDrawerClose = () => setOpen(false)
@@ -127,114 +127,110 @@ export const Layout = (props) => {
 
       <Box
         component="main"
-        sx={{ width: '100%', maxWidth: 1000, mt: 9, mx: 'auto' }}
-      >
-        <Box sx={{
-          display: 'flex',
-          flexDirection: 'column',
+        sx={{
+          width: '100%',
+          maxWidth: 1000,
+          mt: 9,
+          mx: 'auto',
           justifyContent: 'center',
           alignItems: 'center',
-        }}>
-          <Switch>
-            <Route exact path="/">
-              <Home
-              // loggedIn={authState.loggedIn}
-              // loginUser={authState.loginUser}
-              />
-            </Route>
-
-            <Route exact path="/account_activations/:id/edit">
-              <Redirect to="/" />
-            </Route>
-
-            <Route exact path="/users/:id"
-              render={({ match }) =>
-                <Profile
-                  isLoggedIn={authState.loggedIn}
-                  match={match}
-                  loginUser={authState.loginUser}
-                />
-              }
+        }}
+      >
+        <Switch>
+          <Route exact path="/">
+            <Home
+            // loggedIn={authState.loggedIn}
+            // loginUser={authState.loginUser}
             />
+          </Route>
 
-            <Route exact path="/users/:id/timeline"
-              render={({ match }) => <Timeline
-                userId={match.params.id}
-                loginUser={authState.loginUser}
-              />}
-            />
+          <Route exact path="/account_activations/:id/edit">
+            <Redirect to="/" />
+          </Route>
 
-            <Route exact path="/users/:id/talk_rooms"
-              render={({ match }) => <Friends
-                usrmatch={match}
-                loginUser={authState.loginUser}
-              />}
-            />
-
-            <Route exact path="/users/:id/following"
-              render={({ match }) => <Follow
-                match={match}
-              />}
-            />
-
-            <Route exact path="/users/:id/followers"
-              render={({ match }) => <Follow
-                match={match}
-              />}
-            />
-
-            <Route exact path="/users/:id/books"
-              render={({ match }) => <Mybooks
-                match={match}
-                loginUser={authState.loginUser}
-              />}
-            />
-
-            <Route exact path="/users/:id/diaries"
-              render={({ match }) => <Diaries
-                match={match}
-              />}
-            />
-
-            <Route exact path="/users">
-              <Users
+          <Route exact path="/users/:id"
+            render={({ match }) =>
+              <Profile
                 isLoggedIn={authState.loggedIn}
-                user={authState.loginUser}
-              />
-            </Route>
-
-            <Route exact path="/talk_rooms/:id"
-              render={({ match }) => <TalkRoom
                 match={match}
                 loginUser={authState.loginUser}
-              />}
+              />
+            }
+          />
+
+          <Route exact path="/users/:id/timeline"
+            render={({ match }) => <Timeline
+              userId={match.params.id}
+              loginUser={authState.loginUser}
+            />}
+          />
+
+          <Route exact path="/users/:id/talk_rooms"
+            render={({ match }) => <Friends
+              usrmatch={match}
+              loginUser={authState.loginUser}
+            />}
+          />
+
+          <Route exact path="/users/:id/following"
+            render={({ match }) => <Follow
+              match={match}
+            />}
+          />
+
+          <Route exact path="/users/:id/followers"
+            render={({ match }) => <Follow
+              match={match}
+            />}
+          />
+
+          <Route exact path="/users/:id/books"
+            render={({ match }) => <Mybooks
+              match={match}
+              loginUser={authState.loginUser}
+            />}
+          />
+
+          <Route exact path="/users/:id/diaries"
+            render={({ match }) => <Diaries
+              match={match}
+            />}
+          />
+
+          <Route exact path="/users">
+            <Users
+              isLoggedIn={authState.loggedIn}
+              user={authState.loginUser}
             />
+          </Route>
 
-            <Route exact path="/booksearch">
-              <BookSearch />
-            </Route>
+          <Route exact path="/talk_rooms/:id"
+            render={({ match }) => <TalkRoom
+              match={match}
+              loginUser={authState.loginUser}
+            />}
+          />
 
-            <Route exact path="/books/:isbn"
-              render={({ match }) => <Book
-                match={match}
-              />}
-            />
+          <Route exact path="/booksearch">
+            <BookSearch />
+          </Route>
 
-            <Route exact path="/contact">
-              <Contact />
-            </Route>
+          <Route exact path="/books/:isbn"
+            render={({ match }) => <Book
+              match={match}
+            />}
+          />
 
-            <Route exact path="/password_resets/:id/edit"
-              render={({ match }) => <PasswordReset
-                match={match}
-              />}
-            />
+          <Route exact path="/contact">
+            <Contact />
+          </Route>
 
-
-
-
-          </Switch>
-        </Box>
+          <Route exact path="/password_resets/:id/edit"
+            render={({ match }) => <PasswordReset
+              match={match}
+            />}
+          />
+        </Switch>
       </Box>
     </BrowserRouter >
   );

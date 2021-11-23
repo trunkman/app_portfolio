@@ -1,33 +1,7 @@
-export const sleepDebtInitialState = {
-  fetchState: initial,
-  reRender: false,
-  sleepDebt: 0,
-}
-
-export const sleepDebtReducer = (state, action) => {
-  switch (action.type) {
-    case 'fetching':
-      return {
-        ...state,
-        fetchState: loading,
-      };
-    case 'fetchSuccess':
-      return {
-        ...state,
-        fetchState: ok,
-        sleepDebt: action.payload,
-      };
-    default:
-      throw new Error();
-  }
-}
-
-
-
 export const profileInitialState = {
-  fetchState: initial,
+  fetchState: 'initial',
   reRender: false,
-  user: null,
+  user: {},
   followingIds: [],
   followersIds: [],
   microposts: [],
@@ -41,21 +15,21 @@ export const profileReducer = (state, action) => {
     case 'fetching':
       return {
         ...state,
-        fetchState: loading,
+        fetchState: 'loading',
       };
-    case 'fetchProfileSuccess':
+    case 'fetchSuccessProfile':
       return {
         ...state,
-        fetchState: ok,
+        fetchState: 'ok',
         reRender: false,
         user: action.payload.user,
         followingIds: action.payload.followingIds,
-        followersIds: action.payload.followiweaIds,
+        followersIds: action.payload.followersIds,
       };
-    case 'fetchMicropostSuccess':
+    case 'fetchSuccessMicropost':
       return {
         ...state,
-        fetchState: ok,
+        fetchState: 'ok',
         reRender: false,
         microposts: action.payload.microposts,
         likedMicropostIds: action.payload.likedMicropostIds,

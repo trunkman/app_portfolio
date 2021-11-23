@@ -1,5 +1,5 @@
 import axios from "axios";
-import { diaries, diaryPath } from "../urls";
+import { diaries, diaryPath, sleepDebt } from "../urls";
 
 
 // 日記を登録するapi
@@ -38,6 +38,18 @@ export const patchDiary = (params) => {
   }).catch(error => {
     console.log('diary#create', error)
   })
+}
+
+// SleepDebtを取得するapi
+export const fetchSleepDebt = (userId) => {
+  return axios.get(sleepDebt(userId))
+    .then(res => {
+      console.log('diary#sleep_debt', res)
+      return res.data
+    })
+    .catch(error => {
+      console.log('diary#sleep_debt', error)
+    })
 }
 
 // 本詳細情報を表示するapi

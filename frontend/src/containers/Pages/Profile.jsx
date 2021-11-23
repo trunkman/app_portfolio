@@ -1,27 +1,27 @@
 import React, { useState, useEffect, useReducer } from "react";
 // Style
 import Box from '@mui/material/Box';
-import Tabs from '@mui/material/Tabs';
+import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
 import Tab from '@mui/material/Tab';
 import TabPanel from '@mui/lab/TabPanel';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import Grid from "@mui/material/Grid";
 // Api
 import { fetchUser } from "../../apis/users";
 // Reducer
 import { dataInitialState, dataReducer } from '../../reducer/DataReducer';
 import { profileInitialState, profileReducer } from '../../reducer/ProfileReducer';
 // Component
-import { UserProfile } from "../../components/UserInfomation/UserProfile";
-import { Timeline } from "./Timeline";
-import { microposts } from "../../urls";
+import { UserInfo } from "../../components/UserInfomation/UserInfo";
+import { Micropost } from "../../components/Lists/Micropost";
 
 
 export const Profile = ({
-  isLoggedIn,
   match,
   loginUser,
 }) => {
-  const userId = props.match.params.id
+  const userId = match.params.id
   const [dataState, dataDispatch] = useReducer(dataReducer, dataInitialState);
 
   const [profileState, profileDispatch] = useReducer(profileReducer, profileInitialState);
@@ -29,16 +29,15 @@ export const Profile = ({
 
   // ユーザー情報の取得
   const userInformation = () => {
-    profileDispatch({ type: fetching });
+    profileDispatch({ type: 'fetching' });
     fetchUser({ userId: userId })
       .then(data => {
         profileDispatch({
-          type: fetchProfileSuccess,
+          type: 'fetchSuccessProfile',
           payload: {
             user: data.user,
             followingIds: data.following_ids,
-            followersIds: data.followiwea_ids,
-            microposts: data.microposts,
+            followersIds: data.followers_ids,
           }
         })
         dataDispatch({ type: 'complete' })
@@ -47,11 +46,11 @@ export const Profile = ({
 
   // マイクロポスト情報の取得 
   const userMicropost = () => {
-    profileDispatch({ type: fetching });
+    profileDispatch({ type: 'fetching' });
     fetchUser({ userId: userId })
       .then(data => {
         profileDispatch({
-          type: fetchMicropostSuccess,
+          type: 'fetchSuccessMicropost',
           payload: {
             microposts: data.microposts,
             likedMicropostIds: data.liked_micropost_ids,
@@ -68,17 +67,17 @@ export const Profile = ({
 
   return (
     <Box sx={{
+      maxWidth: 800,
       p: 2,
-      maxWidth: 800
     }}>
       <Box>
       </Box>
       <Grid container >
         <Grid item xs={12}>
-          {/* <UserInfo 
-          profile={profileState}
-          loginUser={loginUser}
-          /> */}
+          <UserInfo
+            loginUser={loginUser}
+            profile={profileState}
+          />
         </Grid>
         <Grid item xs={12} sm={6}>
           {/* <SleepInfo /> */}
@@ -88,46 +87,40 @@ export const Profile = ({
         </Grid>
       </Grid>
       <Box>
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <Tabs
-            value={tab}
-            onChange={(event, newValue) => setTab(newValue)}
-          >
-            <Tab icon={<FavoriteIcon />} iconPosition="start" label="つぶやき" />
-            <Tab icon={<FavoriteIcon />} iconPosition="start" label="いいね" />
-            <Tab icon={<FavoriteIcon />} iconPosition="start" label="コメント" />
-          </Tabs>
-        </Box>
-        <TabPanel value={tab} index={0}>
-          {
-            profileState.microposts.map(micropost =>
-              <Microposts
-                micropost={micropost}
-                loginUser={loginUser}
-                likedStatus={profile.likedMicropostIds.includes(micropost.id)}
-              />
-            )
+        <TabContext value={tab}>
+          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <TabList
+              value={tab}
+              onChange={(event, newValue) => setTab(newValue)}
+            >
+              <Tab icon={<FavoriteIcon />} iconPosition="start" label="つぶやき" />
+              <Tab icon={<FavoriteIcon />} iconPosition="start" label="いいね" />
+              <Tab icon={<FavoriteIcon />} iconPosition="start" label="コメント" />
+            </TabList>
+          </Box>
+          <TabPanel value={tab} index={0}>
+            {
+              profileState.microposts.map(micropost =>
+                <Micropost
+                  micropost={micropost}
+                  loginUser={loginUser}
+                  likedStatus={
+                    true
+                    // profileState.likedMicropostIds.includes(micropost.id)
+                  }
+                />
+              )
 
-          }
-        </TabPanel>
-        <TabPanel value={tab} index={1}>
-          いいね
-        </TabPanel>
-        <TabPanel value={tab} index={2}>
-          コメント
-        </TabPanel>
+            }
+          </TabPanel>
+          <TabPanel value={tab} index={1}>
+            いいね
+          </TabPanel>
+          <TabPanel value={tab} index={2}>
+            コメント
+          </TabPanel>
+        </TabContext>
       </Box>
-
-
-      <UserProfile
-        dataUserFetch={() => dataDispatch({ type: 'user' })}
-        loginUser={props.loginUser}
-        isLoggedIn={props.isLoggedIn}
-        user={user}
-        followingIds={followingIds}
-        followersIds={followersIds}
-      />
-
     </Box>
   )
 }

@@ -1,18 +1,20 @@
-import React, { useContext, useReducer } from "react";
+import React, { useEffect, useContext, useReducer } from "react";
 import { AuthContext } from "../../App";
 // Style
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Grid from "@mui/material/Grid";
+// Api
+import { fetchSleepDebt } from "../../apis/diaries";
 // Reducer
 import { dialogReducer, dialogInitialState } from '../../reducer/DialogReducer'
-import { sleepDebtReducer, sleepDebtInitialState } from '../../reducer/sleepDebtReducer'
+import { sleepDebtReducer, sleepDebtInitialState } from "../../reducer/SleepDebtReducer";
 // Component
 import { SignUpDialog } from "../../components/Dialogs/SignUpDialog";
 import { LogInDialog } from "../../components/Dialogs/LogInDialog";
 import { PasswordResetDialog } from "../../components/Dialogs/PasswordResetDialog";
 // Image
-import { MainImage } from "../../images/MainImage.png";
+// import { MainImage } from "../../images/MainImage.png";
 
 export const Home = () => {
   const { authState } = useContext(AuthContext);
@@ -22,13 +24,13 @@ export const Home = () => {
   // 睡眠負債を取得する
   const SleepDebt = () => {
     sleepDebtDispatch({ type: 'fetching' })
-    fetchSleepDebt()
+    fetchSleepDebt(authState.loginUser.id)
       .then(data => {
         { // 睡眠負債のケース
-          data.sleep_dept &&
+          data.sleep_debt &&
             sleepDebtDispatch({
               type: 'fetchSuccess',
-              payload: data.sleep_dept
+              payload: data.sleep_debt
             })
         }
         { // 余剰睡眠のケース
@@ -79,7 +81,7 @@ export const Home = () => {
             maxWidth: 500,
           }}>
             <h3>{authState.loginUser.name}さんの睡眠負債は</h3>
-            <div><h1>{sleepDebtState.sleepDebt}</h1><h3>時間</h3></div>
+            <h1>{sleepDebtState.sleepDebt} 時間</h1>
             <h3>もっと睡眠をとり、</h3>
             <h3>着実に返済していきましょう</h3>
           </Grid>
@@ -89,7 +91,10 @@ export const Home = () => {
           justifyContent: 'center',
           maxWidth: 500,
         }}>
-          <img src={MainImage} alt="main iamge" />
+          {/* <image src={MainImage}
+                 alt="main iamge"
+                 style={{width:500 ,height: 500}}
+          /> */}
         </Grid>
       </Grid>
 
