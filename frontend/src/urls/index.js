@@ -1,6 +1,11 @@
 const DEFAULT_API_LOCALHOST = 'http://54.250.110.27:3000/api/v1'
 // StaticPagesController
 export const home = `${DEFAULT_API_LOCALHOST}/`;
+export const contact = `${DEFAULT_API_LOCALHOST}/`; //未使用
+// SessionssController
+export const logIn = `${DEFAULT_API_LOCALHOST}/login`;
+export const logOut = `${DEFAULT_API_LOCALHOST}/logout`;
+export const loggedIn = `${DEFAULT_API_LOCALHOST}/logged_in`;
 // UsersController
 export const users = `${DEFAULT_API_LOCALHOST}/users`;
 export const signUp = `${DEFAULT_API_LOCALHOST}/signup`;
@@ -8,39 +13,43 @@ export const userPath = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}`;
 export const userMicroposts = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}/microposts`;
 export const following = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}/following`;
 export const followers = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}/followers`;
-export const userRooms = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}/rooms`;
-export const userBooks = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}/books`;
 export const userDiaries = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}/diaries`;
-// SessionssController
-export const logIn = `${DEFAULT_API_LOCALHOST}/login`;
-export const logOut = `${DEFAULT_API_LOCALHOST}/logout`;
-export const loggedIn = `${DEFAULT_API_LOCALHOST}/logged_in`;
+export const userTimeline = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}/timeline`;
+export const userBooks = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}/books`;
+export const userRooms = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}/rooms`;
+export const userRanking = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}/ranking`;
+// AccountActivationController
+export const accountActivationPath = (accountActivationToken) => `${DEFAULT_API_LOCALHOST}/account_activations/${accountActivationToken}`;
+// PasswordResetController
+export const passwordResets = `${DEFAULT_API_LOCALHOST}/password_resets`;
+export const passwordResetPath = (passwordResetToken) => `${DEFAULT_API_LOCALHOST}/password_resets/${passwordResetToken}`;
+// RelationshipsContoller
+export const relationships = `${DEFAULT_API_LOCALHOST}/relationships`;
+export const relationshipPath = (userId) => `${DEFAULT_API_LOCALHOST}/relationships/${userId}`;
 // MicropostController
 export const microposts = `${DEFAULT_API_LOCALHOST}/microposts`;
 export const micropostPath = (micropostId) => `${DEFAULT_API_LOCALHOST}/microposts/${micropostId}`;
-// RelationshipsContoller
-export const follow = `${DEFAULT_API_LOCALHOST}/relationships`;
-export const unfollow = (userId) => `${DEFAULT_API_LOCALHOST}/unfollow/${userId}`;
 // LikesController
 export const like = `${DEFAULT_API_LOCALHOST}/likes`;
 export const unlike = `${DEFAULT_API_LOCALHOST}/unlikes/`;
-export const likedMicropost = `${DEFAULT_API_LOCALHOST}/liked_micropost/`;
 // CommentController
-export const commentCreate = `${DEFAULT_API_LOCALHOST}/comments`;
-export const commentDestroy = (commentId) => `${DEFAULT_API_LOCALHOST}/comments/${commentId}`;
+export const comments = `${DEFAULT_API_LOCALHOST}/comments`;
+export const commentPath = (commentId) => `${DEFAULT_API_LOCALHOST}/comments/${commentId}`;
+// DiarisController
+export const diaries = `${DEFAULT_API_LOCALHOST}/diaries`;
+export const diaryPath = (diaryId) => `${DEFAULT_API_LOCALHOST}diaries/${diaryId}`;
+export const sleepDebt = (userId) => `${DEFAULT_API_LOCALHOST}/sleep_debt/${userId}`;
+// BooksController
+export const books = `${DEFAULT_API_LOCALHOST}/books`;
+export const bookPath = (bookIsbn) => `${DEFAULT_API_LOCALHOST}/books/${bookIsbn}`;
+export const bookSearch = `${DEFAULT_API_LOCALHOST}/book_search`;
 // RoomsController
 export const rooms = `${DEFAULT_API_LOCALHOST}/rooms`;
 export const roomPath = (roomId) => `${DEFAULT_API_LOCALHOST}/rooms/${roomId}`;
 // MessagesController
 export const messages = `${DEFAULT_API_LOCALHOST}/messages`;
-// BooksController
-export const books = `${DEFAULT_API_LOCALHOST}/books`;
-export const booksearch = `${DEFAULT_API_LOCALHOST}/booksearch`;
-export const bookPath = (bookId) => `${DEFAULT_API_LOCALHOST}/books/${bookId}`;
-// DiarisController
-export const diaries = `${DEFAULT_API_LOCALHOST}/diaries`;
-export const diaryPath = (diaryId) => `${DEFAULT_API_LOCALHOST}diaries/${diaryId}`;
-export const sleepDebt = (userId) => `${DEFAULT_API_LOCALHOST}/sleep_debt/${userId}`;
-// PasswordResetController
-export const passwordResets = `${DEFAULT_API_LOCALHOST}/password_resets`;
-export const passwordResetPath = (passwordResetId) => `${DEFAULT_API_LOCALHOST}/password_resets/${passwordResetId}`;
+// RecommendsController
+export const recommends = `${DEFAULT_API_LOCALHOST}/recommends`;
+export const recommendPath = (bookId) => `${DEFAULT_API_LOCALHOST}/recommends/${bookId}`;
+// NotificationsController
+export const notifications = `${DEFAULT_API_LOCALHOST}/notifications`;
