@@ -1,37 +1,55 @@
 # Potfolio
-開発環境
-* frontend
-React
-Material-UI
-react testing library
 
-* backend
-Ruby
-Ruby on Rail
-MySQL
-Rspec
+## 使用技術
+* Ruby
+* Ruby on Rails
+* React
+* MySQL
+* (Webサーバ)
+* Puma
+* AWS
+  * VPC
+  * EC2
+  * S3
+  * Route53
+  * (その他追加)
+* Docker/Docer-compose
+* CircleCI/Docker-compose
+* Terraform
+* Rspec
+* FactoryBot
+* (react testing library)
+* Materi-UI
+* 楽天ブックス書籍検索API
 
-* インフラ・開発環境
-AWS
-Docker/Docker-compose
-Terraform(インフラのコード化)
-(CI/CD)
+## インフラ構成図
+(画像掲示予定)
 
-* API
-楽天
+## 機能一覧
+* 新規登録機能、ログイン機能
+* 自動ログイン(Remember me)機能
+* メール認証機能
+* 投稿機能
+  * 画像投稿(S3)
+* いいね機能
+* コメント機能
+* フォロー機能
+* ダイレクトメッセージ機能
+* 日記機能
+  * カレンダー表示機能
+  * 絵文字表示機能 
+* 書籍検索機能
+* おすすめ本登録機能
+* (ページネーション機能)
+  * (無限スクロール機能)
+* (ランキング機能)
+  * 書籍ランキング
+  * 日記ランキング
+  * おすすめ本ランキング
 
-* 機能
-新規登録
-ログイン
-Remember me
-（メール認証）
-投稿機能
-画像投稿
-いいね機能
-コメント機能
-フォロー機能
-ダイレクトメッセージ
-書籍検索機能
-カレンダー
-日記機能
-絵文字機能
+
+## テスト
+* Rspec/FactoryBot
+  * 単体テスト(model)
+  * 機能テスト(request)
+
