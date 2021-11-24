@@ -5,7 +5,7 @@ export const profileInitialState = {
   followingIds: [],
   followersIds: [],
   microposts: [],
-  likedMicropostIds: [],
+  likedMicroposts: [],
   comments: [],
   commentedMicroposts: [],
 }
@@ -32,7 +32,7 @@ export const profileReducer = (state, action) => {
         fetchState: 'ok',
         reRender: false,
         microposts: action.payload.microposts,
-        likedMicropostIds: action.payload.likedMicropostIds,
+        likedMicroposts: action.payload.likedMicroposts,
         comments: action.payload.comments,
         commentedMicroposts: action.payload.commentedMicroposts,
       };

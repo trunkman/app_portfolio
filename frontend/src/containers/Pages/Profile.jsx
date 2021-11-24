@@ -53,7 +53,7 @@ export const Profile = ({
           type: 'fetchSuccessMicropost',
           payload: {
             microposts: data.microposts,
-            likedMicropostIds: data.liked_micropost_ids,
+            likedMicroposts: data.liked_microposts,
             comments: data.comments,
             commentedMicroposts: data.commented_microposts,
           }
@@ -105,19 +105,26 @@ export const Profile = ({
                   micropost={micropost}
                   loginUser={loginUser}
                   likedStatus={
-                    true
+                    false
                     // profileState.likedMicropostIds.includes(micropost.id)
                   }
                 />
               )
-
             }
           </TabPanel>
           <TabPanel value={tab} index={1}>
-            いいね
+            {
+              profileState.likedMicroposts.map(micropost =>
+                <Micropost
+                  micropost={micropost}
+                  loginUser={loginUser}
+                  likedStatus={true}
+                />
+              )
+            }
           </TabPanel>
           <TabPanel value={tab} index={2}>
-            コメント
+
           </TabPanel>
         </TabContext>
       </Box>

@@ -11,8 +11,9 @@ export const FollowButton = ({
   followStatus,
 }) => {
 
-  const [follow, setFollow] = useState(false)
+  const [follow, setFollow] = useState(followStatus)
 
+  // フォローする
   const submitFollow = () => {
     postFollow({ userId: userId })
       .then(() => {
@@ -20,7 +21,7 @@ export const FollowButton = ({
         alert('フォローしました')
       })
   }
-
+  // フォロー解除する
   const submitUnfollow = () => {
     deleteUnfollow(userId)
       .then(() => {
@@ -28,11 +29,6 @@ export const FollowButton = ({
         alert('フォローを解除しました')
       })
   }
-
-  // もっと綺麗にできると思う
-  useEffect(() => {
-    setFollow(followStatus)
-  })
 
   return (
     <>
