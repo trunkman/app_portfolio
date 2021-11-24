@@ -1,22 +1,32 @@
 import axios from "axios";
-import { messages } from "../urls";
+import { recommends, recommendPath } from "../urls";
 
-// メッセージを作成するapi
-export const postMessage = (params) => {
-  return axios.post(messages, {
-    message: {
-      content: params.content,
-      user_id: params.user_id,
-      room_id: params.room_id,
+// おすすめ本を登録するapi
+export const postRecommend = (params) => {
+  return axios.post(recommends, {
+    recommend: {
+      book_id: params.book_id,
     }
   }, {
     withCredentials: true
   })
     .then(res => {
-      console.log('message#create', res);
+      console.log('recommends#create', res);
       return res.data;
     })
     .catch(error => {
-      console.log('message#create', error);
+      console.log('recommends#create', error);
+    });
+}
+
+// おすすめ本を削除するapi
+export const deleteRecommend = (bookId) => {
+  return axios.delete(recommendPath(bookId), { withCredentials: true })
+    .then(res => {
+      console.log('recommends#destroy', res);
+      return res.data;
+    })
+    .catch(error => {
+      console.log('recommends#destroy', error);
     });
 }

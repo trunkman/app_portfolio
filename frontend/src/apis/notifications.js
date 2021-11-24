@@ -1,22 +1,14 @@
 import axios from "axios";
-import { messages } from "../urls";
+import { notifications } from "../urls";
 
-// メッセージを作成するapi
-export const postMessage = (params) => {
-  return axios.post(messages, {
-    message: {
-      content: params.content,
-      user_id: params.user_id,
-      room_id: params.room_id,
-    }
-  }, {
-    withCredentials: true
-  })
+// 通知を表示するapi
+export const fetchNotifications = (params) => {
+  return axios.get(notifications, { withCredentials: true })
     .then(res => {
-      console.log('message#create', res);
+      console.log('notifications#index', res);
       return res.data;
     })
     .catch(error => {
-      console.log('message#create', error);
+      console.log('notifications#index', error);
     });
 }
