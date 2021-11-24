@@ -1,14 +1,24 @@
 import axios from 'axios'
-import { home } from '../urls/index'
+import { home, contact } from '../urls/index'
 
 export const fetchHome = () => {
   return axios.get(home)
     .then(res => {
-      console.log('Home画面', res)
+      console.log('home', res)
       return res.data
     })
-    .catch((e) => {
-      console.error(e)
-      alert('メールアドレスまたはパスワードに誤りがあります')
+    .catch(error => {
+      console.log('home', error)
+    })
+}
+
+export const fetchContact = () => {
+  return axios.get(contact)
+    .then(res => {
+      console.log('contact', res)
+      return res.data
+    })
+    .catch(error => {
+      console.log('contact', error)
     })
 }
