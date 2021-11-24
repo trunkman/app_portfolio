@@ -79,8 +79,8 @@ export const patchUpdate = (params) => {
 export const deleteUser = (userId) => {
   return axios.delete(userPath(userId), { withCredentials: true })
     .then(res => {
-      console.log('users#destroy', res)
-      return res.data
+      console.log('users#destroy', res);
+      return res.data;
     })
     .catch(error => {
       console.log('users#destroy', error);
@@ -91,48 +91,48 @@ export const deleteUser = (userId) => {
 export const fetchMicroposts = (params) => {
   return axios.get(userMicroposts(params.userId), { withCredentials: true })
     .then(res => {
-      console.log('users#microposts', res)
-      return res.data
+      console.log('users#microposts', res);
+      return res.data;
     })
     .catch(error => {
-      console.log('users#microposts', error)
-    })
+      console.log('users#microposts', error);
+    });
 }
 
 // フォロー中のユーザーを取得するapi
 export const fetchFollowing = (userId) => {
   return axios.get(following(userId), { withCredentials: true })
     .then(res => {
-      console.log('user#following', res)
-      return res.data
+      console.log('user#following', res);
+      return res.data;
     })
     .catch(error => {
-      console.log('users#following', error)
-    })
+      console.log('users#following', error);
+    });
 }
 
 // フォロワーを取得するapi
 export const fetchFollowers = (userId) => {
   return axios.get(followers(userId), { withCredentials: true })
     .then(res => {
-      console.log('user#followers', res)
-      return res.data
+      console.log('user#followers', res);
+      return res.data;
     })
     .catch(error => {
-      console.log('users#following', error)
-    })
+      console.log('users#following', error);
+    });
 }
 
 // 日記を取得するapi
 export const fetchUserDiaries = (userId) => {
   return axios.get(userDiaries(userId), { withCredentials: true })
     .then(res => {
-      console.log('users#diaries', res)
-      return res.data
+      console.log('users#diaries', res);
+      return res.data;
     })
     .catch(error => {
-      console.log('users#diaries', error)
-    })
+      console.log('users#diaries', error);
+    });
 }
 
 // 未実装
@@ -140,36 +140,36 @@ export const fetchUserDiaries = (userId) => {
 export const fetchUserTimeline = (userId) => {
   return axios.get(userTimeline(userId), { withCredentials: true })
     .then(res => {
-      console.log('users#timeline', res)
-      return res.data
+      console.log('users#timeline', res);
+      return res.data;
     })
     .catch(error => {
-      console.log('users#timeline', error)
-    })
+      console.log('users#timeline', error);
+    });
 }
 
 // ユーザーが登録する本一覧を取得するapi
 export const fetchUserBooks = (userId) => {
   return axios.get(userBooks(userId), { withCredentials: true })
     .then(res => {
-      console.log('users#books', res)
-      return res.data
+      console.log('users#books', res);
+      return res.data;
     })
     .catch(error => {
-      console.log('users#books', error)
-    })
+      console.log('users#books', error);
+    });
 }
 
 // トークルームの一覧を取得するapi
 export const fetchRooms = (userId) => {
   return axios.get(userRooms(userId), { withCredentials: true })
     .then(res => {
-      console.log('users#rooms', res)
-      return res.data
+      console.log('users#rooms', res);
+      return res.data;
     })
     .catch(error => {
-      console.log('users#rooms', error)
-    })
+      console.log('users#rooms', error);
+    });
 }
 
 // 未実装
@@ -177,10 +177,10 @@ export const fetchRooms = (userId) => {
 export const fetchRnking = (params) => {
   return axios.get(userRnking(userId), { withCredentials: true })
     .then(res => {
-      console.log('users#rooms', res)
-      return res.data
+      console.log('users#rooms', res);
+      return res.data;
     })
     .catch(error => {
-      console.log('users#rooms', error)
-    })
+      console.log('users#rooms', error);
+    });
 }
