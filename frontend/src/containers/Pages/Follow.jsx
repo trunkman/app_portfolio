@@ -5,39 +5,81 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-//api
-
+// Api
+import { fetchFollowing } from "../../apis/users";
+import { fetchFollowers } from "../../apis/users";
+// Reducer
+import { followInitialState, followReducer } from '../../reducer/FollowReducer';
 // コンポーネント
-import { Following } from '../../components/Lists/Following';
-import { Followers } from '../../components/Lists/Followers';
+import { FollowList } from '../../components/Lists/FollowList';
 
 export const Follow = (props) => {
   const userId = props.match.params.id
-  // タブ機能
-  const [value, setValue] = useState('following');
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  const [tab, setTab] = useState('following');
+  const [followState, followDispatch] = useReducer(followReducer, followInitialState);
 
+  // フォロー中のユーザーを取得する
+  const Following = () => {
+    fetchFollowing(userId)
+      .then(data => {
+        followDispatch({
+          type: 'fetchSuccessFollowing',
+          payload: {
+            following: data.users,
+            followingIds: data.followingIds,
+          }
+        });
+      });
+  }
+
+  // フォロワーを取得する
+  const Followers = () => {
+    fetchFollowers(userId)
+      .then(data => {
+        followDispatch({
+          type: 'fetchSuccessFollowers',
+          payload: {
+            followers: data.users,
+            followingIds: data.followingIds,
+          }
+        });
+      });
+  }
+
+  const handleChange = (event, newTab) => {
+    followDispatch({ type: 'fetching' });
+    setValue(newTab);
+    newTab == 'following' ? Following() : Followers()
+  };
 
   return (
     <Box sx={{ width: '100%', typography: 'body1' }}>
-      <TabContext value={value}>
+      <TabContext value={tab}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <TabList onChange={handleChange} aria-label="lab API tabs example">
+          <TabList onChange={handleChange} >
             <Tab label="フォロー中" value="following" />
             <Tab label="フォロワー" value="followers" />
           </TabList>
         </Box>
         <TabPanel value="following">
-          <Following
-            userId={userId}
-          />
+          {
+            followState.following.map(user =>
+              <FollowList
+                user={user}
+                followingIds={followState.followingIds}
+              />
+            )
+          }
         </TabPanel>
         <TabPanel value="followers">
-          <Followers
-            userId={userId}
-          />
+          {
+            followState.followers.map(user =>
+              <FollowList
+                user={user}
+                followingIds={followState.followingIds}
+              />
+            )
+          }
         </TabPanel>
       </TabContext>
     </Box>

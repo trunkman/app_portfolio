@@ -76,7 +76,7 @@ module Api
       def following
         @user = User.find(params[:id])
         @users = @user.following
-        @following_ids = @user.following_ids
+        @following_ids = current_user.following_ids
         render json: { users: @users, following_ids: @following_ids },
                status: :ok
       end
@@ -85,7 +85,7 @@ module Api
       def followers
         @user = User.find(params[:id])
         @users = @user.followers
-        @following_ids = @user.following_ids
+        @following_ids = current_user.following_ids
         render json: { users: @users, following_ids: @following_ids },
                status: :ok
       end

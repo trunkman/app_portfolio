@@ -1,41 +1,34 @@
-export const bookInitialState = {
+export const followInitialState = {
   fetchState: 'initial',
-  postState: 'initial',
-  reRenderFetch: false,
-  reRenderPost: false,
-  searchBooks: [],
-  readBooks: [],
-  stackBooks: [],
+  reRender: false,
+  following: [],
+  followers: [],
+  followingIds: [],
 }
 
-export const bookReducer = (state, action) => {
+export const followReducer = (state, action) => {
   switch (action.type) {
     case 'fetching':
       return {
         ...state,
         fetchState: 'loading',
-        reRenderFetch: true,
+        reRender: true,
       };
-    case 'fetchSuccess':
+    case 'fetchSuccessFollowing':
       return {
         ...state,
         fetchState: 'ok',
-        reRenderFetch: false,
-        readBooks: action.payload.readBooks,
-        stackBooks: action.payload.stackBooks,
+        reRender: false,
+        following: action.payload.following,
+        followingIds: action.payload.followingIds,
       };
-    case 'posting':
-      return {
-        ...state,
-        fetchState: 'loading',
-        reRenderPost: true,
-      };
-    case 'postSuccess':
+    case 'fetchSuccessFollowers':
       return {
         ...state,
         fetchState: 'ok',
-        reRenderPost: false,
-        searchBooks: action.payload,
+        reRender: false,
+        followers: action.payload.followers,
+        followingIds: action.payload.followingIds,
       };
     default:
       throw new Error();
