@@ -6,12 +6,14 @@ export const postPasswordReset = (params) => {
     password_reset: {
       email: params.email
     }
-  }).then(res => {
-    console.log('passwordReset#create', res);
-    return res.data;
-  }).catch(error => {
-    console.log('passwordReset#create', error)
   })
+    .then(res => {
+      console.log('passwordReset#create', res);
+      return res.data;
+    }).
+    catch(error => {
+      console.log('passwordReset#create', error);
+    });
 }
 
 export const patchPasswordReset = (params) => {
@@ -20,11 +22,13 @@ export const patchPasswordReset = (params) => {
       password: params.password,
       passwordConfirmation: params.passwordConfirmation,
     }
-  }).then(res => {
-    console.log('passwordReset#patch', res);
-    return res.data;
-  }).catch(error => {
-    console.log('passwordReset#patch', error)
   })
+    .then(res => {
+      console.log('passwordReset#patch', res);
+      return res.data;
+    })
+    .catch(error => {
+      console.log('passwordReset#patch', error);
+    });
 }
 
