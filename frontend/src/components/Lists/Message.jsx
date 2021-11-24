@@ -7,24 +7,39 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import { borderRadius, Box } from "@mui/system";
 
-export const Message = (props) => {
-  // const classes = isQuestion ? "p-chat__row" : "p-chat__reverse";
+const useStyles = makeStyles(() =>
+  createStyles({
+    "p-chat__row": {
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "flex-start",
+    },
+    "p-chat__reverse": {
+      display: "flex",
+      flexDirection: "row-reverse",
+      justifyContent: "flex-end",
+    }
+  })
+)
 
+export const Message = (props) => {
+  const classes = useStyles();
 
   return (
     <ListItem>
       <ListItemAvatar>
         {props.loginUserId ? (
-          <AccountCircle />
+          <AccountCircle className={p - chat__row} />
         ) : (
-          <AccountBoxIcon />
+          <AccountBoxIcon className={p - chat__reverse} />
         )}
       </ListItemAvatar>
-      <Box sx={{
-        p: 1.5,
-        border: 0.1,
-        borderRadius: '8px',
-      }}>
+      <Box
+        sx={{
+          p: 1.5,
+          border: 0.1,
+          borderRadius: '8px',
+        }}>
         {props.text}
       </Box>
     </ListItem >

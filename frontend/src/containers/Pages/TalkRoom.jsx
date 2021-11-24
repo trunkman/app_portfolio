@@ -7,7 +7,8 @@ import ListItemText from "@mui/material/ListItemText";
 import { fetchMessages } from "../../apis/rooms"
 // reducer
 import { dataInitialState, dataReducer } from '../../reducer/DataReducer';
-// Presentational Cpmponent
+import { messageInitialState, messageReducer } from '../../reducer/MessageReducer';
+// Cpmponent
 import { Chat } from "../../components/Forms/Chat";
 import { Message } from "../../components/Lists/Message";
 
@@ -21,37 +22,42 @@ const useStyles = makeStyles(() =>
   }),
 );
 
-export const TalkRoom = (props) => {
+export const TalkRoom = ({
+  match,
+  loginUser,
+}) => {
   const classes = useStyles();
-  const roomId = props.match.params.id
-  const [messages, setMessages] = useState([])
-  const [dataState, dataDispatch] = useReducer(dataReducer, dataInitialState)
+  const roomId = match.params.id
+  const [messageState, messageDispatch] = useReducer(messageReducer, messageInitialState)
 
-  // ルームのメッセージ一覧を取得する
-  useEffect(() => {
+  // トークルームのメッセージ一覧を取得する
+  const Messages = () => {
     fetchMessages(roomId)
       .then(data => {
-        setMessages(data.messages)
-        dataDispatch({ type: 'complete' })
+        roomDispatch({
+          type: fetchSuccess,
+          payload: data.messages,
+        })
       })
-    return () => setMessages([])
-  }, [dataState.messages])
+  }
+
+  useEffect(() => Messages(), [messageState.reRender])
 
   return (
     <>
-      <h3>{props.loginUser.name}</h3>
+      <h3>{loginUser.name}</h3>
       <List className={classes.messages} id={"scroll-area"}>
-        {messages.length === 0 ? (
+        {messageState.messages.length === 0 ? (
           <ListItemText>
             メッセージはありません。
           </ListItemText>
         ) : (
-          messages.map((message, index) =>
+          messageState.messages.map((message, index) =>
             <Message
               text={message.content}
               key={index}
               roomId={roomId}
-              loginUserId={props.loginUser.id}
+              loginUserId={loginUser.id}
             />
           )
         )
@@ -61,9 +67,9 @@ export const TalkRoom = (props) => {
         トークを入力する箇所
       </p>
       <Chat
-        user_id={props.loginUser.id}
+        user_id={loginUser.id}
         room_id={roomId}
-        dataFetch={() => dataDispatch({ type: 'messages' })}
+        dataFetch={() => messageDispatch({ type: 'fetching' })}
       />
     </>
   )

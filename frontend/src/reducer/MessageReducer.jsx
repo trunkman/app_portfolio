@@ -1,11 +1,10 @@
-export const roomInitialState = {
+export const messageInitialState = {
   fetchState: 'initial',
   reRender: false,
-  entries: [],
-  notifications: [],
+  messages: [],
 }
 
-export const roomReducer = (state, action) => {
+export const messageReducer = (state, action) => {
   switch (action.type) {
     case 'fetching':
       return {
@@ -15,10 +14,9 @@ export const roomReducer = (state, action) => {
       };
     case 'fetchSuccess':
       return {
-        ...state,
         fetchState: 'ok',
         reRender: false,
-        entries: action.payload,
+        messages: action.payload,
       };
     default:
       throw new Error();
