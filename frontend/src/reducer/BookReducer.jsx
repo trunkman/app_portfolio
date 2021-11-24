@@ -1,27 +1,41 @@
-export const timelineInitialState = {
+export const bookInitialState = {
   fetchState: 'initial',
-  reRender: false,
-  timeline: [],
-  liked_micropost_ids: [],
-  comments: [],
+  postState: 'initial',
+  reRenderFetch: false,
+  reRenderPost: false,
+  searchBooks: [],
+  readBooks: [],
+  stackBooks: [],
 }
 
-export const timelineReducer = (state, action) => {
+export const bookReducer = (state, action) => {
   switch (action.type) {
     case 'fetching':
       return {
         ...state,
         fetchState: 'loading',
-        reRender: true,
+        reRenderFetch: true,
       };
     case 'fetchSuccess':
       return {
         ...state,
         fetchState: 'ok',
-        reRender: false,
-        timeline: action.payload.timeline,
-        liked_micropost_ids: action.payload.liked_micropost_ids,
-        comments: action.payload.comments,
+        reRenderFetch: false,
+        readBooks: action.payload.readBooks,
+        stackBooks: action.payload.stackBooks,
+      };
+    case 'posting':
+      return {
+        ...state,
+        fetchState: 'loading',
+        reRenderPost: true,
+      };
+    case 'postSuccess':
+      return {
+        ...state,
+        fetchState: 'ok',
+        reRenderPost: false,
+        searchBooks: action.payload,
       };
     default:
       throw new Error();
