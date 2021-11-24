@@ -1,12 +1,11 @@
-export const followInitialState = {
+export const roomInitialState = {
   fetchState: 'initial',
   reRender: false,
-  following: [],
-  followers: [],
-  followingIds: [],
+  entries: [],
+  notifications: [],
 }
 
-export const followReducer = (state, action) => {
+export const roomReducer = (state, action) => {
   switch (action.type) {
     case 'fetching':
       return {
@@ -14,21 +13,12 @@ export const followReducer = (state, action) => {
         fetchState: 'loading',
         reRender: true,
       };
-    case 'fetchSuccessFollowing':
+    case 'fetchSuccess':
       return {
         ...state,
         fetchState: 'ok',
         reRender: false,
-        following: action.payload.following,
-        followingIds: action.payload.followingIds,
-      };
-    case 'fetchSuccessFollowers':
-      return {
-        ...state,
-        fetchState: 'ok',
-        reRender: false,
-        followers: action.payload.followers,
-        followingIds: action.payload.followingIds,
+        entries: action.payload,
       };
     default:
       throw new Error();

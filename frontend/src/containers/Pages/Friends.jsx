@@ -1,52 +1,66 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-// styled
+// Style
 import { List, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
-// アイコン
+// Icon
 import AccountCircle from "@mui/icons-material/AccountCircle";
-// api
+// Api
 import { fetchRooms } from "../../apis/users";
+// Reducer
+import { roomInitialState, roomReducer } from '../../reducer/RoomReducer';
 
 export const Friends = (props) => {
   const history = useHistory()
-  const [entries, setEntries] = useState([])
-  // メッセージルームの一覧を取得する
-  useEffect(() => {
+  const [roomState, roomDispatch] = useReducer(roomReducer, roomInitialState)
+  // トークルームの一覧を取得する
+  const Rooms = () => {
     fetchRooms(props.loginUser.id)
-      .then(data => setEntries(data.entries))
-    return () => setEntries([])
+      .then(data => {
+        roomDispatch({
+          type: fetchSuccess,
+          payload: data.entries,
+        })
+      })
+  }
+
+  useEffect(() => {
+    Rooms()
   }, [])
 
   return (
     <>
-      <h2>トークルーム</h2>
-      <List sx={{ bgcolor: 'background.paper' }}>
-        {entries.length === 0 ? (
-          <ListItemText>
-            トークしている人はいません。
-          </ListItemText>
-        ) : (
-          entries.map(entry =>
-            <div>
-              <ListItem
-                button
-                divider
-                key={entry.id}
-                onClick={() => history.push(`/talk_rooms/${entry.room_id}`)}
-              >
-                <ListItemAvatar>
-                  <AccountCircle sx={{ fontSize: 60 }} />
-                </ListItemAvatar>
-                <ListItemText
-                  primary={entry.room_id}
-                  secondary='メッセージルームの最後の投稿を記載する予定'
-                />
-              </ListItem >
-            </div>
+      <Box sx={{
+        maxWidth: 800
+      }}>
+        <h2>トークルーム</h2>
+        <List sx={{ bgcolor: 'background.paper' }}>
+          {roomState.entries.length === 0 ? (
+            <ListItemText>
+              トークしている人はいません。
+            </ListItemText>
+          ) : (
+            roomState.entries.map(entry =>
+              <div>
+                <ListItem
+                  button
+                  divider
+                  key={entry.id}
+                  onClick={() => history.push(`/talk_rooms/${entry.room_id}`)}
+                >
+                  <ListItemAvatar>
+                    <AccountCircle sx={{ fontSize: 60 }} />
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary={entry.room_id}
+                    secondary='メッセージルームの最後の投稿を記載する予定'
+                  />
+                </ListItem >
+              </div>
+            )
           )
-        )
-        }
-      </List>
+          }
+        </List>
+      </Box>
     </>
   )
 }
