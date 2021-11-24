@@ -13,6 +13,7 @@ import { sleepDebtReducer, sleepDebtInitialState } from "../../reducer/SleepDebt
 import { SignUpDialog } from "../../components/Dialogs/SignUpDialog";
 import { LogInDialog } from "../../components/Dialogs/LogInDialog";
 import { PasswordResetDialog } from "../../components/Dialogs/PasswordResetDialog";
+import { SleepInfo } from "../../components/UserInfomation/SleepInfo"
 // Image
 // import { MainImage } from "../../images/MainImage.png";
 
@@ -80,10 +81,11 @@ export const Home = () => {
             justifyContent: 'center',
             maxWidth: 500,
           }}>
-            <h3>{authState.loginUser.name}さんの睡眠負債は</h3>
-            <h1>{sleepDebtState.sleepDebt} 時間</h1>
-            <h3>もっと睡眠をとり、</h3>
-            <h3>着実に返済していきましょう</h3>
+            <SleepInfo
+              userName={authState.loginUser.name}
+              sleepDebt={sleepDebtState.sleepDebt}
+              sleepSaving={sleepDebtState.sleepSaving}
+            />
           </Grid>
         }
         <Grid item xs={12} sm={7} sx={{
