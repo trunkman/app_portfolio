@@ -26,7 +26,7 @@ export const Followers = (props) => {
 
   // 投稿一覧を取得する
   useEffect(() => {
-    fetchFollowers({ userId: userId })
+    fetchFollowers(userId)
       .then(data => {
         setFollowers(data.users)
         setFollowingIds(data.following_ids)

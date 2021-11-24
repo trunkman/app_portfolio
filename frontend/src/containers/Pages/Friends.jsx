@@ -12,7 +12,7 @@ export const Friends = (props) => {
   const [entries, setEntries] = useState([])
   // メッセージルームの一覧を取得する
   useEffect(() => {
-    fetchRooms({ userId: props.loginUser.id })
+    fetchRooms(props.loginUser.id)
       .then(data => setEntries(data.entries))
     return () => setEntries([])
   }, [])

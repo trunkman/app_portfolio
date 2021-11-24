@@ -1,45 +1,58 @@
 import axios from 'axios'
 import {
-  signUp, userPath, users,
+  users, signup, userPath,
   userMicroposts, following, followers,
-  userRooms, userBooks, userDiaries,
+  userDiaries, userTImeline, userBooks,
+  userRooms, userRanking, userTimeline,
 } from '../urls/index'
 
-// ユーザーページを表示するapi
-export const fetchUser = (params) => {
-  return axios.get(userPath(params.userId), {
-    withCredentials: true
-  }).then(res => {
-    console.log('user#show', res)
-    return res.data
-  }).catch((e) => console.error(e))
+// ユーザー一覧を取得するapi
+export const fetchUsers = () => {
+  return axios.get(users, { withCredentials: true })
+    .then(res => {
+      console.log('users#index', res);
+      return res.data;
+    })
+    .catch(error => {
+      console.log('users#index', error);
+    });
 }
 
-// 新規登録するためのapi
+// ユーザーページを取得するapi
+export const fetchUser = (userId) => {
+  return axios.get(userPath(userId), { withCredentials: true })
+    .then(res => {
+      console.log('users#show', res);
+      return res.data;
+    })
+    .catch(error => {
+      console.log('users#show', error);
+    });
+}
+
+// 新規登録するapi
 export const postSignUp = (params) => {
-  return axios.post(signUp, {
+  return axios.post(signup, {
     user: {
       name: params.name,
       email: params.email,
       password: params.password,
       password_confirmation: params.password_confirmation,
     }
-  },
-    { withCredentials: true }
-  )
+  }, {
+    withCredentials: true
+  })
     .then(res => {
-      if (res.data.logged_in) {
-        console.log('signup/user#create', res);
-        return res.data;
-      }
+      console.log('signup', res);
+      return res.data;
     })
-    .catch(e => {
-      console.error(e);
-      return 'nil'
-    })
+    .catch(error => {
+      console.log('signup', error);
+      return 'nil';
+    });
 }
 
-// ユーザー情報更新のapi
+// ユーザー情報を更新するapi
 export const patchUpdate = (params) => {
   return axios.patch(userPath(params.user_id), {
     user: {
@@ -48,115 +61,126 @@ export const patchUpdate = (params) => {
       password: params.password,
       password_confirmation: params.password_confirmation,
     }
-  },
-    { withCredentials: true }
-  )
+  }, {
+    withCredentials: true
+  })
     .then(res => {
       if (res.data) {
-        console.log('user#update', res);
+        console.log('users#update', res);
         return res.data;
       }
     })
-    .catch(e => {
-      console.error(e);
-      return 'nil'
-    })
+    .catch(error => {
+      console.log('users#update', error);
+    });
 }
 
-// ユーザー一覧を表示するapi
-export const fetchUsers = () => {
-  return axios.get(users, { withCredentials: true })
-    .then(res => {
-      console.log('user#index', res)
-      return res.data
-    })
-    .catch(e => { console.error(e) })
-}
-
-// ユーザーを削除する
+// ユーザーを削除するapi
 export const deleteUser = (userId) => {
   return axios.delete(userPath(userId), { withCredentials: true })
     .then(res => {
-      console.log('user#destroy', res)
+      console.log('users#destroy', res)
       return res.data
     })
-    .catch(e => { console.error(e) })
+    .catch(error => {
+      console.log('users#destroy', error);
+    });
 }
 
-// フォロー中のユーザーを取得する
-export const fetchFollowing = (params) => {
-  return axios({
-    method: 'get',
-    baseURL: following(params.userId),
-    data: { user: { id: params.userId } },
-    withCredentials: true,
-  }).then(res => {
-    console.log('user#following', res)
-    return res.data
-  }).catch(error => {
-    console.log('users#following', error)
-  })
-}
-
-// フォロワーを取得する
-export const fetchFollowers = (params) => {
-  return axios.get(followers(params.userId), {
-    withCredentials: true
-  }).then(res => {
-    console.log('user#followers', res)
-    return res.data
-  }).catch(error => {
-    console.log('users#following', error)
-  })
-}
-
-// 投稿一覧を取得するapi
+// 投稿一覧(いいね&コメント)を取得するapi
 export const fetchMicroposts = (params) => {
-  return axios.get(userMicroposts(params.userId), {
-    withCredentials: true
-  }).then(res => {
-    console.log('users#microposts', res)
-    return res.data
-  }).catch(error => {
-    console.log('users#microposts', error)
-  })
+  return axios.get(userMicroposts(params.userId), { withCredentials: true })
+    .then(res => {
+      console.log('users#microposts', res)
+      return res.data
+    })
+    .catch(error => {
+      console.log('users#microposts', error)
+    })
+}
+
+// フォロー中のユーザーを取得するapi
+export const fetchFollowing = (userId) => {
+  return axios.get(following(userId), { withCredentials: true })
+    .then(res => {
+      console.log('user#following', res)
+      return res.data
+    })
+    .catch(error => {
+      console.log('users#following', error)
+    })
+}
+
+// フォロワーを取得するapi
+export const fetchFollowers = (userId) => {
+  return axios.get(followers(userId), { withCredentials: true })
+    .then(res => {
+      console.log('user#followers', res)
+      return res.data
+    })
+    .catch(error => {
+      console.log('users#following', error)
+    })
+}
+
+// 日記を取得するapi
+export const fetchUserDiaries = (userId) => {
+  return axios.get(userDiaries(userId), { withCredentials: true })
+    .then(res => {
+      console.log('users#diaries', res)
+      return res.data
+    })
+    .catch(error => {
+      console.log('users#diaries', error)
+    })
+}
+
+// 未実装
+// タイムラインを取得するapi
+export const fetchUserTimeline = (userId) => {
+  return axios.get(userTimeline(userId), { withCredentials: true })
+    .then(res => {
+      console.log('users#timeline', res)
+      return res.data
+    })
+    .catch(error => {
+      console.log('users#timeline', error)
+    })
+}
+
+// ユーザーが登録する本一覧を取得するapi
+export const fetchUserBooks = (userId) => {
+  return axios.get(userBooks(userId), { withCredentials: true })
+    .then(res => {
+      console.log('users#books', res)
+      return res.data
+    })
+    .catch(error => {
+      console.log('users#books', error)
+    })
 }
 
 // トークルームの一覧を取得するapi
-export const fetchRooms = (params) => {
-  return axios({
-    method: 'get',
-    baseURL: userRooms(params.userId),
-    data: { user: { id: params.userId } },
-    withCredentials: true,
-  }).then(res => {
-    console.log('users#rooms', res)
-    return res.data
-  }).catch(error => {
-    console.log('users#rooms', error)
-  })
+export const fetchRooms = (userId) => {
+  return axios.get(userRooms(userId), { withCredentials: true })
+    .then(res => {
+      console.log('users#rooms', res)
+      return res.data
+    })
+    .catch(error => {
+      console.log('users#rooms', error)
+    })
 }
 
-// 本の一覧を取得するapi
-export const fetchUserBooks = (userId) => {
-  return axios.get(userBooks(userId), {
-    withCredentials: true,
-  }).then(res => {
-    console.log('users#books', res)
-    return res.data
-  }).catch(error => {
-    console.log('users#books', error)
-  })
-}
-
-// 日記の一覧を取得するapi
-export const fetchUserDiaries = (userId) => {
-  return axios.get(userDiaries(userId), {
-    withCredentials: true,
-  }).then(res => {
-    console.log('users#diaries', res)
-    return res.data
-  }).catch(error => {
-    console.log('users#diaries', error)
-  })
+// 未実装
+// ランキング一覧を取得するapi
+export const fetchRnking = (params) => {
+  return axios.get(userRnking(userId), { withCredentials: true })
+    .then(res => {
+      console.log('users#rooms', res)
+      return res.data
+    })
+    .catch(error => {
+      console.log('users#rooms', error)
+    })
 }
