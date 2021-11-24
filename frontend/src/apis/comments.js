@@ -1,9 +1,9 @@
 import axios from "axios";
-import { commentCreate, commentDestroy } from "../urls";
+import { comments, commentPath } from "../urls";
 
 // コメントを作成するapi
 export const postComment = (params) => {
-  return axios.post(commentCreate, {
+  return axios.post(comments, {
     comment: {
       content: params.content,
       user_id: params.userId,
@@ -26,7 +26,7 @@ export const postComment = (params) => {
 
 // コメントを削除するapi
 export const deleteComment = (commentId) => {
-  return axios.delete(commentDestroy(commentId), { withCredentials: true })
+  return axios.delete(commentPath(commentId), { withCredentials: true })
     .then(res => {
       console.log('comment#destroy', res)
       alert('コメントを削除しました')
