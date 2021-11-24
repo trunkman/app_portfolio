@@ -38,7 +38,7 @@ export const Timeline = ({
     <>
       <Box sx={{
         p: 2,
-        mx: auto,
+        mx: 'auto',
         maxWidth: 800
       }}>
         <h2>投稿一覧</h2>

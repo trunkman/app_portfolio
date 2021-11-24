@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 // api
-import { patchPasswordReset } from "../../apis/passwordReset";
+import { patchPasswordReset } from "../../apis/passwordResets";
 // コンポーネント
 import { Password } from '../../components/Forms/Password';
 import { PasswordConfirmation } from '../../components/Forms/PasswordConfirmation';

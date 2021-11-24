@@ -1,5 +1,5 @@
 import axios from "axios";
-import { books, booksearch, bookPath } from "../urls";
+import { books, bookSearch, bookPath } from "../urls";
 
 // 本を取得するapi (ISBNで特定する)
 export const fetchBook = (bookIsbn) => {
@@ -60,7 +60,7 @@ export const updateBook = (params) => {
 
 // 検索したワードの本を取得するapi
 export const fetchBooks = (params) => {
-  return axios.post(booksearch, {
+  return axios.post(bookSearch, {
     book: { title: params.keyword }
   }, {
     withCredentials: true

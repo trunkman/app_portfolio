@@ -7,19 +7,18 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 //api
-import { postPasswordReset } from '../../apis/passwordReset';
+import { postPasswordReset } from '../../apis/passwordResets';
 // Formsコンポーネント
 import { Email } from '../Forms/Email';
 
 export const PasswordResetDialog = (props) => {
   const [email, setEmail] = useState('')
   const handleSubmit = () => {
-    postPasswordReset({
-      email: email
-    }).then(data => {
-      setEmail('')
-      props.handleClose()
-    })
+    postPasswordReset({ email: email })
+      .then(data => {
+        setEmail('')
+        props.handleClose()
+      })
   }
 
   // パスワードリセットのダイアログを返す

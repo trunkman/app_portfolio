@@ -14,10 +14,10 @@ Rails.application.routes.draw do
               :following,
               :followers,
               :diaries,
-              :timeline
+              :timeline,
               :books,
               :rooms,
-              :ranking,
+              :ranking
         end
       end
       resources :account_activations, only: [:edit]

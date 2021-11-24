@@ -2,8 +2,8 @@ import axios from 'axios'
 import {
   users, signup, userPath,
   userMicroposts, following, followers,
-  userDiaries, userTImeline, userBooks,
-  userRooms, userRanking, userTimeline,
+  userDiaries, userTimeline, userBooks,
+  userRooms, userRanking,
 } from '../urls/index'
 
 // ユーザー一覧を取得するapi
@@ -88,8 +88,8 @@ export const deleteUser = (userId) => {
 }
 
 // 投稿一覧(いいね&コメント)を取得するapi
-export const fetchMicroposts = (params) => {
-  return axios.get(userMicroposts(params.userId), { withCredentials: true })
+export const fetchMicroposts = (userId) => {
+  return axios.get(userMicroposts(userId), { withCredentials: true })
     .then(res => {
       console.log('users#microposts', res);
       return res.data;
@@ -135,9 +135,8 @@ export const fetchUserDiaries = (userId) => {
     });
 }
 
-// 未実装
 // タイムラインを取得するapi
-export const fetchUserTimeline = (userId) => {
+export const fetchTimeline = (userId) => {
   return axios.get(userTimeline(userId), { withCredentials: true })
     .then(res => {
       console.log('users#timeline', res);
@@ -172,15 +171,14 @@ export const fetchRooms = (userId) => {
     });
 }
 
-// 未実装
 // ランキング一覧を取得するapi
-export const fetchRnking = (params) => {
-  return axios.get(userRnking(userId), { withCredentials: true })
-    .then(res => {
-      console.log('users#rooms', res);
-      return res.data;
-    })
-    .catch(error => {
-      console.log('users#rooms', error);
-    });
-}
+// export const fetchRnking = (params) => {
+//   return axios.get(userRnking(userId), { withCredentials: true })
+//     .then(res => {
+//       console.log('users#rooms', res);
+//       return res.data;
+//     })
+//     .catch(error => {
+//       console.log('users#rooms', error);
+//     });
+// }

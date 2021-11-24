@@ -18,48 +18,45 @@ export const Micropost = (props) => {
   }
 
   return (
-    <Box sx={{ my: 4 }}>
-      <Grid container>
-        <Grid item xs={2}>
-          <ListItemAvatar>
-            <AccountCircle />
-          </ListItemAvatar>
-          {props.loginUserId === props.micropost.user_id && (
-            <Link
-              component="div"
-              onClick={() => deleteSubmit(props.micropost.id)}
-            >
-              削除
-            </Link>
-          )}
-        </Grid>
-        <Grid item xs={10}>
-          <Box>
-            <Typography>
-              <b>{props.micropost.id}</b>  {props.micropost.created_at}
-            </Typography>
-            <Typography>
+    <Box sx={{
+      display: 'flex',
+      alignItems: "center",
+      my: 4,
+    }}>
+      <AccountCircle />
 
-            </Typography>
-          </Box>
-          <Box>
-            <Typography>
-              {props.micropost.content}
-            </Typography>
-          </Box>
-          <Box>
-            <LikeButton
-              loginUserId={props.loginUserId}
-              micropostId={props.micropost.id}
-              likedStatus={props.likedStatus}
-            />
-            <CommentButton
-              loginUserId={props.loginUserId}
-              micropostId={props.micropost.id}
-            />
-          </Box>
-        </Grid>
-      </Grid>
+      <Box sx={{ ml: 2 }}>
+        <Typography>
+          <b>{props.micropost.id}</b>  {props.micropost.created_at}
+        </Typography>
+        <Typography>
+          {props.micropost.content}
+        </Typography>
+      </Box>
+
+      <Box sx={{ ml: 2 }}>
+        <LikeButton
+          loginUserId={props.loginUserId}
+          micropostId={props.micropost.id}
+          likedStatus={props.likedStatus}
+        />
+      </Box>
+
+      <Box sx={{ ml: 2 }}>
+        <CommentButton
+          loginUserId={props.loginUserId}
+          micropostId={props.micropost.id}
+        />
+      </Box>
+
+      {props.loginUserId === props.micropost.user_id && (
+        <Link
+          component="div"
+          onClick={() => deleteSubmit(props.micropost.id)}
+        >
+          削除
+        </Link>
+      )}
     </Box >
   )
 }

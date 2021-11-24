@@ -59,62 +59,65 @@ export const Header = (props) => {
   }));
 
   return (
-    <AppBar position="fixed" open={open}>
-      <Toolbar>
-        <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          onClick={() => props.handleDrawerOpen()}
-          edge="start"
-          sx={{
-            marginRight: '36px',
-            ...(open && { display: 'none' }),
-          }}
-        >
-          <MenuIcon
+    <>
+      <AppBar position="fixed" open={open}>
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={() => props.handleDrawerOpen()}
+            edge="start"
             sx={{
               marginRight: '36px',
               ...(open && { display: 'none' }),
             }}
+          >
+            <MenuIcon
+              sx={{
+                marginRight: '36px',
+                ...(open && { display: 'none' }),
+              }}
+            />
+          </IconButton>
+          <Typography variant="h6" component="div" flexGrow={1}
+            sx={open && { display: 'none' }}
+          >
+            睡眠負債
+          </Typography>
+          <Button
+            variant="body1"
+            onClick={() => dialogDispatch({ type: 'micropost' })}
+          >
+            投稿
+          </Button>
+          <Button
+            variant="body1"
+            onClick={() => dialogDispatch({ type: 'diary' })}
+          >
+            日記
+          </Button>
+          <Typography
+            sx={{ px: 4 }}
+            variant="body1"
+            component={Link}
+            to={`/booksearch`}
+          >
+            本の検索
+          </Typography>
+          <LoginControlBottun
+            handleLogout={submitLogout}
           />
-        </IconButton>
-        <Typography variant="h6" component="div" flexGrow={1}
-          sx={open && { display: 'none' }}
-        >
-          睡眠負債
-        </Typography>
-        <Button
-          variant="body1"
-          onClick={() => dialogDispatch({ type: 'micropost' })}
-        >
-          投稿
-        </Button>
-        <MicropostDialog
-          handleClose={() => dialogDispatch({ type: 'close' })}
-          open={dialogState.micropost}
-        />
-        <Button
-          variant="body1"
-          onClick={() => dialogDispatch({ type: 'diary' })}
-        >
-          日記
-        </Button>
-        <RecordDialog
-          handleClose={() => dialogDispatch({ type: 'close' })}
-          open={dialogState.diary}
-        />
-        <Typography
-          sx={{ px: 4 }}
-          variant="body1"
-          component={Link}
-          to={`/booksearch`}
-        >
-          本の検索
-        </Typography>
-        <LoginControlBottun
-          handleLogout={submitLogout}
-        />
-      </Toolbar>
-    </AppBar>
+        </Toolbar>
+      </AppBar>
+
+      <MicropostDialog
+        handleClose={() => dialogDispatch({ type: 'close' })}
+        open={dialogState.micropost}
+      />
+      <RecordDialog
+        handleClose={() => dialogDispatch({ type: 'close' })}
+        open={dialogState.diary}
+      />
+    </>
   )
 }

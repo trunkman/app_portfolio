@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useReducer } from "react";
 // Style
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+// Reducer
+import { dialogInitialState, dialogReducer } from '../../reducer/DialogReducer';
 // Component
 import { Calendar } from "../../components/UserInfomation/Calendar";
 import { SleepInfo } from "../../components/UserInfomation/SleepInfo";
@@ -11,6 +13,7 @@ import { RecordDialog } from "../../components/Dialogs/RecordDialog";
 
 export const Diaries = (props) => {
   const userId = props.match.params.id
+  const [dialogState, dialogDispatch] = useReducer(dialogInitialState, dialogReducer)
 
   return (
     <>
@@ -29,7 +32,7 @@ export const Diaries = (props) => {
             alignItems: "center",
             justifyContent: 'center',
           }}>
-            <h2>理想睡眠時間：{idealSleepingHousrs} 時間</h2>
+            <h2>理想睡眠時間：{'7.0'} 時間</h2>
             <Button
               variant="body1"
               onClick={() => dialogDispatch({ type: 'diary' })}

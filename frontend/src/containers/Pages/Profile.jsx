@@ -8,7 +8,7 @@ import TabPanel from '@mui/lab/TabPanel';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import Grid from "@mui/material/Grid";
 // Api
-import { fetchUser } from "../../apis/users";
+import { fetchUser, fetchMicroposts } from "../../apis/users";
 // Reducer
 import { dataInitialState, dataReducer } from '../../reducer/DataReducer';
 import { profileInitialState, profileReducer } from '../../reducer/ProfileReducer';
@@ -25,11 +25,10 @@ export const Profile = ({
   const [dataState, dataDispatch] = useReducer(dataReducer, dataInitialState);
 
   const [profileState, profileDispatch] = useReducer(profileReducer, profileInitialState);
-  const [tab, setTab] = useState(0);
+  const [tab, setTab] = useState('microposts');
 
   // ユーザー情報の取得
   const userInformation = () => {
-    profileDispatch({ type: 'fetching' });
     fetchUser(userId)
       .then(data => {
         profileDispatch({
@@ -46,8 +45,7 @@ export const Profile = ({
 
   // マイクロポスト情報の取得 
   const userMicropost = () => {
-    profileDispatch({ type: 'fetching' });
-    fetchUser({ userId: userId })
+    fetchMicroposts(userId)
       .then(data => {
         profileDispatch({
           type: 'fetchSuccessMicropost',
@@ -89,16 +87,27 @@ export const Profile = ({
       <Box>
         <TabContext value={tab}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-            <TabList
-              value={tab}
-              onChange={(event, newValue) => setTab(newValue)}
-            >
-              <Tab icon={<FavoriteIcon />} iconPosition="start" label="つぶやき" />
-              <Tab icon={<FavoriteIcon />} iconPosition="start" label="いいね" />
-              <Tab icon={<FavoriteIcon />} iconPosition="start" label="コメント" />
+            <TabList onChange={(event, newTab) => setTab(newTab)} >
+              <Tab icon={<FavoriteIcon />}
+                iconPosition="start"
+                label="つぶやき"
+                value="microposts"
+              />
+              <Tab
+                icon={<FavoriteIcon />}
+                iconPosition="start"
+                label="いいね"
+                value="liked_microposts"
+              />
+              <Tab
+                icon={<FavoriteIcon />}
+                iconPosition="start"
+                label="コメント"
+                value="comments"
+              />
             </TabList>
           </Box>
-          <TabPanel value={tab} index={0}>
+          <TabPanel value="microposts" index={0}>
             {
               profileState.microposts.map(micropost =>
                 <Micropost
@@ -112,7 +121,7 @@ export const Profile = ({
               )
             }
           </TabPanel>
-          <TabPanel value={tab} index={1}>
+          <TabPanel value="liked_microposts" index={1}>
             {
               profileState.likedMicroposts.map(micropost =>
                 <Micropost
@@ -123,7 +132,7 @@ export const Profile = ({
               )
             }
           </TabPanel>
-          <TabPanel value={tab} index={2}>
+          <TabPanel value="comments" index={2}>
 
           </TabPanel>
         </TabContext>

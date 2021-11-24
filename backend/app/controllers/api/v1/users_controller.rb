@@ -18,12 +18,10 @@ module Api
         @user = User.find(params[:id])
         @following_ids = @user.following_ids
         @followers_ids = @user.follower_ids
-        @microposts = @user.microposts 
         if @user.activated?
           render json: { user: @user,
                          following_ids: @following_ids,
-                         followers_ids: @followers_ids,
-                         microposts: @microposts },
+                         followers_ids: @followers_ids },
                  status: :ok
         else
           render json: { message: 'ユーザーのアカウントが有効化されていません' },
@@ -107,7 +105,7 @@ module Api
       # タイムラインを返す
       def timeline
         @user = User.find(params[:id])
-        @timeline = @user.feeds
+        @timeline = @user.feed
         @liked_micropost_ids = @user.liked_micropost_ids
         @comments = []
           @timeline.each do |micropost|
