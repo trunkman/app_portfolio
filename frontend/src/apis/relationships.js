@@ -1,45 +1,31 @@
 import axios from "axios";
-import { follow, unfollow } from "../urls";
+import { relationships, relationshipPath } from "../urls";
 
 export const postFollow = (params) => {
-  return axios.post(follow, {
+  return axios.post(relationships, {
     followed_id: params.userId
   },
     { withCredentials: true }
   )
     .then(res => {
       if (res.data) {
-        console.log('follow#create', res);
+        console.log('relationships#create', res);
         return res.data;
       }
     })
     .catch(error => {
-      console.log('follow#create', error)
+      console.log('relationships#create', error)
       return 'nil'
     })
 }
 
 export const deleteUnfollow = (params) => {
-  return axios.delete(unfollow(params.userId), {
+  return axios.delete(relationshipPath(params.userId), {
     withCredentials: true
   }).then(res => {
-    console.log('unfollow#destroy', res)
+    console.log('relationships#destroy', res)
     return res.data
   }).catch(error => {
-    console.log('unfollow#destroy', error)
+    console.log('relationships#destroy', error)
   })
-}
-
-// フォロー有無を確認するapi
-export const fetchFollow = (params) => {
-  return axios.get(follow, {
-    id: params.userId
-  }, { withCredentials: true })
-    .then(res => {
-      console.log('follow#fetch', res)
-      return res.data
-    })
-    .catch(error => {
-      console.log('follow#fetch', error)
-    })
 }
