@@ -59,6 +59,20 @@ module Api
         render json: { message: 'アカウントを削除しました' },
                status: :ok
       end
+      
+      # マイクロポスト&コメント一覧を返す
+      def microposts
+        @user = User.find(params[:id])
+        @microposts = @user.microposts
+        @liked_microposts = @user.liked_microposts
+        @comments = @user.comments
+        @commented_microposts = @user.commented_microposts
+        render json: { microposts: @microposts,
+                        liked_microposts: @liked_microposts,
+                        comments: @comments,
+                        commented_microposts: @commented_microposts},
+                status: :ok
+      end
 
       # フォロー中のユーザーを返す
       def following
@@ -78,17 +92,30 @@ module Api
                status: :ok
       end
 
-      # マイクロポスト&コメント一覧を返す
-      def microposts
+      # 日記情報一覧を返す
+      def diaries
         @user = User.find(params[:id])
-        @microposts = @user.microposts
+        @diaries = @user.diaries
+        # 必要な情報のみに調整する
+        modification_diaries = []
+        @diaries.map do |diary|
+          modification_diaries << { title: diary.feeling, start: diary.date }
+        end
+        render json: { diaries: modification_diaries }, status: :ok
+      end      
+
+      # タイムラインを返す
+      def timeline
+        @user = User.find(params[:id])
+        @timeline = @user.feeds
         @liked_micropost_ids = @user.liked_micropost_ids
-        @comments = @user.comments
-        @commented_microposts = @user.commented_microposts
-        render json: { microposts: @microposts,
+        @comments = []
+          @timeline.each do |micropost|
+            @comments << micropost.comments
+          end
+        render json: { timeline: @timeline,
                        liked_micropost_ids: @liked_micropost_ids,
-                       comments: @comments,
-                       commented_microposts: @commented_microposts},
+                       comments: @comments},
                status: :ok
       end
 
@@ -116,18 +143,6 @@ module Api
         end
         render json: { read_books: read_books, stack_books: stack_books },
                status: :ok
-      end
-
-      # 日記情報一覧を返す
-      def diaries
-        @user = User.find(params[:id])
-        @diaries = @user.diaries
-        # 必要な情報のみに調整する
-        modification_diaries = []
-        @diaries.map do |diary|
-          modification_diaries << { title: diary.feeling, start: diary.date }
-        end
-        render json: { diaries: modification_diaries }, status: :ok
       end
 
       private

@@ -1,145 +1,91 @@
 import React, { useState, useEffect, useReducer } from "react";
-import Link from '@mui/material/Link';
-// styled
-import { ListItemAvatar, Typography } from "@mui/material";
-import ListItem from "@mui/material/ListItem";
-import List from '@mui/material/List';
-import ListItemText from '@mui/material/ListItemText';
+// Style
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-// アイコン
-import AccountCircle from "@mui/icons-material/AccountCircle";
-// api
-import { deleteMicropost } from "../../apis/microposts";
-import { deleteComment } from "../../apis/comments";
-import { fetchMicroposts } from "../../apis/users";
-// reducer
+// Api
+import { fetchTimeline } from "../../apis/users";
+// Reducer
 import { dataInitialState, dataReducer } from '../../reducer/DataReducer';
-import { dialogInitialState, dialogReducer } from '../../reducer/DialogReducer';
-// Presentational Cpmponent
-import { LikeButton } from "../../components/Buttons/LikeButton";
-import { CommentButton } from "../../components/Buttons/CommentButton"
+import { timelineInitialState, timelineReducer } from '../../reducer/TimelineReducer';
+// Cpmponent
 import { Micropost } from "../../components/Lists/Micropost";
-import { MicropostDialog } from "../../components/Dialogs/MicropostDialog";
 
-export const Timeline = ({ userId, loginUser }) => {
-  const [microposts, setMicroposts] = useState([])
-  const [comments, setComments] = useState([])
-  const [likedMicropostIds, setLikedMicropostIds] = useState([])
-  const [dataState, dataDispatch] = useReducer(dataReducer, dataInitialState)
-  const [openState, openDispatch] = useReducer(dialogReducer, dialogInitialState)
-
-  const dataFetching = () => dataDispatch({ type: 'microposts' })
-  const handleOpen = () => openDispatch({ type: 'micropost' })
-  const handleClose = () => openDispatch({ type: 'close' })
-  // 投稿を削除する（投稿者のみ実行可能）
-  const deleteSubmit = (micropostId) => {
-    deleteMicropost(micropostId)
-      .then(dataFetching)
-  }
-  // コメントを削除する（投稿者のみ実行可能）
-  const deleteCommentSubmit = (commentId) => {
-    deleteComment(commentId)
-      .then(dataFetching)
-  }
+export const Timeline = ({
+  userId,
+  loginUser,
+}) => {
+  const [timelineState, timelineDispatch] = useReducer(timelineReducer, timelineInitialState)
 
   // 投稿一覧を取得する
-  useEffect(() => {
-    fetchMicroposts({ userId: userId })
+  const Timeline = () => {
+    fetchTimeline(userId)
       .then(data => {
-        setMicroposts(data.microposts)
-        setComments(data.comments)
-        setLikedMicropostIds(data.liked_micropost_ids)
-        dataDispatch({ type: 'complete' })
+        timelineDispatch({
+          type: 'fetchSuccess',
+          payload: {
+            timeline: data.timeline,
+            liked_micropost_ids: data.liked_micropost_ids,
+            comments: data.comments,
+          }
+        })
       })
-    return () => setMicroposts([])
-  }, [dataState.microposts])
+  }
 
-  // いいね情報を取得する
-  useEffect(() => dataFetching(), [])
+  useEffect(() => {
+    Timeline()
+  }, [timelineState.reRender])
 
   return (
-    <Box>
-      <List sx={{ bgcolor: 'background.paper' }}>
+    <>
+      <Box sx={{
+        p: 2,
+        mx: auto,
+        maxWidth: 800
+      }}>
         <h2>投稿一覧</h2>
-        <p>{microposts.length} つぶやき : {comments.length} コメント</p>
-        <Button variant="contained" onClick={handleOpen}>
-          投稿
-        </Button>
-        <MicropostDialog
-          handleClose={handleClose}
-          open={openState.micropost}
-          user={loginUser}
-          dataFetching={dataFetching}
-        />
-        {
-          microposts.map(micropost =>
-            <Micropost
-              micropost={micropost}
-              loginUserId={loginUser.id}
-              likedStatus={likedMicropostIds.includes(micropost.id)}
-            />
-            // <ListItem key={micropost.id.toString()}>
-            //   <ListItemAvatar>
-            //     <AccountCircle sx={{ fontSize: 40 }} />
-            //   </ListItemAvatar>
-            //   <ListItemText
-            //     component="div"
-            //     primary={micropost.id}
-            //     secondary={micropost.created_at}
-            //   />
-            //   {loginUser.id === micropost.user_id && (
-            //     <Link component="div" onClick={() => deleteSubmit(micropost.id)}>
-            //       delete
-            //     </Link>
-            //   )}
-            //   <Typography variant="body1" pl={2}>
-            //     {micropost.content}
-            //   </Typography>
-            //   <LikeButton
-            //     loginUserId={loginUser.id}
-            //     micropostId={micropost.id}
-            //     likedStatus={likedMicropostIds.includes(micropost.id)}
-            //   />
-            //   <CommentButton
-            //     loginUserId={loginUser.id}
-            //     micropostId={micropost.id}
-            //   />
-            // </ListItem >
-          )
-        }
-
-        {
-          comments.map(comment =>
-            <ListItem key={comment.id}>
-              <ListItemAvatar>
-                <AccountCircle sx={{ fontSize: 40 }} />
-              </ListItemAvatar>
-              <ListItemText
-                component="div"
-                primary={comment.id}
-                secondary={comment.created_at}
-              />
-              {loginUser.id === comment.user_id && (
-                <Link component="div" onClick={() => deleteCommentSubmit(comment.id)}>
-                  delete
-                </Link>
-              )}
-              <Typography variant="body1" pl={2}>
-                {comment.content}
-              </Typography>
-              <LikeButton
+        <Box>
+          {
+            timelineState.timeline.map(micropost =>
+              <Micropost
+                micropost={micropost}
                 loginUserId={loginUser.id}
-                micropostId={comment.id}
+                likedStatus={true}
+              // commentStatus={}
               />
-              <CommentButton
-                loginUserId={loginUser.id}
-                micropostId={comment.id}
-              />
-            </ListItem >
-          )
-        }
-      </List>
-    </Box>
+            )
+          }
+        </Box>
+      </Box>
+    </>
   )
 }
+
+{/* {
+    comments.map(comment =>
+      <ListItem key={comment.id}>
+        <ListItemAvatar>
+          <AccountCircle sx={{ fontSize: 40 }} />
+        </ListItemAvatar>
+        <ListItemText
+          component="div"
+          primary={comment.id}
+          secondary={comment.created_at}
+        />
+        {loginUser.id === comment.user_id && (
+          <Link component="div" onClick={() => deleteCommentSubmit(comment.id)}>
+            delete
+          </Link>
+        )}
+        <Typography variant="body1" pl={2}>
+          {comment.content}
+        </Typography>
+        <LikeButton
+          loginUserId={loginUser.id}
+          micropostId={comment.id}
+        />
+        <CommentButton
+          loginUserId={loginUser.id}
+          micropostId={comment.id}
+        />
+      </ListItem >
+    )
+  } */}
