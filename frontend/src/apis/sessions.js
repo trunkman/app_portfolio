@@ -1,38 +1,36 @@
 import axios from 'axios'
-import { logIn, logOut, loggedIn } from '../urls/index'
+import { login, logout, loggedIn } from '../urls/index'
 
-// ログインするためのapi
+// ログインするapi
 export const postLogIn = (params) => {
-  return axios.post(logIn, {
+  return axios.post(login, {
     session: {
       email: params.email,
       password: params.password,
       remember_me: params.remember_me
     }
-  },
-    { withCredentials: true }
-  )
+  }, {
+    withCredentials: true
+  })
     .then(res => {
-      if (res.data.logged_in) {
-        console.log('login', res)
-        return res.data
-      }
+      console.log('login', res)
+      return res.data
     })
-    .catch(e => {
-      console.error(e);
-      alert('ログイン失敗')
+    .catch(error => {
+      console.log('loggIn', error)
       return 'nil'
     })
 }
 
 // ログアウトするapi
 export const deleteLogout = () => {
-  return axios.delete(logOut, { withCredentials: true })
+  return axios.delete(logout, { withCredentials: true })
     .then(res => {
-      console.log('logout', res.status)
+      console.log('logout', res)
+      return res.data
     })
-    .catch(e => {
-      console.error(e)
+    .catch(error => {
+      console.log('logout', error)
     })
 }
 
@@ -42,7 +40,8 @@ export const fetchLoggedIn = () => {
     .then(res => {
       console.log('loggedIn', res)
       return res.data
-    }).catch(error => {
+    })
+    .catch(error => {
       console.log('loggedIn', error)
     })
 }
