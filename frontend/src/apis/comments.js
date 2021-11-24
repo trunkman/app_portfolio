@@ -9,30 +9,26 @@ export const postComment = (params) => {
       user_id: params.userId,
       micropost_id: params.micropostId
     }
-  },
-    { withCredentials: true }
-  )
+  }, {
+    withCredentials: true
+  })
     .then(res => {
-      if (res.data) {
-        console.log('comment#create', res);
-        return res.data;
-      }
+      console.log('comments#create', res);
+      return res.data;
     })
     .catch(error => {
-      console.log('comment#create', error)
-      return 'nil'
-    })
+      console.log('comments#create', error);
+    });
 }
 
 // コメントを削除するapi
 export const deleteComment = (commentId) => {
   return axios.delete(commentPath(commentId), { withCredentials: true })
     .then(res => {
-      console.log('comment#destroy', res)
-      alert('コメントを削除しました')
-      return res.data
+      console.log('comments#destroy', res);
+      return res.data;
     })
     .catch(error => {
-      console.log('comment#destroy', error)
-    })
+      console.log('comments#destroy', error);
+    });
 }

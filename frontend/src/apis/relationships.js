@@ -4,28 +4,25 @@ import { relationships, relationshipPath } from "../urls";
 export const postFollow = (params) => {
   return axios.post(relationships, {
     followed_id: params.userId
-  },
-    { withCredentials: true }
-  )
+  }, {
+    withCredentials: true
+  })
     .then(res => {
-      if (res.data) {
-        console.log('relationships#create', res);
-        return res.data;
-      }
+      console.log('relationships#create', res);
+      return res.data;
     })
     .catch(error => {
-      console.log('relationships#create', error)
-      return 'nil'
-    })
+      console.log('relationships#create', error);
+    });
 }
 
-export const deleteUnfollow = (params) => {
-  return axios.delete(relationshipPath(params.userId), {
-    withCredentials: true
-  }).then(res => {
-    console.log('relationships#destroy', res)
-    return res.data
-  }).catch(error => {
-    console.log('relationships#destroy', error)
-  })
+export const deleteUnfollow = (userId) => {
+  return axios.delete(relationshipPath(userId), { withCredentials: true })
+    .then(res => {
+      console.log('relationships#destroy', res);
+      return res.data;
+    })
+    .catch(error => {
+      console.log('relationships#destroy', error);
+    });
 }

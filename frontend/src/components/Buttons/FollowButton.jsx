@@ -22,7 +22,7 @@ export const FollowButton = ({
   }
 
   const submitUnfollow = () => {
-    deleteUnfollow({ userId: userId })
+    deleteUnfollow(userId)
       .then(() => {
         setFollow(false)
         alert('フォローを解除しました')

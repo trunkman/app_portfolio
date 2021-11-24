@@ -29,7 +29,7 @@ export const TalkRoom = (props) => {
 
   // ルームのメッセージ一覧を取得する
   useEffect(() => {
-    fetchMessages({ roomId: roomId })
+    fetchMessages(roomId)
       .then(data => {
         setMessages(data.messages)
         dataDispatch({ type: 'complete' })

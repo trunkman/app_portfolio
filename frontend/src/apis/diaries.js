@@ -12,12 +12,14 @@ export const postDiary = (params) => {
     }
   }, {
     withCredentials: true
-  }).then(res => {
-    console.log('diary#create', res);
-    return res.data;
-  }).catch(error => {
-    console.log('diary#create', error)
-  })
+  }).
+    then(res => {
+      console.log('diaries#create', res);
+      return res.data;
+    }).
+    catch(error => {
+      console.log('diaries#create', error);
+    });
 }
 
 // 日記情報を更新するapi
@@ -30,38 +32,24 @@ export const patchDiary = (params) => {
     }
   }, {
     withCredentials: true
-  }).then(res => {
-    if (res.data) {
-      console.log('diary#update', res);
+  }).
+    then(res => {
+      console.log('diaries#update', res);
       return res.data;
-    }
-  }).catch(error => {
-    console.log('diary#create', error)
-  })
+    }).
+    catch(error => {
+      console.log('diaries#update', error)
+    })
 }
 
 // SleepDebtを取得するapi
 export const fetchSleepDebt = (userId) => {
-  return axios.get(sleepDebt(userId))
+  return axios.get(sleepDebt(userId), { withCredentials: true })
     .then(res => {
-      console.log('diary#sleep_debt', res)
+      console.log('diaries#sleep_debt', res)
       return res.data
     })
     .catch(error => {
-      console.log('diary#sleep_debt', error)
+      console.log('diaries#sleep_debt', error)
     })
 }
-
-// 本詳細情報を表示するapi
-// export const fetchdiary = (params) => {
-//   return axios({
-//     method: 'get',
-//     baseURL: diaryPath(params.diaryId),
-//     data: { diary: { id: params.diaryId } },
-//     withCredentials: true,
-//   }).then(res => {
-//     console.log('diary#show', res);
-//   }).catch(error => {
-//     console.log('diary#show', error)
-//   })
-// }
