@@ -30,7 +30,7 @@ export const Profile = ({
   // ユーザー情報の取得
   const userInformation = () => {
     profileDispatch({ type: 'fetching' });
-    fetchUser({ userId: userId })
+    fetchUser(userId)
       .then(data => {
         profileDispatch({
           type: 'fetchSuccessProfile',
