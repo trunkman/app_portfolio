@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 // styles
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import List from "@mui/material/List";
@@ -6,7 +6,6 @@ import ListItemText from "@mui/material/ListItemText";
 // api
 import { fetchMessages } from "../../apis/rooms"
 // reducer
-import { dataInitialState, dataReducer } from '../../reducer/DataReducer';
 import { messageInitialState, messageReducer } from '../../reducer/MessageReducer';
 // Cpmponent
 import { Chat } from "../../components/Forms/Chat";
@@ -34,8 +33,8 @@ export const TalkRoom = ({
   const Messages = () => {
     fetchMessages(roomId)
       .then(data => {
-        roomDispatch({
-          type: fetchSuccess,
+        messageDispatch({
+          type: 'fetchSuccess',
           payload: data.messages,
         })
       })

@@ -23,6 +23,8 @@ export const dialogReducer = (openState, action) => {
     case 'diary':
       return { ...openState, diary: true }
     case 'close':
-      return dialogInitialState
+      return dialogInitialState;
+    default:
+      throw new Error();
   }
 }

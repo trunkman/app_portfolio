@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useReducer, useEffect } from "react";
 // styles
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
@@ -46,11 +46,16 @@ export const Follow = (props) => {
       });
   }
 
+  // タブ変更毎にデータをfetchする
   const handleChange = (event, newTab) => {
     followDispatch({ type: 'fetching' });
-    setValue(newTab);
+    setTab(newTab);
     newTab == 'following' ? Following() : Followers()
   };
+
+  useEffect(() => {
+    Following()
+  }, [])
 
   return (
     <Box sx={{ width: '100%', typography: 'body1' }}>

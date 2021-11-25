@@ -59,7 +59,7 @@ export const updateBook = (params) => {
 }
 
 // 検索したワードの本を取得するapi
-export const fetchBooks = (params) => {
+export const fetchSearchBooks = (params) => {
   return axios.post(bookSearch, {
     book: { title: params.keyword }
   }, {

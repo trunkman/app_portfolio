@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useReducer } from "react";
 import { useHistory } from "react-router-dom";
 // Style
-import { List, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
+import Box from "@mui/material/Box";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import ListItemText from "@mui/material/ListItemText";
 // Icon
 import AccountCircle from "@mui/icons-material/AccountCircle";
 // Api
@@ -17,7 +21,7 @@ export const Friends = (props) => {
     fetchRooms(props.loginUser.id)
       .then(data => {
         roomDispatch({
-          type: fetchSuccess,
+          type: 'fetchSuccess',
           payload: data.entries,
         })
       })

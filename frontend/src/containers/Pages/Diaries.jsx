@@ -4,16 +4,16 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 // Reducer
-import { dialogInitialState, dialogReducer } from '../../reducer/DialogReducer';
+import { dialogReducer, dialogInitialState } from '../../reducer/DialogReducer';
 // Component
 import { Calendar } from "../../components/UserInfomation/Calendar";
 import { SleepInfo } from "../../components/UserInfomation/SleepInfo";
 // Dialog
 import { RecordDialog } from "../../components/Dialogs/RecordDialog";
 
-export const Diaries = (props) => {
-  const userId = props.match.params.id
-  const [dialogState, dialogDispatch] = useReducer(dialogInitialState, dialogReducer)
+export const Diaries = ({ match }) => {
+  const userId = match.params.id
+  const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState);
 
   return (
     <>
@@ -34,7 +34,6 @@ export const Diaries = (props) => {
           }}>
             <h2>理想睡眠時間：{'7.0'} 時間</h2>
             <Button
-              variant="body1"
               onClick={() => dialogDispatch({ type: 'diary' })}
             >
               睡眠日記を書く

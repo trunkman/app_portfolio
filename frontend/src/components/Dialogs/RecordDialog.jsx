@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react';
+import React, { useReducer } from 'react';
 // styles
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -8,7 +8,6 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import TextField from '@mui/material/TextField';
 import MobileDatePicker from '@mui/lab/MobileDatePicker';
-
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
@@ -24,6 +23,7 @@ export const RecordDialog = ({
 }) => {
   const [recordState, recordDispatch] = useReducer(recordReducer, recordInitialState);
 
+  // タブ
   const tabChange = (event, newValue) => {
     recordDispatch({
       type: 'feeling',
@@ -31,24 +31,15 @@ export const RecordDialog = ({
     });
   }
 
-  const dateChange = (date) => {
-    recordDispatch({
-      type: 'feeling',
-      payload: date,
-    });
-  }
-
-  const handleSubmit = () => {
+  const submitDiary = () => {
     postDiary({
       date: recordState.date,
       sleepingHours: recordState.sleepingHours,
       feeling: recordState.feeling,
     }).then(() => {
-      recordDispatch({ type: 'reset' })
-      handleClose()
-    }).catch(() => {
-      alert('記録失敗')
-    })
+      recordDispatch({ type: 'reset' });
+      handleClose();
+    });
   }
 
   // 新規登録ダイアログの内容を返す
@@ -77,13 +68,16 @@ export const RecordDialog = ({
           required
         />
 
-        <MobileDatePicker
-          label="Date mobile"
+        {/* <MobileDatePicker
+          label="日付"
           inputFormat="yyyy/MM/dd"
           value={recordState.date}
-          onChange={dateChange}
+          onChange={e => recordDispatch({
+            type: 'date',
+            payload: e.target.value
+          })}
           renderInput={(params) => <TextField {...params} />}
-        />
+        /> */}
 
         <TextField
           autoFocus
@@ -123,10 +117,10 @@ export const RecordDialog = ({
       </DialogContent>
 
       <DialogActions>
-        <Button onClick={() => { handleClose() }}>
+        <Button onClick={() => handleClose()}>
           閉じる
         </Button>
-        <Button onClick={handleSubmit} type='submit'>
+        <Button onClick={submitDiary} type='submit'>
           日記を記録する
         </Button>
       </DialogActions>

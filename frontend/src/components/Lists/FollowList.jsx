@@ -11,7 +11,7 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import { RoomButton } from "../Buttons/RoomButton";
 import { FollowButton } from "../Buttons/FollowButton";
 
-export const Following = ({
+export const FollowList = ({
   followingIds,
   user,
 }) => {
@@ -20,7 +20,7 @@ export const Following = ({
   return (
     <>
       <Box sx={{
-        my: 2,
+        my: 4,
         border: 0.1,
         borderRadius: '8px',
       }}>
@@ -42,10 +42,9 @@ export const Following = ({
         />
         <FollowButton
           userId={user.id}
-          followStatus={followingIds.includes(user.id)}
+          followStatus={true}
         />
       </Box>
-      )
     </>
   )
 }

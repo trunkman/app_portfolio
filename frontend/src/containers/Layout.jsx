@@ -211,10 +211,6 @@ export const Layout = (props) => {
             />}
           />
 
-          <Route exact path="/booksearch">
-            <BookSearch />
-          </Route>
-
           <Route exact path="/books/:isbn"
             render={({ match }) => <Book
               match={match}
