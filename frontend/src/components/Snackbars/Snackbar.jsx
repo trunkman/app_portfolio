@@ -2,23 +2,22 @@ import React from "react";
 import Alert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
 
-const SnackbarSample = ({
+const Snackbar = ({
   handleClose,
-  message,
+  message, //表示するメッセージ内容を渡す
   show,
+  type, //どんな表示であるかを渡す(success, info, warning, error)
 }) => {
 
   return (
     <>
-      {/* <Button onClick={handleButtonClick} variant="contained">
-        Snackbarを表示する
-      </Button> */}
       <Snackbar
+        anchorOrigin={{ horizontal: 'center', vertical: 'top' }}
         open={show}
-        autoHideDuration={6000}
+        autoHideDuration={4000}
         onClose={handleClose}
       >
-        <Alert severity="warning">
+        <Alert severity={type}>
           {message}
         </Alert>
       </Snackbar>

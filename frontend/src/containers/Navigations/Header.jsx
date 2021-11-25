@@ -18,24 +18,22 @@ import { dialogReducer, dialogInitialState } from '../../reducer/DialogReducer'
 import { LoginControlBottun } from '../../components/Buttons/LoginControlButton'
 import { MicropostDialog } from '../../components/Dialogs/MicropostDialog';
 import { RecordDialog } from "../../components/Dialogs/RecordDialog"
+import { Snackbar } from "../../components/Snackbars/Snackbar"
 
 export const Header = (props) => {
   const history = useHistory()
-  const { authDispatch } = useContext(AuthContext);
+  const { authState, authDispatch } = useContext(AuthContext);
   const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState);
 
-  const handleLogout = () => {
-    authDispatch({
-      type: 'logout',
-    });
-  };
 
   const submitLogout = () => {
     deleteLogout()
-      .then(() => {
-        handleLogout();
+      .then(data => {
+        authDispatch({
+          type: 'logout',
+          payload: data.message
+        });
         history.push(`/`);
-        alert('ログアウトを成功しました');
       });
   };
 
@@ -117,6 +115,12 @@ export const Header = (props) => {
       <RecordDialog
         handleClose={() => dialogDispatch({ type: 'close' })}
         open={dialogState.diary}
+      />
+      <Snackbar
+        handleClose={() => authDispatch({ action: 'closeSnackbar' })}
+        message={authState.message}
+        show={authState.show}
+        type={authState.type}
       />
     </>
   )

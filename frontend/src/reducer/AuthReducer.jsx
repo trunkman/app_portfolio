@@ -5,7 +5,11 @@ export const authInitialState = {
   passwordConfirmation: '',
   rememberMe: '1',
   loginUser: '',
-  loggedIn: false,
+  loggedIn: false, // ログイン状態
+  // Snackbarの表示に関わる
+  show: false,
+  type: '',
+  message: '',
 }
 
 export const authReducer = (state, action) => {
@@ -40,12 +44,18 @@ export const authReducer = (state, action) => {
         ...state,
         loginUser: action.payload,
         loggedIn: true,
+        show: true,
+        type: 'success',
+        message: 'ログインに成功しました',
       };
     case 'logout':
       return {
         ...state,
         loginUser: '',
         loggedIn: false,
+        show: true,
+        type: 'info',
+        message: action.payload,
       };
     case 'preUpdata':
       return {
@@ -62,7 +72,15 @@ export const authReducer = (state, action) => {
         passwordConfirmation: '',
         rememberMe: '1',
       };
+
+    case 'closeSnackbar':
+      return {
+        ...state,
+        show: false,
+        type: '',
+        message: '',
+      };
     default:
-      return authInitialState;
+      throw new Error();
   }
 }
