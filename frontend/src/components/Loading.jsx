@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Loading = () => {
+export const Loading = () => {
   const classes = useStyles();
 
   return (

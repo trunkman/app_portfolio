@@ -9,7 +9,7 @@ export const authInitialState = {
   // Snackbarの表示に関わる
   show: false,
   type: '',
-  message: '',
+  message: 'error',
 }
 
 export const authReducer = (state, action) => {

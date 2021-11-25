@@ -2,7 +2,7 @@ import React from "react";
 import Alert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
 
-const Snackbar = ({
+export const SnackBar = ({
   handleClose,
   message, //表示するメッセージ内容を渡す
   show,

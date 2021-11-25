@@ -18,7 +18,7 @@ import { dialogReducer, dialogInitialState } from '../../reducer/DialogReducer'
 import { LoginControlBottun } from '../../components/Buttons/LoginControlButton'
 import { MicropostDialog } from '../../components/Dialogs/MicropostDialog';
 import { RecordDialog } from "../../components/Dialogs/RecordDialog"
-import { Snackbar } from "../../components/Snackbars/Snackbar"
+import { SnackBar } from "../../components/Snackbars/Snackbar"
 
 export const Header = (props) => {
   const history = useHistory()
@@ -116,8 +116,8 @@ export const Header = (props) => {
         handleClose={() => dialogDispatch({ type: 'close' })}
         open={dialogState.diary}
       />
-      <Snackbar
-        handleClose={() => authDispatch({ action: 'closeSnackbar' })}
+      <SnackBar
+        handleClose={() => authDispatch({ type: 'closeSnackbar' })}
         message={authState.message}
         show={authState.show}
         type={authState.type}
