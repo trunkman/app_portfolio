@@ -62,7 +62,7 @@ export const Profile = ({
   }
 
   useEffect(() => { userInformation() }, [dataState.user])
-  useEffect(() => { userMicropost() }, [dataState.user])
+  useEffect(() => { userMicropost() }, [tab])
 
   return (
     <Box sx={{

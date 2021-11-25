@@ -1,8 +1,7 @@
 export const bookInitialState = {
   fetchState: 'initial',
   postState: 'initial',
-  reRenderFetch: false,
-  reRenderPost: false,
+  reRender: false,
   searchBooks: [],
   readBooks: [],
   stackBooks: [],
@@ -14,13 +13,11 @@ export const bookReducer = (state, action) => {
       return {
         ...state,
         fetchState: 'loading',
-        reRenderFetch: true,
       };
     case 'fetchSuccess':
       return {
         ...state,
         fetchState: 'ok',
-        reRenderFetch: false,
         readBooks: action.payload.readBooks,
         stackBooks: action.payload.stackBooks,
       };
@@ -28,13 +25,13 @@ export const bookReducer = (state, action) => {
       return {
         ...state,
         fetchState: 'loading',
-        reRenderPost: true,
+        reRender: true,
       };
     case 'postSuccess':
       return {
         ...state,
         fetchState: 'ok',
-        reRenderPost: false,
+        reRender: false,
         searchBooks: action.payload,
       };
     default:

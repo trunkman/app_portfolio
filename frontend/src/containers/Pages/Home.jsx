@@ -47,7 +47,7 @@ export const Home = () => {
   // ログイン時のみ実行
   useEffect(() => {
     authState.loggedIn && SleepDebt()
-  }, [])
+  }, [authState.loggedIn])
 
   // ホーム画面を返す
   // 睡眠負債の場合分けは未実装

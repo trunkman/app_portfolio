@@ -12,10 +12,11 @@ export const profileInitialState = {
 
 export const profileReducer = (state, action) => {
   switch (action.type) {
-    case 'fetching':
+    case 'fetchingProfile':
       return {
         ...state,
         fetchState: 'loading',
+        reRender: true,
       };
     case 'fetchSuccessProfile':
       return {
@@ -30,16 +31,10 @@ export const profileReducer = (state, action) => {
       return {
         ...state,
         fetchState: 'ok',
-        reRender: false,
         microposts: action.payload.microposts,
         likedMicroposts: action.payload.likedMicroposts,
         comments: action.payload.comments,
         commentedMicroposts: action.payload.commentedMicroposts,
-      };
-    case 'reRender':
-      return {
-        ...state,
-        reRender: true,
       };
     default:
       throw new Error();

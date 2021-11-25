@@ -56,7 +56,7 @@ export const Follow = (props) => {
 
   useEffect(() => {
     Following()
-  }, [])
+  }, [tab])
 
   return (
     <Box sx={{ width: '100%', typography: 'body1' }}>

@@ -59,7 +59,7 @@ export const Mybooks = ({
   useEffect(() => {
     myBooks();
     return () => setKeyword('');
-  }, [tab, bookState.reRenderPost])
+  }, [tab, bookState.reRender])
 
   return (
     <>
