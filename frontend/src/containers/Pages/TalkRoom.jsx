@@ -45,23 +45,25 @@ export const TalkRoom = ({
   return (
     <>
       <h3>{loginUser.name}</h3>
-      <List className={classes.messages} id={"scroll-area"}>
-        {messageState.messages.length === 0 ? (
-          <ListItemText>
-            メッセージはありません。
-          </ListItemText>
-        ) : (
-          messageState.messages.map((message, index) =>
-            <Message
-              text={message.content}
-              key={index}
-              roomId={roomId}
-              loginUserId={loginUser.id}
-            />
+      {messageState.fetchState != 'ok' ? <Loading /> :
+        <List className={classes.messages} id={"scroll-area"}>
+          {messageState.messages.length === 0 ? (
+            <ListItemText>
+              メッセージはありません。
+            </ListItemText>
+          ) : (
+            messageState.messages.map((message, index) =>
+              <Message
+                text={message.content}
+                key={index}
+                roomId={roomId}
+                loginUserId={loginUser.id}
+              />
+            )
           )
-        )
-        }
-      </List>
+          }
+        </List>
+      }
       <p>
         トークを入力する箇所
       </p>

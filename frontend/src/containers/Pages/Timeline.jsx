@@ -44,48 +44,18 @@ export const Timeline = ({
         <h2>投稿一覧</h2>
         <Box>
           {
-            timelineState.timeline.map(micropost =>
-              <Micropost
-                micropost={micropost}
-                loginUserId={loginUser.id}
-                likedStatus={true}
-              // commentStatus={}
-              />
-            )
+            timelineState.fetchState != 'ok' ? <Loading /> :
+              timelineState.timeline.map(micropost =>
+                <Micropost
+                  micropost={micropost}
+                  loginUserId={loginUser.id}
+                  likedStatus={true}
+                // commentStatus={}
+                />
+              )
           }
         </Box>
       </Box>
     </>
   )
 }
-
-{/* {
-    comments.map(comment =>
-      <ListItem key={comment.id}>
-        <ListItemAvatar>
-          <AccountCircle sx={{ fontSize: 40 }} />
-        </ListItemAvatar>
-        <ListItemText
-          component="div"
-          primary={comment.id}
-          secondary={comment.created_at}
-        />
-        {loginUser.id === comment.user_id && (
-          <Link component="div" onClick={() => deleteCommentSubmit(comment.id)}>
-            delete
-          </Link>
-        )}
-        <Typography variant="body1" pl={2}>
-          {comment.content}
-        </Typography>
-        <LikeButton
-          loginUserId={loginUser.id}
-          micropostId={comment.id}
-        />
-        <CommentButton
-          loginUserId={loginUser.id}
-          micropostId={comment.id}
-        />
-      </ListItem >
-    )
-  } */}

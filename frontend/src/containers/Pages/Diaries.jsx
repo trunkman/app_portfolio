@@ -48,11 +48,15 @@ export const Diaries = ({ match }) => {
         </Grid>
 
         <Grid item sm={12} md={6}>
-          睡眠時間の棒グラフ
+          {/* {diaryState.fetchState != 'ok' ? <Loading /> :  */}
+          <p>睡眠時間の棒グラフ</p>
+          {/* } */}
         </Grid>
 
         <Grid item sm={12} md={6}>
-          睡眠の質の折れ線グラフ
+          {/* {diaryState.fetchState != 'ok' ? <Loading /> :  */}
+          <p>睡眠の質の折れ線グラフ</p>
+          {/* } */}
         </Grid>
 
         <RecordDialog

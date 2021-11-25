@@ -15,6 +15,7 @@ import { profileInitialState, profileReducer } from '../../reducer/ProfileReduce
 // Component
 import { UserInfo } from "../../components/UserInfomation/UserInfo";
 import { Micropost } from "../../components/Lists/Micropost";
+import { Comment } from "../../components/Lists/Comment";
 
 
 export const Profile = ({
@@ -109,31 +110,43 @@ export const Profile = ({
           </Box>
           <TabPanel value="microposts" index={0}>
             {
-              profileState.microposts.map(micropost =>
-                <Micropost
-                  micropost={micropost}
-                  loginUser={loginUser}
-                  likedStatus={
-                    false
-                    // profileState.likedMicropostIds.includes(micropost.id)
-                  }
-                />
-              )
+              profileState.fetchState != 'ok' ? <Loading /> :
+                profileState.microposts.map(micropost =>
+                  <Micropost
+                    micropost={micropost}
+                    loginUser={loginUser}
+                    likedStatus={
+                      false
+                      // profileState.likedMicropostIds.includes(micropost.id)
+                    }
+                  />
+                )
             }
           </TabPanel>
           <TabPanel value="liked_microposts" index={1}>
             {
-              profileState.likedMicroposts.map(micropost =>
-                <Micropost
-                  micropost={micropost}
-                  loginUser={loginUser}
-                  likedStatus={true}
-                />
-              )
+              profileState.fetchState != 'ok' ? <Loading /> :
+                profileState.likedMicroposts.map(micropost =>
+                  <Micropost
+                    micropost={micropost}
+                    loginUser={loginUser}
+                    likedStatus={true}
+                  />
+                )
             }
           </TabPanel>
           <TabPanel value="comments" index={2}>
-
+            {
+              profileState.fetchState != 'ok' ? <Loading /> :
+                profileState.comments.map(comment =>
+                  <Comment
+                    comment={comment}
+                    commentedMicroposts={profileState.commentedMicroposts}
+                    loginUser={loginUser}
+                    user={user}
+                  />
+                )
+            }
           </TabPanel>
         </TabContext>
       </Box>

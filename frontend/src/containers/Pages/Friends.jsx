@@ -37,33 +37,35 @@ export const Friends = (props) => {
         maxWidth: 800
       }}>
         <h2>トークルーム</h2>
-        <List sx={{ bgcolor: 'background.paper' }}>
-          {roomState.entries.length === 0 ? (
-            <ListItemText>
-              トークしている人はいません。
-            </ListItemText>
-          ) : (
-            roomState.entries.map(entry =>
-              <div>
-                <ListItem
-                  button
-                  divider
-                  key={entry.id}
-                  onClick={() => history.push(`/talk_rooms/${entry.room_id}`)}
-                >
-                  <ListItemAvatar>
-                    <AccountCircle sx={{ fontSize: 60 }} />
-                  </ListItemAvatar>
-                  <ListItemText
-                    primary={entry.room_id}
-                    secondary='メッセージルームの最後の投稿を記載する予定'
-                  />
-                </ListItem >
-              </div>
-            )
-          )
-          }
-        </List>
+        {roomState.fetchState != 'ok' ? <Loading /> :
+          <List sx={{ bgcolor: 'background.paper' }}>
+            {roomState.entries.length == 0 &&
+              <ListItemText>
+                トークしている人はいません。
+              </ListItemText>
+            }
+            {roomState.entries.length != 0 &&
+              roomState.entries.map(entry =>
+                <div>
+                  <ListItem
+                    button
+                    divider
+                    key={entry.id}
+                    onClick={() => history.push(`/talk_rooms/${entry.room_id}`)}
+                  >
+                    <ListItemAvatar>
+                      <AccountCircle sx={{ fontSize: 60 }} />
+                    </ListItemAvatar>
+                    <ListItemText
+                      primary={entry.room_id}
+                      secondary='メッセージルームの最後の投稿を記載する予定'
+                    />
+                  </ListItem >
+                </div>
+              )
+            }
+          </List>
+        }
       </Box>
     </>
   )
