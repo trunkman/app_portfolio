@@ -16,7 +16,7 @@ import { deleteLogout } from "../../apis/sessions"
 import { dialogReducer, dialogInitialState } from '../../reducer/DialogReducer'
 // Component
 import { LoginControlBottun } from '../../components/Buttons/LoginControlButton'
-import { MicropostDialog } from '../../components/Dialogs/MicropostDialog';
+import { TweetDialog } from '../../components/Dialogs/TweetDialog';
 import { RecordDialog } from "../../components/Dialogs/RecordDialog"
 import { SnackBar } from "../../components/Snackbars/Snackbar"
 
@@ -108,7 +108,7 @@ export const Header = (props) => {
         </Toolbar>
       </AppBar>
 
-      <MicropostDialog
+      <TweetDialog
         handleClose={() => dialogDispatch({ type: 'close' })}
         open={dialogState.micropost}
       />

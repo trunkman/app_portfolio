@@ -5,16 +5,16 @@ import Typography from "@mui/material/Typography";
 // アイコン
 import AccountCircle from "@mui/icons-material/AccountCircle";
 // api
-import { deleteMicropost } from "../../apis/microposts";
+import { deleteComment } from "../../apis/microposts";
 // コンポーネント
 
 export const Comment = ({
-  commentedMicroposts,
-  loginUser,
-  user,
+  comment,
+  // commentedMicroposts,
+  loginUserId,
 }) => {
-  const deleteSubmit = (micropostId) => {
-    deleteMicropost(micropostId)
+  const deleteSubmit = (commentId) => {
+    deleteComment(commentId)
   }
 
   return (
@@ -27,16 +27,16 @@ export const Comment = ({
         <AccountCircle />
         <Box sx={{ ml: 2 }}>
           <Typography>
-            <b>{user.name}</b>  {props.comment.created_at}
+            <b>{comment.user_id}</b>  {props.comment.created_at}
           </Typography>
           <Typography>
             {comment.content}
           </Typography>
         </Box>
-        {loginUser.id == comment.user_id && (
+        {loginUserId == comment.user_id && (
           <Link
             component="div"
-            onClick={() => deleteSubmit(props.micropost.id)}
+            onClick={() => deleteSubmit(comment.id)}
           >
             削除
           </Link>

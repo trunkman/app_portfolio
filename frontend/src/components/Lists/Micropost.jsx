@@ -1,7 +1,5 @@
 import React from "react";
 import Box from '@mui/material/Box';
-import Grid from "@mui/material/Grid";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Link from '@mui/material/Link';
 import Typography from "@mui/material/Typography";
 // アイコン
@@ -12,7 +10,11 @@ import { deleteMicropost } from "../../apis/microposts";
 import { LikeButton } from "../../components/Buttons/LikeButton";
 import { CommentButton } from "../../components/Buttons/CommentButton"
 
-export const Micropost = (props) => {
+export const Micropost = ({
+  micropost,
+  loginUserId,
+  likedStatus
+}) => {
   const deleteSubmit = (micropostId) => {
     deleteMicropost(micropostId)
   }
@@ -27,32 +29,32 @@ export const Micropost = (props) => {
 
       <Box sx={{ ml: 2 }}>
         <Typography>
-          <b>{props.micropost.id}</b>  {props.micropost.created_at}
+          <b>{micropost.id}</b>  {micropost.created_at}
         </Typography>
         <Typography>
-          {props.micropost.content}
+          {micropost.content}
         </Typography>
       </Box>
 
       <Box sx={{ ml: 2 }}>
         <LikeButton
-          loginUserId={props.loginUserId}
-          micropostId={props.micropost.id}
-          likedStatus={props.likedStatus}
+          loginUserId={loginUserId}
+          micropostId={micropost.id}
+          likedStatus={likedStatus}
         />
       </Box>
 
       <Box sx={{ ml: 2 }}>
         <CommentButton
-          loginUserId={props.loginUserId}
-          micropostId={props.micropost.id}
+          loginUserId={loginUserId}
+          micropostId={micropost.id}
         />
       </Box>
 
-      {props.loginUserId === props.micropost.user_id && (
+      {loginUserId === micropost.user_id && (
         <Link
           component="div"
-          onClick={() => deleteSubmit(props.micropost.id)}
+          onClick={() => deleteSubmit(micropost.id)}
         >
           削除
         </Link>

@@ -1,5 +1,4 @@
-import React, { useReducer, useContext } from 'react';
-import { AuthContext } from "../../App";
+import React, { useReducer } from 'react';
 // Style
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -7,29 +6,40 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 // Api
-import { postMicropost } from '../../apis/microposts';
+import { fetchMicroposts } from '../../apis/users';
 // Reducer
 import { postReducer, postInitialState } from '../../reducer/PostReducer'
 // Component
-import { Content } from '../Forms/Content';
+import { comments } from '../../urls';
+
 
 export const MicropostDialog = ({
   open,
   handleClose,
+  micropost,
 }) => {
 
-  const { authState } = useContext(AuthContext);
   const [postState, postDispatch] = useReducer(postReducer, postInitialState);
 
-  const submitPost = () => {
-    postMicropost({
-      content: postState.content,
-      user_id: authState.loginUser.id,
-    }).then(data => {
-      postDispatch({ type: 'reset' });
-      handleClose()
-    });
-  };
+  // 投稿内容&そのコメントを取得する
+  const Micropost = () => {
+    postDispatch({ type: 'fetching' })
+    fetchMicropost(micropost.id)
+      .then(data => {
+        postDispatch({
+          type: 'fetchSuccess',
+          payload: {
+            micropost: micropost,
+            comments: comments,
+            liked: liked,
+          }
+        })
+      })
+  }
+
+  useEffect(() => {
+    Micropost()
+  }, [open])
 
   return (
     <Dialog
@@ -37,25 +47,26 @@ export const MicropostDialog = ({
       onClose={() => handleClose()}
     >
       <DialogTitle>
-        投稿画面
+        <Micropost
+          likedStatus={postState.liked}
+          loginUserId={loginUser.id}
+          micropost={postState.micropost}
+        />
       </DialogTitle>
       <DialogContent>
-        <Content
-          content={postState.content}
-          handleChange={e =>
-            postDispatch({
-              type: 'content',
-              payload: e.target.value,
-            })
-          }
-        />
+        <h3>コメント</h3>
+        {comments.length != 0 &&
+          comments.map(comment =>
+            <Comment
+              loginUserId={loginUser.id}
+              comment={postState.comment}
+            />
+          )
+        }
       </DialogContent>
       <DialogActions>
         <Button onClick={() => handleClose()}>
           閉じる
-        </Button>
-        <Button onClick={submitPost} type='submit'  >
-          投稿する
         </Button>
       </DialogActions>
     </Dialog>
