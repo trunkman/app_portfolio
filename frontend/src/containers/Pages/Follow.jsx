@@ -67,7 +67,7 @@ export const Follow = (props) => {
           </TabList>
         </Box>
         <TabPanel value="following">
-          {
+          {followState.fetchState != ok ? <Loading /> :
             followState.following.map(user =>
               <FollowList
                 user={user}
@@ -77,7 +77,7 @@ export const Follow = (props) => {
           }
         </TabPanel>
         <TabPanel value="followers">
-          {
+          {followState.fetchState != ok ? <Loading /> :
             followState.followers.map(user =>
               <FollowList
                 user={user}
