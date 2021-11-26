@@ -75,18 +75,22 @@ module Api
       # フォロー中のユーザーを返す
       def following
         @user = User.find(params[:id])
-        @users = @user.following
-        @following_ids = current_user.following_ids
-        render json: { users: @users, following_ids: @following_ids },
+        @following =[]
+        # フォロー判定のためにfollowerのidを付与する
+        @user.following.each do |user| 
+          @following << {user: user, follower_id: @user.id}
+        render json: { following: @following },
                status: :ok
       end
 
       # フォロワーを返す
       def followers
         @user = User.find(params[:id])
-        @users = @user.followers
-        @following_ids = current_user.following_ids
-        render json: { users: @users, following_ids: @following_ids },
+        @followers =[]
+        # フォロー判定のためにfollowerのidを付与する
+        @user.followers.each do |user| 
+          @followers << {user: user, follower_id: @user.id}
+        render json: { followers: @followers },
                status: :ok
       end
 

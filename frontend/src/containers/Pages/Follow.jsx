@@ -26,8 +26,7 @@ export const Follow = (props) => {
         followDispatch({
           type: 'fetchSuccessFollowing',
           payload: {
-            following: data.users,
-            followingIds: data.followingIds,
+            following: data.following,
           }
         });
       });
@@ -40,29 +39,23 @@ export const Follow = (props) => {
         followDispatch({
           type: 'fetchSuccessFollowers',
           payload: {
-            followers: data.users,
-            followingIds: data.followingIds,
+            followers: data.followers,
           }
         });
       });
   }
 
-  // タブ変更毎にデータをfetchする
-  const handleChange = (event, newTab) => {
-    followDispatch({ type: 'fetching' });
-    setTab(newTab);
-    newTab == 'following' ? Following() : Followers()
-  };
-
   useEffect(() => {
-    Following()
+    followDispatch({ type: 'fetching' });
+    newTab == 'following' ? Following() : Followers()
   }, [tab])
+
 
   return (
     <Box sx={{ width: '100%', typography: 'body1' }}>
       <TabContext value={tab}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <TabList onChange={handleChange} >
+          <TabList onChange={(event, newTab) => { setTab(newTab) }} >
             <Tab label="フォロー中" value="following" />
             <Tab label="フォロワー" value="followers" />
           </TabList>
@@ -70,10 +63,10 @@ export const Follow = (props) => {
         <TabPanel value="following">
           {
             followState.fetchState != 'ok' ? <Loading /> :
-              followState.following.map(user =>
+              followState.following.map(followerd =>
                 <FollowList
-                  user={user}
-                  followingIds={followState.followingIds}
+                  user={followed.user}
+                  followStatus={followerd.id == followerd.follower_id}
                 />
               )
           }
@@ -81,10 +74,10 @@ export const Follow = (props) => {
         <TabPanel value="followers">
           {
             followState.fetchState != 'ok' ? <Loading /> :
-              followState.followers.map(user =>
+              followState.followers.map(follower =>
                 <FollowList
-                  user={user}
-                  followingIds={followState.followingIds}
+                  user={follower}
+                  followerId={follower.id == follower.follower_id}
                 />
               )
           }
