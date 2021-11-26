@@ -121,9 +121,14 @@ class User < ApplicationRecord
     active_relationships.find_by(followed_id: other_user.id).destroy
   end
 
-  # 現在のユーザーをフォローしている場合、trueを返す
+  # ユーザーをフォローしている場合、trueを返す
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  # 投稿をいいねしている場合、trueを返す
+  def liked?(micropost)
+    microposts.include?(micropost)
   end
 
   # ユーザーのステータスフィードを返す

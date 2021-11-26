@@ -37,7 +37,7 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     expect(json['user']['email']).to eq(user.email)
     expect(json['following_ids'].length).to eq(1)
     expect(json['followers_ids'].length).to eq(1)
-    expect(json['microposts'].length).to eq(1)
+    expect(json['followStatus']).to be_truthy
     expect(response.status).to eq(200)
   end
 
@@ -88,7 +88,6 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
   end
 
   it '管理者はユーザーを削除できる' do
-    # ユーザーを作成
     user
     log_in_as(admin_user)
     expect { delete api_v1_user_path(user) }.to change(User, :count).by(-1)
@@ -108,13 +107,31 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     expect(response.status).to eq(403)
   end
 
+  it '投稿一覧(コメント&いいね付き)を返す' do
+    # 投稿、いいね、コメントを作成
+    micropost
+    user.likes.create(micropost_id: micropost.id)
+    user.comments.create(content: content, micropost_id: micropost.id)
+    log_in_as(user)
+    get microposts_api_v1_user_path(user)
+    expect(json['microposts']['likeStatus']).to be_truthy
+    expect(json['liked_microposts']['commentCount']).to eq(1)
+    expect(json['comments'].length).to eq(1)
+    expect(response.status).to eq(200)
+  end
+
+  it '未ログインでは投稿一覧(コメント&いいね付き)を返せない' do
+    get microposts_api_v1_user_path(user)
+    expect(response.status).to eq(401)
+  end
+
   it 'フォロー中のユーザーを返す' do
     # userがother_userをフォローする
     user.active_relationships.create(followed_id: other_user.id)
     log_in_as(user)
     get following_api_v1_user_path(user)
     expect(json['users'].length).to eq(1)
-    expect(json['following_ids'].length).to eq(1)
+    expect(json['followStatus']).to be_truthy
     expect(response.status).to eq(200)
   end
 
@@ -129,7 +146,7 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     log_in_as(user)
     get followers_api_v1_user_path(user)
     expect(json['users'].length).to eq(1)
-    expect(json['following_ids'].length).to eq(0)
+    expect(json['followStatus']).to be_truthy
     expect(response.status).to eq(200)
   end
 
@@ -138,25 +155,49 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     expect(response.status).to eq(401)
   end
 
-  it '投稿一覧(コメント&いいね付き)を返す' do
-    micropost
-    # コメント&いいねを作成する
-    user.likes.create(micropost_id: micropost.id)
-    user.comments.create(content: content, micropost_id: micropost.id)
+  it '日記情報を返す' do
+    # 日記を作成する
+    user.diaries.create(date: '1999/12/31',
+                        sleeping_hours: 10.0,
+                        feeling: 'good' )
     log_in_as(user)
-    get microposts_api_v1_user_path(user)
-    expect(json['microposts'].length).to eq(1)
-    expect(json['liked_micropost_ids'].length).to eq(1)
-    expect(json['comments'].length).to eq(1)
-    expect(json['commented_microposts'].length).to eq(1)
+    get diaries_api_v1_user_path(user)
+    expect(json['diaries'].length).to eq(1)
     expect(response.status).to eq(200)
   end
 
-  it '未ログインでは投稿一覧(コメント&いいね付き)を返せない' do
-    get microposts_api_v1_user_path(user)
+  it '未ログインでは日記情報を返せない' do
+    get diaries_api_v1_user_path(user)
     expect(response.status).to eq(401)
   end
 
+  it 'タイムラインを返す' do
+    user.follow(other_user)
+    # 投稿を２つ作成
+    micropost  
+    other_micropost = other.microposts.create(content: content)
+    # userの投稿にいいねとコメントをつける
+    user.likes.create(micropost_id: micropost.id)
+    user.comments.create(content: content, micropost_id: micropost.id)
+    log_in_as(user)
+    get timeline_api_v1_user_path(user)
+    expect(json['timeline'].length).to eq(2)
+    expect(json['timeline'][0]['likeStatus']).to be_truthy
+    expect(json['timeline'][0]['commentCount']).to eq(1)
+    expect(response.status).to eq(200)
+  end
+
+  it '未ログインではタイムラインを返せない' do
+    user.follow(other_user)
+    # 投稿を２つ作成
+    micropost  
+    other_micropost = other.microposts.create(content: content)
+    # userの投稿にいいねとコメントをつける
+    user.likes.create(micropost_id: micropost.id)
+    user.comments.create(content: content, micropost_id: micropost.id)
+    get timeline_api_v1_user_path(user)
+    expect(response.status).to eq(200)
+  end
 
   it 'トークルーム一覧を返す' do
     # トークルームを作成する
@@ -193,19 +234,4 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     expect(response.status).to eq(401)
   end
 
-  it '日記情報を返す' do
-    # 日記を作成する
-    user.diaries.create(date: '1999/12/31',
-                        sleeping_hours: 10.0,
-                        feeling: 'good' )
-    log_in_as(user)
-    get diaries_api_v1_user_path(user)
-    expect(json['diaries'].length).to eq(1)
-    expect(response.status).to eq(200)
-  end
-
-  it '未ログインでは日記情報を返せない' do
-    get diaries_api_v1_user_path(user)
-    expect(response.status).to eq(401)
-  end
 end

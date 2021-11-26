@@ -8,13 +8,31 @@ RSpec.describe 'Api::V1::MicropostsController', type: :request do
   let(:micropost) { user.microposts.create({ content: 'Lorem ipsum' }) }
   let(:params) { { micropost: { content: 'Lorem ipsum' } } }
 
-  it '投稿する' do
+  it '投稿内容（コメント付き）を返す' do
+    # 投稿、いいね、コメントを作成
+    micropost
+    user.likes.create(micropost_id: micropost.id)
+    user.comments.create(content: 'Lorem ipsum', micropost_id: micropost.id)
+    log_in_as(user)
+    get api_v1_micropost_path(micropost)
+    expect(json['micropost'].length).to eq(1)
+    expect(json['likeStatus']).to be_truthy
+    expect(json['comments'].length).to eq(1)
+    expect(response.status).to eq(201)
+  end
+
+  it '未ログインでは投稿内容を返せない' do
+    get api_v1_micropost_path(micropost)
+    expect(response.status).to eq(401)
+  end
+
+    it '投稿する' do
     log_in_as(user)
     expect { post api_v1_microposts_path, params: params }.to change(Micropost, :count).by(+1)
     expect(response.status).to eq(201)
   end
 
-  it '未ログインユーザーは投稿できない' do
+  it '未ログインでは投稿できない' do
     post api_v1_microposts_path, params: params
     expect(response.status).to eq(401)
   end
@@ -26,7 +44,7 @@ RSpec.describe 'Api::V1::MicropostsController', type: :request do
     expect(response.status).to eq(200)
   end
 
-  it '未ログインユーザーは投稿を削除できない' do
+  it '未ログインでは投稿を削除できない' do
     micropost
     delete api_v1_micropost_path(micropost)
     expect(response.status).to eq(401)

@@ -4,8 +4,8 @@ module Api
   module V1
     class UsersController < ApplicationController
       before_action :logged_in_user, only: %i[index show edit update destroy
-                                              following followers microposts
-                                              rooms books diaries]
+                                              microposts following followers 
+                                              diaries timeline rooms books ]
       before_action :correct_user,   only: %i[edit update]
       before_action :admin_user,     only: %i[destroy]
 
@@ -18,10 +18,12 @@ module Api
         @user = User.find(params[:id])
         @following_ids = @user.following_ids
         @followers_ids = @user.follower_ids
+        followStatus = current_user.following?(@user)
         if @user.activated?
           render json: { user: @user,
                          following_ids: @following_ids,
-                         followers_ids: @followers_ids },
+                         followers_ids: @followers_ids,
+                         followStatus: followStatus },
                  status: :ok
         else
           render json: { message: 'ユーザーのアカウントが有効化されていません' },
@@ -58,17 +60,29 @@ module Api
                status: :ok
       end
       
-      # マイクロポスト&コメント一覧を返す
+      # 投稿&コメント一覧を返す
       def microposts
         @user = User.find(params[:id])
-        @microposts = @user.microposts
-        @liked_microposts = @user.liked_microposts
+        @microposts =[]
+        # 投稿
+        @user.microposts.each do |post|
+          # current_userによるいいね有無の判定
+          likeStatus = current_user.liked?(post)
+          # 投稿に対してのコメント数を検索
+          commentCount = post.comment_ids.count
+          @microposts << { micropost: post, likeStatus: likeStatus, commentCount: commentCount }
+        end
+        # いいねした投稿の取得
+        @liked_microposts = []
+        @user.liked_microposts.each do |post|
+          commentCount = post.comment_ids.count
+          @liked_microposts << { liked_micropost: post, likeStatus: true, commentCount: commentCount }
+        end
+        # コメントの取得
         @comments = @user.comments
-        @commented_microposts = @user.commented_microposts
         render json: { microposts: @microposts,
-                        liked_microposts: @liked_microposts,
-                        comments: @comments,
-                        commented_microposts: @commented_microposts},
+                       liked_microposts: @liked_microposts,
+                       comments: @comments },
                 status: :ok
       end
 
@@ -76,9 +90,9 @@ module Api
       def following
         @user = User.find(params[:id])
         @following =[]
-        # フォロー判定のためにfollowerのidを付与する
+        # current_userによるフォロー有無の判定
         @user.following.each do |user| 
-          @following << {user: user, follower_id: @user.id}
+          @following << {user: user, followStatus: current_user.following?(user)}
         render json: { following: @following },
                status: :ok
       end
@@ -87,9 +101,9 @@ module Api
       def followers
         @user = User.find(params[:id])
         @followers =[]
-        # フォロー判定のためにfollowerのidを付与する
+        # current_userによるフォロー有無の判定
         @user.followers.each do |user| 
-          @followers << {user: user, follower_id: @user.id}
+          @followers << {user: user, followStatus: current_user.following?(user)}
         render json: { followers: @followers },
                status: :ok
       end
@@ -109,15 +123,15 @@ module Api
       # タイムラインを返す
       def timeline
         @user = User.find(params[:id])
-        @timeline = @user.feed
-        @liked_micropost_ids = @user.liked_micropost_ids
-        @comments = []
-          @timeline.each do |micropost|
-            @comments << micropost.comments
-          end
-        render json: { timeline: @timeline,
-                       liked_micropost_ids: @liked_micropost_ids,
-                       comments: @comments},
+        @timeline =[]
+        @user.feed.each do |micropost|
+          # current_userによるいいね有無の判定
+          likeStatus = current_user.liked?(micropost)
+          # micropostのコメント数を検索
+          commentCount = micropost.comment_ids.length
+          @timeline << { micropost: micropost, likeStatus: likeStatus, commentCount: commentCount }
+        end
+        render json: { timeline: @timeline },
                status: :ok
       end
 

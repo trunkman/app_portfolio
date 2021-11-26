@@ -23,7 +23,7 @@ Rails.application.routes.draw do
       resources :account_activations, only: [:edit]
       resources :password_resets    , only: %i[create edit update]
       resources :relationships      , only: %i[create destory]
-      resources :microposts         , only: %i[create destroy]
+      resources :microposts         , only: %i[show create destroy]
       post      '/likes'            , to: 'likes#like'
       post      '/unlikes'          , to: 'likes#unlike'
       resources :comments           , only: %i[create destroy]
