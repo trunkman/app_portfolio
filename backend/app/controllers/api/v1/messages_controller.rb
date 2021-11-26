@@ -11,14 +11,12 @@ module Api
         if @message.save
           # 通知を作成する
           Entry.where(room_id: @message.room_id).each do |entry|
-            if entry.user_id != current_user.id
-              @other_user_id = entry.user_id
-            end  
+            @other_user_id = entry.user_id if entry.user_id != current_user.id
           end
           # 通知相手を特定する
-          other_user_id = Entry.select("user_id")
-                                .where("room_id = ? " , params[:message][:room_id])
-                                .where.not("user_id = ? " , current_user.id)
+          other_user_id = Entry.select('user_id')
+                               .where('room_id = ? ', params[:message][:room_id])
+                               .where.not('user_id = ? ', current_user.id)
           @message.create_notification_message!(current_user, other_user_id)
           render json: { message: @message },
                  status: :ok

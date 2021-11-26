@@ -23,7 +23,7 @@ module Api
       # いいねを解除する
       def unlike
         @like = Like.find_by(user_id: current_user.id,
-                              micropost_id: params[:like][:micropost_id])
+                             micropost_id: params[:like][:micropost_id])
         @like.destroy
         render json: { message: 'いいねを削除しました' },
                status: :ok
@@ -35,7 +35,6 @@ module Api
       def like_params
         params.require(:like).permit(:user_id, :micropost_id)
       end
-
     end
   end
 end

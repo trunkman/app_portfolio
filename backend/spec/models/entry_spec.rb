@@ -26,5 +26,4 @@ RSpec.describe Entry, type: :model do
     entry.save
     expect(dupulicate_entry).not_to be_valid
   end
-
 end

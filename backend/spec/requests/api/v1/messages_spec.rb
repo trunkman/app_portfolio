@@ -7,11 +7,11 @@ RSpec.describe 'Api::V1::MessagesController', type: :request do
   let(:room) { FactoryBot.create(:room) }
   let(:params) { { message: { room_id: room.id, content: 'Lorem ipsum' } } }
 
-#要調整（インスタンスは作成できているがNotificationのカウントが0になる）
+  # 要調整（インスタンスは作成できているがNotificationのカウントが0になる）
   it 'チャットでメッセージを送る' do
     log_in_as(user)
-    expect{ post api_v1_messages_path, params: params }.to change(Message, :count).by(1)
-    expect( Notification.count ).to eq(1)
+    expect { post api_v1_messages_path, params: params }.to change(Message, :count).by(1)
+    expect(Notification.count).to eq(1)
     expect(response.status).to eq(200)
   end
 
@@ -19,5 +19,4 @@ RSpec.describe 'Api::V1::MessagesController', type: :request do
     post api_v1_messages_path, params: params
     expect(response.status).to eq(401)
   end
-  
 end

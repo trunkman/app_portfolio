@@ -6,7 +6,7 @@ User.create!(name: 'Admin User',
              password: 'foobar',
              password_confirmation: 'foobar',
              ideal_sleeping_hours: 7.00,
-             profile: 'わたしはこのアプリの管理者です。よく眠るようにより、Quality of Lifeが劇的に向上しましたので、睡眠向上をサポートするアプリを制作しました。是非活用してみてください'
+             profile: 'わたしはこのアプリの管理者です。よく眠るようにより、Quality of Lifeが劇的に向上しましたので、睡眠向上をサポートするアプリを制作しました。是非活用してみてください',
              admin: true,
              activated: true,
              activated_at: Time.zone.now)

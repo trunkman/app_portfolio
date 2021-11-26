@@ -26,8 +26,8 @@ module Api
       def destroy
         if logged_in?
           log_out
-          render json: {message: 'ログアウトを完了しました'} ,
-                  status: :ok
+          render json: { message: 'ログアウトを完了しました' },
+                 status: :ok
         end
       end
 

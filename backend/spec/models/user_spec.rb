@@ -9,7 +9,7 @@ RSpec.describe User, type: :model do
   let(:room) { FactoryBot.create(:room) }
   let(:diary) { FactoryBot.create(:diary) }
   let(:book) { FactoryBot.create(:book) }
-  let(:content) {'Lorem ipsum' }
+  let(:content) { 'Lorem ipsum' }
 
   it 'ユーザーが存在している確認' do
     user.valid?
@@ -144,8 +144,7 @@ RSpec.describe User, type: :model do
     user.active_notifications.create(visited_id: 2, micropost_id: micropost.id, comment_id: 3, action: 'comment')
     user.active_notifications.create(visited_id: 2, action: 'follow')
     user.active_notifications.create(visited_id: 2, entry_id: 4, action: 'entry')
-    user.active_notifications.create(visited_id: 2, message_id: 5,action: 'message')
+    user.active_notifications.create(visited_id: 2, message_id: 5, action: 'message')
     expect { user.destroy }.to change { Notification.count }.by(-5)
   end
-
 end

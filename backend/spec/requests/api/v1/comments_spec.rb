@@ -12,16 +12,17 @@ RSpec.describe 'Api::V1::CommentsController', type: :request do
   it '投稿にコメントする' do
     log_in_as(user)
     expect { post api_v1_comments_path, params: params }.to change(Comment, :count).by(+1)
-    expect( Notification.count ).to eq(1)
+    expect(Notification.count).to eq(1)
     expect(response.status).to eq(201)
   end
 
   it 'コメントが保存されない時、エラーを返す' do
     log_in_as(user)
-    expect { post api_v1_comments_path, params: { comment: { content: '',
-                                                  user_id: user.id,
-                                                  micropost_id: micropost.id } }
-            }.to change(Comment, :count).by(0)
+    expect do
+      post api_v1_comments_path, params: { comment: { content: '',
+                                                      user_id: user.id,
+                                                      micropost_id: micropost.id } }
+    end.to change(Comment, :count).by(0)
     expect(response.status).to eq(422)
   end
 
@@ -31,12 +32,12 @@ RSpec.describe 'Api::V1::CommentsController', type: :request do
   end
 
   it 'コメントを削除する' do
-    comment 
+    comment
     log_in_as(user)
     expect { delete api_v1_comment_path(comment) }.to change(Comment, :count).by(-1)
     expect(response.status).to eq(200)
   end
-  
+
   it '未ログインユーザーはコメントを削除できない' do
     comment
     delete api_v1_comment_path(comment)

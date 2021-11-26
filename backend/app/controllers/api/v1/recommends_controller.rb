@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api
   module V1
     class RecommendsController < ApplicationController
@@ -21,7 +23,6 @@ module Api
         render json: { message: 'おすすめ本を削除しました' },
                status: :ok
       end
-
     end
   end
 end

@@ -19,5 +19,4 @@ RSpec.describe Room, type: :model do
     room.messages.create(user_id: user.id, content: 'Lorem ipsum')
     expect { room.destroy }.to change { Message.count }.by(-1)
   end
-
 end

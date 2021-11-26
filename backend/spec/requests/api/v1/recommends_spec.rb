@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "Api::V1::RecommendsController", type: :request do
+RSpec.describe 'Api::V1::RecommendsController', type: :request do
   let(:user) { FactoryBot.create(:user) }
   let(:other_user) { FactoryBot.create(:user) }
   let(:book) { FactoryBot.create(:book) }
@@ -30,5 +32,4 @@ RSpec.describe "Api::V1::RecommendsController", type: :request do
     delete "/api/v1/recommends/#{book.id}"
     expect(response.status).to eq(401)
   end
-  
 end

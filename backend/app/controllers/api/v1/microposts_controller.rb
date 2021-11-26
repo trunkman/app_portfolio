@@ -12,8 +12,8 @@ module Api
         @comments = []
         @micropost.comments.each do |comment|
           user = User.find(comment.user_id)
-          @comments << {comment: comment, user: user }
-        end 
+          @comments << { comment: comment, user: user }
+        end
         render json: { micropost: @micropost, likeStatus: likeStatus, comments: @comments },
                status: :ok
       end

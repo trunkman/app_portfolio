@@ -26,7 +26,7 @@ RSpec.describe 'Api::V1::MicropostsController', type: :request do
     expect(response.status).to eq(401)
   end
 
-    it '投稿する' do
+  it '投稿する' do
     log_in_as(user)
     expect { post api_v1_microposts_path, params: params }.to change(Micropost, :count).by(+1)
     expect(response.status).to eq(201)

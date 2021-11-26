@@ -74,7 +74,7 @@ RSpec.describe 'Api::V1::DiariesController', type: :request do
     debt_diary = user.diaries.create(date: '1999/01/01', sleeping_hours: 5.25, feeling: 'good')
     log_in_as(user)
     get "/api/v1/sleep_debt/#{user.id}"
-    total_time = user.ideal_sleeping_hours - debt_diary.sleeping_hours 
+    total_time = user.ideal_sleeping_hours - debt_diary.sleeping_hours
     expect(json['sleep_debt']).to eq(total_time.round(2))
     expect(response.status).to eq(200)
   end
@@ -93,5 +93,4 @@ RSpec.describe 'Api::V1::DiariesController', type: :request do
     get "/api/v1/sleep_debt/#{user.id}"
     expect(response.status).to eq(401)
   end
-
 end

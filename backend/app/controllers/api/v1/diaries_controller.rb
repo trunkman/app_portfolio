@@ -33,7 +33,7 @@ module Api
         @user = User.find(params[:id])
         @diaries = @user.diaries
         # 理想の合計睡眠時間を計算
-        ideal_total_time = @user.ideal_sleeping_hours * @diaries.count 
+        ideal_total_time = @user.ideal_sleeping_hours * @diaries.count
         # 実際の合計睡眠時間
         total_time = 0
         @diaries.each do |diary|
@@ -42,12 +42,12 @@ module Api
         # 睡眠負債かどうか判定
         if ideal_total_time > total_time
           sleep_debt = ideal_total_time - total_time
-          render json: { sleep_debt: sleep_debt.round(2)},
+          render json: { sleep_debt: sleep_debt.round(2) },
                  status: :ok
-        else 
+        else
           sleep_saving = total_time - ideal_total_time
 
-          render json: { sleep_saving: sleep_saving.round(2)},
+          render json: { sleep_saving: sleep_saving.round(2) },
                  status: :ok
         end
       end

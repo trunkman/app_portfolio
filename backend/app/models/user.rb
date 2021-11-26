@@ -20,7 +20,7 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
   has_many :diaries, dependent: :destroy
-  has_one  :recommend,  dependent: :destroy
+  has_one  :recommend, dependent: :destroy
   has_one  :recommend_book, through: :recommend, source: :book
   has_many :active_notifications,  class_name: 'Notification',
                                    foreign_key: 'visitor_id',
@@ -47,7 +47,7 @@ class User < ApplicationRecord
   validates :profile, length: { maximum: 150 }
   validates :ideal_sleeping_hours, presence: true, length: { maximum: 4 }
 
-## クラスメソッド
+  ## クラスメソッド
   # 渡された文字列のハッシュを返す
   def self.digest(string)
     cost = if ActiveModel::SecurePassword.min_cost
@@ -63,7 +63,7 @@ class User < ApplicationRecord
     SecureRandom.urlsafe_base64
   end
 
- ## インスタンスメソッド
+  ## インスタンスメソッド
   # 永続セッションのためにユーザーをデータベースに記録する
   def remember
     self.remember_token = User.new_token
@@ -133,13 +133,14 @@ class User < ApplicationRecord
 
   # ユーザーのステータスフィードを返す
   def feed
-    Micropost.where("user_id IN (?) OR user_id = ?", following_ids, id)
+    Micropost.where('user_id IN (?) OR user_id = ?', following_ids, id)
   end
 
   # フォローの通知を作成する
   def create_notification_follow!(current_user)
     # すでにフォロー通知があるかを検索
-    notification_followed = Notification.where(["visitor_id = ? AND visited_id = ? AND action = ? ",current_user.id, id, 'follow'])
+    notification_followed = Notification.where(['visitor_id = ? AND visited_id = ? AND action = ? ', current_user.id,
+                                                id, 'follow'])
     if notification_followed.blank?
       notification = current_user.active_notifications.new(
         visited_id: id,
@@ -148,7 +149,6 @@ class User < ApplicationRecord
       notification.save if notification.valid?
     end
   end
-
 
   private
 

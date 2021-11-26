@@ -4,7 +4,7 @@ module Api
   module V1
     class UsersController < ApplicationController
       before_action :logged_in_user, only: %i[index show edit update destroy
-                                              microposts following followers 
+                                              microposts following followers
                                               diaries timeline rooms books ]
       before_action :correct_user,   only: %i[edit update]
       before_action :admin_user,     only: %i[destroy]
@@ -59,12 +59,12 @@ module Api
         render json: { message: 'アカウントを削除しました' },
                status: :ok
       end
-      
+
       # 投稿&コメント一覧を返す
       def microposts
         @user = User.find(params[:id])
         # 投稿の取得
-        @microposts =[]
+        @microposts = []
         @user.microposts.each do |post|
           # current_userによるいいね有無の判定
           likeStatus = current_user.liked?(post)
@@ -83,31 +83,31 @@ module Api
         render json: { microposts: @microposts,
                        liked_microposts: @liked_microposts,
                        comments: @comments },
-                status: :ok
+               status: :ok
       end
 
       # フォロー中のユーザーを返す
       def following
         @user = User.find(params[:id])
-        @following =[]
+        @following = []
         # current_userによるフォロー有無の判定
-        @user.following.each do |user| 
-          @following << {user: user, followStatus: current_user.following?(user)}
-          render json: { following: @following },
-                 status: :ok
+        @user.following.each do |user|
+          @following << { user: user, followStatus: current_user.following?(user) }
         end
+        render json: { following: @following },
+               status: :ok
       end
 
       # フォロワーを返す
       def followers
         @user = User.find(params[:id])
-        @followers =[]
+        @followers = []
         # current_userによるフォロー有無の判定
-        @user.followers.each do |user| 
-          @followers << {user: user, followStatus: current_user.following?(user)}
-          render json: { followers: @followers },
-                 status: :ok
+        @user.followers.each do |user|
+          @followers << { user: user, followStatus: current_user.following?(user) }
         end
+        render json: { followers: @followers },
+               status: :ok
       end
 
       # 日記情報一覧を返す
@@ -120,12 +120,12 @@ module Api
           modification_diaries << { title: diary.feeling, start: diary.date }
         end
         render json: { diaries: modification_diaries }, status: :ok
-      end      
+      end
 
       # タイムラインを返す
       def timeline
         @user = User.find(params[:id])
-        @timeline =[]
+        @timeline = []
         @user.feed.each do |micropost|
           # current_userによるいいね有無の判定
           likeStatus = current_user.liked?(micropost)

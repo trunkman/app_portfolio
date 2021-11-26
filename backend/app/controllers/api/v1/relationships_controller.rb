@@ -22,7 +22,6 @@ module Api
         render json: { follow_status: :unfollow },
                status: :ok
       end
-
     end
   end
 end

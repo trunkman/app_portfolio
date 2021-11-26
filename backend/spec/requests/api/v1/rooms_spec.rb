@@ -8,7 +8,7 @@ RSpec.describe 'Api::V1::RoomsController', type: :request do
   let(:room) { FactoryBot.create(:room) }
   let(:user_entry) { user.entries.create(room_id: room.id) }
   let(:other_user_entry) { other_user.entries.create(room_id: room.id) }
- 
+
   it 'トークのメッセージ一覧を取得する' do
     # ユーザーとトークルームを結びつけるEntryをそれぞれ作成
     user_entry
@@ -36,7 +36,7 @@ RSpec.describe 'Api::V1::RoomsController', type: :request do
            params: { room: { user_id: other_user.id } }
     end.to change(Room, :count).by(1)
     expect(json['is_room']).to be_falsey
-    expect( Notification.count ).to eq(1)
+    expect(Notification.count).to eq(1)
     expect(response.status).to eq(200)
   end
 
@@ -46,7 +46,7 @@ RSpec.describe 'Api::V1::RoomsController', type: :request do
     log_in_as(user)
     post api_v1_rooms_path, params: { room: { user_id: other_user.id } }
     expect(json['is_room']).to be_truthy
-    expect( Notification.count ).to eq(0)
+    expect(Notification.count).to eq(0)
     expect(response.status).to eq(200)
   end
 

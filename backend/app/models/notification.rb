@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Notification < ApplicationRecord
   # 関連付け
   belongs_to :visitor, class_name: 'User'

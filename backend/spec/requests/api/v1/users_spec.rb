@@ -8,12 +8,14 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
   let(:admin_user) { FactoryBot.create(:admin) }
   let(:micropost) { micropost = user.microposts.create(content: content) }
   let(:content) { 'Lorem ipsum' }
-  let(:params) {{ user: { name: 'exampleユーザー',
-                          email: 'example@example.com',
-                          password: 'example',
-                          password_confirmation: 'example',
-                          ideal_sleeping_hours: 8.00 } } }
-  
+  let(:params) do
+    { user: { name: 'exampleユーザー',
+              email: 'example@example.com',
+              password: 'example',
+              password_confirmation: 'example',
+              ideal_sleeping_hours: 8.00 } }
+  end
+
   it 'ユーザー一覧を返す' do
     other_user
     log_in_as(user)
@@ -47,8 +49,8 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     get api_v1_user_path(user)
     expect(response.status).to eq(401)
   end
-  
-# 要修正箇所
+
+  # 要修正箇所
   it '新規ユーザーを登録する' do
     expect { post api_v1_signup_path, params: params }.to change(User, :count).by(1)
     expect(response.status).to eq(201)
@@ -163,7 +165,7 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     # 日記を作成する
     user.diaries.create(date: '1999/12/31',
                         sleeping_hours: 10.0,
-                        feeling: 'good' )
+                        feeling: 'good')
     log_in_as(user)
     get diaries_api_v1_user_path(user)
     expect(json['diaries'].length).to eq(1)
@@ -178,7 +180,7 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
   it 'タイムラインを返す' do
     user.follow(other_user)
     # 投稿を２つ作成
-    micropost  
+    micropost
     other_micropost = other_user.microposts.create(content: content)
     # userの投稿にいいねとコメントをつける
     user.likes.create(micropost_id: micropost.id)
@@ -230,5 +232,4 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     get microposts_api_v1_user_path(user)
     expect(response.status).to eq(401)
   end
-
 end
