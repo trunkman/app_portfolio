@@ -16,7 +16,7 @@ import { deleteUser } from "../../apis/users"
 // Reducer
 import { dialogReducer, dialogInitialState } from '../../reducer/DialogReducer'
 // Component
-import { AccountBottun } from '../../components/Buttons/AccountBottun'
+import { AccountButton } from '../../components/Buttons/AccountButton'
 import { TweetDialog } from '../../components/Dialogs/TweetDialog';
 import { RecordDialog } from "../../components/Dialogs/RecordDialog"
 import { SnackBar } from "../../components/Snackbars/Snackbar"
@@ -36,7 +36,6 @@ export const Header = ({
       .then(() => {
         authDispatch({ type: 'logout' });
         history.push(`/`);
-        end
       });
   };
 
@@ -49,7 +48,6 @@ export const Header = ({
       });
   };
 
-  const open = open
   const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
   })(({ theme, open }) => ({
@@ -114,7 +112,7 @@ export const Header = ({
           >
             本の検索
           </Typography>
-          <AccountBottun
+          <AccountButton
             handleLogout={submitLogout}
             handleDelete={submitDelete}
           />

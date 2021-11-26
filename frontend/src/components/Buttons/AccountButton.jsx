@@ -9,9 +9,9 @@ import MenuItem from '@mui/material/MenuItem';
 // Icon
 import AccountCircle from '@mui/icons-material/AccountCircle';
 // Component
-import { AccountDeleteDialog } from "../Dialogs/AccountDelete";
+import { AcountDeleteDialog } from "../Dialogs/AccountDeleteDialog";
 
-export const AccountBottun = ({
+export const AccountButton = ({
   handleLogout,
   handleDelete,
 }) => {
@@ -52,7 +52,7 @@ export const AccountBottun = ({
       }
       <AcountDeleteDialog
         handleClose={() => setOpen(false)}
-        handleDelete={handleDelete()}
+        handleDelete={handleDelete}
         open={open}
       />
     </>

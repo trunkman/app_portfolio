@@ -12,6 +12,8 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import { fetchRooms } from "../../apis/users";
 // Reducer
 import { roomInitialState, roomReducer } from '../../reducer/RoomReducer';
+// Component
+import { Loading } from '../../components/Loading';
 
 export const Friends = ({ loginUser }) => {
   const history = useHistory();
@@ -50,7 +52,7 @@ export const Friends = ({ loginUser }) => {
                   <ListItem
                     button
                     divider
-                    key={entry.id}
+                    key={entry.id.toString()}
                     onClick={() => history.push(`/talk_rooms/${entry.room_id}`)}
                   >
                     <ListItemAvatar>

@@ -10,6 +10,8 @@ import { messageInitialState, messageReducer } from '../../reducer/MessageReduce
 // Cpmponent
 import { Chat } from "../../components/Forms/Chat";
 import { Message } from "../../components/Lists/Message";
+import { Loading } from '../../components/Loading';
+
 
 const useStyles = makeStyles(() =>
   createStyles({

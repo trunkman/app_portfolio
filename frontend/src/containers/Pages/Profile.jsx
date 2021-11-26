@@ -83,7 +83,10 @@ export const Profile = ({
       <Box>
         <TabContext value={tab}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-            <TabList onChange={(event, newTab) => setTab(newTab)} >
+            <TabList
+              onChange={(event, newTab) => setTab(newTab)}
+              variant="fullWidth"
+            >
               <Tab icon={<FavoriteIcon />}
                 iconPosition="start"
                 label="つぶやき"
@@ -110,7 +113,7 @@ export const Profile = ({
                   <Micropost
                     commentCount={micropost.commentCount}
                     likedStatus={micropost.likedStatus}
-                    loginUserId={loginUser.id}
+                    loginUser={loginUser}
                     micropost={micropost.micropost}
                   />
                 )
@@ -123,7 +126,7 @@ export const Profile = ({
                   <Micropost
                     commentCount={micropost.commentCount}
                     likedStatus={micropost.likedStatus}
-                    loginUserId={loginUser.id}
+                    loginUser={loginUser}
                     micropost={micropost.micropost}
                   />
                 )

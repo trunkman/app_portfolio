@@ -9,7 +9,6 @@ export const ReadButton = ({
   registration,
   subscribed,
 }) => {
-
   const handleClick = (boolean) => {
     { // ユーザー未登録本の場合、CreateでDBに登録する
       !subscribed && (
@@ -19,6 +18,7 @@ export const ReadButton = ({
           book: book,
         })
           .then(data => {
+            // ぺーじ遷移を加える
             data.message &&
               alert(data.message)
           })
@@ -31,6 +31,7 @@ export const ReadButton = ({
           book: book,
         })
           .then(data => {
+            // ぺーじ遷移を加える
             data.message &&
               alert(data.message)
           })

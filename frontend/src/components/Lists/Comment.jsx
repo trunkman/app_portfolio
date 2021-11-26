@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 // アイコン
 import AccountCircle from "@mui/icons-material/AccountCircle";
 // api
-import { deleteComment } from "../../apis/microposts";
+import { deleteComment } from "../../apis/comments";
 
 export const Comment = ({
   comment,
@@ -21,15 +21,17 @@ export const Comment = ({
 
   return (
     <>
-      <Box sx={{
-        display: 'flex',
-        alignItems: "center",
-        my: 4,
-      }}>
+      <Box
+        key={comment.id.toString()}
+        sx={{
+          display: 'flex',
+          alignItems: "center",
+          my: 4,
+        }}>
         <AccountCircle />
         <Box sx={{ ml: 2 }}>
           <Typography>
-            <b>{userName}</b>  {props.comment.created_at}
+            <b>{userName}</b>  {comment.created_at}
           </Typography>
           <Typography>
             {comment.content}

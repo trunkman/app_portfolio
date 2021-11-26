@@ -42,5 +42,3 @@ export const postReducer = (state, action) => {
       throw new Error();
   }
 }
-
-c

@@ -43,7 +43,7 @@ export const Follow = (props) => {
 
   useEffect(() => {
     followDispatch({ type: 'fetching' });
-    newTab == 'following' ? Following() : Followers()
+    tab == 'following' ? Following() : Followers()
   }, [tab])
 
 
@@ -59,10 +59,10 @@ export const Follow = (props) => {
         <TabPanel value="following">
           {
             followState.fetchState != 'ok' ? <Loading /> :
-              followState.following.map(followerd =>
+              followState.following.map(followed =>
                 <FollowList
                   user={followed.user}
-                  followStatus={followerd.followStatus}
+                  followStatus={followed.followStatus}
                 />
               )
           }

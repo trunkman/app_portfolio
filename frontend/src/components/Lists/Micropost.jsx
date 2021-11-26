@@ -13,24 +13,28 @@ import { CommentButton } from "../../components/Buttons/CommentButton"
 export const Micropost = ({
   commentCount,
   likeStatus,
-  loginUserId,
+  loginUser,
   micropost,
 }) => {
+  // 投稿を削除する
   const deleteSubmit = (micropostId) => {
     deleteMicropost(micropostId)
   }
 
   return (
-    <Box sx={{
-      display: 'flex',
-      alignItems: "center",
-      my: 4,
-    }}>
+    <Box
+      key={micropost.id.toString()}
+      sx={{
+        display: 'flex',
+        alignItems: "center",
+        my: 4,
+      }}>
       <AccountCircle />
 
       <Box sx={{ ml: 2 }}>
         <Typography>
-          <b>{micropost.id}</b>  {micropost.created_at}
+          <b>{loginUser.name}</b>
+          <p>{micropost.created_at}</p>
         </Typography>
         <Typography>
           {micropost.content}
@@ -39,7 +43,7 @@ export const Micropost = ({
 
       <Box sx={{ ml: 2 }}>
         <LikeButton
-          loginUserId={loginUserId}
+          loginUserId={loginUser.id}
           micropostId={micropost.id}
           Status={likeStatus}
         />
@@ -47,13 +51,13 @@ export const Micropost = ({
 
       <Box sx={{ ml: 2 }}>
         <CommentButton
-          loginUserId={loginUserId}
+          loginUserId={loginUser.id}
           micropostId={micropost.id}
           commentCount={commentCount}
         />
       </Box>
 
-      {loginUserId === micropost.user_id && (
+      {loginUser.id === micropost.user_id && (
         <Link
           component="div"
           onClick={() => deleteSubmit(micropost.id)}

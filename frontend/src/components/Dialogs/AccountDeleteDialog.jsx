@@ -10,7 +10,11 @@ const Transition = React.forwardRef((props, ref) => {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export const AcountDeleteDialog = () => {
+export const AcountDeleteDialog = ({
+  handleClose,
+  handleDelete,
+  open,
+}) => {
 
   return (
     <div>
@@ -22,7 +26,7 @@ export const AcountDeleteDialog = () => {
       >
         <DialogTitle>{"アカウントを削除してもよろしいですか？"}</DialogTitle>
         <DialogActions>
-          <Button onClick={() => { props.handleClose() }}>
+          <Button onClick={() => { handleClose() }}>
             戻る
           </Button>
           <Button type='submit' onClick={() => { handleDelete() }} >

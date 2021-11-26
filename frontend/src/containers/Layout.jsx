@@ -13,8 +13,6 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 // コンテイナー
 import { Book } from './Pages/Book';
-import { BookSearch } from './Pages/BookSearch';
-import { Contact } from './Pages/Contact';
 import { Diaries } from './Pages/Diaries';
 import { Follow } from './Pages/Follow';
 import { Friends } from './Pages/Friends';
@@ -138,10 +136,7 @@ export const Layout = (props) => {
       >
         <Switch>
           <Route exact path="/">
-            <Home
-            // loggedIn={authState.loggedIn}
-            // loginUser={authState.loginUser}
-            />
+            <Home />
           </Route>
 
           <Route exact path="/account_activations/:id/edit">
@@ -215,10 +210,6 @@ export const Layout = (props) => {
               bookIsbn={match.params.isbn}
             />}
           />
-
-          <Route exact path="/contact">
-            <Contact />
-          </Route>
 
           <Route exact path="/password_resets/:id/edit"
             render={({ match }) => <PasswordReset

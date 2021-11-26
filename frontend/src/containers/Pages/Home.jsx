@@ -14,6 +14,8 @@ import { SignUpDialog } from "../../components/Dialogs/SignUpDialog";
 import { LogInDialog } from "../../components/Dialogs/LogInDialog";
 import { PasswordResetDialog } from "../../components/Dialogs/PasswordResetDialog";
 import { SleepInfo } from "../../components/UserInfomation/SleepInfo"
+import { SnackBar } from "../../components/Snackbars/Snackbar"
+
 // Image
 // import { MainImage } from "../../images/MainImage.png";
 

@@ -4,10 +4,10 @@ import Box from '@mui/material/Box';
 // Api
 import { fetchTimeline } from "../../apis/users";
 // Reducer
-import { dataInitialState, dataReducer } from '../../reducer/DataReducer';
 import { timelineInitialState, timelineReducer } from '../../reducer/TimelineReducer';
 // Cpmponent
 import { Micropost } from "../../components/Lists/Micropost";
+import { Loading } from '../../components/Loading';
 
 export const Timeline = ({
   userId,
@@ -37,7 +37,7 @@ export const Timeline = ({
         mx: 'auto',
         maxWidth: 800
       }}>
-        <h2>投稿一覧</h2>
+        <h2>タイムライン</h2>
         <Box>
           {
             timelineState.fetchState != 'ok' ? <Loading /> :
@@ -45,7 +45,7 @@ export const Timeline = ({
                 <Micropost
                   commentCount={timeline.commentCount}
                   likeStatus={timeline.likeStatus}
-                  loginUserId={loginUser.id}
+                  loginUser={loginUser}
                   micropost={timeline.micropost}
                 />
               )
