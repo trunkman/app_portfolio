@@ -21,11 +21,7 @@ export const Timeline = ({
       .then(data => {
         timelineDispatch({
           type: 'fetchSuccess',
-          payload: {
-            timeline: data.timeline,
-            liked_micropost_ids: data.liked_micropost_ids,
-            comments: data.comments,
-          }
+          payload: { timeline: data.timeline }
         })
       })
   }
@@ -45,12 +41,12 @@ export const Timeline = ({
         <Box>
           {
             timelineState.fetchState != 'ok' ? <Loading /> :
-              timelineState.timeline.map(micropost =>
+              timelineState.timeline.map(timeline =>
                 <Micropost
-                  micropost={micropost}
+                  commentCount={timeline.commentCount}
+                  likeStatus={timeline.likeStatus}
                   loginUserId={loginUser.id}
-                  likedStatus={true}
-                // commentStatus={}
+                  micropost={timeline.micropost}
                 />
               )
           }

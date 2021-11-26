@@ -151,24 +151,24 @@ export const Layout = (props) => {
           <Route exact path="/users/:id"
             render={({ match }) =>
               <Profile
-                isLoggedIn={authState.loggedIn}
-                match={match}
                 loginUser={authState.loginUser}
+                isLoggedIn={authState.loggedIn}
+                userId={match.params.id}
               />
             }
           />
 
           <Route exact path="/users/:id/timeline"
             render={({ match }) => <Timeline
-              userId={match.params.id}
               loginUser={authState.loginUser}
+              userId={match.params.id}
             />}
           />
 
           <Route exact path="/users/:id/talk_rooms"
             render={({ match }) => <Friends
-              usrmatch={match}
               loginUser={authState.loginUser}
+              userId={match.params.id} //不要なら削除
             />}
           />
 
@@ -186,14 +186,13 @@ export const Layout = (props) => {
 
           <Route exact path="/users/:id/books"
             render={({ match }) => <Mybooks
-              match={match}
-              loginUser={authState.loginUser}
+              userId={match.params.id}
             />}
           />
 
           <Route exact path="/users/:id/diaries"
             render={({ match }) => <Diaries
-              match={match}
+              userId={match.params.id}
             />}
           />
 
@@ -206,14 +205,14 @@ export const Layout = (props) => {
 
           <Route exact path="/talk_rooms/:id"
             render={({ match }) => <TalkRoom
-              match={match}
+              roomId={match.params.id}
               loginUser={authState.loginUser}
             />}
           />
 
           <Route exact path="/books/:isbn"
             render={({ match }) => <Book
-              match={match}
+              bookIsbn={match.params.isbn}
             />}
           />
 

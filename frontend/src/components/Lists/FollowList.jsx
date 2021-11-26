@@ -12,7 +12,7 @@ import { RoomButton } from "../Buttons/RoomButton";
 import { FollowButton } from "../Buttons/FollowButton";
 
 export const FollowList = ({
-  followingIds,
+  followStatus,
   user,
 }) => {
   const history = useHistory()
@@ -42,7 +42,7 @@ export const FollowList = ({
         />
         <FollowButton
           userId={user.id}
-          followStatus={true}
+          followStatus={followStatus}
         />
       </Box>
     </>

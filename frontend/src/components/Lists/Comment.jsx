@@ -6,15 +6,17 @@ import Typography from "@mui/material/Typography";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 // api
 import { deleteComment } from "../../apis/microposts";
-// コンポーネント
 
 export const Comment = ({
   comment,
-  // commentedMicroposts,
   loginUserId,
+  userName,
 }) => {
+
+  // コメントを削除する
   const deleteSubmit = (commentId) => {
     deleteComment(commentId)
+      .then(alert('コメントを削除する'))
   }
 
   return (
@@ -27,7 +29,7 @@ export const Comment = ({
         <AccountCircle />
         <Box sx={{ ml: 2 }}>
           <Typography>
-            <b>{comment.user_id}</b>  {props.comment.created_at}
+            <b>{userName}</b>  {props.comment.created_at}
           </Typography>
           <Typography>
             {comment.content}

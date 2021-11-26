@@ -6,7 +6,11 @@ import SmsOutlinedIcon from '@mui/icons-material/SmsOutlined';
 // コンポーネント
 import { CommentDialog } from "../Dialogs/CommentDialog";
 
-export const CommentButton = (props) => {
+export const CommentButton = ({
+  commentCount,
+  loginUserId,
+  micropostId,
+}) => {
   const [open, setOpen] = useState(false)
   // ダイアログを開閉する関数群
   const handleOpen = () => { setOpen(true) }
@@ -16,12 +20,14 @@ export const CommentButton = (props) => {
     <>
       <IconButton onClick={handleOpen}>
         <SmsOutlinedIcon />
+        {commentCount}
       </IconButton>
+
       <CommentDialog
         handleClose={handleClose}
         open={open}
-        loginUserId={props.loginUserId}
-        micropostId={props.micropostId}
+        loginUserId={loginUserId}
+        micropostId={micropostId}
       />
     </>
   )

@@ -15,13 +15,13 @@ import { profileInitialState, profileReducer } from '../../reducer/ProfileReduce
 import { UserInfo } from "../../components/UserInfomation/UserInfo";
 import { Micropost } from "../../components/Lists/Micropost";
 import { Comment } from "../../components/Lists/Comment";
+import { Loading } from "../../components/Loading"
 
 
 export const Profile = ({
-  match,
+  userId,
   loginUser,
 }) => {
-  const userId = match.params.id
   const [profileState, profileDispatch] = useReducer(profileReducer, profileInitialState);
   const [tab, setTab] = useState('microposts');
 
@@ -35,6 +35,7 @@ export const Profile = ({
             user: data.user,
             followingIds: data.following_ids,
             followersIds: data.followers_ids,
+            followStatus: data.followStatus,
           }
         })
       });
@@ -50,7 +51,6 @@ export const Profile = ({
             microposts: data.microposts,
             likedMicroposts: data.liked_microposts,
             comments: data.comments,
-            commentedMicroposts: data.commented_microposts,
           }
         })
       });
@@ -108,12 +108,10 @@ export const Profile = ({
               profileState.fetchState != 'ok' ? <Loading /> :
                 profileState.microposts.map(micropost =>
                   <Micropost
-                    micropost={micropost}
-                    loginUser={loginUser}
-                    likedStatus={
-                      false
-                      // profileState.likedMicropostIds.includes(micropost.id)
-                    }
+                    commentCount={micropost.commentCount}
+                    likedStatus={micropost.likedStatus}
+                    loginUserId={loginUser.id}
+                    micropost={micropost.micropost}
                   />
                 )
             }
@@ -123,9 +121,10 @@ export const Profile = ({
               profileState.fetchState != 'ok' ? <Loading /> :
                 profileState.likedMicroposts.map(micropost =>
                   <Micropost
-                    micropost={micropost}
-                    loginUser={loginUser}
-                    likedStatus={true}
+                    commentCount={micropost.commentCount}
+                    likedStatus={micropost.likedStatus}
+                    loginUserId={loginUser.id}
+                    micropost={micropost.micropost}
                   />
                 )
             }
@@ -136,9 +135,8 @@ export const Profile = ({
                 profileState.comments.map(comment =>
                   <Comment
                     comment={comment}
-                    commentedMicroposts={profileState.commentedMicroposts}
                     loginUser={loginUser}
-                    user={user}
+                    userName={profileState.user.name}
                   />
                 )
             }

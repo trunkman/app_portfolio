@@ -69,7 +69,7 @@ export const UserInfo = ({
             ) : (
               <FollowButton
                 userId={profile.user.id}
-                followStatus={profile.followingIds.includes(profile.user.id)}
+                followStatus={profile.followStatus}
               />
             )
           }

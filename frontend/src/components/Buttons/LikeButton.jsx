@@ -8,27 +8,28 @@ import { red } from "@mui/material/colors";
 // api
 import { postLike, postUnlike } from "../../apis/likes";
 
-export const LikeButton = (props) => {
-  const [likeStatus, setLikeStatus] = useState(false)
+export const LikeButton = ({
+  loginUserId,
+  micropostId,
+  Status,
+}) => {
+  const [likeStatus, setLikeStatus] = useState(Status)
+  // いいねをつける
   const handleLike = () => {
     postLike({
-      userId: props.loginUserId,
-      micropostId: props.micropostId,
+      userId: loginUserId,
+      micropostId: micropostId,
     }).then(setLikeStatus(true)
     )
   }
-
+  // いいねを解除する
   const handleUnlike = () => {
     postUnlike({
-      userId: props.loginUserId,
-      micropostId: props.micropostId,
+      userId: loginUserId,
+      micropostId: micropostId,
     }).then(setLikeStatus(false)
     )
   }
-
-  useEffect(() => {
-    setLikeStatus(props.likedStatus)
-  }, [])
 
   return (
     <>

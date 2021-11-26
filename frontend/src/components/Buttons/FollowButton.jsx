@@ -12,7 +12,6 @@ export const FollowButton = ({
 }) => {
 
   const [follow, setFollow] = useState(followStatus)
-
   // フォローする
   const submitFollow = () => {
     postFollow({ userId: userId })
@@ -21,7 +20,7 @@ export const FollowButton = ({
         alert('フォローしました')
       })
   }
-  // フォロー解除する
+  // フォローを解除する
   const submitUnfollow = () => {
     deleteUnfollow(userId)
       .then(() => {

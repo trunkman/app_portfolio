@@ -25,9 +25,7 @@ export const Follow = (props) => {
       .then(data => {
         followDispatch({
           type: 'fetchSuccessFollowing',
-          payload: {
-            following: data.following,
-          }
+          payload: { following: data.following },
         });
       });
   }
@@ -38,9 +36,7 @@ export const Follow = (props) => {
       .then(data => {
         followDispatch({
           type: 'fetchSuccessFollowers',
-          payload: {
-            followers: data.followers,
-          }
+          payload: { followers: data.followers },
         });
       });
   }
@@ -66,7 +62,7 @@ export const Follow = (props) => {
               followState.following.map(followerd =>
                 <FollowList
                   user={followed.user}
-                  followStatus={followerd.id == followerd.follower_id}
+                  followStatus={followerd.followStatus}
                 />
               )
           }
@@ -76,8 +72,8 @@ export const Follow = (props) => {
             followState.fetchState != 'ok' ? <Loading /> :
               followState.followers.map(follower =>
                 <FollowList
-                  user={follower}
-                  followerId={follower.id == follower.follower_id}
+                  user={follower.user}
+                  followStatus={follower.followStatus}
                 />
               )
           }

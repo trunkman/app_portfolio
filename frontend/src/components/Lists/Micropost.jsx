@@ -11,9 +11,10 @@ import { LikeButton } from "../../components/Buttons/LikeButton";
 import { CommentButton } from "../../components/Buttons/CommentButton"
 
 export const Micropost = ({
-  micropost,
+  commentCount,
+  likeStatus,
   loginUserId,
-  likedStatus
+  micropost,
 }) => {
   const deleteSubmit = (micropostId) => {
     deleteMicropost(micropostId)
@@ -40,7 +41,7 @@ export const Micropost = ({
         <LikeButton
           loginUserId={loginUserId}
           micropostId={micropost.id}
-          likedStatus={likedStatus}
+          Status={likeStatus}
         />
       </Box>
 
@@ -48,6 +49,7 @@ export const Micropost = ({
         <CommentButton
           loginUserId={loginUserId}
           micropostId={micropost.id}
+          commentCount={commentCount}
         />
       </Box>
 

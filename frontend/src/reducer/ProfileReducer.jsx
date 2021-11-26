@@ -4,10 +4,10 @@ export const profileInitialState = {
   user: {},
   followingIds: [],
   followersIds: [],
+  followStatus: false,
   microposts: [],
   likedMicroposts: [],
   comments: [],
-  commentedMicroposts: [],
 }
 
 export const profileReducer = (state, action) => {
@@ -26,6 +26,7 @@ export const profileReducer = (state, action) => {
         user: action.payload.user,
         followingIds: action.payload.followingIds,
         followersIds: action.payload.followersIds,
+        followStatus: action.payload.followStatus,
       };
     case 'fetchSuccessMicropost':
       return {
@@ -34,7 +35,6 @@ export const profileReducer = (state, action) => {
         microposts: action.payload.microposts,
         likedMicroposts: action.payload.likedMicroposts,
         comments: action.payload.comments,
-        commentedMicroposts: action.payload.commentedMicroposts,
       };
     default:
       throw new Error();

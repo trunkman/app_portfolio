@@ -4,7 +4,7 @@ export const postInitialState = {
   content: '',
   micropost: {},
   comments: [],
-  liked: false,
+  likeStatus: false,
 }
 
 export const postReducer = (state, action) => {
@@ -18,9 +18,9 @@ export const postReducer = (state, action) => {
       return {
         ...state,
         fetchState: 'ok',
-        micropost: action.payload, micropost,
-        comments: action.payload, comments,
-        liked: action.payload, liked,
+        micropost: action.payload.micropost,
+        comments: action.payload.comments,
+        likeStatus: action.payload.likeStatus,
       };
     case 'input':
       return {
