@@ -23,12 +23,6 @@ module Api
                status: :ok
       end
 
-      # 必要ないなら削除：フォローしているユーザーidを取得する
-      # def following_status
-      #   user = User.find(params[:id])
-      #   following = current_user.following?(user)
-      #   render json: { follow_status: following }, status: :ok
-      # end
     end
   end
 end

@@ -15,10 +15,10 @@ RSpec.describe 'Api::V1::MicropostsController', type: :request do
     user.comments.create(content: 'Lorem ipsum', micropost_id: micropost.id)
     log_in_as(user)
     get api_v1_micropost_path(micropost)
-    expect(json['micropost'].length).to eq(1)
+    expect(json['micropost']['content']).to eq('Lorem ipsum')
     expect(json['likeStatus']).to be_truthy
     expect(json['comments'].length).to eq(1)
-    expect(response.status).to eq(201)
+    expect(response.status).to eq(200)
   end
 
   it '未ログインでは投稿内容を返せない' do

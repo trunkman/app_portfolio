@@ -11,7 +11,8 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
   let(:params) {{ user: { name: 'exampleユーザー',
                           email: 'example@example.com',
                           password: 'example',
-                          password_confirmation: 'example' } } }
+                          password_confirmation: 'example',
+                          ideal_sleeping_hours: 8.00 } } }
   
   it 'ユーザー一覧を返す' do
     other_user
@@ -33,8 +34,9 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     # micropostを作成
     micropost
     log_in_as(user)
-    get api_v1_user_path(user)
-    expect(json['user']['email']).to eq(user.email)
+    # other_userのプロフィールを取得
+    get api_v1_user_path(other_user)
+    expect(json['user']['email']).to eq(other_user.email)
     expect(json['following_ids'].length).to eq(1)
     expect(json['followers_ids'].length).to eq(1)
     expect(json['followStatus']).to be_truthy
@@ -45,10 +47,10 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     get api_v1_user_path(user)
     expect(response.status).to eq(401)
   end
+  
 # 要修正箇所
   it '新規ユーザーを登録する' do
     expect { post api_v1_signup_path, params: params }.to change(User, :count).by(1)
-    expect(json['user']['email']).to eq('example@example.com')
     expect(response.status).to eq(201)
   end
 
@@ -56,7 +58,8 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     post api_v1_signup_path, params: { user: { name: 'exampleユーザー',
                                                email: 'example@example.com',
                                                password: 'example',
-                                               password_confirmation: '12345678' } }
+                                               password_confirmation: '12345678',
+                                               ideal_sleeping_hours: 8.00 } }
     expect(response.status).to eq(422)
   end
 
@@ -72,7 +75,8 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     patch api_v1_user_path(user), params: { user: { name: 'exampleユーザー',
                                                     email: 'example@example.com',
                                                     password: 'example',
-                                                    password_confirmation: '12345678' } }
+                                                    password_confirmation: '12345678',
+                                                    ideal_sleeping_hours: 8.00 } }
     expect(response.status).to eq(422)
   end
 
@@ -114,8 +118,8 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     user.comments.create(content: content, micropost_id: micropost.id)
     log_in_as(user)
     get microposts_api_v1_user_path(user)
-    expect(json['microposts']['likeStatus']).to be_truthy
-    expect(json['liked_microposts']['commentCount']).to eq(1)
+    expect(json['microposts'][0]['likeStatus']).to be_truthy
+    expect(json['liked_microposts'][0]['commentCount']).to eq(1)
     expect(json['comments'].length).to eq(1)
     expect(response.status).to eq(200)
   end
@@ -130,8 +134,8 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     user.active_relationships.create(followed_id: other_user.id)
     log_in_as(user)
     get following_api_v1_user_path(user)
-    expect(json['users'].length).to eq(1)
-    expect(json['followStatus']).to be_truthy
+    expect(json['following'].length).to eq(1)
+    expect(json['following'][0]['followStatus']).to be_truthy
     expect(response.status).to eq(200)
   end
 
@@ -145,8 +149,8 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     other_user.active_relationships.create(followed_id: user.id)
     log_in_as(user)
     get followers_api_v1_user_path(user)
-    expect(json['users'].length).to eq(1)
-    expect(json['followStatus']).to be_truthy
+    expect(json['followers'].length).to eq(1)
+    expect(json['followers'][0]['followStatus']).to be_falsy
     expect(response.status).to eq(200)
   end
 
@@ -175,28 +179,21 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     user.follow(other_user)
     # 投稿を２つ作成
     micropost  
-    other_micropost = other.microposts.create(content: content)
+    other_micropost = other_user.microposts.create(content: content)
     # userの投稿にいいねとコメントをつける
     user.likes.create(micropost_id: micropost.id)
     user.comments.create(content: content, micropost_id: micropost.id)
     log_in_as(user)
     get timeline_api_v1_user_path(user)
     expect(json['timeline'].length).to eq(2)
-    expect(json['timeline'][0]['likeStatus']).to be_truthy
-    expect(json['timeline'][0]['commentCount']).to eq(1)
+    expect(json['timeline'][1]['likeStatus']).to be_truthy
+    expect(json['timeline'][1]['commentCount']).to eq(1)
     expect(response.status).to eq(200)
   end
 
   it '未ログインではタイムラインを返せない' do
-    user.follow(other_user)
-    # 投稿を２つ作成
-    micropost  
-    other_micropost = other.microposts.create(content: content)
-    # userの投稿にいいねとコメントをつける
-    user.likes.create(micropost_id: micropost.id)
-    user.comments.create(content: content, micropost_id: micropost.id)
     get timeline_api_v1_user_path(user)
-    expect(response.status).to eq(200)
+    expect(response.status).to eq(401)
   end
 
   it 'トークルーム一覧を返す' do

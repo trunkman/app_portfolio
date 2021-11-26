@@ -63,8 +63,8 @@ module Api
       # 投稿&コメント一覧を返す
       def microposts
         @user = User.find(params[:id])
+        # 投稿の取得
         @microposts =[]
-        # 投稿
         @user.microposts.each do |post|
           # current_userによるいいね有無の判定
           likeStatus = current_user.liked?(post)
@@ -93,8 +93,9 @@ module Api
         # current_userによるフォロー有無の判定
         @user.following.each do |user| 
           @following << {user: user, followStatus: current_user.following?(user)}
-        render json: { following: @following },
-               status: :ok
+          render json: { following: @following },
+                 status: :ok
+        end
       end
 
       # フォロワーを返す
@@ -104,8 +105,9 @@ module Api
         # current_userによるフォロー有無の判定
         @user.followers.each do |user| 
           @followers << {user: user, followStatus: current_user.following?(user)}
-        render json: { followers: @followers },
-               status: :ok
+          render json: { followers: @followers },
+                 status: :ok
+        end
       end
 
       # 日記情報一覧を返す
@@ -165,7 +167,8 @@ module Api
 
       # Strong Parameters
       def user_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
+        params.require(:user).permit(:name, :email, :password, :password_confirmation,
+                                     :ideal_sleeping_hours, :image)
       end
 
       # 管理者かどうか

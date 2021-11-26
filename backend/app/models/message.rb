@@ -20,6 +20,6 @@ class Message < ApplicationRecord
         message_id: id,
         action: 'message'
       )
-    notification.save if notification.valid?
+      notification.save if notification.valid?
   end
 end
