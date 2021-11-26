@@ -55,7 +55,16 @@ export const authReducer = (state, action) => {
         loggedIn: false,
         show: true,
         type: 'info',
-        message: action.payload,
+        message: 'ログアウトしました',
+      };
+    case 'deleteUser':
+      return {
+        ...state,
+        loginUser: '',
+        loggedIn: false,
+        show: true,
+        type: 'error',
+        message: 'アカウントを削除しました',
       };
     case 'preUpdata':
       return {
