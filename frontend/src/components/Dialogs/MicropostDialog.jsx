@@ -6,11 +6,11 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 // Api
-import { fetchMicroposts } from '../../apis/users';
+import { fetchMicropost } from '../../apis/microposts';
 // Reducer
 import { postReducer, postInitialState } from '../../reducer/PostReducer'
 // Component
-import { comments } from '../../urls';
+import { Loading } from "../../components/Loading"
 
 
 export const MicropostDialog = ({
@@ -29,9 +29,9 @@ export const MicropostDialog = ({
         postDispatch({
           type: 'fetchSuccess',
           payload: {
-            micropost: micropost,
-            comments: comments,
-            liked: liked,
+            micropost: data.micropost,
+            comments: data.comments,
+            likeStatus: data.likeStatus,
           }
         })
       })
@@ -48,20 +48,23 @@ export const MicropostDialog = ({
     >
       <DialogTitle>
         <Micropost
-          likedStatus={postState.liked}
+          commentCount={postState.comments.length}
+          likeStatus={postState.likeStatus}
           loginUserId={loginUser.id}
           micropost={postState.micropost}
         />
       </DialogTitle>
       <DialogContent>
         <h3>コメント</h3>
-        {comments.length != 0 &&
-          comments.map(comment =>
-            <Comment
-              loginUserId={loginUser.id}
-              comment={postState.comment}
-            />
-          )
+        {
+          postState.fetchState != 'ok' ? <Loading /> :
+            postState.comments.map(comment =>
+              <Comment
+                comment={comment.comment}
+                loginUser={loginUser}
+                userName={comment.user.name}
+              />
+            )
         }
       </DialogContent>
       <DialogActions>

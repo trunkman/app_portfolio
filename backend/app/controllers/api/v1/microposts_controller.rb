@@ -3,8 +3,20 @@
 module Api
   module V1
     class MicropostsController < ApplicationController
-      before_action :logged_in_user, only: %i[create destroy]
+      before_action :logged_in_user, only: %i[show create destroy]
       before_action :correct_user,   only: [:destroy]
+
+      def show
+        @micropost = Micropost.find(params[:id])
+        likeStatus = current_user.liked?(@micropost)
+        @comments = []
+        @micropost.comments.each do |comment|
+          user = User.find(comment.user_id)
+          @comments << {comment: comment, user: user }
+        end 
+        render json: { micropost: @micropost, likeStatus: likeStatus, comments: @comments },
+               status: :ok
+      end
 
       def create
         @micropost = current_user.microposts.build(micropost_params)
@@ -23,12 +35,6 @@ module Api
         render json: { message: '投稿を削除しました' },
                status: :ok
       end
-
-      # 支障がなければ削除する
-      # def liked_micropost
-      #   @liked_micropost = Like.find_by(user_id: @current_user.id, micropost_id: params[:id])
-      #   render json: { liked_micropost: @liked_micropost.nil? }, status: :ok
-      # end
 
       private
 
