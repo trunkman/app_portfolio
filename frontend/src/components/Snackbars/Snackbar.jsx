@@ -1,24 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../App";
+// Style
 import Alert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
 
-export const SnackBar = ({
-  handleClose,
-  message, //表示するメッセージ内容を渡す
-  show,
-  type, //どんな表示であるかを渡す(success, info, warning, error)
-}) => {
+export const SnackBar = ({ handleClose }) => {
+  const { authState } = useContext(AuthContext);
 
   return (
     <>
       <Snackbar
         anchorOrigin={{ horizontal: 'center', vertical: 'top' }}
-        open={show}
+        open={authState.show}
         autoHideDuration={4000}
         onClose={handleClose}
       >
-        <Alert severity={type}>
-          {message}
+        <Alert severity={authState.type}>
+          {authState.message}
         </Alert>
       </Snackbar>
     </>

@@ -18,7 +18,7 @@ import { SleepInfo } from "../../components/UserInfomation/SleepInfo"
 // import { MainImage } from "../../images/MainImage.png";
 
 export const Home = () => {
-  const { authState } = useContext(AuthContext);
+  const { authState, authDispatch } = useContext(AuthContext);
   const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState);
   const [sleepDebtState, sleepDebtDispatch] = useReducer(sleepDebtReducer, sleepDebtInitialState);
 
@@ -49,8 +49,7 @@ export const Home = () => {
     authState.loggedIn && SleepDebt()
   }, [authState.loggedIn])
 
-  // ホーム画面を返す
-  // 睡眠負債の場合分けは未実装
+
   return (
     <>
       <Grid container sx={{
@@ -113,6 +112,7 @@ export const Home = () => {
         handleClose={() => dialogDispatch({ type: 'close' })}
         open={dialogState.passwordReset}
       />
+      <SnackBar handleClose={() => authDispatch({ type: 'closeSnackbar' })} />
     </>
   )
 }

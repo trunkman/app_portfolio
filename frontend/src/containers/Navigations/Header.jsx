@@ -12,32 +12,44 @@ import Button from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
 // Api
 import { deleteLogout } from "../../apis/sessions"
+import { deleteUser } from "../../apis/users"
 // Reducer
 import { dialogReducer, dialogInitialState } from '../../reducer/DialogReducer'
 // Component
-import { LoginControlBottun } from '../../components/Buttons/LoginControlButton'
+import { AccountBottun } from '../../components/Buttons/AccountBottun'
 import { TweetDialog } from '../../components/Dialogs/TweetDialog';
 import { RecordDialog } from "../../components/Dialogs/RecordDialog"
 import { SnackBar } from "../../components/Snackbars/Snackbar"
 
-export const Header = (props) => {
+export const Header = ({
+  open,
+  drawerWidth,
+  handleDrawerOpen
+}) => {
   const history = useHistory()
   const { authState, authDispatch } = useContext(AuthContext);
   const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState);
 
-
+  // ログアウトを行う
   const submitLogout = () => {
     deleteLogout()
-      .then(data => {
-        authDispatch({
-          type: 'logout',
-          payload: data.message
-        });
+      .then(() => {
+        authDispatch({ type: 'logout' });
+        history.push(`/`);
+        end
+      });
+  };
+
+  // アカウント削除を行う
+  const submitDelete = () => {
+    deleteUser(authState.loginUser.id)
+      .then(() => {
+        authDispatch({ type: 'deleteUser' });
         history.push(`/`);
       });
   };
 
-  const open = props.open
+  const open = open
   const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
   })(({ theme, open }) => ({
@@ -47,8 +59,8 @@ export const Header = (props) => {
       duration: theme.transitions.duration.leavingScreen,
     }),
     ...(open && {
-      marginLeft: props.drawerWidth,
-      width: `calc(100% - ${props.drawerWidth}px)`,
+      marginLeft: drawerWidth,
+      width: `calc(100% - ${drawerWidth}px)`,
       transition: theme.transitions.create(['width', 'margin'], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.enteringScreen,
@@ -63,7 +75,7 @@ export const Header = (props) => {
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={() => props.handleDrawerOpen()}
+            onClick={() => handleDrawerOpen()}
             edge="start"
             sx={{
               marginRight: '36px',
@@ -102,8 +114,9 @@ export const Header = (props) => {
           >
             本の検索
           </Typography>
-          <LoginControlBottun
+          <AccountBottun
             handleLogout={submitLogout}
+            handleDelete={submitDelete}
           />
         </Toolbar>
       </AppBar>
@@ -116,12 +129,7 @@ export const Header = (props) => {
         handleClose={() => dialogDispatch({ type: 'close' })}
         open={dialogState.diary}
       />
-      <SnackBar
-        handleClose={() => authDispatch({ type: 'closeSnackbar' })}
-        message={authState.message}
-        show={authState.show}
-        type={authState.type}
-      />
+      <SnackBar handleClose={() => authDispatch({ type: 'closeSnackbar' })} />
     </>
   )
 }

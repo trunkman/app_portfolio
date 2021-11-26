@@ -10,7 +10,6 @@ import Grid from "@mui/material/Grid";
 // Api
 import { fetchUser, fetchMicroposts } from "../../apis/users";
 // Reducer
-import { dataInitialState, dataReducer } from '../../reducer/DataReducer';
 import { profileInitialState, profileReducer } from '../../reducer/ProfileReducer';
 // Component
 import { UserInfo } from "../../components/UserInfomation/UserInfo";
@@ -23,8 +22,6 @@ export const Profile = ({
   loginUser,
 }) => {
   const userId = match.params.id
-  const [dataState, dataDispatch] = useReducer(dataReducer, dataInitialState);
-
   const [profileState, profileDispatch] = useReducer(profileReducer, profileInitialState);
   const [tab, setTab] = useState('microposts');
 
@@ -40,7 +37,6 @@ export const Profile = ({
             followersIds: data.followers_ids,
           }
         })
-        dataDispatch({ type: 'complete' })
       });
   }
 
@@ -57,11 +53,10 @@ export const Profile = ({
             commentedMicroposts: data.commented_microposts,
           }
         })
-        dataDispatch({ type: 'complete' })
       });
   }
 
-  useEffect(() => { userInformation() }, [dataState.user])
+  useEffect(() => { userInformation() }, [])
   useEffect(() => { userMicropost() }, [tab])
 
   return (
