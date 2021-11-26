@@ -8,8 +8,7 @@ import { fetchBook } from "../../apis/books";
 // Component
 import { ReadButton } from "../../components/Buttons/ReadButton";
 
-export const Book = (props) => {
-  const bookIsbn = props.match.params.isbn
+export const Book = ({ bookIsbn }) => {
   const [book, setBook] = useState([])
   const [registration, setResistration] = useState(false)
   const [subscribed, setSubscribed] = useState(false)

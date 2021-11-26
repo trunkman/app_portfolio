@@ -22,11 +22,10 @@ const useStyles = makeStyles(() =>
 );
 
 export const TalkRoom = ({
-  match,
+  roomId,
   loginUser,
 }) => {
   const classes = useStyles();
-  const roomId = match.params.id
   const [messageState, messageDispatch] = useReducer(messageReducer, messageInitialState)
 
   // トークルームのメッセージ一覧を取得する

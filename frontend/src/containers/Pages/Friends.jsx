@@ -13,12 +13,12 @@ import { fetchRooms } from "../../apis/users";
 // Reducer
 import { roomInitialState, roomReducer } from '../../reducer/RoomReducer';
 
-export const Friends = (props) => {
+export const Friends = ({ loginUser }) => {
   const history = useHistory();
   const [roomState, roomDispatch] = useReducer(roomReducer, roomInitialState);
   // トークルームの一覧を取得する
   const Rooms = () => {
-    fetchRooms(props.loginUser.id)
+    fetchRooms(loginUser.id)
       .then(data => {
         roomDispatch({
           type: 'fetchSuccess',

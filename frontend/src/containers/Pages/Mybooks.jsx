@@ -19,10 +19,8 @@ import { BookSearchButton } from '../../components/Buttons/BookSearchButton';
 import { BookCard } from '../../components/Lists/BookCard';
 
 export const Mybooks = ({
-  match,
-  loginUser,
+  userId,
 }) => {
-  const userId = match.params.id
   const tabLabelRead = `読了 : ${[].length} 冊`
   const tabLabelStack = `積読 : ${[].length} 冊`
   const [keyword, setKeyword] = useState('');

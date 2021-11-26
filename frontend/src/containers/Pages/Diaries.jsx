@@ -11,8 +11,7 @@ import { SleepInfo } from "../../components/UserInfomation/SleepInfo";
 // Dialog
 import { RecordDialog } from "../../components/Dialogs/RecordDialog";
 
-export const Diaries = ({ match }) => {
-  const userId = match.params.id
+export const Diaries = ({ userId }) => {
   const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState);
 
   return (
