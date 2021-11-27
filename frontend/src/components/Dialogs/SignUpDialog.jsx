@@ -15,6 +15,7 @@ import { Name } from '../Forms/Name';
 import { Email } from '../Forms/Email';
 import { Password } from '../Forms/Password';
 import { PasswordConfirmation } from '../Forms/PasswordConfirmation';
+import { IdealSleepingHours } from '../Forms/IdealSleepingHours';
 
 export const SignUpDialog = ({
   handleClose,
@@ -35,6 +36,8 @@ export const SignUpDialog = ({
       email: authState.email,
       password: authState.password,
       password_confirmation: authState.passwordConfirmation,
+      idealSleepingHours: authState.loginUser.idealSleepingHours,
+      remember_me: authState.remenberMe,
     }).then(data => {
       handleLogin(data)
       handleClose()
@@ -74,6 +77,15 @@ export const SignUpDialog = ({
             })
           }
         />
+        <IdealSleepingHours
+          email={authState.idealSleepingHours}
+          handleChange={e =>
+            authDispatch({
+              type: 'idealSleepingHours',
+              payload: e.target.value,
+            })
+          }
+        />
         <Password
           password={authState.password}
           handleChange={e =>
@@ -89,6 +101,15 @@ export const SignUpDialog = ({
             authDispatch({
               type: 'passwordConfirmation',
               payload: e.target.value,
+            })
+          }
+        />
+        <RememberMe
+          remenberMe={authState.remenberMe}
+          handleChange={e =>
+            authDispatch({
+              type: 'rememberMe',
+              payload: (e.target.value)
             })
           }
         />

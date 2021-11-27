@@ -9,7 +9,7 @@ import MenuItem from '@mui/material/MenuItem';
 // Icon
 import AccountCircle from '@mui/icons-material/AccountCircle';
 // Component
-import { AcountDeleteDialog } from "../Dialogs/AccountDeleteDialog";
+import { DeleteDialog } from "../Dialogs/DeleteDialog";
 
 export const AccountButton = ({
   handleLogout,
@@ -18,7 +18,7 @@ export const AccountButton = ({
   const history = useHistory();
   const { authState } = useContext(AuthContext);
   const [anchorEl, setAnchorEl] = useState(null);
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   return (
     <>
@@ -50,9 +50,10 @@ export const AccountButton = ({
           </Menu>
         </Box>
       }
-      <AcountDeleteDialog
+      <DeleteDialog
         handleClose={() => setOpen(false)}
         handleDelete={handleDelete}
+        message={'アカウントを削除'}
         open={open}
       />
     </>

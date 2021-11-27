@@ -10,9 +10,10 @@ const Transition = React.forwardRef((props, ref) => {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export const AcountDeleteDialog = ({
+export const DeleteDialog = ({
   handleClose,
   handleDelete,
+  message,
   open,
 }) => {
 
@@ -24,13 +25,13 @@ export const AcountDeleteDialog = ({
         keepMounted
         onClose={handleClose}
       >
-        <DialogTitle>{"アカウントを削除してもよろしいですか？"}</DialogTitle>
+        <DialogTitle>{message}{"してもよろしいですか？"}</DialogTitle>
         <DialogActions>
           <Button onClick={() => { handleClose() }}>
             戻る
           </Button>
           <Button type='submit' onClick={() => { handleDelete() }} >
-            アカウントを削除する
+            {message}{'する'}
           </Button>
         </DialogActions>
       </Dialog>
