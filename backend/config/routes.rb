@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       resources :messages, only: %i[create destroy]
       resources :recommends, only: %i[create destroy]
       resources :notifications, only: %i[index create]
+      delete    '/all_delete', to: 'notifications#all_delete'
     end
   end
 end

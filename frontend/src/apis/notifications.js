@@ -2,7 +2,7 @@ import axios from "axios";
 import { notifications } from "../urls";
 
 // 通知を表示するapi
-export const fetchNotifications = (params) => {
+export const fetchNotifications = () => {
   return axios.get(notifications, { withCredentials: true })
     .then(res => {
       console.log('notifications#index', res);
@@ -10,5 +10,16 @@ export const fetchNotifications = (params) => {
     })
     .catch(error => {
       console.log('notifications#index', error);
+    });
+}
+
+export const deleteNotifications = () => {
+  return axios.delete(notifications, { withCredentials: true })
+    .then(res => {
+      console.log('notifications#all_delete', res);
+      return res.data;
+    })
+    .catch(error => {
+      console.log('notifications#all_delete', error);
     });
 }

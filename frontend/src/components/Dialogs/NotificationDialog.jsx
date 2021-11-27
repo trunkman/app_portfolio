@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react';
+import React, { useReducer } from 'react';
 // styles
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -6,35 +6,45 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-import TextField from '@mui/material/TextField';
-import MobileDatePicker from '@mui/lab/MobileDatePicker';
-
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Box from '@mui/material/Box';
-import { Emoji } from 'emoji-mart';
-// Reducer
-import { recordReducer, recordInitialState } from '../../reducer/RecordReducer'
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
 // Api
-import { postDiary } from '../../apis/diaries';
+import { fetchNotifications, deleteNotifications } from '../../apis/notifications';
+// Reducer
+import { notificationReducer, notificationInitialState } from '../../reducer/notificationReducer'
 
 export const NotificationDialog = ({
   handleClose,
   open,
 }) => {
+  const [notificationState, notificationDispatch] = useReducer(notificationReducer, notificationInitialState);
 
-  const descriptionElementRef = React.useRef(null);
+  // 通知一覧を取得する
+  const notifications = () => {
+    fetchNotifications()
+      .then(data => {
+        notificationDispatch({
+          type: 'fetchSuccess',
+          payload: data.notifications,
+        });
+      });
+  }
+
+  // チェック済み通知をすべて削除する
+  const allDelete = () => {
+    deleteNotifications()
+      .then(data => {
+        notificationDispatch({
+          type: 'fetchSuccess',
+          payload: data.notifications,
+        });
+      });
+  }
 
   useEffect(() => {
-    if (open) {
-      const { current: descriptionElement } = descriptionElementRef;
-      if (descriptionElement !== null) {
-        descriptionElement.focus();
-      }
-    }
-  }, [open]);
+    notifications();
+  })
 
-  // 通知ダイアログを返す
   return (
     <>
       <Dialog
@@ -44,15 +54,49 @@ export const NotificationDialog = ({
       >
         <DialogTitle >通知</DialogTitle>
         <DialogContent dividers>
-          <DialogContentText
-            ref={descriptionElementRef}
-            tabIndex={-1}
-          >
-            {[...new Array(50)]
-              .map(
-                () => `Abc.`,
-              )
-              .join('\n')}
+          <DialogContentText >
+            <Button onClick={allDelete}>
+              全て削除する
+            </Button>
+            <List>
+              {notificationState.notifications.map(notification =>
+                <>
+                  {
+                    notification.action == 'like' &&
+                    <ListItem
+                      key={notification.id.toString()}
+                    >
+                      {notification.visitor_id}さんが{notification.micropost_id}にいいねしました。
+                    </ListItem>
+                  }
+                  {
+                    notification.action == 'comment' &&
+                    <ListItem
+                      key={notification.id.toString()}
+                    >
+                      {notification.visitor_id}さんが{notification.comment_id}にコメントしました。
+
+                    </ListItem>
+                  }
+                  {
+                    notification.action == 'follow' &&
+                    <ListItem
+                      key={notification.id.toString()}
+                    >
+                      {notification.visitor_id}さんがあなたをフォローしました。
+                    </ListItem>
+                  }
+                  {
+                    notification.action == 'entry' &&
+                    <ListItem
+                      key={notification.id.toString()}
+                    >
+                      {notification.visitor_id}さんが{notification.entry_id}とのトークルームを作りました。
+                    </ListItem>
+                  }
+                </>
+              )}
+            </List>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
