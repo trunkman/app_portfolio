@@ -7,7 +7,7 @@ import { List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
 // アイコン
 import AccountCircle from "@mui/icons-material/AccountCircle";
 
-export const AvatarButton = (props) => {
+export const AvatarLink = ({ loginUser }) => {
   return (
     <>
       <Divider />
@@ -17,13 +17,13 @@ export const AvatarButton = (props) => {
             <Avatar
               sx={{ width: props.size, height: props.size }}
               component={Link}
-              to={`/users/${props.user.id}`}
+              to={`/users/${loginUser.id}`}
             >
               <AccountCircle sx={{ fontSize: props.size }} />
             </Avatar>
           </ListItemIcon>
           <ListItemText>
-            {props.user.name}
+            {loginUser.name}
           </ListItemText>
         </ListItem>
       </List>

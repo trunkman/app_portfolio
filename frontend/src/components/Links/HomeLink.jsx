@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import Divider from '@mui/material/Divider';
 import { List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
 // アイコン
-import StarOutlineOutlinedIcon from '@mui/icons-material/StarOutlineOutlined';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 
-export const RankingButton = (props) => {
+export const HomeLink = () => {
   return (
     <>
       <Divider />
@@ -15,12 +15,12 @@ export const RankingButton = (props) => {
           button
           color="inherit"
           component={Link}
-          to={`/users/${props.loginUserId}`}
+          to={`/`}
         >
           <ListItemIcon>
-            <StarOutlineOutlinedIcon />
+            <HomeOutlinedIcon />
           </ListItemIcon>
-          <ListItemText primary='ランキング' />
+          <ListItemText primary='ホーム' />
         </ListItem>
       </List>
     </>

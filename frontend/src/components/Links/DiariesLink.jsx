@@ -10,7 +10,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 // アイコン
 import CalendarTodayRoundedIcon from '@mui/icons-material/CalendarTodayRounded';
 
-export const DiariesLink = (props) => {
+export const DiariesLink = ({ loginUserId }) => {
 
   return (
     <>
@@ -20,7 +20,7 @@ export const DiariesLink = (props) => {
           button
           color="inherit"
           component={Link}
-          to={`/users/${props.loginUserId}/diaries`}
+          to={`/users/${loginUserId}/diaries`}
         >
           <ListItemIcon>
             <CalendarTodayRoundedIcon />

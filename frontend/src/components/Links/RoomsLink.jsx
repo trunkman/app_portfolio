@@ -9,7 +9,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 // アイコン
 import MailIcon from '@mui/icons-material/Mail';
 
-export const MessageButton = (props) => {
+export const RoomsLink = ({ loginUserId }) => {
   return (
     <>
       <Divider />
@@ -18,7 +18,7 @@ export const MessageButton = (props) => {
           button
           color="inherit"
           component={Link}
-          to={`/users/${props.loginUserId}/talk_rooms`}
+          to={`/users/${loginUserId}/talk_rooms`}
         >
           <ListItemIcon>
             <MailIcon />

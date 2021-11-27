@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import Divider from '@mui/material/Divider';
 import { List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
 // アイコン
-import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
+import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
 
-export const FollowsButton = (props) => {
+export const TimelineLink = ({ loginUserId }) => {
   return (
     <>
       <Divider />
@@ -15,12 +15,12 @@ export const FollowsButton = (props) => {
           button
           color="inherit"
           component={Link}
-          to={`/users/${props.loginUserId}/following`}
+          to={`/users/${loginUserId}/timeline`}
         >
           <ListItemIcon>
-            <PeopleOutlineIcon />
+            <FormatListBulletedOutlinedIcon />
           </ListItemIcon>
-          <ListItemText primary='フォロー中/フォロワー' />
+          <ListItemText primary='つぶやき' />
         </ListItem>
       </List>
     </>

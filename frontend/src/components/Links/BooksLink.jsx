@@ -9,7 +9,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 // アイコン
 import ImportContactsOutlinedIcon from '@mui/icons-material/ImportContactsOutlined';
 
-export const BooksButton = (props) => {
+export const BooksLink = ({ loginUserId }) => {
 
   return (
     <>
@@ -19,7 +19,7 @@ export const BooksButton = (props) => {
           button
           color="inherit"
           component={Link}
-          to={`/users/${props.loginUserId}/books`}
+          to={`/users/${loginUserId}/books`}
         >
           <ListItemIcon>
             <ImportContactsOutlinedIcon />
