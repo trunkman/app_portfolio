@@ -1,5 +1,5 @@
 import axios from "axios";
-import { notifications } from "../urls";
+import { notifications, notificationsDelete } from "../urls";
 
 // 通知を表示するapi
 export const fetchNotifications = () => {
@@ -14,7 +14,7 @@ export const fetchNotifications = () => {
 }
 
 export const deleteNotifications = () => {
-  return axios.delete(notifications, { withCredentials: true })
+  return axios.delete(notificationsDelete, { withCredentials: true })
     .then(res => {
       console.log('notifications#all_delete', res);
       return res.data;

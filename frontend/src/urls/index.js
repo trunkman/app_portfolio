@@ -53,3 +53,4 @@ export const recommends = `${DEFAULT_API_LOCALHOST}/recommends`;
 export const recommendPath = (bookId) => `${DEFAULT_API_LOCALHOST}/recommends/${bookId}`;
 // NotificationsController
 export const notifications = `${DEFAULT_API_LOCALHOST}/notifications`;
+export const notificationsDelete = `${DEFAULT_API_LOCALHOST}/notifications/all_delete`;
