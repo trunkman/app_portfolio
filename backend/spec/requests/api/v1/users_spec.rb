@@ -125,6 +125,16 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     expect(json['comments'].length).to eq(1)
     expect(response.status).to eq(200)
   end
+  
+  it '投稿一覧(コメント&いいねなし)を返す' do
+    # 投稿、いいね、コメントを作成
+    micropost
+    log_in_as(user)
+    get microposts_api_v1_user_path(user)
+    expect(json['microposts'][0]['likeStatus']).to be_falsy
+    expect(json['comments'].length).to eq(0)
+    expect(response.status).to eq(200)
+  end
 
   it '未ログインでは投稿一覧(コメント&いいね付き)を返せない' do
     get microposts_api_v1_user_path(user)
