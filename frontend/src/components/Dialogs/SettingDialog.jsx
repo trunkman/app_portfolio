@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import { useHistory } from "react-router";
 import { AuthContext } from "../../App";
 // Style
 import Button from '@mui/material/Button';
@@ -16,12 +17,11 @@ import { Password } from '../Forms/Password';
 import { PasswordConfirmation } from '../Forms/PasswordConfirmation';
 
 export const SettingDialog = ({
-  dataUserFetch,
   handleClose,
   open,
 }) => {
+  const history = useHistory();
   const { authState, authDispatch } = useContext(AuthContext)
-
   // 送信のCallback関数
   const submitUpdate = () => {
     patchUpdate({
@@ -32,12 +32,24 @@ export const SettingDialog = ({
       password_confirmation: authState.passwordConfirmation,
     }).then(data => {
       alert('ユーザー情報を更新しました')
-      dataUserFetch()
       handleClose()
-    }).catch(() => {
-      alert('ユーザー情報の更新失敗')
+      history.push(`/users/${authState.loginUser.id}`)
     })
   }
+
+  useEffect(() => {
+    authDispatch({
+      type: 'preUpdate',
+      payload: {
+        name: authState.loginUser.name,
+        email: authState.loginUser.email,
+        password: authState.loginUser.password,
+        passwordConfirmation: authState.loginUser.passwordConfirmation,
+        ideal_sleeping_hours: authState.loginUser.ideal_sleeping_hours,
+        profile: authState.loginUser.profile,
+      }
+    });
+  }, [open])
 
   return (
     <Dialog

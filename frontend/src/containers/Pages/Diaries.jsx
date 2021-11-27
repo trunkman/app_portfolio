@@ -43,6 +43,7 @@ export const Diaries = ({ userId }) => {
         <Grid item sm={12} md={6}>
           <Calendar
             userId={userId}
+            open={dialogState.diary}
           />
         </Grid>
 

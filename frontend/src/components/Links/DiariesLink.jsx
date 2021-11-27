@@ -25,7 +25,7 @@ export const DiariesLink = ({ loginUserId }) => {
           <ListItemIcon>
             <CalendarTodayRoundedIcon />
           </ListItemIcon>
-          <ListItemText primary='読んだ本/読む本' />
+          <ListItemText primary='睡眠日記' />
         </ListItem>
       </List>
     </>

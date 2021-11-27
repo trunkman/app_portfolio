@@ -25,7 +25,7 @@ export const NotificationButton = () => {
           <ListItemIcon>
             <NotificationsNoneOutlinedIcon />
           </ListItemIcon>
-          <ListItemText primary='プロフィール' />
+          <ListItemText primary='通知' />
         </ListItem>
       </List>
 

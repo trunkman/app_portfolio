@@ -127,7 +127,7 @@ export const Profile = ({
                     commentCount={micropost.commentCount}
                     likedStatus={micropost.likedStatus}
                     loginUser={loginUser}
-                    micropost={micropost.micropost}
+                    micropost={micropost.liked_micropost}
                   />
                 )
             }

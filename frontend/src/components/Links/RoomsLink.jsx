@@ -7,7 +7,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 // アイコン
-import MailIcon from '@mui/icons-material/Mail';
+import MessageOutlinedIcon from '@mui/icons-material/MessageOutlined';
 
 export const RoomsLink = ({ loginUserId }) => {
   return (
@@ -21,9 +21,9 @@ export const RoomsLink = ({ loginUserId }) => {
           to={`/users/${loginUserId}/talk_rooms`}
         >
           <ListItemIcon>
-            <MailIcon />
+            <MessageOutlinedIcon />
           </ListItemIcon>
-          <ListItemText primary='メッセージ' />
+          <ListItemText primary='トークルーム' />
         </ListItem>
       </List>
     </>

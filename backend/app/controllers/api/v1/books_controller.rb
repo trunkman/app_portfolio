@@ -33,7 +33,7 @@ module Api
                          reviewAverage: params[:book][:reviewAverage])
         registration = params[:registration]
         # DBに登録していない新規本であれば登録する
-        @book.save! unless registration
+        @book.save! if registration.nil?
         @subscription = Subscription.create(user_id: current_user.id,
                                             book_id: @book.id,
                                             read: params[:read])

@@ -24,7 +24,7 @@ export const BooksLink = ({ loginUserId }) => {
           <ListItemIcon>
             <ImportContactsOutlinedIcon />
           </ListItemIcon>
-          <ListItemText primary='読んだ本/読む本' />
+          <ListItemText primary='睡眠本 (読了/積読)' />
         </ListItem>
       </List>
     </>

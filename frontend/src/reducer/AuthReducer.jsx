@@ -3,6 +3,8 @@ export const authInitialState = {
   email: '',
   password: '',
   passwordConfirmation: '',
+  ideal_sleeping_hours: '',
+  profile: '',
   rememberMe: '1',
   loginUser: '',
   loggedIn: false, // ログイン状態
@@ -33,6 +35,16 @@ export const authReducer = (state, action) => {
       return {
         ...state,
         passwordConfirmation: action.payload,
+      };
+    case 'ideal_sleeping_hours':
+      return {
+        ...state,
+        ideal_sleeping_hours: action.payload,
+      };
+    case 'profile':
+      return {
+        ...state,
+        profile: action.payload,
       };
     case 'rememberMe':
       return {
@@ -66,11 +78,15 @@ export const authReducer = (state, action) => {
         type: 'error',
         message: 'アカウントを削除しました',
       };
-    case 'preUpdata':
+    case 'preUpdate':
       return {
         ...state,
-        name: action.name,
-        email: action.email,
+        name: action.payload.name,
+        email: action.payload.email,
+        password: action.payload.password,
+        passwordConfirmation: action.payload.passwordConfirmation,
+        ideal_sleeping_hours: action.payload.ideal_sleeping_hours,
+        profile: action.payload.profile,
       };
     case 'reset':
       return {
@@ -81,7 +97,6 @@ export const authReducer = (state, action) => {
         passwordConfirmation: '',
         rememberMe: '1',
       };
-
     case 'closeSnackbar':
       return {
         ...state,

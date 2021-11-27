@@ -38,6 +38,7 @@ export const NotificationDialog = ({
           type: 'fetchSuccess',
           payload: data.notifications,
         });
+        notifications();
       });
   }
 
@@ -55,48 +56,52 @@ export const NotificationDialog = ({
         <DialogTitle >通知</DialogTitle>
         <DialogContent dividers>
           <DialogContentText >
-            <Button onClick={allDelete}>
-              全て削除する
-            </Button>
-            <List>
-              {notificationState.notifications.map(notification =>
-                <>
-                  {
-                    notification.action == 'like' &&
-                    <ListItem
-                      key={notification.id.toString()}
-                    >
-                      {notification.visitor_id}さんが{notification.micropost_id}にいいねしました。
-                    </ListItem>
-                  }
-                  {
-                    notification.action == 'comment' &&
-                    <ListItem
-                      key={notification.id.toString()}
-                    >
-                      {notification.visitor_id}さんが{notification.comment_id}にコメントしました。
+            {notificationState.notifications.length == 0 ? <p>通知はありません</p> :
+              <>
+                <Button onClick={allDelete}>
+                  全て削除する
+                </Button>
+                <List>
+                  {notificationState.notifications.map(notification =>
+                    <>
+                      {
+                        notification.action == 'like' &&
+                        <ListItem
+                          key={notification.id.toString()}
+                        >
+                          {notification.visitor_id}さんが{notification.micropost_id}にいいねしました。
+                        </ListItem>
+                      }
+                      {
+                        notification.action == 'comment' &&
+                        <ListItem
+                          key={notification.id.toString()}
+                        >
+                          {notification.visitor_id}さんが{notification.comment_id}にコメントしました。
 
-                    </ListItem>
-                  }
-                  {
-                    notification.action == 'follow' &&
-                    <ListItem
-                      key={notification.id.toString()}
-                    >
-                      {notification.visitor_id}さんがあなたをフォローしました。
-                    </ListItem>
-                  }
-                  {
-                    notification.action == 'entry' &&
-                    <ListItem
-                      key={notification.id.toString()}
-                    >
-                      {notification.visitor_id}さんが{notification.entry_id}とのトークルームを作りました。
-                    </ListItem>
-                  }
-                </>
-              )}
-            </List>
+                        </ListItem>
+                      }
+                      {
+                        notification.action == 'follow' &&
+                        <ListItem
+                          key={notification.id.toString()}
+                        >
+                          {notification.visitor_id}さんがあなたをフォローしました。
+                        </ListItem>
+                      }
+                      {
+                        notification.action == 'entry' &&
+                        <ListItem
+                          key={notification.id.toString()}
+                        >
+                          {notification.visitor_id}さんが{notification.entry_id}とのトークルームを作りました。
+                        </ListItem>
+                      }
+                    </>
+                  )}
+                </List>
+              </>
+            }
           </DialogContentText>
         </DialogContent>
         <DialogActions>

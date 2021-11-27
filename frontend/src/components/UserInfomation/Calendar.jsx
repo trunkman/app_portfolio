@@ -13,14 +13,13 @@ import { dialogReducer, dialogInitialState } from '../../reducer/DialogReducer'
 // Component
 import { DiaryDialog } from "../Dialogs/DiaryDialog"
 
-export const Calendar = (props) => {
+export const Calendar = ({
+  userId,
+  open,
+}) => {
   const [diaries, setDiaries] = useState([])
   const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState);
   const handleClose = () => dialogDispatch({ type: 'close' })
-
-  const handleDateClick = useCallback((DateClickArg) => {
-    dialogDispatch({ type: 'diary' })
-  }, [])
 
   const renderEventContent = (eventInfo: EventContentArg) => (
     <Emoji
@@ -31,11 +30,11 @@ export const Calendar = (props) => {
   )
 
   useEffect(() => {
-    fetchUserDiaries(props.userId)
+    fetchUserDiaries(userId)
       .then(data => {
         setDiaries(data.diaries)
       })
-  }, [dialogState.record, dialogState.diary])
+  }, [open])
 
 
   return (
@@ -45,8 +44,6 @@ export const Calendar = (props) => {
         initialView="dayGridMonth"
         locale="ja"
         events={diaries}
-        dateClick={handleDateClick}
-        eventContent={renderEventContent}
       />
 
 

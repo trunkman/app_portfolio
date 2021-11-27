@@ -15,7 +15,7 @@ export const AccountButton = ({
   handleLogout,
   handleDelete,
 }) => {
-  const history = useHistory()
+  const history = useHistory();
   const { authState } = useContext(AuthContext);
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false)

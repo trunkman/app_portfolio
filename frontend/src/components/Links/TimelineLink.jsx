@@ -20,7 +20,7 @@ export const TimelineLink = ({ loginUserId }) => {
           <ListItemIcon>
             <FormatListBulletedOutlinedIcon />
           </ListItemIcon>
-          <ListItemText primary='つぶやき' />
+          <ListItemText primary='タイムライン' />
         </ListItem>
       </List>
     </>

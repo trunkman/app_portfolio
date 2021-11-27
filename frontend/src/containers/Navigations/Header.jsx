@@ -104,14 +104,6 @@ export const Header = ({
           >
             日記
           </Button>
-          <Typography
-            sx={{ px: 4 }}
-            variant="body1"
-            component={Link}
-            to={`/booksearch`}
-          >
-            本の検索
-          </Typography>
           <AccountButton
             handleLogout={submitLogout}
             handleDelete={submitDelete}
