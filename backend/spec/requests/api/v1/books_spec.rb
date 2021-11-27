@@ -22,13 +22,25 @@ RSpec.describe 'Api::V1::BooksController', type: :request do
     expect(response.status).to eq(401)
   end
 
-  it '新しい本を登録する' do
+  it '新しい本を登録する(DBへ初めての登録ケース)' do
     log_in_as(user)
-    post api_v1_books_path, params: { book: { title: 'ブックタイトル',
+    expect{ post api_v1_books_path, params: { book: { title: 'ブックタイトル',
                                               author: '著者',
                                               publisherName: '出版社',
                                               itemPrice: '1000',
                                               isbn: '1234567890123' } }
+    }.to change(Book, :count).by(1)
+    expect(response.status).to eq(201)
+  end
+
+  it '新しい本を登録する(DBへすでに登録済みのケース)' do
+    log_in_as(user)
+    expect{ post api_v1_books_path, params: { book: { title: 'ブックタイトル',
+                                              author: '著者',
+                                              publisherName: '出版社',
+                                              itemPrice: '1000',
+                                              isbn: '1234567890123' } }
+    }.to change(Book, :count).by(1)
     expect(response.status).to eq(201)
   end
 
