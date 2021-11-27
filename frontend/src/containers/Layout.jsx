@@ -25,15 +25,15 @@ import { TalkRoom } from './Pages/TalkRoom';
 import { Timeline } from './Pages/Timeline';
 import { Users } from './Pages/Users'
 // Component
-import { HomeButton } from '../components/Links/HomeButton'
-import { ProfileButton } from '../components/Links/ProfileButton';
-import { FollowsButton } from '../components/Links/FollowsButton';
-import { MessageButton } from '../components/Links/MessageButton';
-import { PostsButton } from '../components/Links/PostsButton';
-import { AvatarButton } from '../components/Links/AvatarButton';
-import { RankingButton } from '../components/Links/RankingButton';
-import { BooksButton } from '../components/Links/BooksButton';
+import { AvatarLink } from '../components/Links/AvatarLink';
+import { BooksLink } from '../components/Links/BooksLink';
 import { DiariesLink } from '../components/Links/DiariesLink'
+import { FollowsLink } from '../components/Links/FollowsLink';
+import { RoomsLink } from '../components/Links/RoomsLink';
+import { HomeLink } from '../components/Links/HomeLink'
+import { NotificationButton } from '../components/Links/NotificationButton'
+import { TimelineLink } from '../components/Links/TimelineLink';
+import { RankingLink } from '../components/Links/RankingLink';
 
 const drawerWidth = 300;
 const openedMixin = (theme) => ({
@@ -89,7 +89,7 @@ export const Layout = (props) => {
   const handleDrawerOpen = () => setOpen(true)
   const handleDrawerClose = () => setOpen(false)
 
-  const { authState, authDispatch } = useContext(AuthContext)
+  const { authState } = useContext(AuthContext)
 
   return (
     <BrowserRouter>
@@ -111,15 +111,15 @@ export const Layout = (props) => {
           </IconButton>
         </DrawerHeader>
         <>
-          <AvatarButton user={authState.loginUser} size="45" />
-          <HomeButton loginUserId={authState.loginUser.id} />
-          <ProfileButton loginUserId={authState.loginUser.id} />
-          <FollowsButton loginUserId={authState.loginUser.id} />
-          <PostsButton loginUserId={authState.loginUser.id} />
-          <MessageButton loginUserId={authState.loginUser.id} />
-          <BooksButton loginUserId={authState.loginUser.id} />
-          <RankingButton loginUserId={authState.loginUser.id} />
+          <AvatarLink loginUser={authState.loginUser} size="45" />
+          <HomeLink />
           <DiariesLink loginUserId={authState.loginUser.id} />
+          <TimelineLink loginUserId={authState.loginUser.id} />
+          <BooksLink loginUserId={authState.loginUser.id} />
+          <RankingLink loginUserId={authState.loginUser.id} />
+          <FollowsLink loginUserId={authState.loginUser.id} />
+          <RoomsLink loginUserId={authState.loginUser.id} />
+          <NotificationButton loginUserId={authState.loginUser.id} />
         </>
       </Drawer>
 
