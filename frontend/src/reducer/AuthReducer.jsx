@@ -3,7 +3,7 @@ export const authInitialState = {
   email: '',
   password: '',
   passwordConfirmation: '',
-  ideal_sleeping_hours: '',
+  idealSleepingHours: '',
   profile: '',
   rememberMe: '1',
   loginUser: '',
@@ -36,10 +36,10 @@ export const authReducer = (state, action) => {
         ...state,
         passwordConfirmation: action.payload,
       };
-    case 'ideal_sleeping_hours':
+    case 'idealSleepingHours':
       return {
         ...state,
-        ideal_sleeping_hours: action.payload,
+        idealSleepingHours: action.payload,
       };
     case 'profile':
       return {
@@ -85,7 +85,7 @@ export const authReducer = (state, action) => {
         email: action.payload.email,
         password: action.payload.password,
         passwordConfirmation: action.payload.passwordConfirmation,
-        ideal_sleeping_hours: action.payload.ideal_sleeping_hours,
+        idealSleepingHours: action.payload.idealSleepingHours,
         profile: action.payload.profile,
       };
     case 'reset':

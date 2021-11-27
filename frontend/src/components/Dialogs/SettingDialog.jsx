@@ -15,6 +15,8 @@ import { Name } from '../Forms/Name';
 import { Email } from '../Forms/Email';
 import { Password } from '../Forms/Password';
 import { PasswordConfirmation } from '../Forms/PasswordConfirmation';
+import { IdealSleepingHours } from '../Forms/IdealSleepingHours';
+import { Profile } from '../Forms/Profile';
 
 export const SettingDialog = ({
   handleClose,
@@ -45,7 +47,7 @@ export const SettingDialog = ({
         email: authState.loginUser.email,
         password: authState.loginUser.password,
         passwordConfirmation: authState.loginUser.passwordConfirmation,
-        ideal_sleeping_hours: authState.loginUser.ideal_sleeping_hours,
+        idealSleepingHours: authState.loginUser.idealSleepingHours,
         profile: authState.loginUser.profile,
       }
     });
@@ -56,7 +58,7 @@ export const SettingDialog = ({
       open={open}
       onClose={() => handleClose()}
     >
-      <DialogTitle>プロフィールを編集する</DialogTitle>
+      <DialogTitle>プロフィール編集</DialogTitle>
       <DialogContent>
         <DialogContentText>
           変更したい項目を入力し、「更新」を押してください。
@@ -75,6 +77,24 @@ export const SettingDialog = ({
           handleChange={e =>
             authDispatch({
               type: 'name',
+              payload: e.target.value,
+            })
+          }
+        />
+        <Ideal_sleeping_hours
+          email={authState.idealSleepingHours}
+          handleChange={e =>
+            authDispatch({
+              type: 'idealSleepingHours',
+              payload: e.target.value,
+            })
+          }
+        />
+        <Profile
+          email={authState.profile}
+          handleChange={e =>
+            authDispatch({
+              type: 'ideal_sleeping_hours',
               payload: e.target.value,
             })
           }
