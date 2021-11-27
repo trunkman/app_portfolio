@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe 'Api::V1::NotificationsController', type: :request do
   let(:user) { FactoryBot.create(:user) }
   let(:other_user) { FactoryBot.create(:user) }
-  let(:notification) { other_user.notifications.create(visited_id: user.id, action: 'follow')}
+  let(:notification) { other_user.active_notifications.create(visited_id: user.id, action: 'follow')}
 
   it 'ユーザーが受けた通知をすべて返す' do
     notification
@@ -17,7 +17,6 @@ RSpec.describe 'Api::V1::NotificationsController', type: :request do
 
   it '未ログインでは通知を返せない' do
     get api_v1_notifications_path
-    expect(json['notifications'].length).to eq(1)
     expect(response.status).to eq(401)
   end
 
@@ -26,20 +25,20 @@ RSpec.describe 'Api::V1::NotificationsController', type: :request do
     log_in_as(user)
     # 通知のチェックをtrueにする
     get api_v1_notifications_path
-    expect{delete "/api/v1/notifications"}.to change(Notification, :count).by(-1)
+    expect{ delete api_v1_notifications_all_delete_path }.to change(Notification, :count).by(-1)
     expect(response.status).to eq(200)
   end
 
   it 'チェック済みでない場合、削除されない' do
     notification
     log_in_as(user)
-    delete '/api/v1/notifications'
+    delete api_v1_notifications_all_delete_path
     expect(Notification.count).to eq(1)
     expect(response.status).to eq(200)
   end
 
   it '未ログインでは削除できない' do
-    delete '/api/v1/notifications'
+    delete api_v1_notifications_all_delete_path
     expect(response.status).to eq(401)
   end
 

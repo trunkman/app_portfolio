@@ -9,7 +9,7 @@ module Api
       def index
         @notifications = current_user.passive_notifications
          @notifications.where(checked: false).each do |notification|
-          notification.update_attributes(checked: true)
+          notification.update_attribute(:checked, true)
         end
         render json: { notifications: @notifications },
                 status: :ok
@@ -17,8 +17,8 @@ module Api
 
       # チェック済み通知を全て削除する
       def all_delete
-        @notifications = current_user.passive_notifications
-        if @notifications.where(checked: false).destroy_all
+        @checked_notifications = current_user.passive_notifications.where(checked: true)
+        if @checked_notifications.destroy_all
           render json: { message: '通知を削除しました' },
                   status: :ok
         else
