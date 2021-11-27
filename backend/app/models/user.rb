@@ -128,7 +128,7 @@ class User < ApplicationRecord
 
   # 投稿をいいねしている場合、trueを返す
   def liked?(micropost)
-    microposts.include?(micropost)
+    self.microposts.include?(micropost)
   end
 
   # ユーザーのステータスフィードを返す
