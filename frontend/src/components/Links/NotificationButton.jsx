@@ -7,6 +7,8 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 // Icon
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
+// Component
+import { NotificationDialog } from "../Dialogs/NotificationDialog"
 
 export const NotificationButton = () => {
   const [open, setOpen] = useState(false)

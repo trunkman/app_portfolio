@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 // styles
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -11,7 +11,7 @@ import ListItem from "@material-ui/core/ListItem";
 // Api
 import { fetchNotifications, deleteNotifications } from '../../apis/notifications';
 // Reducer
-import { notificationReducer, notificationInitialState } from '../../reducer/notificationReducer'
+import { notificationReducer, notificationInitialState } from '../../reducer/NotificationReducer'
 
 export const NotificationDialog = ({
   handleClose,
@@ -43,14 +43,14 @@ export const NotificationDialog = ({
 
   useEffect(() => {
     notifications();
-  })
+  }, [open])
 
   return (
     <>
       <Dialog
         open={open}
         onClose={handleClose}
-        scroll={paper}
+        scroll='paper'
       >
         <DialogTitle >通知</DialogTitle>
         <DialogContent dividers>
