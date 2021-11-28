@@ -39,9 +39,7 @@ export const Rooms = ({ userId }) => {
   // トークルームを削除する
   const handleDelete = () => {
     deleteRoom(open.roomId)
-      .then(() => {
-        history.push(`/talk_rooms/${userId}`)
-      });
+      .then(() => setOpen({ isOpen: false }));
   }
 
   useEffect(() => {
@@ -65,7 +63,7 @@ export const Rooms = ({ userId }) => {
               roomState.entries.map(entry =>
                 <Box
                   display='flex'
-                  key={entry.id.toString()
+                  key={entry.room_id.toString()
                   } >
                   <ListItem
                     button
@@ -76,8 +74,8 @@ export const Rooms = ({ userId }) => {
                       <AccountCircle sx={{ fontSize: 60 }} />
                     </ListItemAvatar>
                     <ListItemText
-                      primary={other_user.name}
-                      secondary={other_user.profile}
+                      primary={entry.other_user.name}
+                      secondary={entry.other_user.profile}
                     />
                   </ListItem >
                   <Button onClick={() => setOpen({ isOpen: true, roomId: entry.room_id })}>

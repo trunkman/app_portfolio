@@ -161,7 +161,7 @@ export const Layout = (props) => {
           />
 
           <Route exact path="/users/:id/talk_rooms"
-            render={({ match }) => <Friends
+            render={({ match }) => <Rooms
               loginUser={authState.loginUser}
               userId={match.params.id} //不要なら削除
             />}
