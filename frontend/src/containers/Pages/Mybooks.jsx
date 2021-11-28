@@ -10,7 +10,6 @@ import TabPanel from '@mui/lab/TabPanel';
 import { fetchUserBooks } from '../../apis/users';
 import { fetchSearchBooks } from '../../apis/books';
 // Reducer
-import { dataInitialState, dataReducer } from '../../reducer/DataReducer';
 import { bookInitialState, bookReducer } from '../../reducer/BookReducer';
 // Component
 import { BookList } from '../../components/Lists/BookList';
@@ -23,12 +22,11 @@ import { Loading } from '../../components/Loading';
 export const Mybooks = ({
   userId,
 }) => {
-  const tabLabelRead = `読了 : ${[].length} 冊`
-  const tabLabelStack = `積読 : ${[].length} 冊`
   const [keyword, setKeyword] = useState('');
   const [tab, setTab] = useState('read');
-  const [dataState, dataDispatch] = useReducer(dataReducer, dataInitialState);
   const [bookState, bookDispatch] = useReducer(bookReducer, bookInitialState);
+  const tabLabelRead = `読了 : ${bookState.readBooks.length} 冊`
+  const tabLabelStack = `積読 : ${bookState.stackBooks.length} 冊`
 
   // ユーザーの登録本を取得する
   const myBooks = () => {
@@ -74,62 +72,66 @@ export const Mybooks = ({
           <BookSearchButton
             handleSubmit={searchBooks}
           />
-          <h4>検索ワード : {keyword} </h4>
-          <h4>検索結果 : {bookState.searchBooks.length} 件</h4>
+          {bookState.searchBooks.length != 0 &&
+            <>
+              <h4>検索ワード : {keyword} </h4>
+              <h4>検索結果 : {bookState.searchBooks.length} 件</h4>
+            </>
+          }
         </Grid>
 
         <Grid item xs={12} sm={5}>
-          <p>
+          <Box>
             おすすめ本
-          </p>
+          </Box>
         </Grid>
-
-        {bookState.fetchState != 'ok' ? <Loading /> :
-
-          <Grid item xs={12}>
-            {bookState.searchBooks.length != 0 &&
-              <Grid container sx={{ mx: "auto" }}>
-                {bookState.searchBooks.map(book =>
-                  <Grid item key={book.params.isbn.toString()}
-                    xs={6} sm={4} sx={{ p: 2, bgcolor: 'grey.100' }}>
-                    <BookCard book={book.params} />
-                  </Grid>
-                )}
-              </Grid>
-            }
-
-            {bookState.searchBooks.length == 0 &&
-              <Box>
-                <TabContext value={tab}>
-                  <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                    <TabList
-                      onChange={(event, newTab) => setTab(newTab)}
-                    >
-                      <Tab label={tabLabelRead} value="read" />
-                      <Tab label={tabLabelStack} value="stack" />
-                    </TabList>
-                  </Box>
-                  <TabPanel value="read">
-
-                    {bookState.readBooks.length === 0 ? (
-                      <h2>読了した本はありません。</h2>
-                    ) : (
-                      <BookList books={bookState.readBooks} />
-                    )}
-                  </TabPanel>
-                  <TabPanel value="stack">
-                    {bookState.stackBooks.length === 0 ? (
-                      <h2>積んでいる本はありません。</h2>
-                    ) : (
-                      <BookList books={bookState.stackBooks} />
-                    )}
-                  </TabPanel>
-                </TabContext>
-              </Box>
-            }
-          </Grid>
-        }
       </Grid>
+
+      {bookState.fetchState != 'ok' ? <Loading /> :
+
+        <Grid item xs={12}>
+          {bookState.searchBooks.length != 0 &&
+            <Grid container sx={{ mx: "auto" }}>
+              {bookState.searchBooks.map(book =>
+                <Grid item key={book.params.isbn.toString()}
+                  xs={6} sm={4} sx={{ p: 2, bgcolor: 'grey.100' }}>
+                  <BookCard book={book.params} />
+                </Grid>
+              )}
+            </Grid>
+          }
+
+          {bookState.searchBooks.length == 0 &&
+            <Box>
+              <TabContext value={tab}>
+                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                  <TabList
+                    onChange={(event, newTab) => setTab(newTab)}
+                  >
+                    <Tab label={tabLabelRead} value="read" />
+                    <Tab label={tabLabelStack} value="stack" />
+                  </TabList>
+                </Box>
+                <TabPanel value="read">
+
+                  {bookState.readBooks.length === 0 ? (
+                    <h2>読了した本はありません。</h2>
+                  ) : (
+                    <BookList books={bookState.readBooks} />
+                  )}
+                </TabPanel>
+                <TabPanel value="stack">
+                  {bookState.stackBooks.length === 0 ? (
+                    <h2>積んでいる本はありません。</h2>
+                  ) : (
+                    <BookList books={bookState.stackBooks} />
+                  )}
+                </TabPanel>
+              </TabContext>
+            </Box>
+          }
+        </Grid>
+      }
     </>
   )
 }
