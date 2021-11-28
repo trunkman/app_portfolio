@@ -21,12 +21,12 @@ RSpec.describe 'Api::V1::RoomsController', type: :request do
     expect(response.status).to eq(200)
   end
 
-  it '第三者はトークのメッセージ一覧を取得できない' do
+  it '他ユーザーはトークのメッセージ一覧を取得できない' do
     user_entry
     other_user_entry
     user.messages.create(room_id: room.id, content: 'Lorem ipsum')
     other_user.messages.create(room_id: room.id, content: 'Lorem ipsum')
-    # 第三者でログイン
+    # 他ユーザー(第三者)でログイン
     third_user = FactoryBot.create(:user)
     log_in_as(third_user)
     get "/api/v1/rooms/#{room.id}"

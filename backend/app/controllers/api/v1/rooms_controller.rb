@@ -7,7 +7,7 @@ module Api
 
       # トークルームを返す
       def show
-        # 自身が属するroomであるか判定
+        # current_userが属するroomであるか判定
         if Entry.find_by(user_id: current_user.id, room_id: params[:id])
         @room = Room.find(params[:id])
         @messages = @room.messages
