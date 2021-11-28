@@ -15,6 +15,7 @@ import { Name } from '../Forms/Name';
 import { Email } from '../Forms/Email';
 import { Password } from '../Forms/Password';
 import { PasswordConfirmation } from '../Forms/PasswordConfirmation';
+import { RememberMe } from '../Forms/RememberMe';
 import { IdealSleepingHours } from '../Forms/IdealSleepingHours';
 
 export const SignUpDialog = ({

@@ -15,13 +15,13 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { Book } from './Pages/Book';
 import { Diaries } from './Pages/Diaries';
 import { Follow } from './Pages/Follow';
-import { Friends } from './Pages/Friends';
 import { Header } from './Navigations/Header';
 import { Home } from './Pages/Home'
+import { MessageRoom } from './Pages/MessageRoom';
 import { Mybooks } from './Pages/Mybooks';
 import { PasswordReset } from './Pages/PasswordReset';
 import { Profile } from './Pages/Profile'
-import { TalkRoom } from './Pages/TalkRoom';
+import { Rooms } from './Pages/Rooms';
 import { Timeline } from './Pages/Timeline';
 import { Users } from './Pages/Users'
 // Component
@@ -199,7 +199,7 @@ export const Layout = (props) => {
           </Route>
 
           <Route exact path="/talk_rooms/:id"
-            render={({ match }) => <TalkRoom
+            render={({ match }) => <MessageRoom
               roomId={match.params.id}
               loginUser={authState.loginUser}
             />}

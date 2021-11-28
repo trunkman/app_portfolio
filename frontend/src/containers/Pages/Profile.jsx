@@ -112,7 +112,7 @@ export const Profile = ({
                 profileState.microposts.map(micropost =>
                   <Micropost
                     commentCount={micropost.commentCount}
-                    likedStatus={micropost.likedStatus}
+                    likeStatus={micropost.likeStatus}
                     loginUser={loginUser}
                     micropost={micropost.micropost}
                   />
@@ -125,7 +125,7 @@ export const Profile = ({
                 profileState.likedMicroposts.map(micropost =>
                   <Micropost
                     commentCount={micropost.commentCount}
-                    likedStatus={micropost.likedStatus}
+                    likeStatus={micropost.likeStatus}
                     loginUser={loginUser}
                     micropost={micropost.liked_micropost}
                   />

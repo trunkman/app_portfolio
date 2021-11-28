@@ -32,6 +32,8 @@ export const SettingDialog = ({
       email: authState.email,
       password: authState.password,
       password_confirmation: authState.passwordConfirmation,
+      idealSleepingHours: authState.idealSleepingHours,
+      profile: authState.profile,
     }).then(data => {
       alert('ユーザー情報を更新しました')
       handleClose()
@@ -47,7 +49,7 @@ export const SettingDialog = ({
         email: authState.loginUser.email,
         password: authState.loginUser.password,
         passwordConfirmation: authState.loginUser.passwordConfirmation,
-        idealSleepingHours: authState.loginUser.idealSleepingHours,
+        idealSleepingHours: authState.loginUser.ideal_sleeping_hours,
         profile: authState.loginUser.profile,
       }
     });
@@ -81,7 +83,7 @@ export const SettingDialog = ({
             })
           }
         />
-        <Ideal_sleeping_hours
+        <IdealSleepingHours
           email={authState.idealSleepingHours}
           handleChange={e =>
             authDispatch({

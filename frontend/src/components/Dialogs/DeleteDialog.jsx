@@ -27,10 +27,10 @@ export const DeleteDialog = ({
       >
         <DialogTitle>{message}{"してもよろしいですか？"}</DialogTitle>
         <DialogActions>
-          <Button onClick={() => { handleClose() }}>
+          <Button onClick={() => handleClose()}>
             戻る
           </Button>
-          <Button type='submit' onClick={() => { handleDelete() }} >
+          <Button type='submit' onClick={() => handleDelete()} >
             {message}{'する'}
           </Button>
         </DialogActions>

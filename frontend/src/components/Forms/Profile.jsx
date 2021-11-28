@@ -5,7 +5,6 @@ export const Profile = ({ profile, handleChange }) => {
 
   return (
     <TextField
-      autoFocus
       fullWidth
       label="プロフィール"
       margin="dense"

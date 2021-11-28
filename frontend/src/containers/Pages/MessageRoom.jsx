@@ -23,7 +23,7 @@ const useStyles = makeStyles(() =>
   }),
 );
 
-export const TalkRoom = ({
+export const MessageRoom = ({
   roomId,
   loginUser,
 }) => {

@@ -7,7 +7,6 @@ export const Email = ({ email, handleChange }) => {
   return (
     <TextField
       fullWidth
-      // id="emailForm"
       label="E-mail"
       margin="dense"
       onChange={handleChange}

@@ -2,6 +2,7 @@ import React, { useEffect, useReducer, useState } from "react";
 import { useHistory } from "react-router-dom";
 // Style
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
@@ -15,9 +16,9 @@ import { deleteRoom } from "../../apis/rooms";
 import { roomInitialState, roomReducer } from '../../reducer/RoomReducer';
 // Component
 import { Loading } from '../../components/Loading';
-import { DeleteDialog } from "../../Dialogs/DeleteDialog";
+import { DeleteDialog } from "../../components/Dialogs/DeleteDialog";
 
-export const Friends = ({ userId }) => {
+export const Rooms = ({ userId }) => {
   const history = useHistory();
   const [roomState, roomDispatch] = useReducer(roomReducer, roomInitialState);
   // 削除確認ダイアログの開閉
@@ -36,8 +37,8 @@ export const Friends = ({ userId }) => {
       });
   }
   // トークルームを削除する
-  const handleDelete = (roomId) => {
-    deleteRoom(roomId)
+  const handleDelete = () => {
+    deleteRoom(open.roomId)
       .then(() => {
         history.push(`/talk_rooms/${userId}`)
       });
@@ -75,8 +76,8 @@ export const Friends = ({ userId }) => {
                       <AccountCircle sx={{ fontSize: 60 }} />
                     </ListItemAvatar>
                     <ListItemText
-                      primary={entry.room_id}
-                      secondary='メッセージルームの最後の投稿を記載する予定'
+                      primary={other_user.name}
+                      secondary={other_user.profile}
                     />
                   </ListItem >
                   <Button onClick={() => setOpen({ isOpen: true, roomId: entry.room_id })}>
@@ -91,7 +92,7 @@ export const Friends = ({ userId }) => {
 
       <DeleteDialog
         handleClose={() => setOpen({ isOpen: false })}
-        handleDelete={handleDelete(open.roomId)}
+        handleDelete={handleDelete}
         message={'トークルームを削除'}
         open={open.isOpen}
       />

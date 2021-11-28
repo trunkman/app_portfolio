@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Typography from "@mui/material/Typography";
@@ -8,9 +8,9 @@ import { useHistory } from "react-router";
 // api
 import { deleteMicropost } from "../../apis/microposts";
 // コンポーネント
-import { LikeButton } from "../../components/Buttons/LikeButton";
-import { CommentButton } from "../../components/Buttons/CommentButton"
-import { DeleteDialog } from "../../Dialogs/DeleteDialog";
+import { LikeButton } from "../Buttons/LikeButton";
+import { CommentButton } from "../Buttons/CommentButton"
+import { DeleteDialog } from "../Dialogs/DeleteDialog";
 
 export const Micropost = ({
   commentCount,
@@ -26,8 +26,8 @@ export const Micropost = ({
   });
 
   // 投稿を削除する
-  const deleteSubmit = (micropostId) => {
-    deleteMicropost(micropostId)
+  const deleteSubmit = () => {
+    deleteMicropost(open.micropostId)
     history.push(`/users/${loginUser.id}`)
   }
 
@@ -44,7 +44,7 @@ export const Micropost = ({
 
         <Box sx={{ ml: 2 }}>
           <Typography>
-            <b>{loginUser.name}</b>
+            <b>{micropost.user_id}さん</b>
             <p>{micropost.created_at}</p>
           </Typography>
           <Typography>
@@ -80,7 +80,7 @@ export const Micropost = ({
 
       <DeleteDialog
         handleClose={() => setOpen({ isOpen: false })}
-        handleDelete={deleteSubmit(open.micropostId)}
+        handleDelete={deleteSubmit}
         message={'投稿を削除'}
         open={open.isOpen}
       />

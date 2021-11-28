@@ -6,9 +6,7 @@ export const Name = ({ name, handleChange }) => {
   // 返り値：Nameフォーム
   return (
     <TextField
-      autoFocus
       fullWidth
-      // id="nameForm"
       label="お名前"
       margin="dense"
       onChange={handleChange}
