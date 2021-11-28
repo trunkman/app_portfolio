@@ -7,19 +7,15 @@ module Api
 
       # トークルームを返す
       def show
-        # それぞれのユーザーのEntriesを取得
-        @user = User.find(params[:id])
-        @user_entries = @user.entries
-        @current_user_entries = current_user.entries
-        shared_room_check
-        # 共有するRoomがある場合、ルーム内のメッセージを返す
-        if @is_room
-          messages = @room.messages
-          render json: { messages: messages },
-                 status: :ok
+        # 自身が属するroomであるか判定
+        if Entry.find_by(user_id: current_user.id, room_id: params[:id])
+        @room = Room.find(params[:id])
+        @messages = @room.messages
+        render json: { messages: @messages },
+                status: :ok
         else
-          render json: { message: 'トークルームはありません' },
-                 status: :unprocessable_entity
+          render json: { message: 'あなたのトークルームではありません' },
+                  status: :unprocessable_entity
         end
       end
 
@@ -61,11 +57,9 @@ module Api
       def shared_room_check
         @current_user_entries.each do |current_user_entry|
           @user_entries.each do |user_entry|
-            if current_user_entry.room_id === user_entry.room_id
-              @room = Room.find(current_user_entry.room.id)
+            if current_user_entry.room_id == user_entry.room_id
+              @room = Room.find(current_user_entry.room_id)
               @is_room = true
-            else
-              @is_room = false
             end
           end
         end

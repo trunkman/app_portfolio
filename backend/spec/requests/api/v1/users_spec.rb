@@ -209,13 +209,14 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
   end
 
   it 'トークルーム一覧を返す' do
-    # トークルームを作成する
+    # roomとentry(2つ)を作成する
     room = FactoryBot.create(:room)
-    # ユーザーとルームを紐づける
     user.entries.create(room_id: room.id)
+    other_user.entries.create(room_id: room.id)
     log_in_as(user)
     get rooms_api_v1_user_path(user)
     expect(json['entries'].length).to eq(1)
+    expect(json['entries'][0]['other_user']['email']).to eq(other_user.email)
     expect(response.status).to eq(200)
   end
 

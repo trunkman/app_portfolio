@@ -10,22 +10,33 @@ RSpec.describe 'Api::V1::RoomsController', type: :request do
   let(:other_user_entry) { other_user.entries.create(room_id: room.id) }
 
   it 'トークのメッセージ一覧を取得する' do
-    # ユーザーとトークルームを結びつけるEntryをそれぞれ作成
+    # 各ユーザーのentryとmessageを作成
     user_entry
     other_user_entry
-    # 取得するメッセージを作成
     user.messages.create(room_id: room.id, content: 'Lorem ipsum')
     other_user.messages.create(room_id: room.id, content: 'Lorem ipsum')
     log_in_as(user)
-    get "/api/v1/rooms/#{other_user.id}"
+    get "/api/v1/rooms/#{room.id}"
     expect(json['messages'].length).to eq(2)
     expect(response.status).to eq(200)
+  end
+
+  it '第三者はトークのメッセージ一覧を取得できない' do
+    user_entry
+    other_user_entry
+    user.messages.create(room_id: room.id, content: 'Lorem ipsum')
+    other_user.messages.create(room_id: room.id, content: 'Lorem ipsum')
+    # 第三者でログイン
+    third_user = FactoryBot.create(:user)
+    log_in_as(third_user)
+    get "/api/v1/rooms/#{room.id}"
+    expect(response.status).to eq(422)
   end
 
   it '未ログインユーザーはトークのメッセージ一覧を取得できない' do
     user.messages
     other_user.messages
-    get "/api/v1/rooms/#{other_user.id}"
+    get "/api/v1/rooms/#{room.id}"
     expect(response.status).to eq(401)
   end
 
