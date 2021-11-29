@@ -5,6 +5,7 @@ export const dialogInitialState = {
   micropost: false,
   record: false,
   diary: false,
+  notification: false,
 }
 
 
@@ -22,6 +23,8 @@ export const dialogReducer = (openState, action) => {
       return { ...openState, record: true }
     case 'diary':
       return { ...openState, diary: true }
+    case 'notification':
+      return { ...openState, notification: true }
     case 'close':
       return dialogInitialState;
     default:

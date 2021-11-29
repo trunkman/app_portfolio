@@ -1,5 +1,5 @@
 import React, { useReducer, useContext } from 'react';
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { AuthContext } from "../../App";
 // Style
 import { styled } from '@mui/material/styles';
@@ -7,9 +7,10 @@ import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
-import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
 // Icon
 import MenuIcon from '@mui/icons-material/Menu';
+import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 // Api
 import { deleteLogout } from "../../apis/sessions"
 import { deleteUser } from "../../apis/users"
@@ -20,6 +21,7 @@ import { AccountButton } from '../../components/Buttons/AccountButton'
 import { TweetDialog } from '../../components/Dialogs/TweetDialog';
 import { RecordDialog } from "../../components/Dialogs/RecordDialog"
 import { SnackBar } from "../../components/Snackbars/Snackbar"
+import { NotificationDialog } from "../../components/Dialogs/NotificationDialog"
 
 export const Header = ({
   open,
@@ -82,28 +84,37 @@ export const Header = ({
           >
             <MenuIcon
               sx={{
-                marginRight: '36px',
+                ml: 0.5,
+                mr: 5,
                 ...(open && { display: 'none' }),
               }}
             />
           </IconButton>
-          <Typography variant="h6" component="div" flexGrow={1}
+          <Typography
+            component="div"
+            variant="h6"
             sx={open && { display: 'none' }}
           >
-            睡眠負債
+            <Box sx={{ letterSpacing: 6 }}><b>睡眠負債</b></Box>
           </Typography>
-          <Button
-            variant="body1"
+          <Box flexGrow={1}></Box>
+          <Box
+            sx={{ mr: 3 }}
             onClick={() => dialogDispatch({ type: 'micropost' })}
           >
-            投稿
-          </Button>
-          <Button
-            variant="body1"
+            <b>投稿</b>
+          </Box>
+          <Box
+            sx={{ mr: 3 }}
             onClick={() => dialogDispatch({ type: 'diary' })}
           >
-            日記
-          </Button>
+            <b>日記</b>
+          </Box>
+          <Box sx={{ mr: 3 }}>
+            <IconButton >
+              <NotificationsNoneOutlinedIcon onClick={() => dialogDispatch({ type: 'notification' })} />
+            </IconButton>
+          </Box>
           <AccountButton
             handleLogout={submitLogout}
             handleDelete={submitDelete}
@@ -118,6 +129,10 @@ export const Header = ({
       <RecordDialog
         handleClose={() => dialogDispatch({ type: 'close' })}
         open={dialogState.diary}
+      />
+      <NotificationDialog
+        handleClose={() => dialogDispatch({ type: 'close' })}
+        open={dialogState.notification}
       />
       <SnackBar handleClose={() => authDispatch({ type: 'closeSnackbar' })} />
     </>

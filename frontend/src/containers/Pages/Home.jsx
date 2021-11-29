@@ -4,6 +4,7 @@ import { AuthContext } from "../../App";
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Grid from "@mui/material/Grid";
+import Typography from '@mui/material/Typography';
 // Api
 import { fetchSleepDebt } from "../../apis/diaries";
 // Reducer
@@ -15,9 +16,9 @@ import { LogInDialog } from "../../components/Dialogs/LogInDialog";
 import { PasswordResetDialog } from "../../components/Dialogs/PasswordResetDialog";
 import { SleepInfo } from "../../components/UserInfomation/SleepInfo"
 import { SnackBar } from "../../components/Snackbars/Snackbar"
-
 // Image
-// import { MainImage } from "../../images/MainImage.png";
+import MainImage from "../../images/MainImage.png";
+
 
 export const Home = () => {
   const { authState, authDispatch } = useContext(AuthContext);
@@ -56,16 +57,26 @@ export const Home = () => {
     <>
       <Grid container sx={{
         p: 2,
-        maxWidth: 1000
+        maxWidth: 1200,
+        alignItems: 'center',
       }}>
         {!authState.loggedIn &&
-          <Grid item xs={12} sm={5}>
-            <h3>"睡眠負債"の返済を手伝う</h3>
-            <h3>睡眠救済サービス</h3>
-            <h1>Pay Back 睡眠負債</h1>
+          <Grid item xs={12} sm={6} sx={{
+            flexDirection: 'column',
+            justifyContent: 'center',
+          }}>
+            <Box sx={{ textAlign: 'center', }} >
+              <Typography variant="h5" component="div" >
+                <Box sx={{ letterSpacing: 4 }}>"睡眠負債"の返済を手助けする救済サービス</Box>
+              </Typography>
+              <Typography variant="h1" component="div" >
+                <Box sx={{ letterSpacing: 6, my: 2 }}>睡眠補完計画</Box>
+              </Typography>
+            </Box>
             <Box sx={{
-              alignItems: "center",
-              justifyContent: 'center',
+              mt: 6,
+              display: 'flex',
+              justifyContent: 'space-evenly',
             }}>
               <Button onClick={() => dialogDispatch({ type: 'signup' })}>
                 新規登録
@@ -77,10 +88,9 @@ export const Home = () => {
           </Grid>
         }
         {authState.loggedIn &&
-          <Grid item xs={12} sm={7} sx={{
+          <Grid item xs={12} sm={6} sx={{
             alignItems: "center",
             justifyContent: 'center',
-            maxWidth: 500,
           }}>
             <SleepInfo
               userName={authState.loginUser.name}
@@ -89,15 +99,16 @@ export const Home = () => {
             />
           </Grid>
         }
-        <Grid item xs={12} sm={7} sx={{
+        <Grid item xs={12} sm={6} sx={{
           alignItems: "center",
           justifyContent: 'center',
-          maxWidth: 500,
         }}>
-          {/* <image src={MainImage}
-                 alt="main iamge"
-                 style={{width:500 ,height: 500}}
-          /> */}
+          <Box>
+            <img src={MainImage}
+              alt="main iamge"
+              style={{ width: 600 }}
+            />
+          </Box>
         </Grid>
       </Grid>
 

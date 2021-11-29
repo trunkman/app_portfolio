@@ -23,7 +23,7 @@ export const AccountButton = ({
   return (
     <>
       {authState.loggedIn &&
-        <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+        <Box >
           <IconButton color="inherit" onClick={e => { setAnchorEl(e.currentTarget) }}>
             <AccountCircle />
           </IconButton>

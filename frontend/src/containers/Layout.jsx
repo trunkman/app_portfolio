@@ -2,12 +2,12 @@ import React, { useState, useContext } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { AuthContext } from '../App';
 // styles
-import { styled, useTheme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-
+import { theme } from '../styled/theme'
 // アイコン
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -35,7 +35,7 @@ import { NotificationButton } from '../components/Links/NotificationButton'
 import { TimelineLink } from '../components/Links/TimelineLink';
 import { RankingLink } from '../components/Links/RankingLink';
 
-const drawerWidth = 300;
+const drawerWidth = 240;
 const openedMixin = (theme) => ({
   width: drawerWidth,
   transition: theme.transitions.create('width', {
@@ -82,10 +82,10 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export const Layout = (props) => {
-  const theme = useTheme();
+export const Layout = () => {
   const [open, setOpen] = useState(true)
   // Drawerを開閉する関数群
+  // sx={{ display: { xs: 'none', md: 'flex' } }}
   const handleDrawerOpen = () => setOpen(true)
   const handleDrawerClose = () => setOpen(false)
 
@@ -103,8 +103,10 @@ export const Layout = (props) => {
 
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
-          <Typography variant="h6" sx={{ paddingLeft: '10px' }}>
-            睡眠負債
+          <Typography
+            variant="h6"
+            sx={{ pl: 2 }}>
+            <Box sx={{ letterSpacing: 6 }}>睡眠負債</Box>
           </Typography>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}

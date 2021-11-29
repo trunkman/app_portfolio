@@ -23,10 +23,11 @@ export const NotificationDialog = ({
   const notifications = () => {
     fetchNotifications()
       .then(data => {
-        notificationDispatch({
-          type: 'fetchSuccess',
-          payload: data.notifications,
-        });
+        data &&
+          notificationDispatch({
+            type: 'fetchSuccess',
+            payload: data.notifications,
+          });
       });
   }
 
