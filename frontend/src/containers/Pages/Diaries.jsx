@@ -10,6 +10,7 @@ import { Calendar } from "../../components/UserInfomation/Calendar";
 import { SleepInfo } from "../../components/UserInfomation/SleepInfo";
 // Dialog
 import { RecordDialog } from "../../components/Dialogs/RecordDialog";
+import { SleepData } from "../../components/UserInfomation/SleepData";
 
 export const Diaries = ({ userId }) => {
   const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState);
@@ -47,16 +48,14 @@ export const Diaries = ({ userId }) => {
           />
         </Grid>
 
-        <Grid item sm={12} md={6}>
-          {/* {diaryState.fetchState != 'ok' ? <Loading /> :  */}
-          <p>睡眠時間の棒グラフ</p>
-          {/* } */}
-        </Grid>
-
-        <Grid item sm={12} md={6}>
-          {/* {diaryState.fetchState != 'ok' ? <Loading /> :  */}
-          <p>睡眠の質の折れ線グラフ</p>
-          {/* } */}
+        <Grid item sm={12} sx={{
+          alignItems: "center",
+          justifyContent: 'center',
+        }}>
+          {diaryState.fetchState != 'ok' ? <Loading /> :
+            <SleepData
+            />
+          }
         </Grid>
 
         <RecordDialog
