@@ -11,6 +11,7 @@ import { SleepInfo } from "../../components/UserInfomation/SleepInfo";
 // Dialog
 import { RecordDialog } from "../../components/Dialogs/RecordDialog";
 import { SleepData } from "../../components/UserInfomation/SleepData";
+// import { Loading } from '../../components/Loading';
 
 export const Diaries = ({ userId }) => {
   const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState);
@@ -52,10 +53,10 @@ export const Diaries = ({ userId }) => {
           alignItems: "center",
           justifyContent: 'center',
         }}>
-          {diaryState.fetchState != 'ok' ? <Loading /> :
-            <SleepData
-            />
-          }
+          {/* {diaryState.fetchState != 'ok' ? <Loading /> : */}
+          <SleepData
+          />
+          {/* } */}
         </Grid>
 
         <RecordDialog

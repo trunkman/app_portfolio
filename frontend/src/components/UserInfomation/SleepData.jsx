@@ -30,7 +30,7 @@ export const SleepData = ({
       </h3>
 
       <ComposedChart
-        width={600}
+        width={1000}
         height={280}
         data={dataGraph}
         margin={{ top: 20, right: 60, bottom: 0, left: 0 }}
