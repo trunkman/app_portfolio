@@ -1,39 +1,74 @@
-import React, { useState } from 'react';
-// styles
+import React, { useEffect, useState } from 'react';
+// Style
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-// api
+// Api
+import { patchDiary } from '../../apis/diaries';
+//Component
+import { Date } from '../Forms/Date';
+import { SleepingHours } from '../Forms/SleepingHours'
+import { Feeling } from '../Forms/Feeling'
 
-export const DiaryDialog = (props) => {
 
-  const handleSubmit = () => {
-    // 編集ダイアログにアクセスする関数
+
+export const DiaryDialog = ({
+  handleClose,
+  open,
+  recordDispatch,
+  recordState,
+}) => {
+
+  // 日記を更新する
+  const submitUpdate = () => {
+    patchDiary({
+      diaryId: recordState.id,
+      date: recordState.date,
+      sleepingHours: recordState.sleepingHours,
+      feeling: recordState.feeling,
+    }).then(() => {
+      recordDispatch({ type: 'reset' });
+      handleClose();
+    });
   }
+
 
   // 新規登録ダイアログの内容を返す
   return (
     <Dialog
-      open={props.open}
-      onClose={props.handleClose}
+      open={open}
+      onClose={handleClose}
     >
       <DialogTitle>
-        {props.date}DBから引き出す
+        睡眠日記
       </DialogTitle>
+
       <DialogContent>
-        <DialogContentText>
-          睡眠時間を表示する
-        </DialogContentText>
-        <DialogContentText>
-          睡眠した気分を表示する
-        </DialogContentText>
+        <Date
+          date={recordState.date}
+          handleChange={e => recordDispatch({
+            type: 'date',
+            payload: e.target.value
+          })}
+        />
+        <SleepingHours
+          sleepingHours={recordState.sleepingHours}
+          handleChange={e => recordDispatch({
+            type: 'sleepingHours',
+            payload: e.target.value
+          })}
+        />
+        <Feeling
+          feeling={recordState.feeling}
+          recordDispatch={recordDispatch}
+        />
       </DialogContent>
+
       <DialogActions>
-        <Button onClick={handleSubmit} type='submit'>
-          編集する
+        <Button onClick={submitUpdate} type='submit'>
+          更新する
         </Button>
       </DialogActions>
     </Dialog>

@@ -1,5 +1,14 @@
+const formatDate = (date) => {
+  return (
+    date.getFullYear() + '-' +
+    (date.getMonth() + 1) + '-' +
+    date.getDate()
+  )
+}
+
 export const recordInitialState = {
-  date: new Date().toLocaleString(),
+  id: '',
+  date: formatDate(new Date()),
   sleepingHours: '',
   feeling: 'satisfied',
 }
@@ -23,6 +32,13 @@ export const recordReducer = (state, action) => {
       };
     case 'reset':
       return recordInitialState;
+    case 'preUpdate':
+      return {
+        id: action.payload.id,
+        date: action.payload.date,
+        sleepingHours: action.payload.sleepingHours,
+        feeling: action.payload.feeling,
+      };
     default:
       return recordInitialState;
   }

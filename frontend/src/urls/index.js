@@ -37,7 +37,7 @@ export const comments = `${DEFAULT_API_LOCALHOST}/comments`;
 export const commentPath = (commentId) => `${DEFAULT_API_LOCALHOST}/comments/${commentId}`;
 // DiarisController
 export const diaries = `${DEFAULT_API_LOCALHOST}/diaries`;
-export const diaryPath = (diaryId) => `${DEFAULT_API_LOCALHOST}diaries/${diaryId}`;
+export const diaryPath = (diaryId) => `${DEFAULT_API_LOCALHOST}/diaries/${diaryId}`;
 export const sleepDebt = (userId) => `${DEFAULT_API_LOCALHOST}/sleep_debt/${userId}`;
 // BooksController
 export const books = `${DEFAULT_API_LOCALHOST}/books`;

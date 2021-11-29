@@ -10,6 +10,7 @@ import Box from '@mui/material/Box';
 import { fetchUserDiaries } from "../../apis/users";
 // Reducer
 import { dialogReducer, dialogInitialState } from '../../reducer/DialogReducer'
+import { recordReducer, recordInitialState } from '../../reducer/RecordReducer'
 // Component
 import { DiaryDialog } from "../Dialogs/DiaryDialog"
 
@@ -17,24 +18,41 @@ export const Calendar = ({
   userId,
   open,
 }) => {
-  const [diaries, setDiaries] = useState([])
+  const [diaries, setDiaries] = useState([]);
   const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState);
-  const handleClose = () => dialogDispatch({ type: 'close' })
+  const [recordState, recordDispatch] = useReducer(recordReducer, recordInitialState);
 
+  // カレンダーイベントの表記内容
   const renderEventContent = (eventInfo: EventContentArg) => (
-    <Emoji
-      emoji={eventInfo.event.title}
-      size={32}
-      onClick={() => dialogDispatch({ type: 'diary' })}
-    />
+    <Box sx={{
+      textAlign: "center",
+    }}>
+      <Emoji
+        emoji={eventInfo.event.title}
+        size={24}
+      />
+    </Box>
   )
+  // イベントダイアログを表示
+  const handleClick = (eventInfo: EventContentArg) => {
+    recordDispatch({
+      type: 'preUpdate',
+      payload: {
+        id: eventInfo.event.id,
+        date: eventInfo.event.startStr,
+        sleepingHours: eventInfo.event.groupId,
+        feeling: eventInfo.event.title,
+      },
+    });
+    dialogDispatch({ type: 'diary' });
+  }
 
   useEffect(() => {
     fetchUserDiaries(userId)
       .then(data => {
         setDiaries(data.diaries)
       })
-  }, [open])
+  }, [dialogState.diary])
 
 
   return (
@@ -44,13 +62,18 @@ export const Calendar = ({
         initialView="dayGridMonth"
         locale="ja"
         events={diaries}
+        eventClick={handleClick}
+        eventContent={renderEventContent}
+        businessHours={true}
+        dayCellContent={(e) => { e.dayNumberText = e.dayNumberText.replace('日', '') }}
+      // dayMaxEvents={true}
       />
 
-
       < DiaryDialog
-        handleClose={handleClose}
+        handleClose={() => dialogDispatch({ type: 'close' })}
         open={dialogState.diary}
-      // date={arg.dateStr}
+        recordState={recordState}
+        recordDispatch={recordDispatch}
       />
     </Box>
   )

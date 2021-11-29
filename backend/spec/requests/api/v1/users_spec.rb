@@ -175,10 +175,11 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     # 日記を作成する
     user.diaries.create(date: '1999/12/31',
                         sleeping_hours: 10.0,
-                        feeling: 'good')
+                        feeling: 'satisfied')
     log_in_as(user)
     get diaries_api_v1_user_path(user)
     expect(json['diaries'].length).to eq(1)
+    expect(json['diaries'][0]['eventColor']).to eq('#F0C600')
     expect(response.status).to eq(200)
   end
 

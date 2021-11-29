@@ -72,14 +72,13 @@ export const Mybooks = ({
           <BookSearchButton
             handleSubmit={searchBooks}
           />
-          {bookState.searchBooks.length != 0 &&
+          {bookState.searchBooks.length !== 0 &&
             <>
               <h4>検索ワード : {keyword} </h4>
               <h4>検索結果 : {bookState.searchBooks.length} 件</h4>
             </>
           }
         </Grid>
-
         <Grid item xs={12} sm={5}>
           <Box>
             おすすめ本
@@ -87,7 +86,7 @@ export const Mybooks = ({
         </Grid>
       </Grid>
 
-      {bookState.fetchState != 'ok' ? <Loading /> :
+      {bookState.fetchState !== 'ok' ? <Loading /> :
 
         <Grid item xs={12}>
           {bookState.searchBooks.length != 0 &&
@@ -101,7 +100,7 @@ export const Mybooks = ({
             </Grid>
           }
 
-          {bookState.searchBooks.length == 0 &&
+          {bookState.searchBooks.length === 0 &&
             <Box>
               <TabContext value={tab}>
                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>

@@ -6,16 +6,14 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-import TextField from '@mui/material/TextField';
-import MobileDatePicker from '@mui/lab/MobileDatePicker';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Box from '@mui/material/Box';
-import { Emoji } from 'emoji-mart';
 // Reducer
 import { recordReducer, recordInitialState } from '../../reducer/RecordReducer'
 // Api
 import { postDiary } from '../../apis/diaries';
+//Component
+import { Date } from '../Forms/Date';
+import { SleepingHours } from '../Forms/SleepingHours'
+import { Feeling } from '../Forms/Feeling'
 
 export const RecordDialog = ({
   handleClose,
@@ -23,14 +21,7 @@ export const RecordDialog = ({
 }) => {
   const [recordState, recordDispatch] = useReducer(recordReducer, recordInitialState);
 
-  // タブ
-  const tabChange = (event, newValue) => {
-    recordDispatch({
-      type: 'feeling',
-      payload: newValue,
-    });
-  }
-
+  // 日記を作成する
   const submitDiary = () => {
     postDiary({
       date: recordState.date,
@@ -56,64 +47,29 @@ export const RecordDialog = ({
           睡眠時間と寝起きの気分を記録しましょう。
         </DialogContentText>
 
-        <TextField
-          fullWidth variant="standard"
-          margin="dense"
-          type="date"
-          onChange={e => recordDispatch({
+        <Date
+          date={recordState.date}
+          handleChange={e => recordDispatch({
             type: 'date',
             payload: e.target.value
-          })}
-          value={recordState.date}
-          required
+          })
+          }
         />
 
-        {/* <MobileDatePicker
-          label="日付"
-          inputFormat="yyyy/MM/dd"
-          value={recordState.date}
-          onChange={e => recordDispatch({
-            type: 'date',
-            payload: e.target.value
-          })}
-          renderInput={(params) => <TextField {...params} />}
-        /> */}
-
-        <TextField
-          autoFocus
-          fullWidth variant="standard"
-          label="睡眠時間（例：7.5)"
-          margin="dense"
-          type="number"
-          onChange={e => recordDispatch({
+        <SleepingHours
+          sleepingHours={recordState.sleepingHours}
+          handleChange={e => recordDispatch({
             type: 'sleepingHours',
             payload: e.target.value
-          })}
-          value={recordState.sleepingHours}
-          required
+          })
+          }
         />
 
-        <Box sx={{ width: '100%' }}>
-          <p>睡眠状態</p>
-          <Tabs
-            value={recordState.feeling}
-            onChange={tabChange}
-          >
-            <Tab
-              value="satisfied"
-              label={<Emoji emoji="satisfied" size={32} />}
-              wrapped
-            />
-            <Tab
-              value="neutral_face"
-              label={<Emoji emoji="neutral_face" size={32} />}
-            />
-            <Tab
-              value="dizzy_face"
-              label={<Emoji emoji="dizzy_face" size={32}
-              />} />
-          </Tabs>
-        </Box>
+        <Feeling
+          feeling={recordState.feeling}
+          recordDispatch={recordDispatch}
+        />
+
       </DialogContent>
 
       <DialogActions>

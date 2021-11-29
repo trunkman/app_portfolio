@@ -18,7 +18,7 @@ export const Diaries = ({ userId }) => {
     <>
       <h2>TestUserの睡眠日記</h2>
       <Grid container sx={{ py: 10 }}>
-        <Grid item sm={12} md={6} sx={{
+        <Grid item sm={12} md={5} sx={{
           alignItems: "center",
           justifyContent: 'center',
         }}>
@@ -40,7 +40,7 @@ export const Diaries = ({ userId }) => {
           </Box>
         </Grid>
 
-        <Grid item sm={12} md={6}>
+        <Grid item sm={12} md={7}>
           <Calendar
             userId={userId}
             open={dialogState.diary}

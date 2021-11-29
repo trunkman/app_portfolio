@@ -114,12 +114,25 @@ module Api
       def diaries
         @user = User.find(params[:id])
         @diaries = @user.diaries
-        # 必要な情報のみに調整する
+        # 必要な日記情報に調整する
         modification_diaries = []
         @diaries.map do |diary|
-          modification_diaries << { title: diary.feeling, start: diary.date }
+          # 感情によってcolorを決定
+          case diary.feeling
+            when 'satisfied' then  color = '#F0C600'
+            when 'neutral_face' then color = '#F6FF4C'
+            when 'dizzy_face' then  color = '#98E8BC'
+          end
+          modification_diaries << { color: color,
+                                    groupId: diary.sleeping_hours,
+                                    id: diary.id,
+                                    start: diary.date,
+                                    startStr: diary.date,
+                                    title: diary.feeling,
+                                   }
         end
-        render json: { diaries: modification_diaries }, status: :ok
+        render json: { diaries: modification_diaries },
+               status: :ok
       end
 
       # タイムラインを返す
