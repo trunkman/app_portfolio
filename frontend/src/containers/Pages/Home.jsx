@@ -1,10 +1,8 @@
 import React, { useEffect, useContext, useReducer } from "react";
 import { AuthContext } from "../../App";
 // Style
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Grid from "@mui/material/Grid";
-import Typography from '@mui/material/Typography';
 // Api
 import { fetchSleepDebt } from "../../apis/diaries";
 // Reducer
@@ -15,7 +13,8 @@ import { SignUpDialog } from "../../components/Dialogs/SignUpDialog";
 import { LogInDialog } from "../../components/Dialogs/LogInDialog";
 import { PasswordResetDialog } from "../../components/Dialogs/PasswordResetDialog";
 import { SleepInfo } from "../../components/UserInfomation/SleepInfo"
-import { SnackBar } from "../../components/Snackbars/Snackbar"
+import { SnackBar } from "../../components/Snackbars/Snackbar";
+import { LoginSignup } from "../../components/Informations/LoginSignup";
 // Image
 import MainImage from "../../images/MainImage.png";
 
@@ -30,14 +29,14 @@ export const Home = () => {
     sleepDebtDispatch({ type: 'fetching' })
     fetchSleepDebt(authState.loginUser.id)
       .then(data => {
-        { // 睡眠負債のケース
+        { // 睡眠負債が返された場合
           data.sleep_debt &&
             sleepDebtDispatch({
               type: 'fetchSuccess',
               payload: data.sleep_debt
             })
         }
-        { // 余剰睡眠のケース
+        { // 余剰睡眠が返された場合
           data.sleep_saving &&
             sleepDebtDispatch({
               type: 'fetchSuccess',
@@ -65,26 +64,10 @@ export const Home = () => {
             flexDirection: 'column',
             justifyContent: 'center',
           }}>
-            <Box sx={{ textAlign: 'center', }} >
-              <Typography variant="h5" component="div" >
-                <Box sx={{ letterSpacing: 4 }}>"睡眠負債"の返済を手助けする救済サービス</Box>
-              </Typography>
-              <Typography variant="h1" component="div" >
-                <Box sx={{ letterSpacing: 6, my: 2 }}>睡眠補完計画</Box>
-              </Typography>
-            </Box>
-            <Box sx={{
-              mt: 6,
-              display: 'flex',
-              justifyContent: 'space-evenly',
-            }}>
-              <Button onClick={() => dialogDispatch({ type: 'signup' })}>
-                新規登録
-              </Button>
-              <Button onClick={() => dialogDispatch({ type: 'login' })}>
-                ログイン
-              </Button>
-            </Box>
+            <LoginSignup
+              handleOpenLogin={() => dialogDispatch({ type: 'login' })}
+              handleOpenSignup={() => dialogDispatch({ type: 'signup' })}
+            />
           </Grid>
         }
         {authState.loggedIn &&

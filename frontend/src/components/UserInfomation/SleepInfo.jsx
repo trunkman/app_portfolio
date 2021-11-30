@@ -1,5 +1,7 @@
 import React from "react"
+// Style
 import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 export const SleepInfo = ({
   userName,
@@ -12,28 +14,46 @@ export const SleepInfo = ({
       alignItems: "center",
       justifyContent: 'center',
     }}>
+      <Typography variant="h4">
+        <Box sx={{ letterSpacing: 6, my: 2 }}>{userName}さんの</Box>
+      </Typography>
       {
         sleepDebt &&
         <Box>
-          <h2>{userName}さんの</h2>
-          <h1>睡眠負債は{sleepDebt} 時間です</h1>
+          <Typography variant="h4">
+            <Box sx={{ letterSpacing: 6, my: 2 }}>睡眠負債は</Box>
+          </Typography>
+          <Typography variant="h1">
+            <Box sx={{ letterSpacing: 16, my: 4 }}><b>{sleepDebt}時間</b></Box>
+          </Typography>
+          <Typography variant="h5">
+            <Box sx={{ letterSpacing: 4, my: 6 }}><b>さあ、ひと眠りか、ふた眠りしよう...</b></Box>
+          </Typography>
         </Box>
       }
       {
         sleepSaving &&
         <Box>
-          <h3>{userName}さんは目標より</h3>
-          <h1>{sleepSaving} 時間</h1>
-          <h3>睡眠をとっています</h3>
-          <h3>この調子で睡眠時間を確保していきましょう</h3>
+          <Typography variant="h4">
+            <Box sx={{ letterSpacing: 6, my: 2 }}>余剰睡眠は</Box>
+          </Typography>
+          <Typography variant="h1">
+            <Box sx={{ letterSpacing: 16, my: 4 }}><b>{sleepSaving}時間</b></Box>
+          </Typography>
+          <Typography variant="h5">
+            <Box sx={{ letterSpacing: 4, my: 6 }}><b>素晴らしい睡眠生活です</b></Box>
+          </Typography>
         </Box>
       }
       {
         !sleepDebt && !sleepSaving &&
         <Box>
-          <h3>{userName}さんは</h3>
-          <h1>まだ睡眠日記を記録してありません</h1>
-          <h3>睡眠日記を記録していきましょう</h3>
+          <Typography variant="h4">
+            <Box sx={{ letterSpacing: 6, my: 2 }}>睡眠記録はまだありません</Box>
+          </Typography>
+          <Typography variant="h2" component="div" >
+            <Box sx={{ letterSpacing: 12, my: 16 }}>さあ、睡眠を記録しよう</Box>
+          </Typography>
         </Box>
       }
     </Box>
