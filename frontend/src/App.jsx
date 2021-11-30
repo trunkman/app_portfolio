@@ -41,7 +41,11 @@ export default function App() {
     <AuthContext.Provider value={{ authState, authDispatch }}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Box sx={{ display: 'flex' }}>
+        <Box sx={{
+          display: 'flex',
+          alignItems: "flex-start",
+          justifyContent: 'center',
+        }}>
           <Layout />
         </Box>
       </ThemeProvider>

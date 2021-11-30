@@ -7,9 +7,11 @@ export const Profile = ({ profile, handleChange }) => {
     <TextField
       fullWidth
       label="プロフィール"
+      multiline
       margin="dense"
       onChange={handleChange}
       required
+      rows={3}
       type="text"
       value={profile}
       variant="standard"

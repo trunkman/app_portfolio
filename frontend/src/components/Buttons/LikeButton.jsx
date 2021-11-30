@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-// styles
-import { IconButton } from "@mui/material";
-// アイコン
+// Style
+import Box from '@mui/material/Box';
+import IconButton from "@mui/material/IconButton";
+// Icom
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { red } from "@mui/material/colors";
-// api
+// Api
 import { postLike, postUnlike } from "../../apis/likes";
 
 export const LikeButton = ({
@@ -32,17 +32,17 @@ export const LikeButton = ({
   }
 
   return (
-    <>
+    <Box sx={{ ml: 2 }}>
       {likeStatus === true
         ?
         <IconButton onClick={handleUnlike} >
-          <FavoriteIcon sx={{ color: red[500] }} />
+          <FavoriteIcon sx={{ color: '#d32f2f' }} />
         </IconButton>
         :
         <IconButton onClick={handleLike} >
-          <FavoriteBorderIcon color="primary" />
+          <FavoriteBorderIcon />
         </IconButton>
       }
-    </>
+    </Box>
   )
 }

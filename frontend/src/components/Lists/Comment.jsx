@@ -1,51 +1,71 @@
-import React from "react";
+import React, { useState } from "react";
+// Style
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
 import Typography from "@mui/material/Typography";
-// アイコン
+import ListItem from "@mui/material/ListItem";
+import IconButton from "@mui/material/IconButton";
+// Icon
 import AccountCircle from "@mui/icons-material/AccountCircle";
-// api
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+// Api
 import { deleteComment } from "../../apis/comments";
+// Component
+import { DeleteDialog } from "../Dialogs/DeleteDialog";
+
 
 export const Comment = ({
   comment,
   loginUserId,
   userName,
 }) => {
-
+  // 削除確認ダイアログの開閉
+  const [open, setOpen] = useState({
+    isOpen: false,
+    commentId: '',
+  });
+  const handleClose = () => setOpen({ isOpen: false });
   // コメントを削除する
   const deleteSubmit = (commentId) => {
     deleteComment(commentId)
-      .then(alert('コメントを削除する'))
+    handleClose();
+    alert('コメントを削除しました')
   }
 
   return (
     <>
-      <Box
+      <ListItem
         key={comment.id.toString()}
         sx={{
           display: 'flex',
           alignItems: "center",
-          my: 4,
+          mt: 4,
+          borderTop: 0.2,
         }}>
-        <AccountCircle />
-        <Box sx={{ ml: 2 }}>
+        <AccountCircle sx={{ fontSize: 35 }} />
+        <Box sx={{
+          pt: 2,
+          pl: 3,
+          flexGrow: 1,
+        }}>
           <Typography>
-            <b>{userName}</b>  {comment.created_at}
+            【 {userName} さん 】 {comment.created_at}
           </Typography>
-          <Typography>
-            {comment.content}
+          <Typography variant="h6" sx={{ pl: 1 }}>
+            <Box sx={{ letterSpacing: 2, my: 2 }}>{comment.content}</Box>
           </Typography>
         </Box>
-        {loginUserId == comment.user_id && (
-          <Link
-            component="div"
-            onClick={() => deleteSubmit(comment.id)}
-          >
-            削除
-          </Link>
+        {loginUserId === comment.user_id && (
+          <IconButton onClick={() => setOpen({ isOpen: true, commentId: comment.id })}>
+            <DeleteOutlinedIcon />
+          </IconButton>
         )}
-      </Box >
+      </ListItem >
+      <DeleteDialog
+        handleClose={handleClose}
+        handleDelete={deleteSubmit}
+        message={'コメントを削除'}
+        open={open.isOpen}
+      />
     </>
   )
 }

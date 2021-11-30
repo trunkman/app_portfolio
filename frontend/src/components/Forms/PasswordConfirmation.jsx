@@ -3,12 +3,10 @@ import TextField from '@mui/material/TextField';
 
 export const PasswordConfirmation = ({ passwordConfirmation, handleChange }) => {
 
-  // 返り値：PasswordConfirmationフォーム
   return (
     <TextField
       fullWidth
-      // id="passwordConfirmationForm"
-      label="確認のため再度パスワードをご入力ください"
+      label="パスワード（再確認用）"
       margin="dense"
       onChange={handleChange}
       required

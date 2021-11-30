@@ -1,27 +1,50 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useContext, useState, useEffect, useReducer } from "react";
+import { AuthContext } from '../../App';
 // Style
 import Box from '@mui/material/Box';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import { makeStyles } from '@material-ui/styles';
+import List from "@mui/material/List";
+import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
-import Tab from '@mui/material/Tab';
 import TabPanel from '@mui/lab/TabPanel';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import Grid from "@mui/material/Grid";
+//Icon
+import CommentIcon from '@mui/icons-material/Comment';
+import NotesIcon from '@mui/icons-material/Notes';
 // Api
 import { fetchUser, fetchMicroposts } from "../../apis/users";
 // Reducer
-import { profileInitialState, profileReducer } from '../../reducer/ProfileReducer';
+import { profileReducer, profileInitialState } from '../../reducer/ProfileReducer';
 // Component
-import { UserInfo } from "../../components/UserInfomation/UserInfo";
-import { Micropost } from "../../components/Lists/Micropost";
 import { Comment } from "../../components/Lists/Comment";
 import { Loading } from "../../components/Loading"
+import { Micropost } from "../../components/Lists/Micropost";
+import { UserInfo } from "../../components/UserInfomation/UserInfo";
 
+const useStyles = makeStyles(() => ({
+  root: {
+    alignItems: 'center',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    maxWidth: 800,
+    mx: 'auto',
+    width: '100%',
+  },
+  tabBox: {
+    background: '#001e3c',
+    '&:hover': {
+      color: '#fff',
+      fontWeight: 'bold',
+    },
+  },
+}));
 
 export const Profile = ({
   userId,
-  loginUser,
 }) => {
+  const classes = useStyles();
+  const { authState } = useContext(AuthContext);
   const [profileState, profileDispatch] = useReducer(profileReducer, profileInitialState);
   const [tab, setTab] = useState('microposts');
 
@@ -36,6 +59,7 @@ export const Profile = ({
             followingIds: data.following_ids,
             followersIds: data.followers_ids,
             followStatus: data.followStatus,
+            subscriptions: data.subscriptions,
           }
         })
       });
@@ -60,34 +84,22 @@ export const Profile = ({
   useEffect(() => { userMicropost() }, [tab])
 
   return (
-    <Box sx={{
-      maxWidth: 800,
-      p: 2,
-    }}>
-      <Box>
-      </Box>
-      <Grid container >
-        <Grid item xs={12}>
-          <UserInfo
-            loginUser={loginUser}
-            profile={profileState}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          {/* <SleepInfo /> */}
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          {/* <RecomendBook/> */}
-        </Grid>
-      </Grid>
+    <Box className={classes.root}>
+      <UserInfo
+        loginUser={authState.loginUser}
+        profileState={profileState}
+      />
       <Box>
         <TabContext value={tab}>
-          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <Box >
             <TabList
               onChange={(event, newTab) => setTab(newTab)}
               variant="fullWidth"
+              textColor="secondary"
+              indicatorColor="secondary"
             >
-              <Tab icon={<FavoriteIcon />}
+              <Tab
+                icon={<NotesIcon />}
                 iconPosition="start"
                 label="つぶやき"
                 value="microposts"
@@ -99,7 +111,7 @@ export const Profile = ({
                 value="liked_microposts"
               />
               <Tab
-                icon={<FavoriteIcon />}
+                icon={<CommentIcon />}
                 iconPosition="start"
                 label="コメント"
                 value="comments"
@@ -107,42 +119,48 @@ export const Profile = ({
             </TabList>
           </Box>
           <TabPanel value="microposts" index={0}>
-            {
-              profileState.fetchState != 'ok' ? <Loading /> :
-                profileState.microposts.map(micropost =>
-                  <Micropost
-                    commentCount={micropost.commentCount}
-                    likeStatus={micropost.likeStatus}
-                    loginUser={loginUser}
-                    micropost={micropost.micropost}
-                  />
-                )
-            }
+            <List>
+              {
+                profileState.fetchState != 'ok' ? <Loading /> :
+                  profileState.microposts.map(micropost =>
+                    <Micropost
+                      commentCount={micropost.commentCount}
+                      likeStatus={micropost.likeStatus}
+                      loginUser={authState.loginUser}
+                      micropost={micropost.micropost}
+                    />
+                  )
+              }
+            </List>
           </TabPanel>
           <TabPanel value="liked_microposts" index={1}>
-            {
-              profileState.fetchState != 'ok' ? <Loading /> :
-                profileState.likedMicroposts.map(micropost =>
-                  <Micropost
-                    commentCount={micropost.commentCount}
-                    likeStatus={micropost.likeStatus}
-                    loginUser={loginUser}
-                    micropost={micropost.liked_micropost}
-                  />
-                )
-            }
+            <List>
+              {
+                profileState.fetchState != 'ok' ? <Loading /> :
+                  profileState.likedMicroposts.map(micropost =>
+                    <Micropost
+                      commentCount={micropost.commentCount}
+                      likeStatus={micropost.likeStatus}
+                      loginUser={authState.loginUser}
+                      micropost={micropost.liked_micropost}
+                    />
+                  )
+              }
+            </List>
           </TabPanel>
           <TabPanel value="comments" index={2}>
-            {
-              profileState.fetchState != 'ok' ? <Loading /> :
-                profileState.comments.map(comment =>
-                  <Comment
-                    comment={comment}
-                    loginUser={loginUser}
-                    userName={profileState.user.name}
-                  />
-                )
-            }
+            <List>
+              {
+                profileState.fetchState != 'ok' ? <Loading /> :
+                  profileState.comments.map(comment =>
+                    <Comment
+                      comment={comment}
+                      loginUser={authState.loginUser}
+                      userName={profileState.user.name}
+                    />
+                  )
+              }
+            </List>
           </TabPanel>
         </TabContext>
       </Box>

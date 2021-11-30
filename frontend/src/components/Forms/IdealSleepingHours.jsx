@@ -5,7 +5,6 @@ export const IdealSleepingHours = ({ idealSleepingHours, handleChange }) => {
 
   return (
     <TextField
-      fullWidth
       label="目標睡眠時間"
       margin="dense"
       onChange={handleChange}

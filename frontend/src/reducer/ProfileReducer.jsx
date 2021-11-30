@@ -5,6 +5,7 @@ export const profileInitialState = {
   followingIds: [],
   followersIds: [],
   followStatus: false,
+  subscriptions: [],
   microposts: [],
   likedMicroposts: [],
   comments: [],
@@ -27,6 +28,7 @@ export const profileReducer = (state, action) => {
         followingIds: action.payload.followingIds,
         followersIds: action.payload.followersIds,
         followStatus: action.payload.followStatus,
+        subscriptions: action.payload.subscriptions
       };
     case 'fetchSuccessMicropost':
       return {

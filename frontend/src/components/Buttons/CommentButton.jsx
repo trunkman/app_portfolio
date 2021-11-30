@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-// styles
-import { IconButton } from "@mui/material";
-// アイコン
+// Style
+import Box from '@mui/material/Box';
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+// Icon
 import SmsOutlinedIcon from '@mui/icons-material/SmsOutlined';
-// コンポーネント
+// Component
 import { CommentDialog } from "../Dialogs/CommentDialog";
 
 export const CommentButton = ({
@@ -17,18 +19,22 @@ export const CommentButton = ({
   const handleClose = () => { setOpen(false) }
 
   return (
-    <>
+    <Box sx={{
+      display: 'flex',
+      ml: 2,
+    }}>
       <IconButton onClick={handleOpen}>
         <SmsOutlinedIcon />
-        {commentCount}
       </IconButton>
-
+      <Typography sx={{ pl: 1 }} >
+        {commentCount}
+      </Typography>
       <CommentDialog
         handleClose={handleClose}
         open={open}
         loginUserId={loginUserId}
         micropostId={micropostId}
       />
-    </>
+    </Box>
   )
 }

@@ -19,11 +19,13 @@ module Api
         @following_ids = @user.following_ids
         @followers_ids = @user.follower_ids
         followStatus = current_user.following?(@user)
+        @subscriptions = @user.subscriptions
         if @user.activated?
           render json: { user: @user,
                          following_ids: @following_ids,
                          followers_ids: @followers_ids,
-                         followStatus: followStatus },
+                         followStatus: followStatus,
+                         subscriptions: @subscriptions },
                  status: :ok
         else
           render json: { message: 'ユーザーのアカウントが有効化されていません' },

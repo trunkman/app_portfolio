@@ -1,9 +1,10 @@
 import React, { useState, useContext } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { AuthContext } from '../App';
-// styles
+// Style
 import Box from '@mui/material/Box';
-// コンテイナー
+import { makeStyles } from '@material-ui/styles';
+// Container
 import { Book } from './Pages/Book';
 import { Diaries } from './Pages/Diaries';
 import { Follow } from './Pages/Follow';
@@ -18,15 +19,26 @@ import { Timeline } from './Pages/Timeline';
 import { Users } from './Pages/Users'
 import { Sidebar } from './Navigations/Sidebar';
 
+const useStyles = makeStyles(() => ({
+  root: {
+    alignItems: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+    maxWidth: 1200,
+    marginTop: 120,
+    mx: 'auto',
+    width: '100%',
+  },
+}));
+
 export const Layout = () => {
   const drawerWidth = 240;
+  const classes = useStyles();
+  const { authState } = useContext(AuthContext);
   // Drawerを開閉する関数群
-  const [open, setOpen] = useState(false)
-  // sx={{ display: { xs: 'none', md: 'flex' } }}
-  const handleDrawerOpen = () => setOpen(true)
-  const handleDrawerClose = () => setOpen(false)
-
-  const { authState } = useContext(AuthContext)
+  const [open, setOpen] = useState(false);
+  const handleDrawerOpen = () => setOpen(true);
+  const handleDrawerClose = () => setOpen(false);
 
   return (
     <BrowserRouter>
@@ -37,24 +49,13 @@ export const Layout = () => {
         loginUser={authState.loginUser}
         isLoggedIn={authState.loggedIn}
       />
-
       <Sidebar
         open={open}
         drawerWidth={drawerWidth}
         handleDrawerClose={handleDrawerClose}
       />
 
-      <Box
-        component="main"
-        sx={{
-          width: '100%',
-          maxWidth: 1000,
-          mt: 9,
-          mx: 'auto',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+      <Box className={classes.root}>
         <Switch>
           <Route exact path="/">
             <Home />

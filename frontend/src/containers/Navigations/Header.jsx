@@ -79,7 +79,7 @@ export const Header = ({
           {authState.loggedIn &&
             <IconButton>
               <MenuIcon
-                color="inherit"
+                color="primary"
                 onClick={() => handleDrawerOpen()}
                 sx={{
                   fontSize: 20,

@@ -7,7 +7,7 @@ export const Email = ({ email, handleChange }) => {
   return (
     <TextField
       fullWidth
-      label="E-mail"
+      label="メール"
       margin="dense"
       onChange={handleChange}
       required

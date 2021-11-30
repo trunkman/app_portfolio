@@ -1,13 +1,16 @@
 import React, { useState } from "react";
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Typography from "@mui/material/Typography";
-// アイコン
-import AccountCircle from "@mui/icons-material/AccountCircle";
 import { useHistory } from "react-router";
-// api
+// Style
+import Box from '@mui/material/Box';
+import Typography from "@mui/material/Typography";
+import ListItem from "@mui/material/ListItem";
+import IconButton from "@mui/material/IconButton";
+// Icon
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+// Api
 import { deleteMicropost } from "../../apis/microposts";
-// コンポーネント
+// Component
 import { LikeButton } from "../Buttons/LikeButton";
 import { CommentButton } from "../Buttons/CommentButton"
 import { DeleteDialog } from "../Dialogs/DeleteDialog";
@@ -24,62 +27,55 @@ export const Micropost = ({
     isOpen: false,
     micropostId: '',
   });
-
+  const handleClose = () => setOpen({ isOpen: false });
   // 投稿を削除する
   const deleteSubmit = () => {
     deleteMicropost(open.micropostId)
+    handleClose()
+    alert('投稿を削除しました')
     history.push(`/users/${loginUser.id}`)
   }
 
   return (
     <>
-      <Box
+      <ListItem
         key={micropost.id.toString()}
         sx={{
           display: 'flex',
           alignItems: "center",
-          my: 4,
+          borderTop: 0.2,
         }}>
-        <AccountCircle />
-
-        <Box sx={{ ml: 2 }}>
+        <AccountCircle sx={{ fontSize: 35 }} />
+        <Box sx={{
+          py: 3,
+          pl: 3,
+          flexGrow: 1,
+        }}>
           <Typography>
-            <b>{micropost.user_id}さん</b>
-            <p>{micropost.created_at}</p>
+            【 {micropost.user_id} さん 】 {micropost.created_at}
           </Typography>
-          <Typography>
-            {micropost.content}
+          <Typography variant="h6" sx={{ pl: 1 }}>
+            <Box sx={{ letterSpacing: 2, mt: 2 }}>{micropost.content}</Box>
           </Typography>
         </Box>
-
-        <Box sx={{ ml: 2 }}>
-          <LikeButton
-            loginUserId={loginUser.id}
-            micropostId={micropost.id}
-            Status={likeStatus}
-          />
-        </Box>
-
-        <Box sx={{ ml: 2 }}>
-          <CommentButton
-            loginUserId={loginUser.id}
-            micropostId={micropost.id}
-            commentCount={commentCount}
-          />
-        </Box>
-
         {loginUser.id === micropost.user_id && (
-          <Link
-            component="div"
-            onClick={() => setOpen({ isOpen: true, roomId: micropost.id })}
-          >
-            削除
-          </Link>
+          <IconButton onClick={() => setOpen({ isOpen: true, micropostId: micropost.id })}>
+            <DeleteOutlinedIcon />
+          </IconButton>
         )}
-      </Box >
-
+        <LikeButton
+          loginUserId={loginUser.id}
+          micropostId={micropost.id}
+          Status={likeStatus}
+        />
+        <CommentButton
+          loginUserId={loginUser.id}
+          micropostId={micropost.id}
+          commentCount={commentCount}
+        />
+      </ListItem >
       <DeleteDialog
-        handleClose={() => setOpen({ isOpen: false })}
+        handleClose={handleClose}
         handleDelete={deleteSubmit}
         message={'投稿を削除'}
         open={open.isOpen}

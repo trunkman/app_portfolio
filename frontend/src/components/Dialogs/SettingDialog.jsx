@@ -2,12 +2,15 @@ import React, { useContext, useEffect } from 'react';
 import { useHistory } from "react-router";
 import { AuthContext } from "../../App";
 // Style
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
+import Typography from "@mui/material/Typography";
+import { makeStyles } from '@material-ui/styles';
+import { theme } from '../../styled/theme';
 // Api
 import { patchUpdate } from '../../apis/users';
 // Component
@@ -18,10 +21,21 @@ import { PasswordConfirmation } from '../Forms/PasswordConfirmation';
 import { IdealSleepingHours } from '../Forms/IdealSleepingHours';
 import { Profile } from '../Forms/Profile';
 
+const useStyles = makeStyles(theme => ({
+  button: {
+    border: 0,
+    borderRadius: 3,
+    color: '#90caf9',
+    height: 30,
+    padding: '15px 20px',
+  },
+}));
+
 export const SettingDialog = ({
   handleClose,
   open,
 }) => {
+  const classes = useStyles();
   const history = useHistory();
   const { authState, authDispatch } = useContext(AuthContext)
   // 送信のCallback関数
@@ -60,11 +74,12 @@ export const SettingDialog = ({
       open={open}
       onClose={() => handleClose()}
     >
-      <DialogTitle>プロフィール編集</DialogTitle>
+      <DialogTitle>
+        <Typography variant="h5">
+          <Box sx={{ letterSpacing: 3, pt: 2 }}><b>プロフィール編集</b></Box>
+        </Typography>
+      </DialogTitle>
       <DialogContent>
-        <DialogContentText>
-          変更したい項目を入力し、「更新」を押してください。
-        </DialogContentText>
         <Name
           name={authState.name}
           handleChange={e =>
@@ -78,13 +93,13 @@ export const SettingDialog = ({
           email={authState.email}
           handleChange={e =>
             authDispatch({
-              type: 'name',
+              type: 'email',
               payload: e.target.value,
             })
           }
         />
         <IdealSleepingHours
-          email={authState.idealSleepingHours}
+          idealSleepingHours={authState.idealSleepingHours}
           handleChange={e =>
             authDispatch({
               type: 'idealSleepingHours',
@@ -93,10 +108,10 @@ export const SettingDialog = ({
           }
         />
         <Profile
-          email={authState.profile}
+          profile={authState.profile}
           handleChange={e =>
             authDispatch({
-              type: 'ideal_sleeping_hours',
+              type: 'profile',
               payload: e.target.value,
             })
           }
@@ -121,11 +136,18 @@ export const SettingDialog = ({
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={() => handleClose()}>
+        <Button
+          className={classes.button}
+          onClick={() => handleClose()}
+        >
           閉じる
         </Button>
-        <Button onClick={submitUpdate} type='submit'>
-          更新
+        <Button
+          className={classes.button}
+          onClick={submitUpdate}
+          type='submit'
+        >
+          更新する
         </Button>
       </DialogActions>
     </Dialog>

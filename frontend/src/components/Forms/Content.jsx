@@ -3,7 +3,6 @@ import TextField from '@mui/material/TextField';
 
 export const Content = ({ content, handleChange }) => {
 
-  // 返り値：Emailフォーム
   return (
     <TextField
       autoFocus
@@ -11,7 +10,6 @@ export const Content = ({ content, handleChange }) => {
       label="投稿内容"
       margin="dense"
       multiline
-      // id="content"
       onChange={handleChange}
       required
       rows={4}
