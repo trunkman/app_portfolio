@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// styles
+// Style
 import Divider from '@mui/material/Divider';
-import { List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
-// アイコン
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+// Icon
 import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
+
 
 export const FollowsLink = ({ loginUserId }) => {
   return (
@@ -13,12 +17,14 @@ export const FollowsLink = ({ loginUserId }) => {
       <List>
         <ListItem
           button
-          color="inherit"
           component={Link}
           to={`/users/${loginUserId}/following`}
         >
           <ListItemIcon>
-            <PeopleOutlineIcon />
+            <PeopleOutlineIcon
+              color='primary'
+              sx={{ ml: 1 }}
+            />
           </ListItemIcon>
           <ListItemText primary='フォロー中/フォロワー' />
         </ListItem>

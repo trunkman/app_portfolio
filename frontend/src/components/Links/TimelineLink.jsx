@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// styles
+// Style
 import Divider from '@mui/material/Divider';
-import { List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
-// アイコン
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+// Icon
 import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
+
 
 export const TimelineLink = ({ loginUserId }) => {
   return (
@@ -13,12 +17,14 @@ export const TimelineLink = ({ loginUserId }) => {
       <List>
         <ListItem
           button
-          color="inherit"
           component={Link}
           to={`/users/${loginUserId}/timeline`}
         >
           <ListItemIcon>
-            <FormatListBulletedOutlinedIcon />
+            <FormatListBulletedOutlinedIcon
+              color='primary'
+              sx={{ ml: 1 }}
+            />
           </ListItemIcon>
           <ListItemText primary='タイムライン' />
         </ListItem>

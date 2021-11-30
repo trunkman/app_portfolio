@@ -1,29 +1,30 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
-// styles
+// Style
 import Divider from '@mui/material/Divider';
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-// アイコン
+// Icon
 import CalendarTodayRoundedIcon from '@mui/icons-material/CalendarTodayRounded';
 
-export const DiariesLink = ({ loginUserId }) => {
 
+export const DiariesLink = ({ loginUserId }) => {
   return (
     <>
       <Divider />
       <List>
         <ListItem
           button
-          color="inherit"
           component={Link}
           to={`/users/${loginUserId}/diaries`}
         >
           <ListItemIcon>
-            <CalendarTodayRoundedIcon />
+            <CalendarTodayRoundedIcon
+              color='primary'
+              sx={{ ml: 1 }}
+            />
           </ListItemIcon>
           <ListItemText primary='睡眠日記' />
         </ListItem>
