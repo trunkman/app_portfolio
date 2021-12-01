@@ -19,8 +19,10 @@ export const dialogReducer = (openState, action) => {
       return { ...openState, login: false, passwordReset: true }
     case 'micropost':
       return { ...openState, micropost: true }
+    // 日記を記録するダイアログを開く
     case 'record':
       return { ...openState, record: true }
+    // 日記内容を確認するダイアログを開く
     case 'diary':
       return { ...openState, diary: true }
     case 'notification':

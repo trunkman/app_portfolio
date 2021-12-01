@@ -101,7 +101,7 @@ export const Header = ({
           {authState.loggedIn &&
             <>
               <PostButton handleClick={() => dialogDispatch({ type: 'micropost' })} />
-              <RecordButton handleClick={() => dialogDispatch({ type: 'diary' })} />
+              <RecordButton handleClick={() => dialogDispatch({ type: 'record' })} />
               <NotificationButton handleClick={() => dialogDispatch({ type: 'notification' })} />
               <AccountButton
                 handleLogout={submitLogout}
@@ -118,7 +118,7 @@ export const Header = ({
       />
       <RecordDialog
         handleClose={handleClose}
-        open={dialogState.diary}
+        open={dialogState.record}
       />
       <NotificationDialog
         handleClose={handleClose}

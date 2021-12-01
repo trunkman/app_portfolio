@@ -1,69 +1,160 @@
-import React, { useReducer } from "react";
+import React, { useContext, useEffect, useReducer } from "react";
+import { AuthContext } from '../../App';
 // Style
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import { makeStyles } from '@material-ui/styles';
+import Typography from "@mui/material/Typography";
+// Api
+import { fetchUserDiaries } from "../../apis/users";
+import { fetchSleepDebt } from "../../apis/diaries";
 // Reducer
 import { dialogReducer, dialogInitialState } from '../../reducer/DialogReducer';
+import { recordReducer, recordInitialState } from '../../reducer/RecordReducer';
+import { sleepDebtReducer, sleepDebtInitialState } from "../../reducer/SleepDebtReducer";
 // Component
 import { Calendar } from "../../components/UserInfomation/Calendar";
 import { SleepInfo } from "../../components/UserInfomation/SleepInfo";
 // Dialog
 import { RecordDialog } from "../../components/Dialogs/RecordDialog";
 import { SleepData } from "../../components/UserInfomation/SleepData";
-// import { Loading } from '../../components/Loading';
+import { Loading } from '../../components/Loading';
+
+const useStyles = makeStyles(() => ({
+  root: {
+    alignItems: 'center',
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    maxWidth: 1000,
+    mx: 'auto',
+    textAlign: 'center',
+    width: '100%',
+  },
+  button: {
+    backgroundColor: '#42a5f5',
+    border: 0,
+    borderRadius: 3,
+    color: 'white',
+    height: 30,
+    padding: '20px 30px',
+  },
+}));
 
 export const Diaries = ({ userId }) => {
+  const classes = useStyles();
+  const { authState } = useContext(AuthContext);
   const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState);
+  const handleClose = () => dialogDispatch({ type: 'close' });
+  const [recordState, recordDispatch] = useReducer(recordReducer, recordInitialState);
+  const [sleepDebtState, sleepDebtDispatch] = useReducer(sleepDebtReducer, sleepDebtInitialState);
+  // 日記情報を取得する
+  const fetchDiaries = () => {
+    recordDispatch({ type: 'fetching' });
+    fetchUserDiaries(userId)
+      .then(data => {
+        recordDispatch({
+          type: 'fetchSuccess',
+          payload: {
+            user: data.user,
+            diaries: data.diaries,
+          }
+        });
+      });
+  }
+  // 睡眠負債を取得する
+  const SleepDebt = () => {
+    sleepDebtDispatch({ type: 'fetching' });
+    fetchSleepDebt(userId)
+      .then(data => {
+        { // 睡眠負債が返された場合
+          data.sleep_debt &&
+            sleepDebtDispatch({
+              type: 'fetchSuccess',
+              payload: { sleepDebt: data.sleep_debt }
+            })
+        }
+        { // 余剰睡眠が返された場合
+          data.sleep_saving &&
+            sleepDebtDispatch({
+              type: 'fetchSuccess',
+              payload: { sleepSaving: data.sleep_saving }
+            })
+        }
+      })
+  }
+
+  useEffect(() => {
+    fetchDiaries();
+    SleepDebt();
+  }, [dialogState.record, dialogState.diary])
+
 
   return (
-    <>
-      <h2>TestUserの睡眠日記</h2>
-      <Grid container sx={{ py: 10 }}>
-        <Grid item sm={12} md={5} sx={{
-          alignItems: "center",
-          justifyContent: 'center',
-        }}>
-          <SleepInfo
-            userName={"Tset_Name"}
-            sleepDebt={999}
-          // sleepSaving={}
-          />
-          <Box sx={{
-            alignItems: "center",
-            justifyContent: 'center',
-          }}>
-            <h2>理想睡眠時間：{'7.0'} 時間</h2>
-            <Button
-              onClick={() => dialogDispatch({ type: 'diary' })}
+    <Box className={classes.root}>
+      <Typography variant="h3">
+        <Box sx={{ letterSpacing: 10, pb: 5 }}><b> ~ 睡眠日記 ~ </b></Box>
+      </Typography>
+
+      {recordState.fetchState !== 'ok' ? <Loading /> :
+        <>
+          <Grid container>
+            <Grid item xs={12} sm={6} sx={{
+              alignItems: "center",
+              justifyContent: 'center',
+              pt: 1,
+            }}>
+              <SleepInfo
+                userName={recordState.user.name}
+                sleepDebt={sleepDebtState.sleepDebt}
+                sleepSaving={sleepDebtState.sleepSaving}
+              />
+              <Box sx={{ pt: 2 }}>
+                {authState.loggedIn &&
+                  <Button
+
+                    className={classes.button}
+                    onClick={() => dialogDispatch({ type: 'record' })}
+                  >
+                    睡眠日記を書く
+                  </Button>
+                }
+                <Typography variant="h6">
+                  <Box sx={{ letterSpacing: 4, mt: 3 }}>理想睡眠時間：<b>{recordState.user.ideal_sleeping_hours}時間</b></Box>
+                </Typography>
+              </Box>
+            </Grid>
+
+            <Grid item sm={12} md={6}
+              sx={{
+                pr: 10,
+                alignItems: "center",
+              }}
             >
-              睡眠日記を書く
-            </Button>
+              <Calendar
+                userId={userId}
+                open={dialogState.diary}
+                handleClose={handleClose}
+                handleOpen={() => dialogDispatch({ type: 'diary' })}
+                recordState={recordState}
+                recordDispatch={recordDispatch}
+              />
+            </Grid>
+          </Grid>
+
+          <Box sx={{ py: 6, pl: 2 }}>
+            <SleepData
+              diaries={recordState.diaries}
+            />
           </Box>
-        </Grid>
+        </>
+      }
 
-        <Grid item sm={12} md={7}>
-          <Calendar
-            userId={userId}
-            open={dialogState.diary}
-          />
-        </Grid>
-
-        <Grid item sm={12} sx={{
-          alignItems: "center",
-          justifyContent: 'center',
-        }}>
-          {/* {diaryState.fetchState != 'ok' ? <Loading /> : */}
-          <SleepData
-          />
-          {/* } */}
-        </Grid>
-
-        <RecordDialog
-          handleClose={() => dialogDispatch({ type: 'close' })}
-          open={dialogState.diary}
-        />
-      </Grid>
-    </>
+      <RecordDialog
+        handleClose={handleClose}
+        open={dialogState.record}
+      />
+    </Box>
   )
 }

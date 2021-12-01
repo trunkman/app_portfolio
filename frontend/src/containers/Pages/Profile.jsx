@@ -95,8 +95,8 @@ export const Profile = ({
             <TabList
               onChange={(event, newTab) => setTab(newTab)}
               variant="fullWidth"
-              textColor="secondary"
-              indicatorColor="secondary"
+              textColor="primary"
+              indicatorColor="primary"
             >
               <Tab
                 icon={<NotesIcon />}

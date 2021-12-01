@@ -1,3 +1,4 @@
+// 日付を整える
 const formatDate = (date) => {
   return (
     date.getFullYear() + '-' +
@@ -7,14 +8,31 @@ const formatDate = (date) => {
 }
 
 export const recordInitialState = {
+  fetchState: 'initial',
+  postState: 'initial',
   id: '',
+  // 本日の日付が表示されない
   date: formatDate(new Date()),
   sleepingHours: '',
   feeling: 'satisfied',
+  user: {},
+  diaries: [],
 }
 
 export const recordReducer = (state, action) => {
   switch (action.type) {
+    case 'fetching':
+      return {
+        ...state,
+        fetchState: 'loading',
+      };
+    case 'fetchSuccess':
+      return {
+        ...state,
+        fetchState: 'ok',
+        user: action.payload.user,
+        diaries: action.payload.diaries,
+      };
     case 'date':
       return {
         ...state,

@@ -12,12 +12,12 @@ export const postDiary = (params) => {
     }
   }, {
     withCredentials: true
-  }).
-    then(res => {
+  })
+    .then(res => {
       console.log('diaries#create', res);
       return res.data;
-    }).
-    catch(error => {
+    })
+    .catch(error => {
       console.log('diaries#create', error);
     });
 }
@@ -32,14 +32,26 @@ export const patchDiary = (params) => {
     }
   }, {
     withCredentials: true
-  }).
-    then(res => {
+  })
+    .then(res => {
       console.log('diaries#update', res);
+      return res.data;
+    })
+    .catch(error => {
+      console.log('diaries#update', error)
+    })
+}
+
+// 日記を削除するapi
+export const deleteDiary = (diaryId) => {
+  return axios.delete(diaryPath(diaryId), { withCredentials: true })
+    .then(res => {
+      console.log('diaries#delete', res);
       return res.data;
     }).
     catch(error => {
-      console.log('diaries#update', error)
-    })
+      console.log('diaries#delete', error);
+    });
 }
 
 // SleepDebtを取得するapi

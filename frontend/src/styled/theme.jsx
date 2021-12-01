@@ -7,5 +7,8 @@ export const theme = createTheme({
       paper: '#001e3c',
       default: '#001e3c',
     },
+    // info: {
+    //   dark: '#001e3c',
+    // },
   },
 });

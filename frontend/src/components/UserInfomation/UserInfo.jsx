@@ -14,7 +14,7 @@ import { FollowButton } from "../Buttons/FollowButton";
 
 const useStyles = makeStyles(() => ({
   button: {
-    background: '#0059b2',
+    background: '#42a5f5',
     border: 0,
     borderRadius: 3,
     color: 'white',

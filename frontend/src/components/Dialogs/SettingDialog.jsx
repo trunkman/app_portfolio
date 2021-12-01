@@ -10,7 +10,6 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import Typography from "@mui/material/Typography";
 import { makeStyles } from '@material-ui/styles';
-import { theme } from '../../styled/theme';
 // Api
 import { patchUpdate } from '../../apis/users';
 // Component
@@ -21,7 +20,7 @@ import { PasswordConfirmation } from '../Forms/PasswordConfirmation';
 import { IdealSleepingHours } from '../Forms/IdealSleepingHours';
 import { Profile } from '../Forms/Profile';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   button: {
     border: 0,
     borderRadius: 3,

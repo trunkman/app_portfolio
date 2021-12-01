@@ -121,9 +121,9 @@ module Api
         @diaries.map do |diary|
           # 感情によってcolorを決定
           case diary.feeling
-            when 'satisfied' then  color = '#F0C600'
-            when 'neutral_face' then color = '#F6FF4C'
-            when 'dizzy_face' then  color = '#98E8BC'
+            when 'satisfied' then  color = '#67daff'
+            when 'neutral_face' then color = '#03a9f4'
+            when 'dizzy_face' then  color = '#007ac1'
           end
           modification_diaries << { color: color,
                                     groupId: diary.sleeping_hours,
@@ -133,7 +133,7 @@ module Api
                                     title: diary.feeling,
                                    }
         end
-        render json: { diaries: modification_diaries },
+        render json: { user: @user, diaries: modification_diaries },
                status: :ok
       end
 

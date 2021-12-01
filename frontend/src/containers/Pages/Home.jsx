@@ -33,14 +33,14 @@ export const Home = () => {
           data.sleep_debt &&
             sleepDebtDispatch({
               type: 'fetchSuccess',
-              payload: data.sleep_debt
+              payload: { sleepDebt: data.sleep_debt }
             })
         }
         { // 余剰睡眠が返された場合
           data.sleep_saving &&
             sleepDebtDispatch({
               type: 'fetchSuccess',
-              payload: data.sleep_saving
+              payload: { sleepSaving: data.sleep_saving }
             })
         }
       })

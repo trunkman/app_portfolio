@@ -1,7 +1,8 @@
 export const sleepDebtInitialState = {
   fetchState: 'initial',
   reRender: false,
-  sleepDebt: 0,
+  sleepDebt: null,
+  sleepSaving: null,
 }
 
 
@@ -16,7 +17,8 @@ export const sleepDebtReducer = (state, action) => {
       return {
         ...state,
         fetchState: 'ok',
-        sleepDebt: action.payload,
+        sleepDebt: action.payload.sleepDebt,
+        sleepSaving: action.payload.sleepSaving,
       };
     default:
       throw new Error();
