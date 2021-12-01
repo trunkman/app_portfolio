@@ -1,6 +1,8 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 // Style
 import Box from '@mui/material/Box';
+import { makeStyles } from '@material-ui/styles';
+import Typography from "@mui/material/Typography";
 // Api
 import { fetchTimeline } from "../../apis/users";
 // Reducer
@@ -9,11 +11,25 @@ import { timelineInitialState, timelineReducer } from '../../reducer/TimelineRed
 import { Micropost } from "../../components/Lists/Micropost";
 import { Loading } from '../../components/Loading';
 
+const useStyles = makeStyles(() => ({
+  root: {
+    alignItems: 'center',
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    maxWidth: 800,
+    mx: 'auto',
+    textAlign: 'center',
+    width: '100%',
+  },
+}));
+
 export const Timeline = ({
   userId,
   loginUser,
 }) => {
-  const [timelineState, timelineDispatch] = useReducer(timelineReducer, timelineInitialState)
+  const classes = useStyles();
+  const [timelineState, timelineDispatch] = useReducer(timelineReducer, timelineInitialState);
 
   // 投稿一覧を取得する
   const Timeline = () => {
@@ -32,12 +48,10 @@ export const Timeline = ({
 
   return (
     <>
-      <Box sx={{
-        p: 2,
-        mx: 'auto',
-        maxWidth: 800
-      }}>
-        <h2>タイムライン</h2>
+      <Box className={classes.root}>
+        <Typography variant="h3">
+          <Box sx={{ letterSpacing: 10, pb: 5 }}><b>タイムライン</b></Box>
+        </Typography>
         <Box>
           {
             timelineState.fetchState != 'ok' ? <Loading /> :
