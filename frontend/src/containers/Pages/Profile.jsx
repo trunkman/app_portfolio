@@ -2,8 +2,8 @@ import React, { useContext, useState, useEffect, useReducer } from "react";
 import { AuthContext } from '../../App';
 // Style
 import Box from '@mui/material/Box';
+import { createStyles, makeStyles } from "@material-ui/core/styles";
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { makeStyles } from '@material-ui/styles';
 import List from "@mui/material/List";
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
@@ -22,25 +22,27 @@ import { Loading } from "../../components/Loading"
 import { Micropost } from "../../components/Lists/Micropost";
 import { UserInfo } from "../../components/UserInfomation/UserInfo";
 
-const useStyles = makeStyles(() => ({
-  root: {
-    alignItems: 'center',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    maxWidth: 800,
-    mx: 'auto',
-    width: '100%',
-  },
-  tabBox: {
-    background: '#001e3c',
-    borderBottom: 1,
-    borderColor: 'divider',
-    '&:hover': {
-      color: '#fff',
-      fontWeight: 'bold',
+const useStyles = makeStyles(() =>
+  createStyles({
+    'root': {
+      alignItems: 'center',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      maxWidth: 800,
+      mx: 'auto',
+      width: '100%',
     },
-  },
-}));
+    'tabBox': {
+      background: '#001e3c',
+      borderBottom: 1,
+      borderColor: 'divider',
+      '&:hover': {
+        color: '#fff',
+        fontWeight: 'bold',
+      }
+    }
+  }),
+);
 
 export const Profile = ({
   userId,

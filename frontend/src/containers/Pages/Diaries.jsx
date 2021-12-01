@@ -3,8 +3,8 @@ import { AuthContext } from '../../App';
 // Style
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
+import { createStyles, makeStyles } from "@material-ui/core/styles";
 import Grid from '@mui/material/Grid';
-import { makeStyles } from '@material-ui/styles';
 import Typography from "@mui/material/Typography";
 // Api
 import { fetchUserDiaries } from "../../apis/users";
@@ -21,26 +21,28 @@ import { RecordDialog } from "../../components/Dialogs/RecordDialog";
 import { SleepData } from "../../components/UserInfomation/SleepData";
 import { Loading } from '../../components/Loading';
 
-const useStyles = makeStyles(() => ({
-  root: {
-    alignItems: 'center',
-    flexDirection: 'column',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    maxWidth: 1000,
-    mx: 'auto',
-    textAlign: 'center',
-    width: '100%',
-  },
-  button: {
-    backgroundColor: '#42a5f5',
-    border: 0,
-    borderRadius: 3,
-    color: 'white',
-    height: 30,
-    padding: '20px 30px',
-  },
-}));
+const useStyles = makeStyles(() =>
+  createStyles({
+    'root': {
+      alignItems: 'center',
+      flexDirection: 'column',
+      flexWrap: 'wrap',
+      justifyContent: 'center',
+      maxWidth: 1000,
+      mx: 'auto',
+      textAlign: 'center',
+      width: '100%',
+    },
+    'button': {
+      backgroundColor: '#42a5f5',
+      border: 0,
+      borderRadius: 3,
+      color: 'white',
+      height: 30,
+      padding: '20px 30px',
+    }
+  }),
+);
 
 export const Diaries = ({ userId }) => {
   const classes = useStyles();

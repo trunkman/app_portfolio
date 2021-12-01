@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 // Style
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import { createStyles, makeStyles } from "@material-ui/core/styles";
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import Typography from "@mui/material/Typography";
-import { makeStyles } from '@material-ui/styles';
 // Api
 import { patchDiary, deleteDiary } from '../../apis/diaries';
 //Component
@@ -15,15 +15,17 @@ import { Date } from '../Forms/Date';
 import { SleepingHours } from '../Forms/SleepingHours'
 import { Feeling } from '../Forms/Feeling'
 
-const useStyles = makeStyles(() => ({
-  button: {
-    border: 0,
-    borderRadius: 3,
-    color: '#90caf9',
-    height: 30,
-    padding: '15px 20px',
-  },
-}));
+const useStyles = makeStyles(() =>
+  createStyles({
+    'button': {
+      border: 0,
+      borderRadius: 3,
+      color: '#90caf9',
+      height: 30,
+      padding: '15px 20px',
+    }
+  }),
+);
 
 export const DiaryDialog = ({
   handleClose,

@@ -2,21 +2,23 @@ import React from "react";
 import { useHistory } from 'react-router-dom';
 // styles
 import Button from "@mui/material/Button";
-import { makeStyles } from '@material-ui/styles';
+import { createStyles, makeStyles } from "@material-ui/core/styles";
 // api
 import { postRoom } from "../../apis/rooms";
 
-const useStyles = makeStyles(() => ({
-  button: {
-    background: '#42a5f5',
-    border: 0,
-    borderRadius: 50,
-    color: 'white',
-    height: 30,
-    padding: '15px 20px',
-    marginLeft: 10,
-  },
-}));
+const useStyles = makeStyles(() =>
+  createStyles({
+    'button': {
+      background: '#42a5f5',
+      border: 0,
+      borderRadius: 50,
+      color: 'white',
+      height: 30,
+      padding: '15px 20px',
+      marginLeft: 10,
+    }
+  }),
+);
 
 export const RoomButton = ({ userId }) => {
   const history = useHistory()

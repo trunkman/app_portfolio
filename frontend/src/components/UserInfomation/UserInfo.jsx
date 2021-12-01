@@ -2,26 +2,28 @@ import React, { useState } from "react"
 import { useHistory } from "react-router-dom";
 // Style
 import Avatar from "@mui/material/Avatar";
-import Typography from "@mui/material/Typography";
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import { makeStyles } from '@material-ui/styles';
+import { createStyles, makeStyles } from "@material-ui/core/styles";
+import Typography from "@mui/material/Typography";
 // Icon
 import AccountCircle from "@mui/icons-material/AccountCircle";
 // Component
 import { SettingDialog } from "../Dialogs/SettingDialog";
 import { FollowButton } from "../Buttons/FollowButton";
 
-const useStyles = makeStyles(() => ({
-  button: {
-    background: '#42a5f5',
-    border: 0,
-    borderRadius: 3,
-    color: 'white',
-    height: 30,
-    padding: '15px 20px',
-  },
-}));
+const useStyles = makeStyles(() =>
+  createStyles({
+    'button': {
+      background: '#42a5f5',
+      border: 0,
+      borderRadius: 3,
+      color: 'white',
+      height: 30,
+      padding: '15px 20px',
+    }
+  }),
+);
 
 export const UserInfo = ({
   loginUser,

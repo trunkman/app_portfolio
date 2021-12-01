@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer } from "react";
 // Style
 import Box from '@mui/material/Box';
-import { makeStyles } from '@material-ui/styles';
+import { createStyles, makeStyles } from "@material-ui/core/styles";
 import Typography from "@mui/material/Typography";
 // Api
 import { fetchTimeline } from "../../apis/users";
@@ -11,18 +11,20 @@ import { timelineInitialState, timelineReducer } from '../../reducer/TimelineRed
 import { Micropost } from "../../components/Lists/Micropost";
 import { Loading } from '../../components/Loading';
 
-const useStyles = makeStyles(() => ({
-  root: {
-    alignItems: 'center',
-    flexDirection: 'column',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    maxWidth: 800,
-    mx: 'auto',
-    textAlign: 'center',
-    width: '100%',
-  },
-}));
+const useStyles = makeStyles(() =>
+  createStyles({
+    'root': {
+      alignItems: 'center',
+      flexDirection: 'column',
+      flexWrap: 'wrap',
+      justifyContent: 'center',
+      maxWidth: 800,
+      mx: 'auto',
+      textAlign: 'center',
+      width: '100%',
+    }
+  }),
+);
 
 export const Timeline = ({
   userId,

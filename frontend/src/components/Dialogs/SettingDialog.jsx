@@ -4,12 +4,12 @@ import { AuthContext } from "../../App";
 // Style
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import { createStyles, makeStyles } from "@material-ui/core/styles";
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import Typography from "@mui/material/Typography";
-import { makeStyles } from '@material-ui/styles';
 // Api
 import { patchUpdate } from '../../apis/users';
 // Component
@@ -20,15 +20,17 @@ import { PasswordConfirmation } from '../Forms/PasswordConfirmation';
 import { IdealSleepingHours } from '../Forms/IdealSleepingHours';
 import { Profile } from '../Forms/Profile';
 
-const useStyles = makeStyles(() => ({
-  button: {
-    border: 0,
-    borderRadius: 3,
-    color: '#90caf9',
-    height: 30,
-    padding: '15px 20px',
-  },
-}));
+const useStyles = makeStyles(() =>
+  createStyles({
+    'button': {
+      border: 0,
+      borderRadius: 3,
+      color: '#90caf9',
+      height: 30,
+      padding: '15px 20px',
+    }
+  }),
+);
 
 export const SettingDialog = ({
   handleClose,

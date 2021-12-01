@@ -2,13 +2,12 @@ import React, { useEffect, useReducer, useState } from "react";
 import { useHistory } from "react-router-dom";
 // Style
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
+import { createStyles, makeStyles } from "@material-ui/core/styles";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemButton from '@mui/material/ListItemButton';
-import { makeStyles } from '@material-ui/styles';
 import Typography from "@mui/material/Typography";
 // Icon
 import AccountCircle from "@mui/icons-material/AccountCircle";
@@ -22,18 +21,20 @@ import { roomInitialState, roomReducer } from '../../reducer/RoomReducer';
 import { Loading } from '../../components/Loading';
 import { DeleteDialog } from "../../components/Dialogs/DeleteDialog";
 
-const useStyles = makeStyles(() => ({
-  root: {
-    alignItems: 'center',
-    flexDirection: 'column',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    maxWidth: 600,
-    mx: 'auto',
-    textAlign: 'center',
-    width: '100%',
-  },
-}));
+const useStyles = makeStyles(() =>
+  createStyles({
+    'root': {
+      alignItems: 'center',
+      flexDirection: 'column',
+      flexWrap: 'wrap',
+      justifyContent: 'center',
+      maxWidth: 600,
+      mx: 'auto',
+      textAlign: 'center',
+      width: '100%',
+    }
+  }),
+);
 
 export const Rooms = ({ userId }) => {
   const classes = useStyles();

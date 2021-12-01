@@ -1,27 +1,29 @@
 import React, { useState } from "react";
 // Styles
 import Button from "@mui/material/Button";
-import { makeStyles } from '@material-ui/styles';
+import { createStyles, makeStyles } from "@material-ui/core/styles";
 // Api
 import { postFollow } from "../../apis/relationships";
 import { deleteUnfollow } from "../../apis/relationships";
 
-const useStyles = makeStyles(() => ({
-  follow: {
-    borderRadius: 50,
-    color: '#1565c0',
-    height: 30,
-    padding: '15px 20px',
-  },
-  unfollow: {
-    background: '#1565c0',
-    border: 0,
-    borderRadius: 50,
-    color: 'white',
-    height: 30,
-    padding: '15px 20px',
-  },
-}));
+const useStyles = makeStyles(() =>
+  createStyles({
+    'follow': {
+      borderRadius: 50,
+      color: '#1565c0',
+      height: 30,
+      padding: '15px 20px',
+    },
+    'unfollow': {
+      background: '#1565c0',
+      border: 0,
+      borderRadius: 50,
+      color: 'white',
+      height: 30,
+      padding: '15px 20px',
+    }
+  }),
+);
 
 export const FollowButton = ({
   userId,

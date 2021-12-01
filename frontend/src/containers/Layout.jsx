@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { AuthContext } from '../App';
 // Style
 import Box from '@mui/material/Box';
-import { makeStyles } from '@material-ui/styles';
+import { createStyles, makeStyles } from "@material-ui/core/styles";
 // Container
 import { Book } from './Pages/Book';
 import { Diaries } from './Pages/Diaries';
@@ -19,17 +19,19 @@ import { Timeline } from './Pages/Timeline';
 import { Users } from './Pages/Users'
 import { Sidebar } from './Navigations/Sidebar';
 
-const useStyles = makeStyles(() => ({
-  root: {
-    alignItems: 'center',
-    display: 'flex',
-    justifyContent: 'center',
-    maxWidth: 1200,
-    marginTop: 120,
-    mx: 'auto',
-    width: '100%',
-  },
-}));
+const useStyles = makeStyles(() =>
+  createStyles({
+    'root': {
+      alignItems: 'center',
+      display: 'flex',
+      justifyContent: 'center',
+      maxWidth: 1200,
+      marginTop: 120,
+      mx: 'auto',
+      width: '100%',
+    }
+  }),
+);
 
 export const Layout = () => {
   const drawerWidth = 240;
