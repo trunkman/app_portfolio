@@ -26,7 +26,7 @@ export const FollowList = ({
         sx={{
           display: 'flex',
           alignItems: 'center',
-          background: '#334b63',
+          // background: 'rgba(255, 255, 255, 0.1)',
           borderRadius: 2,
           my: 3,
         }}>
