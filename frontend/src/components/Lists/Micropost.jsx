@@ -4,6 +4,7 @@ import { useHistory } from "react-router";
 import Box from '@mui/material/Box';
 import Typography from "@mui/material/Typography";
 import ListItem from "@mui/material/ListItem";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
 import IconButton from "@mui/material/IconButton";
 // Icon
 import AccountCircle from "@mui/icons-material/AccountCircle";
@@ -45,7 +46,10 @@ export const Micropost = ({
           alignItems: "center",
           borderTop: 0.2,
         }}>
-        <AccountCircle sx={{ fontSize: 35 }} />
+        <ListItemAvatar>
+          <AccountCircle sx={{ fontSize: 35 }} />
+        </ListItemAvatar>
+
         <Box sx={{
           py: 3,
           pl: 3,

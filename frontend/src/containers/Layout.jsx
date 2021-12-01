@@ -91,13 +91,15 @@ export const Layout = () => {
 
           <Route exact path="/users/:id/following"
             render={({ match }) => <Follow
-              match={match}
+              userId={match.params.id}
+              initialTab='following'
             />}
           />
 
           <Route exact path="/users/:id/followers"
             render={({ match }) => <Follow
-              match={match}
+              userId={match.params.id}
+              initialTab='followers'
             />}
           />
 

@@ -33,6 +33,8 @@ const useStyles = makeStyles(() => ({
   },
   tabBox: {
     background: '#001e3c',
+    borderBottom: 1,
+    borderColor: 'divider',
     '&:hover': {
       color: '#fff',
       fontWeight: 'bold',

@@ -1,16 +1,34 @@
-import React, { useState, useReducer, useEffect } from "react";
-import axios from "axios";
-// styles
+import React, { useState } from "react";
+// Styles
 import Button from "@mui/material/Button";
-//api
+import { makeStyles } from '@material-ui/styles';
+// Api
 import { postFollow } from "../../apis/relationships";
 import { deleteUnfollow } from "../../apis/relationships";
+
+const useStyles = makeStyles(() => ({
+  follow: {
+    borderRadius: 50,
+    color: '#1565c0',
+    height: 30,
+    padding: '15px 20px',
+  },
+  unfollow: {
+    background: '#1565c0',
+    border: 0,
+    borderRadius: 50,
+    color: 'white',
+    height: 30,
+    padding: '15px 20px',
+  },
+}));
 
 export const FollowButton = ({
   userId,
   followStatus,
 }) => {
 
+  const classes = useStyles();
   const [follow, setFollow] = useState(followStatus)
   // フォローする
   const submitFollow = () => {
@@ -34,17 +52,20 @@ export const FollowButton = ({
       {follow === true
         ? (
           <Button
+            className={classes.unfollow}
             onClick={submitUnfollow}
             variant="contained"
           >
-            フォロー中
+            <b>フォロー中</b>
           </Button>
         ) : (
           <Button
+            className={classes.follow}
             onClick={submitFollow}
             variant="outlined"
+
           >
-            フォローする
+            <b>フォローする</b>
           </Button>
         )
       }
