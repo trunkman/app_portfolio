@@ -6,10 +6,11 @@ module Api
       before_action :logged_in_user, only: %i[create destroy]
 
       def create
-        @recommend = current_user.build_recommend(book_id: params[:recommend][:book_id])
+        @book = Book.find_by(isbn: params[:recommend][:book_isbn])
+        @recommend = current_user.build_recommend(book_id: @book.id)
         if @recommend.save
           @book = current_user.recommend_book
-          render json: { book: @book },
+          render json: { message: '私のおすすめ睡眠本に登録しました' },
                  status: :created
         else
           render json: { message: 'おすすめ本の登録ができませんでした' },

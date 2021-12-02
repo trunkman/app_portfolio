@@ -170,16 +170,19 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     get followers_api_v1_user_path(user)
     expect(response.status).to eq(401)
   end
-
+# 仕様を決めてからテストを調整する
   it '日記情報を返す' do
     # 日記を作成する
-    user.diaries.create(date: '1999/12/31',
-                        sleeping_hours: 10.0,
-                        feeling: 'satisfied')
+    user.diaries.create(color: '#fff',
+                        groupId: 10.0,
+                        id: 1,
+                        start: '1999/12/31',
+                        startStr: '1999/12/31',
+                        title: 'satisfied' )
     log_in_as(user)
     get diaries_api_v1_user_path(user)
     expect(json['diaries'].length).to eq(1)
-    expect(json['diaries'][0]['eventColor']).to eq('#F0C600')
+    expect(json['diaries'][0]['satisfied']).to eq('satisfied')
     expect(response.status).to eq(200)
   end
 
@@ -233,8 +236,11 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     # 読了本、積読本でそれぞれ登録する
     user.subscriptions.create(book_id: read_book.id, read: true)
     user.subscriptions.create(book_id: stack_book.id, read: false)
+    # 本をお気に入りに登録する
+    user.create_recommend(book_id: read_book.id)
     log_in_as(user)
     get books_api_v1_user_path(user)
+    expect(json['recommend_book']['id']).to eq(read_book.id)
     expect(json['read_books'].length).to eq(1)
     expect(json['stack_books'].length).to eq(1)
     expect(response.status).to eq(200)

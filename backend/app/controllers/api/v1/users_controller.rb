@@ -170,6 +170,7 @@ module Api
       # ユーザーの登録本を読了/積読を分類して返す
       def books
         @user = User.find(params[:id])
+        @recommend_book = @user.recommend_book
         @subscriptions = @user.subscriptions
         read_books = []
         stack_books = []
@@ -182,7 +183,10 @@ module Api
             stack_books << Book.find(subscription.book_id)
           end
         end
-        render json: { read_books: read_books, stack_books: stack_books },
+        render json: { user: @user,
+                       recommend_book: @recommend_book,
+                       read_books: read_books,
+                       stack_books: stack_books },
                status: :ok
       end
 
@@ -191,7 +195,7 @@ module Api
       # Strong Parameters
       def user_params
         params.require(:user).permit(:name, :email, :password, :password_confirmation,
-                                     :ideal_sleeping_hours, :image)
+                                     :ideal_sleeping_hours, :profile, :image)
       end
 
       # 管理者かどうか
