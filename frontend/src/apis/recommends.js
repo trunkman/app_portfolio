@@ -5,7 +5,7 @@ import { recommends, recommendPath } from "../urls";
 export const postRecommend = (params) => {
   return axios.post(recommends, {
     recommend: {
-      book_id: params.book_id,
+      book_isbn: params.bookIsbn,
     }
   }, {
     withCredentials: true

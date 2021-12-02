@@ -1,49 +1,39 @@
 import React from "react";
 // Style
-import Grid from "@mui/material/Grid";
+import Box from '@mui/material/Box';
+import { createStyles, makeStyles } from "@material-ui/core/styles";
 // Component
 import { BookCard } from '../../components/Lists/BookCard'
 
+const useStyles = makeStyles(() =>
+  createStyles({
+    'card': {
+      background: '#334b63',
+      display: 'flex',
+      flexDirection: 'column',
+      width: 250,
+      height: 385,
+      padding: 15,
+    },
+  }),
+);
+
+
 export const BookList = ({ books }) => {
+  const classes = useStyles();
 
   return (
-    <Grid container sx={{
-      maxWidth: 1000,
-      mx: "auto",
-      bgcolor: 'grey.300',
-    }}>
+    <>
       {
         books.map(book =>
-          <Grid item key={book.isbn.toString()}
-            xs={6} sm={4} sx={{ p: 2, bgcolor: 'grey.100' }}>
-            <BookCard
-              book={book}
-            />
-            {/* <Card>
-              <CardActionArea
-                component={Link}
-                to={`/books/${book.isbn}`}
-              >
-                <CardMedia
-                  component="img"
-                  image={book.mediumImageUrl}
-                  sx={{ height: 100 }}
-                  alt={book.title}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h6" component="div">
-                    {book.title}
-                  </Typography>
-                  <Typography variant="subtitle1" color="text.secondary">
-                    {book.author}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card> */}
-          </Grid>
+          <Box
+            className={classes.card}
+            key={book.isbn.toString()}
+          >
+            <BookCard book={book} />
+          </Box>
         )
       }
-    </Grid>
-
+    </>
   )
 }

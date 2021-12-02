@@ -1,19 +1,22 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from "@material-ui/core/styles";
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    alignItems: 'center',
-    display: 'flex',
-    height: '100%',
-    justifyContent: 'center',
-    width: '100%',
-    '& > * + *': {
-      margin: 0
-    },
-  },
-}));
+const useStyles = makeStyles(() =>
+  createStyles({
+    'root': {
+      alignItems: 'center',
+      display: 'flex',
+      height: '100%',
+      justifyContent: 'center',
+      width: '100%',
+      paddingTop: 100,
+      '& > * + *': {
+        margin: 0
+      },
+    }
+  }),
+);
 
 export const Loading = () => {
   const classes = useStyles();

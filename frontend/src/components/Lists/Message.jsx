@@ -1,10 +1,10 @@
 import React from "react";
-// styles
+// Style
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import Box from "@mui/material/Box";
 import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar"
-// アイコン
+// Icon
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
@@ -39,7 +39,7 @@ export const Message = (props) => {
         sx={{
           p: 1.5,
           border: 0.1,
-          borderRadius: '8px',
+          borderRadius: '4px',
         }}>
         {props.text}
       </Box>

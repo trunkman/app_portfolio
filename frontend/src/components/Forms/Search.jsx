@@ -1,26 +1,40 @@
 import React from "react";
-// styles
+// Styles
+import Box from '@mui/material/Box';
+import { createStyles, makeStyles } from "@material-ui/core/styles";
 import TextField from '@mui/material/TextField';
-// アイコン
+// Icon
 import SearchIcon from '@mui/icons-material/Search';
 
-export const Search = (props) => {
+const useStyles = makeStyles(() =>
+  createStyles({
+    'root': {
+      alignItems: 'center',
+      display: 'flex',
+    }
+  }),
+);
+
+export const Search = ({
+  handleChange,
+  keyword,
+}) => {
+  const classes = useStyles();
 
   return (
-    <>
-      <SearchIcon />
+    <Box className={classes.root}>
       <TextField
         autoFocus
         label="書籍名を入力してください"
         margin="dense"
         // id="bookSerch"
-        sx={{ m: 1, width: '50ch' }}
+        sx={{ width: '50ch' }}
         type="text"
-        onChange={props.handleChange}
-        value={props.keyword}
+        onChange={handleChange}
+        value={keyword}
         required
         variant="standard"
       />
-    </>
+    </Box>
   )
 }

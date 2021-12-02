@@ -55,8 +55,7 @@ export const Home = () => {
   return (
     <>
       <Grid container sx={{
-        p: 2,
-        maxWidth: 1200,
+        maxWidth: 1000,
         alignItems: 'center',
       }}>
         {!authState.loggedIn &&

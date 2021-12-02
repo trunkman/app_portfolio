@@ -96,7 +96,7 @@ export const Diaries = ({ userId }) => {
   return (
     <Box className={classes.root}>
       <Typography variant="h3">
-        <Box sx={{ letterSpacing: 10, pb: 5 }}><b> ~ 睡眠日記 ~ </b></Box>
+        <Box sx={{ letterSpacing: 10, pb: 5 }}><b> ~ {recordState.user.name}の睡眠日記 ~ </b></Box>
       </Typography>
 
       {recordState.fetchState !== 'ok' ? <Loading /> :

@@ -5,6 +5,7 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
+import Typography from '@mui/material/Typography';
 import { makeStyles } from '@material-ui/styles';
 // Api
 import { fetchFollowing } from "../../apis/users";
@@ -17,10 +18,11 @@ import { Loading } from '../../components/Loading';
 
 const useStyles = makeStyles(() => ({
   root: {
-    border: 1,
     alignItems: 'center',
+    border: 1,
     justifyContent: 'center',
-    maxWidth: 800,
+    maxWidth: 600,
+    textAlign: 'center',
     width: '100%',
   },
   tabBox: {
@@ -69,6 +71,9 @@ export const Follow = ({
 
   return (
     <Box className={classes.root}>
+      <Typography variant="h3" sx={{ width: '100%' }}>
+        <Box sx={{ letterSpacing: 10, pb: 2 }}><b> test</b></Box>
+      </Typography>
       <TabContext value={tab}>
         <Box>
           <TabList

@@ -26,7 +26,7 @@ export const BooksLink = ({ loginUserId }) => {
               sx={{ ml: 1 }}
             />
           </ListItemIcon>
-          <ListItemText primary='睡眠本 (読了/積読)' />
+          <ListItemText primary='睡眠本棚 ( 読了/積読 )' />
         </ListItem>
       </List>
     </>

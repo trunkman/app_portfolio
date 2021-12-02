@@ -3,6 +3,8 @@ export const bookInitialState = {
   postState: 'initial',
   reRender: false,
   searchBooks: [],
+  user: {},
+  recommendBook: {},
   readBooks: [],
   stackBooks: [],
 }
@@ -18,6 +20,8 @@ export const bookReducer = (state, action) => {
       return {
         ...state,
         fetchState: 'ok',
+        user: action.payload.user,
+        recommendBook: action.payload.recommendBook,
         readBooks: action.payload.readBooks,
         stackBooks: action.payload.stackBooks,
       };

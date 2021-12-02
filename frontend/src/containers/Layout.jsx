@@ -38,7 +38,7 @@ export const Layout = () => {
   const classes = useStyles();
   const { authState } = useContext(AuthContext);
   // Drawerを開閉する関数群
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const handleDrawerOpen = () => setOpen(true);
   const handleDrawerClose = () => setOpen(false);
 

@@ -1,14 +1,46 @@
 import React from "react";
-// styles
-import { Button } from "@mui/material";
-// api
+// Style
+import Box from '@mui/material/Box';
+import Button from "@mui/material/Button";
+import { createStyles, makeStyles } from "@material-ui/core/styles";
+// Api
 import { postBook, updateBook } from "../../apis/books";
+import { useHistory } from "react-router";
+
+const useStyles = makeStyles(() =>
+  createStyles({
+    'stackButton': {
+      background: '#1565c0',
+      borderRadius: 50,
+      color: 'white',
+      height: 30,
+      padding: '15px 20px',
+    },
+    'readButton': {
+      background: '#1565c0',
+      borderRadius: 50,
+      color: 'white',
+      height: 30,
+      padding: '15px 20px',
+      marginLeft: 20,
+    },
+    'recommendButton': {
+      background: '#1565c0',
+      border: 0,
+      borderRadius: 4,
+      color: 'white',
+      height: 30,
+      padding: '15px 20px',
+    },
+  }),
+);
 
 export const ReadButton = ({
   book,
   registration,
   subscribed,
 }) => {
+  const classes = useStyles();
   const handleClick = (boolean) => {
     { // ユーザー未登録本の場合、CreateでDBに登録する
       !subscribed && (
@@ -41,21 +73,22 @@ export const ReadButton = ({
 
   // 読んだ積んだがわかるように設定する予定
   return (
-    <>
+    <Box>
       <Button
+        className={classes.stackButton}
         color="primary"
         onClick={() => handleClick("false")}
-      // {!book.read && subscribed && (variant = "contained")}
+        variant="outlined"
       >
         積む
       </Button>
       <Button
+        className={classes.readButton}
         color="primary"
         onClick={() => handleClick("true")}
-      // {book.read && subscribed && (variant = "contained")}
       >
         読了
       </Button>
-    </>
+    </Box>
   )
 }

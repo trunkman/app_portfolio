@@ -59,7 +59,9 @@ export const patchUpdate = (params) => {
       name: params.name,
       email: params.email,
       password: params.password,
-      password_confirmation: params.password_confirmation,
+      password_confirmation: params.passwordConfirmation,
+      ideal_sleeping_hours: params.idealSleepingHours,
+      profile: params.profile,
     }
   }, {
     withCredentials: true

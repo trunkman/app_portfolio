@@ -32,6 +32,12 @@ const useStyles = makeStyles(() =>
       mx: 'auto',
       textAlign: 'center',
       width: '100%',
+    },
+    'list': {
+      display: 'flex',
+      alignItems: 'center',
+      borderRadius: 2,
+      my: 3,
     }
   }),
 );
@@ -83,12 +89,8 @@ export const Rooms = ({ userId }) => {
               roomState.entries.map(entry =>
                 <ListItem
                   key={entry.room_id.toString()}
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    borderRadius: 2,
-                    my: 3,
-                  }}>
+                  className={classes.list}
+                >
                   <ListItemAvatar>
                     <AccountCircle sx={{ fontSize: 60 }} />
                   </ListItemAvatar>

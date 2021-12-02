@@ -1,17 +1,36 @@
 import React from "react";
-// styles
+// Style
+import Box from '@mui/material/Box';
 import Button from "@mui/material/Button";
+import { createStyles, makeStyles } from "@material-ui/core/styles";
 
-export const BookSearchButton = (props) => {
+const useStyles = makeStyles(() =>
+  createStyles({
+    'button': {
+      background: '#42a5f5',
+      border: 0,
+      borderRadius: 50,
+      color: 'white',
+      height: 30,
+      padding: '15px 20px',
+      margin: '15px 0px'
+    }
+  }),
+);
+
+export const BookSearchButton = ({ handleSubmit }) => {
+  const classes = useStyles();
 
   return (
-    <Button
-      variant="contained"
-      size="large"
-      type='submit'
-      onClick={props.handleSubmit}
-    >
-      検索する
-    </Button>
+    <Box>
+      <Button
+        className={classes.button}
+        variant="contained"
+        type='submit'
+        onClick={handleSubmit}
+      >
+        検索する
+      </Button>
+    </Box>
   )
 }

@@ -18,13 +18,14 @@ import { deleteUser } from "../../apis/users"
 import { dialogReducer, dialogInitialState } from '../../reducer/DialogReducer'
 // Component
 import { AccountButton } from '../../components/Buttons/AccountButton'
+import { LogoLink } from '../../components/Links/LogoLink';
+import { NotificationButton } from '../../components/Buttons/NotificationButton';
 import { NotificationDialog } from "../../components/Dialogs/NotificationDialog"
+import { PostButton } from '../../components/Buttons/PostButton';
+import { RecordButton } from '../../components/Buttons/RecordButton';
 import { RecordDialog } from "../../components/Dialogs/RecordDialog"
 import { SnackBar } from "../../components/Snackbars/Snackbar"
 import { TweetDialog } from '../../components/Dialogs/TweetDialog';
-import { PostButton } from '../../components/Buttons/PostButton';
-import { RecordButton } from '../../components/Buttons/RecordButton';
-import { NotificationButton } from '../../components/Buttons/NotificationButton';
 
 export const Header = ({
   open,
@@ -91,11 +92,11 @@ export const Header = ({
           <Typography
             variant="h6"
             sx={{
-              pl: 5,
+              pl: 4,
               ...(open && { display: 'none' }),
             }}
           >
-            <Box sx={{ letterSpacing: 6 }}><b>睡眠負債</b></Box>
+            <LogoLink />
           </Typography>
           <Box flexGrow={1}></Box>
           {authState.loggedIn &&

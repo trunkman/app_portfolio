@@ -15,11 +15,11 @@ import { AvatarLink } from '../../components/Links/AvatarLink';
 import { BooksLink } from '../../components/Links/BooksLink';
 import { DiariesLink } from '../../components/Links/DiariesLink'
 import { FollowsLink } from '../../components/Links/FollowsLink';
-import { RoomsLink } from '../../components/Links/RoomsLink';
 import { HomeLink } from '../../components/Links/HomeLink'
-import { TimelineLink } from '../../components/Links/TimelineLink';
+import { LogoLink } from '../../components/Links/LogoLink';
 import { RankingLink } from '../../components/Links/RankingLink';
-
+import { RoomsLink } from '../../components/Links/RoomsLink';
+import { TimelineLink } from '../../components/Links/TimelineLink';
 
 export const Sidebar = ({
   open,
@@ -78,12 +78,7 @@ export const Sidebar = ({
       {authState.loggedIn &&
         <Drawer variant="permanent" open={open}>
           <DrawerHeader>
-            <Typography
-              variant="h6"
-              sx={{ pl: 2 }}
-            >
-              <Box sx={{ letterSpacing: 6 }}><b>睡眠負債</b></Box>
-            </Typography>
+            <LogoLink />
             <IconButton onClick={handleDrawerClose}>
               {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
             </IconButton>

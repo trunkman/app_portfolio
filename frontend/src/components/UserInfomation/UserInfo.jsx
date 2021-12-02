@@ -80,13 +80,13 @@ export const UserInfo = ({
               onClick={() => history.push(`/users/${profileState.user.id}/books`)}
               sx={{ letterSpacing: 2, mr: 2, cursor: 'pointer' }}
             >
-              読了：<b>{profileState.subscriptions.length}</b>本
+              読了：<b>{profileState.subscriptions.length}</b> 冊
             </Box>
             <Box
               onClick={() => history.push(`/users/${profileState.user.id}/books`)}
               sx={{ letterSpacing: 2, mr: 2, cursor: 'pointer' }}
             >
-              積読：<b>{profileState.subscriptions.length}</b>本
+              積読：<b>{profileState.subscriptions.length}</b> 冊
             </Box>
           </Box>
           <Box sx={{ mt: 2 }}>
