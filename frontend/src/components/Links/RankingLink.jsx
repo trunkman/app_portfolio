@@ -18,7 +18,7 @@ export const RankingLink = ({ loginUserId }) => {
         <ListItem
           button
           component={Link}
-          to={`/users/${loginUserId}`}
+          to={`/ranking`}
         >
           <ListItemIcon>
             <StarOutlineOutlinedIcon

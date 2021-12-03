@@ -14,6 +14,7 @@ import { MessageRoom } from './Pages/MessageRoom';
 import { Mybooks } from './Pages/Mybooks';
 import { PasswordReset } from './Pages/PasswordReset';
 import { Profile } from './Pages/Profile'
+import { Ranking } from './Pages/Ranking';
 import { Rooms } from './Pages/Rooms';
 import { Timeline } from './Pages/Timeline';
 import { Users } from './Pages/Users'
@@ -117,11 +118,8 @@ export const Layout = () => {
             />}
           />
 
-          <Route exact path="/users">
-            <Users
-              isLoggedIn={authState.loggedIn}
-              user={authState.loginUser}
-            />
+          <Route exact path="/ranking">
+            <Ranking />
           </Route>
 
           <Route exact path="/talk_rooms/:id"
@@ -136,6 +134,13 @@ export const Layout = () => {
               bookIsbn={match.params.isbn}
             />}
           />
+
+          <Route exact path="/users">
+            <Users
+              isLoggedIn={authState.loggedIn}
+              user={authState.loginUser}
+            />
+          </Route>
 
           <Route exact path="/password_resets/:id/edit"
             render={({ match }) => <PasswordReset

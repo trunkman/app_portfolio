@@ -54,3 +54,8 @@ export const recommendPath = (bookId) => `${DEFAULT_API_LOCALHOST}/recommends/${
 // NotificationsController
 export const notifications = `${DEFAULT_API_LOCALHOST}/notifications`;
 export const notificationsDelete = `${DEFAULT_API_LOCALHOST}/notifications/all_delete`;
+// RankingsController
+export const sleepingHours = `${DEFAULT_API_LOCALHOST}/rankings/sleeping_hours`;
+export const reading = `${DEFAULT_API_LOCALHOST}/rankings/reading`;
+export const readBooks = `${DEFAULT_API_LOCALHOST}/rankings/read_books`;
+export const stackBooks = `${DEFAULT_API_LOCALHOST}/rankings/stack_books`;
