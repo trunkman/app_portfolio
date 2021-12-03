@@ -66,7 +66,7 @@ export const Follow = ({
 
   useEffect(() => {
     followDispatch({ type: 'fetching' });
-    tab == 'following' ? Following() : Followers()
+    tab === 'following' ? Following() : Followers()
   }, [tab])
 
   return (
