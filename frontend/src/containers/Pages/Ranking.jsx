@@ -13,6 +13,7 @@ import { fetchSleepHoursRank, fetchReadingRank, fetchReadBooksRank, fetchStackBo
 import { rankReducer, rankInitialState } from '../../reducer/RankingReducer'
 // Component
 import { Loading } from "../../components/Loading"
+import { RankBook } from "../../components/Lists/RankBook";
 import { RankUser } from "../../components/Lists/RankUser";
 
 const useStyles = makeStyles(() =>
@@ -28,6 +29,7 @@ const useStyles = makeStyles(() =>
     tabBox: {
       alignContent: 'center',
       display: 'flex',
+      flexWrap: 'wrap',
       justifyContent: 'spece_between',
     },
   }),
@@ -40,7 +42,6 @@ export const Ranking = () => {
 
   // 睡眠時間平均上位6名を取得する
   const SleepHoursRank = () => {
-    rankDispatch({ type: 'fetching' })
     fetchSleepHoursRank()
       .then(data => {
         rankDispatch({
@@ -49,31 +50,57 @@ export const Ranking = () => {
         });
       });
   }
-
   // 読了数上位6名を取得する
-
+  const ReadingRank = () => {
+    fetchReadingRank()
+      .then(data => {
+        rankDispatch({
+          type: 'fetchSuccessReading',
+          payload: data.reading,
+        });
+      });
+  }
   // 読了本の人気6冊を取得する
-
+  const ReadBooksRank = () => {
+    fetchReadBooksRank()
+      .then(data => {
+        rankDispatch({
+          type: 'fetchSuccessReadBooks',
+          payload: data.readBooks,
+        });
+      });
+  }
   // 積読本の人気6冊を取得する
-
-
+  const StackBooksRank = () => {
+    fetchStackBooksRank()
+      .then(data => {
+        rankDispatch({
+          type: 'fetchSuccessStackBooks',
+          payload: data.stackBooks,
+        });
+      });
+  }
 
   useEffect(() => {
-    SleepHoursRank();
-  }, [])
+    rankDispatch({ type: 'fetching' })
+    tab === 'sleepingHours' && SleepHoursRank();
+    tab === 'reading' && ReadingRank();
+    tab === 'readBooks' && ReadBooksRank();
+    tab === 'stackBooks' && StackBooksRank();
+  }, [tab])
 
   return (
     <Box className={classes.root}>
       <Typography variant="h3" sx={{ width: '100%' }}>
-        <Box sx={{ letterSpacing: 10, pb: 2 }}><b>睡眠時間のランキング</b></Box>
+        <Box sx={{ letterSpacing: 10, pb: 3 }}><b>ランキング</b></Box>
       </Typography>
       <TabContext value={tab}>
         <Box>
           <TabList
             onChange={(event, newTab) => { setTab(newTab) }}
             variant="fullWidth"
-            textColor="primary"
-            indicatorColor="primary"
+          // textColor="primary"
+          // indicatorColor="primary"
           >
             <Tab
               label="ユーザー平均睡眠時間"
@@ -87,53 +114,65 @@ export const Ranking = () => {
             />
             <Tab
               label="読了人気本"
-              value="read_books"
+              value="readBooks"
               sx={{ typography: 'h6', fontWeight: 'bold' }}
             />
             <Tab
               label="積読人気本"
-              value="stack_books"
+              value="stackBooks"
               sx={{ typography: 'h6', fontWeight: 'bold' }}
             />
           </TabList>
         </Box>
         <TabPanel value="sleepingHours">
           <Box className={classes.tabBox}>
-            {
-              rankState.fetchState != 'ok' ? <Loading /> :
-                rankState.sleepHours.map(sleepingHour =>
-                  <RankUser
-                    user={sleepingHour.user}
-                    rank={sleepingHour.rank}
-                    average={sleepingHour.average}
-                  />
-                )
+            {rankState.fetchState !== 'ok'
+              ? <Loading />
+              : rankState.sleepHours.map(sleepingHour =>
+                <RankUser
+                  user={sleepingHour.user}
+                  rank={sleepingHour.rank}
+                  average={sleepingHour.average}
+                />
+              )
             }
           </Box>
         </TabPanel>
         <TabPanel value="reading">
-          <p>ここにランキングを表示</p>
-          {/* {
-            rankState.fetchState != 'ok' ? <Loading /> :
-              rankState.reading.map(user =>
-              )
-          } */}
+          {rankState.fetchState !== 'ok'
+            ? <Loading />
+            : rankState.reading.map(reading =>
+              <RankUser
+                user={reading.user}
+                rank={reading.rank}
+                count={reading.count}
+              />
+            )
+          }
         </TabPanel>
-        <TabPanel value="read_books">
-          <p>ここにランキングを表示</p>
-          {/* {
-            rankState.fetchState != 'ok' ? <Loading /> :
-              rankState.read_books.map(user =>
-              )
-          } */}
+        <TabPanel value="readBooks">
+          {rankState.fetchState !== 'ok'
+            ? <Loading />
+            : rankState.readBooks.map(readBooks =>
+              <RankBook
+                book={readBooks.Book}
+                rank={readBooks.rank}
+                countRead={readBooks.count}
+              />
+            )
+          }
         </TabPanel>
-        <TabPanel value="stack_books">
-          <p>ここにランキングを表示</p>
-          {/* {
-            rankState.fetchState != 'ok' ? <Loading /> :
-              rankState.stack_books.map(user =>
-              )
-          } */}
+        <TabPanel value="stackBooks">
+          {rankState.fetchState !== 'ok'
+            ? <Loading />
+            : rankState.stackBooks.map(stackBooks =>
+              <RankBook
+                book={stackBooks.Book}
+                rank={stackBooks.rank}
+                countStack={stackBooks.count}
+              />
+            )
+          }
         </TabPanel>
       </TabContext>
     </Box>

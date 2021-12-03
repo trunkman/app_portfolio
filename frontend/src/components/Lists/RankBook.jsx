@@ -4,10 +4,9 @@ import { Link } from "react-router-dom";
 import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import Typography from '@mui/material/Typography';
-// Icon
-import AccountCircle from "@mui/icons-material/AccountCircle";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -21,11 +20,11 @@ const useStyles = makeStyles(() =>
   }),
 );
 
-export const RankUser = ({
-  user,
+export const RankBook = ({
+  book,
   rank,
-  average,
-  count,
+  countStack,
+  countRead,
 }) => {
   const classes = useStyles();
 
@@ -35,27 +34,32 @@ export const RankUser = ({
         <CardActionArea
           className={classes.card}
           component={Link}
-          to={`/users/${user.id}`}
+          to={`/books/${book.isbn}`}
         >
           <CardContent>
             <Typography gutterBottom variant="h5">
               <b>{rank}</b> 位
             </Typography>
-            <AccountCircle
-              color='primary'
-              sx={{ fontSize: 100 }}
+            <CardMedia
+              component="img"
+              image={book.largeImageUrl}
+              sx={{
+                width: '100%',
+                px: 3,
+              }}
+              alt={book.title}
             />
             <Typography variant="subtitle1" color="text.secondary">
-              {user.name}
+              {book.title}
             </Typography>
-            {average &&
+            {countRead &&
               <Typography gutterBottom variant="h6">
-                平均睡眠時間：<b>{average}</b>時間
+                読了人数：<b>{countRead}</b>人
               </Typography>
             }
-            {count &&
+            {countStack &&
               <Typography gutterBottom variant="h6">
-                読了数：<b>{count}</b>冊
+                積読人数：<b>{countStack}</b>人
               </Typography>
             }
           </CardContent>
