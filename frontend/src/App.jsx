@@ -1,6 +1,4 @@
 import React, { useEffect, useReducer, createContext } from 'react';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
-
 import './App.css';
 // Style
 import Box from '@mui/material/Box';
@@ -13,7 +11,6 @@ import { fetchLoggedIn } from './apis/sessions';
 import { authInitialState, authReducer } from './reducer/AuthReducer'
 // Container
 import { Layout } from './containers/Layout';
-import { Home } from './containers/Pages/Home';
 
 
 export const AuthContext = createContext()
@@ -21,7 +18,8 @@ export const AuthContext = createContext()
 export default function App() {
   const [authState, authDispatch] = useReducer(authReducer, authInitialState)
 
-  useEffect(() => {
+  // ログイン状態を確認する
+  const loggedIn = () => {
     fetchLoggedIn()
       .then(data => {
         if (data.logged_in && authState.loggedIn === false) {
@@ -34,7 +32,11 @@ export default function App() {
             type: 'logout',
           })
         }
-      })
+      });
+  }
+
+  useEffect(() => {
+    loggedIn();
   }, [])
 
   return (
