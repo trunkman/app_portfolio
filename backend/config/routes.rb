@@ -37,6 +37,9 @@ Rails.application.routes.draw do
       resources :notifications, only: %i[index create]
       delete    '/notifications/all_delete', to: 'notifications#all_delete'
       get       '/rankings/sleeping_hours', to: 'rankings#sleeping_hours'
+      get       '/rankings/reading', to: 'rankings#reading'
+      get       '/rankings/read_books', to: 'rankings#read_books'
+      get       '/rankings/stack_books', to: 'rankings#stack_books'
     end
   end
 end
