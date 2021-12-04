@@ -27,12 +27,12 @@ const useStyles = makeStyles(() =>
 
 export const UserInfo = ({
   loginUser,
+  open,
   profileState,
+  setOpen,
 }) => {
   const history = useHistory();
   const classes = useStyles();
-  // 設定ダイアログの開閉
-  const [open, setOpen] = useState(false);
 
   return (
     <>

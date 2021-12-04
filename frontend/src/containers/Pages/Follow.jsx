@@ -1,12 +1,12 @@
 import React, { useState, useReducer, useEffect } from "react";
 // styles
 import Box from '@mui/material/Box';
+import { createStyles, makeStyles } from "@material-ui/core/styles";
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import Typography from '@mui/material/Typography';
-import { makeStyles } from '@material-ui/styles';
 // Api
 import { fetchFollowing } from "../../apis/users";
 import { fetchFollowers } from "../../apis/users";
@@ -16,25 +16,27 @@ import { followInitialState, followReducer } from '../../reducer/FollowReducer';
 import { FollowList } from '../../components/Lists/FollowList';
 import { Loading } from '../../components/Loading';
 
-const useStyles = makeStyles(() => ({
-  root: {
-    alignItems: 'center',
-    border: 1,
-    justifyContent: 'center',
-    maxWidth: 600,
-    textAlign: 'center',
-    width: '100%',
-  },
-  tabBox: {
-    background: '#001e3c',
-    borderBottom: 1,
-    borderColor: 'divider',
-    '&:hover': {
-      color: '#fff',
-      fontWeight: 'bold',
+const useStyles = makeStyles(() =>
+  createStyles({
+    root: {
+      alignItems: 'center',
+      border: 1,
+      justifyContent: 'center',
+      maxWidth: 600,
+      textAlign: 'center',
+      width: '100%',
     },
-  },
-}));
+    tabBox: {
+      background: '#001e3c',
+      borderBottom: 1,
+      borderColor: 'divider',
+      '&:hover': {
+        color: '#fff',
+        fontWeight: 'bold',
+      },
+    }
+  }),
+);
 
 export const Follow = ({
   userId,

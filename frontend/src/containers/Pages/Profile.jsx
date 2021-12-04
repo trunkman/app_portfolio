@@ -51,6 +51,7 @@ export const Profile = ({
   const { authState } = useContext(AuthContext);
   const [profileState, profileDispatch] = useReducer(profileReducer, profileInitialState);
   const [tab, setTab] = useState('microposts');
+  const [open, setOpen] = useState(false);
 
   // ユーザー情報の取得
   const userInformation = () => {
@@ -84,12 +85,14 @@ export const Profile = ({
       });
   }
 
-  useEffect(() => { userInformation() }, [])
+  useEffect(() => { userInformation() }, [open])
   useEffect(() => { userMicropost() }, [tab])
 
   return (
     <Box className={classes.root}>
       <UserInfo
+        open={open}
+        setOpen={setOpen}
         loginUser={authState.loginUser}
         profileState={profileState}
       />

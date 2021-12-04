@@ -145,7 +145,7 @@ export const Layout = () => {
               <Route exact path="/users">
                 <Users
                   isLoggedIn={authState.loggedIn}
-                  user={authState.loginUser}
+                  loginUser={authState.loginUser}
                 />
               </Route>
 
