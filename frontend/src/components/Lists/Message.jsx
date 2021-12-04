@@ -23,26 +23,45 @@ const useStyles = makeStyles(() =>
   })
 )
 
-export const Message = (props) => {
+export const Message = ({
+  message,
+  loginUserId,
+}) => {
   const classes = useStyles();
 
   return (
-    <ListItem>
-      <ListItemAvatar>
-        {props.loginUserId ? (
-          <AccountCircle className={classes.chatRow} />
+    <>
+      <ListItem key={message.id.toString()}>
+        {message.user_id === loginUserId ? (
+          <Box className={classes.chatReverse} >
+            <ListItemAvatar>
+              <AccountBoxIcon />
+            </ListItemAvatar>
+            <Box
+              sx={{
+                p: 1.5,
+                border: 0.1,
+                borderRadius: '4px',
+              }}>
+              {message.content}
+            </Box>
+          </Box>
         ) : (
-          <AccountBoxIcon className={classes.chatReverse} />
+          <Box className={classes.chatRow} >
+            <ListItemAvatar>
+              <AccountCircle />
+            </ListItemAvatar>
+            <Box
+              sx={{
+                p: 1.5,
+                border: 0.1,
+                borderRadius: '4px',
+              }}>
+              {message.content}
+            </Box>
+          </Box>
         )}
-      </ListItemAvatar>
-      <Box
-        sx={{
-          p: 1.5,
-          border: 0.1,
-          borderRadius: '4px',
-        }}>
-        {props.text}
-      </Box>
-    </ListItem >
+      </ListItem >
+    </>
   )
 }

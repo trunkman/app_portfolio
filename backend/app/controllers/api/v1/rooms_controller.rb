@@ -11,10 +11,13 @@ module Api
         if Entry.find_by(user_id: current_user.id, room_id: params[:id])
         # @room = Room.find(params[:id])
         # @messages = @room.messages
-        @other_user_room = Room.where("id = ?", params[:id]).not("user_id = ? ", current_user.id)
-        @messages = @other_user_room.messages        
-        @user = User.find(other_user_room.user_id)
-        render json: { messages: @messages, user: @user },
+        @messages = Message.where("room_id = ?", params[:id])
+        # 相手ユーザーの情報を取得  
+        other_user_id = Entry.select("user_id")
+                             .where("room_id = ?", params[:id])
+                             .where.not("user_id = ? ", current_user.id)
+        @other_user = User.find_by(id: other_user_id)
+        render json: { messages: @messages, user: @other_user },
                 status: :ok
         else
           render json: { message: 'あなたのトークルームではありません' },

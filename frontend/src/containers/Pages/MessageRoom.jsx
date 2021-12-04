@@ -73,9 +73,7 @@ export const MessageRoom = ({
           ) : (
             messageState.messages.map((message, index) =>
               <Message
-                text={message.content}
-                key={index}
-                roomId={roomId}
+                message={message}
                 loginUserId={loginUser.id}
               />
             )

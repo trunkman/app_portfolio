@@ -16,9 +16,7 @@ import { LikeButton } from "../Buttons/LikeButton";
 import { CommentButton } from "../Buttons/CommentButton"
 import { DeleteDialog } from "../Dialogs/DeleteDialog";
 
-const dateFormat = () => {
 
-}
 
 export const Micropost = ({
   commentCount,
@@ -42,6 +40,14 @@ export const Micropost = ({
     history.push(`/users/${loginUser.id}`)
   }
 
+  // const dateFormat = (date) => {
+  //   string = date.toString();
+  //   string.substr(0, 19)
+  //   // dateString.replace(/-/g, '/');
+  //   // string.replace('T', ' ');
+  //   return string
+  // }
+
   return (
     <>
       <ListItem
@@ -61,7 +67,7 @@ export const Micropost = ({
           flexGrow: 1,
         }}>
           <Typography>
-            【 {userName} さん 】 {micropost.created_at}
+            【 {userName} さん 】 {micropost.created_at.substr(0, 19).replace('T', ' ')}
           </Typography>
           <Typography variant="h6" sx={{ pl: 1 }}>
             <Box sx={{ letterSpacing: 2, mt: 2 }}>{micropost.content}</Box>

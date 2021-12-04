@@ -48,7 +48,7 @@ export const Comment = ({
           flexGrow: 1,
         }}>
           <Typography>
-            【 {userName} さん 】 {comment.created_at}
+            【 {userName} さん 】 {comment.created_at.substr(0, 19).replace('T', ' ')}
           </Typography>
           <Typography variant="h6" sx={{ pl: 1 }}>
             <Box sx={{ letterSpacing: 2, my: 2 }}>{comment.content}</Box>
