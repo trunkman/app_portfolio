@@ -14,11 +14,12 @@ const useStyles = makeStyles(() =>
       display: "flex",
       flexDirection: "row",
       justifyContent: "flex-start",
+      width: '100%',
     },
     "chatReverse": {
       display: "flex",
       flexDirection: "row-reverse",
-      justifyContent: "flex-end",
+      width: '100%',
     }
   })
 )
@@ -35,7 +36,7 @@ export const Message = ({
         {message.user_id === loginUserId ? (
           <Box className={classes.chatReverse} >
             <ListItemAvatar>
-              <AccountBoxIcon />
+              <AccountBoxIcon sx={{ ml: 4 }} />
             </ListItemAvatar>
             <Box
               sx={{

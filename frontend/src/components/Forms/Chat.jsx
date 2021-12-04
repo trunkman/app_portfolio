@@ -12,14 +12,18 @@ import { postMessage } from "../../apis/messages";
 
 const useStyles = makeStyles(() =>
   createStyles({
-    "chat": {
-      background: '#001e3c',
-      position: 'fixed',
+    "root": {
       bottom: 15,
+      padding: '10px',
+      position: 'fixed',
       textAlign: 'center',
-      width: '600px',
-
-    }
+      width: 600,
+    },
+    "chat": {
+      background: '#334b63',
+      borderRadius: '4px',
+      "& .MuiInputBase-root": { color: '#fff' }
+    },
   }),
 );
 
@@ -42,11 +46,11 @@ export const Chat = ({
   }
 
   return (
-    <Box className={classes.chat} >
+    <Box className={classes.root} >
       <Divider />
       <TextField
         autoFocus
-        color="secondary"
+        className={classes.chat}
         fullWidth
         margin="dense"
         multiline

@@ -21,17 +21,18 @@ const useStyles = makeStyles(() =>
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
-      maxWidth: 800,
+      maxWidth: 600,
       textAlign: 'center',
       width: '100%',
     },
     'messages': {
       display: 'flex',
       flexDirection: 'column-reverse',
-      height: 390,
-      width: 600,
+      flexGrow: 1,
+      width: '100%',
+      height: '100%',
       overflow: "auto",
-      paddingTop: 0,
+      marginBottom: 150,
     }
   }),
 );
