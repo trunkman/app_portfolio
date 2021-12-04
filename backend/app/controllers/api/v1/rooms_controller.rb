@@ -9,9 +9,12 @@ module Api
       def show
         # current_userが属するroomであるか判定
         if Entry.find_by(user_id: current_user.id, room_id: params[:id])
-        @room = Room.find(params[:id])
-        @messages = @room.messages
-        render json: { messages: @messages },
+        # @room = Room.find(params[:id])
+        # @messages = @room.messages
+        @other_user_room = Room.where("id = ?", params[:id]).not("user_id = ? ", current_user.id)
+        @messages = @other_user_room.messages        
+        @user = User.find(other_user_room.user_id)
+        render json: { messages: @messages, user: @user },
                 status: :ok
         else
           render json: { message: 'あなたのトークルームではありません' },

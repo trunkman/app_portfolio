@@ -72,13 +72,19 @@ module Api
           likeStatus = current_user.liked?(post)
           # 投稿に対してのコメント数を検索
           commentCount = post.comment_ids.count
-          @microposts << { micropost: post, likeStatus: likeStatus, commentCount: commentCount }
+          @microposts << { micropost: post,
+                           likeStatus: likeStatus,
+                           commentCount: commentCount }
         end
         # いいねした投稿の取得
         @liked_microposts = []
         @user.liked_microposts.each do |post|
+          user = post.user
           commentCount = post.comment_ids.count
-          @liked_microposts << { liked_micropost: post, likeStatus: true, commentCount: commentCount }
+          @liked_microposts << { liked_micropost: post,
+                                 likeStatus: true,
+                                 commentCount: commentCount,
+                                 user: user }
         end
         # コメントの取得
         @comments = @user.comments
@@ -96,7 +102,7 @@ module Api
         @user.following.each do |user|
           @following << { user: user, followStatus: current_user.following?(user) }
         end
-        render json: { following: @following },
+        render json: { user: @user, following: @following },
                status: :ok
       end
 
@@ -108,7 +114,7 @@ module Api
         @user.followers.each do |user|
           @followers << { user: user, followStatus: current_user.following?(user) }
         end
-        render json: { followers: @followers },
+        render json: { user: @user, followers: @followers },
                status: :ok
       end
 
@@ -142,11 +148,15 @@ module Api
         @user = User.find(params[:id])
         @timeline = []
         @user.feed.each do |micropost|
+          user = User.find(micropost.user_id)
           # current_userによるいいね有無の判定
           likeStatus = current_user.liked?(micropost)
           # micropostのコメント数を検索
           commentCount = micropost.comment_ids.length
-          @timeline << { micropost: micropost, likeStatus: likeStatus, commentCount: commentCount }
+          @timeline << { micropost: micropost,
+                         likeStatus: likeStatus,
+                         commentCount: commentCount,
+                         user: user }
         end
         render json: { timeline: @timeline },
                status: :ok
