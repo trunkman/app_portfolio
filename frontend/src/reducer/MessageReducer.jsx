@@ -2,6 +2,7 @@ export const messageInitialState = {
   fetchState: 'initial',
   reRender: false,
   messages: [],
+  user: {},
 }
 
 export const messageReducer = (state, action) => {
@@ -16,7 +17,8 @@ export const messageReducer = (state, action) => {
       return {
         fetchState: 'ok',
         reRender: false,
-        messages: action.payload,
+        messages: action.payload.messages,
+        user: action.payload.user,
       };
     default:
       throw new Error();

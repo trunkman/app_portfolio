@@ -48,7 +48,10 @@ export const MessageRoom = ({
       .then(data => {
         messageDispatch({
           type: 'fetchSuccess',
-          payload: data.messages,
+          payload: {
+            messages: data.messages,
+            user: data.user,
+          }
         });
       });
   }
@@ -58,7 +61,7 @@ export const MessageRoom = ({
   return (
     <Box className={classes.root}>
       <Typography variant="h4">
-        <Box sx={{ letterSpacing: 10, pb: 2 }}><b>相手ユーザー</b></Box>
+        <Box sx={{ letterSpacing: 10, pb: 2 }}><b>{messageState.user.name}</b></Box>
       </Typography>
 
       {messageState.fetchState != 'ok' ? <Loading /> :

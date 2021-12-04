@@ -1,4 +1,5 @@
-import React, { useState, useReducer, useEffect } from "react";
+import React, { useContext, useState, useReducer, useEffect } from "react";
+import { AuthContext } from "../../App";
 // styles
 import Box from '@mui/material/Box';
 import { createStyles, makeStyles } from "@material-ui/core/styles";
@@ -43,6 +44,7 @@ export const Follow = ({
   initialTab,
 }) => {
   const classes = useStyles();
+  const { authState } = useContext(AuthContext);
   const [tab, setTab] = useState(initialTab);
   const [followState, followDispatch] = useReducer(followReducer, followInitialState);
   // フォロー中のユーザーを取得する
@@ -51,7 +53,10 @@ export const Follow = ({
       .then(data => {
         followDispatch({
           type: 'fetchSuccessFollowing',
-          payload: { following: data.following },
+          payload: {
+            following: data.following,
+            user: data.user,
+          },
         });
       });
   }
@@ -61,7 +66,10 @@ export const Follow = ({
       .then(data => {
         followDispatch({
           type: 'fetchSuccessFollowers',
-          payload: { followers: data.followers },
+          payload: {
+            followers: data.followers,
+            user: data.user,
+          },
         });
       });
   }
@@ -74,7 +82,7 @@ export const Follow = ({
   return (
     <Box className={classes.root}>
       <Typography variant="h3" sx={{ width: '100%' }}>
-        <Box sx={{ letterSpacing: 10, pb: 2 }}><b> test</b></Box>
+        <Box sx={{ letterSpacing: 10, pb: 2 }}><b>{followState.user.name}</b></Box>
       </Typography>
       <TabContext value={tab}>
         <Box>

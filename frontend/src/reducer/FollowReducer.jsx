@@ -3,6 +3,7 @@ export const followInitialState = {
   following: [],
   followers: [],
   followingIds: [],
+  user: {},
 }
 
 export const followReducer = (state, action) => {
@@ -17,14 +18,14 @@ export const followReducer = (state, action) => {
         ...state,
         fetchState: 'ok',
         following: action.payload.following,
-        followingIds: action.payload.followingIds,
+        user: action.payload.user,
       };
     case 'fetchSuccessFollowers':
       return {
         ...state,
         fetchState: 'ok',
         followers: action.payload.followers,
-        followingIds: action.payload.followingIds,
+        user: action.payload.user,
       };
     default:
       throw new Error();

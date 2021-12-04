@@ -63,6 +63,7 @@ export const Timeline = ({
                   likeStatus={timeline.likeStatus}
                   loginUser={loginUser}
                   micropost={timeline.micropost}
+                  userName={timeline.user.name}
                 />
               )
           }

@@ -16,11 +16,16 @@ import { LikeButton } from "../Buttons/LikeButton";
 import { CommentButton } from "../Buttons/CommentButton"
 import { DeleteDialog } from "../Dialogs/DeleteDialog";
 
+const dateFormat = () => {
+
+}
+
 export const Micropost = ({
   commentCount,
   likeStatus,
   loginUser,
   micropost,
+  userName,
 }) => {
   const history = useHistory();
   // 削除確認ダイアログの開閉
@@ -56,7 +61,7 @@ export const Micropost = ({
           flexGrow: 1,
         }}>
           <Typography>
-            【 {micropost.user_id} さん 】 {micropost.created_at}
+            【 {userName} さん 】 {micropost.created_at}
           </Typography>
           <Typography variant="h6" sx={{ pl: 1 }}>
             <Box sx={{ letterSpacing: 2, mt: 2 }}>{micropost.content}</Box>
