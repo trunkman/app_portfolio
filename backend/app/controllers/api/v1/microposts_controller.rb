@@ -20,7 +20,7 @@ module Api
 
       def create
         @micropost = current_user.microposts.build(micropost_params)
-        @micropost.image.attach(params[:micropost][:image])
+        # @micropost.image.attach(params[:micropost][:image])
         if @micropost.save
           render json: { micropost: @micropost },
                  status: :created

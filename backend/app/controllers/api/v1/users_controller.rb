@@ -195,7 +195,7 @@ module Api
       # Strong Parameters
       def user_params
         params.require(:user).permit(:name, :email, :password, :password_confirmation,
-                                     :ideal_sleeping_hours, :profile, :image)
+                                     :ideal_sleeping_hours, :profile, :avatar)
       end
 
       # 管理者かどうか
