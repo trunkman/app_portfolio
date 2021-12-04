@@ -34,8 +34,8 @@ export const Header = ({
 }) => {
   const history = useHistory()
   const { authState, authDispatch } = useContext(AuthContext);
+  // ダイアログを開閉する関数群
   const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState);
-  // ダイアログを閉じる
   const handleClose = () => dialogDispatch({ type: 'close' });
   // ログアウトする
   const submitLogout = () => {
@@ -77,18 +77,16 @@ export const Header = ({
     <>
       <AppBar position="fixed" open={open}>
         <Toolbar>
-          {authState.loggedIn &&
-            <IconButton>
-              <MenuIcon
-                color="primary"
-                onClick={() => handleDrawerOpen()}
-                sx={{
-                  fontSize: 20,
-                  ...(open && { display: 'none' }),
-                }}
-              />
-            </IconButton>
-          }
+          <IconButton>
+            <MenuIcon
+              color="primary"
+              onClick={() => handleDrawerOpen()}
+              sx={{
+                fontSize: 20,
+                ...(open && { display: 'none' }),
+              }}
+            />
+          </IconButton>
           <Typography
             variant="h6"
             sx={{

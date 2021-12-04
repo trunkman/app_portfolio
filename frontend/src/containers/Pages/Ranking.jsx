@@ -56,7 +56,7 @@ export const Ranking = () => {
       .then(data => {
         rankDispatch({
           type: 'fetchSuccessReading',
-          payload: data.reading,
+          payload: data.reading_rank,
         });
       });
   }
@@ -66,7 +66,7 @@ export const Ranking = () => {
       .then(data => {
         rankDispatch({
           type: 'fetchSuccessReadBooks',
-          payload: data.readBooks,
+          payload: data.read_books_rank,
         });
       });
   }
@@ -76,7 +76,7 @@ export const Ranking = () => {
       .then(data => {
         rankDispatch({
           type: 'fetchSuccessStackBooks',
-          payload: data.stackBooks,
+          payload: data.stack_books_rank,
         });
       });
   }
@@ -125,6 +125,9 @@ export const Ranking = () => {
           </TabList>
         </Box>
         <TabPanel value="sleepingHours">
+          <Typography variant="h5" sx={{ width: '100%' }}>
+            <Box sx={{ letterSpacing: 6, py: 2 }}><b>【ユーザー平均睡眠時間】</b></Box>
+          </Typography>
           <Box className={classes.tabBox}>
             {rankState.fetchState !== 'ok'
               ? <Loading />
@@ -139,40 +142,55 @@ export const Ranking = () => {
           </Box>
         </TabPanel>
         <TabPanel value="reading">
-          {rankState.fetchState !== 'ok'
-            ? <Loading />
-            : rankState.reading.map(reading =>
-              <RankUser
-                user={reading.user}
-                rank={reading.rank}
-                count={reading.count}
-              />
-            )
-          }
+          <Typography variant="h5" sx={{ width: '100%' }}>
+            <Box sx={{ letterSpacing: 6, py: 2 }}><b>【ユーザー読了数】</b></Box>
+          </Typography>
+          <Box className={classes.tabBox}>
+            {rankState.fetchState !== 'ok'
+              ? <Loading />
+              : rankState.reading.map(reading =>
+                <RankUser
+                  user={reading.user}
+                  rank={reading.rank}
+                  count={reading.count}
+                />
+              )
+            }
+          </Box>
         </TabPanel>
         <TabPanel value="readBooks">
-          {rankState.fetchState !== 'ok'
-            ? <Loading />
-            : rankState.readBooks.map(readBooks =>
-              <RankBook
-                book={readBooks.Book}
-                rank={readBooks.rank}
-                countRead={readBooks.count}
-              />
-            )
-          }
+          <Typography variant="h5" sx={{ width: '100%' }}>
+            <Box sx={{ letterSpacing: 6, py: 2 }}><b>【読了人気本】</b></Box>
+          </Typography>
+          <Box className={classes.tabBox}>
+            {rankState.fetchState !== 'ok'
+              ? <Loading />
+              : rankState.readBooks.map(readBooks =>
+                <RankBook
+                  book={readBooks.book}
+                  rank={readBooks.rank}
+                  countRead={readBooks.count}
+                />
+              )
+            }
+          </Box>
         </TabPanel>
         <TabPanel value="stackBooks">
-          {rankState.fetchState !== 'ok'
-            ? <Loading />
-            : rankState.stackBooks.map(stackBooks =>
-              <RankBook
-                book={stackBooks.Book}
-                rank={stackBooks.rank}
-                countStack={stackBooks.count}
-              />
-            )
-          }
+          <Typography variant="h5" sx={{ width: '100%' }}>
+            <Box sx={{ letterSpacing: 6, py: 2 }}><b>【積読人気本】</b></Box>
+          </Typography>
+          <Box className={classes.tabBox}>
+            {rankState.fetchState !== 'ok'
+              ? <Loading />
+              : rankState.stackBooks.map(stackBooks =>
+                <RankBook
+                  book={stackBooks.book}
+                  rank={stackBooks.rank}
+                  countStack={stackBooks.count}
+                />
+              )
+            }
+          </Box>
         </TabPanel>
       </TabContext>
     </Box>

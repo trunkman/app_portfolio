@@ -44,8 +44,9 @@ export const RankBook = ({
               component="img"
               image={book.largeImageUrl}
               sx={{
-                width: '100%',
-                px: 3,
+                width: 180,
+                mx: 'auto',
+                pb: 1,
               }}
               alt={book.title}
             />

@@ -75,26 +75,28 @@ export const Sidebar = ({
 
   return (
     <>
-      {authState.loggedIn &&
-        <Drawer variant="permanent" open={open}>
-          <DrawerHeader>
-            <LogoLink />
-            <IconButton onClick={handleDrawerClose}>
-              {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-            </IconButton>
-          </DrawerHeader>
-          <>
-            <AvatarLink loginUser={authState.loginUser} size="45" />
-            <HomeLink />
-            <DiariesLink loginUserId={authState.loginUser.id} />
-            <TimelineLink loginUserId={authState.loginUser.id} />
-            <BooksLink loginUserId={authState.loginUser.id} />
-            <RankingLink loginUserId={authState.loginUser.id} />
-            <FollowsLink loginUserId={authState.loginUser.id} />
-            <RoomsLink loginUserId={authState.loginUser.id} />
-          </>
-        </Drawer>
-      }
+      <Drawer variant="permanent" open={open}>
+        <DrawerHeader>
+          <LogoLink />
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+          </IconButton>
+        </DrawerHeader>
+        <>
+          {authState.loggedIn &&
+            <>
+              <AvatarLink loginUser={authState.loginUser} size="45" />
+              <DiariesLink loginUserId={authState.loginUser.id} />
+              <TimelineLink loginUserId={authState.loginUser.id} />
+              <BooksLink loginUserId={authState.loginUser.id} />
+              <FollowsLink loginUserId={authState.loginUser.id} />
+              <RoomsLink loginUserId={authState.loginUser.id} />
+              <RankingLink />
+            </>
+          }
+          <HomeLink />
+        </>
+      </Drawer>
     </>
   )
 }
