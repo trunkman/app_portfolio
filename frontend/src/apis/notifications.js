@@ -1,5 +1,5 @@
 import axios from "axios";
-import { notifications, notificationsDelete } from "../urls";
+import { notifications, notificationsDelete, notificationsCheck } from "../urls";
 
 // 通知を表示するapi
 export const fetchNotifications = () => {
@@ -13,6 +13,7 @@ export const fetchNotifications = () => {
     });
 }
 
+// 通知を削除するapi
 export const deleteNotifications = () => {
   return axios.delete(notificationsDelete, { withCredentials: true })
     .then(res => {
@@ -21,5 +22,17 @@ export const deleteNotifications = () => {
     })
     .catch(error => {
       console.log('notifications#all_delete', error);
+    });
+}
+
+// 新規通知が存在するかチェックするapi
+export const checkNotifications = () => {
+  return axios.get(notificationsCheck, { withCredentials: true })
+    .then(res => {
+      console.log('notifications#check', res);
+      return res.data;
+    })
+    .catch(error => {
+      console.log('notifications#check', error);
     });
 }

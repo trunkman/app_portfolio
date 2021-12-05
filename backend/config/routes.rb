@@ -36,6 +36,7 @@ Rails.application.routes.draw do
       resources :recommends, only: %i[create destroy]
       resources :notifications, only: %i[index create]
       delete    '/notifications/all_delete', to: 'notifications#all_delete'
+      get       '/notifications/check', to: 'notifications#check'
       get       '/rankings/sleeping_hours', to: 'rankings#sleeping_hours'
       get       '/rankings/reading', to: 'rankings#reading'
       get       '/rankings/read_books', to: 'rankings#read_books'

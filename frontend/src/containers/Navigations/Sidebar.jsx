@@ -22,6 +22,8 @@ import { RoomsLink } from '../../components/Links/RoomsLink';
 import { TimelineLink } from '../../components/Links/TimelineLink';
 
 export const Sidebar = ({
+  checkClese,
+  checkNotifications,
   open,
   drawerWidth,
   handleDrawerClose,
@@ -90,7 +92,11 @@ export const Sidebar = ({
               <TimelineLink loginUserId={authState.loginUser.id} />
               <BooksLink loginUserId={authState.loginUser.id} />
               <FollowsLink loginUserId={authState.loginUser.id} />
-              <RoomsLink loginUserId={authState.loginUser.id} />
+              <RoomsLink
+                checkClese={checkClese}
+                checkNotifications={checkNotifications}
+                loginUserId={authState.loginUser.id}
+              />
               <RankingLink />
             </>
           }

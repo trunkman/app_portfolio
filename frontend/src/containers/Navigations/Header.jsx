@@ -28,9 +28,11 @@ import { SnackBar } from "../../components/Snackbars/Snackbar"
 import { TweetDialog } from '../../components/Dialogs/TweetDialog';
 
 export const Header = ({
+  checkClese,
+  checkNotifications,
   open,
   drawerWidth,
-  handleDrawerOpen
+  handleDrawerOpen,
 }) => {
   const history = useHistory()
   const { authState, authDispatch } = useContext(AuthContext);
@@ -101,7 +103,11 @@ export const Header = ({
             <>
               <PostButton handleClick={() => dialogDispatch({ type: 'micropost' })} />
               <RecordButton handleClick={() => dialogDispatch({ type: 'record' })} />
-              <NotificationButton handleClick={() => dialogDispatch({ type: 'notification' })} />
+              <NotificationButton
+                checkClese={checkClese}
+                checkNotifications={checkNotifications}
+                handleClick={() => dialogDispatch({ type: 'notification' })}
+              />
               <AccountButton
                 handleLogout={submitLogout}
                 handleDelete={submitDelete}

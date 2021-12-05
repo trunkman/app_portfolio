@@ -1,9 +1,13 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext, useEffect, useState, useReducer } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { AuthContext } from '../App';
 // Style
 import Box from '@mui/material/Box';
 import { createStyles, makeStyles } from "@material-ui/core/styles";
+// Api
+import { checkNotifications } from '../apis/notifications';
+// Reducer
+import { notificationReducer, notificationInitialState } from '../reducer/NotificationReducer'
 // Container
 import { Book } from './Pages/Book';
 import { Diaries } from './Pages/Diaries';
@@ -37,22 +41,42 @@ const useStyles = makeStyles(() =>
 export const Layout = () => {
   const classes = useStyles();
   const { authState } = useContext(AuthContext);
+  const [notificationState, notificationDispatch] = useReducer(notificationReducer, notificationInitialState);
   // Sidebar開閉する関数群
   const drawerWidth = 240;
   const [open, setOpen] = useState(true);
   const handleDrawerOpen = () => setOpen(true);
   const handleDrawerClose = () => setOpen(false);
 
+  const Notifications = () => {
+    checkNotifications()
+      .then(data =>
+        notificationDispatch({
+          type: 'check',
+          payload: {
+            checkAll: data.check_all,
+            checkMessage: data.check_message,
+          }
+        })
+      );
+  }
+
+  useEffect(() => {
+    Notifications();
+  }, [])
+
   return (
     <BrowserRouter>
       <Header
+        checkClese={() => notificationDispatch({ type: 'checkedAll' })}
+        checkNotifications={notificationState.checkAll}
         open={open}
         drawerWidth={drawerWidth}
         handleDrawerOpen={handleDrawerOpen}
-        loginUser={authState.loginUser}
-        isLoggedIn={authState.loggedIn}
       />
       <Sidebar
+        checkClese={() => notificationDispatch({ type: 'checkedMessage' })}
+        checkNotifications={notificationState.checkMessage}
         open={open}
         drawerWidth={drawerWidth}
         handleDrawerClose={handleDrawerClose}
