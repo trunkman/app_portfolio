@@ -3,15 +3,16 @@ import React from "react";
 import Box from '@mui/material/Box';
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import TextField from '@mui/material/TextField';
-// Icon
-import SearchIcon from '@mui/icons-material/Search';
 
 const useStyles = makeStyles(() =>
   createStyles({
     'root': {
       alignItems: 'center',
       display: 'flex',
-    }
+    },
+    "textfield": {
+      "& .MuiInputBase-root": { color: '#fff' }
+    },
   }),
 );
 
@@ -25,6 +26,7 @@ export const Search = ({
     <Box className={classes.root}>
       <TextField
         autoFocus
+        className={classes.textfield}
         label="書籍名を入力してください"
         margin="dense"
         // id="bookSerch"

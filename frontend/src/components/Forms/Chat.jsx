@@ -19,7 +19,7 @@ const useStyles = makeStyles(() =>
       textAlign: 'center',
       width: 600,
     },
-    "chat": {
+    "textfield": {
       background: '#334b63',
       borderRadius: '4px',
       "& .MuiInputBase-root": { color: '#fff' }
@@ -50,7 +50,7 @@ export const Chat = ({
       <Divider />
       <TextField
         autoFocus
-        className={classes.chat}
+        className={classes.textfield}
         fullWidth
         margin="dense"
         multiline
