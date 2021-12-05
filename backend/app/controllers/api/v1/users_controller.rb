@@ -170,7 +170,14 @@ module Api
            Entry.where(room_id: current_entry.room_id).each do |entry|
             if entry.user_id != current_user.id
               @other_user = User.find(entry.user_id)
-              @entries << {room_id: entry.room_id, other_user: @other_user}
+              @message = Message.find(entry.room_id)
+              # 未読メッセージがあるか確認
+              check_message = @notifications.where(action: 'message', checked: false)
+              @entries << { room_id: entry.room_id,
+                            other_user: @other_user,
+                            message: @message,
+                            # 未読メッセージがあればtrueを返す
+                            check_message: !check_message.blank? }
             end
           end
         end

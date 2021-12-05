@@ -32,7 +32,6 @@ module Api
         @notifications = current_user.passive_notifications
         check_all = @notifications.where(checked: false).where.not(action: 'message')
         check_message = @notifications.where(action: 'message', checked: false)
-        debugger
         render json: { check_all: !check_all.blank?, check_message: !check_message.blank? },
                 status: :ok
       end
