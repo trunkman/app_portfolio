@@ -40,14 +40,6 @@ export const Micropost = ({
     history.push(`/users/${loginUser.id}`)
   }
 
-  // const dateFormat = (date) => {
-  //   string = date.toString();
-  //   string.substr(0, 19)
-  //   // dateString.replace(/-/g, '/');
-  //   // string.replace('T', ' ');
-  //   return string
-  // }
-
   return (
     <>
       <ListItem
