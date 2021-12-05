@@ -99,6 +99,11 @@ export const Mybooks = ({
         });
       });
   }
+  // おすすめ本を解除する
+  const NotRecommend = (bookId) => {
+    deleteRecommend(bookId)
+      .then(data => { aleat(data.message) })
+  }
 
   useEffect(() => {
     myBooks();
@@ -137,6 +142,7 @@ export const Mybooks = ({
           :
           <BookRecommend
             book={bookState.recommendBook}
+            NotRecommend={NotRecommend}
           />
         }
       </Box>

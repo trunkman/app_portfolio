@@ -6,6 +6,8 @@ import CardActionArea from '@mui/material/CardActionArea';
 import CardMedia from '@mui/material/CardMedia';
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import Typography from '@mui/material/Typography';
+// Component
+import { NotRecommendButton } from "../Buttons/NotRecommendButton";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -21,12 +23,19 @@ const useStyles = makeStyles(() =>
       flexDirection: 'column',
       width: 150,
     },
+    'button': {
+      background: '#42a5f5',
+      border: 0,
+      borderRadius: 4,
+      color: 'white',
+      height: 30,
+      padding: '15px 20px',
+      margin: '15px 0px'
+    },
   }),
 );
 
-export const BookRecommend = ({
-  book
-}) => {
+export const BookRecommend = ({ book, NotRecommend }) => {
   const classes = useStyles();
 
   return (
@@ -44,6 +53,7 @@ export const BookRecommend = ({
         <Typography variant="h6" sx={{ pb: 1, pl: 1 }}>
           出版社：{book.publisherName}
         </Typography>
+        <NotRecommendButton NotRecommend={NotRecommend} />
       </Box>
       <CardActionArea
         className={classes.image}
