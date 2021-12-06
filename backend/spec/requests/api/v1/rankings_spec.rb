@@ -11,28 +11,28 @@ RSpec.describe 'Api::V1::RecommendsController', type: :request do
   let(:sixth_user) { FactoryBot.create(:user) }
   let(:seventh_user) { FactoryBot.create(:user) }
 
-  let(:book) { FactoryBot.create(:book) }
+  let(:book) { FactoryBot.create(:one_book) }
   let(:second_book) { FactoryBot.create(:another_book) }
   let(:third_book) { FactoryBot.create(:other_book) }
   let(:fourth_book) { FactoryBot.create(:another_book) }
   let(:fifth_book) { FactoryBot.create(:other_book) }
   let(:sixth_book) { FactoryBot.create(:another_book) }
   let(:seventh_book) { FactoryBot.create(:other_book) }
-  
-  let(:diary_params) { {date: '1999/12/31', sleeping_hours: 7.5 , feeling: 'satisfied'} } 
-  let(:book_params) { {book_id: book.id, read: true}}
+
+  let(:diary_params) { { date: '1999/12/31', sleeping_hours: 7.5, feeling: 'satisfied' } }
+  let(:book_params) { { book_id: book.id, read: true } }
 
   it '睡眠平均時間の上位6人を返す' do
     # 7人のユーザーの睡眠時間(日記)を作成する
     user.diaries.create(diary_params)
     second_user.diaries.create(diary_params)
-    third_user.diaries.create(diary_params )
+    third_user.diaries.create(diary_params)
     fourth_user.diaries.create(diary_params)
     fifth_user.diaries.create(diary_params)
     sixth_user.diaries.create(diary_params)
     seventh_user.diaries.create(diary_params)
     # second_userの平均睡眠が10になるよう追加
-    second_user.diaries.create( { date: '2000/01/01', sleeping_hours:  12.5, feeling: 'satisfied'} )
+    second_user.diaries.create({ date: '2000/01/01', sleeping_hours: 12.5, feeling: 'satisfied' })
     log_in_as(user)
     get api_v1_rankings_sleeping_hours_path
     expect(json['sleeping_hours_rank'].length).to eq(6)
@@ -73,7 +73,7 @@ RSpec.describe 'Api::V1::RecommendsController', type: :request do
     get api_v1_rankings_reading_path
     expect(response.status).to eq(401)
   end
-  
+
   it '読了本の人気6冊を返す' do
     # 7人のユーザーが7冊の本を登録する
     user.subscriptions.create(book_id: book.id, read: true)
@@ -126,5 +126,4 @@ RSpec.describe 'Api::V1::RecommendsController', type: :request do
     get api_v1_rankings_stack_books_path
     expect(response.status).to eq(401)
   end
-
 end

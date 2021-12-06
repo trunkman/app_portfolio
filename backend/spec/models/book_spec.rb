@@ -15,21 +15,6 @@ RSpec.describe Book, type: :model do
     expect(book).not_to be_valid
   end
 
-  it '著者が空であってはならない' do
-    book.author = '  '
-    expect(book).not_to be_valid
-  end
-
-  it '出版社が空であってはならない' do
-    book.publisherName = '  '
-    expect(book).not_to be_valid
-  end
-
-  it '価格が空であってはならない' do
-    book.itemPrice = '  '
-    expect(book).not_to be_valid
-  end
-
   it 'ISBNが空であってはならない' do
     book.isbn = '  '
     expect(book).not_to be_valid

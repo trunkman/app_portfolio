@@ -125,7 +125,7 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     expect(json['comments'].length).to eq(1)
     expect(response.status).to eq(200)
   end
-  
+
   it '投稿一覧(コメント&いいねなし)を返す' do
     # 投稿、いいね、コメントを作成
     micropost
@@ -170,7 +170,7 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     get followers_api_v1_user_path(user)
     expect(response.status).to eq(401)
   end
-# 仕様を決めてからテストを調整する
+  # 仕様を決めてからテストを調整する
   it '日記情報を返す' do
     # 日記を作成する
     user.diaries.create(color: '#fff',
@@ -178,7 +178,7 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
                         id: 1,
                         start: '1999/12/31',
                         startStr: '1999/12/31',
-                        title: 'satisfied' )
+                        title: 'satisfied')
     log_in_as(user)
     get diaries_api_v1_user_path(user)
     expect(json['diaries'].length).to eq(1)
@@ -213,12 +213,16 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
   end
 
   it 'トークルーム一覧を返す' do
-    # room、entry(2つ)、メッセージ(2つ)を作成する
+    # トークルームとメッセージ、通知を作成する
     room = FactoryBot.create(:room)
     user.entries.create(room_id: room.id)
     other_user.entries.create(room_id: room.id)
     user.messages.create(room_id: room.id, content: content)
-    other_user.messages.create(room_id: room.id, content: content)
+    message = other_user.messages.create(room_id: room.id, content: content)
+    other_user.active_notifications.create(visited_id: user.id,
+                                            message_id: message.id,
+                                            action: 'message',
+                                            checked: false )
     log_in_as(user)
     get rooms_api_v1_user_path(user)
     expect(json['entries'].length).to eq(1)

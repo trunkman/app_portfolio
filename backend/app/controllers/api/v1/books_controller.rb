@@ -23,24 +23,24 @@ module Api
         # 本がDBに登録しているかを判定
         if params[:registration].nil?
           @book = Book.new(title: params[:book][:title],
-                          author: params[:book][:author],
-                          publisherName: params[:book][:publisherName],
-                          salesDate: params[:book][:salesDate],
-                          itemPrice: params[:book][:itemPrice],
-                          itemUrl: params[:book][:itemUrl],
-                          itemCaption: params[:book][:itemCaption],
-                          largeImageUrl: params[:book][:largeImageUrl],
-                          isbn: params[:book][:isbn],
-                          reviewCount: params[:book][:reviewCount],
-                          reviewAverage: params[:book][:reviewAverage])
-          @book.save! 
+                           author: params[:book][:author],
+                           publisherName: params[:book][:publisherName],
+                           salesDate: params[:book][:salesDate],
+                           itemPrice: params[:book][:itemPrice],
+                           itemUrl: params[:book][:itemUrl],
+                           itemCaption: params[:book][:itemCaption],
+                           largeImageUrl: params[:book][:largeImageUrl],
+                           isbn: params[:book][:isbn],
+                           reviewCount: params[:book][:reviewCount],
+                           reviewAverage: params[:book][:reviewAverage])
+          @book.save!
         else
           @book = Book.find_by(isbn: params[:book][:isbn])
         end
         @subscription = Subscription.create(user_id: current_user.id,
                                             book_id: @book.id,
                                             read: params[:read])
-        message =  @subscription.read ? '読了本に追加しました。' : '積読本に追加しました。'
+        message = @subscription.read ? '読了本に追加しました。' : '積読本に追加しました。'
         render json: { subscription: @subscription, message: message },
                status: :created
       end

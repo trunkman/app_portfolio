@@ -127,17 +127,16 @@ module Api
         @diaries.map do |diary|
           # 感情によってcolorを決定
           case diary.feeling
-            when 'satisfied' then  color = '#67daff'
-            when 'neutral_face' then color = '#03a9f4'
-            when 'dizzy_face' then  color = '#007ac1'
+          when 'satisfied' then color = '#67daff'
+          when 'neutral_face' then color = '#03a9f4'
+          when 'dizzy_face' then color = '#007ac1'
           end
           modification_diaries << { color: color,
                                     groupId: diary.sleeping_hours,
                                     id: diary.id,
                                     start: diary.date,
                                     startStr: diary.date,
-                                    title: diary.feeling,
-                                   }
+                                    title: diary.feeling }
         end
         render json: { user: @user, diaries: modification_diaries },
                status: :ok
@@ -166,19 +165,18 @@ module Api
       def rooms
         @entries = []
         current_user.entries.each do |current_entry|
-          # current_user以外のユーザーを検索
-           Entry.where(room_id: current_entry.room_id).each do |entry|
-            if entry.user_id != current_user.id
-              @other_user = User.find(entry.user_id)
-              @message = Message.find(entry.room_id)
-              # 未読メッセージがあるか確認
-              check_message = @notifications.where(action: 'message', checked: false)
-              @entries << { room_id: entry.room_id,
-                            other_user: @other_user,
-                            message: @message,
-                            # 未読メッセージがあればtrueを返す
-                            check_message: !check_message.blank? }
-            end
+          # トーク相手を検索
+          Entry.where(room_id: current_entry.room_id).each do |entry|
+            next unless entry.user_id != current_user.id
+
+            @other_user = User.find(entry.user_id)
+            @message = Message.order(created_at: :desc).find_by(room_id: entry.room_id)
+            # 未読メッセージがあるか確認
+            check_message = current_user.passive_notifications.where(action: 'message', checked: false)
+            @entries << { room_id: entry.room_id,
+                          other_user: @other_user,
+                          message: @message,
+                          check_message: !check_message.blank? }
           end
         end
         render json: { entries: @entries }, status: :ok

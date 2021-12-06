@@ -5,13 +5,15 @@ require 'rails_helper'
 RSpec.describe 'Api::V1::BooksController', type: :request do
   let(:user)       { FactoryBot.create(:user) }
   let(:book)       { FactoryBot.create(:book) }
-  let(:params) {{ book: { title: 'ブックタイトル', author: '著者', publisherName: '出版社',
-                          itemPrice: '1000', isbn: '1234567890123' },
-                  read: true }}
-  let(:params_registration) {{ book: { title: 'ブックタイトル', author: '著者', publisherName: '出版社',
-                                        itemPrice: '1000', isbn: '1234567890123' }, 
-                               read: false,
-                               registration: true }}
+  let(:params) do
+    { book: { title: 'ブックタイトル', isbn: '0123456789012' },
+      read: true }
+  end
+  let(:params_registration) do
+    { book: { title: 'ブックタイトル', isbn: '0123456789012' },
+      read: false,
+      registration: true }
+  end
 
   it '本の詳細ページを返す' do
     log_in_as(user)
@@ -31,7 +33,7 @@ RSpec.describe 'Api::V1::BooksController', type: :request do
 
   it '新しい本を登録する(DBへ初めての登録ケース)' do
     log_in_as(user)
-    expect{ post api_v1_books_path, params: params }.to change(Book, :count).by(1)
+    expect { post api_v1_books_path, params: params }.to change(Book, :count).by(1)
     expect(json['message']).to eq('読了本に追加しました。')
     expect(response.status).to eq(201)
   end
@@ -39,7 +41,7 @@ RSpec.describe 'Api::V1::BooksController', type: :request do
   it '新しい本を登録する(DBへすでに登録済みのケース)' do
     book
     log_in_as(user)
-    expect{ post api_v1_books_path, params: params_registration}.to change(Book, :count).by(0)
+    expect { post api_v1_books_path, params: params_registration }.to change(Book, :count).by(0)
     expect(json['message']).to eq('積読本に追加しました。')
     expect(response.status).to eq(201)
   end

@@ -9,15 +9,9 @@ module Api
       def create
         @message = current_user.messages.build(message_params)
         if @message.save
-          # 通知を作成する
-          Entry.where(room_id: @message.room_id).each do |entry|
-            @other_user_id = entry.user_id if entry.user_id != current_user.id
-          end
-          # 通知相手を特定する
-          other_user_id = Entry.select('user_id')
-                               .where('room_id = ? ', params[:message][:room_id])
-                               .where.not('user_id = ? ', current_user.id)
-          @message.create_notification_message!(current_user, other_user_id)
+          # メッセージ通知を作成する
+          other_entry = Entry.where(room_id: @message.room_id).where.not(user_id: current_user.id)
+          @message.create_notification_message!(current_user, other_entry[0].user_id)
           render json: { message: @message },
                  status: :ok
         else

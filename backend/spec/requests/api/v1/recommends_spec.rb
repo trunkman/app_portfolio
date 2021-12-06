@@ -6,7 +6,7 @@ RSpec.describe 'Api::V1::RecommendsController', type: :request do
   let(:user) { FactoryBot.create(:user) }
   let(:other_user) { FactoryBot.create(:user) }
   let(:book) { FactoryBot.create(:book) }
-  let(:params) { { recommend: { book_id: book.id } } }
+  let(:params) { { recommend: { book_isbn: book.isbn } } }
   let(:recommend) { user.create_recommend(book_id: book.id) }
 
   it 'おすすめの本に登録する' do
