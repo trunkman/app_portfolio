@@ -1,17 +1,8 @@
 import React, { useEffect, useReducer, useState } from "react";
-import { useHistory } from "react-router-dom";
 // Style
 import Box from "@mui/material/Box";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import ListItemText from "@mui/material/ListItemText";
-import ListItemButton from '@mui/material/ListItemButton';
 import Typography from "@mui/material/Typography";
-// Icon
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 // Api
 import { fetchRooms } from "../../apis/users";
 import { deleteRoom } from "../../apis/rooms";
@@ -20,6 +11,7 @@ import { roomInitialState, roomReducer } from '../../reducer/RoomReducer';
 // Component
 import { Loading } from '../../components/Loading';
 import { DeleteDialog } from "../../components/Dialogs/DeleteDialog";
+import { TalkUser } from "../../components/Lists/TalkUser";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -44,7 +36,6 @@ const useStyles = makeStyles(() =>
 
 export const Rooms = ({ userId }) => {
   const classes = useStyles();
-  const history = useHistory();
   const [roomState, roomDispatch] = useReducer(roomReducer, roomInitialState);
   // 削除確認ダイアログの開閉
   const [open, setOpen] = useState({
@@ -79,44 +70,10 @@ export const Rooms = ({ userId }) => {
         </Typography>
 
         {roomState.fetchState !== 'ok' ? <Loading /> :
-          <List>
-            {roomState.entries.length === 0 &&
-              <ListItemText>
-                トークしている人はいません。
-              </ListItemText>
-            }
-            {roomState.entries.length !== 0 &&
-              roomState.entries.map(entry =>
-                <ListItem
-                  key={entry.room_id.toString()}
-                  className={classes.list}
-                >
-                  <ListItemAvatar>
-                    <AccountCircle sx={{ fontSize: 60 }} />
-                  </ListItemAvatar>
-                  <Box
-                    onClick={() => history.push(`/talk_rooms/${entry.room_id}`)}
-                    sx={{
-                      p: 3,
-                      flexGrow: 1,
-                    }}
-                  >
-                    <ListItemText>
-                      <Typography variant="h5" sx={{ letterSpacing: 2 }}>
-                        {entry.other_user.name} さん
-                      </Typography>
-                      <Typography variant="h6" >
-                        <Box sx={{ letterSpacing: 2, mt: 2 }}>{entry.other_user.profile}</Box>
-                      </Typography>
-                    </ListItemText>
-                  </Box>
-                  <ListItemButton onClick={() => setOpen({ isOpen: true, roomId: entry.room_id })}>
-                    <DeleteOutlinedIcon />
-                  </ListItemButton>
-                </ListItem>
-              )
-            }
-          </List>
+          <TalkUser
+            entries={roomState.entries}
+            setOpen={setOpen}
+          />
         }
       </Box>
 

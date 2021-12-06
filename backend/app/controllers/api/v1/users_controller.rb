@@ -168,14 +168,13 @@ module Api
           # トーク相手を検索
           Entry.where(room_id: current_entry.room_id).each do |entry|
             next unless entry.user_id != current_user.id
-
             @other_user = User.find(entry.user_id)
             @message = Message.order(created_at: :desc).find_by(room_id: entry.room_id)
             # 未読メッセージがあるか確認
             check_message = current_user.passive_notifications.where(action: 'message', checked: false)
             @entries << { room_id: entry.room_id,
                           other_user: @other_user,
-                          message: @message,
+                          latast_message: @message,
                           check_message: !check_message.blank? }
           end
         end
