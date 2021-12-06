@@ -20,6 +20,7 @@ export const bookReducer = (state, action) => {
       return {
         ...state,
         fetchState: 'ok',
+        reRender: false,
         user: action.payload.user,
         recommendBook: action.payload.recommendBook,
         readBooks: action.payload.readBooks,
@@ -37,6 +38,11 @@ export const bookReducer = (state, action) => {
         fetchState: 'ok',
         reRender: false,
         searchBooks: action.payload,
+      };
+    case 'reRender':
+      return {
+        ...state,
+        reRender: true,
       };
     default:
       throw new Error();

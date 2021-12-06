@@ -12,6 +12,7 @@ import SearchIcon from '@mui/icons-material/Search';
 // Api
 import { fetchUserBooks } from '../../apis/users';
 import { fetchSearchBooks } from '../../apis/books';
+import { deleteRecommend } from '../../apis/recommends'
 // Reducer
 import { bookInitialState, bookReducer } from '../../reducer/BookReducer';
 // Component
@@ -90,7 +91,7 @@ export const Mybooks = ({
   }
   // 検索したキーワードに該当本を取得する
   const searchBooks = () => {
-    bookDispatch({ type: 'posting', })
+    bookDispatch({ type: 'posting', });
     fetchSearchBooks({ keyword: keyword })
       .then(data => {
         bookDispatch({
@@ -102,7 +103,9 @@ export const Mybooks = ({
   // おすすめ本を解除する
   const NotRecommend = (bookId) => {
     deleteRecommend(bookId)
-      .then(data => { aleat(data.message) })
+      .then(() => {
+        bookDispatch({ type: 'reRender', });
+      })
   }
 
   useEffect(() => {
@@ -137,14 +140,14 @@ export const Mybooks = ({
       </Box>
 
       <Box className={classes.recommend}>
-        {bookState.recommendBook === null ?
+        {/* {bookState.recommendBook === null ?
           <h2>お気に入りの睡眠本を登録しましょう</h2>
-          :
-          <BookRecommend
-            book={bookState.recommendBook}
-            NotRecommend={NotRecommend}
-          />
-        }
+          : */}
+        <BookRecommend
+          book={bookState.recommendBook}
+          NotRecommend={NotRecommend}
+        />
+        {/* } */}
       </Box>
 
       {bookState.fetchState !== 'ok' ? <Loading /> :

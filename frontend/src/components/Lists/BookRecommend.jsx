@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardMedia from '@mui/material/CardMedia';
 import { createStyles, makeStyles } from "@material-ui/core/styles";
+import Skeleton from "@mui/material/Skeleton";
 import Typography from '@mui/material/Typography';
 // Component
 import { NotRecommendButton } from "../Buttons/NotRecommendButton";
@@ -40,33 +41,47 @@ export const BookRecommend = ({ book, NotRecommend }) => {
 
   return (
     <>
-      <Box className={classes.text}>
-        <Typography variant="h6" sx={{ pb: 2 }}>
-          【 私のおすすめ睡眠本 】
-        </Typography>
-        <Typography variant="h4" sx={{ pb: 3, pl: 1 }}>
-          {book.title}
-        </Typography>
-        <Typography variant="h6" sx={{ pb: 1, pl: 1 }}>
-          著者：{book.author}
-        </Typography>
-        <Typography variant="h6" sx={{ pb: 1, pl: 1 }}>
-          出版社：{book.publisherName}
-        </Typography>
-        <NotRecommendButton NotRecommend={NotRecommend} />
-      </Box>
-      <CardActionArea
-        className={classes.image}
-        component={Link}
-        to={`/books/${book.isbn}`}
-      >
-        <CardMedia
-          component="img"
-          image={book.largeImageUrl}
-          sx={{ width: '100%' }}
-          alt={book.title}
-        />
-      </CardActionArea>
+      {book === null &&
+        <>
+          <Box className={classes.text}>
+            <Typography variant="h5" sx={{ pb: 2 }}>
+              お気に入りの睡眠本を登録しましょう。
+            </Typography>
+          </Box>
+          <Skeleton variant="rectangular" width={150} height={200} />
+        </>
+      }
+      {book !== null &&
+        <>
+          <Box className={classes.text}>
+            <Typography variant="h6" sx={{ pb: 2 }}>
+              【 私のおすすめ睡眠本 】
+            </Typography>
+            <Typography variant="h4" sx={{ pb: 3, pl: 1 }}>
+              {book.title}
+            </Typography>
+            <Typography variant="h6" sx={{ pb: 1, pl: 1 }}>
+              著者：{book.author}
+            </Typography>
+            <Typography variant="h6" sx={{ pb: 1, pl: 1 }}>
+              出版社：{book.publisherName}
+            </Typography>
+            <NotRecommendButton NotRecommend={() => NotRecommend(book.id)} />
+          </Box>
+          <CardActionArea
+            className={classes.image}
+            component={Link}
+            to={`/books/${book.isbn}`}
+          >
+            <CardMedia
+              component="img"
+              image={book.largeImageUrl}
+              sx={{ width: '100%' }}
+              alt={book.title}
+            />
+          </CardActionArea>
+        </>
+      }
     </>
   );
 }

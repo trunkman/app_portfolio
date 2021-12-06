@@ -17,6 +17,12 @@ export const DeleteDialog = ({
   open,
 }) => {
 
+  const handleClick = () => {
+    handleDelete();
+    handleClose();
+  }
+
+
   return (
     <div>
       <Dialog
@@ -30,7 +36,7 @@ export const DeleteDialog = ({
           <Button onClick={() => handleClose()}>
             戻る
           </Button>
-          <Button type='submit' onClick={() => handleDelete()} >
+          <Button type='submit' onClick={handleClick}>
             {message}{'する'}
           </Button>
         </DialogActions>

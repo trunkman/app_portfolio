@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // Style
 import Box from '@mui/material/Box';
 import Button from "@mui/material/Button";
@@ -9,13 +9,13 @@ import { DeleteDialog } from "../Dialogs/DeleteDialog";
 const useStyles = makeStyles(() =>
   createStyles({
     'button': {
-      background: '#42a5f5',
+      background: '#334b63',
       border: 0,
       borderRadius: 4,
       color: 'white',
       height: 30,
       padding: '15px 20px',
-      margin: '20px 0px'
+      margin: '20px 7px'
     },
   }),
 );
@@ -32,13 +32,13 @@ export const NotRecommendButton = ({ NotRecommend }) => {
           color="primary"
           onClick={() => setOpen(true)}
         >
-          おすすめ睡眠本を解除する
+          おすすめを解除
         </Button>
       </Box>
       <DeleteDialog
         handleClose={() => setOpen(false)}
         handleDelete={NotRecommend}
-        message={'おすすめ睡眠本を解除'}
+        message={'おすすめ本を解除'}
         open={open}
       />
     </>
