@@ -1,67 +1,79 @@
-import React, { PureComponent } from "react";
+import React, { useState } from "react";
 // Style
 import Box from '@mui/material/Box';
-import { Emoji } from 'emoji-mart';
+import { createStyles, makeStyles } from "@material-ui/core/styles";
+import Tab from '@mui/material/Tab';
+import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
 import Typography from "@mui/material/Typography";
+// Rechart
 import {
   ComposedChart,
   XAxis,
   YAxis,
   CartesianGrid,
-  Legend,
   Area,
-  Scatter,
+  Tooltip,
+  Legend,
 } from "recharts";
-
-//表示させたいデータ群
-const dataGraph = [
-  { startStr: "2021/11/1", groupId: 6, title: 'dizzy_face', feelingLabel: 1 },
-  { startStr: "2021/11/2", groupId: 7, title: 'neutral_face', feelingLabel: 2 },
-  { startStr: "2021/11/3", groupId: 9, title: 'satisfied', feelingLabel: 3 },
-  { startStr: "2021/11/4", groupId: 6.3, title: 'dizzy_face', feelingLabel: 1 },
-  { startStr: "2021/11/5", groupId: 7.9, title: 'satisfied', feelingLabel: 3 },
-  { startStr: "2021/11/6", groupId: 7, title: 'neutral_face', feelingLabel: 2 },
-];
 
 // Color
 const colorSleepingTime = '#00aced'
-const colorFeeling = '#ffe1c3'
-
 // Tickのカスタマイズ
 const XAxisTick = ({ x, y, payload }) => {
   return (
     <g transform={`translate(${x},${y})`}>
-      <text x={0} y={0} dy={16} textAnchor="end" fill="#fff" transform="rotate(-30)" viewBox="0 0 1024 1024">
+      <text x={0} y={0} dy={16} textAnchor="end" fill="#fff" transform="rotate(-45)" viewBox="0 0 1024 1024">
         {payload.value}
       </text>
     </g>
   );
 }
 
-
-// const YAxisTick = ({ payload }) => {
-//   return (
-//     <text>{payload.value}</text>
-//     // <Emoji emoji={emoji} size={20} />
-//   );
-// }
-
+const useStyles = makeStyles(() =>
+  createStyles({
+    tabBox: {
+      background: '#001e3c',
+      borderBottom: 1,
+      borderColor: 'divider',
+      marginBottom: 3
+    }
+  }),
+);
 
 export const SleepData = ({
   diaries,
 }) => {
+  const classes = useStyles();
+  // 表示データ範囲を選択
+  const initialState = diaries.slice(-7, -1);
+  const [dataGraph, setDataGraph] = useState(initialState);
+  const [tab, setTab] = useState('week');
+  const handleChange = (event, newValue) => {
+    setTab(newValue);
+    newValue === 'week' && setDataGraph(initialState);
+    newValue === 'all' && setDataGraph(diaries);
+  }
+
   return (
     <>
-      <Typography variant="h6">
+      <Typography variant="h5">
         <Box sx={{
           letterSpacing: 6,
-          my: 3,
+
           color: '#42a5f5',
         }}>
-          睡眠時間と感情の推移
+          <b>睡眠時間の推移</b>
         </Box>
       </Typography>
-
+      <TabContext value={tab}>
+        <Box className={classes.tabBox}>
+          <TabList value={tab} onChange={handleChange} >
+            <Tab label="週間" value="week" />
+            <Tab label="全て" value="all" />
+          </TabList>
+        </Box>
+      </TabContext>
       <ComposedChart
         width={1000}
         height={400}
@@ -75,47 +87,34 @@ export const SleepData = ({
         />
         <YAxis
           domain={[5, 'dataMax + 1']}
-          label={{ value: "睡 眠 時 間", angle: -90, fill: colorSleepingTime, position: 'insideLeft' }}
+          label={{
+            value: "sleeping hours",
+            angle: -90,
+            fill: colorSleepingTime,
+            position: 'insideLeft',
+          }}
           tick={{ stroke: colorSleepingTime }}
           tickCount={6}
           yAxisId={1}
         />
-        <YAxis
-          domain={[0.5, 3.5]}
-          hide
-          yAxisId={2}
-        />
-        <YAxis
-          orientation="right"
-          type="category"
-          tick={{ stroke: colorFeeling }}
-          padding={{ top: 60, bottom: 60 }}
-          yAxisId={3}
+        <Tooltip />
+        <Legend
+          height={30}
+          iconSize={0}
+          payload={{ value: '' }}
         />
         <CartesianGrid
           stroke="#334b63"
           vertical={false}
         />
-
-
         <Area
           yAxisId={1}
           type="monotone"
           dataKey="groupId"
+          dot={{ strokeWidth: 5 }}
           stroke={colorSleepingTime}
           fillOpacity={1}
           fill="rgba(0, 172, 237, 0.2)"
-        />
-        <Scatter
-          yAxisId={2}
-          dataKey="feelingLabel"
-          fill={colorFeeling}
-          shape='diamond'
-        />
-        <Scatter
-          yAxisId={3}
-          dataKey="title"
-          fill="rgba(255, 255, 195, 0)"
         />
       </ComposedChart>
     </>

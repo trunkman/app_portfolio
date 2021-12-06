@@ -25,7 +25,7 @@ const useStyles = makeStyles(() =>
   createStyles({
     'root': {
       alignItems: 'center',
-      flexDirection: 'column',
+      flexDirection: 'end',
       flexWrap: 'wrap',
       justifyContent: 'center',
       maxWidth: 1000,
@@ -105,7 +105,6 @@ export const Diaries = ({ userId }) => {
             <Grid item xs={12} sm={6} sx={{
               alignItems: "center",
               justifyContent: 'center',
-              pt: 1,
             }}>
               <SleepInfo
                 userName={recordState.user.name}
@@ -128,12 +127,7 @@ export const Diaries = ({ userId }) => {
               </Box>
             </Grid>
 
-            <Grid item sm={12} md={6}
-              sx={{
-                pr: 10,
-                alignItems: "center",
-              }}
-            >
+            <Grid item sm={12} md={6} sx={{ pt: 2 }}>
               <Calendar
                 userId={userId}
                 open={dialogState.diary}

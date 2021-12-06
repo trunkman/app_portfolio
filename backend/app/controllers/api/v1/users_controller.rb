@@ -138,6 +138,7 @@ module Api
                                     startStr: diary.date,
                                     title: diary.feeling }
         end
+        modification_diaries.sort_by! { |v| v[:start] }
         render json: { user: @user, diaries: modification_diaries },
                status: :ok
       end
