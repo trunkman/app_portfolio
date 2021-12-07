@@ -44,16 +44,14 @@ export const TalkUser = ({
           <ListItem
             key={entry.room_id.toString()}
             className={classes.list}
+            sx={{ justifyContent: 'space-between' }}
           >
             <ListItemAvatar>
               <AccountCircle sx={{ fontSize: 60 }} />
             </ListItemAvatar>
             <Box
               onClick={() => history.push(`/talk_rooms/${entry.room_id}`)}
-              sx={{
-                p: 3,
-                flexGrow: 1,
-              }}
+              sx={{ p: 3, width: '100%' }}
             >
               <ListItemText>
                 <Typography variant="h5" sx={{ letterSpacing: 2 }}>
