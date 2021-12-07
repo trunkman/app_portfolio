@@ -65,7 +65,7 @@ export const MessageRoom = ({
         <Box sx={{ letterSpacing: 10, pb: 2 }}><b>{messageState.user.name}</b></Box>
       </Typography>
 
-      {messageState.fetchState != 'ok' ? <Loading /> :
+      {messageState.fetchState !== 'ok' ? <Loading /> :
         <List className={classes.messages} id={"scroll-area"}>
           {messageState.messages.length === 0 ? (
             <ListItemText>

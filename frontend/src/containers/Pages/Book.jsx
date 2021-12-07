@@ -46,7 +46,7 @@ export const Book = ({ bookIsbn }) => {
         setResistration(data.registration)
         setSubscribed(data.subscribed)
       })
-  }, [])
+  }, [bookIsbn])
 
   return (
     <Box className={classes.root}>

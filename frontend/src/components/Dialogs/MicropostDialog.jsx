@@ -11,13 +11,11 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Typography from "@mui/material/Typography";
 // Icon
 import AccountCircle from "@mui/icons-material/AccountCircle";
-// Component
-import { Comment } from '../Lists/Comment';
+
 
 export const MicropostDialog = ({
   comments,
   handleClose,
-  loginUser,
   micropost,
   open,
   user,

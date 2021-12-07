@@ -59,7 +59,6 @@ export const Users = ({ loginUser }) => {
           sx={{
             display: 'flex',
             alignItems: 'center',
-            // background: 'rgba(255, 255, 255, 0.1)',
             borderRadius: 2,
             my: 3,
           }}>
@@ -69,11 +68,7 @@ export const Users = ({ loginUser }) => {
           </ListItemAvatar>
           <Box
             onClick={() => history.push(`/users/${user.id}`)}
-            sx={{
-              py: 3,
-              pl: 3,
-              flexGrow: 1,
-            }}
+            sx={{ py: 3, pl: 3, flexGrow: 1 }}
           >
             <ListItemText>
               <Typography variant="h5" sx={{ letterSpacing: 2 }}>

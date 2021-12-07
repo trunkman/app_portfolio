@@ -3,7 +3,7 @@ import {
   users, signup, userPath,
   userMicroposts, following, followers,
   userDiaries, userTimeline, userBooks,
-  userRooms, userRanking,
+  userRooms,
 } from '../urls/index'
 
 // ユーザー一覧を取得するapi

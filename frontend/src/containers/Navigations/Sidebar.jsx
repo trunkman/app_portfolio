@@ -2,10 +2,8 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../App';
 // styles
 import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import { theme } from '../../styled/theme'
 // アイコン
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';

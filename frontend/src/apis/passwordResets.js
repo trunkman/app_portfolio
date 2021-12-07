@@ -10,8 +10,8 @@ export const postPasswordReset = (params) => {
     .then(res => {
       console.log('passwordReset#create', res);
       return res.data;
-    }).
-    catch(error => {
+    })
+    .catch(error => {
       console.log('passwordReset#create', error);
     });
 }

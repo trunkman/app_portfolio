@@ -127,7 +127,7 @@ export const Profile = ({
           <TabPanel value="microposts" index={0}>
             <List>
               {
-                profileState.fetchState != 'ok' ? <Loading /> :
+                profileState.fetchState !== 'ok' ? <Loading /> :
                   profileState.microposts.map(micropost =>
                     <Micropost
                       commentCount={micropost.commentCount}
@@ -142,7 +142,7 @@ export const Profile = ({
           <TabPanel value="liked_microposts" index={1}>
             <List>
               {
-                profileState.fetchState != 'ok' ? <Loading /> :
+                profileState.fetchState !== 'ok' ? <Loading /> :
                   profileState.likedMicroposts.map(micropost =>
                     <Micropost
                       commentCount={micropost.commentCount}
@@ -157,7 +157,7 @@ export const Profile = ({
           <TabPanel value="comments" index={2}>
             <List>
               {
-                profileState.fetchState != 'ok' ? <Loading /> :
+                profileState.fetchState !== 'ok' ? <Loading /> :
                   profileState.comments.map(comment =>
                     <Comment
                       comment={comment}

@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // Style
-import Avatar from '@mui/material/Avatar';
 import Divider from '@mui/material/Divider';
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";

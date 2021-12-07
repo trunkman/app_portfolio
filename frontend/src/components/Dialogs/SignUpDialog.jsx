@@ -8,7 +8,6 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 // Api
-import { postLogIn } from '../../apis/sessions';
 import { postSignUp } from '../../apis/users';
 // Component
 import { Name } from '../Forms/Name';

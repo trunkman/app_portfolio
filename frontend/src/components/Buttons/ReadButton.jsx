@@ -5,7 +5,6 @@ import Button from "@mui/material/Button";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 // Api
 import { postBook, updateBook } from "../../apis/books";
-import { useHistory } from "react-router";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -41,34 +40,32 @@ export const ReadButton = ({
   subscribed,
 }) => {
   const classes = useStyles();
-  const handleClick = (boolean) => {
-    { // ユーザー未登録本の場合、CreateでDBに登録する
-      !subscribed && (
-        postBook({
-          read: boolean,
-          registration: registration,
-          book: book,
+  const handleClick = boolean => {
+    // ユーザー未登録本の場合、CreateでDBに登録する
+    !subscribed && (
+      postBook({
+        read: boolean,
+        registration: registration,
+        book: book,
+      })
+        .then(data => {
+          // ぺーじ遷移を加える
+          data.message &&
+            alert(data.message)
         })
-          .then(data => {
-            // ぺーじ遷移を加える
-            data.message &&
-              alert(data.message)
-          })
-      )
-    }
-    { // ユーザー登録済み本の場合、UpdateでDBを更新する
-      subscribed && (
-        updateBook({
-          read: boolean,
-          book: book,
+    );
+    // ユーザー登録済み本の場合、UpdateでDBを更新する
+    subscribed && (
+      updateBook({
+        read: boolean,
+        book: book,
+      })
+        .then(data => {
+          // ぺーじ遷移を加える
+          data.message &&
+            alert(data.message)
         })
-          .then(data => {
-            // ぺーじ遷移を加える
-            data.message &&
-              alert(data.message)
-          })
-      )
-    }
+    );
   }
 
   // 読んだ積んだがわかるように設定する予定

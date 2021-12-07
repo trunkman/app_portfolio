@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { useHistory } from "react-router-dom";
 // Style
 import Avatar from "@mui/material/Avatar";

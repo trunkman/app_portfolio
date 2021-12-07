@@ -1,7 +1,6 @@
 import axios from "axios";
 import { diaries, diaryPath, sleepDebt } from "../urls";
 
-
 // 日記を登録するapi
 export const postDiary = (params) => {
   return axios.post(diaries, {
@@ -48,8 +47,8 @@ export const deleteDiary = (diaryId) => {
     .then(res => {
       console.log('diaries#delete', res);
       return res.data;
-    }).
-    catch(error => {
+    })
+    .catch(error => {
       console.log('diaries#delete', error);
     });
 }

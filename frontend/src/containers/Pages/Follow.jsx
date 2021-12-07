@@ -1,5 +1,4 @@
-import React, { useContext, useState, useReducer, useEffect } from "react";
-import { AuthContext } from "../../App";
+import React, { useState, useReducer, useEffect } from "react";
 // styles
 import Box from '@mui/material/Box';
 import { createStyles, makeStyles } from "@material-ui/core/styles";
@@ -44,7 +43,6 @@ export const Follow = ({
   initialTab,
 }) => {
   const classes = useStyles();
-  const { authState } = useContext(AuthContext);
   const [tab, setTab] = useState(initialTab);
   const [followState, followDispatch] = useReducer(followReducer, followInitialState);
   // フォロー中のユーザーを取得する
@@ -76,7 +74,9 @@ export const Follow = ({
 
   useEffect(() => {
     followDispatch({ type: 'fetching' });
-    tab === 'following' ? Following() : Followers()
+    tab === 'following'
+      ? Following()
+      : Followers()
   }, [tab])
 
   return (
@@ -106,7 +106,7 @@ export const Follow = ({
         </Box>
         <TabPanel value="following">
           {
-            followState.fetchState != 'ok' ? <Loading /> :
+            followState.fetchState !== 'ok' ? <Loading /> :
               followState.following.map(followed =>
                 <FollowList
                   user={followed.user}
@@ -117,7 +117,7 @@ export const Follow = ({
         </TabPanel>
         <TabPanel value="followers">
           {
-            followState.fetchState != 'ok' ? <Loading /> :
+            followState.fetchState !== 'ok' ? <Loading /> :
               followState.followers.map(follower =>
                 <FollowList
                   user={follower.user}

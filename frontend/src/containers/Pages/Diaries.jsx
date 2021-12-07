@@ -70,20 +70,20 @@ export const Diaries = ({ userId }) => {
     sleepDebtDispatch({ type: 'fetching' });
     fetchSleepDebt(userId)
       .then(data => {
-        { // 睡眠負債が返された場合
-          data.sleep_debt &&
-            sleepDebtDispatch({
-              type: 'fetchSuccess',
-              payload: { sleepDebt: data.sleep_debt }
-            })
-        }
-        { // 余剰睡眠が返された場合
-          data.sleep_saving &&
-            sleepDebtDispatch({
-              type: 'fetchSuccess',
-              payload: { sleepSaving: data.sleep_saving }
-            })
-        }
+        // 睡眠負債が返された場合
+        data.sleep_debt && (
+          sleepDebtDispatch({
+            type: 'fetchSuccess',
+            payload: { sleepDebt: data.sleep_debt }
+          })
+        )
+        // 余剰睡眠が返された場合
+        data.sleep_saving && (
+          sleepDebtDispatch({
+            type: 'fetchSuccess',
+            payload: { sleepSaving: data.sleep_saving }
+          })
+        )
       })
   }
 

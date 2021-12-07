@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 // Style
 import Box from '@mui/material/Box';
 import IconButton from "@mui/material/IconButton";

@@ -56,7 +56,7 @@ export const Timeline = ({
         </Typography>
         <Box>
           {
-            timelineState.fetchState != 'ok' ? <Loading /> :
+            timelineState.fetchState !== 'ok' ? <Loading /> :
               timelineState.timeline.map(timeline =>
                 <Micropost
                   commentCount={timeline.commentCount}

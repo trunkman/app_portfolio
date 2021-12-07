@@ -7,8 +7,8 @@ export const fetchMicropost = (micropostId) => {
     .then(res => {
       console.log('micropost#show', res);
       return res.data;
-    }).
-    catch(error => {
+    })
+    .catch(error => {
       console.log('micropost#show', error);
     });
 }
@@ -38,8 +38,8 @@ export const deleteMicropost = (micropostId) => {
     .then(res => {
       console.log('micropost#destroy', res);
       return res.data;
-    }).
-    catch(error => {
+    })
+    .catch(error => {
       console.log('micropost#destroy', error);
     });
 }

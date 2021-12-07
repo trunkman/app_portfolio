@@ -57,7 +57,7 @@ export const NotificationDialog = ({
         <DialogTitle >通知</DialogTitle>
         <DialogContent dividers>
           <DialogContentText >
-            {notificationState.notifications.length == 0 ? <p>通知はありません</p> :
+            {notificationState.notifications.length === 0 ? <p>通知はありません</p> :
               <>
                 <Button onClick={allDelete}>
                   全て削除する
@@ -66,7 +66,7 @@ export const NotificationDialog = ({
                   {notificationState.notifications.map(notification =>
                     <>
                       {
-                        notification.action == 'like' &&
+                        notification.action === 'like' &&
                         <ListItem
                           key={notification.id.toString()}
                         >
@@ -74,7 +74,7 @@ export const NotificationDialog = ({
                         </ListItem>
                       }
                       {
-                        notification.action == 'comment' &&
+                        notification.action === 'comment' &&
                         <ListItem
                           key={notification.id.toString()}
                         >
@@ -83,7 +83,7 @@ export const NotificationDialog = ({
                         </ListItem>
                       }
                       {
-                        notification.action == 'follow' &&
+                        notification.action === 'follow' &&
                         <ListItem
                           key={notification.id.toString()}
                         >
@@ -91,7 +91,7 @@ export const NotificationDialog = ({
                         </ListItem>
                       }
                       {
-                        notification.action == 'entry' &&
+                        notification.action === 'entry' &&
                         <ListItem
                           key={notification.id.toString()}
                         >
