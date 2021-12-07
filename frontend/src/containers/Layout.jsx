@@ -23,6 +23,8 @@ import { Rooms } from './Pages/Rooms';
 import { Timeline } from './Pages/Timeline';
 import { Users } from './Pages/Users'
 import { Sidebar } from './Navigations/Sidebar';
+// Component
+import { Loading } from '../components/Loading';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -92,7 +94,8 @@ export const Layout = () => {
             <Redirect to="/" />
           </Route>
 
-          {authState.loggedIn === false
+          {authState.loginUser === null && <Loading />}
+          {authState.loginUser !== null && authState.loggedIn === false
             ?
             <Route path="/">
               <Home />

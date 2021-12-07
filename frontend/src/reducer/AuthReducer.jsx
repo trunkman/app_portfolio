@@ -6,8 +6,8 @@ export const authInitialState = {
   idealSleepingHours: '',
   profile: '',
   rememberMe: '1',
-  loginUser: '',
-  loggedIn: false, // ログイン状態
+  loginUser: null,
+  loggedIn: false,
   // Snackbarの表示に関わる
   show: false,
   type: '',
