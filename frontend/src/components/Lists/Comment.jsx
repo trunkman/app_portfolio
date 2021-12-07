@@ -88,14 +88,16 @@ export const Comment = ({
         )}
       </ListItem >
 
-      <MicropostDialog
-        comments={postState.comments}
-        handleClose={handleClose}
-        loginUser={authState.loginUser}
-        micropost={postState.micropost}
-        open={dialogState.micropost}
-        user={postState.user}
-      />
+      {postState.micropost !== '' &&
+        <MicropostDialog
+          comments={postState.comments}
+          handleClose={handleClose}
+          loginUser={authState.loginUser}
+          micropost={postState.micropost}
+          open={dialogState.micropost}
+          user={postState.user}
+        />
+      }
       <DeleteDialog
         handleClose={handleClose}
         handleDelete={deleteSubmit}

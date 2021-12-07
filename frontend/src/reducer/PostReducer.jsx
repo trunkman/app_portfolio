@@ -2,8 +2,8 @@ export const postInitialState = {
   fetchState: 'initial',
   postState: 'initial',
   content: '',
-  micropost: {},
-  user: {},
+  micropost: '',
+  user: '',
   comments: [],
   likeStatus: false,
 }
