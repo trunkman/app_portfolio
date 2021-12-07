@@ -69,7 +69,6 @@ export const Profile = ({
         })
       });
   }
-
   // マイクロポスト情報の取得 
   const userMicropost = () => {
     fetchMicroposts(userId)
@@ -133,9 +132,8 @@ export const Profile = ({
                     <Micropost
                       commentCount={micropost.commentCount}
                       likeStatus={micropost.likeStatus}
-                      loginUser={authState.loginUser}
                       micropost={micropost.micropost}
-                      userName={profileState.user.name}
+                      user={profileState.user}
                     />
                   )
               }
@@ -149,7 +147,6 @@ export const Profile = ({
                     <Micropost
                       commentCount={micropost.commentCount}
                       likeStatus={micropost.likeStatus}
-                      loginUser={authState.loginUser}
                       micropost={micropost.liked_micropost}
                       user={micropost.user}
                     />
@@ -164,8 +161,7 @@ export const Profile = ({
                   profileState.comments.map(comment =>
                     <Comment
                       comment={comment}
-                      loginUser={authState.loginUser}
-                      userName={profileState.user.name}
+                      user={profileState.user}
                     />
                   )
               }

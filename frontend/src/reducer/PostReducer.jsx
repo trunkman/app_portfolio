@@ -3,6 +3,7 @@ export const postInitialState = {
   postState: 'initial',
   content: '',
   micropost: {},
+  user: {},
   comments: [],
   likeStatus: false,
 }
@@ -18,6 +19,7 @@ export const postReducer = (state, action) => {
       return {
         ...state,
         fetchState: 'ok',
+        user: action.payload.user,
         micropost: action.payload.micropost,
         comments: action.payload.comments,
         likeStatus: action.payload.likeStatus,

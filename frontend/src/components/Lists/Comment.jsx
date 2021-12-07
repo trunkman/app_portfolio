@@ -1,34 +1,60 @@
-import React, { useState } from "react";
+import React, { useContext, useReducer } from "react";
+import { useHistory } from "react-router";
+import { AuthContext } from "../../App";
 // Style
 import Box from '@mui/material/Box';
 import Typography from "@mui/material/Typography";
 import ListItem from "@mui/material/ListItem";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
 import IconButton from "@mui/material/IconButton";
 // Icon
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 // Api
 import { deleteComment } from "../../apis/comments";
+import { fetchMicropost } from "../../apis/microposts";
+// Reducer
+import { dialogReducer, dialogInitialState } from '../../reducer/DialogReducer'
+import { postReducer, postInitialState } from '../../reducer/PostReducer'
 // Component
 import { DeleteDialog } from "../Dialogs/DeleteDialog";
-
+import { MicropostDialog } from "../Dialogs/MicropostDialog";
 
 export const Comment = ({
   comment,
-  loginUserId,
-  userName,
+  user,
 }) => {
-  // 削除確認ダイアログの開閉
-  const [open, setOpen] = useState({
-    isOpen: false,
-    commentId: '',
-  });
-  const handleClose = () => setOpen({ isOpen: false });
+  const history = useHistory();
+  const { authState } = useContext(AuthContext);
+  const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState);
+  const [postState, postDispatch] = useReducer(postReducer, postInitialState);
+  const handleClose = () => dialogDispatch({ type: 'close' });
+  // 投稿詳細(コメント付き)を取得する
+  const Micropost = () => {
+    postDispatch({ type: 'fetching' })
+    fetchMicropost(comment.micropost_id)
+      .then(data => {
+        postDispatch({
+          type: 'fetchSuccess',
+          payload: {
+            micropost: data.micropost,
+            user: data.user,
+            comments: data.comments,
+            likeStatus: data.likeStatus,
+          }
+        });
+      });
+  }
   // コメントを削除する
-  const deleteSubmit = (commentId) => {
-    deleteComment(commentId)
+  const deleteSubmit = () => {
+    deleteComment(comment.id)
     handleClose();
-    alert('コメントを削除しました')
+    history.push(`/users/${authState.loginUser.id}`)
+  }
+  // クリック時、投稿詳細を表示する
+  const handleClick = () => {
+    Micropost();
+    dialogDispatch({ type: 'micropost' });
   }
 
   return (
@@ -38,33 +64,43 @@ export const Comment = ({
         sx={{
           display: 'flex',
           alignItems: "center",
-          mt: 4,
+          my: 1,
           borderTop: 0.2,
         }}>
-        <AccountCircle sx={{ fontSize: 35 }} />
-        <Box sx={{
-          pt: 2,
-          pl: 3,
-          flexGrow: 1,
-        }}>
+        <ListItemAvatar>
+          <AccountCircle sx={{ fontSize: 35 }} />
+        </ListItemAvatar>
+        <Box
+          onClick={handleClick}
+          sx={{ pt: 2, flexGrow: 1 }}
+        >
           <Typography>
-            【 {userName} さん 】 {comment.created_at.substr(0, 19).replace('T', ' ')}
+            【 {user.name} さん 】 {comment.created_at.substr(0, 19).replace('T', ' ')}
           </Typography>
           <Typography variant="h6" sx={{ pl: 1 }}>
             <Box sx={{ letterSpacing: 2, my: 2 }}>{comment.content}</Box>
           </Typography>
         </Box>
-        {loginUserId === comment.user_id && (
-          <IconButton onClick={() => setOpen({ isOpen: true, commentId: comment.id })}>
+        {authState.loginUserId === comment.user_id && (
+          <IconButton onClick={() => dialogDispatch({ type: 'delete' })}>
             <DeleteOutlinedIcon />
           </IconButton>
         )}
       </ListItem >
+
+      <MicropostDialog
+        comments={postState.comments}
+        handleClose={handleClose}
+        loginUser={authState.loginUser}
+        micropost={postState.micropost}
+        open={dialogState.micropost}
+        user={postState.user}
+      />
       <DeleteDialog
         handleClose={handleClose}
         handleDelete={deleteSubmit}
         message={'コメントを削除'}
-        open={open.isOpen}
+        open={dialogState.delete}
       />
     </>
   )
