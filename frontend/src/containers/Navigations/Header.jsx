@@ -8,7 +8,6 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
-import { theme } from '../../styled/theme'
 // Icon
 import MenuIcon from '@mui/icons-material/Menu';
 // Api
@@ -101,7 +100,7 @@ export const Header = ({
           <Box flexGrow={1}></Box>
           {authState.loggedIn &&
             <>
-              <PostButton handleClick={() => dialogDispatch({ type: 'micropost' })} />
+              <PostButton handleClick={() => dialogDispatch({ type: 'tweet' })} />
               <RecordButton handleClick={() => dialogDispatch({ type: 'record' })} />
               <NotificationButton
                 checkClese={checkClese}
@@ -119,7 +118,7 @@ export const Header = ({
 
       <TweetDialog
         handleClose={handleClose}
-        open={dialogState.micropost}
+        open={dialogState.tweet}
       />
       <RecordDialog
         handleClose={handleClose}

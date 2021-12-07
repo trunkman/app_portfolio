@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useContext, useReducer } from 'react';
 // Style
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -12,15 +12,14 @@ import { postReducer, postInitialState } from '../../reducer/PostReducer'
 // Component
 import { Loading } from "../../components/Loading"
 
-
 export const MicropostDialog = ({
-  open,
   handleClose,
   micropost,
+  open,
+  user,
 }) => {
-
+  const { authState } = useContext(AuthContext);
   const [postState, postDispatch] = useReducer(postReducer, postInitialState);
-
   // 投稿内容&そのコメントを取得する
   const Micropost = () => {
     postDispatch({ type: 'fetching' })
@@ -33,13 +32,13 @@ export const MicropostDialog = ({
             comments: data.comments,
             likeStatus: data.likeStatus,
           }
-        })
-      })
+        });
+      });
   }
 
   useEffect(() => {
     Micropost()
-  }, [open])
+  }, [open]);
 
   return (
     <Dialog
@@ -50,8 +49,9 @@ export const MicropostDialog = ({
         <Micropost
           commentCount={postState.comments.length}
           likeStatus={postState.likeStatus}
-          loginUserId={loginUser.id}
+          loginUserId={authState.loginUser.id}
           micropost={postState.micropost}
+          user={user}
         />
       </DialogTitle>
       <DialogContent>
@@ -61,7 +61,7 @@ export const MicropostDialog = ({
             postState.comments.map(comment =>
               <Comment
                 comment={comment.comment}
-                loginUser={loginUser}
+                loginUser={authState.loginUser}
                 userName={comment.user.name}
               />
             )

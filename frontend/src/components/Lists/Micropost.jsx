@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
+import { AuthContext } from '../App';
 // Style
 import Box from '@mui/material/Box';
 import Typography from "@mui/material/Typography";
@@ -11,11 +12,12 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 // Api
 import { deleteMicropost } from "../../apis/microposts";
+// Reducer
+import { dialogReducer, dialogInitialState } from '../../reducer/DialogReducer'
 // Component
 import { LikeButton } from "../Buttons/LikeButton";
 import { CommentButton } from "../Buttons/CommentButton"
 import { DeleteDialog } from "../Dialogs/DeleteDialog";
-
 
 
 export const Micropost = ({
@@ -23,9 +25,12 @@ export const Micropost = ({
   likeStatus,
   loginUser,
   micropost,
-  userName,
+  user,
 }) => {
   const history = useHistory();
+  // ダイアログを開閉する関数群
+  const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState);
+  const handleClose = () => dialogDispatch({ type: 'close' });
   // 削除確認ダイアログの開閉
   const [open, setOpen] = useState({
     isOpen: false,
@@ -52,21 +57,19 @@ export const Micropost = ({
         <ListItemAvatar>
           <AccountCircle sx={{ fontSize: 35 }} />
         </ListItemAvatar>
-
-        <Box sx={{
-          py: 3,
-          pl: 3,
-          flexGrow: 1,
-        }}>
+        <Box
+          onClick={() => dialogDispatch({ type: 'micropost' })}
+          sx={{ py: 3, pl: 3, flexGrow: 1 }}
+        >
           <Typography>
-            【 {userName} さん 】 {micropost.created_at.substr(0, 19).replace('T', ' ')}
+            【 {user.name} さん 】 {micropost.created_at.substr(0, 19).replace('T', ' ')}
           </Typography>
           <Typography variant="h6" sx={{ pl: 1 }}>
             <Box sx={{ letterSpacing: 2, mt: 2 }}>{micropost.content}</Box>
           </Typography>
         </Box>
         {loginUser.id === micropost.user_id && (
-          <IconButton onClick={() => setOpen({ isOpen: true, micropostId: micropost.id })}>
+          <IconButton onClick={() => dialogDispatch({ type: 'delete' })}>
             <DeleteOutlinedIcon />
           </IconButton>
         )}
@@ -76,16 +79,23 @@ export const Micropost = ({
           Status={likeStatus}
         />
         <CommentButton
+          commentCount={commentCount}
           loginUserId={loginUser.id}
           micropostId={micropost.id}
-          commentCount={commentCount}
         />
       </ListItem >
+
+      <MicropostDialog
+        handleClose={handleClose}
+        micropost={micropost}
+        open={dialogState.micropost}
+        userName={userName}
+      />
       <DeleteDialog
         handleClose={handleClose}
         handleDelete={deleteSubmit}
         message={'投稿を削除'}
-        open={open.isOpen}
+        open={dialogState.delete}
       />
     </>
   )

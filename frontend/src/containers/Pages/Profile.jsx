@@ -151,7 +151,7 @@ export const Profile = ({
                       likeStatus={micropost.likeStatus}
                       loginUser={authState.loginUser}
                       micropost={micropost.liked_micropost}
-                      userName={micropost.user.name}
+                      user={micropost.user}
                     />
                   )
               }
