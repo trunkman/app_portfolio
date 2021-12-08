@@ -60,3 +60,7 @@ export const sleepingHours = `${DEFAULT_API_LOCALHOST}/rankings/sleeping_hours`;
 export const reading = `${DEFAULT_API_LOCALHOST}/rankings/reading`;
 export const readBooks = `${DEFAULT_API_LOCALHOST}/rankings/read_books`;
 export const stackBooks = `${DEFAULT_API_LOCALHOST}/rankings/stack_books`;
+// ImagesController
+export const presigedObject = `${DEFAULT_API_LOCALHOST}/images/presiged_object`;
+export const avatar = `${DEFAULT_API_LOCALHOST}/images/avatar`;
+export const micropost = `${DEFAULT_API_LOCALHOST}/images/micropost`;
