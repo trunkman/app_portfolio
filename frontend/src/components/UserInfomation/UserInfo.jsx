@@ -11,6 +11,7 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 // Component
 import { SettingDialog } from "../Dialogs/SettingDialog";
 import { FollowButton } from "../Buttons/FollowButton";
+import { ImageButton } from "../Buttons/ImageButton";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -91,14 +92,17 @@ export const UserInfo = ({
           </Box>
           <Box sx={{ mt: 2 }}>
             {
-              (loginUser.id === profileState.user.id) ? (
-                <Button
-                  component='div'
-                  className={classes.button}
-                  onClick={() => { setOpen(true) }}
-                >
-                  プロフィール編集
-                </Button>
+              loginUser.id === profileState.user.id ? (
+                <>
+                  <Button
+                    component='div'
+                    className={classes.button}
+                    onClick={() => { setOpen(true) }}
+                  >
+                    プロフィール編集
+                  </Button>
+                  <ImageButton />
+                </>
               ) : (
                 <FollowButton
                   userId={profileState.user.id}

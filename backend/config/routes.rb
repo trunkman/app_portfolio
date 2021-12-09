@@ -41,7 +41,7 @@ Rails.application.routes.draw do
       get       '/rankings/reading', to: 'rankings#reading'
       get       '/rankings/read_books', to: 'rankings#read_books'
       get       '/rankings/stack_books', to: 'rankings#stack_books'
-      get       '/images/presiged_object', to: 'images#presiged_object'
+      get       '/images/presigned_object/:id', to: 'images#presigned_object'
       post      '/images/avatar', to: 'images#avatar'
       post      '/images/micropost', to: 'images#micropost'
     end

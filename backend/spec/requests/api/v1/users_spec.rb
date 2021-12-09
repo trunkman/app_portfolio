@@ -220,9 +220,9 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     user.messages.create(room_id: room.id, content: content)
     message = other_user.messages.create(room_id: room.id, content: content)
     other_user.active_notifications.create(visited_id: user.id,
-                                            message_id: message.id,
-                                            action: 'message',
-                                            checked: false )
+                                           message_id: message.id,
+                                           action: 'message',
+                                           checked: false)
     log_in_as(user)
     get rooms_api_v1_user_path(user)
     expect(json['entries'].length).to eq(1)

@@ -1,9 +1,9 @@
 import axios from "axios";
-import { presigedObject, avatar, micropost } from "../urls";
+import { presignedObject, avatar, micropost } from "../urls";
 
 // 署名URLを取得するするapi
 export const fetchPresigned = (fileName) => {
-  return axios.get(presigedObject(fileName), { withCredentials: true })
+  return axios.get(presignedObject(fileName), { withCredentials: true })
     .then(res => {
       console.log('images#presigned_object', res);
       return res.data;
@@ -15,6 +15,7 @@ export const fetchPresigned = (fileName) => {
 
 // S3にアップロードするapi
 export const postS3 = (params) => {
+  console.log(params)
   return axios.post(params.presignedObjectUrl,
     params.formData,
     { headers: { 'accept': 'multipart/form-data' } },
