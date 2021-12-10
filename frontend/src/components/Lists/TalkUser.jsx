@@ -57,9 +57,9 @@ export const TalkUser = ({
                 <Typography variant="h5" sx={{ letterSpacing: 2 }}>
                   {entry.other_user.name} さん
                 </Typography>
-                {entry.latast_message &&
+                {entry.message_content &&
                   <Typography variant="h6" >
-                    <Box sx={{ letterSpacing: 2, mt: 2 }}>{entry.latast_message.content}</Box>
+                    <Box sx={{ letterSpacing: 2, mt: 2 }}>{entry.message_content}</Box>
                   </Typography>
                 }
               </ListItemText>

@@ -174,13 +174,16 @@ module Api
             @message = Message.order(created_at: :desc).find_by(room_id: entry.room_id)
             # 未読メッセージがあるか確認
             check_message = current_user.passive_notifications.where(action: 'message', checked: false)
-            @entries << { room_id: entry.room_id,
+            @entries << { check_message: !check_message.blank?,
+                          message_content: @message.content,
+                          message_created_at: @message.created_at,
                           other_user: @other_user,
-                          latast_message: @message,
-                          check_message: !check_message.blank? }
+                          room_id: entry.room_id }
           end
         end
-        render json: { entries: @entries }, status: :ok
+        @entries.sort_by!{ |array| array[:message_created_at] }.reverse!
+        render json: { entries: @entries },
+               status: :ok
       end
 
       # ユーザーの登録本を読了/積読を分類して返す
