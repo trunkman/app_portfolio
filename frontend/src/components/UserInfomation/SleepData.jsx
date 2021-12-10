@@ -23,7 +23,13 @@ const colorSleepingTime = '#00aced'
 const XAxisTick = ({ x, y, payload }) => {
   return (
     <g transform={`translate(${x},${y})`}>
-      <text x={0} y={0} dy={16} textAnchor="end" fill="#fff" transform="rotate(-45)" viewBox="0 0 1024 1024">
+      <text x={0} y={0} dy={16}
+        textAnchor="end"
+        fill="#fff"
+        transform="rotate(-45)"
+        viewBox="0 0 1024 1024"
+        fontSize={12}
+      >
         {payload.value}
       </text>
     </g>
@@ -36,7 +42,7 @@ const useStyles = makeStyles(() =>
       background: '#001e3c',
       borderBottom: 1,
       borderColor: 'divider',
-      marginBottom: 3
+      marginBottom: 3,
     }
   }),
 );
@@ -46,7 +52,7 @@ export const SleepData = ({
 }) => {
   const classes = useStyles();
   // 表示データ範囲を選択
-  const initialState = diaries.slice(-7, -1);
+  const initialState = diaries.slice(-7);
   const [dataGraph, setDataGraph] = useState(initialState);
   const [tab, setTab] = useState('week');
   const handleChange = (event, newValue) => {
@@ -60,7 +66,6 @@ export const SleepData = ({
       <Typography variant="h5">
         <Box sx={{
           letterSpacing: 6,
-
           color: '#42a5f5',
         }}>
           <b>睡眠時間の推移</b>
@@ -68,9 +73,21 @@ export const SleepData = ({
       </Typography>
       <TabContext value={tab}>
         <Box className={classes.tabBox}>
-          <TabList value={tab} onChange={handleChange} >
-            <Tab label="週間" value="week" />
-            <Tab label="全て" value="all" />
+          <TabList
+            value={tab}
+            onChange={handleChange}
+            variant="fullWidth"
+          >
+            <Tab
+              label="週間"
+              value="week"
+              sx={{ typography: 'subtitle1' }}
+            />
+            <Tab
+              label="ALL"
+              value="all"
+              sx={{ typography: 'subtitle1' }}
+            />
           </TabList>
         </Box>
       </TabContext>
@@ -90,10 +107,10 @@ export const SleepData = ({
           label={{
             value: "sleeping hours",
             angle: -90,
-            fill: colorSleepingTime,
+            fill: '#fff',
             position: 'insideLeft',
           }}
-          tick={{ stroke: colorSleepingTime }}
+          tick={{ stroke: '#fff', fontSize: 12 }}
           tickCount={6}
           yAxisId={1}
         />
