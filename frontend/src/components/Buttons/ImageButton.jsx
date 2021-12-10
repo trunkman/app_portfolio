@@ -24,21 +24,21 @@ export const ImageButton = (props) => {
 
   async function handleChange(e) {
     const file = e.target.files[0];
-    const resData = fetchPresigned(file.name)
-    const data = await resData
     // 対象の書名付きURLを取得する
+    const presignedObject = await fetchPresigned(file.name)
     // S3にPOSTする form に持たせるデータを生成する
     const formData = new FormData();
-    for (let key in data.fields) {
-      formData.append(key, data.fields[key]);
+    for (let key in presignedObject.fields) {
+      formData.append(key, presignedObject.fields[key]);
     }
     formData.append('file', file)
     // S3に画像をアップロード
-    const ret = await postS3({
-      presignedObjectUrl: data.url,
+    const s3Data = await postS3({
+      presignedObjectUrl: presignedObject.url,
       formData: formData,
+      fileType: file.type
     })
-    const matchedObject = await ret.match(/<Location>(.*?)<\/Location>/);
+    const matchedObject = await s3Data.match(/<Location>(.*?)<\/Location>/);
     const s3Url = await unescape(matchedObject[1]);
     // DBに画像URLを登録
     console.log(s3Url)
