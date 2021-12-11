@@ -64,7 +64,7 @@ export const Layout = () => {
   }
 
   useEffect(() => {
-    Notifications();
+    authState.loggedIn && Notifications();
   }, [])
 
   return (

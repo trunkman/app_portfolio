@@ -44,70 +44,69 @@ export const Home = () => {
           })
         );
       });
+  }
+  // ログイン時のみ実行
+  useEffect(() => {
+    authState.loggedIn && SleepDebt();
+  }, [])
 
-    // ログイン時のみ実行
-    useEffect(() => {
-      authState.loggedIn && SleepDebt();
-    }, [])
 
-
-    return (
-      <>
-        <Grid container sx={{
-          maxWidth: 1000,
-          alignItems: 'center',
-        }}>
-          {!authState.loggedIn &&
-            <Grid item xs={12} sm={6} sx={{
-              flexDirection: 'column',
-              justifyContent: 'center',
-            }}>
-              <LoginSignup
-                handleOpenLogin={() => dialogDispatch({ type: 'login' })}
-                handleOpenSignup={() => dialogDispatch({ type: 'signup' })}
-              />
-            </Grid>
-          }
-          {authState.loggedIn &&
-            <Grid item xs={12} sm={6} sx={{
-              alignItems: "center",
-              justifyContent: 'center',
-            }}>
-              <SleepInfo
-                userName={authState.loginUser.name}
-                sleepDebt={sleepDebtState.sleepDebt}
-                sleepSaving={sleepDebtState.sleepSaving}
-              />
-            </Grid>
-          }
+  return (
+    <>
+      <Grid container sx={{
+        maxWidth: 1000,
+        alignItems: 'center',
+      }}>
+        {!authState.loggedIn &&
+          <Grid item xs={12} sm={6} sx={{
+            flexDirection: 'column',
+            justifyContent: 'center',
+          }}>
+            <LoginSignup
+              handleOpenLogin={() => dialogDispatch({ type: 'login' })}
+              handleOpenSignup={() => dialogDispatch({ type: 'signup' })}
+            />
+          </Grid>
+        }
+        {authState.loggedIn &&
           <Grid item xs={12} sm={6} sx={{
             alignItems: "center",
             justifyContent: 'center',
           }}>
-            <Box>
-              <img src={MainImage}
-                alt="main iamge"
-                style={{ width: 600 }}
-              />
-            </Box>
+            <SleepInfo
+              userName={authState.loginUser.name}
+              sleepDebt={sleepDebtState.sleepDebt}
+              sleepSaving={sleepDebtState.sleepSaving}
+            />
           </Grid>
+        }
+        <Grid item xs={12} sm={6} sx={{
+          alignItems: "center",
+          justifyContent: 'center',
+        }}>
+          <Box>
+            <img src={MainImage}
+              alt="main iamge"
+              style={{ width: 600 }}
+            />
+          </Box>
         </Grid>
+      </Grid>
 
-        <SignUpDialog
-          handleClose={() => dialogDispatch({ type: 'close' })}
-          open={dialogState.signup}
-        />
-        <LogInDialog
-          handleClose={() => dialogDispatch({ type: 'close' })}
-          handlePasswordReset={() => dialogDispatch({ type: 'passwordReset' })}
-          open={dialogState.login}
-        />
-        <PasswordResetDialog
-          handleClose={() => dialogDispatch({ type: 'close' })}
-          open={dialogState.passwordReset}
-        />
-        <SnackBar handleClose={() => authDispatch({ type: 'closeSnackbar' })} />
-      </>
-    )
-  }
+      <SignUpDialog
+        handleClose={() => dialogDispatch({ type: 'close' })}
+        open={dialogState.signup}
+      />
+      <LogInDialog
+        handleClose={() => dialogDispatch({ type: 'close' })}
+        handlePasswordReset={() => dialogDispatch({ type: 'passwordReset' })}
+        open={dialogState.login}
+      />
+      <PasswordResetDialog
+        handleClose={() => dialogDispatch({ type: 'close' })}
+        open={dialogState.passwordReset}
+      />
+      <SnackBar handleClose={() => authDispatch({ type: 'closeSnackbar' })} />
+    </>
+  );
 }
