@@ -25,6 +25,12 @@ const useStyles = makeStyles(() =>
       textAlign: 'center',
       width: '100%',
     },
+    'title': {
+      backgroundColor: '#001e3c',
+      top: 90,
+      position: 'fixed',
+      width: 600,
+    },
     'messages': {
       display: 'flex',
       flexDirection: 'column-reverse',
@@ -57,11 +63,13 @@ export const MessageRoom = ({
       });
   }
 
-  useEffect(() => Messages(), [messageState.reRender])
+  useEffect(() => {
+    Messages();
+  }, [messageState.reRender])
 
   return (
     <Box className={classes.root}>
-      <Typography variant="h4">
+      <Typography variant="h4" className={classes.title}>
         <Box sx={{ letterSpacing: 10, pb: 2 }}><b>{messageState.user.name}</b></Box>
       </Typography>
 
