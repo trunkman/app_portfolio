@@ -15,7 +15,7 @@ const useStyles = makeStyles(() =>
       color: 'white',
       height: 30,
       padding: '15px 20px',
-      marginLeft: 10,
+      marginLeft: 20,
     }
   }),
 );
@@ -37,7 +37,7 @@ export const RoomButton = ({ userId }) => {
       onClick={handleSubmit}
       variant="contained"
     >
-      メッセージを送る
+      <b>メッセージを送る</b>
     </Button>
   )
 }

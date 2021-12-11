@@ -7,11 +7,16 @@ module Api
 
       # ユーザーが受けた通知をすべて返す
       def index
-        @notifications = current_user.passive_notifications
+        @notifications = current_user.passive_notifications.where.not(visitor_id: current_user.id)
         @notifications.where(checked: false).where.not(action: 'message').each do |notification|
           notification.update_attribute(:checked, true)
         end
-        render json: { notifications: @notifications },
+        modify_notifications =[]
+        @notifications.each do |notification|
+          @user = User.find(notification.visitor_id)
+          modify_notifications << {notification: notification, visitor_user: @user }
+        end
+          render json: { notifications: modify_notifications },
                status: :ok
       end
 

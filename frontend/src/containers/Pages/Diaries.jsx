@@ -34,12 +34,12 @@ const useStyles = makeStyles(() =>
       width: '100%',
     },
     'button': {
-      backgroundColor: '#42a5f5',
+      background: '#42a5f5',
       border: 0,
       borderRadius: 3,
       color: 'white',
       height: 30,
-      padding: '20px 30px',
+      padding: '15px 20px',
     }
   }),
 );
@@ -95,12 +95,11 @@ export const Diaries = ({ userId }) => {
 
   return (
     <Box className={classes.root}>
-      <Typography variant="h3">
-        <Box sx={{ letterSpacing: 10, pb: 5 }}><b> ~ {recordState.user.name}の睡眠日記 ~ </b></Box>
-      </Typography>
-
       {recordState.fetchState !== 'ok' ? <Loading /> :
         <>
+          <Typography variant="h3">
+            <Box sx={{ letterSpacing: 10, pb: 5 }}><b> ~ {recordState.user.name}の睡眠日記 ~ </b></Box>
+          </Typography>
           <Grid container>
             <Grid item xs={12} sm={6} sx={{
               alignItems: "center",
@@ -114,7 +113,6 @@ export const Diaries = ({ userId }) => {
               <Box sx={{ pt: 2 }}>
                 {authState.loggedIn &&
                   <Button
-
                     className={classes.button}
                     onClick={() => dialogDispatch({ type: 'record' })}
                   >
