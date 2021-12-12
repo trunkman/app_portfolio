@@ -27,13 +27,13 @@ export const MicropostDialog = ({
       onClose={() => handleClose()}
     >
       <DialogTitle>
-        <h2>投稿</h2>
         <ListItem
           key={micropost.id.toString()}
           sx={{
             alignItems: "center",
-            borderTop: 0.2,
+            // borderTop: 0.2,
             display: 'flex',
+            mt: 2,
           }}>
           <ListItemAvatar>
             <AccountCircle sx={{ fontSize: 45 }} />

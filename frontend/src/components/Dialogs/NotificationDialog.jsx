@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useReducer } from 'react';
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../App";
-// styles
+// Style
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import { createStyles, makeStyles } from "@material-ui/core/styles";
@@ -18,6 +18,11 @@ import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import { fetchNotifications, deleteNotifications } from '../../apis/notifications';
 // Reducer
 import { notificationReducer, notificationInitialState } from '../../reducer/NotificationReducer'
+// Component
+import { NotificationComment } from '../Items/NotificationComment';
+import { NotificationEntry } from '../Items/NotificationEntry';
+import { NotificationFollow } from '../Items/NotificationFollow';
+import { NotificationLike } from '../Items/NotificationLike';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -43,7 +48,6 @@ export const NotificationDialog = ({
   const classes = useStyles();
   const { authState } = useContext(AuthContext);
   const [notificationState, notificationDispatch] = useReducer(notificationReducer, notificationInitialState);
-
   // 通知一覧を取得する
   const notifications = () => {
     fetchNotifications()
@@ -92,67 +96,35 @@ export const NotificationDialog = ({
             {notificationState.notifications.length === 0 ? <p>通知はありません</p> :
               <>
                 <List>
-                  {notificationState.notifications.map(notification =>
+                  {notificationState.notifications.map(element =>
                     <>
-                      {
-                        notification.notification.action === 'like' &&
-                        <ListItem
-                          key={notification.notification.id.toString()}
-                        >
-                          <Link
-                            to={`/users/${notification.visitor_user.id}`}
-                            onClick={() => handleClose()}
-                          >
-                            {notification.visitor_user.name}
-                          </Link>
-                          さんが{authState.loginUser.name}さんの
-                          {notification.notification.micropost_id}にいいねしました。
-                        </ListItem>
+                      {element.notification.action === 'like' &&
+                        <NotificationLike
+                          handleClose={handleClose}
+                          notification={element.notification}
+                          visitor_user={element.visitor_user}
+                        />
                       }
-                      {
-                        notification.notification.action === 'comment' &&
-                        <ListItem
-                          key={notification.notification.id.toString()}
-                        >
-                          <Link
-                            to={`/users/${notification.visitor_user.id}`}
-                            onClick={() => handleClose()}
-                          >
-                            {notification.visitor_user.name}
-                          </Link>
-                          さんが{authState.loginUser.name}さんの
-                          {notification.notification.comment_id}にコメントしました。
-
-                        </ListItem>
+                      {element.notification.action === 'comment' &&
+                        <NotificationComment
+                          handleClose={handleClose}
+                          notification={element.notification}
+                          visitor_user={element.visitor_user}
+                        />
                       }
-                      {
-                        notification.notification.action === 'follow' &&
-                        <ListItem
-                          key={notification.notification.id.toString()}
-                        >
-                          <Link
-                            to={`/users/${notification.visitor_user.id}`}
-                            onClick={() => handleClose()}
-                          >
-                            {notification.visitor_user.name}
-                          </Link>
-                          さんが{authState.loginUser.name}さんをフォローしました。
-                        </ListItem>
+                      {element.notification.action === 'follow' &&
+                        <NotificationFollow
+                          handleClose={handleClose}
+                          notification={element.notification}
+                          visitor_user={element.visitor_user}
+                        />
                       }
-                      {
-                        notification.notification.action === 'entry' &&
-                        <ListItem
-                          key={notification.notification.id.toString()}
-                        >
-                          <Link
-                            to={`/users/${notification.visitor_user.id}`}
-                            onClick={() => handleClose()}
-                          >
-                            {notification.visitor_user.name}
-                          </Link>
-                          さんが{authState.loginUser.name}さん
-                          {notification.notification.entry_id}とのトークルームを作りました。
-                        </ListItem>
+                      {element.notification.action === 'entry' &&
+                        <NotificationEntry
+                          handleClose={handleClose}
+                          notification={element.notification}
+                          visitor_user={element.visitor_user}
+                        />
                       }
                     </>
                   )}
