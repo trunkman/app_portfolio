@@ -27,9 +27,11 @@ const useStyles = makeStyles(() =>
     },
     'title': {
       backgroundColor: '#001e3c',
-      top: 90,
+      top: 0,
+      paddingTop: 80,
       position: 'fixed',
       width: 600,
+      zIndex: 1,
     },
     'messages': {
       display: 'flex',
@@ -70,7 +72,9 @@ export const MessageRoom = ({
   return (
     <Box className={classes.root}>
       <Typography variant="h4" className={classes.title}>
-        <Box sx={{ letterSpacing: 10, pb: 2 }}><b>{messageState.user.name}</b></Box>
+        <Box sx={{ letterSpacing: 10, pb: 2 }}>
+          <b>{messageState.user.name}</b>
+        </Box>
       </Typography>
 
       {messageState.fetchState !== 'ok' ? <Loading /> :

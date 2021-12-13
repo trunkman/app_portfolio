@@ -13,7 +13,8 @@ import { postMessage } from "../../apis/messages";
 const useStyles = makeStyles(() =>
   createStyles({
     "root": {
-      bottom: 15,
+      backgroundColor: "#001e3c",
+      bottom: 0,
       padding: '10px',
       position: 'fixed',
       textAlign: 'center',
