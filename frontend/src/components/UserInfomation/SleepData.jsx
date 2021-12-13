@@ -17,10 +17,20 @@ import {
   Legend,
 } from "recharts";
 
+const useStyles = makeStyles(() =>
+  createStyles({
+    tabBox: {
+      background: '#001e3c',
+      borderBottom: 1,
+      borderColor: 'divider',
+      marginBottom: 3,
+    }
+  }),
+);
+
 // Color
 const colorSleepingTime = '#00aced'
-// Tickのカスタマイズ
-const XAxisTick = ({ x, y, payload }) => {
+const CustomXAxisTick = ({ x, y, payload }) => {
   return (
     <g transform={`translate(${x},${y})`}>
       <text x={0} y={0} dy={16}
@@ -35,17 +45,17 @@ const XAxisTick = ({ x, y, payload }) => {
     </g>
   );
 }
-
-const useStyles = makeStyles(() =>
-  createStyles({
-    tabBox: {
-      background: '#001e3c',
-      borderBottom: 1,
-      borderColor: 'divider',
-      marginBottom: 3,
-    }
-  }),
-);
+const CustomTooltip = ({ payload, label }) => {
+  if (payload && payload.length) {
+    return (
+      <div className="custom-tooltip">
+        <p>日付：{`${label}`}</p>
+        <p>睡眠時間：{`${payload[0].value}`}時間</p>
+      </div>
+    );
+  }
+  return null;
+};
 
 export const SleepData = ({
   diaries,
@@ -99,7 +109,7 @@ export const SleepData = ({
         <XAxis
           dataKey="startStr"
           padding={{ left: 10, right: 10 }}
-          tick={<XAxisTick />}
+          tick={<CustomXAxisTick />}
           hight={60}
         />
         <YAxis
@@ -114,7 +124,7 @@ export const SleepData = ({
           tickCount={6}
           yAxisId={1}
         />
-        <Tooltip />
+        <Tooltip content={<CustomTooltip />} />
         <Legend
           height={30}
           iconSize={0}
