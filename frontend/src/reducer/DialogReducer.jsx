@@ -21,7 +21,7 @@ export const dialogReducer = (openState, action) => {
       return { ...openState, login: false, passwordReset: true }
     // マイクロポストを表示するダイアログを開く
     case 'micropost':
-      return { ...openState, micropost: true }
+      return { ...openState, micropost: true, notification: false }
     // マイクロポストを投稿するダイアログを開く
     case 'tweet':
       return { ...openState, tweet: true }

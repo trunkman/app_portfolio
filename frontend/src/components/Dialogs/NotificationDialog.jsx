@@ -1,6 +1,4 @@
-import React, { useContext, useEffect, useReducer } from 'react';
-import { Link } from "react-router-dom";
-import { AuthContext } from "../../App";
+import React, { useEffect, useReducer } from 'react';
 // Style
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
@@ -11,7 +9,6 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
 // Icon
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 // Api
@@ -42,11 +39,11 @@ const useStyles = makeStyles(() =>
 );
 
 export const NotificationDialog = ({
+  fetchDetailMicropost,
   handleClose,
   open,
 }) => {
   const classes = useStyles();
-  const { authState } = useContext(AuthContext);
   const [notificationState, notificationDispatch] = useReducer(notificationReducer, notificationInitialState);
   // 通知一覧を取得する
   const notifications = () => {
@@ -100,6 +97,7 @@ export const NotificationDialog = ({
                     <>
                       {element.notification.action === 'like' &&
                         <NotificationLike
+                          handleClick={fetchDetailMicropost}
                           handleClose={handleClose}
                           notification={element.notification}
                           visitor_user={element.visitor_user}
@@ -107,6 +105,7 @@ export const NotificationDialog = ({
                       }
                       {element.notification.action === 'comment' &&
                         <NotificationComment
+                          handleClick={fetchDetailMicropost}
                           handleClose={handleClose}
                           notification={element.notification}
                           visitor_user={element.visitor_user}

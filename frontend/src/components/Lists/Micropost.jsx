@@ -31,9 +31,9 @@ export const Micropost = ({
   const { authState } = useContext(AuthContext);
   const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState);
   const [postState, postDispatch] = useReducer(postReducer, postInitialState);
-  const handleClose = () => dialogDispatch({ type: 'close' });
+  const dialogClose = () => dialogDispatch({ type: 'close' });
   // 投稿詳細(コメント付き)を取得する
-  const Micropost = () => {
+  const fetchDetailMicropost = () => {
     postDispatch({ type: 'fetching' })
     fetchMicropost(micropost.id)
       .then(data => {
@@ -46,18 +46,14 @@ export const Micropost = ({
             likeStatus: data.likeStatus,
           }
         });
+        dialogDispatch({ type: 'micropost' });
       });
   }
   // 投稿を削除する
   const deleteSubmit = () => {
     deleteMicropost(micropost.id)
-    handleClose()
+    dialogClose()
     history.push(`/users/${authState.loginUser.id}`)
-  }
-  // クリック時、投稿詳細を表示する
-  const handleClick = () => {
-    Micropost();
-    dialogDispatch({ type: 'micropost' });
   }
 
   return (
@@ -74,7 +70,7 @@ export const Micropost = ({
           <AccountCircle sx={{ fontSize: 35 }} />
         </ListItemAvatar>
         <Box
-          onClick={handleClick}
+          onClick={fetchDetailMicropost}
           sx={{ py: 2, flexGrow: 1 }}
         >
           <Typography>
@@ -103,14 +99,14 @@ export const Micropost = ({
 
       <MicropostDialog
         comments={postState.comments}
-        handleClose={handleClose}
+        handleClose={dialogClose}
         loginUser={authState.loginUser}
         micropost={micropost}
         open={dialogState.micropost}
         user={user}
       />
       <DeleteDialog
-        handleClose={handleClose}
+        handleClose={dialogClose}
         handleDelete={deleteSubmit}
         message={'投稿を削除'}
         open={dialogState.delete}

@@ -13,13 +13,16 @@ import MenuIcon from '@mui/icons-material/Menu';
 // Api
 import { deleteLogout } from "../../apis/sessions"
 import { deleteUser } from "../../apis/users"
+import { fetchMicropost } from "../../apis/microposts";
 // Reducer
 import { dialogReducer, dialogInitialState } from '../../reducer/DialogReducer'
+import { postReducer, postInitialState } from '../../reducer/PostReducer'
 // Component
 import { AccountButton } from '../../components/Buttons/AccountButton'
 import { LogoLink } from '../../components/Links/LogoLink';
 import { NotificationButton } from '../../components/Buttons/NotificationButton';
-import { NotificationDialog } from "../../components/Dialogs/NotificationDialog"
+import { NotificationDialog } from "../../components/Dialogs/NotificationDialog";
+import { MicropostDialog } from "../../components/Dialogs/MicropostDialog";
 import { PostButton } from '../../components/Buttons/PostButton';
 import { RecordButton } from '../../components/Buttons/RecordButton';
 import { RecordDialog } from "../../components/Dialogs/RecordDialog"
@@ -35,10 +38,10 @@ export const Header = ({
 }) => {
   const history = useHistory()
   const { authState, authDispatch } = useContext(AuthContext);
-  // ダイアログを開閉する関数群
   const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState);
-  const handleClose = () => dialogDispatch({ type: 'close' });
-  // ログアウトする
+  const [postState, postDispatch] = useReducer(postReducer, postInitialState);
+  const dialogClose = () => dialogDispatch({ type: 'close' });
+  // ログアウトする関数
   const submitLogout = () => {
     deleteLogout()
       .then(() => {
@@ -46,7 +49,7 @@ export const Header = ({
         history.push(`/`);
       });
   };
-  // アカウント削除を行う
+  // アカウント削除を行う関数
   const submitDelete = () => {
     deleteUser(authState.loginUser.id)
       .then(() => {
@@ -54,6 +57,23 @@ export const Header = ({
         history.push(`/`);
       });
   };
+  // 投稿詳細(コメント付き)を取得する関数
+  const fetchDetailMicropost = (micropostId) => {
+    postDispatch({ type: 'fetching' })
+    fetchMicropost(micropostId)
+      .then(data => {
+        postDispatch({
+          type: 'fetchSuccess',
+          payload: {
+            micropost: data.micropost,
+            user: data.user,
+            comments: data.comments,
+            likeStatus: data.likeStatus,
+          }
+        });
+        dialogDispatch({ type: 'micropost' });
+      });
+  }
   // AppBarのstyle
   const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
@@ -117,18 +137,26 @@ export const Header = ({
       </AppBar>
 
       <TweetDialog
-        handleClose={handleClose}
+        handleClose={dialogClose}
         open={dialogState.tweet}
       />
       <RecordDialog
-        handleClose={handleClose}
+        handleClose={dialogClose}
         open={dialogState.record}
       />
       <NotificationDialog
-        handleClose={handleClose}
+        handleClose={dialogClose}
         open={dialogState.notification}
+        fetchDetailMicropost={fetchDetailMicropost}
       />
-
+      <MicropostDialog
+        comments={postState.comments}
+        handleClose={dialogClose}
+        loginUser={authState.loginUser}
+        micropost={postState.micropost}
+        open={dialogState.micropost}
+        user={postState.user}
+      />
       <SnackBar handleClose={() => authDispatch({ type: 'closeSnackbar' })} />
     </>
   )

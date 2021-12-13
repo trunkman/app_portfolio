@@ -5,8 +5,8 @@ import ListItem from "@material-ui/core/ListItem";
 
 
 export const NotificationComment = ({
-  handleClose,
   handleClick,
+  handleClose,
   notification,
   visitor_user,
 }) => {
@@ -27,7 +27,7 @@ export const NotificationComment = ({
           <Link
             color='inherit'
             to='#'
-            // onClick={() => handleClick(notification.micropost_id)}
+            onClick={() => handleClick(notification.micropost_id)}
             underline='hover'
           >
             投稿
