@@ -1,0 +1,8 @@
+# dbフォルダ
+db/*sqlite3
+# temフォルダ
+temp/cache/
+temp/miniprofiler/
+temp/pids/
+# logフォルダ
+log/*

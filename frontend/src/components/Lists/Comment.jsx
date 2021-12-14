@@ -81,7 +81,7 @@ export const Comment = ({
             <Box sx={{ letterSpacing: 2, my: 2 }}>{comment.content}</Box>
           </Typography>
         </Box>
-        {authState.loginUserId === comment.user_id && (
+        {authState.loginUser.id === comment.user_id && (
           <IconButton onClick={() => dialogDispatch({ type: 'delete' })}>
             <DeleteOutlinedIcon />
           </IconButton>
