@@ -15,7 +15,7 @@ module Api
         # User情報を付与
         @ranks.each_with_index do |rank, i|
           @user = User.find(rank.user_id)
-          sleeping_hours_rank << { average: rank.average,
+          sleeping_hours_rank << { average: rank.average.round(2),
                                    rank: i + 1,
                                    user: @user }
         end
