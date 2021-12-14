@@ -100,7 +100,6 @@ export const Header = ({
         <Toolbar>
           <IconButton>
             <MenuIcon
-              color="primary"
               onClick={() => handleDrawerOpen()}
               sx={{
                 fontSize: 20,

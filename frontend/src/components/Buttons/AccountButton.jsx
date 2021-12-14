@@ -27,7 +27,6 @@ export const AccountButton = ({
       >
         <AccountCircle />
       </IconButton>
-
       <Menu
         anchorEl={anchorEl}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
@@ -42,9 +41,6 @@ export const AccountButton = ({
         <MenuItem onClick={() => history.push(`/users/${authState.loginUser.id}`)}>
           プロフィール
         </MenuItem>
-        <MenuItem>
-          お問い合わせ
-        </MenuItem>
         <MenuItem onClick={handleLogout}>
           ログアウト
         </MenuItem>
@@ -52,7 +48,6 @@ export const AccountButton = ({
           アカウント削除
         </MenuItem>
       </Menu>
-
       <DeleteDialog
         handleClose={() => setOpen(false)}
         handleDelete={handleDelete}

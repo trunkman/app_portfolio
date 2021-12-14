@@ -14,7 +14,7 @@ import { LogInDialog } from "../../components/Dialogs/LogInDialog";
 import { PasswordResetDialog } from "../../components/Dialogs/PasswordResetDialog";
 import { SleepInfo } from "../../components/UserInfomation/SleepInfo"
 import { SnackBar } from "../../components/Snackbars/Snackbar";
-import { LoginSignup } from "../../components/Informations/LoginSignup";
+import { HomeMessage } from "../../components/Items/HomeMessage";
 // Image
 import MainImage from "../../images/MainImage.png";
 
@@ -50,7 +50,6 @@ export const Home = () => {
     authState.loggedIn && SleepDebt();
   }, [])
 
-
   return (
     <>
       <Grid container sx={{
@@ -62,7 +61,7 @@ export const Home = () => {
             flexDirection: 'column',
             justifyContent: 'center',
           }}>
-            <LoginSignup
+            <HomeMessage
               handleOpenLogin={() => dialogDispatch({ type: 'login' })}
               handleOpenSignup={() => dialogDispatch({ type: 'signup' })}
             />

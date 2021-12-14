@@ -11,7 +11,6 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 
 export const AvatarLink = ({
   loginUser,
-  size,
 }) => {
   return (
     <>

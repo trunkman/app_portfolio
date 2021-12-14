@@ -27,7 +27,6 @@ export const Sidebar = ({
   handleDrawerClose,
 }) => {
   const { authState } = useContext(AuthContext)
-  // drawer開閉時のtheme
   const openedMixin = (theme) => ({
     width: drawerWidth,
     transition: theme.transitions.create('width', {
@@ -42,12 +41,11 @@ export const Sidebar = ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     overflowX: 'hidden',
-    width: `calc(${theme.spacing(6)} - 4px)`,
+    width: 0,
     [theme.breakpoints.up('sm')]: {
       width: `calc(${theme.spacing(9)} - 4px)`,
     },
   });
-  // Drawerのstyle
   const DrawerHeader = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
