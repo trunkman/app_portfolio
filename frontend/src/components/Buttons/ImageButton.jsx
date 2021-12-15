@@ -45,33 +45,6 @@ export const ImageButton = (props) => {
     // postAvatarImage({ avatarUrl: s3Url });
   }
 
-  // const handleChange = e => {
-  //   const file = e.target.files[0];
-  //   // 対象の書名付きURLを取得する
-  //   fetchPresigned(file.name)
-  //     // S3にPOSTする form に持たせるデータを生成する
-  //     .then(data => {
-  //       const formData = new FormData();
-  //       for (let key in data.fields) {
-  //         formData.append(key, data.fields[key]);
-  //       }
-  //       formData.append('file', file)
-  //       // S3に画像をアップロード
-  //       postS3({
-  //         presignedObjectUrl: data.url,
-  //         formData: formData,
-  //       })
-  //         .then(data => {
-  //           const matchedObject = data.match(/<Location>(.*?)<\/Location>/);
-  //           const s3Url = unescape(matchedObject[1]);
-  //           // DBに画像URLを登録
-  //           console.log(s3Url)
-  //           // postAvatarImage({ avatarUrl: s3Url });
-  //         })
-  //     })
-  // }
-
-
   return (
     <>
       <Button
