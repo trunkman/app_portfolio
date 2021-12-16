@@ -1,6 +1,10 @@
-# dbフォルダ
+# ディレクトリ指定
+/.bundle/
 /db/*sqlite3
-# temフォルダ
 /tmp/
-# logフォルダ
 /log/
+
+# ファイル指定
+/.byebug_history
+/.rspec
+/.ruby-version
