@@ -1,6 +1,6 @@
 # dbフォルダ
 /db/*sqlite3
 # temフォルダ
-/temp/
+/tmp/
 # logフォルダ
 /log/

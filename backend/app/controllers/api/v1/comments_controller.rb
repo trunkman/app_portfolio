@@ -9,7 +9,6 @@ module Api
       # コメントを作成する
       def create
         @comment = current_user.comments.build(comment_params)
-        @comment.image.attach(params[:comment][:image])
         if @comment.save
           # 通知を作成
           @micropost = Micropost.find(params[:comment][:micropost_id])
@@ -33,7 +32,7 @@ module Api
 
       # StrongParameter
       def comment_params
-        params.require(:comment).permit(:user_id, :micropost_id, :content, :image)
+        params.require(:comment).permit(:user_id, :micropost_id, :content)
       end
 
       # 正しいユーザーかどうか確認
