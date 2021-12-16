@@ -58,9 +58,9 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "backend_production"
 
   config.action_mailer.perform_caching = false
-
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
+  # Mailerの設定（本番環境のドメイン決定後に設定する）
   host = 'https://polar-eyrie-93729.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
   ActionMailer::Base.smtp_settings = {
