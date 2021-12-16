@@ -9,7 +9,9 @@ production:
   username: root
   password: mysqlpass #後に環境変数で設定する
   host: db
+  socket: /var/lib/mysql/mysql.sock
   port: 3306
+
 
 development:
   <<: *default
