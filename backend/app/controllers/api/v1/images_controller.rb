@@ -9,7 +9,7 @@ module Api
           acl: 'public-read',
           # expires: 60,
           key: "avatar/#{SecureRandom.uuid}/#{params[:id]}",
-          success_action_status: '201',
+          success_action_status: '201'
         )
         render json: { url: presigned_object.url, fields: presigned_object.fields },
                status: :ok

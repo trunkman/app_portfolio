@@ -181,7 +181,7 @@ module Api
                           room_id: entry.room_id }
           end
         end
-        @entries.sort_by!{ |array| array[:message_created_at] }.reverse!
+        @entries.sort_by! { |array| array[:message_created_at] }.reverse!
         render json: { entries: @entries },
                status: :ok
       end
