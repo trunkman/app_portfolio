@@ -3,7 +3,6 @@
 class Micropost < ApplicationRecord
   # 関連付け
   belongs_to :user
-  has_one_attached :image
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :liked_user, through: :likes, source: :user

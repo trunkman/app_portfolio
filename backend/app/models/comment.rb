@@ -4,7 +4,6 @@ class Comment < ApplicationRecord
   # 関連付け
   belongs_to :user
   belongs_to :micropost
-  has_many_attached :image
   has_many :notifications, dependent: :destroy
   # スコープ
   default_scope -> { order(created_at: :desc) }

@@ -131,6 +131,7 @@ module Api
           when 'neutral_face' then color = '#03a9f4'
           when 'dizzy_face' then color = '#007ac1'
           end
+          # Rechartに合わせてハッシュのkeysを設定
           modification_diaries << { color: color,
                                     groupId: diary.sleeping_hours,
                                     id: diary.id,
@@ -169,7 +170,6 @@ module Api
           # トーク相手を検索
           Entry.where(room_id: current_entry.room_id).each do |entry|
             next unless entry.user_id != current_user.id
-
             @other_user = User.find(entry.user_id)
             @message = Message.order(created_at: :desc).find_by(room_id: entry.room_id)
             # 未読メッセージがあるか確認

@@ -173,16 +173,13 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
   # 仕様を決めてからテストを調整する
   it '日記情報を返す' do
     # 日記を作成する
-    user.diaries.create(color: '#fff',
-                        groupId: 10.0,
-                        id: 1,
-                        start: '1999/12/31',
-                        startStr: '1999/12/31',
-                        title: 'satisfied')
+    user.diaries.create(date: '1999/12/31',
+                        feeling: 'satisfied',
+                        sleeping_hours: 10.0 )
     log_in_as(user)
     get diaries_api_v1_user_path(user)
     expect(json['diaries'].length).to eq(1)
-    expect(json['diaries'][0]['satisfied']).to eq('satisfied')
+    expect(json['diaries'][0]['title']).to eq('satisfied')
     expect(response.status).to eq(200)
   end
 
@@ -227,7 +224,7 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     get rooms_api_v1_user_path(user)
     expect(json['entries'].length).to eq(1)
     expect(json['entries'][0]['other_user']['email']).to eq(other_user.email)
-    expect(json['entries'][0]['message']['user_id']).to eq(other_user.id)
+    expect(json['entries'][0]['other_user']['id']).to eq(other_user.id)
     expect(json['entries'][0]['check_message']).to be_truthy
     expect(response.status).to eq(200)
   end
