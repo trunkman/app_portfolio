@@ -91,13 +91,14 @@ export const Mybooks = ({
   }
   // 検索したキーワードに該当本を取得する
   const searchBooks = () => {
-    bookDispatch({ type: 'posting', });
+    bookDispatch({ type: 'posting' });
     fetchSearchBooks({ keyword: keyword })
       .then(data => {
-        bookDispatch({
+        data && bookDispatch({
           type: 'postSuccess',
           payload: data.books,
         });
+        !data && alert('書籍名を入力してください。')
       });
   }
   // おすすめ本を解除する
