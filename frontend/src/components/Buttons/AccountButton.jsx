@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import { useHistory } from "react-router";
 import { AuthContext } from "../../App";
 // Style
+import Box from "@mui/material/Box";
+import { createStyles, makeStyles } from "@material-ui/core/styles";
 import IconButton from '@mui/material/IconButton';
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -10,10 +12,20 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 // Component
 import { DeleteDialog } from "../Dialogs/DeleteDialog";
 
+const useStyles = makeStyles(() =>
+  createStyles({
+    'menuItem': {
+      padding: 10,
+      width: 110,
+    }
+  }),
+);
+
 export const AccountButton = ({
   handleLogout,
   handleDelete,
 }) => {
+  const classes = useStyles();
   const history = useHistory();
   const { authState } = useContext(AuthContext);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -31,21 +43,19 @@ export const AccountButton = ({
         anchorEl={anchorEl}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
         keepMounted
-        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
         open={Boolean(anchorEl)}
         onClose={() => { setAnchorEl(null) }}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button',
-        }}
+        sx={{ width: 150 }}
+        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       >
-        <MenuItem onClick={() => history.push(`/users/${authState.loginUser.id}`)}>
-          プロフィール
+        <MenuItem onClick={() => history.push(`/users/${authState.loginUser.id}`)} >
+          <Box className={classes.menuItem}>プロフィール</Box>
         </MenuItem>
         <MenuItem onClick={handleLogout}>
-          ログアウト
+          <Box className={classes.menuItem}>ログアウト</Box>
         </MenuItem>
         <MenuItem onClick={() => setOpen(true)}>
-          アカウント削除
+          <Box className={classes.menuItem}>アカウント削除</Box>
         </MenuItem>
       </Menu>
       <DeleteDialog
