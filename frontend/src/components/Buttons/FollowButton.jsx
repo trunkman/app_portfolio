@@ -10,12 +10,12 @@ const useStyles = makeStyles(() =>
   createStyles({
     'follow': {
       borderRadius: 50,
-      color: '#1565c0',
+      color: '#0288d1',
       height: 30,
       padding: '15px 20px',
     },
     'unfollow': {
-      background: '#1565c0',
+      background: '#0288d1',
       border: 0,
       borderRadius: 50,
       color: 'white',

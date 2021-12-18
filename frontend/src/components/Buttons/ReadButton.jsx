@@ -9,27 +9,19 @@ import { postBook, updateBook } from "../../apis/books";
 const useStyles = makeStyles(() =>
   createStyles({
     'stackButton': {
-      background: '#1565c0',
+      background: '#0288d1',
       borderRadius: 50,
       color: 'white',
       height: 30,
       padding: '15px 20px',
     },
     'readButton': {
-      background: '#1565c0',
+      background: '#0288d1',
       borderRadius: 50,
       color: 'white',
       height: 30,
       padding: '15px 20px',
       marginLeft: 20,
-    },
-    'recommendButton': {
-      background: '#1565c0',
-      border: 0,
-      borderRadius: 4,
-      color: 'white',
-      height: 30,
-      padding: '15px 20px',
     },
   }),
 );

@@ -7,7 +7,7 @@ import { createStyles, makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(() =>
   createStyles({
     'button': {
-      background: '#42a5f5',
+      background: '#0288d1',
       border: 0,
       borderRadius: 50,
       color: 'white',

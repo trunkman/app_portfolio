@@ -9,7 +9,7 @@ import { postRecommend } from "../../apis/recommends";
 const useStyles = makeStyles(() =>
   createStyles({
     'recommend': {
-      background: '#42a5f5',
+      background: '#0288d1',
       border: 0,
       borderRadius: 4,
       color: 'white',

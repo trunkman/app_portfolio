@@ -34,7 +34,7 @@ const useStyles = makeStyles(() =>
       width: '100%',
     },
     'button': {
-      background: '#42a5f5',
+      background: '#0288d1',
       border: 0,
       borderRadius: 3,
       color: 'white',
