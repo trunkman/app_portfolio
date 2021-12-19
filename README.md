@@ -34,7 +34,7 @@
 * CircleCI
 
 ## インフラ構成図
-![20211229_インフラ構成図](https://user-images.githubusercontent.com/90957668/146661845-103b8758-23bc-41af-be37-4112def5523e.jpg)
+![20211229_インフラ構成図](https://user-images.githubusercontent.com/90957668/146662364-960d8e1a-d5a2-462a-a17a-d0097234615b.jpg)
 
 ## 機能一覧
 * 新規登録機能
