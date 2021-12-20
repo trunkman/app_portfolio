@@ -38,11 +38,14 @@ export const ImageButton = (props) => {
       formData: formData,
       fileType: file.type
     });
-    const matchedObject = await s3Data.match(/<Location>(.*?)<\/Location>/);
-    const s3Url = await unescape(matchedObject[1]);
+    console.log(s3Data)
+    console.log(s3Data.config)
+    // postAvatarImage({ avatarUrl: })
+    // const matchedObject = await s3Data.match(/<Location>(.*?)<\/Location>/);
+    // const s3Url = await unescape(matchedObject[1]);
     // DBに画像URLを登録
-    console.log(s3Url)
-    // postAvatarImage({ avatarUrl: s3Url });
+    // console.log(s3Url)
+    // postAvatarImage({ avatarUrl: s3Data });
   }
 
   return (

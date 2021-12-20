@@ -16,9 +16,10 @@ module Api
       end
 
       def avatar
-        avatar_url = params[:avatarUrl]
-        current_user.update(avatar: avatar_url)
-        render json: { message: 'Avatar画像のurlを登録しました' },
+        test = Aws::S3::Object.new(ENV['S3_BUCKET'], params[:avatarUrl]).public_url  
+        # avatar_url = params[:avatarUrl]
+        # current_user.update(avatar: avatar_url)
+        render json: { message: test },
                status: :ok
       end
 
