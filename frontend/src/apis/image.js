@@ -14,7 +14,7 @@ export const fetchPresigned = (fileName) => {
 }
 
 // S3にアップロードするapi
-export const postS3 = (params) => {
+export const putS3 = (params) => {
   console.log(params)
   return axios.put(params.presignedObjectUrl,
     params.formData,

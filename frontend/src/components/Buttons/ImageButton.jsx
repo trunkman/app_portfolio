@@ -3,7 +3,7 @@ import React from "react";
 import Button from "@mui/material/Button";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 // Api
-import { fetchPresigned, postS3, postAvatarImage } from "../../apis/image"
+import { fetchPresigned, putS3, postAvatarImage } from "../../apis/image"
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -28,16 +28,16 @@ export const ImageButton = (props) => {
     const presignedObject = await fetchPresigned(file.name)
     // S3にPOSTする form に持たせるデータを生成する
     const formData = new FormData();
-    for (let key in presignedObject.fields) {
+    for (const key in presignedObject.fields) {
       formData.append(key, presignedObject.fields[key]);
     }
-    formData.append('file', file)
+    formData.append('file', file);
     // S3に画像をアップロード
-    const s3Data = await postS3({
-      presignedObjectUrl: presignedObject.url,
+    const s3Data = await putS3({
+      presignedObjectUrl: `${presignedObject.url}/avatar/${file.name}`,
       formData: formData,
       fileType: file.type
-    })
+    });
     const matchedObject = await s3Data.match(/<Location>(.*?)<\/Location>/);
     const s3Url = await unescape(matchedObject[1]);
     // DBに画像URLを登録
