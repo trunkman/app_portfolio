@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 // Style
 import Button from "@mui/material/Button";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
+// Icon
+import AccountCircle from "@mui/icons-material/AccountCircle";
 // Api
 import { fetchPresigned, putS3, postAvatarImage } from "../../apis/image"
 
@@ -9,18 +11,17 @@ const useStyles = makeStyles(() =>
   createStyles({
     'button': {
       background: '#444',
-      border: 0,
-      borderRadius: 3,
-      color: 'white',
-      height: 30,
-      marginLeft: 8,
-      padding: '15px 20px',
+      borderRadius: 50,
+      height: '100%',
+      marginLeft: '100%',
+      padding: '1px',
     }
   }),
 );
 
-export const ImageButton = () => {
+export const ProfileImageButton = () => {
   const classes = useStyles();
+  const inputRef = useRef(null);
   const [image, setImage] = useState('#');
 
   async function handleChange(e) {
@@ -28,6 +29,15 @@ export const ImageButton = () => {
     const imageUrl = URL.createObjectURL(file);
     setImage(imageUrl)
     console.log(file)
+    console.log(file.lastModified)
+    const allFile = {}
+    allFile.lastModified = file.lastModified
+    allFile.lastModifiedDate = file.lastModifiedDate
+    allFile.name = file.name
+    allFile.size = file.size
+    allFile.type = file.name
+    allFile.webkitRelativePath = file.webkitRelativePath
+    console.log(allFile);
     // 対象の書名付きURLを取得する
     const presignedObject = await fetchPresigned(file.name)
     // S3にPOSTする form に持たせるデータを生成する
@@ -43,11 +53,10 @@ export const ImageButton = () => {
     // S3に画像をアップロード
     const s3Data = await putS3({
       presignedObjectUrl: `${presignedObject.url}/avatar/${file.name}`,
-      formData: Object.assign(presignedObject.fields, { file: imageUrl }),
-      // formData: formData,
+      formData: Object.assign(presignedObject.fields, { file: allFile }),
       fileType: file.type
     });
-    // console.log(s3Data)
+    console.log(s3Data)
     // postAvatarImage({ avatarUrl: })
     // const matchedObject = await s3Data.match(/<Location>(.*?)<\/Location>/);
     // const s3Url = await unescape(matchedObject[1]);
@@ -58,19 +67,25 @@ export const ImageButton = () => {
 
   return (
     <>
+
       <Button
         variant="contained"
         component="span"
+        onClick={() => inputRef.current.click()}
         className={classes.button}
       >
-        <input
-          accept="image/*"
-          // id='upload-file'
-          type='file'
-          onChange={e => handleChange(e)}
-        />
+        {image === '#'
+          ? <AccountCircle sx={{ fontSize: 150 }} />
+          : <img src={image} />
+        }
       </Button>
-      <img src={image} />
+      <input
+        accept="image/*"
+        hidden
+        type='file'
+        onChange={e => handleChange(e)}
+        ref={inputRef}
+      />
     </>
   );
 };

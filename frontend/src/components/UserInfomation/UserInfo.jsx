@@ -6,12 +6,11 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import Typography from "@mui/material/Typography";
-// Icon
-import AccountCircle from "@mui/icons-material/AccountCircle";
 // Component
 import { SettingDialog } from "../Dialogs/SettingDialog";
 import { FollowButton } from "../Buttons/FollowButton";
-import { ImageButton } from "../Buttons/ImageButton";
+// import { ImageButton } from "../Buttons/ImageButton";
+import { ProfileImageButton } from "../Buttons/ProfileImageButton";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -47,7 +46,7 @@ export const UserInfo = ({
           width: 150, height: 150,
           p: 4,
         }} >
-          <AccountCircle sx={{ fontSize: 150 }} />
+          <ProfileImageButton />
         </Avatar>
         <Box sx={{ pl: 3 }}>
           <Typography variant="h4">
@@ -101,7 +100,7 @@ export const UserInfo = ({
                   >
                     プロフィール編集
                   </Button>
-                  <ImageButton />
+                  {/* <ImageButton /> */}
                 </>
               ) : (
                 <FollowButton
