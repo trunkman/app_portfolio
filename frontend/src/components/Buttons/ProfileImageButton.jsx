@@ -10,10 +10,9 @@ import { fetchPresigned, putS3, postAvatarImage } from "../../apis/image"
 const useStyles = makeStyles(() =>
   createStyles({
     'button': {
-      background: '#444',
       borderRadius: 50,
       height: '100%',
-      marginLeft: '100%',
+      width: '100%',
       padding: '1px',
     }
   }),
@@ -29,31 +28,21 @@ export const ProfileImageButton = () => {
     const imageUrl = URL.createObjectURL(file);
     setImage(imageUrl)
     console.log(file)
-    console.log(file.lastModified)
-    const allFile = {}
-    allFile.lastModified = file.lastModified
-    allFile.lastModifiedDate = file.lastModifiedDate
-    allFile.name = file.name
-    allFile.size = file.size
-    allFile.type = file.name
-    allFile.webkitRelativePath = file.webkitRelativePath
-    console.log(allFile);
     // 対象の書名付きURLを取得する
     const presignedObject = await fetchPresigned(file.name)
-    // S3にPOSTする form に持たせるデータを生成する
-    // const formData = new FormData();
-    // for (const key in presignedObject.fields) {
-    //   formData.append(key, presignedObject.fields[key]);
-    // }
-    // formData.append('file', file);
-    // console.log(formData)
-    // for (let value of formData.entries()) {
-    //   console.log(value);
-    // }
+    const fields = presignedObject['fields']
+    console.log(fields)
+    // S3にPOSTするデータを生成する
+    const formData = new FormData();
+    for (let key in fields) {
+      formData.append(key, fields[key]);
+    }
+    formData.append('file', file);
     // S3に画像をアップロード
     const s3Data = await putS3({
       presignedObjectUrl: `${presignedObject.url}/avatar/${file.name}`,
-      formData: Object.assign(presignedObject.fields, { file: allFile }),
+      formData: formData,
+      // formData: Object.assign(presignedObject.fields, { file: file }),
       fileType: file.type
     });
     console.log(s3Data)

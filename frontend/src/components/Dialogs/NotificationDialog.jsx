@@ -9,8 +9,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import List from "@material-ui/core/List";
-// Icon
-import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import Typography from '@mui/material/Typography';
 // Api
 import { fetchNotifications, deleteNotifications } from '../../apis/notifications';
 // Reducer
@@ -27,14 +26,6 @@ const useStyles = makeStyles(() =>
       display: 'flex',
       justifyContent: 'space-between',
     },
-    'button': {
-      background: '#42a5f5',
-      border: 0,
-      borderRadius: 3,
-      color: 'white',
-      height: 30,
-      padding: '15px 10px',
-    }
   }),
 );
 
@@ -58,14 +49,15 @@ export const NotificationDialog = ({
   }
   // チェック済み通知をすべて削除する
   const allDelete = () => {
-    deleteNotifications()
-      .then(data => {
-        notificationDispatch({
-          type: 'fetchSuccess',
-          payload: data.notifications,
+    notificationState.notifications.length &&
+      deleteNotifications()
+        .then(data => {
+          notificationDispatch({
+            type: 'fetchSuccess',
+            payload: data.notifications,
+          });
         });
-        notifications();
-      });
+    handleClose();
   }
 
   useEffect(() => {
@@ -83,14 +75,12 @@ export const NotificationDialog = ({
           <Box>
             通知
           </Box>
-          <Button className={classes.button} onClick={allDelete}>
-            <DeleteOutlinedIcon />
-            すべて削除
-          </Button>
         </DialogTitle>
         <DialogContent dividers>
           <DialogContentText >
-            {notificationState.notifications.length === 0 ? <p>通知はありません</p> :
+            {notificationState.notifications.length === 0
+              ? <Typography>通知はありません</Typography>
+              :
               <>
                 <List>
                   {notificationState.notifications.map(element =>
@@ -133,6 +123,9 @@ export const NotificationDialog = ({
           </DialogContentText>
         </DialogContent>
         <DialogActions>
+          <Button onClick={allDelete}>
+            通知削除
+          </Button>
           <Button onClick={() => { handleClose() }}>
             閉じる
           </Button>

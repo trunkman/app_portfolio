@@ -16,10 +16,18 @@ export const fetchPresigned = (fileName) => {
 // S3にアップロードするapi
 export const putS3 = (params) => {
   console.log(params)
-  return axios.put(params.presignedObjectUrl,
-    params.formData,
-    { headers: { 'Content-Type': params.fileType } },
-  )
+  // return axios.post(params.presignedObjectUrl,
+  //   params.formData,
+  //   { headers: { 'accept': 'multipart/form-data' } }
+  // )
+  return fetch(params.presignedObjectUrl, {
+    method: 'PUT',
+    headers: {
+      "accept": "multipart/form-data",
+      'Content-Type': params.fileType
+    },
+    body: params.formData,
+  })
     .then(res => {
       console.log('S3', res);
       return res.data;
@@ -29,7 +37,7 @@ export const putS3 = (params) => {
     })
 }
 
-// Avata画像を登録するapi
+// Avatar画像を登録するapi
 export const postAvatarImage = (params) => {
   return axios.post(avatar, {
     avatarUrl: params.avatarUrl
