@@ -54,8 +54,11 @@ export const UserInfo = ({
           </Typography>
           <Box sx={{ letterSpacing: 3, pt: 2 }}>{profileState.user.profile}</Box>
           <Typography variant="h6">
-            <Box sx={{ letterSpacing: 4, pt: 2 }}>
-              ★ 目標睡眠時間：<b>{profileState.user.ideal_sleeping_hours}</b> 時間
+            <Box
+              onClick={() => history.push(`/users/${profileState.user.id}/diaries`)}
+              sx={{ letterSpacing: 4, pt: 2 }}
+            >
+              目標睡眠時間：<b>{profileState.user.ideal_sleeping_hours}</b> 時間
             </Box>
           </Typography>
 
