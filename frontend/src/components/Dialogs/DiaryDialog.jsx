@@ -35,6 +35,7 @@ export const DiaryDialog = ({
 }) => {
   const classes = useStyles();
   const diaryId = recordState.id
+
   // 日記を更新する
   const submitUpdate = () => {
     patchDiary({

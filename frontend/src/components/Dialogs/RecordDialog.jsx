@@ -1,4 +1,6 @@
-import React, { useReducer } from 'react';
+import React, { useContext, useReducer } from 'react';
+import { useHistory } from 'react-router-dom';
+import { AuthContext } from "../../App";
 // styles
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -19,6 +21,8 @@ export const RecordDialog = ({
   handleClose,
   open,
 }) => {
+  const history = useHistory();
+  const { authState } = useContext(AuthContext);
   const [recordState, recordDispatch] = useReducer(recordReducer, recordInitialState);
 
   // 日記を作成する
@@ -30,6 +34,7 @@ export const RecordDialog = ({
     }).then(() => {
       recordDispatch({ type: 'reset' });
       handleClose();
+      history.push(`/users/${authState.loginUser.id}/diaries`);
     });
   }
 
@@ -77,7 +82,7 @@ export const RecordDialog = ({
           閉じる
         </Button>
         <Button onClick={submitDiary} type='submit'>
-          日記を記録する
+          記録する
         </Button>
       </DialogActions>
     </Dialog>

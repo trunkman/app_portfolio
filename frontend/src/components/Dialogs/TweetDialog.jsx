@@ -1,4 +1,5 @@
 import React, { useReducer, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import { AuthContext } from "../../App";
 // Style
 import Button from '@mui/material/Button';
@@ -17,7 +18,7 @@ export const TweetDialog = ({
   open,
   handleClose,
 }) => {
-
+  const history = useHistory();
   const { authState } = useContext(AuthContext);
   const [postState, postDispatch] = useReducer(postReducer, postInitialState);
 
@@ -30,6 +31,7 @@ export const TweetDialog = ({
     }).then(data => {
       postDispatch({ type: 'postSuccess' });
       handleClose()
+      history.push(`/users/${authState.loginUser.id}`);
     });
   };
 
