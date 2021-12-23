@@ -7,9 +7,10 @@ module Api
         # 書名付きURLを作成
         presigned_object = S3_BUCKET.presigned_post(
           acl: 'public-read',
+          content_length_range: 1..(10.megabytes),
           # expires: 60,
           key: "avatar/#{SecureRandom.uuid}/#{params[:id]}",
-          success_action_status: '201'
+          success_action_status: '201',
         )
         render json: { url: presigned_object.url, fields: presigned_object.fields },
                status: :ok
