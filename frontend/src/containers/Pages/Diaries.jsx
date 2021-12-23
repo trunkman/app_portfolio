@@ -104,23 +104,31 @@ export const Diaries = ({ userId }) => {
             <Grid item xs={12} sm={6} sx={{
               alignItems: "center",
               justifyContent: 'center',
+              pt: 8
             }}>
               <SleepInfo
                 userName={recordState.user.name}
                 sleepDebt={sleepDebtState.sleepDebt}
                 sleepSaving={sleepDebtState.sleepSaving}
               />
-              <Box sx={{ pt: 2 }}>
+              <Box>
                 {authState.loggedIn &&
-                  <Button
-                    className={classes.button}
-                    onClick={() => dialogDispatch({ type: 'record' })}
-                  >
-                    睡眠日記を書く
-                  </Button>
+                  <Box display="flex" justifyContent="space-evenly">
+                    <Button
+                      className={classes.button}
+                      onClick={() => dialogDispatch({ type: 'record' })}
+                    >
+                      睡眠日記を書く
+                    </Button>
+                    <Button
+                      className={classes.button}
+                    >
+                      ツイッターに投稿する
+                    </Button>
+                  </Box>
                 }
                 <Typography variant="h6">
-                  <Box sx={{ letterSpacing: 4, mt: 3 }}>理想睡眠時間：<b>{recordState.user.ideal_sleeping_hours}時間</b></Box>
+                  <Box sx={{ letterSpacing: 4, mt: 3 }}>【理想睡眠時間：<b>{recordState.user.ideal_sleeping_hours}時間】</b></Box>
                 </Typography>
               </Box>
             </Grid>

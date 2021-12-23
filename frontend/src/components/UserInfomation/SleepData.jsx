@@ -23,12 +23,10 @@ const useStyles = makeStyles(() =>
       background: '#001e3c',
       borderBottom: 1,
       borderColor: 'divider',
-      marginBottom: 3,
+      marginBottom: 15,
     }
   }),
 );
-
-// Color
 const colorSleepingTime = '#00aced'
 const CustomXAxisTick = ({ x, y, payload }) => {
   return (
@@ -49,8 +47,8 @@ const CustomTooltip = ({ payload, label }) => {
   if (payload && payload.length) {
     return (
       <div className="custom-tooltip">
-        <p>日付：{`${label}`}</p>
-        <p>睡眠時間：{`${payload[0].value}`}時間</p>
+        <p>日付 : {`${label}`}</p>
+        <p>睡眠時間 : {`${payload[0].value}`} 時間</p>
       </div>
     );
   }
@@ -108,7 +106,6 @@ export const SleepData = ({
       >
         <XAxis
           dataKey="startStr"
-          padding={{ left: 10, right: 10 }}
           tick={<CustomXAxisTick />}
           hight={60}
         />

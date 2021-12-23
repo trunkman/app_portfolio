@@ -22,7 +22,7 @@ export const SleepInfo = ({
             <Box sx={{ letterSpacing: 6, my: 2 }}>{userName}さんの睡眠負債は</Box>
           </Typography>
           <Typography variant="h1">
-            <Box sx={{ letterSpacing: 16, my: 4 }}><b>{sleepDebt}時間。</b></Box>
+            <Box sx={{ letterSpacing: 16, my: 4 }}><b>{sleepDebt}時間</b></Box>
           </Typography>
           <Typography variant="h5">
             <Box sx={{ letterSpacing: 4, my: 7 }}><b>何はともあれ、まず寝ましょう</b></Box>

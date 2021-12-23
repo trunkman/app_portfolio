@@ -96,17 +96,22 @@ export const DiaryDialog = ({
       <DialogActions>
         <Button
           className={classes.button}
+          onClick={submitDelete}
+          type='submit'
+        >
+          削除
+        </Button>
+        <Button
+          className={classes.button}
           onClick={submitUpdate}
           type='submit'
         >
           更新
         </Button>
         <Button
-          className={classes.button}
-          onClick={submitDelete}
-          type='submit'
+          onClick={() => handleClose()}
         >
-          削除
+          閉じる
         </Button>
       </DialogActions>
     </Dialog>
