@@ -2,7 +2,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins '54.250.110.27:3001', 'localhost:8000/'
+    origins 'sleepingdebtplan.com:3001', 'sleepingdebtplan.com:8000'
     resource '*',
              headers: :any,
              methods: %i[get post put patch delete options head],
