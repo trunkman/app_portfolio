@@ -90,11 +90,9 @@ export const Layout = () => {
           <Route exact path="/">
             <Home />
           </Route>
-
-          <Route exact path="/account_activations/:id/edit">
+          {/* <Route exact path="/account_activations/:id/edit">
             <Redirect to="/" />
-          </Route>
-
+          </Route> */}
           {authState.loginUser === null && <Loading />}
           {authState.loginUser !== null && authState.loggedIn === false
             ?
