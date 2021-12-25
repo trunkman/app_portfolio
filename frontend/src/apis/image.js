@@ -21,10 +21,10 @@ export const putS3 = (params) => {
   //   { headers: { 'accept': 'multipart/form-data' } }
   // )
   return fetch(params.presignedObjectUrl, {
-    method: 'PUT',
+    method: 'POST',
     headers: {
       "accept": "multipart/form-data",
-      'Content-Type': params.fileType
+      // 'Content-Type': params.fileType
     },
     body: params.formData,
   })

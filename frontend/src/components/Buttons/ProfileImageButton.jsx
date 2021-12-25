@@ -21,23 +21,29 @@ const useStyles = makeStyles(() =>
 export const ProfileImageButton = () => {
   const classes = useStyles();
   const inputRef = useRef(null);
-  const [image, setImage] = useState('#');
+  const [image, setImage] = useState('https://s3.ap-northeast-1.amazonaws.com/s3.sleepingdebtplan.com/avatar/sleep-1.png');
 
   async function handleChange(e) {
     const file = e.target.files[0];
-    const imageUrl = URL.createObjectURL(file);
-    setImage(imageUrl)
     console.log(file)
+    const imageUri = URL.createObjectURL(file);
+    setImage(imageUri)
     // 対象の書名付きURLを取得する
     const presignedObject = await fetchPresigned(file.name)
     const fields = presignedObject['fields']
-    console.log(fields)
     // S3にPOSTするデータを生成する
     const formData = new FormData();
-    for (let key in fields) {
+    for (const key in fields) {
       formData.append(key, fields[key]);
     }
-    formData.append('file', file);
+    // Object.keys(fields).forEach((key) => {
+    //   formData.append(key, fields[key]);
+    // });
+    // formData.append('file', {
+    //   uri: imageUri,
+    //   type: file.type,
+    //   name: file.name,
+    // });
     // S3に画像をアップロード
     const s3Data = await putS3({
       presignedObjectUrl: `${presignedObject.url}/avatar/${file.name}`,
@@ -52,6 +58,8 @@ export const ProfileImageButton = () => {
     // DBに画像URLを登録
     // console.log(s3Url)
     // postAvatarImage({ avatarUrl: s3Data });
+    const imageUrl = URL.createObjectURL(file);
+    setImage(imageUrl)
   }
 
   return (
@@ -69,7 +77,7 @@ export const ProfileImageButton = () => {
         }
       </Button>
       <input
-        accept="image/*"
+        // accept="image/*"
         hidden
         type='file'
         onChange={e => handleChange(e)}
