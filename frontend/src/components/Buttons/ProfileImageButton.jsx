@@ -1,5 +1,8 @@
 import React, { useRef, useState } from "react";
+import AWS from 'aws-sdk'
 // Style
+import Avatar from "@mui/material/Avatar";
+import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 // Icon
@@ -9,6 +12,11 @@ import { fetchPresigned, putS3, postAvatarImage } from "../../apis/image"
 
 const useStyles = makeStyles(() =>
   createStyles({
+    'root': {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between'
+    },
     'button': {
       borderRadius: 50,
       height: '100%',
@@ -18,71 +26,84 @@ const useStyles = makeStyles(() =>
   }),
 );
 
+// AWS設定
+const env = process.env
+const s3Bucket = env.REACT_APP_AWS_BUCKET
+AWS.config.update({
+  accessKeyId: env.REACT_APP_AWS_ACCESS_KEY,
+  secretAccessKey: env.REACT_APP_AWS_SECRET_KEY
+})
+const myBucket = new AWS.S3({
+  params: { Bucket: s3Bucket },
+  region: env.REACT_APP_AWS_REGION,
+})
+
 export const ProfileImageButton = () => {
   const classes = useStyles();
   const inputRef = useRef(null);
-  const [image, setImage] = useState('https://s3.ap-northeast-1.amazonaws.com/s3.sleepingdebtplan.com/avatar/sleep-1.png');
-
-  async function handleChange(e) {
-    const file = e.target.files[0];
-    console.log(file)
-    const imageUri = URL.createObjectURL(file);
-    setImage(imageUri)
-    // 対象の書名付きURLを取得する
-    const presignedObject = await fetchPresigned(file.name)
-    const fields = presignedObject['fields']
-    // S3にPOSTするデータを生成する
-    const formData = new FormData();
-    for (const key in fields) {
-      formData.append(key, fields[key]);
+  const [file, setFile] = useState(null);
+  const [fileUri, setFileUri] = useState('#');
+  // 画像ファイルの選択
+  const handleChange = (e) => {
+    const selectedFile = e.target.files[0]
+    setFile(selectedFile)
+    setFileUri(URL.createObjectURL(selectedFile));
+    console.log(selectedFile);
+  }
+  // 画像ファイルのアップロード
+  const handleUpload = (file) => {
+    const params = {
+      ACL: 'public-read',
+      Body: file,
+      Bucket: s3Bucket,
+      ContentType: file.type,
+      Key: `avatar/${file.name}`
     }
-    // Object.keys(fields).forEach((key) => {
-    //   formData.append(key, fields[key]);
-    // });
-    // formData.append('file', {
-    //   uri: imageUri,
-    //   type: file.type,
-    //   name: file.name,
-    // });
-    // S3に画像をアップロード
-    const s3Data = await putS3({
-      presignedObjectUrl: `${presignedObject.url}/avatar/${file.name}`,
-      formData: formData,
-      // formData: Object.assign(presignedObject.fields, { file: file }),
-      fileType: file.type
-    });
-    console.log(s3Data)
-    // postAvatarImage({ avatarUrl: })
-    // const matchedObject = await s3Data.match(/<Location>(.*?)<\/Location>/);
-    // const s3Url = await unescape(matchedObject[1]);
-    // DBに画像URLを登録
-    // console.log(s3Url)
-    // postAvatarImage({ avatarUrl: s3Data });
-    const imageUrl = URL.createObjectURL(file);
-    setImage(imageUrl)
+    console.log(params)
+    myBucket.putObject(params, (err, data) => {
+      data ?
+        console.log(data)
+        //  postAvatarImage({
+        //    avatarUrl: data.location
+        //  })
+        :
+        console.log(err)
+    })
   }
 
   return (
-    <>
+    <Box className={classes.root}>
+      <Avatar sx={{
+        alignItems: 'center',
+        width: 150, height: 150,
+      }} >
+        <Button
+          variant="contained"
+          className={classes.button}
+          component="span"
+          onClick={() => inputRef.current.click()}
+        >
+          {fileUri === null
+            ? <AccountCircle sx={{ fontSize: 150 }} />
+            : <img src={fileUri} />
+          }
+        </Button>
+        <input
+          accept="image/*"
+          hidden
+          type='file'
+          onChange={handleChange}
+          ref={inputRef}
+        />
+      </Avatar>
 
-      <Button
-        variant="contained"
-        component="span"
-        onClick={() => inputRef.current.click()}
-        className={classes.button}
-      >
-        {image === '#'
-          ? <AccountCircle sx={{ fontSize: 150 }} />
-          : <img src={image} />
-        }
-      </Button>
-      <input
-        // accept="image/*"
-        hidden
-        type='file'
-        onChange={e => handleChange(e)}
-        ref={inputRef}
-      />
-    </>
+      {file &&
+        <Button
+          onClick={() => handleUpload(file)}
+        >
+          画像アップロード
+        </Button>
+      }
+    </Box>
   );
 };

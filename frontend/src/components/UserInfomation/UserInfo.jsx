@@ -1,7 +1,6 @@
 import React from "react"
 import { useHistory } from "react-router-dom";
 // Style
-import Avatar from "@mui/material/Avatar";
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import { createStyles, makeStyles } from "@material-ui/core/styles";
@@ -41,13 +40,7 @@ export const UserInfo = ({
         display: 'flex',
         pb: 5,
       }}>
-        <Avatar sx={{
-          alignItems: 'center',
-          width: 150, height: 150,
-          p: 4,
-        }} >
-          <ProfileImageButton />
-        </Avatar>
+        <ProfileImageButton />
         <Box sx={{ pl: 3 }}>
           <Typography variant="h4">
             <Box sx={{ letterSpacing: 6 }}>{profileState.user.name}</Box>

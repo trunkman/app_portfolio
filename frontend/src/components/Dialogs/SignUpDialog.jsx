@@ -36,10 +36,10 @@ export const SignUpDialog = ({
       email: authState.email,
       password: authState.password,
       password_confirmation: authState.passwordConfirmation,
-      idealSleepingHours: authState.loginUser.idealSleepingHours,
+      idealSleepingHours: authState.idealSleepingHours,
       remember_me: authState.remenberMe,
     }).then(data => {
-      handleLogin(data)
+      alert(data.message)
       handleClose()
     }).catch(() => {
       alert('登録失敗')
@@ -72,13 +72,13 @@ export const SignUpDialog = ({
           email={authState.email}
           handleChange={e =>
             authDispatch({
-              type: 'name',
+              type: 'email',
               payload: e.target.value,
             })
           }
         />
         <IdealSleepingHours
-          email={authState.idealSleepingHours}
+          idealSleepingHours={authState.idealSleepingHours}
           handleChange={e =>
             authDispatch({
               type: 'idealSleepingHours',
