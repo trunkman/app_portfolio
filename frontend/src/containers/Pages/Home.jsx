@@ -29,14 +29,14 @@ export const Home = () => {
     sleepDebtDispatch({ type: 'fetching' })
     fetchSleepDebt(authState.loginUser.id)
       .then(data => {
-        // 睡眠負債が返された場合
+        // 睡眠負債のケース
         data.sleep_debt && (
           sleepDebtDispatch({
             type: 'fetchSuccess',
             payload: { sleepDebt: data.sleep_debt }
           })
         );
-        // 余剰睡眠が返された場合
+        // 余剰睡眠のケース
         data.sleep_saving && (
           sleepDebtDispatch({
             type: 'fetchSuccess',

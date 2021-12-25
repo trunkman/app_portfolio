@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from "../../App";
-// style
+// Style
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';

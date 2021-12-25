@@ -46,7 +46,7 @@ export const Layout = () => {
   const [notificationState, notificationDispatch] = useReducer(notificationReducer, notificationInitialState);
   // Sidebar開閉する関数群
   const drawerWidth = 240;
-  const initialState = window.innerWidth > 600 ? true : false
+  const initialState = window.innerWidth > 1000 ? true : false
   const [open, setOpen] = useState(initialState);
   const handleDrawerOpen = () => setOpen(true);
   const handleDrawerClose = () => setOpen(false);
