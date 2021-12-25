@@ -36,6 +36,7 @@ export const postSignUp = (params) => {
     user: {
       name: params.name,
       email: params.email,
+      ideal_sleeping_hours: params.idealSleepingHours,
       password: params.password,
       password_confirmation: params.password_confirmation,
     }
