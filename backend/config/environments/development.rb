@@ -31,14 +31,26 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
+  
+  # メーラー設定
+  host = 'https://sleepingdebtplan.com'
+  config.action_mailer.default_url_options = { host: host }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'gamil.com',
+    user_name:            ENV['HOST_MAIL'],
+    password:             ENV['HOST_MAIL_PASS'],
+    authentication:       'plain',
+    enable_starttls_auto:  true,
+  }
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
-  host = 'sleepingdebtplan.com:3000'
-  config.action_mailer.default_url_options = { host: host, protocol: 'http' }
-
-  config.action_mailer.perform_caching = false
+  # config.action_mailer.raise_delivery_errors = false
+  # host = 'sleepingdebtplan.com:3000'
+  # config.action_mailer.default_url_options = { host: host, protocol: 'http' }
+  # config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
