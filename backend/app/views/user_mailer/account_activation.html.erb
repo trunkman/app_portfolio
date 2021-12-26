@@ -1,11 +1,12 @@
-<h1>アカウントの有効化</h1>
+<h1>アカウント有効化メール</h1>
 
 <p><%= @user.name %>様</p>
 
 <p>
 現在、仮登録の状態となります。<br>
-"睡眠負債"のアカウントを有効化するにこちらのリンクをクリックしてください。
+"睡眠補完計画"のアカウントを有効化するには下記リンクをクリックしてください。
 </p>
 
-<%= link_to "アカウント有効化",
-    edit_api_v1_account_activation_url(@user.activation_token, email: @user.email) %>
+<%= link_to "アカウント有効化はこちら",
+    "http://sleepingdebtplan.com:3001/account_activations/#{@user.activation_token}/edit?email=#{@user.email}"
+%>

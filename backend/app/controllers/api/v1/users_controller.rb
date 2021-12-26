@@ -7,7 +7,6 @@ module Api
                                               microposts following followers
                                               diaries timeline rooms books ]
       before_action :correct_user,   only: %i[edit update]
-      before_action :admin_user,     only: %i[destroy]
 
       def index
         @users = User.where(activated: true)

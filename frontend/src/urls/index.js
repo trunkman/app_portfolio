@@ -19,7 +19,7 @@ export const userBooks = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}/b
 export const userRooms = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}/rooms`;
 export const userRanking = (userId) => `${DEFAULT_API_LOCALHOST}/users/${userId}/ranking`;
 // AccountActivationController
-export const accountActivationPath = (accountActivationToken) => `${DEFAULT_API_LOCALHOST}/account_activations/${accountActivationToken}`;
+export const accountActivationPath = (activationToken, queryEmail) => `${DEFAULT_API_LOCALHOST}/account_activations/${activationToken}/edit?email=${queryEmail}`;
 // PasswordResetController
 export const passwordResets = `${DEFAULT_API_LOCALHOST}/password_resets`;
 export const passwordResetPath = (passwordResetToken) => `${DEFAULT_API_LOCALHOST}/password_resets/${passwordResetToken}`;

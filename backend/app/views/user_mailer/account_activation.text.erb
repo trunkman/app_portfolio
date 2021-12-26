@@ -1,6 +1,6 @@
 <%= @user.name %>様
 
 現在、仮登録の状態となります。
-"睡眠負債"のアカウントを有効化するにこちらのリンクをクリックしてください。
+"睡眠補完計画"のアカウントを有効化するには下記リンクをクリックしてください。
 
 <%= edit_api_v1_account_activation_url(@user.activation_token, email: @user.email) %>

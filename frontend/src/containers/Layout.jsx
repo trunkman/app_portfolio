@@ -9,6 +9,7 @@ import { checkNotifications } from '../apis/notifications';
 // Reducer
 import { notificationReducer, notificationInitialState } from '../reducer/NotificationReducer'
 // Container
+import { AccountActivation } from './Pages/AccountActivation';
 import { Book } from './Pages/Book';
 import { Diaries } from './Pages/Diaries';
 import { Follow } from './Pages/Follow';
@@ -90,9 +91,13 @@ export const Layout = () => {
           <Route exact path="/">
             <Home />
           </Route>
-          {/* <Route exact path="/account_activations/:id/edit">
-            <Redirect to="/" />
-          </Route> */}
+          <Route exact path="/account_activations/:activationToken/edit"
+            render={({ match }) =>
+              <AccountActivation
+                activationToken={match.params.activationToken}
+              />}
+          />
+
           {authState.loginUser === null && <Loading />}
           {authState.loginUser !== null && authState.loggedIn === false
             ?
