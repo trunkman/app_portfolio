@@ -3,9 +3,9 @@
 module Api
   module V1
     class PasswordResetsController < ApplicationController
-      before_action :get_user,         only: %i[edit update]
-      before_action :valid_user,       only: %i[edit update]
-      before_action :check_expiration, only: %i[edit update]
+      before_action :get_user,         only: %i[update]
+      before_action :valid_user,       only: %i[update]
+      before_action :check_expiration, only: %i[update]
 
       def create
         @user = User.find_by(email: params[:password_reset][:email].downcase)
@@ -19,8 +19,6 @@ module Api
                  status: :unprocessable_entity
         end
       end
-
-      def edit; end
 
       def update
         if params[:user][:password].empty?
@@ -37,17 +35,16 @@ module Api
       private
 
       def user_params
-        params.require(:user).permit(:password, :password_confirmation)
+        params.require(:user).permit(:email, :password, :password_confirmation)
       end
 
       def get_user
-        @user = User.find_by(email: params[:email])
+        @user = User.find_by(email: params[:user][:email])
       end
 
       # 有効なユーザーかどうか確認する
       def valid_user
-        unless @user&.activated? &&
-               @user&.authenticated?(:reset, params[:id])
+        unless @user&.activated? && @user.authenticated?(:reset, params[:id])
           render json: {}, status: :unprocessable_entity
         end
       end

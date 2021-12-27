@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 // Style
 import Box from '@mui/material/Box';
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-
-// api
+// Api
 import { patchPasswordReset } from "../../apis/passwordResets";
 // コンポーネント
 import { Password } from '../../components/Forms/Password';
@@ -36,15 +35,20 @@ const useStyles = makeStyles(() =>
   }),
 );
 
-export const PasswordReset = (props) => {
+export const PasswordReset = ({ passwordResetToken }) => {
   const classes = useStyles();
-  const history = useHistory()
+  const history = useHistory();
   const [password, setPassword] = useState('')
   const [passwordConfirmation, setpasswordConfirmaiton] = useState('')
+  // URLのクエリパラメータを取得
+  const search = useLocation().search;
+  const query = new URLSearchParams(search);
+  const queryEmail = query.get('email');
   // パスワードを再設定する
   const handleSubmit = () => {
     patchPasswordReset({
-      id: props.match.params.id,
+      passwordResetToken: passwordResetToken,
+      queryEmail: queryEmail,
       password: password,
       passwordConfirmation: passwordConfirmation,
     }).then(data => {

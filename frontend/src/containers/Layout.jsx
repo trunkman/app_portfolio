@@ -97,6 +97,12 @@ export const Layout = () => {
                 activationToken={match.params.activationToken}
               />}
           />
+          <Route exact path="/password_resets/:passwordResetToken/edit"
+            render={({ match }) =>
+              <PasswordReset
+                passwordResetToken={match.params.passwordResetToken}
+              />}
+          />
 
           {authState.loginUser === null && <Loading />}
           {authState.loginUser !== null && authState.loggedIn === false
@@ -179,12 +185,6 @@ export const Layout = () => {
                   loginUser={authState.loginUser}
                 />
               </Route>
-
-              <Route exact path="/password_resets/:id/edit"
-                render={({ match }) => <PasswordReset
-                  match={match}
-                />}
-              />
             </>
           }
         </Switch>

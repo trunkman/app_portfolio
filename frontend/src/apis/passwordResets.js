@@ -17,10 +17,11 @@ export const postPasswordReset = (params) => {
 }
 
 export const patchPasswordReset = (params) => {
-  return axios.patch(passwordResetPath(params.id), {
+  return axios.patch(passwordResetPath(params.passwordResetToken), {
     user: {
+      email: params.queryEmail,
       password: params.password,
-      passwordConfirmation: params.passwordConfirmation,
+      password_confirmation: params.passwordConfirmation,
     }
   })
     .then(res => {

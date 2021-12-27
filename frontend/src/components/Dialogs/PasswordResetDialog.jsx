@@ -16,8 +16,9 @@ export const PasswordResetDialog = (props) => {
   const handleSubmit = () => {
     postPasswordReset({ email: email })
       .then(data => {
-        setEmail('')
-        props.handleClose()
+        alert('パスワード再設定のメールを送りました')
+        props.handleClose();
+        setEmail('');
       })
   }
 
