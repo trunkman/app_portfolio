@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import AWS from 'aws-sdk'
+import axios from "axios";
 // Style
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
@@ -28,13 +29,13 @@ const useStyles = makeStyles(() =>
 
 // AWS設定
 const env = process.env
-const s3Bucket = env.REACT_APP_AWS_BUCKET
+const S3_BUCKET = env.REACT_APP_AWS_BUCKET
 AWS.config.update({
   accessKeyId: env.REACT_APP_AWS_ACCESS_KEY,
   secretAccessKey: env.REACT_APP_AWS_SECRET_KEY
 })
 const myBucket = new AWS.S3({
-  params: { Bucket: s3Bucket },
+  params: { Bucket: S3_BUCKET },
   region: env.REACT_APP_AWS_REGION,
 })
 
@@ -55,19 +56,22 @@ export const ProfileImageButton = () => {
     const params = {
       ACL: 'public-read',
       Body: file,
-      Bucket: s3Bucket,
+      Bucket: S3_BUCKET,
+      CacheControl: "no-cache",
       ContentType: file.type,
+      Expires: 60,
       Key: `avatar/${file.name}`
     }
     console.log(params)
-    myBucket.putObject(params, (err, data) => {
-      data ?
-        console.log(data)
-        //  postAvatarImage({
-        //    avatarUrl: data.location
-        //  })
-        :
-        console.log(err)
+
+    return new Promise((resolve, reject) => {
+      myBucket.getSignedUrl('putObject', params, (err, url) => {
+        if (err) { reject(err); }
+        resolve(url);
+        console.log(url)
+        return axios.put(url, file, { headers: { 'Content-Type': file.type } })
+          .then(res => console.log(res))
+      })
     })
   }
 
