@@ -11,6 +11,9 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 // Api
 import { fetchPresigned, putS3, postAvatarImage } from "../../apis/image"
 
+
+
+
 const useStyles = makeStyles(() =>
   createStyles({
     'root': {
@@ -32,11 +35,13 @@ const env = process.env
 const S3_BUCKET = env.REACT_APP_AWS_BUCKET
 AWS.config.update({
   accessKeyId: env.REACT_APP_AWS_ACCESS_KEY,
-  secretAccessKey: env.REACT_APP_AWS_SECRET_KEY
+  secretAccessKey: env.REACT_APP_AWS_SECRET_KEY,
+  // folderPath: '../avatar',
 })
 const myBucket = new AWS.S3({
   params: { Bucket: S3_BUCKET },
   region: env.REACT_APP_AWS_REGION,
+  signatureVersion: 'v4',
 })
 
 export const ProfileImageButton = () => {
@@ -49,24 +54,25 @@ export const ProfileImageButton = () => {
     const selectedFile = e.target.files[0]
     setFile(selectedFile)
     setFileUri(URL.createObjectURL(selectedFile));
-    console.log(selectedFile);
   }
   // 画像ファイルのアップロード
   const handleUpload = (file) => {
     const params = {
       ACL: 'public-read',
       Body: file,
-      Bucket: S3_BUCKET,
+      Bucket: `${S3_BUCKET}/avatar`,
       CacheControl: "no-cache",
       ContentType: file.type,
       Expires: 60,
-      Key: `avatar/${file.name}`
+      Key: file.name
     }
     console.log(params)
 
     return new Promise((resolve, reject) => {
       myBucket.getSignedUrl('putObject', params, (err, url) => {
-        if (err) { reject(err); }
+        if (err) {
+          reject(err);
+        }
         resolve(url);
         console.log(url)
         return axios.put(url, file, { headers: { 'Content-Type': file.type } })
