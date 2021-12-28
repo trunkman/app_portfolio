@@ -8,7 +8,7 @@ production:
   encoding: utf8mb4
   database: db
   username: root
-  password: mysqlpass #後に環境変数で設定する
+  password: <%= ENV['DB_PASSWORD'] %>
   host: db
   port: 3306
   socket: /var/lib/mysql/mysql.sock

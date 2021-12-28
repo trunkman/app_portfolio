@@ -9,10 +9,7 @@ import { createStyles, makeStyles } from "@material-ui/core/styles";
 // Icon
 import AccountCircle from "@mui/icons-material/AccountCircle";
 // Api
-import { fetchPresigned, putS3, postAvatarImage } from "../../apis/image"
-
-
-
+// import { fetchPresigned, putS3, postAvatarImage } from "../../apis/image"
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -36,7 +33,6 @@ const S3_BUCKET = env.REACT_APP_AWS_BUCKET
 AWS.config.update({
   accessKeyId: env.REACT_APP_AWS_ACCESS_KEY,
   secretAccessKey: env.REACT_APP_AWS_SECRET_KEY,
-  // folderPath: '../avatar',
 })
 const myBucket = new AWS.S3({
   params: { Bucket: S3_BUCKET },
@@ -59,12 +55,12 @@ export const ProfileImageButton = () => {
   const handleUpload = (file) => {
     const params = {
       ACL: 'public-read',
-      Body: file,
-      Bucket: `${S3_BUCKET}/avatar`,
+      // Body: file,
+      Bucket: S3_BUCKET,
       CacheControl: "no-cache",
       ContentType: file.type,
       Expires: 60,
-      Key: file.name
+      Key: `avatar/${file.name}`
     }
     console.log(params)
 
