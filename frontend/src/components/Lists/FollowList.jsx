@@ -1,13 +1,12 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 // styled
+import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
-// Icon
-import AccountCircle from "@mui/icons-material/AccountCircle";
 // Component
 import { RoomButton } from "../Buttons/RoomButton";
 import { FollowButton } from "../Buttons/FollowButton";
@@ -25,13 +24,17 @@ export const FollowList = ({
         sx={{
           display: 'flex',
           alignItems: 'center',
-          // background: 'rgba(255, 255, 255, 0.1)',
           borderRadius: 2,
           my: 3,
         }}>
 
         <ListItemAvatar>
-          <AccountCircle sx={{ fontSize: 60 }} />
+          <Avatar
+            alt={user.name}
+            src={user.avatar_url}
+            sx={{ width: 60, height: 60 }}
+            onClick={() => history.push(`/users/${user.id}`)}
+          />
         </ListItemAvatar>
         <Box
           onClick={() => history.push(`/users/${user.id}`)}

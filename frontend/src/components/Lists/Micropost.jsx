@@ -2,13 +2,13 @@ import React, { useContext, useReducer } from "react";
 import { useHistory } from "react-router";
 import { AuthContext } from "../../App";
 // Style
+import Avatar from "@mui/material/Avatar";
 import Box from '@mui/material/Box';
 import IconButton from "@mui/material/IconButton";
 import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Typography from "@mui/material/Typography";
 // Icon
-import AccountCircle from "@mui/icons-material/AccountCircle";
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 // Api
 import { fetchMicropost, deleteMicropost } from "../../apis/microposts";
@@ -67,7 +67,12 @@ export const Micropost = ({
           display: 'flex',
         }}>
         <ListItemAvatar>
-          <AccountCircle sx={{ fontSize: 35 }} />
+          <Avatar
+            alt={user.name}
+            src={user.avatar_url}
+            sx={{ width: 35, height: 35 }}
+            onClick={() => history.push(`/users/${user.id}`)}
+          />
         </ListItemAvatar>
         <Box
           onClick={fetchDetailMicropost}

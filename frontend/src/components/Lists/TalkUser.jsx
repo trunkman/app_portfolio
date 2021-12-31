@@ -1,6 +1,7 @@
 import React from "react"
 import { useHistory } from "react-router-dom";
 // Style
+import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import List from "@mui/material/List";
@@ -10,7 +11,6 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemButton from '@mui/material/ListItemButton';
 import Typography from "@mui/material/Typography";
 // Icon
-import AccountCircle from "@mui/icons-material/AccountCircle";
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 
 const useStyles = makeStyles(() =>
@@ -47,7 +47,12 @@ export const TalkUser = ({
             sx={{ justifyContent: 'space-between' }}
           >
             <ListItemAvatar>
-              <AccountCircle sx={{ fontSize: 60 }} />
+              <Avatar
+                alt={entry.other_user.name}
+                src={entry.other_user.avatar_url}
+                sx={{ width: 60, height: 60 }}
+                onClick={() => history.push(`/users/${entry.other_user.id}`)}
+              />
             </ListItemAvatar>
             <Box
               onClick={() => history.push(`/talk_rooms/${entry.room_id}`)}

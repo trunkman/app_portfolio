@@ -5,8 +5,6 @@ import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-// Icon
-import AccountCircle from "@mui/icons-material/AccountCircle";
 // Api
 import { postAvatarImage } from "../../apis/image"
 
@@ -18,10 +16,16 @@ const useStyles = makeStyles(() =>
       justifyContent: 'space-between'
     },
     'button': {
-      borderRadius: 50,
-      height: '100%',
-      width: '100%',
-      padding: '1px',
+      borderRadius: 100,
+      height: 150,
+      width: 150,
+    },
+    'upload': {
+      background: '#0288d1',
+      borderRadius: 4,
+      height: 20,
+      marginTop: 7,
+      padding: '15px 20px',
     }
   }),
 );
@@ -33,20 +37,19 @@ AWS.config.update({
   secretAccessKey: process.env.REACT_APP_AWS_SECRET_KEY,
 })
 const myBucket = new AWS.S3({
-  // params: { Bucket: S3_BUCKET },
   region: process.env.REACT_APP_AWS_REGION,
   signatureVersion: 'v4',
 })
 
-export const ProfileImageButton = () => {
+export const ProfileImageButton = ({ loginUser, user }) => {
   const classes = useStyles();
   const inputRef = useRef(null);
   const [file, setFile] = useState(null);
-  const [fileUri, setFileUri] = useState('#');
+  const [fileUri, setFileUri] = useState(user.avatar_url);
   // 画像ファイルの選択
   const handleChange = (e) => {
     const selectedFile = e.target.files[0]
-    setFile(selectedFile)
+    setFile(selectedFile);
     setFileUri(URL.createObjectURL(selectedFile));
   }
   // 画像ファイルのアップロード
@@ -75,21 +78,19 @@ export const ProfileImageButton = () => {
 
   return (
     <Box className={classes.root}>
-      <Avatar sx={{
-        alignItems: 'center',
-        width: 150, height: 150,
-      }} >
-        <Button
-          variant="contained"
-          className={classes.button}
-          component="span"
-          onClick={() => inputRef.current.click()}
-        >
-          {fileUri === null
-            ? <AccountCircle sx={{ fontSize: 150 }} />
-            : <img src={fileUri} sx={{ width: '100%', height: '100%' }} />
-          }
-        </Button>
+      <Button
+        variant="contained"
+        className={classes.button}
+        component="span"
+        onClick={() => {
+          loginUser.id === user.id && inputRef.current.click();
+        }}
+      >
+        <Avatar
+          alt="Profile Image"
+          src={fileUri}
+          sx={{ width: 150, height: 150 }}
+        />
         <input
           accept="image/*"
           hidden
@@ -97,10 +98,10 @@ export const ProfileImageButton = () => {
           onChange={handleChange}
           ref={inputRef}
         />
-      </Avatar>
-
+      </Button>
       {file &&
         <Button
+          className={classes.upload}
           onClick={() => handleUpload(file)}
         >
           画像アップロード

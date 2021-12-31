@@ -40,7 +40,10 @@ export const UserInfo = ({
         display: 'flex',
         pb: 5,
       }}>
-        <ProfileImageButton />
+        <ProfileImageButton
+          loginUser={loginUser}
+          user={profileState.user}
+        />
         <Box sx={{ pl: 3 }}>
           <Typography variant="h4">
             <Box sx={{ letterSpacing: 6 }}>{profileState.user.name}</Box>
@@ -96,7 +99,6 @@ export const UserInfo = ({
                   >
                     プロフィール編集
                   </Button>
-                  {/* <ImageButton /> */}
                 </>
               ) : (
                 <FollowButton
