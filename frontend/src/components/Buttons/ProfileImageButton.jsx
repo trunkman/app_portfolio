@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import AWS from 'aws-sdk'
-import axios from "axios";
 // Style
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
@@ -9,7 +8,7 @@ import { createStyles, makeStyles } from "@material-ui/core/styles";
 // Icon
 import AccountCircle from "@mui/icons-material/AccountCircle";
 // Api
-// import { fetchPresigned, putS3, postAvatarImage } from "../../apis/image"
+import { postAvatarImage } from "../../apis/image"
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -53,33 +52,25 @@ export const ProfileImageButton = () => {
   // 画像ファイルのアップロード
   const handleUpload = (file) => {
     const params = {
-      ACL: 'public-read',
-      // Body: file,
       Bucket: S3_BUCKET,
-      CacheControl: "no-cache",
+      Key: `avatar/${file.name}`,
       ContentType: file.type,
-      Expires: 60,
-      Key: `avatar/${file.name}`
-    }
-    console.log(params);
-
-    const presignedUrl = myBucket.getSignedUrl('putObject', params)
-    console.log(presignedUrl);
-    const option = { headers: { 'Content-Type': file.type } }
-    return axios.put(presignedUrl, file, option)
-      .then(res => console.log(res));
-
-    // return new Promise((resolve, reject) => {
-    //   myBucket.getSignedUrl('putObject', params, (err, url) => {
-    //     if (err) {
-    //       reject(err);
-    //     }
-    //     resolve(url);
-    //     console.log(url)
-    //     return axios.put(url, file, { headers: { 'Content-Type': file.type } })
-    //       .then(res => console.log(res))
-    //   })
-    // })
+      Body: file,
+      Metadata: {
+        data: JSON.stringify({
+          uploadTime: 60,
+        })
+      }
+    };
+    myBucket.putObject(params, (err, data) => {
+      if (err) {
+        console.log("Err: upload failed :" + err);
+      } else {
+        const url = `https://s3.ap-northeast-1.amazonaws.com/s3.sleepingdebtplan.com/avatar/${file.name}`
+        console.log("Success: upload ok" + url);
+        postAvatarImage({ url: url })
+      }
+    });
   }
 
   return (
@@ -96,7 +87,7 @@ export const ProfileImageButton = () => {
         >
           {fileUri === null
             ? <AccountCircle sx={{ fontSize: 150 }} />
-            : <img src={fileUri} />
+            : <img src={fileUri} sx={{ width: '100%', height: '100%' }} />
           }
         </Button>
         <input

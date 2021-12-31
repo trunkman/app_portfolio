@@ -40,7 +40,9 @@ import { presignedObject, avatar, micropost } from "../urls";
 // Avatar画像を登録するapi
 export const postAvatarImage = (params) => {
   return axios.post(avatar, {
-    avatarUrl: params.avatarUrl
+    user: {
+      avatarUrl: params.url
+    }
   }, {
     withCredentials: true
   })
