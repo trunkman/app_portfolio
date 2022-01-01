@@ -8,6 +8,16 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from '@mui/material/Typography';
 // Api
 import { postLogIn } from '../../apis/sessions';
+import { styled } from '@mui/system'
+
+const CustomButton = styled('button')(({ theme }) => ({
+  color: theme.palette.primary.contrastText,
+  backgroundColor: theme.palette.primary.main,
+  borderRadius: theme.shape.borderRadius,
+  height: 30,
+  padding: '15px 20px',
+}));
+
 
 const useStyles = makeStyles({
   'button': {
@@ -52,8 +62,11 @@ export const HomeMessage = ({
         <Typography variant="h5" component="div" >
           <Box sx={{ letterSpacing: 4 }}>"睡眠負債"の返済を手助けする救済サービス</Box>
         </Typography>
-        <Typography variant="h1" component="div" >
+        {/* <Typography variant="h1" component="div" >
           <Box sx={{ letterSpacing: 6, my: 2 }}>睡眠補完計画</Box>
+        </Typography> */}
+        <Typography variant="h1">
+          睡眠補完計画
         </Typography>
       </Box >
       <Box sx={{
@@ -61,12 +74,14 @@ export const HomeMessage = ({
         display: 'flex',
         justifyContent: 'space-evenly',
       }}>
-        <Button
-          className={classes.button}
+        {/* <Button
+          // className={classes.button}
           onClick={() => handleOpenSignup()}
-        >
+        > */}
+        <CustomButton>
           新規登録
-        </Button>
+        </CustomButton>
+        {/* </Button> */}
         <Button
           className={classes.button}
           onClick={() => handleOpenLogin()}

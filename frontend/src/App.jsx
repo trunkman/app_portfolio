@@ -12,7 +12,6 @@ import { authInitialState, authReducer } from './reducer/AuthReducer'
 // Container
 import { Layout } from './containers/Layout';
 
-
 export const AuthContext = createContext()
 
 export default function App() {
