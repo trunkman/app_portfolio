@@ -46,12 +46,14 @@ export const ProfileImageButton = ({ loginUser, user }) => {
   const inputRef = useRef(null);
   const [file, setFile] = useState(null);
   const [fileUri, setFileUri] = useState(user.avatar_url);
+
   // 画像ファイルの選択
   const handleChange = (e) => {
     const selectedFile = e.target.files[0]
     setFile(selectedFile);
     setFileUri(URL.createObjectURL(selectedFile));
   }
+
   // 画像ファイルのアップロード
   const handleUpload = (file) => {
     const params = {

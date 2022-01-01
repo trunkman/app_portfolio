@@ -24,7 +24,6 @@ module Api
 
       def create
         @micropost = current_user.microposts.build(micropost_params)
-        # @micropost.image.attach(params[:micropost][:image])
         if @micropost.save
           render json: { micropost: @micropost },
                  status: :created
@@ -44,7 +43,7 @@ module Api
 
       # StrongParameter
       def micropost_params
-        params.require(:micropost).permit(:content, :image)
+        params.require(:micropost).permit(:content, :image_url)
       end
 
       # 正しいユーザーかどうか確認

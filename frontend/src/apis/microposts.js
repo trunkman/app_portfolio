@@ -18,6 +18,7 @@ export const postMicropost = (params) => {
   return axios.post(microposts, {
     micropost: {
       content: params.content,
+      image_url: params.imageUrl,
       user_id: params.user_id,
     }
   }, {

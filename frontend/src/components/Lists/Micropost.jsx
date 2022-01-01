@@ -4,6 +4,7 @@ import { AuthContext } from "../../App";
 // Style
 import Avatar from "@mui/material/Avatar";
 import Box from '@mui/material/Box';
+import CardMedia from '@mui/material/CardMedia';
 import IconButton from "@mui/material/IconButton";
 import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
@@ -83,6 +84,14 @@ export const Micropost = ({
           </Typography>
           <Typography variant="h6" sx={{ pl: 1 }}>
             <Box sx={{ letterSpacing: 2, mt: 2 }}>{micropost.content}</Box>
+            {micropost.image_url &&
+              <CardMedia
+                alt='Image'
+                component='img'
+                image={micropost.image_url}
+                sx={{ width: 200, mt: 2 }}
+              />
+            }
           </Typography>
         </Box>
         {authState.loginUser.id === micropost.user_id && (
