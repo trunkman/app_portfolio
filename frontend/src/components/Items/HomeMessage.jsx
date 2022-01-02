@@ -2,40 +2,44 @@ import React, { useContext } from "react"
 import { useHistory } from "react-router-dom";
 import { AuthContext } from "../../App";
 // Style
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import { makeStyles } from "@material-ui/core/styles";
+import { styled } from '@mui/system'
 import Typography from '@mui/material/Typography';
 // Api
 import { postLogIn } from '../../apis/sessions';
-import { styled } from '@mui/system'
 
-const CustomButton = styled('button')(({ theme }) => ({
-  color: theme.palette.primary.contrastText,
+const ContainedButton = styled('button')(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
+  border: 0,
   borderRadius: theme.shape.borderRadius,
+  color: theme.palette.primary.contrastText,
+  fontWeight: 'bold',
   height: 30,
-  padding: '15px 20px',
+  padding: '0px 20px',
+  margin: '15px 0px',
 }));
 
+const OutinedButton = styled('button')(({ theme }) => ({
+  backgroundColor: theme.palette.background.paper,
+  borderColor: theme.palette.primary.main,
+  borderRadius: theme.shape.borderRadius,
+  color: theme.palette.primary.contrastText,
+  fontWeight: 'bold',
+  height: 30,
+  padding: '0px 20px',
+  margin: '15px 0px',
+}));
 
-const useStyles = makeStyles({
-  'button': {
-    background: '#0288d1',
-    border: 0,
-    borderRadius: 4,
-    color: 'white',
-    height: 30,
-    padding: '15px 20px',
-    margin: '15px 0px'
-  }
-});
+const Title = styled('box')(({ theme }) => ({
+  fontWeight: theme.typography.h2.fontWeight,
+  letterSpacing: theme.typography.h2.letterSpacing,
+}));
+
 
 export const HomeMessage = ({
   handleOpenLogin,
   handleOpenSignup,
 }) => {
-  const classes = useStyles();
   const history = useHistory();
   const { authDispatch } = useContext(AuthContext);
   const handleLogin = (data) => {
@@ -57,44 +61,35 @@ export const HomeMessage = ({
   }
 
   return (
-    <>
-      <Box sx={{ textAlign: 'center', }} >
-        <Typography variant="h5" component="div" >
-          <Box sx={{ letterSpacing: 4 }}>"睡眠負債"の返済を手助けする救済サービス</Box>
+    <Box sx={{ flexDirection: 'column' }}>
+      <Box sx={{ textAlign: 'center', pb: 3 }} >
+        <Typography variant="h5" sx={{ pb: 2 }}>
+          <Title>
+            睡眠負債"の返済を手助けする救済サービス
+          </Title>
         </Typography>
-        {/* <Typography variant="h1" component="div" >
-          <Box sx={{ letterSpacing: 6, my: 2 }}>睡眠補完計画</Box>
-        </Typography> */}
-        <Typography variant="h1">
-          睡眠補完計画
+        <Typography variant="h2">
+          <Title>
+            睡眠補完計画
+          </Title>
         </Typography>
       </Box >
       <Box sx={{
-        mt: 6,
         display: 'flex',
+        flexWrap: 'wrap',
         justifyContent: 'space-evenly',
+        mb: 3,
       }}>
-        {/* <Button
-          // className={classes.button}
-          onClick={() => handleOpenSignup()}
-        > */}
-        <CustomButton>
+        <ContainedButton onClick={() => handleOpenSignup()}>
           新規登録
-        </CustomButton>
-        {/* </Button> */}
-        <Button
-          className={classes.button}
-          onClick={() => handleOpenLogin()}
-        >
+        </ContainedButton>
+        <ContainedButton onClick={() => handleOpenLogin()}>
           ログイン
-        </Button>
-        <Button
-          className={classes.button}
-          onClick={guestLogin}
-        >
+        </ContainedButton>
+        <ContainedButton onClick={guestLogin}>
           ゲストログイン
-        </Button>
+        </ContainedButton>
       </Box>
-    </>
+    </Box>
   )
 }

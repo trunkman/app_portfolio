@@ -10,7 +10,7 @@ import { fetchLoggedIn } from './apis/sessions';
 // Reducer
 import { authInitialState, authReducer } from './reducer/AuthReducer'
 // Container
-import { Layout } from './containers/Layout';
+import { Layout } from './components/Layout';
 
 export const AuthContext = createContext()
 

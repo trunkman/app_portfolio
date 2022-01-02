@@ -1,7 +1,21 @@
 import React from "react"
 // Style
 import Box from '@mui/material/Box';
+import { styled } from '@mui/system';
 import Typography from '@mui/material/Typography';
+
+const Title = styled('box')(({ theme }) => ({
+  fontWeight: theme.typography.h3.fontWeight,
+  letterSpacing: theme.typography.h3.letterSpacing,
+  lineHeight: 1.7,
+}));
+
+const Time = styled('box')(({ theme }) => ({
+  fontWeight: theme.typography.h2.fontWeight,
+  letterSpacing: theme.typography.h2.letterSpacing,
+  lineHeight: 1.8,
+}));
+
 
 export const SleepInfo = ({
   userName,
@@ -11,47 +25,32 @@ export const SleepInfo = ({
 
   return (
     <Box sx={{
-      alignItems: "center",
-      justifyContent: 'center',
+      px: 3,
+      textAlign: "center",
     }}>
-
-      {
-        sleepDebt &&
-        <Box>
+      {sleepSaving
+        ? <>
           <Typography variant="h4">
-            <Box sx={{ letterSpacing: 6, my: 2 }}>{userName}さんの睡眠負債は</Box>
+            <Title>{userName}さんの</Title>
+          </Typography>
+          <Typography variant="h4">
+            <Title>余剰睡眠は</Title>
           </Typography>
           <Typography variant="h1">
-            <Box sx={{ letterSpacing: 16, my: 4 }}><b>{sleepDebt}時間</b></Box>
+            <Time>{sleepSaving}時間</Time>
           </Typography>
-          <Typography variant="h5">
-            <Box sx={{ letterSpacing: 4, my: 7 }}><b>何はともあれ、まず寝ましょう</b></Box>
-          </Typography>
-        </Box>
-      }
-      {
-        sleepSaving &&
-        <Box>
+        </>
+        : <>
           <Typography variant="h4">
-            <Box sx={{ letterSpacing: 6, my: 2 }}>{userName}さんの余剰睡眠は</Box>
+            <Title>{userName}さんの</Title>
+          </Typography>
+          <Typography variant="h4">
+            <Title>睡眠負債は</Title>
           </Typography>
           <Typography variant="h1">
-            <Box sx={{ letterSpacing: 16, my: 4 }}><b>{sleepSaving}時間</b></Box>
+            <Time>{sleepDebt !== null ? sleepDebt : 0}時間</Time>
           </Typography>
-          <Typography variant="h5">
-            <Box sx={{ letterSpacing: 4, my: 7 }}><b>素晴らしい睡眠生活です</b></Box>
-          </Typography>
-        </Box>
-      }
-      {
-        !sleepDebt && !sleepSaving &&
-        <Box>
-          <Typography variant="h2" component="div" >
-            <Box sx={{ letterSpacing: 10, my: 3 }}>さあ</Box>
-            <Box sx={{ letterSpacing: 10, my: 3 }}>睡眠を記録</Box>
-            <Box sx={{ letterSpacing: 10, my: 3 }}>してみましょう</Box>
-          </Typography>
-        </Box>
+        </>
       }
     </Box>
   )

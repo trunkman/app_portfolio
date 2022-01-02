@@ -9,15 +9,15 @@ import { theme } from '../../styled/theme'
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 // Component
-import { AvatarLink } from '../../components/Links/AvatarLink';
-import { BooksLink } from '../../components/Links/BooksLink';
-import { DiariesLink } from '../../components/Links/DiariesLink'
-import { FollowsLink } from '../../components/Links/FollowsLink';
-import { HomeLink } from '../../components/Links/HomeLink'
-import { LogoLink } from '../../components/Links/LogoLink';
-import { RankingLink } from '../../components/Links/RankingLink';
-import { RoomsLink } from '../../components/Links/RoomsLink';
-import { TimelineLink } from '../../components/Links/TimelineLink';
+import { AvatarLink } from '../Links/AvatarLink';
+import { BooksLink } from '../Links/BooksLink';
+import { DiariesLink } from '../Links/DiariesLink'
+import { FollowsLink } from '../Links/FollowsLink';
+import { HomeLink } from '../Links/HomeLink'
+import { LogoLink } from '../Links/LogoLink';
+import { RankingLink } from '../Links/RankingLink';
+import { RoomsLink } from '../Links/RoomsLink';
+import { TimelineLink } from '../Links/TimelineLink';
 
 export const Sidebar = ({
   checkClese,

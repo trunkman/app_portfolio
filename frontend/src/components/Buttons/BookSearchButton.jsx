@@ -1,36 +1,26 @@
 import React from "react";
 // Style
-import Box from '@mui/material/Box';
-import Button from "@mui/material/Button";
-import { createStyles, makeStyles } from "@material-ui/core/styles";
+import { styled } from '@mui/system'
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    'button': {
-      background: '#0288d1',
-      border: 0,
-      borderRadius: 50,
-      color: 'white',
-      height: 30,
-      padding: '15px 20px',
-      margin: '15px 0px'
-    }
-  }),
-);
+const ContainedButton = styled('button')(({ theme }) => ({
+  backgroundColor: theme.palette.primary.main,
+  border: 0,
+  borderRadius: 50,
+  color: theme.palette.primary.contrastText,
+  fontWeight: 'bold',
+  height: 30,
+  padding: '0px 20px',
+  margin: '15px 0px',
+}));
 
 export const BookSearchButton = ({ handleSubmit }) => {
-  const classes = useStyles();
 
   return (
-    <Box>
-      <Button
-        className={classes.button}
-        variant="contained"
-        type='submit'
-        onClick={handleSubmit}
-      >
-        検索する
-      </Button>
-    </Box>
+    <ContainedButton
+      type='submit'
+      onClick={handleSubmit}
+    >
+      本を検索する
+    </ContainedButton>
   )
 }

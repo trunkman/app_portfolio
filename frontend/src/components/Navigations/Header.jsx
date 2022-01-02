@@ -18,16 +18,16 @@ import { fetchMicropost } from "../../apis/microposts";
 import { dialogReducer, dialogInitialState } from '../../reducer/DialogReducer'
 import { postReducer, postInitialState } from '../../reducer/PostReducer'
 // Component
-import { AccountButton } from '../../components/Buttons/AccountButton'
-import { LogoLink } from '../../components/Links/LogoLink';
-import { NotificationButton } from '../../components/Buttons/NotificationButton';
-import { NotificationDialog } from "../../components/Dialogs/NotificationDialog";
-import { MicropostDialog } from "../../components/Dialogs/MicropostDialog";
-import { PostButton } from '../../components/Buttons/PostButton';
-import { RecordButton } from '../../components/Buttons/RecordButton';
-import { RecordDialog } from "../../components/Dialogs/RecordDialog"
-import { SnackBar } from "../../components/Snackbars/Snackbar"
-import { TweetDialog } from '../../components/Dialogs/TweetDialog';
+import { AccountButton } from '../Buttons/AccountButton'
+import { LogoLink } from '../Links/LogoLink';
+import { NotificationButton } from '../Buttons/NotificationButton';
+import { NotificationDialog } from "../Dialogs/NotificationDialog";
+import { MicropostDialog } from "../Dialogs/MicropostDialog";
+import { PostButton } from '../Buttons/PostButton';
+import { RecordButton } from '../Buttons/RecordButton';
+import { RecordDialog } from "../Dialogs/RecordDialog"
+import { SnackBar } from "../Snackbars/Snackbar"
+import { TweetDialog } from '../Dialogs/TweetDialog';
 
 export const Header = ({
   checkClese,

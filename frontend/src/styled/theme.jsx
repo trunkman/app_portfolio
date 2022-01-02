@@ -1,3 +1,4 @@
+import { palette } from "@material-ui/system";
 import { createTheme, responsiveFontSizes } from "@mui/material";
 
 export const theme = responsiveFontSizes(
@@ -5,7 +6,7 @@ export const theme = responsiveFontSizes(
     palette: {
       mode: 'dark',
       primary: {
-        main: '#0288d1'
+        main: '#0080FF'
       },
       background: {
         paper: '#001e3c',
@@ -13,15 +14,21 @@ export const theme = responsiveFontSizes(
       }
     },
     typography: {
-      h1: { letterSpacing: '10em' },
-      h2: { letterSpacing: '10em' },
-      h3: { letterSpacing: '10em' },
-      button: {
-        textTransform: "none"
-      }
+      h1: { letterSpacing: '.2em', fontWeight: 'bold' },
+      h2: { letterSpacing: '.2em', fontWeight: 'bold' },
+      h3: { letterSpacing: '.2em', fontWeight: 'bold' },
+      h4: { letterSpacing: '.2em', fontWeight: 'bold' },
+      h5: { letterSpacing: '.2em', fontWeight: 'bold' },
+      h6: { letterSpacing: '.2em', fontWeight: 'bold' },
     },
-    components: {
-      MuiButton: {
+    MyThemeComponents: {
+      styleOverrides: {
+        root: {
+          color: palette.primary
+        },
+        primary: {
+          color: '#0080FF'
+        },
         variants: [
           {
             props: { variant: 'contained', color: "error" },

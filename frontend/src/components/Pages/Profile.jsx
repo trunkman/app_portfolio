@@ -18,7 +18,7 @@ import { fetchUser, fetchMicroposts } from "../../apis/users";
 import { profileReducer, profileInitialState } from '../../reducer/ProfileReducer';
 // Component
 import { Comment } from "../../components/Lists/Comment";
-import { Loading } from "../../components/Loading"
+import { Loading } from "../Items/Loading"
 import { Micropost } from "../../components/Lists/Micropost";
 import { UserInfo } from "../../components/UserInfomation/UserInfo";
 

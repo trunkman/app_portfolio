@@ -25,7 +25,7 @@ import { Timeline } from './Pages/Timeline';
 import { Users } from './Pages/Users'
 import { Sidebar } from './Navigations/Sidebar';
 // Component
-import { Loading } from '../components/Loading';
+import { Loading } from './Items/Loading';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -34,7 +34,7 @@ const useStyles = makeStyles(() =>
       display: 'flex',
       justifyContent: 'center',
       maxWidth: 1200,
-      marginTop: 120,
+      marginTop: 80,
       mx: 'auto',
       width: '100%',
     }

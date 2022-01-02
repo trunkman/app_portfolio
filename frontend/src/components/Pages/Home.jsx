@@ -2,7 +2,8 @@ import React, { useEffect, useContext, useReducer } from "react";
 import { AuthContext } from "../../App";
 // Style
 import Box from '@mui/material/Box';
-import Grid from "@mui/material/Grid";
+import CardMedia from '@mui/material/CardMedia';
+import { styled } from '@mui/system'
 // Api
 import { fetchSleepDebt } from "../../apis/diaries";
 // Reducer
@@ -18,6 +19,12 @@ import { HomeMessage } from "../../components/Items/HomeMessage";
 // Image
 import MainImage from "../../images/MainImage.png";
 
+const Container = styled('box')(() => ({
+  display: 'flex',
+  flexWrap: 'wrap',
+  maxWidth: 1000,
+  alignItems: 'center'
+}));
 
 export const Home = () => {
   const { authState, authDispatch } = useContext(AuthContext);
@@ -52,46 +59,27 @@ export const Home = () => {
 
   return (
     <>
-      <Grid container sx={{
-        maxWidth: 1000,
-        alignItems: 'center',
-      }}>
-        {!authState.loggedIn &&
-          <Grid item xs={12} sm={6} sx={{
-            flexDirection: 'column',
-            justifyContent: 'center',
-          }}>
-            <HomeMessage
-              handleOpenLogin={() => dialogDispatch({ type: 'login' })}
-              handleOpenSignup={() => dialogDispatch({ type: 'signup' })}
-            />
-          </Grid>
+      <Container>
+        {authState.loggedIn
+          ? <SleepInfo
+            userName={authState.loginUser.name}
+            sleepDebt={sleepDebtState.sleepDebt}
+            sleepSaving={sleepDebtState.sleepSaving}
+          />
+          : <HomeMessage
+            handleOpenLogin={() => dialogDispatch({ type: 'login' })}
+            handleOpenSignup={() => dialogDispatch({ type: 'signup' })}
+          />
         }
-        {authState.loggedIn &&
-          <Grid item xs={12} sm={6} sx={{
-            alignItems: "center",
-            justifyContent: 'center',
-          }}>
-            <SleepInfo
-              userName={authState.loginUser.name}
-              sleepDebt={sleepDebtState.sleepDebt}
-              sleepSaving={sleepDebtState.sleepSaving}
-            />
-          </Grid>
-        }
-        <Grid item xs={12} sm={6} sx={{
-          alignItems: "center",
-          justifyContent: 'center',
-        }}>
-          <Box>
-            <img src={MainImage}
-              alt="main iamge"
-              style={{ width: 600 }}
-            />
-          </Box>
-        </Grid>
-      </Grid>
-
+        <Box sx={{ maxWidth: 420 }}>
+          <CardMedia
+            alt='MainImage'
+            component='img'
+            image={MainImage}
+            sx={{ p: 1, mx: 3, width: '100%' }}
+          />
+        </Box>
+      </Container>
       <SignUpDialog
         handleClose={() => dialogDispatch({ type: 'close' })}
         open={dialogState.signup}

@@ -29,13 +29,11 @@ export const Search = ({
         className={classes.textfield}
         label="書籍名を入力してください"
         margin="dense"
-        // id="bookSerch"
         sx={{ width: '50ch' }}
         type="text"
         onChange={handleChange}
         value={keyword}
         required
-        variant="standard"
       />
     </Box>
   )

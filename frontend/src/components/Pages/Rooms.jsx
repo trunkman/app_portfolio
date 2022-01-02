@@ -9,7 +9,7 @@ import { deleteRoom } from "../../apis/rooms";
 // Reducer
 import { roomInitialState, roomReducer } from '../../reducer/RoomReducer';
 // Component
-import { Loading } from '../../components/Loading';
+import { Loading } from '../Items/Loading';
 import { DeleteDialog } from "../../components/Dialogs/DeleteDialog";
 import { TalkUser } from "../../components/Lists/TalkUser";
 

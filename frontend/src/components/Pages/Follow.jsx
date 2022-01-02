@@ -14,7 +14,7 @@ import { fetchFollowers } from "../../apis/users";
 import { followInitialState, followReducer } from '../../reducer/FollowReducer';
 // コンポーネント
 import { FollowList } from '../../components/Lists/FollowList';
-import { Loading } from '../../components/Loading';
+import { Loading } from '../Items/Loading';
 
 const useStyles = makeStyles(() =>
   createStyles({

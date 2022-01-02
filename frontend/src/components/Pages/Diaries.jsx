@@ -1,10 +1,9 @@
 import React, { useContext, useEffect, useReducer } from "react";
 import { AuthContext } from '../../App';
 // Style
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import { createStyles, makeStyles } from "@material-ui/core/styles";
 import Grid from '@mui/material/Grid';
+import { styled } from '@mui/system'
 import Typography from "@mui/material/Typography";
 // Api
 import { fetchUserDiaries } from "../../apis/users";
@@ -19,38 +18,52 @@ import { SleepInfo } from "../../components/UserInfomation/SleepInfo";
 // Dialog
 import { RecordDialog } from "../../components/Dialogs/RecordDialog";
 import { SleepData } from "../../components/UserInfomation/SleepData";
-import { Loading } from '../../components/Loading';
+import { Loading } from '../Items/Loading';
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    'root': {
-      alignItems: 'center',
-      flexDirection: 'end',
-      flexWrap: 'wrap',
-      justifyContent: 'center',
-      maxWidth: 1000,
-      mx: 'auto',
-      textAlign: 'center',
-      width: '100%',
-    },
-    'button': {
-      background: '#0288d1',
-      border: 0,
-      borderRadius: 3,
-      color: 'white',
-      height: 30,
-      padding: '15px 20px',
-    }
-  }),
-);
+const Container = styled('box')(() => ({
+  alignItems: 'center',
+  flexDirection: 'end',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
+  maxWidth: 1000,
+  mx: 'auto',
+  textAlign: 'center',
+  width: '100%',
+}));
+
+const Title = styled('box')(({ theme }) => ({
+  fontWeight: theme.typography.h2.fontWeight,
+  letterSpacing: theme.typography.h2.letterSpacing,
+  lineHeight: 2,
+}));
+
+const ContainedButton = styled('button')(({ theme }) => ({
+  backgroundColor: theme.palette.primary.main,
+  border: 0,
+  borderRadius: theme.shape.borderRadius,
+  color: theme.palette.primary.contrastText,
+  fontWeight: 'bold',
+  height: 30,
+  width: 200,
+  padding: '0px 20px',
+  marginTop: '30px',
+}));
+
+const SubBody = styled('box')(({ theme }) => ({
+  fontWeight: theme.typography.h6.fontWeight,
+  letterSpacing: theme.typography.h6.letterSpacing,
+  lineHeight: 2,
+}));
 
 export const Diaries = ({ userId }) => {
-  const classes = useStyles();
   const { authState } = useContext(AuthContext);
   const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState);
-  const handleClose = () => dialogDispatch({ type: 'close' });
   const [recordState, recordDispatch] = useReducer(recordReducer, recordInitialState);
   const [sleepDebtState, sleepDebtDispatch] = useReducer(sleepDebtReducer, sleepDebtInitialState);
+
+  // ダイアログを閉じる
+  const handleClose = () => dialogDispatch({ type: 'close' });
+
   // 日記情報を取得する
   const fetchDiaries = () => {
     recordDispatch({ type: 'fetching' });
@@ -65,6 +78,7 @@ export const Diaries = ({ userId }) => {
         });
       });
   }
+
   // 睡眠負債を取得する
   const SleepDebt = () => {
     sleepDebtDispatch({ type: 'fetching' });
@@ -94,14 +108,14 @@ export const Diaries = ({ userId }) => {
 
 
   return (
-    <Box className={classes.root}>
+    <Container>
       {recordState.fetchState !== 'ok' ? <Loading /> :
         <>
-          <Typography variant="h3">
-            <Box sx={{ letterSpacing: 10, pb: 5 }}><b> ~ {recordState.user.name}の睡眠日記 ~ </b></Box>
+          <Typography variant="h2">
+            <Title>≪ Sleep Diary ≫</Title>
           </Typography>
           <Grid container>
-            <Grid item xs={12} sm={6} sx={{
+            <Grid item xs={12} sm={5} sx={{
               alignItems: "center",
               justifyContent: 'center',
               pt: 8
@@ -112,28 +126,26 @@ export const Diaries = ({ userId }) => {
                 sleepSaving={sleepDebtState.sleepSaving}
               />
               <Box>
+                <Typography variant="h6">
+                  <SubBody>（理想睡眠時間：{recordState.user.ideal_sleeping_hours}時間）</SubBody>
+                </Typography>
                 {authState.loggedIn &&
-                  <Box display="flex" justifyContent="space-evenly">
-                    <Button
-                      className={classes.button}
-                      onClick={() => dialogDispatch({ type: 'record' })}
-                    >
-                      睡眠日記を書く
-                    </Button>
-                    <Button
-                      className={classes.button}
-                    >
+                  <Box sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center'
+                  }}>
+                    <ContainedButton>
                       ツイッターに投稿する
-                    </Button>
+                    </ContainedButton>
+                    <ContainedButton onClick={() => dialogDispatch({ type: 'record' })}>
+                      睡眠日記を書く
+                    </ContainedButton>
                   </Box>
                 }
-                <Typography variant="h6">
-                  <Box sx={{ letterSpacing: 4, mt: 3 }}>【理想睡眠時間：<b>{recordState.user.ideal_sleeping_hours}時間】</b></Box>
-                </Typography>
               </Box>
             </Grid>
-
-            <Grid item sm={12} md={6} sx={{ pt: 2 }}>
+            <Grid item sm={12} md={7} sx={{ pt: 2, px: 2 }}>
               <Calendar
                 userId={userId}
                 open={dialogState.diary}
@@ -144,19 +156,17 @@ export const Diaries = ({ userId }) => {
               />
             </Grid>
           </Grid>
-
-          <Box sx={{ py: 6, pl: 2 }}>
+          <Grid item sm={12} sx={{ py: 6, pl: 2 }}>
             <SleepData
               diaries={recordState.diaries}
             />
-          </Box>
+          </Grid>
         </>
       }
-
       <RecordDialog
         handleClose={handleClose}
         open={dialogState.record}
       />
-    </Box>
+    </Container>
   )
 }

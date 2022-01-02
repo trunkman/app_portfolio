@@ -12,7 +12,7 @@ import { fetchSleepHoursRank, fetchReadingRank, fetchReadBooksRank, fetchStackBo
 // Reducer
 import { rankReducer, rankInitialState } from '../../reducer/RankingReducer'
 // Component
-import { Loading } from "../../components/Loading"
+import { Loading } from "../Items/Loading"
 import { RankBook } from "../../components/Lists/RankBook";
 import { RankUser } from "../../components/Lists/RankUser";
 

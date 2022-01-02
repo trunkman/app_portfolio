@@ -9,7 +9,7 @@ import { fetchTimeline } from "../../apis/users";
 import { timelineInitialState, timelineReducer } from '../../reducer/TimelineReducer';
 // Cpmponent
 import { Micropost } from "../../components/Lists/Micropost";
-import { Loading } from '../../components/Loading';
+import { Loading } from '../Items/Loading';
 
 const useStyles = makeStyles(() =>
   createStyles({
