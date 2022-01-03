@@ -14,7 +14,6 @@ const Wrapper = styled('box')(() => ({
 }));
 
 export const BookSearch = ({
-  bookState,
   handleChange,
   keyword,
   searchBooks,
@@ -29,12 +28,6 @@ export const BookSearch = ({
       <BookSearchButton
         handleSubmit={() => searchBooks()}
       />
-      {
-        bookState.searchBooks.length !== 0 &&
-        <Typography variant="h6">
-          検索結果 : {bookState.searchBooks.length} 件
-        </Typography>
-      }
     </Wrapper>
   )
 }

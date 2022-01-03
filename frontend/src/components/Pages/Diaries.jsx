@@ -112,7 +112,7 @@ export const Diaries = ({ userId }) => {
       {recordState.fetchState !== 'ok' ? <Loading /> :
         <>
           <Typography variant="h2">
-            <Title>≪ Sleep Diary ≫</Title>
+            <Title>≪ {recordState.user.name}の睡眠日記 ≫</Title>
           </Typography>
           <Grid container>
             <Grid item xs={12} sm={5} sx={{

@@ -2,8 +2,7 @@ import React, { useContext, useEffect, useState, useReducer } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { AuthContext } from '../App';
 // Style
-import Box from '@mui/material/Box';
-import { createStyles, makeStyles } from "@material-ui/core/styles";
+import { styled } from '@mui/system'
 // Api
 import { checkNotifications } from '../apis/notifications';
 // Reducer
@@ -27,22 +26,17 @@ import { Sidebar } from './Navigations/Sidebar';
 // Component
 import { Loading } from './Items/Loading';
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    'root': {
-      alignItems: 'center',
-      display: 'flex',
-      justifyContent: 'center',
-      maxWidth: 1200,
-      marginTop: 80,
-      mx: 'auto',
-      width: '100%',
-    }
-  }),
-);
+const MainContainer = styled('box')(() => ({
+  alignItems: 'center',
+  display: 'flex',
+  justifyContent: 'center',
+  maxWidth: 1200,
+  marginTop: 80,
+  mx: 'auto',
+  width: '100%',
+}));
 
 export const Layout = () => {
-  const classes = useStyles();
   const { authState } = useContext(AuthContext);
   const [notificationState, notificationDispatch] = useReducer(notificationReducer, notificationInitialState);
   // Sidebar開閉する関数群
@@ -86,7 +80,7 @@ export const Layout = () => {
         handleDrawerClose={handleDrawerClose}
       />
 
-      <Box className={classes.root}>
+      <MainContainer>
         <Switch>
           <Route exact path="/">
             <Home />
@@ -188,7 +182,7 @@ export const Layout = () => {
             </>
           }
         </Switch>
-      </Box>
+      </MainContainer>
     </BrowserRouter >
   );
 }

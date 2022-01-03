@@ -43,12 +43,13 @@ export const BookRecommend = ({ book, NotRecommend }) => {
     <>
       {book === null &&
         <>
+          <Skeleton variant="rectangular" width={150} height={200} />
           <Box className={classes.text}>
             <Typography variant="h5" sx={{ pb: 2 }}>
               お気に入りの睡眠本を登録しましょう。
             </Typography>
+
           </Box>
-          <Skeleton variant="rectangular" width={150} height={200} />
         </>
       }
       {book !== null &&

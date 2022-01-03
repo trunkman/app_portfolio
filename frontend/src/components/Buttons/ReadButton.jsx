@@ -1,37 +1,33 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
+import { AuthContext } from '../../App';
 // Style
 import Box from '@mui/material/Box';
-import Button from "@mui/material/Button";
-import { createStyles, makeStyles } from "@material-ui/core/styles";
+import { styled } from '@mui/system'
 // Api
 import { postBook, updateBook } from "../../apis/books";
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    'stackButton': {
-      background: '#0288d1',
-      borderRadius: 50,
-      color: 'white',
-      height: 30,
-      padding: '15px 20px',
-    },
-    'readButton': {
-      background: '#0288d1',
-      borderRadius: 50,
-      color: 'white',
-      height: 30,
-      padding: '15px 20px',
-      marginLeft: 20,
-    },
-  }),
-);
+
+const ContainedButton = styled('button')(({ theme }) => ({
+  backgroundColor: theme.palette.primary.main,
+  border: 0,
+  borderRadius: theme.shape.borderRadius,
+  color: theme.palette.primary.contrastText,
+  fontWeight: 'bold',
+  height: 30,
+  padding: '0px 20px',
+  marginRight: '30px',
+}));
 
 export const ReadButton = ({
   book,
   registration,
   subscribed,
 }) => {
-  const classes = useStyles();
+  const history = useHistory();
+  const { authState } = useContext(AuthContext);
+
+  // 本を登録する
   const handleClick = boolean => {
     // ユーザー未登録本の場合、CreateでDBに登録する
     !subscribed && (
@@ -44,6 +40,7 @@ export const ReadButton = ({
           // ぺーじ遷移を加える
           data.message &&
             alert(data.message)
+          history.push(`/users/${authState.loginUser.id}/books`)
         })
     );
     // ユーザー登録済み本の場合、UpdateでDBを更新する
@@ -56,6 +53,7 @@ export const ReadButton = ({
           // ぺーじ遷移を加える
           data.message &&
             alert(data.message)
+          history.push(`/users/${authState.loginUser.id}/books`)
         })
     );
   }
@@ -63,21 +61,17 @@ export const ReadButton = ({
   // 読んだ積んだがわかるように設定する予定
   return (
     <Box>
-      <Button
-        className={classes.stackButton}
-        color="primary"
+      <ContainedButton
         onClick={() => handleClick("false")}
         variant="outlined"
       >
-        積む
-      </Button>
-      <Button
-        className={classes.readButton}
-        color="primary"
+        積本に登録
+      </ContainedButton>
+      <ContainedButton
         onClick={() => handleClick("true")}
       >
         読了
-      </Button>
+      </ContainedButton>
     </Box>
   )
 }

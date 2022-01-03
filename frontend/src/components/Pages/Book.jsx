@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 //Style
 import Box from '@mui/material/Box';
-import { createStyles, makeStyles } from "@material-ui/core/styles";
 import Divider from '@mui/material/Divider';
 import CardMedia from '@mui/material/CardMedia';
+import { styled } from '@mui/system'
 import Typography from '@mui/material/Typography';
 // Api
 import { fetchBook } from "../../apis/books";
@@ -12,28 +12,27 @@ import { fetchBook } from "../../apis/books";
 import { ReadButton } from "../../components/Buttons/ReadButton";
 import { RecommendButton } from "../../components/Buttons/RecommendButton";
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    'root': {
-      display: 'flex',
-      flexWrap: 'wrap',
-      maxWidth: 800,
-      mx: 'auto',
-      width: '100%',
-    },
-    'detail': {
-      display: 'flex',
-      flexDirection: 'column',
-      maxWidth: 430,
-      mx: 'auto',
-      paddingLeft: 30,
-      width: '100%',
-    },
-  }),
-);
+const Container = styled('box')(() => ({
+  display: 'flex',
+  flexWrap: 'wrap',
+  maxWidth: 800,
+  mx: 'auto',
+  width: '100%',
+}));
+
+const Title = styled('box')(({ theme }) => ({
+  fontWeight: theme.typography.h2.fontWeight,
+  letterSpacing: theme.typography.h2.letterSpacing,
+  lineHeight: 2,
+}));
+
+const TextDetail = styled('box')(() => ({
+  flexDirection: 'column',
+  paddingLeft: 100,
+  width: '100%',
+}));
 
 export const Book = ({ bookIsbn }) => {
-  const classes = useStyles();
   const [book, setBook] = useState([])
   const [registration, setResistration] = useState(false)
   const [subscribed, setSubscribed] = useState(false)
@@ -49,12 +48,12 @@ export const Book = ({ bookIsbn }) => {
   }, [bookIsbn])
 
   return (
-    <Box className={classes.root}>
+    <Container>
       <Typography variant="h3" sx={{ width: '100%' }}>
-        <Box sx={{ letterSpacing: 6, pb: 2, mb: 4, borderBottom: 1 }}><b>{book.title}</b></Box>
+        <Title>{book.title}</Title>
+        <Divider sx={{ border: 1, mt: 1, mb: 4 }} />
       </Typography>
-      <Divider variant='fullWidth' />
-      <Box sx={{ width: 250 }}>
+      <Box sx={{ width: 250, mr: 3 }}>
         <CardMedia
           component="img"
           image={book.largeImageUrl}
@@ -63,7 +62,7 @@ export const Book = ({ bookIsbn }) => {
         />
       </Box>
       <Box>
-        <Box className={classes.detail} >
+        <TextDetail>
           <Typography variant="h6" sx={{ pb: 1 }}>著者名 ： {book.author}</Typography>
           <Typography variant="h6" sx={{ pb: 1 }}>出版社名 ： {book.publisherName}</Typography>
           <Typography variant="h6" sx={{ pb: 1 }}>出版日 ： {book.salesDate}</Typography>
@@ -87,8 +86,8 @@ export const Book = ({ bookIsbn }) => {
               registration={registration}
             />
           </Box>
-        </Box>
+        </TextDetail>
       </Box>
-    </Box>
+    </Container>
   )
 }
