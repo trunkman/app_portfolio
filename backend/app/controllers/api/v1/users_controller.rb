@@ -56,9 +56,15 @@ module Api
       end
 
       def destroy
-        User.find(params[:id]).destroy
-        render json: { message: 'アカウントを削除しました' },
-               status: :ok
+        @user = User.find(params[:id])
+        if current_user?(@user) || current_user.admin?
+          @user.destroy
+          render json: { message: 'アカウントを削除しました' },
+                 status: :ok
+        else
+          render json: { message: 'このアカウントは削除できません' },
+                 status: :forbidden
+        end
       end
 
       # 投稿&コメント一覧を返す

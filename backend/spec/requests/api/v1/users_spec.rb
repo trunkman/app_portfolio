@@ -50,7 +50,6 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     expect(response.status).to eq(401)
   end
 
-  # 要修正箇所
   it '新規ユーザーを登録する' do
     expect { post api_v1_signup_path, params: params }.to change(User, :count).by(1)
     expect(response.status).to eq(201)
@@ -106,7 +105,7 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     expect(response.status).to eq(401)
   end
 
-  it 'ユーザー削除はできない' do
+  it '他ユーザー削除はできない(管理者は除く)' do
     other_user
     log_in_as(user)
     delete api_v1_user_path(other_user)
