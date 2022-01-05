@@ -44,7 +44,7 @@ module Api
 
       # 有効なユーザーかどうか確認する
       def valid_user
-        unless @user&.activated? && @user.authenticated?(:reset, params[:id])
+        unless @user&.activated? && @user&.authenticated?(:reset, params[:id])
           render json: {}, status: :unprocessable_entity
         end
       end

@@ -3,7 +3,6 @@
 module Api
   module V1
     class ImagesController < ApplicationController
-
       def avatar
         avatar_url = params[:image][:avatar_url]
         if current_user.update(avatar_url: avatar_url)
@@ -16,11 +15,11 @@ module Api
       end
 
       private
-       # StrongParameter
+
+      # StrongParameter
       def image_params
         params.require(:image).permit(:avatar_url)
       end
-
     end
   end
 end

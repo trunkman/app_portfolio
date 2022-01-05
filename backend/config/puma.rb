@@ -45,5 +45,5 @@ pidfile ENV.fetch('PIDFILE', 'tmp/pids/server.pid')
 plugin :tmp_restart
 
 # Pumaソケットを生成
-app_root = File.expand_path("..", __dir__)
+app_root = File.expand_path('..', __dir__)
 bind "unix://#{app_root}/tmp/sockets/puma.sock"

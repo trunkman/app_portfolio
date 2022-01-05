@@ -175,7 +175,7 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     # 日記を作成する
     user.diaries.create(date: '1999/12/31',
                         feeling: 'satisfied',
-                        sleeping_hours: 10.0 )
+                        sleeping_hours: 10.0)
     log_in_as(user)
     get diaries_api_v1_user_path(user)
     expect(json['diaries'].length).to eq(1)

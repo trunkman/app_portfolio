@@ -43,16 +43,19 @@ Rails.application.configure do
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
-  config.action_mailer.delivery_method = :test
-  host = 'http://sleepingdebtplan.com:3000'
+  # メーラー設定
+  host = 'https://sleepingdebtplan.com'
   config.action_mailer.default_url_options = { host: host }
-  ActionMailer::Base.smtp_settings = {
-    port: ENV['MAILGUN_SMTP_PORT'],
-    address: ENV['MAILGUN_SMTP_SERVER'],
-    user_name: ENV['MAILGUN_SMTP_LOGIN'],
-    password: ENV['MAILGUN_SMTP_PASSWORD'],
-    domain: host,
-    authentication: :plain
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: 'gamil.com',
+    user_name: ENV['HOST_MAIL'],
+    password: ENV['HOST_MAIL_PASS'],
+    authentication: 'plain',
+    enable_starttls_auto: true
   }
 
   # Print deprecation notices to the stderr.
