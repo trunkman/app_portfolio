@@ -1,33 +1,33 @@
 version: 2.1
 
-orbs: 
-  aws-ecr: circleci/aws-ecr@7.3.0
-  aws-ecs: circleci/aws-ecs@2.2.1
+# orbs: 
+#   aws-ecr: circleci/aws-ecr@7.3.0
+#   aws-ecs: circleci/aws-ecs@2.2.1
 
 executors:
   default:
     docker:
-      - image: ${AWS_ECR_ACCOUNT}/app_api
+      # ローカルテスト用
+      # - image: app_api:latest
+      - image: "${AWS_ECR_ACCOUNT}/app_api:${CIRCLE_SHA1}"
         aws_auth:
           aws_access_key_id: $AWS_ACCESS_KEY
           aws_secret_access_key: $AWS_SECRET_KEY
-    working_directory: ~/sleepingdebtplan
-      # - image: ${AWS_ECR_ACCOUNT}/app_nginx
-      # - image: ${AWS_ECR_ACCOUNT}/app_web
+    working_directory: ~/sleepingdebtplan/backend
+      # - image: $AWS_ECR_ACCOUNT/app_nginx
+      # - image: $AWS_ECR_ACCOUNT/app_web
         
 jobs:
   build:
-    executor: 
-      name: default
+    executor: default
     steps:
       - checkout
+
   syntax-check:
-    executor: 
-      name: default
+    executor: default
     steps:
       - run:
           name: rubocopの構文規則チェック
-          working_directory: backend
           command: rubocop -a
   test:
     executor: 
@@ -36,15 +36,9 @@ jobs:
       - run:
           name: rspecのテスト
           command: rspec
-  # test_rspec:
-  #   executor: default
-  #   steps:
-  #     - checkout
-  #     - run:
-
 
 workflows:
-  test:
+  check_and_test:
     jobs:
       - build
       - syntax-check:
@@ -53,7 +47,6 @@ workflows:
       - test:
           requires:
             - build
-      # - test_rspec
 
   # nginx-build-and-deploy:
   #  jobs:
