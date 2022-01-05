@@ -1,19 +1,18 @@
 version: 2.1
 
-# orbs: 
-#   aws-ecr: circleci/aws-ecr@7.3.0
-#   aws-ecs: circleci/aws-ecs@2.2.1
+orbs: 
+  aws-ecr: circleci/aws-ecr@7.3.0
+  aws-ecs: circleci/aws-ecs@2.2.1
 
 executors:
   default:
     docker:
       # ローカルテスト用
       # - image: app_api:latest
-      - image: "${AWS_ECR_ACCOUNT}/app_api:${CIRCLE_SHA1}"
+      - image: ${AWS_ECR_ACCOUNT}/app_api
         aws_auth:
           aws_access_key_id: $AWS_ACCESS_KEY
           aws_secret_access_key: $AWS_SECRET_KEY
-    working_directory: ~/sleepingdebtplan/backend
       # - image: $AWS_ECR_ACCOUNT/app_nginx
       # - image: $AWS_ECR_ACCOUNT/app_web
         
@@ -30,8 +29,7 @@ jobs:
           name: rubocopの構文規則チェック
           command: rubocop -a
   test:
-    executor: 
-      name: default
+    executor: default
     steps:
       - run:
           name: rspecのテスト
