@@ -17,29 +17,27 @@ executors:
         
 jobs:
   build:
-    executors: default
+    executor: 
+      name: default
     steps:
       - checkout
-      - run:
-          name: 
-          command:
-      - run:
-          name:
-      - run:
-          name:
-  check_rubocop:
-    executors: default
+  syntax-check:
+    executor: 
+      name: default
     steps:
-      - checkout
       - run:
           name: rubocopの構文規則チェック
           working_directory: backend
           command: rubocop -a
+  test:
+    executor: 
+      name: default
+    steps:
       - run:
           name: rspecのテスト
           command: rspec
   # test_rspec:
-  #   executors: default
+  #   executor: default
   #   steps:
   #     - checkout
   #     - run:
@@ -49,7 +47,10 @@ workflows:
   test:
     jobs:
       - build
-      - check_rubocop
+      - syntax-check:
+          requires:
+            - build
+      - test:
           requires:
             - build
       # - test_rspec
