@@ -1,25 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // Style
+import Avatar from "@mui/material/Avatar";
 import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
-import { createStyles, makeStyles } from "@material-ui/core/styles";
+import { styled } from '@mui/system';
 import Typography from '@mui/material/Typography';
-// Icon
-import AccountCircle from "@mui/icons-material/AccountCircle";
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    'card': {
-      alignContent: 'center',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      width: 280,
-    },
-  }),
-);
+const CardWrapper = styled(CardActionArea)(() => ({
+  alignContent: 'center',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  width: 280,
+}));
 
 export const RankUser = ({
   user,
@@ -27,13 +22,11 @@ export const RankUser = ({
   average,
   count,
 }) => {
-  const classes = useStyles();
 
   return (
     <>
       <Card sx={{ p: 2 }}>
-        <CardActionArea
-          className={classes.card}
+        <CardWrapper
           component={Link}
           to={`/users/${user.id}`}
         >
@@ -41,9 +34,9 @@ export const RankUser = ({
             <Typography gutterBottom variant="h5">
               <b>{rank}</b> 位
             </Typography>
-            <AccountCircle
-              color='primary'
-              sx={{ fontSize: 100 }}
+            <Avatar
+              src={user.avatar_url}
+              sx={{ width: 100, height: 100, mb: 1 }}
             />
             <Typography variant="subtitle1" color="text.secondary">
               {user.name}
@@ -59,7 +52,7 @@ export const RankUser = ({
               </Typography>
             }
           </CardContent>
-        </CardActionArea>
+        </CardWrapper>
       </Card>
     </>
   );

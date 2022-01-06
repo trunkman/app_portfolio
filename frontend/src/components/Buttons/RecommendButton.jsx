@@ -7,15 +7,15 @@ import { styled } from '@mui/system'
 // Api
 import { postRecommend } from "../../apis/recommends";
 
-const OutinedButton = styled('button')(({ theme }) => ({
-  backgroundColor: theme.palette.background.paper,
-  borderColor: theme.palette.primary.main,
+const ContainedButton = styled('button')(({ theme }) => ({
+  backgroundColor: theme.palette.secondary.main,
+  border: 0,
   borderRadius: theme.shape.borderRadius,
-  color: theme.palette.primary.contrastText,
+  color: theme.palette.secondary.contrastText,
   fontWeight: 'bold',
   height: 30,
-  padding: '0px 20px',
   margin: '30px 0px',
+  padding: '0px 20px',
 }));
 
 export const RecommendButton = ({
@@ -37,9 +37,9 @@ export const RecommendButton = ({
   return (
     <Box>
       {registration &&
-        <OutinedButton onClick={submitRecommend}>
+        <ContainedButton onClick={submitRecommend}>
           私のおすすめにする
-        </OutinedButton>
+        </ContainedButton>
       }
     </Box>
   )

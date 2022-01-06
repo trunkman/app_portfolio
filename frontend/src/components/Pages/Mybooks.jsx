@@ -5,7 +5,6 @@ import Typography from "@mui/material/Typography";
 // Api
 import { fetchUserBooks } from '../../apis/users';
 import { fetchSearchBooks } from '../../apis/books';
-// import { deleteRecommend } from '../../apis/recommends'
 // Reducer
 import { bookInitialState, bookReducer } from '../../reducer/BookReducer';
 // Component
@@ -60,7 +59,6 @@ export const Mybooks = ({ userId }) => {
           payload: data.books,
         });
         !data && alert('書籍名を入力してください。')
-        !bookState.searchBooks.length && alert('書籍名が一致する本がありませんでした。')
       });
   }
 
@@ -96,17 +94,3 @@ export const Mybooks = ({ userId }) => {
   )
 }
 
-// おすすめ本を解除する
-// const NotRecommend = (bookId) => {
-//   deleteRecommend(bookId)
-//     .then(() => {
-//       bookDispatch({ type: 'reRender', });
-//     })
-// }
-
-{/* <Grid item xs={12} sm={6}>
-          <BookRecommend
-            book={bookState.recommendBook}
-            NotRecommend={NotRecommend}
-          />
-        </Grid> */}

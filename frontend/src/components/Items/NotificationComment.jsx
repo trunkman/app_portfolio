@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 // Style
+import Link from '@mui/material/Link';
 import ListItem from "@material-ui/core/ListItem";
 
 
@@ -16,17 +16,15 @@ export const NotificationComment = ({
       {
         <ListItem key={notification.id.toString()}>
           <Link
-            color='inherit'
+            href={`/users/${visitor_user.id}`}
             onClick={() => handleClose()}
-            to={`/users/${visitor_user.id}`}
             underline='hover'
           >
             {visitor_user.name}
           </Link>
           さんがあなたの
           <Link
-            color='inherit'
-            to='#'
+            href='#'
             onClick={() => handleClick(notification.micropost_id)}
             underline='hover'
           >

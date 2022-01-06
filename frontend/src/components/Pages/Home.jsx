@@ -18,6 +18,7 @@ import { SnackBar } from "../../components/Snackbars/Snackbar";
 import { HomeMessage } from "../../components/Items/HomeMessage";
 // Image
 import MainImage from "../../images/MainImage.png";
+import MainLogo from "../../images/MainLogo.png";
 
 const Container = styled('box')(() => ({
   display: 'flex',
@@ -60,17 +61,25 @@ export const Home = () => {
   return (
     <>
       <Container>
-        {authState.loggedIn
-          ? <SleepInfo
-            userName={authState.loginUser.name}
-            sleepDebt={sleepDebtState.sleepDebt}
-            sleepSaving={sleepDebtState.sleepSaving}
+        <Box>
+          <CardMedia
+            alt='MainLogo'
+            component='img'
+            image={MainLogo}
+            sx={{ p: 1, width: 380 }}
           />
-          : <HomeMessage
-            handleOpenLogin={() => dialogDispatch({ type: 'login' })}
-            handleOpenSignup={() => dialogDispatch({ type: 'signup' })}
-          />
-        }
+          {authState.loggedIn
+            ? <SleepInfo
+              userName={authState.loginUser.name}
+              sleepDebt={sleepDebtState.sleepDebt}
+              sleepSaving={sleepDebtState.sleepSaving}
+            />
+            : <HomeMessage
+              handleOpenLogin={() => dialogDispatch({ type: 'login' })}
+              handleOpenSignup={() => dialogDispatch({ type: 'signup' })}
+            />
+          }
+        </Box>
         <Box sx={{ maxWidth: 420 }}>
           <CardMedia
             alt='MainImage'

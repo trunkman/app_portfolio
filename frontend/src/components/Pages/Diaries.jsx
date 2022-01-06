@@ -3,7 +3,7 @@ import { AuthContext } from '../../App';
 // Style
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import { styled } from '@mui/system'
+import { styled } from '@mui/system';
 import Typography from "@mui/material/Typography";
 // Api
 import { fetchUserDiaries } from "../../apis/users";

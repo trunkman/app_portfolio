@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState, useReducer } from 'react';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { AuthContext } from '../App';
 // Style
 import { styled } from '@mui/system'
@@ -60,7 +60,7 @@ export const Layout = () => {
   }
 
   useEffect(() => {
-    authState.loggedIn && Notifications();
+    Notifications();
   }, [])
 
   return (

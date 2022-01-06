@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 // Style
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
-import { createStyles, makeStyles } from "@material-ui/core/styles";
+import { styled } from '@mui/system';
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
@@ -13,23 +13,31 @@ import Typography from "@mui/material/Typography";
 // Icon
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    'list': {
-      display: 'flex',
-      alignItems: 'center',
-      borderRadius: 2,
-      my: 3,
-      width: '100%'
-    }
-  }),
-);
+const ListWrapper = styled(ListItem)(() => ({
+  alignItems: 'center',
+  borderRadius: 2,
+  display: 'flex',
+  justifyContent: 'space-between',
+  my: 3,
+  width: '100%'
+}));
+
+const ListTitle = styled('box')(({ theme }) => ({
+  fontWeight: theme.typography.h5.fontWeight,
+  letterSpacing: theme.typography.h5.letterSpacing,
+  lineHeight: 2,
+}));
+
+const ListBody = styled('box')(({ theme }) => ({
+  fontWeight: 'light',
+  letterSpacing: theme.typography.h6.letterSpacing,
+  lineHeight: 2,
+}));
 
 export const TalkUser = ({
   entries,
   setOpen,
 }) => {
-  const classes = useStyles();
   const history = useHistory();
 
   return (
@@ -41,11 +49,7 @@ export const TalkUser = ({
       }
       {entries.length !== 0 &&
         entries.map(entry =>
-          <ListItem
-            key={entry.room_id.toString()}
-            className={classes.list}
-            sx={{ justifyContent: 'space-between' }}
-          >
+          <ListWrapper key={entry.room_id.toString()}>
             <ListItemAvatar>
               <Avatar
                 alt={entry.other_user.name}
@@ -59,12 +63,12 @@ export const TalkUser = ({
               sx={{ p: 3, width: '100%' }}
             >
               <ListItemText>
-                <Typography variant="h5" sx={{ letterSpacing: 2 }}>
-                  {entry.other_user.name} さん
+                <Typography variant="h5">
+                  <ListTitle>{entry.other_user.name}</ListTitle>
                 </Typography>
                 {entry.message_content &&
                   <Typography variant="h6" >
-                    <Box sx={{ letterSpacing: 2, mt: 2 }}>{entry.message_content}</Box>
+                    <ListBody>{entry.message_content}</ListBody>
                   </Typography>
                 }
               </ListItemText>
@@ -72,7 +76,7 @@ export const TalkUser = ({
             <ListItemButton onClick={() => setOpen({ isOpen: true, roomId: entry.room_id })}>
               <DeleteOutlinedIcon />
             </ListItemButton>
-          </ListItem>
+          </ListWrapper>
         )
       }
     </List>

@@ -1,36 +1,37 @@
 import React, { useState } from "react";
 // Styles
 import Button from "@mui/material/Button";
-import { createStyles, makeStyles } from "@material-ui/core/styles";
+import { styled } from '@mui/system'
 // Api
 import { postFollow } from "../../apis/relationships";
 import { deleteUnfollow } from "../../apis/relationships";
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    'follow': {
-      borderRadius: 50,
-      color: '#0288d1',
-      height: 30,
-      padding: '15px 20px',
-    },
-    'unfollow': {
-      background: '#0288d1',
-      border: 0,
-      borderRadius: 50,
-      color: 'white',
-      height: 30,
-      padding: '15px 20px',
-    }
-  }),
-);
+const ContainedButton = styled('button')(({ theme }) => ({
+  backgroundColor: theme.palette.primary.main,
+  border: 0,
+  borderRadius: theme.shape.borderRadius,
+  color: theme.palette.primary.contrastText,
+  fontWeight: 'bold',
+  height: 30,
+  marginTop: 15,
+  padding: '0px 20px',
+}));
+
+const OutinedButton = styled('button')(({ theme }) => ({
+  backgroundColor: theme.palette.background.paper,
+  borderColor: theme.palette.primary.main,
+  borderRadius: theme.shape.borderRadius,
+  color: theme.palette.primary.contrastText,
+  fontWeight: 'bold',
+  height: 30,
+  marginTop: 15,
+  padding: '0px 20px',
+}));
 
 export const FollowButton = ({
   userId,
   followStatus,
 }) => {
-
-  const classes = useStyles();
   const [follow, setFollow] = useState(followStatus)
   // フォローする
   const submitFollow = () => {
@@ -53,22 +54,13 @@ export const FollowButton = ({
     <>
       {follow === true
         ? (
-          <Button
-            className={classes.unfollow}
-            onClick={submitUnfollow}
-            variant="contained"
-          >
+          <OutinedButton onClick={submitUnfollow}>
             <b>フォロー中</b>
-          </Button>
+          </OutinedButton>
         ) : (
-          <Button
-            className={classes.follow}
-            onClick={submitFollow}
-            variant="outlined"
-
-          >
+          <ContainedButton onClick={submitFollow}>
             <b>フォローする</b>
-          </Button>
+          </ContainedButton>
         )
       }
     </>

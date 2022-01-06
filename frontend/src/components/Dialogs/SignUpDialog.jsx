@@ -23,13 +23,6 @@ export const SignUpDialog = ({
 }) => {
   const { authState, authDispatch } = useContext(AuthContext);
 
-  const handleLogin = (data) => {
-    authDispatch({
-      type: 'login',
-      payload: data.user,
-    })
-  }
-
   const submitSignup = () => {
     postSignUp({
       name: authState.name,

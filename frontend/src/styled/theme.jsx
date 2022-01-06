@@ -20,27 +20,9 @@ export const theme = responsiveFontSizes(
       h4: { letterSpacing: '.2em', fontWeight: 'bold' },
       h5: { letterSpacing: '.2em', fontWeight: 'bold' },
       h6: { letterSpacing: '.2em', fontWeight: 'bold' },
+      subtitle1: { letterSpacing: '.2em', fontWeight: 'bold' },
     },
     MyThemeComponents: {
-      styleOverrides: {
-        root: {
-          color: palette.primary
-        },
-        primary: {
-          color: '#0080FF'
-        },
-        variants: [
-          {
-            props: { variant: 'contained', color: "error" },
-            style: {
-              background: '#ff9999',
-              borderRadius: 4,
-              height: 30,
-              padding: '15px 20px',
-            }
-          }
-        ]
-      },
       MuiTextField: {
         variant: "standard"
       },

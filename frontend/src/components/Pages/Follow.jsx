@@ -1,7 +1,7 @@
 import React, { useState, useReducer, useEffect } from "react";
 // styles
 import Box from '@mui/material/Box';
-import { createStyles, makeStyles } from "@material-ui/core/styles";
+import { styled } from '@mui/system'
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
@@ -16,33 +16,25 @@ import { followInitialState, followReducer } from '../../reducer/FollowReducer';
 import { FollowList } from '../../components/Lists/FollowList';
 import { Loading } from '../Items/Loading';
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    root: {
-      alignItems: 'center',
-      border: 1,
-      justifyContent: 'center',
-      maxWidth: 600,
-      textAlign: 'center',
-      width: '100%',
-    },
-    tabBox: {
-      background: '#001e3c',
-      borderBottom: 1,
-      borderColor: 'divider',
-      '&:hover': {
-        color: '#fff',
-        fontWeight: 'bold',
-      },
-    }
-  }),
-);
+const Container = styled('box')(() => ({
+  alignItems: 'center',
+  border: 1,
+  justifyContent: 'center',
+  maxWidth: 600,
+  textAlign: 'center',
+  width: '100%',
+}));
+
+const Title = styled('box')(({ theme }) => ({
+  fontWeight: theme.typography.h2.fontWeight,
+  letterSpacing: theme.typography.h2.letterSpacing,
+  lineHeight: 2,
+}));
 
 export const Follow = ({
   userId,
   initialTab,
 }) => {
-  const classes = useStyles();
   const [tab, setTab] = useState(initialTab);
   const [followState, followDispatch] = useReducer(followReducer, followInitialState);
   // フォロー中のユーザーを取得する
@@ -80,17 +72,15 @@ export const Follow = ({
   }, [tab])
 
   return (
-    <Box className={classes.root}>
-      <Typography variant="h3" sx={{ width: '100%' }}>
-        <Box sx={{ letterSpacing: 10, pb: 2 }}><b>{followState.user.name}</b></Box>
+    <Container>
+      <Typography variant="h2" sx={{ width: '100%' }}>
+        <Title>≪ {followState.user.name} ≫</Title>
       </Typography>
       <TabContext value={tab}>
         <Box>
           <TabList
             onChange={(event, newTab) => { setTab(newTab) }}
             variant="fullWidth"
-            textColor="primary"
-            indicatorColor="primary"
           >
             <Tab
               label="フォロー中"
@@ -127,7 +117,7 @@ export const Follow = ({
           }
         </TabPanel>
       </TabContext>
-    </Box>
+    </Container>
 
   )
 }

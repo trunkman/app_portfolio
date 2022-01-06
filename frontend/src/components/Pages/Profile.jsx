@@ -2,9 +2,9 @@ import React, { useContext, useState, useEffect, useReducer } from "react";
 import { AuthContext } from '../../App';
 // Style
 import Box from '@mui/material/Box';
-import { createStyles, makeStyles } from "@material-ui/core/styles";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import List from "@mui/material/List";
+import { styled } from '@mui/system';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
@@ -14,40 +14,35 @@ import CommentIcon from '@mui/icons-material/Comment';
 import NotesIcon from '@mui/icons-material/Notes';
 // Api
 import { fetchUser, fetchMicroposts } from "../../apis/users";
+import { deleteRecommend } from '../../apis/recommends'
 // Reducer
 import { profileReducer, profileInitialState } from '../../reducer/ProfileReducer';
 // Component
 import { Comment } from "../../components/Lists/Comment";
 import { Loading } from "../Items/Loading"
-import { Micropost } from "../../components/Lists/Micropost";
+import { Micropost } from "../Items/Micropost";
 import { UserInfo } from "../../components/UserInfomation/UserInfo";
+import { Typography } from "@mui/material";
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    'root': {
-      alignItems: 'center',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      maxWidth: 800,
-      mx: 'auto',
-      width: '100%',
-    },
-    'tabBox': {
-      background: '#001e3c',
-      borderBottom: 1,
-      borderColor: 'divider',
-      '&:hover': {
-        color: '#fff',
-        fontWeight: 'bold',
-      }
-    }
-  }),
-);
+const Container = styled('box')(() => ({
+  display: 'flex',
+  alignItems: 'center',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  maxWidth: 800,
+  mx: 'auto',
+  width: '100%',
+}));
+
+const Title = styled('box')(({ theme }) => ({
+  fontWeight: theme.typography.h2.fontWeight,
+  letterSpacing: theme.typography.h2.letterSpacing,
+  lineHeight: 2,
+}));
 
 export const Profile = ({
   userId,
 }) => {
-  const classes = useStyles();
   const { authState } = useContext(AuthContext);
   const [profileState, profileDispatch] = useReducer(profileReducer, profileInitialState);
   const [tab, setTab] = useState('microposts');
@@ -83,26 +78,38 @@ export const Profile = ({
         })
       });
   }
+  // おすすめ本を解除する
+  // const NotRecommend = (bookId) => {
+  //   deleteRecommend(bookId)
+  //     .then(() => {
+  //       bookDispatch({ type: 'reRender', });
+  //     })
+  // }
 
   useEffect(() => { userInformation() }, [open])
   useEffect(() => { userMicropost() }, [tab])
 
   return (
-    <Box className={classes.root}>
+    <Container>
+      <Typography variant="h2">
+        <Title>≪ プロフィール ≫</Title>
+      </Typography>
       <UserInfo
         open={open}
         setOpen={setOpen}
         loginUser={authState.loginUser}
         profileState={profileState}
       />
-      <Box>
+      {/* <BookRecommend
+        book={bookState.recommendBook}
+        NotRecommend={NotRecommend}
+      /> */}
+      <Box px={{ width: '100%' }}>
         <TabContext value={tab}>
-          <Box >
+          <Box>
             <TabList
               onChange={(event, newTab) => setTab(newTab)}
               variant="fullWidth"
-              textColor="primary"
-              indicatorColor="primary"
             >
               <Tab
                 icon={<NotesIcon />}
@@ -169,6 +176,6 @@ export const Profile = ({
           </TabPanel>
         </TabContext>
       </Box>
-    </Box>
+    </Container >
   )
 }

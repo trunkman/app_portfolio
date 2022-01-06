@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer, useState } from "react";
 // Style
 import Box from "@mui/material/Box";
-import { createStyles, makeStyles } from "@material-ui/core/styles";
+import { styled } from '@mui/system';
 import Typography from "@mui/material/Typography";
 // Api
 import { fetchRooms } from "../../apis/users";
@@ -13,29 +13,52 @@ import { Loading } from '../Items/Loading';
 import { DeleteDialog } from "../../components/Dialogs/DeleteDialog";
 import { TalkUser } from "../../components/Lists/TalkUser";
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    'root': {
-      alignItems: 'center',
-      flexDirection: 'column',
-      flexWrap: 'wrap',
-      justifyContent: 'center',
-      maxWidth: 600,
-      mx: 'auto',
-      textAlign: 'center',
-      width: '100%',
-    },
-    'list': {
-      display: 'flex',
-      alignItems: 'center',
-      borderRadius: 2,
-      my: 3,
-    }
-  }),
-);
+// const useStyles = makeStyles(() =>
+//   createStyles({
+//     'root': {
+//       alignItems: 'center',
+//       flexDirection: 'column',
+//       flexWrap: 'wrap',
+//       justifyContent: 'center',
+//       maxWidth: 600,
+//       mx: 'auto',
+//       textAlign: 'center',
+//       width: '100%',
+//     },
+//     'list': {
+//       display: 'flex',
+//       alignItems: 'center',
+//       borderRadius: 2,
+//       my: 3,
+//     }
+//   }),
+// );
+
+const Container = styled('box')(() => ({
+  flexDirection: 'column',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
+  maxWidth: 600,
+  mx: 'auto',
+  textAlign: 'center',
+  width: '100%',
+}));
+
+const Title = styled('box')(({ theme }) => ({
+  fontWeight: theme.typography.h2.fontWeight,
+  letterSpacing: theme.typography.h2.letterSpacing,
+  lineHeight: 2,
+}));
+
+// const List = styled('box')(() => ({
+//   display: 'flex',
+//   alignItems: 'center',
+//   borderRadius: 2,
+//   my: 3,
+// }));
+
 
 export const Rooms = ({ userId }) => {
-  const classes = useStyles();
   const [roomState, roomDispatch] = useReducer(roomReducer, roomInitialState);
   // 削除確認ダイアログの開閉
   const [open, setOpen] = useState({
@@ -64,18 +87,17 @@ export const Rooms = ({ userId }) => {
 
   return (
     <>
-      <Box className={classes.root}>
-        <Typography variant="h3">
-          <Box sx={{ letterSpacing: 10, pb: 2 }}><b>トークルーム</b></Box>
+      <Container>
+        <Typography variant="h2">
+          <Title>≪ トークルーム ≫</Title>
         </Typography>
-
         {roomState.fetchState !== 'ok' ? <Loading /> :
           <TalkUser
             entries={roomState.entries}
             setOpen={setOpen}
           />
         }
-      </Box>
+      </Container>
 
       <DeleteDialog
         handleClose={() => setOpen({ isOpen: false })}

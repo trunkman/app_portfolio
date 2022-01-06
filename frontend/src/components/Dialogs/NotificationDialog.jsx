@@ -1,8 +1,7 @@
-import React, { useEffect, useReducer } from 'react';
+import React from 'react';
 // Style
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import { createStyles, makeStyles } from "@material-ui/core/styles";
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -11,42 +10,21 @@ import DialogContentText from '@mui/material/DialogContentText';
 import List from "@material-ui/core/List";
 import Typography from '@mui/material/Typography';
 // Api
-import { fetchNotifications, deleteNotifications } from '../../apis/notifications';
-// Reducer
-import { notificationReducer, notificationInitialState } from '../../reducer/NotificationReducer'
+import { deleteNotifications } from '../../apis/notifications';
 // Component
 import { NotificationComment } from '../Items/NotificationComment';
 import { NotificationEntry } from '../Items/NotificationEntry';
 import { NotificationFollow } from '../Items/NotificationFollow';
 import { NotificationLike } from '../Items/NotificationLike';
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    'title': {
-      display: 'flex',
-      justifyContent: 'space-between',
-    },
-  }),
-);
-
 export const NotificationDialog = ({
   fetchDetailMicropost,
   handleClose,
   open,
+  notificationState,
+  notificationDispatch,
 }) => {
-  const classes = useStyles();
-  const [notificationState, notificationDispatch] = useReducer(notificationReducer, notificationInitialState);
-  // 通知一覧を取得する
-  const notifications = () => {
-    fetchNotifications()
-      .then(data => {
-        data &&
-          notificationDispatch({
-            type: 'fetchSuccess',
-            payload: data.notifications,
-          });
-      });
-  }
+
   // チェック済み通知をすべて削除する
   const allDelete = () => {
     notificationState.notifications.length &&
@@ -60,10 +38,6 @@ export const NotificationDialog = ({
     handleClose();
   }
 
-  useEffect(() => {
-    notifications();
-  }, [open])
-
   return (
     <>
       <Dialog
@@ -71,7 +45,7 @@ export const NotificationDialog = ({
         onClose={handleClose}
         scroll='paper'
       >
-        <DialogTitle className={classes.title}>
+        <DialogTitle>
           <Box>
             通知
           </Box>

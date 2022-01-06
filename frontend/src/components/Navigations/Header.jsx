@@ -14,8 +14,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { deleteLogout } from "../../apis/sessions"
 import { deleteUser } from "../../apis/users"
 import { fetchMicropost } from "../../apis/microposts";
+import { fetchNotifications } from '../../apis/notifications';
 // Reducer
 import { dialogReducer, dialogInitialState } from '../../reducer/DialogReducer'
+import { notificationReducer, notificationInitialState } from '../../reducer/NotificationReducer'
 import { postReducer, postInitialState } from '../../reducer/PostReducer'
 // Component
 import { AccountButton } from '../Buttons/AccountButton'
@@ -40,6 +42,8 @@ export const Header = ({
   const { authState, authDispatch } = useContext(AuthContext);
   const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState);
   const [postState, postDispatch] = useReducer(postReducer, postInitialState);
+  const [notificationState, notificationDispatch] = useReducer(notificationReducer, notificationInitialState);
+
   const dialogClose = () => dialogDispatch({ type: 'close' });
   // ログアウトする関数
   const submitLogout = () => {
@@ -72,6 +76,18 @@ export const Header = ({
           }
         });
         dialogDispatch({ type: 'micropost' });
+      });
+  }
+  // 通知一覧を取得&ダイアログを開く関数
+  const notifications = () => {
+    fetchNotifications()
+      .then(data => {
+        data &&
+          notificationDispatch({
+            type: 'fetchSuccess',
+            payload: data.notifications,
+          });
+        dialogDispatch({ type: 'notification' })
       });
   }
   // AppBarのstyle
@@ -124,7 +140,7 @@ export const Header = ({
               <NotificationButton
                 checkClese={checkClese}
                 checkNotifications={checkNotifications}
-                handleClick={() => dialogDispatch({ type: 'notification' })}
+                handleClick={notifications}
               />
               <AccountButton
                 handleLogout={submitLogout}
@@ -144,9 +160,11 @@ export const Header = ({
         open={dialogState.record}
       />
       <NotificationDialog
-        handleClose={dialogClose}
-        open={dialogState.notification}
         fetchDetailMicropost={fetchDetailMicropost}
+        handleClose={dialogClose}
+        notificationState={notificationState}
+        notificationDispatch={notificationDispatch}
+        open={dialogState.notification}
       />
       <MicropostDialog
         comments={postState.comments}

@@ -12,6 +12,7 @@ import { Content } from '../Forms/Content';
 
 export const CommentDialog = (props) => {
   const [content, setContent] = useState(null)
+
   // コメントを登録する関数
   const handleSubmit = () => {
     postComment({
@@ -20,8 +21,9 @@ export const CommentDialog = (props) => {
       micropostId: props.micropostId,
     })
       .then(() => {
-        setContent(null)
-        props.handleClose()
+        setContent(null);
+        props.handleClose();
+        alert('コメントを追加しました')
       })
   }
 

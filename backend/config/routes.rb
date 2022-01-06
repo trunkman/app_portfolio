@@ -34,7 +34,7 @@ Rails.application.routes.draw do
       resources :rooms, only: %i[show create destroy]
       resources :messages, only: %i[create destroy]
       resources :recommends, only: %i[create destroy]
-      resources :notifications, only: %i[index create]
+      resources :notifications, only: %i[index]
       delete    '/notifications/all_delete', to: 'notifications#all_delete'
       get       '/notifications/check', to: 'notifications#check'
       get       '/rankings/sleeping_hours', to: 'rankings#sleeping_hours'

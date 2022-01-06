@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer, useState } from "react";
 // Style
 import Box from '@mui/material/Box';
-import { createStyles, makeStyles } from "@material-ui/core/styles";
+import { styled } from '@mui/system';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
@@ -16,27 +16,35 @@ import { Loading } from "../Items/Loading"
 import { RankBook } from "../../components/Lists/RankBook";
 import { RankUser } from "../../components/Lists/RankUser";
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    root: {
-      alignItems: 'center',
-      border: 1,
-      justifyContent: 'center',
-      maxWidth: 1000,
-      textAlign: 'center',
-      width: '100%',
-    },
-    tabBox: {
-      alignContent: 'center',
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'spece_between',
-    },
-  }),
-);
+const Container = styled('box')(() => ({
+  alignItems: 'center',
+  border: 1,
+  justifyContent: 'center',
+  maxWidth: 1000,
+  textAlign: 'center',
+  width: '100%',
+}));
+
+const Title = styled('box')(({ theme }) => ({
+  fontWeight: theme.typography.h2.fontWeight,
+  letterSpacing: theme.typography.h2.letterSpacing,
+  lineHeight: 2,
+}));
+
+const SubTitle = styled('box')(({ theme }) => ({
+  fontWeight: theme.typography.h5.fontWeight,
+  letterSpacing: theme.typography.h5.letterSpacing,
+  lineHeight: 2,
+}));
+
+const TabBox = styled('box')(() => ({
+  alignContent: 'center',
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'spece_between',
+}));
 
 export const Ranking = () => {
-  const classes = useStyles();
   const [tab, setTab] = useState('sleepingHours');
   const [rankState, rankDispatch] = useReducer(rankReducer, rankInitialState);
 
@@ -90,17 +98,15 @@ export const Ranking = () => {
   }, [tab])
 
   return (
-    <Box className={classes.root}>
-      <Typography variant="h3" sx={{ width: '100%' }}>
-        <Box sx={{ letterSpacing: 10, pb: 3 }}><b>ランキング</b></Box>
+    <Container>
+      <Typography variant="h2" sx={{ width: '100%' }}>
+        <Title>≪ ランキング ≫</Title>
       </Typography>
       <TabContext value={tab}>
         <Box>
           <TabList
             onChange={(event, newTab) => { setTab(newTab) }}
             variant="fullWidth"
-          // textColor="primary"
-          // indicatorColor="primary"
           >
             <Tab
               label="ユーザー平均睡眠時間"
@@ -126,9 +132,9 @@ export const Ranking = () => {
         </Box>
         <TabPanel value="sleepingHours">
           <Typography variant="h5" sx={{ width: '100%' }}>
-            <Box sx={{ letterSpacing: 6, py: 2 }}><b>【ユーザー平均睡眠時間】</b></Box>
+            <SubTitle>【ユーザー平均睡眠時間】</SubTitle>
           </Typography>
-          <Box className={classes.tabBox}>
+          <TabBox>
             {rankState.fetchState !== 'ok'
               ? <Loading />
               : rankState.sleepHours.map(sleepingHour =>
@@ -139,13 +145,13 @@ export const Ranking = () => {
                 />
               )
             }
-          </Box>
+          </TabBox>
         </TabPanel>
         <TabPanel value="reading">
           <Typography variant="h5" sx={{ width: '100%' }}>
-            <Box sx={{ letterSpacing: 6, py: 2 }}><b>【ユーザー読了数】</b></Box>
+            <SubTitle>【ユーザー読了数】</SubTitle>
           </Typography>
-          <Box className={classes.tabBox}>
+          <TabBox>
             {rankState.fetchState !== 'ok'
               ? <Loading />
               : rankState.reading.map(reading =>
@@ -156,13 +162,13 @@ export const Ranking = () => {
                 />
               )
             }
-          </Box>
+          </TabBox>
         </TabPanel>
         <TabPanel value="readBooks">
           <Typography variant="h5" sx={{ width: '100%' }}>
-            <Box sx={{ letterSpacing: 6, py: 2 }}><b>【読了人気本】</b></Box>
+            <SubTitle>【読了人気本】</SubTitle>
           </Typography>
-          <Box className={classes.tabBox}>
+          <TabBox>
             {rankState.fetchState !== 'ok'
               ? <Loading />
               : rankState.readBooks.map(readBooks =>
@@ -173,13 +179,13 @@ export const Ranking = () => {
                 />
               )
             }
-          </Box>
+          </TabBox>
         </TabPanel>
         <TabPanel value="stackBooks">
           <Typography variant="h5" sx={{ width: '100%' }}>
-            <Box sx={{ letterSpacing: 6, py: 2 }}><b>【積読人気本】</b></Box>
+            <SubTitle>【積読人気本】</SubTitle>
           </Typography>
-          <Box className={classes.tabBox}>
+          <TabBox>
             {rankState.fetchState !== 'ok'
               ? <Loading />
               : rankState.stackBooks.map(stackBooks =>
@@ -190,10 +196,10 @@ export const Ranking = () => {
                 />
               )
             }
-          </Box>
+          </TabBox>
         </TabPanel>
       </TabContext>
-    </Box>
+    </Container>
 
 
   )

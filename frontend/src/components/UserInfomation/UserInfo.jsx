@@ -1,28 +1,66 @@
 import React from "react"
 import { useHistory } from "react-router-dom";
 // Style
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import { createStyles, makeStyles } from "@material-ui/core/styles";
+import Button from "@mui/material/Button";
+import Grid from '@mui/material/Grid';
+import { styled } from '@mui/system';
 import Typography from "@mui/material/Typography";
 // Component
 import { SettingDialog } from "../Dialogs/SettingDialog";
 import { FollowButton } from "../Buttons/FollowButton";
-// import { ImageButton } from "../Buttons/ImageButton";
 import { ProfileImageButton } from "../Buttons/ProfileImageButton";
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    'button': {
-      background: '#0288d1',
-      border: 0,
-      borderRadius: 3,
-      color: 'white',
-      height: 30,
-      padding: '15px 20px',
-    }
-  }),
-);
+const ContainedButton = styled('button')(({ theme }) => ({
+  backgroundColor: theme.palette.primary.main,
+  border: 0,
+  borderRadius: theme.shape.borderRadius,
+  color: theme.palette.primary.contrastText,
+  fontWeight: 'bold',
+  height: 30,
+  padding: '0px 20px',
+  marginTop: '10px',
+}));
+
+const Container = styled(Grid)(() => ({
+  alignItems: 'center',
+  display: 'flex',
+  width: '100%',
+  paddingBottom: 20,
+}));
+
+const NameField = styled('box')(({ theme }) => ({
+  fontWeight: theme.typography.h4.fontWeight,
+  letterSpacing: theme.typography.h4.letterSpacing,
+  lineHeight: 2,
+}));
+
+const ProfileField = styled(Box)(({ theme }) => ({
+  fontWeight: theme.typography.h6.fontWeight,
+  letterSpacing: theme.typography.h6.letterSpacing,
+  lineHeight: 2,
+  marginBottom: 10,
+}));
+
+const ProfileList = styled('box')(() => ({
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'space-evenly',
+}));
+
+const ProfileItem = styled('box')(({ theme }) => ({
+  alignItems: 'center',
+  display: 'flex',
+  flexDirection: 'column',
+  marginTop: 4,
+}));
+
+const ItemText = styled('box')(({ theme }) => ({
+  fontWeight: theme.typography.subtitle1.fontWeight,
+  letterSpacing: theme.typography.subtitle1.letterSpacing,
+  lineHeight: 2,
+  padding: '0px 10px'
+}));
 
 export const UserInfo = ({
   loginUser,
@@ -31,86 +69,67 @@ export const UserInfo = ({
   setOpen,
 }) => {
   const history = useHistory();
-  const classes = useStyles();
 
   return (
     <>
-      <Box sx={{
-        alignItems: 'center',
-        display: 'flex',
-        pb: 5,
-      }}>
-        <ProfileImageButton
-          loginUser={loginUser}
-          user={profileState.user}
-        />
-        <Box sx={{ pl: 3 }}>
-          <Typography variant="h4">
-            <Box sx={{ letterSpacing: 6 }}>{profileState.user.name}</Box>
-          </Typography>
-          <Box sx={{ letterSpacing: 3, pt: 2 }}>{profileState.user.profile}</Box>
-          <Typography variant="h6">
-            <Box
-              onClick={() => history.push(`/users/${profileState.user.id}/diaries`)}
-              sx={{ letterSpacing: 4, pt: 2 }}
-            >
-              目標睡眠時間：<b>{profileState.user.ideal_sleeping_hours}</b> 時間
-            </Box>
-          </Typography>
-
-          <Box sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            pt: 2,
-          }}>
-            <Box
-              onClick={() => history.push(`/users/${profileState.user.id}/following`)}
-              sx={{ letterSpacing: 2, mr: 2, cursor: 'pointer' }}
-            >
-              <b>{profileState.followingIds.length}</b> フォロー中
-            </Box>
-            <Box
-              onClick={() => history.push(`/users/${profileState.user.id}/followers`)}
-              sx={{ letterSpacing: 2, mr: 2, cursor: 'pointer' }}
-            >
-              <b>{profileState.followersIds.length}</b> フォロワー
-            </Box>
-            <Box
-              onClick={() => history.push(`/users/${profileState.user.id}/books`)}
-              sx={{ letterSpacing: 2, mr: 2, cursor: 'pointer' }}
-            >
-              読了：<b>{profileState.subscriptions.length}</b> 冊
-            </Box>
-            <Box
-              onClick={() => history.push(`/users/${profileState.user.id}/books`)}
-              sx={{ letterSpacing: 2, mr: 2, cursor: 'pointer' }}
-            >
-              積読：<b>{profileState.subscriptions.length}</b> 冊
-            </Box>
-          </Box>
-          <Box sx={{ mt: 2 }}>
-            {
-              loginUser.id === profileState.user.id ? (
-                <>
-                  <Button
-                    component='div'
-                    className={classes.button}
-                    onClick={() => { setOpen(true) }}
-                  >
+      <Container container>
+        <Grid xs={12} sm={3}>
+          <ProfileImageButton
+            loginUser={loginUser}
+            user={profileState.user}
+          />
+        </Grid>
+        <Grid xs={12} sm={9}>
+          <Box sx={{ pl: 3, width: '100%' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+              <Typography variant="h4">
+                <NameField>
+                  {profileState.user.name}
+                </NameField>
+              </Typography>
+              {
+                loginUser.id === profileState.user.id ? (
+                  <ContainedButton onClick={() => { setOpen(true) }}>
                     プロフィール編集
-                  </Button>
-                </>
-              ) : (
-                <FollowButton
-                  userId={profileState.user.id}
-                  followStatus={profileState.followStatus}
-                />
-              )
-            }
+                  </ContainedButton>
+                ) : (
+                  <FollowButton
+                    userId={profileState.user.id}
+                    followStatus={profileState.followStatus}
+                  />
+                )
+              }
+            </Box>
+            <Typography variant="subtitle1">
+              <ProfileField>
+                {profileState.user.profile}
+              </ProfileField>
+              <ProfileList>
+                <ProfileItem onClick={() => history.push(`/users/${profileState.user.id}/diaries`)}>
+                  <ItemText>目標睡眠時間</ItemText>
+                  <ItemText>{profileState.user.ideal_sleeping_hours} 時間</ItemText>
+                </ProfileItem>
+                <ProfileItem onClick={() => history.push(`/users/${profileState.user.id}/following`)}>
+                  <ItemText>フォロー中</ItemText>
+                  <ItemText>{profileState.followingIds.length} 人</ItemText>
+                </ProfileItem>
+                <ProfileItem onClick={() => history.push(`/users/${profileState.user.id}/followers`)}>
+                  <ItemText>フォロワー</ItemText>
+                  <ItemText>{profileState.followersIds.length} 人</ItemText>
+                </ProfileItem>
+                <ProfileItem onClick={() => history.push(`/users/${profileState.user.id}/books`)}>
+                  <ItemText>読了本</ItemText>
+                  <ItemText>{profileState.subscriptions.length} 冊</ItemText>
+                </ProfileItem>
+                <ProfileItem onClick={() => history.push(`/users/${profileState.user.id}/books`)}>
+                  <ItemText>積読本</ItemText>
+                  <ItemText>{profileState.subscriptions.length} 冊</ItemText>
+                </ProfileItem>
+              </ProfileList>
+            </Typography>
           </Box>
-        </Box>
-      </Box>
-
+        </Grid>
+      </Container>
       <SettingDialog
         dataUserFetch={profileState.dataUserFetch}
         handleClose={() => { setOpen(false) }}

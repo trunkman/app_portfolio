@@ -5,20 +5,16 @@ import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import { createStyles, makeStyles } from "@material-ui/core/styles";
+import { styled } from '@mui/system';
 import Typography from '@mui/material/Typography';
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    'card': {
-      alignContent: 'center',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      width: 280,
-    },
-  }),
-);
+const CardWrapper = styled(CardActionArea)(() => ({
+  alignContent: 'center',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  width: 280,
+}));
 
 export const RankBook = ({
   book,
@@ -26,13 +22,11 @@ export const RankBook = ({
   countStack,
   countRead,
 }) => {
-  const classes = useStyles();
 
   return (
     <>
       <Card sx={{ p: 2 }}>
-        <CardActionArea
-          className={classes.card}
+        <CardWrapper
           component={Link}
           to={`/books/${book.isbn}`}
         >
@@ -43,12 +37,8 @@ export const RankBook = ({
             <CardMedia
               component="img"
               image={book.largeImageUrl}
-              sx={{
-                width: 180,
-                mx: 'auto',
-                pb: 1,
-              }}
-              alt={book.title}
+              sx={{ width: 180, pb: 1 }}
+              alt={'Book Image'}
             />
             <Typography variant="subtitle1" color="text.secondary">
               {book.title}
@@ -64,7 +54,7 @@ export const RankBook = ({
               </Typography>
             }
           </CardContent>
-        </CardActionArea>
+        </CardWrapper>
       </Card>
     </>
   );

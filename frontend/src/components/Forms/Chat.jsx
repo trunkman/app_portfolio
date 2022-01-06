@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 // Style
-import Box from "@mui/material/Box";
-import { createStyles, makeStyles } from "@material-ui/core/styles";
+import { styled } from '@mui/system';
 import { Divider } from "@mui/material";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
@@ -10,30 +9,40 @@ import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 // Api
 import { postMessage } from "../../apis/messages";
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    "root": {
-      backgroundColor: "#001e3c",
-      bottom: 0,
-      padding: '10px',
-      position: 'fixed',
-      textAlign: 'center',
-      width: 600,
+const ChatWrapper = styled('box')(({ theme }) => ({
+  backgroundColor: theme.palette.background.paper,
+  bottom: 5,
+  padding: '10px',
+  position: 'fixed',
+  textAlign: 'center',
+  width: 600,
+}));
+
+const ChatField = styled(TextField)(({ theme }) => ({
+  background: '#334b63',
+  borderRadius: theme.shape.borderRadius,
+  '& .MuiInputBase-root': { color: 'white' },
+  '& label.Mui-focused': {
+    color: theme.palette.primary.main,
+  },
+  '& .MuiOutlinedInput-root': {
+    '& fieldset': {
+      borderColor: theme.palette.primary.dark,
     },
-    "textfield": {
-      background: '#334b63',
-      borderRadius: '4px',
-      "& .MuiInputBase-root": { color: '#fff' }
+    '&:hover fieldset': {
+      borderColor: theme.palette.primary.main,
     },
-  }),
-);
+    '&.Mui-focused fieldset': {
+      borderColor: theme.palette.primary.main,
+    },
+  },
+}));
 
 export const Chat = ({
   user_id,
   room_id,
   dataFetch,
 }) => {
-  const classes = useStyles();
   const [chat, setChat] = useState(null)
   const handleSubmit = () => {
     postMessage({
@@ -47,11 +56,11 @@ export const Chat = ({
   }
 
   return (
-    <Box className={classes.root} >
+    <ChatWrapper>
       <Divider />
-      <TextField
+      <ChatField
         autoFocus
-        className={classes.textfield}
+        color="primary"
         fullWidth
         margin="dense"
         multiline
@@ -69,6 +78,6 @@ export const Chat = ({
         送信
         <DoubleArrowIcon />
       </Button>
-    </Box>
+    </ChatWrapper>
   )
 }

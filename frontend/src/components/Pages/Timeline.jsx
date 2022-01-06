@@ -1,36 +1,37 @@
 import React, { useEffect, useReducer } from "react";
 // Style
 import Box from '@mui/material/Box';
-import { createStyles, makeStyles } from "@material-ui/core/styles";
+import { styled } from '@mui/system';
 import Typography from "@mui/material/Typography";
 // Api
 import { fetchTimeline } from "../../apis/users";
 // Reducer
 import { timelineInitialState, timelineReducer } from '../../reducer/TimelineReducer';
 // Cpmponent
-import { Micropost } from "../../components/Lists/Micropost";
+import { Micropost } from "../Items/Micropost";
 import { Loading } from '../Items/Loading';
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    'root': {
-      alignItems: 'center',
-      flexDirection: 'column',
-      flexWrap: 'wrap',
-      justifyContent: 'center',
-      maxWidth: 800,
-      mx: 'auto',
-      textAlign: 'center',
-      width: '100%',
-    }
-  }),
-);
+const Container = styled('box')(() => ({
+  alignItems: 'center',
+  flexDirection: 'column',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
+  maxWidth: 700,
+  mx: 'auto',
+  textAlign: 'center',
+  width: '100%',
+}));
+
+const Title = styled('box')(({ theme }) => ({
+  fontWeight: theme.typography.h2.fontWeight,
+  letterSpacing: theme.typography.h2.letterSpacing,
+  lineHeight: 2,
+}));
 
 export const Timeline = ({
   userId,
   loginUser,
 }) => {
-  const classes = useStyles();
   const [timelineState, timelineDispatch] = useReducer(timelineReducer, timelineInitialState);
 
   // 投稿一覧を取得する
@@ -50,25 +51,26 @@ export const Timeline = ({
 
   return (
     <>
-      <Box className={classes.root}>
-        <Typography variant="h3">
-          <Box sx={{ letterSpacing: 10, pb: 5 }}><b>タイムライン</b></Box>
+      <Container>
+        <Typography variant="h2">
+          <Title>≪ タイムライン ≫</Title>
         </Typography>
         <Box>
-          {
-            timelineState.fetchState !== 'ok' ? <Loading /> :
-              timelineState.timeline.map(timeline =>
-                <Micropost
-                  commentCount={timeline.commentCount}
-                  likeStatus={timeline.likeStatus}
-                  loginUser={loginUser}
-                  micropost={timeline.micropost}
-                  user={timeline.user}
-                />
-              )
+          {timelineState.fetchState !== 'ok' && <Loading />}
+          {timelineState.fetchState === 'ok' && timelineState.timeline.length === 0
+            ? <h2>投稿はありません</h2>
+            : timelineState.timeline.map(timeline =>
+              <Micropost
+                commentCount={timeline.commentCount}
+                likeStatus={timeline.likeStatus}
+                loginUser={loginUser}
+                micropost={timeline.micropost}
+                user={timeline.user}
+              />
+            )
           }
         </Box>
-      </Box>
+      </Container>
     </>
   )
 }

@@ -10,7 +10,7 @@ const Wrapper = styled('box')(() => ({
   alignItems: 'flex-start',
   display: 'flex',
   flexDirection: 'column',
-  margin: 20,
+  marginLeft: 20,
 }));
 
 export const BookSearch = ({

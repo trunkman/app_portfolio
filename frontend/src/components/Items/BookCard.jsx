@@ -27,7 +27,7 @@ export const BookCard = ({ book }) => {
           <CardMedia
             component="img"
             image={book.largeImageUrl}
-            sx={{ height: '100%', px: 3, }}
+            sx={{ height: '90%', px: 3, }}
             alt={book.title}
           />
           <CardContent>
