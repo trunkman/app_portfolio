@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 // Styles
-import Button from "@mui/material/Button";
 import { styled } from '@mui/system'
 // Api
 import { postFollow } from "../../apis/relationships";

@@ -1,43 +1,34 @@
 import React, { useState } from "react";
 // Style
 import Box from '@mui/material/Box';
-import Button from "@mui/material/Button";
-import { createStyles, makeStyles } from "@material-ui/core/styles";
+import { styled } from '@mui/system'
 // Component
 import { DeleteDialog } from "../Dialogs/DeleteDialog";
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    'button': {
-      background: '#334b63',
-      border: 0,
-      borderRadius: 4,
-      color: 'white',
-      height: 30,
-      padding: '15px 20px',
-      margin: '20px 7px'
-    },
-  }),
-);
+const ContainedButton = styled('button')(({ theme }) => ({
+  backgroundColor: '#334b63',
+  border: 0,
+  borderRadius: theme.shape.borderRadius,
+  color: theme.palette.primary.contrastText,
+  fontWeight: 'bold',
+  height: 30,
+  marginTop: 15,
+  padding: '0px 20px',
+}));
 
-export const NotRecommendButton = ({ NotRecommend }) => {
-  const classes = useStyles();
+export const NotRecommendButton = ({ notRecommend }) => {
   const [open, setOpen] = useState(false);
 
   return (
     <>
       <Box>
-        <Button
-          className={classes.button}
-          color="primary"
-          onClick={() => setOpen(true)}
-        >
+        <ContainedButton onClick={() => setOpen(true)}>
           おすすめを解除
-        </Button>
+        </ContainedButton>
       </Box>
       <DeleteDialog
         handleClose={() => setOpen(false)}
-        handleDelete={NotRecommend}
+        handleDelete={notRecommend}
         message={'おすすめ本を解除'}
         open={open}
       />

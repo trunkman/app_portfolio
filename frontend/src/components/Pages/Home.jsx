@@ -13,7 +13,7 @@ import { sleepDebtReducer, sleepDebtInitialState } from "../../reducer/SleepDebt
 import { SignUpDialog } from "../../components/Dialogs/SignUpDialog";
 import { LogInDialog } from "../../components/Dialogs/LogInDialog";
 import { PasswordResetDialog } from "../../components/Dialogs/PasswordResetDialog";
-import { SleepInfo } from "../../components/UserInfomation/SleepInfo"
+import { SleepInfo } from "../UserInfomations/SleepInfo"
 import { SnackBar } from "../../components/Snackbars/Snackbar";
 import { HomeMessage } from "../../components/Items/HomeMessage";
 // Image

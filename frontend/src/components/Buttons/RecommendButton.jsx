@@ -30,7 +30,7 @@ export const RecommendButton = ({
     postRecommend({ bookIsbn: bookIsbn })
       .then(data => {
         alert(data.message)
-        history.push(`/users/${authState.loginUser.id}`)
+        history.push(`/users/${authState.loginUser.id}/books`)
       })
   }
 

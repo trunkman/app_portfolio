@@ -26,4 +26,4 @@ ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
 # puma socketを共有するためのvolume
-VOLUME /app/tmp
+VOLUME ["/myapp/tmp"]

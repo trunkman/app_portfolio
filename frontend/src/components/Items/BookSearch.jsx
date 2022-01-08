@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 // Style
 import { styled } from '@mui/system'
-import Typography from "@mui/material/Typography";
 // Component
 import { BookSearchButton } from '../../components/Buttons/BookSearchButton';
 import { Search } from '../Forms/Search';

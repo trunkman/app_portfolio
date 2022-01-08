@@ -2,7 +2,6 @@ import React from "react"
 import { useHistory } from "react-router-dom";
 // Style
 import Box from '@mui/material/Box';
-import Button from "@mui/material/Button";
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/system';
 import Typography from "@mui/material/Typography";
@@ -67,6 +66,7 @@ export const UserInfo = ({
   open,
   profileState,
   setOpen,
+  notRecommend,
 }) => {
   const history = useHistory();
 

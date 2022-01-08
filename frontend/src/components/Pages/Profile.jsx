@@ -14,14 +14,14 @@ import CommentIcon from '@mui/icons-material/Comment';
 import NotesIcon from '@mui/icons-material/Notes';
 // Api
 import { fetchUser, fetchMicroposts } from "../../apis/users";
-import { deleteRecommend } from '../../apis/recommends'
 // Reducer
+
 import { profileReducer, profileInitialState } from '../../reducer/ProfileReducer';
 // Component
 import { Comment } from "../../components/Lists/Comment";
 import { Loading } from "../Items/Loading"
 import { Micropost } from "../Items/Micropost";
-import { UserInfo } from "../../components/UserInfomation/UserInfo";
+import { UserInfo } from "../UserInfomations/UserInfo";
 import { Typography } from "@mui/material";
 
 const Container = styled('box')(() => ({
@@ -78,13 +78,7 @@ export const Profile = ({
         })
       });
   }
-  // おすすめ本を解除する
-  // const NotRecommend = (bookId) => {
-  //   deleteRecommend(bookId)
-  //     .then(() => {
-  //       bookDispatch({ type: 'reRender', });
-  //     })
-  // }
+
 
   useEffect(() => { userInformation() }, [open])
   useEffect(() => { userMicropost() }, [tab])
@@ -100,10 +94,6 @@ export const Profile = ({
         loginUser={authState.loginUser}
         profileState={profileState}
       />
-      {/* <BookRecommend
-        book={bookState.recommendBook}
-        NotRecommend={NotRecommend}
-      /> */}
       <Box px={{ width: '100%' }}>
         <TabContext value={tab}>
           <Box>

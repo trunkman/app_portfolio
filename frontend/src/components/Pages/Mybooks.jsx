@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useReducer } from "react";
 // Style
+import Box from '@mui/material/Box';
 import { styled } from '@mui/system'
 import Typography from "@mui/material/Typography";
 // Api
+import { deleteRecommend } from '../../apis/recommends'
 import { fetchUserBooks } from '../../apis/users';
 import { fetchSearchBooks } from '../../apis/books';
 // Reducer
@@ -10,6 +12,7 @@ import { bookInitialState, bookReducer } from '../../reducer/BookReducer';
 // Component
 import { MyBookList } from '../Lists/MyBookList';
 import { BookSearch } from '../Items/BookSearch';
+import { BookRecommend } from '../UserInfomations/BookRecommend';
 import { Loading } from '../Items/Loading';
 import { SearchBookList } from "../Lists/SearchBookList";
 
@@ -26,6 +29,7 @@ const Title = styled('box')(({ theme }) => ({
   fontWeight: theme.typography.h2.fontWeight,
   letterSpacing: theme.typography.h2.letterSpacing,
   lineHeight: 2,
+  paddingBottom: 2,
 }));
 
 export const Mybooks = ({ userId }) => {
@@ -62,6 +66,14 @@ export const Mybooks = ({ userId }) => {
       });
   }
 
+  // おすすめ本を解除する
+  const notRecommend = () => {
+    deleteRecommend(bookState.recommendBook.id)
+      .then(() => {
+        bookDispatch({ type: 'reRender', });
+      })
+  }
+
   useEffect(() => {
     myBooks();
   }, [tab, bookState.reRender])
@@ -73,11 +85,17 @@ export const Mybooks = ({ userId }) => {
           <Typography variant="h2" sx={{ width: '100%' }}>
             <Title>≪ {bookState.user.name}の睡眠本棚 ≫</Title>
           </Typography>
-          <BookSearch
-            handleChange={e => setKeyword(e.target.value)}
-            keyword={keyword}
-            searchBooks={searchBooks}
-          />
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', lexWrap: 'wrap' }}>
+            <BookSearch
+              handleChange={e => setKeyword(e.target.value)}
+              keyword={keyword}
+              searchBooks={searchBooks}
+            />
+            <BookRecommend
+              book={bookState.recommendBook}
+              notRecommend={notRecommend}
+            />
+          </Box>
           {bookState.searchBooks.length !== 0 &&
             <SearchBookList bookState={bookState} />
           }

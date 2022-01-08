@@ -13,11 +13,11 @@ import { dialogReducer, dialogInitialState } from '../../reducer/DialogReducer';
 import { recordReducer, recordInitialState } from '../../reducer/RecordReducer';
 import { sleepDebtReducer, sleepDebtInitialState } from "../../reducer/SleepDebtReducer";
 // Component
-import { Calendar } from "../../components/UserInfomation/Calendar";
-import { SleepInfo } from "../../components/UserInfomation/SleepInfo";
+import { Calendar } from "../UserInfomations/Calendar";
+import { SleepInfo } from "../UserInfomations/SleepInfo";
 // Dialog
 import { RecordDialog } from "../../components/Dialogs/RecordDialog";
-import { SleepData } from "../../components/UserInfomation/SleepData";
+import { SleepData } from "../UserInfomations/SleepData";
 import { Loading } from '../Items/Loading';
 
 const Container = styled('box')(() => ({
