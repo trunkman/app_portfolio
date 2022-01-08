@@ -1,2 +1,4 @@
 FROM node:14.18-alpine3.14
 WORKDIR /usr/src/app
+
+COPY ./frontend /usr/src/app
