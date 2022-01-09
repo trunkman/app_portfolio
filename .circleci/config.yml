@@ -11,8 +11,8 @@ executors:
       # - image: app_api:latest
       - image: ${AWS_ECR_ACCOUNT}/app_api
         aws_auth:
-          aws_access_key_id: $AWS_ACCESS_KEY
-          aws_secret_access_key: $AWS_SECRET_KEY
+          aws_access_key_id: AWS_ACCESS_KEY_ID
+          aws_secret_access_key: AWS_SECRET_ACCESS_KEY	
         
 jobs:
   build:
@@ -47,8 +47,6 @@ workflows:
       - aws-ecr/build-and-push-image:
           account-url: AWS_ECR_ACCOUNT
           region: AWS_REGION
-          aws-access-key-id: AWS_ACCESS_KEY
-          aws-secret-access-key: AWS_SECRET_KEY
           dockerfile: ./backend/Dockerfile
           repo: app_api
           tag: "${CIRCLE_SHA1}"
@@ -67,8 +65,6 @@ workflows:
       - aws-ecr/build-and-push-image:
           account-url: AWS_ECR_ACCOUNT
           region: AWS_REGION
-          aws-access-key-id: AWS_ACCESS_KEY
-          aws-secret-access-key: AWS_SECRET_KEY
           dockerfile: ./nginx/Dockerfile
           repo: app_nginx
           tag: "${CIRCLE_SHA1}"
