@@ -11,17 +11,14 @@ executors:
       # - image: app_api:latest
       - image: ${AWS_ECR_ACCOUNT}/app_api
         aws_auth:
-          aws_access_key_id: $AWS_ACCESS_KEY
-          aws_secret_access_key: $AWS_SECRET_KEY
-      # - image: $AWS_ECR_ACCOUNT/app_nginx
-      # - image: $AWS_ECR_ACCOUNT/app_web
+          aws_access_key_id: AWS_ACCESS_KEY
+          aws_secret_access_key: AWS_SECRET_KEY
         
 jobs:
   build:
     executor: default
     steps:
       - checkout
-
   syntax-check:
     executor: default
     steps:
@@ -45,46 +42,35 @@ workflows:
       - test:
           requires:
             - build
-
-  # nginx-build-and-deploy:
-  #  jobs:
-  #     - aws-ecr/build-and-push-image:
-  #       account-url: ${AWS_ECR_ACCOUNT}
-  #       region: ${AWS_REGION}
-  #       repo: 'app_nginx'
-  #       tag: '${CIRCLE_SHA1}'
-  #       only: master
-  #     - aws-ecs/deploy-service-update:
-  #       cluster-name: '${MY_APP_PREFIX}-cluster'
-  #       container-image-name-updates: 'container=${MY_APP_PREFIX}-service,tag=${CIRCLE_SHA1}'
-  #       family: '${MY_APP_PREFIX}-service'
-  #       requires:
-  #       - aws-ecr/build-and-push-image
-
-  #   api-build-and-deploy:
-  #     - aws-ecr/build-and-push-image:
-  #       account-url: ${AWS_ECR_ACCOUNT}
-  #       region: ${AWS_REGION}
-  #       repo: 'app_api'
-  #       tag: '${CIRCLE_SHA1}'
-  #       only: master
-  #     - aws-ecs/deploy-service-update:
-  #       cluster-name: '${MY_APP_PREFIX}-cluster'
-  #       container-image-name-updates: 'container=${MY_APP_PREFIX}-service,tag=${CIRCLE_SHA1}'
-  #       family: '${MY_APP_PREFIX}-service'
-  #       requires:
-  #       - aws-ecr/build-and-push-image
-
-  #   web-build-and-deploy:
-  #     - aws-ecr/build-and-push-image:
-  #       account-url: ${AWS_ECR_ACCOUNT}
-  #       region: ${AWS_REGION}
-  #       repo: 'app_web'
-  #       tag: '${CIRCLE_SHA1}'
-  #       only: master
-  #     - aws-ecs/deploy-service-update:
-  #       cluster-name: '${MY_APP_PREFIX}-cluster'
-  #       container-image-name-updates: 'container=${MY_APP_PREFIX}-service,tag=${CIRCLE_SHA1}'
-  #       family: '${MY_APP_PREFIX}-service'
-  #       requires:
-  #       - aws-ecr/build-and-push-image
+  api-deploy:
+    jobs:
+      - aws-ecr/build-and-push-image:
+          account-url: AWS_ECR_ACCOUNT
+          repo: app_api
+          tag: "${CIRCLE_SHA1}"
+          filters:
+            branches:
+              only: main
+      - aws-ecs/deploy-service-update:
+          requires:
+            - aws-ecr/build-and-push-image
+          family: 'sleepingdebtplan-3'
+          cluster-name: '${ESC_CLUSTER_ARN}' 
+          service-name: 'sleepingdebtplan-service'
+          container-image-name-updates: "container=api,tag=${AWS_ECR_ACCOUNT}/app_api:${CIRCLE_SHA1}"
+  nginx-deploy:
+    jobs:
+      - aws-ecr/build-and-push-image:
+          account-url: AWS_ECR_ACCOUNT
+          repo: app_nginx
+          tag: "${CIRCLE_SHA1}"
+          filters:
+            branches:
+              only: main
+      - aws-ecs/deploy-service-update:
+          requires:
+            - aws-ecr/build-and-push-image
+          family: 'sleepingdebtplan-3'
+          cluster-name: '${ESC_CLUSTER_ARN}' 
+          service-name: 'sleepingdebtplan-service'
+          container-image-name-updates: "container=nginx,tag=${AWS_ECR_ACCOUNT}/app_nginx:${CIRCLE_SHA1}"
