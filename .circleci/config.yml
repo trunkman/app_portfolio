@@ -49,6 +49,7 @@ workflows:
           region: AWS_REGION
           aws-access-key-id: AWS_ACCESS_KEY
           aws-secret-access-key: AWS_SECRET_KEY
+          dockerfile: ./backend/Dockerfile
           repo: app_api
           tag: "${CIRCLE_SHA1}"
           filters:
@@ -58,7 +59,7 @@ workflows:
           requires:
             - aws-ecr/build-and-push-image
           family: 'sleepingdebtplan-3'
-          cluster-name: '${ESC_CLUSTER_ARN}' 
+          cluster-name: "${ESC_CLUSTER_ARN}"" 
           service-name: 'sleepingdebtplan-service'
           container-image-name-updates: "container=api,tag=${AWS_ECR_ACCOUNT}/app_api:${CIRCLE_SHA1}"
   nginx-deploy:
@@ -68,6 +69,7 @@ workflows:
           region: AWS_REGION
           aws-access-key-id: AWS_ACCESS_KEY
           aws-secret-access-key: AWS_SECRET_KEY
+          dockerfile: ./nginx/Dockerfile
           repo: app_nginx
           tag: "${CIRCLE_SHA1}"
           filters:
@@ -77,6 +79,6 @@ workflows:
           requires:
             - aws-ecr/build-and-push-image
           family: 'sleepingdebtplan-3'
-          cluster-name: '${ESC_CLUSTER_ARN}' 
+          cluster-name: "${ESC_CLUSTER_ARN}" 
           service-name: 'sleepingdebtplan-service'
           container-image-name-updates: "container=nginx,tag=${AWS_ECR_ACCOUNT}/app_nginx:${CIRCLE_SHA1}"
