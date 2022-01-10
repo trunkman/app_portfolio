@@ -1,44 +1,56 @@
 # 睡眠補完計画
-人間の行動モデルに基づいた睡眠管理アプリケーションです。  
-睡眠に悩んでいる人（睡眠の質が悪い、睡眠時間が確保できない）を対象とし、良質な睡眠ができるように3つのポイントを意識して睡眠を管理していきます。
+「睡眠負債を見える化」した睡眠管理アプリケーションです。  
+継続して睡眠時間を確保できない人を対象として、睡眠状況の記録、睡眠ノウハウの共有、睡眠モチベーションの向上を狙っております。
+
+URL    : https://sleepingdebtplan.com
+GitHub : https://github.com/trunkman/sleepingdebtplan
+※ ゲストアカウントから試しログイン可能です
+※ 推奨ブラウザChorome(PC版)となります
+
+## インフラ構成図
+![20220110_インフラ構成図](https://user-images.githubusercontent.com/90957668/148768368-f4140c59-dc9a-4c10-8fe2-da0e18c13ee7.jpg)
+
+## ER図
+![20220110_ER図](https://user-images.githubusercontent.com/90957668/148768450-26155513-0cd5-45ab-812e-a5d2f6507c19.png)
 
 ## 使用技術
 ### フロントエンド
-* React (?)
-* Node.js
+* React (5.0.0)
+* Node.js (v14.18.0)
+* NGINX (1.20.2)
 * Materi-UI
 * 楽天ブックス書籍検索API
 ### バックエンド
 * Ruby (3.0.2)
 * Ruby on Rails (6.1.4.1)
+* Puma (5.4.0)
 * Rspec
 * FactoryBot
 * Rubocop
-### インフラ等
-* NGINX (?)
-* Puma (5.4.0)
+### インフラ・その他
 * MySQL (5.7)
 * AWS
   * ALB
   * Certificate Manager
   * CloudFront
-  * VPC
-  * EC2
+  * VPC (Public subnet, Private subnet)
   * ECR
+  * ECS
+  * Fargate
   * Public subnet
   * Private subnet
-  * RDS
+  * RDS (MySQL)
   * Route53
   * S3
 * Docker/Docer-compose
 * CircleCI
-
-## インフラ構成図
-![20211229_インフラ構成図](https://user-images.githubusercontent.com/90957668/146662364-960d8e1a-d5a2-462a-a17a-d0097234615b.jpg)
+  * CI (自動ビルド, 自動テスト)
+  * CD (自動デプロイ)
 
 ## 機能一覧
 * 新規登録機能
 * ログイン機能
+* ゲストユーザー機能
 * 自動ログイン(Remember me)機能
 * メール認証機能
 * パスワード再設定機能
@@ -53,6 +65,7 @@
   * 絵文字表示機能 
   * グラフ表示機能(Recharts)
 * 書籍検索機能(楽天ブックス書籍検索API)
+  * 無限スクロール機能
 * おすすめ本登録機能
 * ランキング機能
   * 平均睡眠時間
@@ -63,10 +76,11 @@
   * いいね、コメント、トークルーム作成通知
   * 未読メッセージ通知
 
-## ER図
-![20211229_ER図](https://user-images.githubusercontent.com/90957668/146661415-cb1e3fc6-d5d1-4e30-8f60-1346fb1a4365.jpg)
-
 ## テスト
 * Rspec/FactoryBot
   * 単体テスト(正常系、異常系)
   * 統合テスト
+
+## 今後取り組みたいこと
+* Twitter連携機能
+* レスポンシブ対応
