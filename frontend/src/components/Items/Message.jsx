@@ -39,7 +39,7 @@ export const Message = ({
               <Avatar
                 cursor='pointer'
                 src={loginUser.avatar_url}
-                sx={{ width: 35, height: 35, ml: 3, mt: 0.8 }}
+                sx={{ cursor: 'pointer', height: 35, ml: 3, mt: 0.8, width: 35 }}
                 onClick={() => history.push(`/users/${loginUser.id}`)}
               />
             </ListItemAvatar>

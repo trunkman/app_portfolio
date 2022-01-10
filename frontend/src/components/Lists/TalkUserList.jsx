@@ -30,21 +30,18 @@ const ListTitle = styled('box')(({ theme }) => ({
 
 const ListBody = styled('box')(({ theme }) => ({
   fontWeight: 'light',
-  letterSpacing: theme.typography.h6.letterSpacing,
+  letterSpacing: theme.typography.subtitle1.letterSpacing,
   lineHeight: 2,
 }));
 
-export const TalkUser = ({
-  entries,
-  setOpen,
-}) => {
+export const TalkUserList = ({ entries, setOpen, }) => {
   const history = useHistory();
 
   return (
     <List>
       {entries.length === 0 &&
-        <ListItemText>
-          トークしている人はいません。
+        <ListItemText sx={{ pt: 4 }}>
+          <h3>トークしている人はいません。</h3>
         </ListItemText>
       }
       {entries.length !== 0 &&
@@ -54,20 +51,20 @@ export const TalkUser = ({
               <Avatar
                 alt={entry.other_user.name}
                 src={entry.other_user.avatar_url}
-                sx={{ width: 60, height: 60 }}
+                sx={{ cursor: 'pointer', height: 60, width: 60 }}
                 onClick={() => history.push(`/users/${entry.other_user.id}`)}
               />
             </ListItemAvatar>
             <Box
               onClick={() => history.push(`/talk_rooms/${entry.room_id}`)}
-              sx={{ p: 3, width: '100%' }}
+              sx={{ cursor: 'pointer', p: 3, width: '100%' }}
             >
               <ListItemText>
                 <Typography variant="h5">
                   <ListTitle>{entry.other_user.name}</ListTitle>
                 </Typography>
                 {entry.message_content &&
-                  <Typography variant="h6" >
+                  <Typography variant="subtitle1">
                     <ListBody>{entry.message_content}</ListBody>
                   </Typography>
                 }

@@ -72,7 +72,7 @@ export const MessageRoom = ({
           <MessageWrapper>
             {messageState.messages.length === 0 ? (
               <ListItemText>
-                メッセージはありません。
+                <h3>メッセージはありません。</h3>
               </ListItemText>
             ) : (
               messageState.messages.map((message, index) =>

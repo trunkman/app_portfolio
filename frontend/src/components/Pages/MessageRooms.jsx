@@ -1,6 +1,5 @@
 import React, { useEffect, useReducer, useState } from "react";
 // Style
-import Box from "@mui/material/Box";
 import { styled } from '@mui/system';
 import Typography from "@mui/material/Typography";
 // Api
@@ -10,29 +9,8 @@ import { deleteRoom } from "../../apis/rooms";
 import { roomInitialState, roomReducer } from '../../reducer/RoomReducer';
 // Component
 import { Loading } from '../Items/Loading';
-import { DeleteDialog } from "../../components/Dialogs/DeleteDialog";
-import { TalkUser } from "../../components/Lists/TalkUser";
-
-// const useStyles = makeStyles(() =>
-//   createStyles({
-//     'root': {
-//       alignItems: 'center',
-//       flexDirection: 'column',
-//       flexWrap: 'wrap',
-//       justifyContent: 'center',
-//       maxWidth: 600,
-//       mx: 'auto',
-//       textAlign: 'center',
-//       width: '100%',
-//     },
-//     'list': {
-//       display: 'flex',
-//       alignItems: 'center',
-//       borderRadius: 2,
-//       my: 3,
-//     }
-//   }),
-// );
+import { DeleteDialog } from "../Dialogs/DeleteDialog";
+import { TalkUserList } from "../Lists/TalkUserList";
 
 const Container = styled('box')(() => ({
   flexDirection: 'column',
@@ -50,21 +28,14 @@ const Title = styled('box')(({ theme }) => ({
   lineHeight: 2,
 }));
 
-// const List = styled('box')(() => ({
-//   display: 'flex',
-//   alignItems: 'center',
-//   borderRadius: 2,
-//   my: 3,
-// }));
-
-
-export const Rooms = ({ userId }) => {
+export const MessageRooms = ({ userId }) => {
   const [roomState, roomDispatch] = useReducer(roomReducer, roomInitialState);
   // 削除確認ダイアログの開閉
   const [open, setOpen] = useState({
     isOpen: false,
     roomId: '',
   });
+
   // トークルームの一覧を取得する
   const Rooms = () => {
     fetchRooms(userId)
@@ -75,6 +46,7 @@ export const Rooms = ({ userId }) => {
         });
       });
   }
+
   // トークルームを削除する
   const handleDelete = () => {
     deleteRoom(open.roomId)
@@ -92,7 +64,7 @@ export const Rooms = ({ userId }) => {
           <Title>≪ トークルーム ≫</Title>
         </Typography>
         {roomState.fetchState !== 'ok' ? <Loading /> :
-          <TalkUser
+          <TalkUserList
             entries={roomState.entries}
             setOpen={setOpen}
           />

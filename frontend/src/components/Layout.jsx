@@ -19,7 +19,7 @@ import { Mybooks } from './Pages/Mybooks';
 import { PasswordReset } from './Pages/PasswordReset';
 import { Profile } from './Pages/Profile'
 import { Ranking } from './Pages/Ranking';
-import { Rooms } from './Pages/Rooms';
+import { MessageRooms } from './Pages/MessageRooms';
 import { Timeline } from './Pages/Timeline';
 import { Users } from './Pages/Users'
 import { Sidebar } from './Navigations/Sidebar';
@@ -124,7 +124,7 @@ export const Layout = () => {
               />
 
               <Route exact path="/users/:id/talk_rooms"
-                render={({ match }) => <Rooms
+                render={({ match }) => <MessageRooms
                   loginUser={authState.loginUser}
                   userId={match.params.id} //不要なら削除
                 />}
