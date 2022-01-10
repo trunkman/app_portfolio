@@ -12,6 +12,7 @@ const ContainedButton = styled('button')(({ theme }) => ({
   border: 0,
   borderRadius: theme.shape.borderRadius,
   color: theme.palette.secondary.contrastText,
+  cursor: 'pointer',
   fontWeight: 'bold',
   height: 30,
   margin: '30px 0px',
@@ -38,7 +39,7 @@ export const RecommendButton = ({
     <Box>
       {registration &&
         <ContainedButton onClick={submitRecommend}>
-          私のおすすめにする
+          おすすめに登録する
         </ContainedButton>
       }
     </Box>

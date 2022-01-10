@@ -39,7 +39,6 @@ export const FollowList = ({ followStatus, user }) => {
         <ListItemAvatar>
           <Avatar
             alt={user.name}
-            cursor='pointer'
             src={user.avatar_url}
             sx={{ cursor: 'pointer', height: 70, width: 70 }}
             onClick={() => history.push(`/users/${user.id}`)}

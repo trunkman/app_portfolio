@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 // Style
 import { styled } from '@mui/system'
 // Component
 import { BookSearchButton } from '../../components/Buttons/BookSearchButton';
-import { Search } from '../Forms/Search';
+import { SearchForm } from '../Forms/SearchForm';
 
 const Wrapper = styled('box')(() => ({
   alignItems: 'flex-start',
@@ -20,7 +20,7 @@ export const BookSearch = ({
 
   return (
     <Wrapper>
-      <Search
+      <SearchForm
         handleChange={handleChange}
         keyword={keyword}
       />

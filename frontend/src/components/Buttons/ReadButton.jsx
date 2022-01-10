@@ -7,12 +7,12 @@ import { styled } from '@mui/system'
 // Api
 import { postBook, updateBook } from "../../apis/books";
 
-
 const ContainedButton = styled('button')(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
   border: 0,
   borderRadius: theme.shape.borderRadius,
   color: theme.palette.primary.contrastText,
+  cursor: 'pointer',
   fontWeight: 'bold',
   height: 30,
   padding: '0px 20px',
@@ -37,9 +37,7 @@ export const ReadButton = ({
         book: book,
       })
         .then(data => {
-          // ぺーじ遷移を加える
-          data.message &&
-            alert(data.message)
+          data.message && alert(data.message)
           history.push(`/users/${authState.loginUser.id}/books`)
         })
     );
@@ -50,22 +48,19 @@ export const ReadButton = ({
         book: book,
       })
         .then(data => {
-          // ぺーじ遷移を加える
-          data.message &&
-            alert(data.message)
+          data.message && alert(data.message)
           history.push(`/users/${authState.loginUser.id}/books`)
         })
     );
   }
 
-  // 読んだ積んだがわかるように設定する予定
   return (
     <Box>
       <ContainedButton
         onClick={() => handleClick("false")}
         variant="outlined"
       >
-        積本に登録
+        積んでおく
       </ContainedButton>
       <ContainedButton
         onClick={() => handleClick("true")}

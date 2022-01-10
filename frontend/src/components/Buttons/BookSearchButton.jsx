@@ -7,6 +7,7 @@ const ContainedButton = styled('button')(({ theme }) => ({
   border: 0,
   borderRadius: 50,
   color: theme.palette.primary.contrastText,
+  cursor: 'pointer',
   fontWeight: 'bold',
   height: 30,
   padding: '0px 20px',

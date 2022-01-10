@@ -32,7 +32,7 @@ const Title = styled('box')(({ theme }) => ({
   paddingBottom: 2,
 }));
 
-export const Mybooks = ({ userId }) => {
+export const Bookshelf = ({ userId }) => {
   const [keyword, setKeyword] = useState('');
   const [tab, setTab] = useState('read');
   const [bookState, bookDispatch] = useReducer(bookReducer, bookInitialState);

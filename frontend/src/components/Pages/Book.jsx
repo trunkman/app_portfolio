@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import Link from '@mui/material/Link';
 //Style
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
@@ -38,14 +38,16 @@ export const Book = ({ bookIsbn }) => {
   const [subscribed, setSubscribed] = useState(false)
 
   // ISBNで特定した本情報を取得する
-  useEffect(() => {
+  const BookInformation = () => {
     fetchBook(bookIsbn)
       .then(data => {
         setBook(data.book[0].params)
         setResistration(data.registration)
         setSubscribed(data.subscribed)
-      })
-  }, [bookIsbn])
+      });
+  }
+
+  useEffect(() => BookInformation(), [bookIsbn])
 
   return (
     <Container>
@@ -67,11 +69,14 @@ export const Book = ({ bookIsbn }) => {
           <Typography variant="h6" sx={{ pb: 1 }}>出版社名 ： {book.publisherName}</Typography>
           <Typography variant="h6" sx={{ pb: 1 }}>出版日 ： {book.salesDate}</Typography>
           <Typography variant="h6" sx={{ pb: 1 }}>定価  ： {book.itemPrice}円</Typography>
-          <Typography variant="h6" sx={{ pb: 1 }}
-            conponent={Link}
-            to={book.itemUrl}
-          >
-            URL  ： {book.itemUrl}
+          <Typography variant="h6" sx={{ pb: 1 }}>URL  ：
+            <Link
+              target="_blank"
+              href={book.itemUrl}
+              px={{ cursor: 'pointer' }}
+            >
+              {book.itemUrl}
+            </Link>
           </Typography>
           <Typography variant="h6" sx={{ pb: 1 }}>楽天レビュー平均 ： {book.reviewAverage}点</Typography>
           <Typography variant="h6" sx={{ pb: 3 }}>楽天レビュー件数 ： {book.reviewCount}件</Typography>

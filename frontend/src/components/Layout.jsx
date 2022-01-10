@@ -15,7 +15,7 @@ import { FollowFriends } from './Pages/FollowFriends';
 import { Header } from './Navigations/Header';
 import { Home } from './Pages/Home'
 import { MessageRoom } from './Pages/MessageRoom';
-import { Mybooks } from './Pages/Mybooks';
+import { Bookshelf } from './Pages/Bookshelf';
 import { PasswordReset } from './Pages/PasswordReset';
 import { Profile } from './Pages/Profile'
 import { Ranking } from './Pages/Ranking';
@@ -145,7 +145,7 @@ export const Layout = () => {
               />
 
               <Route exact path="/users/:id/books"
-                render={({ match }) => <Mybooks
+                render={({ match }) => <Bookshelf
                   userId={match.params.id}
                 />}
               />

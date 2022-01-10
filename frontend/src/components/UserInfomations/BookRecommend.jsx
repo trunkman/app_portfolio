@@ -7,7 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import { styled } from '@mui/system'
 import Typography from '@mui/material/Typography';
 // Component
-import { NotRecommendButton } from "../Buttons/NotRecommendButton";
+import { RecommendReleaseButton } from "../Buttons/RecommendReleaseButton";
 
 const CardWrapper = styled(CardActionArea)(() => ({
   background: '#334b63',
@@ -31,12 +31,12 @@ export const BookRecommend = ({ book, notRecommend }) => {
         <Box sx={{ display: 'flex' }}>
           <TextWrapper>
             <Typography variant="subtitl1">
-              ■ おすすめ睡眠本
+              ★ おすすめ睡眠本
             </Typography>
-            <Typography variant="h5" sx={{ pt: 1 }}>
-              {book.title}
+            <Typography variant="h6" sx={{ pt: 1 }}>
+              <b>{book.title}</b>
             </Typography>
-            <NotRecommendButton
+            <RecommendReleaseButton
               notRecommend={notRecommend}
             />
           </TextWrapper>

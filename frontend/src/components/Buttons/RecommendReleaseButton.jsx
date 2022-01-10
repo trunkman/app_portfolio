@@ -10,13 +10,14 @@ const ContainedButton = styled('button')(({ theme }) => ({
   border: 0,
   borderRadius: theme.shape.borderRadius,
   color: theme.palette.primary.contrastText,
+  cursor: 'pointer',
   fontWeight: 'bold',
   height: 30,
   marginTop: 15,
   padding: '0px 20px',
 }));
 
-export const NotRecommendButton = ({ notRecommend }) => {
+export const RecommendReleaseButton = ({ notRecommend }) => {
   const [open, setOpen] = useState(false);
 
   return (
