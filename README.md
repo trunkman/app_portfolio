@@ -1,17 +1,16 @@
 # 睡眠補完計画
-「睡眠負債を見える化」した睡眠管理アプリケーションです。  
-継続して睡眠時間を確保できない人を対象として、睡眠状況の記録、睡眠ノウハウの共有、睡眠モチベーションの向上を狙っております。
+**「睡眠負債を見える化」した睡眠管理アプリケーションです。**  
+**継続した睡眠時間を確保できない人を対象として、睡眠状況の記録、睡眠ノウハウの共有、睡眠モチベーションの向上を狙います。**
 
-URL    : https://sleepingdebtplan.com
-GitHub : https://github.com/trunkman/sleepingdebtplan
-※ ゲストアカウントから試しログイン可能です
-※ 推奨ブラウザChorome(PC版)となります
+URL: https://sleepingdebtplan.com  
+※ ゲストアカウントから試しログイン可能です  
+※ 推奨: PC & ブラウザChoromeとなります  
 
 ## インフラ構成図
-![20220110_インフラ構成図](https://user-images.githubusercontent.com/90957668/148768368-f4140c59-dc9a-4c10-8fe2-da0e18c13ee7.jpg)
+![20220110-インフラ構成図](https://user-images.githubusercontent.com/90957668/148783455-64854cfb-e4af-4861-96f5-eb3af32406ae.jpg)
 
 ## ER図
-![20220110_ER図](https://user-images.githubusercontent.com/90957668/148768450-26155513-0cd5-45ab-812e-a5d2f6507c19.png)
+![20220110-ER図](https://user-images.githubusercontent.com/90957668/148783446-e9d86abf-6584-4ec1-9dfe-b061938bd203.jpg)
 
 ## 使用技術
 ### フロントエンド
@@ -81,6 +80,8 @@ GitHub : https://github.com/trunkman/sleepingdebtplan
   * 単体テスト(正常系、異常系)
   * 統合テスト
 
-## 今後取り組みたいこと
-* Twitter連携機能
+## 今後改善すべき点
 * レスポンシブ対応
+* Twitter連携機能の導入
+* E2Eテストの導入
+* Terraformによるインフラのコード化
