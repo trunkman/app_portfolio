@@ -6,9 +6,6 @@ import Box from "@mui/material/Box";
 import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar"
 import { styled } from '@mui/system';
-// Icon
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
 const ChatRow = styled('box')(() => ({
   display: 'flex',

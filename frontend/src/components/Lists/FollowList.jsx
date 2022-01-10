@@ -9,7 +9,7 @@ import ListItemText from "@mui/material/ListItemText";
 import { styled } from '@mui/system';
 import Typography from "@mui/material/Typography";
 // Component
-import { RoomButton } from "../Buttons/RoomButton";
+import { MessageRoomButton } from "../Buttons/MessageRoomButton";
 import { FollowButton } from "../Buttons/FollowButton";
 
 const ListItemWrapper = styled(ListItem)(() => ({
@@ -18,10 +18,19 @@ const ListItemWrapper = styled(ListItem)(() => ({
   borderRadius: 2,
 }));
 
-export const FollowList = ({
-  followStatus,
-  user,
-}) => {
+const ListTitle = styled('box')(({ theme }) => ({
+  fontWeight: theme.typography.h5.fontWeight,
+  letterSpacing: theme.typography.h5.letterSpacing,
+  lineHeight: 2,
+}));
+
+const ListBody = styled('box')(({ theme }) => ({
+  fontWeight: 'light',
+  letterSpacing: theme.typography.subtitle1.letterSpacing,
+  lineHeight: 2,
+}));
+
+export const FollowList = ({ followStatus, user }) => {
   const history = useHistory()
 
   return (
@@ -32,17 +41,17 @@ export const FollowList = ({
             alt={user.name}
             cursor='pointer'
             src={user.avatar_url}
-            sx={{ width: 70, height: 70 }}
+            sx={{ cursor: 'pointer', height: 70, width: 70 }}
             onClick={() => history.push(`/users/${user.id}`)}
           />
         </ListItemAvatar>
-        <Box sx={{ py: 3, pl: 3, flexGrow: 1 }} >
+        <Box sx={{ py: 2, pl: 3, flexGrow: 1 }} >
           <ListItemText>
             <Typography variant="h5" sx={{ letterSpacing: 2 }}>
-              <b>{user.name} さん</b>
+              <ListTitle>{user.name} さん</ListTitle>
             </Typography>
-            <Typography variant="h6" >
-              <Box sx={{ letterSpacing: 2, mt: 2 }}>{user.profile}</Box>
+            <Typography variant="subtitle1" >
+              <ListBody>{user.profile}</ListBody>
             </Typography>
           </ListItemText>
           <Box>
@@ -50,7 +59,7 @@ export const FollowList = ({
               userId={user.id}
               followStatus={followStatus}
             />
-            <RoomButton
+            <MessageRoomButton
               userId={user.id}
             />
           </Box>

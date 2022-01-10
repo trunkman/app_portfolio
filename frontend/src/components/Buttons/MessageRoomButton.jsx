@@ -6,34 +6,22 @@ import { styled } from '@mui/system'
 // api
 import { postRoom } from "../../apis/rooms";
 
-// const useStyles = makeStyles(() =>
-//   createStyles({
-//     'button': {
-//       background: '#42a5f5',
-//       border: 0,
-//       borderRadius: 50,
-//       color: 'white',
-//       height: 30,
-//       padding: '15px 20px',
-//       marginLeft: 20,
-//     }
-//   }),
-// );
-
 const ContainedButton = styled('button')(({ theme }) => ({
   backgroundColor: theme.palette.secondary.main,
   border: 0,
   borderRadius: theme.shape.borderRadius,
+  cursor: 'pointer',
   color: theme.palette.secondary.contrastText,
   fontWeight: 'bold',
   height: 30,
   padding: '0px 20px',
   marginLeft: 20,
-  marginTop: 15,
+  marginTop: 10,
 }));
 
-export const RoomButton = ({ userId }) => {
+export const MessageRoomButton = ({ userId }) => {
   const history = useHistory()
+
   // メッセージルームを作成する
   const handleSubmit = () => {
     postRoom({ userId: userId })

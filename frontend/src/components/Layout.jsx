@@ -11,7 +11,7 @@ import { notificationReducer, notificationInitialState } from '../reducer/Notifi
 import { AccountActivation } from './Pages/AccountActivation';
 import { Book } from './Pages/Book';
 import { Diaries } from './Pages/Diaries';
-import { Follow } from './Pages/Follow';
+import { FollowFriends } from './Pages/FollowFriends';
 import { Header } from './Navigations/Header';
 import { Home } from './Pages/Home'
 import { MessageRoom } from './Pages/MessageRoom';
@@ -131,14 +131,14 @@ export const Layout = () => {
               />
 
               <Route exact path="/users/:id/following"
-                render={({ match }) => <Follow
+                render={({ match }) => <FollowFriends
                   userId={match.params.id}
                   initialTab='following'
                 />}
               />
 
               <Route exact path="/users/:id/followers"
-                render={({ match }) => <Follow
+                render={({ match }) => <FollowFriends
                   userId={match.params.id}
                   initialTab='followers'
                 />}

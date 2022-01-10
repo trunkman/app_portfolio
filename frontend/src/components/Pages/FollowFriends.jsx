@@ -13,7 +13,7 @@ import { fetchFollowers } from "../../apis/users";
 // Reducer
 import { followInitialState, followReducer } from '../../reducer/FollowReducer';
 // コンポーネント
-import { FollowList } from '../../components/Lists/FollowList';
+import { FollowList } from '../Lists/FollowList';
 import { Loading } from '../Items/Loading';
 
 const Container = styled('box')(() => ({
@@ -31,12 +31,10 @@ const Title = styled('box')(({ theme }) => ({
   lineHeight: 2,
 }));
 
-export const Follow = ({
-  userId,
-  initialTab,
-}) => {
+export const FollowFriends = ({ userId, initialTab }) => {
   const [tab, setTab] = useState(initialTab);
   const [followState, followDispatch] = useReducer(followReducer, followInitialState);
+
   // フォロー中のユーザーを取得する
   const Following = () => {
     fetchFollowing(userId)
@@ -50,6 +48,7 @@ export const Follow = ({
         });
       });
   }
+
   // フォロワーを取得する
   const Followers = () => {
     fetchFollowers(userId)
@@ -118,6 +117,5 @@ export const Follow = ({
         </TabPanel>
       </TabContext>
     </Container>
-
   )
 }
