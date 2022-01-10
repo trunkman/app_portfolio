@@ -66,7 +66,6 @@ export const UserInfo = ({
   open,
   profileState,
   setOpen,
-  notRecommend,
 }) => {
   const history = useHistory();
 

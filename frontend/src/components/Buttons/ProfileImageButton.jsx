@@ -3,7 +3,6 @@ import AWS from 'aws-sdk'
 // Style
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import { styled } from '@mui/system';
 // Api
 import { postAvatarImage } from "../../apis/image"
@@ -39,7 +38,7 @@ const myBucket = new AWS.S3({
 export const ProfileImageButton = ({ loginUser, user }) => {
   const inputRef = useRef(null);
   const [file, setFile] = useState(null);
-  const [fileUri, setFileUri] = useState(user.avatar_url);
+  const [fileUri, setFileUri] = useState(null);
 
   // 画像ファイルの選択
   const handleChange = (e) => {
@@ -78,7 +77,7 @@ export const ProfileImageButton = ({ loginUser, user }) => {
       <Box>
         <Avatar
           alt="Profile Image"
-          src={fileUri}
+          src={fileUri || user.avatar_url}
           sx={{ width: 150, height: 150 }}
           onClick={() => {
             loginUser.id === user.id && inputRef.current.click();

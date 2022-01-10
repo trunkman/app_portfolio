@@ -15,7 +15,6 @@ import NotesIcon from '@mui/icons-material/Notes';
 // Api
 import { fetchUser, fetchMicroposts } from "../../apis/users";
 // Reducer
-
 import { profileReducer, profileInitialState } from '../../reducer/ProfileReducer';
 // Component
 import { Comment } from "../../components/Lists/Comment";
@@ -40,9 +39,7 @@ const Title = styled('box')(({ theme }) => ({
   lineHeight: 2,
 }));
 
-export const Profile = ({
-  userId,
-}) => {
+export const Profile = ({ userId }) => {
   const { authState } = useContext(AuthContext);
   const [profileState, profileDispatch] = useReducer(profileReducer, profileInitialState);
   const [tab, setTab] = useState('microposts');

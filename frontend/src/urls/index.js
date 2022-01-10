@@ -1,5 +1,8 @@
-const DEFAULT_API_LOCALHOST = 'https://sleepingdebtplan.com/api/v1'
-// const DEFAULT_API_LOCALHOST = 'http://sleepingdebtplan.com:3000/api/v1'
+// development用
+const DEFAULT_API_LOCALHOST = 'http://sleepingdebtplan.com/api/v1'
+// production用
+// const DEFAULT_API_LOCALHOST = 'https://sleepingdebtplan.com/api/v1'
+
 // StaticPagesController
 export const home = `${DEFAULT_API_LOCALHOST}/`;
 export const contact = `${DEFAULT_API_LOCALHOST}/`; //未使用
