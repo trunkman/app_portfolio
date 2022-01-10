@@ -10,6 +10,7 @@ import { CommentDialog } from "../Dialogs/CommentDialog";
 
 export const CommentButton = ({
   commentCount,
+  dataFetcing,
   loginUserId,
   micropostId,
 }) => {
@@ -30,6 +31,7 @@ export const CommentButton = ({
         {commentCount}
       </Typography>
       <CommentDialog
+        dataFetcing={dataFetcing}
         handleClose={handleClose}
         open={open}
         loginUserId={loginUserId}

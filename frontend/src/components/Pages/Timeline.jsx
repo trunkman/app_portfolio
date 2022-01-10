@@ -14,10 +14,8 @@ import { Loading } from '../Items/Loading';
 const Container = styled('box')(() => ({
   alignItems: 'center',
   flexDirection: 'column',
-  flexWrap: 'wrap',
   justifyContent: 'center',
   maxWidth: 700,
-  mx: 'auto',
   textAlign: 'center',
   width: '100%',
 }));
@@ -28,10 +26,7 @@ const Title = styled('box')(({ theme }) => ({
   lineHeight: 2,
 }));
 
-export const Timeline = ({
-  userId,
-  loginUser,
-}) => {
+export const Timeline = ({ userId, loginUser }) => {
   const [timelineState, timelineDispatch] = useReducer(timelineReducer, timelineInitialState);
 
   // 投稿一覧を取得する
@@ -46,7 +41,7 @@ export const Timeline = ({
   }
 
   useEffect(() => {
-    Timeline()
+    Timeline();
   }, [timelineState.reRender])
 
   return (
@@ -58,13 +53,18 @@ export const Timeline = ({
         <Box>
           {timelineState.fetchState !== 'ok' && <Loading />}
           {timelineState.fetchState === 'ok' && timelineState.timeline.length === 0
-            ? <h2>投稿はありません</h2>
-            : timelineState.timeline.map(timeline =>
+            ?
+            <Box sx={{ pt: 4 }}>
+              <h3>投稿はありません。</h3>
+            </Box>
+            :
+            timelineState.timeline.map(timeline =>
               <Micropost
                 commentCount={timeline.commentCount}
                 likeStatus={timeline.likeStatus}
                 loginUser={loginUser}
                 micropost={timeline.micropost}
+                dataFetcing={() => timelineDispatch({ type: 'fetching' })}
                 user={timeline.user}
               />
             )

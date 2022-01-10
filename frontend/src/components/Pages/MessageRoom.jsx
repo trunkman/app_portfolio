@@ -71,8 +71,8 @@ export const MessageRoom = ({
         <List id={"scroll-area"}>
           <MessageWrapper>
             {messageState.messages.length === 0 ? (
-              <ListItemText>
-                <h3>メッセージはありません。</h3>
+              <ListItemText sx={{ pt: 4 }}>
+                <h3>トークしている人はいません。</h3>
               </ListItemText>
             ) : (
               messageState.messages.map((message, index) =>

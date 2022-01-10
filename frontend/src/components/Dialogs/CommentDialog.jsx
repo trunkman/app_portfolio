@@ -10,27 +10,33 @@ import { postComment } from "../../apis/comments";
 // Formsコンポーネント
 import { Content } from '../Forms/Content';
 
-export const CommentDialog = (props) => {
+export const CommentDialog = ({
+  dataFetcing,
+  handleClose,
+  open,
+  loginUserId,
+  micropostId,
+}) => {
   const [content, setContent] = useState(null)
 
   // コメントを登録する関数
   const handleSubmit = () => {
     postComment({
       content: content,
-      userId: props.loginUserId,
-      micropostId: props.micropostId,
+      userId: loginUserId,
+      micropostId: micropostId,
     })
       .then(() => {
         setContent(null);
-        props.handleClose();
-        alert('コメントを追加しました')
+        dataFetcing();
+        handleClose();
       })
   }
 
   return (
     <Dialog
-      open={props.open}
-      onClose={props.handleClose}
+      open={open}
+      onClose={handleClose}
     >
       <DialogTitle>
         コメント
@@ -42,7 +48,7 @@ export const CommentDialog = (props) => {
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={() => { props.handleClose() }}>
+        <Button onClick={() => handleClose()}>
           閉じる
         </Button>
         <Button type='submit' onClick={handleSubmit} >

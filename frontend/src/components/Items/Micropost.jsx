@@ -24,15 +24,9 @@ import { DeleteDialog } from "../Dialogs/DeleteDialog";
 import { MicropostDialog } from "../Dialogs/MicropostDialog";
 
 const ListItemWrapper = styled(ListItem)(() => ({
-  alignItems: "center",
-  marginTop: 2,
   display: 'flex',
-}));
-
-const ListTitle = styled('box')(({ theme }) => ({
-  fontWeight: theme.typography.h5.fontWeight,
-  letterSpacing: theme.typography.h5.letterSpacing,
-  lineHeight: 2,
+  flexWrap: 'wrap',
+  marginTop: 2,
 }));
 
 const ListBody = styled('box')(({ theme }) => ({
@@ -46,6 +40,7 @@ export const Micropost = ({
   commentCount,
   likeStatus,
   micropost,
+  dataFetcing,
   user,
 }) => {
   const history = useHistory();
@@ -77,27 +72,28 @@ export const Micropost = ({
   // 投稿を削除する
   const deleteSubmit = () => {
     deleteMicropost(micropost.id)
-    dialogClose()
-    history.push(`/users/${authState.loginUser.id}`)
+      .then(() => {
+        dataFetcing();
+        dialogClose();
+      })
   }
 
   return (
     <>
       <ListItemWrapper key={micropost.id.toString()}>
-        <ListItemAvatar>
+        <ListItemAvatar >
           <Avatar
-            alt={user.name}
             src={user.avatar_url}
-            sx={{ width: 35, height: 35 }}
+            sx={{ cursor: 'pointer', height: 35, width: 35 }}
             onClick={() => history.push(`/users/${user.id}`)}
           />
         </ListItemAvatar>
         <Box
           onClick={fetchDetailMicropost}
-          sx={{ py: 2, flexGrow: 1 }}
+          sx={{ cursor: 'pointer', flexGrow: 1, py: 2 }}
         >
           <Typography>
-            【 {user.name} 】 {micropost.created_at.substr(0, 19).replace('T', ' ')}
+            【 {user.name} 】 {micropost.created_at.substr(0, 16).replace('T', ' ')}
           </Typography>
           <Typography variant="h6">
             <ListBody>{micropost.content}</ListBody>
@@ -106,7 +102,7 @@ export const Micropost = ({
                 alt='Image'
                 component='img'
                 image={micropost.image_url}
-                sx={{ width: 200, mt: 2 }}
+                sx={{ mt: 2, width: 200 }}
               />
             }
           </Typography>
@@ -123,6 +119,7 @@ export const Micropost = ({
         />
         <CommentButton
           commentCount={commentCount}
+          dataFetcing={dataFetcing}
           loginUserId={authState.loginUser.id}
           micropostId={micropost.id}
         />

@@ -14,6 +14,7 @@ export const LikeButton = ({
   Status,
 }) => {
   const [likeStatus, setLikeStatus] = useState(Status)
+
   // いいねをつける
   const handleLike = () => {
     postLike({
@@ -22,6 +23,7 @@ export const LikeButton = ({
     }).then(setLikeStatus(true)
     )
   }
+
   // いいねを解除する
   const handleUnlike = () => {
     postUnlike({
