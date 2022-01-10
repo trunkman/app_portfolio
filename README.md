@@ -27,12 +27,11 @@ URL: https://sleepingdebtplan.com
 * FactoryBot
 * Rubocop
 ### インフラ・その他
-* MySQL (5.7)
 * AWS
   * ALB
   * Certificate Manager
   * CloudFront
-  * VPC (Public subnet, Private subnet)
+  * VPC
   * ECR
   * ECS
   * Fargate
@@ -41,7 +40,7 @@ URL: https://sleepingdebtplan.com
   * RDS (MySQL)
   * Route53
   * S3
-* Docker/Docer-compose
+* Docker / Docer-compose
 * CircleCI
   * CI (自動ビルド, 自動テスト)
   * CD (自動デプロイ)
