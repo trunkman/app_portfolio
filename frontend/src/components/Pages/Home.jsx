@@ -73,18 +73,10 @@ export const Home = () => {
           />
         </Box>
         <Box>
-          {/* {authState.loggedIn
-            ? <SleepInfo
-              userName={authState.loginUser.name}
-              sleepDebt={sleepDebtState.sleepDebt}
-              sleepSaving={sleepDebtState.sleepSaving}
-            />
-            :  */}
           <HomeRegister
             handleOpenLogin={() => dialogDispatch({ type: 'login' })}
             handleOpenSignup={() => dialogDispatch({ type: 'signup' })}
           />
-          {/* } */}
         </Box>
         <HomeMessage />
       </Container>

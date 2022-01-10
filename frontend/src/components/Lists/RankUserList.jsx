@@ -8,15 +8,15 @@ import CardContent from '@mui/material/CardContent';
 import { styled } from '@mui/system';
 import Typography from '@mui/material/Typography';
 
-const CardWrapper = styled(CardActionArea)(() => ({
-  alignContent: 'center',
+const CardWrapper = styled(CardContent)(() => ({
+  alignItems: 'center',
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'center',
+  margin: 'auto',
   width: 280,
 }));
 
-export const RankUser = ({
+export const RankUserList = ({
   user,
   rank,
   average,
@@ -26,11 +26,11 @@ export const RankUser = ({
   return (
     <>
       <Card sx={{ p: 2 }}>
-        <CardWrapper
+        <CardActionArea
           component={Link}
           to={`/users/${user.id}`}
         >
-          <CardContent>
+          <CardWrapper>
             <Typography gutterBottom variant="h5">
               <b>{rank}</b> 位
             </Typography>
@@ -51,8 +51,8 @@ export const RankUser = ({
                 読了数：<b>{count}</b>冊
               </Typography>
             }
-          </CardContent>
-        </CardWrapper>
+          </CardWrapper>
+        </CardActionArea>
       </Card>
     </>
   );

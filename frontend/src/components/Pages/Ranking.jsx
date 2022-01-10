@@ -13,8 +13,8 @@ import { fetchSleepHoursRank, fetchReadingRank, fetchReadBooksRank, fetchStackBo
 import { rankReducer, rankInitialState } from '../../reducer/RankingReducer'
 // Component
 import { Loading } from "../Items/Loading"
-import { RankBook } from "../../components/Lists/RankBook";
-import { RankUser } from "../../components/Lists/RankUser";
+import { RankBookList } from "../../components/Lists/RankBookList";
+import { RankUserList } from "../../components/Lists/RankUserList";
 
 const Container = styled('box')(() => ({
   alignItems: 'center',
@@ -34,7 +34,7 @@ const Title = styled('box')(({ theme }) => ({
 const SubTitle = styled('box')(({ theme }) => ({
   fontWeight: theme.typography.h5.fontWeight,
   letterSpacing: theme.typography.h5.letterSpacing,
-  lineHeight: 2,
+  lineHeight: 3,
 }));
 
 const TabBox = styled('box')(() => ({
@@ -138,7 +138,7 @@ export const Ranking = () => {
             {rankState.fetchState !== 'ok'
               ? <Loading />
               : rankState.sleepHours.map(sleepingHour =>
-                <RankUser
+                <RankUserList
                   user={sleepingHour.user}
                   rank={sleepingHour.rank}
                   average={sleepingHour.average}
@@ -155,7 +155,7 @@ export const Ranking = () => {
             {rankState.fetchState !== 'ok'
               ? <Loading />
               : rankState.reading.map(reading =>
-                <RankUser
+                <RankUserList
                   user={reading.user}
                   rank={reading.rank}
                   count={reading.count}
@@ -172,7 +172,7 @@ export const Ranking = () => {
             {rankState.fetchState !== 'ok'
               ? <Loading />
               : rankState.readBooks.map(readBooks =>
-                <RankBook
+                <RankBookList
                   book={readBooks.book}
                   rank={readBooks.rank}
                   countRead={readBooks.count}
@@ -189,7 +189,7 @@ export const Ranking = () => {
             {rankState.fetchState !== 'ok'
               ? <Loading />
               : rankState.stackBooks.map(stackBooks =>
-                <RankBook
+                <RankBookList
                   book={stackBooks.book}
                   rank={stackBooks.rank}
                   countStack={stackBooks.count}

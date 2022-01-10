@@ -8,15 +8,15 @@ import CardMedia from '@mui/material/CardMedia';
 import { styled } from '@mui/system';
 import Typography from '@mui/material/Typography';
 
-const CardWrapper = styled(CardActionArea)(() => ({
-  alignContent: 'center',
+const CardWrapper = styled(CardContent)(() => ({
+  alignItems: 'center',
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'center',
+  margin: 'auto',
   width: 280,
 }));
 
-export const RankBook = ({
+export const RankBookList = ({
   book,
   rank,
   countStack,
@@ -26,11 +26,11 @@ export const RankBook = ({
   return (
     <>
       <Card sx={{ p: 2 }}>
-        <CardWrapper
+        <CardActionArea
           component={Link}
           to={`/books/${book.isbn}`}
         >
-          <CardContent>
+          <CardWrapper>
             <Typography gutterBottom variant="h5">
               <b>{rank}</b> 位
             </Typography>
@@ -53,8 +53,8 @@ export const RankBook = ({
                 積読人数：<b>{countStack}</b>人
               </Typography>
             }
-          </CardContent>
-        </CardWrapper>
+          </CardWrapper>
+        </CardActionArea>
       </Card>
     </>
   );
