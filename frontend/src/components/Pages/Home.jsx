@@ -16,15 +16,18 @@ import { PasswordResetDialog } from "../../components/Dialogs/PasswordResetDialo
 import { SleepInfo } from "../UserInfomations/SleepInfo"
 import { SnackBar } from "../../components/Snackbars/Snackbar";
 import { HomeMessage } from "../../components/Items/HomeMessage";
+import { HomeRegister } from "../../components/Items/HomeRegister";
 // Image
 import MainImage from "../../images/MainImage.png";
-import MainLogo from "../../images/MainLogo.png";
 
 const Container = styled('box')(() => ({
+  alignItems: 'center',
   display: 'flex',
+  flexDirection: 'row-reverse',
   flexWrap: 'wrap',
+  justifyContent: 'center',
   maxWidth: 1000,
-  alignItems: 'center'
+  paddingTop: 10,
 }));
 
 export const Home = () => {
@@ -61,33 +64,29 @@ export const Home = () => {
   return (
     <>
       <Container>
-        <Box>
+        <Box sx={{ maxWidth: 350 }}>
           <CardMedia
-            alt='MainLogo'
+            alt='MainImage'
             component='img'
-            image={MainLogo}
-            sx={{ p: 1, width: 380 }}
+            image={MainImage}
+            sx={{ pb: 3, mx: 8, width: '100%' }}
           />
-          {authState.loggedIn
+        </Box>
+        <Box>
+          {/* {authState.loggedIn
             ? <SleepInfo
               userName={authState.loginUser.name}
               sleepDebt={sleepDebtState.sleepDebt}
               sleepSaving={sleepDebtState.sleepSaving}
             />
-            : <HomeMessage
-              handleOpenLogin={() => dialogDispatch({ type: 'login' })}
-              handleOpenSignup={() => dialogDispatch({ type: 'signup' })}
-            />
-          }
-        </Box>
-        <Box sx={{ maxWidth: 420 }}>
-          <CardMedia
-            alt='MainImage'
-            component='img'
-            image={MainImage}
-            sx={{ p: 1, mx: 3, width: '100%' }}
+            :  */}
+          <HomeRegister
+            handleOpenLogin={() => dialogDispatch({ type: 'login' })}
+            handleOpenSignup={() => dialogDispatch({ type: 'signup' })}
           />
+          {/* } */}
         </Box>
+        <HomeMessage />
       </Container>
       <SignUpDialog
         handleClose={() => dialogDispatch({ type: 'close' })}

@@ -5,15 +5,15 @@ import { styled } from '@mui/system';
 import Typography from '@mui/material/Typography';
 
 const Title = styled('box')(({ theme }) => ({
-  fontWeight: theme.typography.h3.fontWeight,
-  letterSpacing: theme.typography.h3.letterSpacing,
+  fontWeight: theme.typography.h5.fontWeight,
+  letterSpacing: theme.typography.h5.letterSpacing,
   lineHeight: 1.7,
 }));
 
 const Time = styled('box')(({ theme }) => ({
   fontWeight: theme.typography.h2.fontWeight,
   letterSpacing: theme.typography.h2.letterSpacing,
-  lineHeight: 1.8,
+  lineHeight: 1.7,
 }));
 
 
@@ -30,10 +30,10 @@ export const SleepInfo = ({
     }}>
       {sleepSaving
         ? <>
-          <Typography variant="h4">
+          <Typography variant="h5">
             <Title>{userName}さんの</Title>
           </Typography>
-          <Typography variant="h4">
+          <Typography variant="h5">
             <Title>余剰睡眠は</Title>
           </Typography>
           <Typography variant="h1">
@@ -41,10 +41,10 @@ export const SleepInfo = ({
           </Typography>
         </>
         : <>
-          <Typography variant="h4">
+          <Typography variant="h5">
             <Title>{userName}さんの</Title>
           </Typography>
-          <Typography variant="h4">
+          <Typography variant="h5">
             <Title>睡眠負債は</Title>
           </Typography>
           <Typography variant="h1">
