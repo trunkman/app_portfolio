@@ -15,25 +15,12 @@ import { Date } from '../Forms/Date';
 import { SleepingHours } from '../Forms/SleepingHours'
 import { Feeling } from '../Forms/Feeling'
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    'button': {
-      border: 0,
-      borderRadius: 3,
-      color: '#90caf9',
-      height: 30,
-      padding: '15px 20px',
-    }
-  }),
-);
-
 export const DiaryDialog = ({
   handleClose,
   open,
   recordDispatch,
   recordState,
 }) => {
-  const classes = useStyles();
   const diaryId = recordState.id
 
   // 日記を更新する
@@ -58,7 +45,6 @@ export const DiaryDialog = ({
       });
   }
 
-
   // 新規登録ダイアログの内容を返す
   return (
     <Dialog
@@ -69,9 +55,7 @@ export const DiaryDialog = ({
         <Typography variant="h5">
           <Box sx={{ letterSpacing: 3, pt: 2 }}><b>睡眠日記</b></Box>
         </Typography>
-
       </DialogTitle>
-
       <DialogContent>
         <Date
           date={recordState.date}
@@ -92,25 +76,20 @@ export const DiaryDialog = ({
           recordDispatch={recordDispatch}
         />
       </DialogContent>
-
       <DialogActions>
         <Button
-          className={classes.button}
           onClick={submitDelete}
           type='submit'
         >
           削除
         </Button>
         <Button
-          className={classes.button}
           onClick={submitUpdate}
           type='submit'
         >
           更新
         </Button>
-        <Button
-          onClick={() => handleClose()}
-        >
+        <Button onClick={() => handleClose()}>
           閉じる
         </Button>
       </DialogActions>

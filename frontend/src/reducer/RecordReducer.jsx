@@ -1,18 +1,19 @@
-// 日付を整える
+// 日付を成形する
+const today = new Date();
 const formatDate = (date) => {
   return (
     date.getFullYear() + '-' +
-    (date.getMonth() + 1) + '-' +
-    date.getDate()
+    ('0' + (date.getMonth() + 1)).slice(-2) + '-' +
+    ('0' + date.getDate()).slice(-2)
   )
 }
+const todayString = String(formatDate(today));
 
 export const recordInitialState = {
   fetchState: 'initial',
   postState: 'initial',
   id: '',
-  // 本日の日付が表示されない
-  date: formatDate(new Date()),
+  date: todayString,
   sleepingHours: '',
   feeling: 'satisfied',
   user: {},

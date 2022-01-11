@@ -17,10 +17,7 @@ import { Date } from '../Forms/Date';
 import { SleepingHours } from '../Forms/SleepingHours'
 import { Feeling } from '../Forms/Feeling'
 
-export const RecordDialog = ({
-  handleClose,
-  open,
-}) => {
+export const RecordDialog = ({ handleClose, open }) => {
   const history = useHistory();
   const { authState } = useContext(AuthContext);
   const [recordState, recordDispatch] = useReducer(recordReducer, recordInitialState);
@@ -45,38 +42,31 @@ export const RecordDialog = ({
       onClose={handleClose}
     >
       <DialogTitle>
-        Diary
+        睡眠日記
       </DialogTitle>
       <DialogContent>
         <DialogContentText>
           睡眠時間と寝起きの気分を記録しましょう。
         </DialogContentText>
-
         <Date
           date={recordState.date}
           handleChange={e => recordDispatch({
             type: 'date',
             payload: e.target.value
-          })
-          }
+          })}
         />
-
         <SleepingHours
           sleepingHours={recordState.sleepingHours}
           handleChange={e => recordDispatch({
             type: 'sleepingHours',
             payload: e.target.value
-          })
-          }
+          })}
         />
-
         <Feeling
           feeling={recordState.feeling}
           recordDispatch={recordDispatch}
         />
-
       </DialogContent>
-
       <DialogActions>
         <Button onClick={() => handleClose()}>
           閉じる

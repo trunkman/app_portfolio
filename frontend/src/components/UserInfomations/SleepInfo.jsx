@@ -16,7 +16,6 @@ const Time = styled('box')(({ theme }) => ({
   lineHeight: 1.7,
 }));
 
-
 export const SleepInfo = ({
   userName,
   sleepDebt,
@@ -31,7 +30,7 @@ export const SleepInfo = ({
       {sleepSaving
         ? <>
           <Typography variant="h5">
-            <Title>{userName}さんの</Title>
+            <Title>{userName}の</Title>
           </Typography>
           <Typography variant="h5">
             <Title>余剰睡眠は</Title>
@@ -42,7 +41,7 @@ export const SleepInfo = ({
         </>
         : <>
           <Typography variant="h5">
-            <Title>{userName}さんの</Title>
+            <Title>{userName}の</Title>
           </Typography>
           <Typography variant="h5">
             <Title>睡眠負債は</Title>
