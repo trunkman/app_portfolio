@@ -26,9 +26,9 @@ const Container = styled('box')(() => ({
 }));
 
 const Title = styled('box')(({ theme }) => ({
-  fontWeight: theme.typography.h2.fontWeight,
-  letterSpacing: theme.typography.h2.letterSpacing,
-  lineHeight: 2,
+  fontWeight: theme.typography.h3.fontWeight,
+  letterSpacing: theme.typography.h3.letterSpacing,
+  lineHeight: 3,
   paddingBottom: 2,
 }));
 
@@ -82,7 +82,7 @@ export const Bookshelf = ({ userId }) => {
     <Container>
       {bookState.fetchState !== 'ok' ? <Loading /> :
         <>
-          <Typography variant="h2" sx={{ width: '100%' }}>
+          <Typography variant="h3">
             <Title>≪ {bookState.user.name}の睡眠本棚 ≫</Title>
           </Typography>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', lexWrap: 'wrap' }}>

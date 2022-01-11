@@ -26,7 +26,7 @@ const Container = styled('box')(() => ({
 const Title = styled('box')(({ theme }) => ({
   fontWeight: theme.typography.h3.fontWeight,
   letterSpacing: theme.typography.h3.letterSpacing,
-  lineHeight: 2,
+  lineHeight: 3,
 }));
 
 const MessageWrapper = styled('box')(() => ({

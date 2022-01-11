@@ -21,14 +21,13 @@ const Container = styled('box')(() => ({
 }));
 
 const Title = styled('box')(({ theme }) => ({
-  fontWeight: theme.typography.h2.fontWeight,
-  letterSpacing: theme.typography.h2.letterSpacing,
-  lineHeight: 2,
+  fontWeight: theme.typography.h3.fontWeight,
+  letterSpacing: theme.typography.h3.letterSpacing,
+  lineHeight: 3,
 }));
 
-const TextDetail = styled('box')(() => ({
+const TextBox = styled('box')(() => ({
   flexDirection: 'column',
-  paddingLeft: 100,
   width: '100%',
 }));
 
@@ -53,9 +52,9 @@ export const Book = ({ bookIsbn }) => {
     <Container>
       <Typography variant="h3" sx={{ width: '100%' }}>
         <Title>{book.title}</Title>
-        <Divider sx={{ border: 1, mt: 1, mb: 4 }} />
+        <Divider sx={{ border: 1, mb: 5 }} />
       </Typography>
-      <Box sx={{ width: 250, mr: 3 }}>
+      <Box sx={{ width: 225, mr: 4 }}>
         <CardMedia
           component="img"
           image={book.largeImageUrl}
@@ -64,7 +63,7 @@ export const Book = ({ bookIsbn }) => {
         />
       </Box>
       <Box>
-        <TextDetail>
+        <TextBox>
           <Typography variant="h6" sx={{ pb: 1 }}>著者名 ： {book.author}</Typography>
           <Typography variant="h6" sx={{ pb: 1 }}>出版社名 ： {book.publisherName}</Typography>
           <Typography variant="h6" sx={{ pb: 1 }}>出版日 ： {book.salesDate}</Typography>
@@ -91,7 +90,7 @@ export const Book = ({ bookIsbn }) => {
               registration={registration}
             />
           </Box>
-        </TextDetail>
+        </TextBox>
       </Box>
     </Container>
   )
