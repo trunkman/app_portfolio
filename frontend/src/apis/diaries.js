@@ -18,6 +18,7 @@ export const postDiary = (params) => {
     })
     .catch(error => {
       console.log('diaries#create', error);
+      alert('すでに登録された日付の睡眠日記です');
     });
 }
 

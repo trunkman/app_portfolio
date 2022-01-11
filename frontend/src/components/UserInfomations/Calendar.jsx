@@ -14,6 +14,7 @@ export const Calendar = ({
   handleOpen,
   recordState,
   recordDispatch,
+  userId,
 }) => {
   // 日記ダイアログを表示
   const handleClick = (eventInfo: EventContentArg) => {
@@ -28,9 +29,10 @@ export const Calendar = ({
     });
     handleOpen();
   }
+
   // カレンダー内の日記一覧を表示
   const renderEventContent = (eventInfo: EventContentArg) => (
-    <Box sx={{ textAlign: "center" }}>
+    <Box sx={{ cursor: 'pointer', textAlign: "center" }}>
       <Emoji
         emoji={eventInfo.event.title}
         size={20}
@@ -51,12 +53,12 @@ export const Calendar = ({
         locale="ja"
         plugins={[dayGridPlugin, interactionPlugin]}
       />
-
-      < DiaryDialog
+      <DiaryDialog
         handleClose={() => handleClose()}
         open={open}
         recordState={recordState}
         recordDispatch={recordDispatch}
+        userId={userId}
       />
     </Box>
   )

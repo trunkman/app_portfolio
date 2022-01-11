@@ -19,6 +19,7 @@ import { fetchNotifications } from '../../apis/notifications';
 import { dialogReducer, dialogInitialState } from '../../reducer/DialogReducer'
 import { notificationReducer, notificationInitialState } from '../../reducer/NotificationReducer'
 import { postReducer, postInitialState } from '../../reducer/PostReducer'
+import { recordReducer, recordInitialState } from '../../reducer/RecordReducer';
 // Component
 import { AccountButton } from '../Buttons/AccountButton'
 import { LogoLink } from '../Links/LogoLink';
@@ -41,8 +42,9 @@ export const Header = ({
   const history = useHistory()
   const { authState, authDispatch } = useContext(AuthContext);
   const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState);
-  const [postState, postDispatch] = useReducer(postReducer, postInitialState);
   const [notificationState, notificationDispatch] = useReducer(notificationReducer, notificationInitialState);
+  const [postState, postDispatch] = useReducer(postReducer, postInitialState);
+  const [recordState, recordDispatch] = useReducer(recordReducer, recordInitialState);
 
   const dialogClose = () => dialogDispatch({ type: 'close' });
   // ログアウトする関数
@@ -158,6 +160,8 @@ export const Header = ({
       <RecordDialog
         handleClose={dialogClose}
         open={dialogState.record}
+        recordDispatch={recordDispatch}
+        recordState={recordState}
       />
       <NotificationDialog
         fetchDetailMicropost={fetchDetailMicropost}

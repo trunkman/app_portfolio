@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../App';
 // Style
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import { createStyles, makeStyles } from "@material-ui/core/styles";
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -20,8 +20,10 @@ export const DiaryDialog = ({
   open,
   recordDispatch,
   recordState,
+  userId,
 }) => {
   const diaryId = recordState.id
+  const { authState } = useContext(AuthContext);
 
   // 日記を更新する
   const submitUpdate = () => {
@@ -77,18 +79,16 @@ export const DiaryDialog = ({
         />
       </DialogContent>
       <DialogActions>
-        <Button
-          onClick={submitDelete}
-          type='submit'
-        >
-          削除
-        </Button>
-        <Button
-          onClick={submitUpdate}
-          type='submit'
-        >
-          更新
-        </Button>
+        {authState.loginUser.id !== userId &&
+          <>
+            <Button onClick={submitDelete} type='submit'>
+              削除
+            </Button>
+            <Button onClick={submitUpdate} type='submit'>
+              更新
+            </Button>
+          </>
+        }
         <Button onClick={() => handleClose()}>
           閉じる
         </Button>

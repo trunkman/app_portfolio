@@ -8,8 +8,6 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-// Reducer
-import { recordReducer, recordInitialState } from '../../reducer/RecordReducer'
 // Api
 import { postDiary } from '../../apis/diaries';
 //Component
@@ -17,10 +15,14 @@ import { Date } from '../Forms/Date';
 import { SleepingHours } from '../Forms/SleepingHours'
 import { Feeling } from '../Forms/Feeling'
 
-export const RecordDialog = ({ handleClose, open }) => {
+export const RecordDialog = ({
+  handleClose,
+  open,
+  recordDispatch,
+  recordState,
+}) => {
   const history = useHistory();
   const { authState } = useContext(AuthContext);
-  const [recordState, recordDispatch] = useReducer(recordReducer, recordInitialState);
 
   // 日記を作成する
   const submitDiary = () => {
