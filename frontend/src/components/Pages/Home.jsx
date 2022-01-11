@@ -38,7 +38,7 @@ export const Home = () => {
             alt='MainImage'
             component='img'
             image={MainImage}
-            sx={{ pb: 3, width: '100%' }}
+            sx={{ py: 10, width: '100%' }}
           />
         </Box>
         <Box>
