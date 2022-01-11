@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 // styled
 import Box from "@mui/material/Box";
-import { createStyles, makeStyles } from "@material-ui/core/styles";
+import { styled } from '@mui/system';
 import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemText from "@mui/material/ListItemText";
@@ -14,21 +14,40 @@ import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 // Api
 import { fetchUsers, deleteUser } from "../../apis/users";
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    root: {
-      alignItems: 'center',
-      border: 1,
-      justifyContent: 'center',
-      maxWidth: 600,
-      textAlign: 'center',
-      width: '100%',
-    }
-  }),
-);
+const Container = styled('box')(() => ({
+  alignItems: 'center',
+  border: 1,
+  justifyContent: 'center',
+  maxWidth: 600,
+  textAlign: 'center',
+  width: '100%',
+}));
+
+const Title = styled('box')(({ theme }) => ({
+  fontWeight: theme.typography.h2.fontWeight,
+  letterSpacing: theme.typography.h2.letterSpacing,
+  lineHeight: 2,
+}));
+
+const ListItemWrapper = styled(ListItem)(() => ({
+  alignItems: 'center',
+  display: 'flex',
+  borderRadius: 2,
+}));
+
+const ListTitle = styled('box')(({ theme }) => ({
+  fontWeight: theme.typography.h5.fontWeight,
+  letterSpacing: theme.typography.h5.letterSpacing,
+  lineHeight: 2,
+}));
+
+const ListBody = styled('box')(({ theme }) => ({
+  fontWeight: 'light',
+  letterSpacing: theme.typography.subtitle1.letterSpacing,
+  lineHeight: 2,
+}));
 
 export const Users = ({ loginUser }) => {
-  const classes = useStyles();
   const history = useHistory();
   const [users, setUsers] = useState([]);
   // ユーザー一覧を取得する
@@ -49,20 +68,12 @@ export const Users = ({ loginUser }) => {
   }, []);
 
   return (
-    <Box className={classes.root}>
-      <Typography variant="h3" sx={{ width: '100%' }}>
-        <Box sx={{ letterSpacing: 10, pb: 1 }}><b>ユーザー一覧</b></Box>
+    <Container>
+      <Typography variant="h3">
+        <Title>ユーザー一覧</Title>
       </Typography>
       {users.map(user =>
-        <ListItem
-          key={user.id.toString()}
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            borderRadius: 2,
-            my: 3,
-          }}>
-
+        <ListItemWrapper key={user.id.toString()} >
           <ListItemAvatar>
             <AccountCircle sx={{ fontSize: 60 }} />
           </ListItemAvatar>
@@ -71,11 +82,11 @@ export const Users = ({ loginUser }) => {
             sx={{ py: 3, pl: 3, flexGrow: 1 }}
           >
             <ListItemText>
-              <Typography variant="h5" sx={{ letterSpacing: 2 }}>
-                {user.name} さん
+              <Typography variant="h5">
+                <ListTitle>{user.name}</ListTitle>
               </Typography>
-              <Typography variant="h6" >
-                <Box sx={{ letterSpacing: 2, mt: 2 }}>{user.profile}</Box>
+              <Typography variant="subtitle1" >
+                <ListBody>{user.profile}</ListBody>
               </Typography>
             </ListItemText>
             <Box>
@@ -86,8 +97,8 @@ export const Users = ({ loginUser }) => {
               )}
             </Box>
           </Box>
-        </ListItem>
+        </ListItemWrapper>
       )}
-    </Box>
+    </Container>
   )
 }

@@ -47,7 +47,7 @@ export const FollowList = ({ followStatus, user }) => {
         <Box sx={{ py: 2, pl: 3, flexGrow: 1 }} >
           <ListItemText>
             <Typography variant="h5" sx={{ letterSpacing: 2 }}>
-              <ListTitle>{user.name} さん</ListTitle>
+              <ListTitle>{user.name}</ListTitle>
             </Typography>
             <Typography variant="subtitle1" >
               <ListBody>{user.profile}</ListBody>
