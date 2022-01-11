@@ -17,7 +17,7 @@ import { fetchUser, fetchMicroposts } from "../../apis/users";
 // Reducer
 import { profileReducer, profileInitialState } from '../../reducer/ProfileReducer';
 // Component
-import { Comment } from "../../components/Lists/Comment";
+import { Comment } from "../Items/Comment";
 import { Loading } from "../Items/Loading"
 import { Micropost } from "../Items/Micropost";
 import { UserInfo } from "../UserInfomations/UserInfo";
@@ -55,12 +55,14 @@ export const Profile = ({ userId }) => {
             user: data.user,
             followingIds: data.following_ids,
             followersIds: data.followers_ids,
-            followStatus: data.followStatus,
-            subscriptions: data.subscriptions,
+            followStatus: data.follow_status,
+            readBooks: data.read_books,
+            stackBooks: data.stack_books,
           }
-        })
+        });
       });
   }
+
   // マイクロポスト情報の取得 
   const userMicropost = () => {
     fetchMicroposts(userId)
@@ -75,7 +77,6 @@ export const Profile = ({ userId }) => {
         })
       });
   }
-
 
   useEffect(() => { userInformation() }, [open])
   useEffect(() => { userMicropost() }, [tab])

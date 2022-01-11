@@ -6,20 +6,9 @@ import Grid from '@mui/material/Grid';
 import { styled } from '@mui/system';
 import Typography from "@mui/material/Typography";
 // Component
-import { SettingDialog } from "../Dialogs/SettingDialog";
 import { FollowButton } from "../Buttons/FollowButton";
+import { ProfileEditButton } from "../Buttons/ProfileEditButton";
 import { ProfileImageButton } from "../Buttons/ProfileImageButton";
-
-const ContainedButton = styled('button')(({ theme }) => ({
-  backgroundColor: theme.palette.primary.main,
-  border: 0,
-  borderRadius: theme.shape.borderRadius,
-  color: theme.palette.primary.contrastText,
-  fontWeight: 'bold',
-  height: 30,
-  padding: '0px 20px',
-  marginTop: '10px',
-}));
 
 const Container = styled(Grid)(() => ({
   alignItems: 'center',
@@ -49,6 +38,7 @@ const ProfileList = styled('box')(() => ({
 
 const ProfileItem = styled('box')(({ theme }) => ({
   alignItems: 'center',
+  cursor: 'pointer',
   display: 'flex',
   flexDirection: 'column',
   marginTop: 4,
@@ -88,9 +78,11 @@ export const UserInfo = ({
               </Typography>
               {
                 loginUser.id === profileState.user.id ? (
-                  <ContainedButton onClick={() => { setOpen(true) }}>
-                    プロフィール編集
-                  </ContainedButton>
+                  <ProfileEditButton
+                    dataUserFetch={profileState.dataUserFetch}
+                    setOpen={setOpen}
+                    open={open}
+                  />
                 ) : (
                   <FollowButton
                     userId={profileState.user.id}
@@ -118,22 +110,17 @@ export const UserInfo = ({
                 </ProfileItem>
                 <ProfileItem onClick={() => history.push(`/users/${profileState.user.id}/books`)}>
                   <ItemText>読了本</ItemText>
-                  <ItemText>{profileState.subscriptions.length} 冊</ItemText>
+                  <ItemText>{profileState.readBooks.length} 冊</ItemText>
                 </ProfileItem>
                 <ProfileItem onClick={() => history.push(`/users/${profileState.user.id}/books`)}>
                   <ItemText>積読本</ItemText>
-                  <ItemText>{profileState.subscriptions.length} 冊</ItemText>
+                  <ItemText>{profileState.stackBooks.length} 冊</ItemText>
                 </ProfileItem>
               </ProfileList>
             </Typography>
           </Box>
         </Grid>
       </Container>
-      <SettingDialog
-        dataUserFetch={profileState.dataUserFetch}
-        handleClose={() => { setOpen(false) }}
-        open={open}
-      />
     </>
   )
 }

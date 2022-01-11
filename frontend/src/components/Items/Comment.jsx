@@ -2,13 +2,13 @@ import React, { useContext, useReducer } from "react";
 import { useHistory } from "react-router";
 import { AuthContext } from "../../App";
 // Style
+import Avatar from "@mui/material/Avatar";
 import Box from '@mui/material/Box';
 import Typography from "@mui/material/Typography";
 import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import IconButton from "@mui/material/IconButton";
 // Icon
-import AccountCircle from "@mui/icons-material/AccountCircle";
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 // Api
 import { deleteComment } from "../../apis/comments";
@@ -68,7 +68,11 @@ export const Comment = ({
           borderTop: 0.2,
         }}>
         <ListItemAvatar>
-          <AccountCircle sx={{ fontSize: 35 }} />
+          <Avatar
+            src={user.avatar_url}
+            sx={{ cursor: 'pointer', height: 35, width: 35 }}
+            onClick={() => history.push(`/users/${user.id}`)}
+          />
         </ListItemAvatar>
         <Box
           onClick={handleClick}

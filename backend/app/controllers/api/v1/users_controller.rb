@@ -17,14 +17,15 @@ module Api
         @user = User.find(params[:id])
         @following_ids = @user.following_ids
         @followers_ids = @user.follower_ids
-        followStatus = current_user.following?(@user)
+        follow_status = current_user.following?(@user)
         @subscriptions = @user.subscriptions
         if @user.activated?
           render json: { user: @user,
                          following_ids: @following_ids,
                          followers_ids: @followers_ids,
-                         followStatus: followStatus,
-                         subscriptions: @subscriptions },
+                         follow_status: follow_status,
+                         read_books: @subscriptions.where(read: true),
+                         stack_books: @subscriptions.where(read: false) },
                  status: :ok
         else
           render json: { message: 'ユーザーのアカウントが有効化されていません' },
@@ -73,9 +74,7 @@ module Api
         # 投稿の取得
         @microposts = []
         @user.microposts.each do |post|
-          # current_userによるいいね有無の判定
           likeStatus = current_user.liked?(post)
-          # 投稿に対してのコメント数を検索
           commentCount = post.comment_ids.count
           @microposts << { micropost: post,
                            likeStatus: likeStatus,

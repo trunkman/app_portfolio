@@ -30,7 +30,7 @@ const OutinedButton = styled('button')(({ theme }) => ({
 }));
 
 export const FollowButton = ({ followStatus, userId }) => {
-  const [follow, setFollow] = useState(followStatus)
+  const [follow, setFollow] = useState(null)
 
   // フォローする
   const submitFollow = () => {
@@ -50,7 +50,7 @@ export const FollowButton = ({ followStatus, userId }) => {
 
   return (
     <>
-      {follow === true
+      {follow || followStatus === true
         ?
         <OutinedButton onClick={submitUnfollow}>
           <b>フォロー中</b>

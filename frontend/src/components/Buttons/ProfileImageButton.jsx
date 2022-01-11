@@ -18,6 +18,7 @@ const OutinedButton = styled('button')(({ theme }) => ({
   borderColor: theme.palette.primary.main,
   borderRadius: theme.shape.borderRadius,
   color: theme.palette.primary.contrastText,
+  cursor: 'pointer',
   fontWeight: 'bold',
   height: 30,
   marginTop: 15,
@@ -78,7 +79,7 @@ export const ProfileImageButton = ({ loginUser, user }) => {
         <Avatar
           alt="Profile Image"
           src={fileUri || user.avatar_url}
-          sx={{ width: 150, height: 150 }}
+          sx={{ cursor: 'pointer', height: 150, width: 150 }}
           onClick={() => {
             loginUser.id === user.id && inputRef.current.click();
           }}
@@ -92,7 +93,7 @@ export const ProfileImageButton = ({ loginUser, user }) => {
         />
       </Box>
       {file &&
-        <OutinedButton onClick={() => handleUpload(file)}>
+        <OutinedButton onClick={() => handleUpload(file)} >
           画像アップロード
         </OutinedButton>
       }
