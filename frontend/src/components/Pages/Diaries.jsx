@@ -104,7 +104,7 @@ export const Diaries = ({ userId }) => {
   useEffect(() => {
     fetchDiaries();
     SleepDebt();
-  }, [dialogState.record, dialogState.diary])
+  }, [dialogState.record, dialogState.diary, userId])
 
 
   return (

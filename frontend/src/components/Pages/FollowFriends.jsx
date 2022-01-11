@@ -68,7 +68,7 @@ export const FollowFriends = ({ userId, initialTab }) => {
     tab === 'following'
       ? Following()
       : Followers()
-  }, [tab])
+  }, [tab, userId])
 
   return (
     <Container>

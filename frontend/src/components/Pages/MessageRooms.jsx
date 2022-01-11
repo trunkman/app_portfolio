@@ -55,7 +55,7 @@ export const MessageRooms = ({ userId }) => {
 
   useEffect(() => {
     Rooms();
-  }, [open.isOpen])
+  }, [open.isOpen, userId])
 
   return (
     <>

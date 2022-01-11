@@ -76,7 +76,7 @@ export const Bookshelf = ({ userId }) => {
 
   useEffect(() => {
     myBooks();
-  }, [tab, bookState.reRender])
+  }, [tab, bookState.reRender, userId])
 
   return (
     <Container>

@@ -78,8 +78,8 @@ export const Profile = ({ userId }) => {
       });
   }
 
-  useEffect(() => { userInformation() }, [open])
-  useEffect(() => { userMicropost() }, [tab])
+  useEffect(() => { userInformation() }, [open, userId])
+  useEffect(() => { userMicropost() }, [tab, userId])
 
   return (
     <Container>

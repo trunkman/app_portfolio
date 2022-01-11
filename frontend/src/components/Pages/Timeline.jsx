@@ -42,7 +42,7 @@ export const Timeline = ({ userId, loginUser }) => {
 
   useEffect(() => {
     Timeline();
-  }, [timelineState.reRender])
+  }, [timelineState.reRender, userId])
 
   return (
     <>
