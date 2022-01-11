@@ -32,13 +32,11 @@ const useStyles = makeStyles(() =>
   }),
 );
 
-export const SettingDialog = ({
-  handleClose,
-  open,
-}) => {
+export const SettingDialog = ({ handleClose, open }) => {
   const classes = useStyles();
   const history = useHistory();
   const { authState, authDispatch } = useContext(AuthContext)
+
   // 送信のCallback関数
   const submitUpdate = () => {
     patchUpdate({
@@ -50,9 +48,7 @@ export const SettingDialog = ({
       idealSleepingHours: authState.idealSleepingHours,
       profile: authState.profile,
     }).then(data => {
-      alert('ユーザー情報を更新しました')
-      handleClose()
-      history.push(`/users/${authState.loginUser.id}`)
+      handleClose();
     })
   }
 
