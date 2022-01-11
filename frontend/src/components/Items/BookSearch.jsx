@@ -14,8 +14,8 @@ const Wrapper = styled('box')(() => ({
 
 export const BookSearch = ({
   handleChange,
+  handleSubmit,
   keyword,
-  searchBooks,
 }) => {
 
   return (
@@ -25,7 +25,7 @@ export const BookSearch = ({
         keyword={keyword}
       />
       <BookSearchButton
-        handleSubmit={() => searchBooks()}
+        handleSubmit={handleSubmit}
       />
     </Wrapper>
   )

@@ -36,6 +36,8 @@ export const Bookshelf = ({ userId }) => {
   const [keyword, setKeyword] = useState('');
   const [tab, setTab] = useState('read');
   const [bookState, bookDispatch] = useReducer(bookReducer, bookInitialState);
+  const [hasMore, setHasMore] = useState(true);
+  const [searchList, setSearchList] = useState(bookState.searchBooks);
 
   // ユーザーの登録本を取得する
   const myBooks = () => {
@@ -54,9 +56,12 @@ export const Bookshelf = ({ userId }) => {
   }
 
   // 検索したキーワードに該当本を取得する
-  const searchBooks = () => {
+  const searchBooks = (page) => {
     bookDispatch({ type: 'posting' });
-    fetchSearchBooks({ keyword: keyword })
+    fetchSearchBooks({
+      keyword: keyword,
+      page: page,
+    })
       .then(data => {
         data && bookDispatch({
           type: 'postSuccess',
@@ -64,6 +69,16 @@ export const Bookshelf = ({ userId }) => {
         });
         !data && alert('書籍名を入力してください。')
       });
+  }
+
+  // データを追加で読み込む関数
+  const loadMore = async (page) => {
+    searchBooks(page);
+    await bookState.searchBooks.length < 1
+      ? // 処理終了
+      setHasMore(false)
+      :  // 取得データをリストを追加
+      setSearchList([...searchList, ...bookState.searchBooks])
   }
 
   // おすすめ本を解除する
@@ -88,8 +103,8 @@ export const Bookshelf = ({ userId }) => {
           <Box sx={{ display: 'flex', justifyContent: 'space-between', lexWrap: 'wrap' }}>
             <BookSearch
               handleChange={e => setKeyword(e.target.value)}
+              handleSubmit={() => searchBooks(1)}
               keyword={keyword}
-              searchBooks={searchBooks}
             />
             <BookRecommend
               book={bookState.recommendBook}
@@ -97,13 +112,18 @@ export const Bookshelf = ({ userId }) => {
             />
           </Box>
           {bookState.searchBooks.length !== 0 &&
-            <SearchBookList bookState={bookState} />
+            <SearchBookList
+              bookDispatch={bookDispatch}
+              hasMore={hasMore}
+              searchList={searchList}
+              loadMore={loadMore}
+            />
           }
           {bookState.searchBooks.length === 0 &&
             <MyBookList
               bookState={bookState}
               setTab={setTab}
-              tab={tab} ß
+              tab={tab}
             />
           }
         </>

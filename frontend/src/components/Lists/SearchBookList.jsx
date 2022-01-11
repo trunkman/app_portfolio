@@ -1,4 +1,5 @@
 import React from "react";
+import InfiniteScroll from "react-infinite-scroller"
 // Style
 import Box from '@mui/material/Box';
 import { styled } from '@mui/system'
@@ -8,6 +9,7 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 // Component
 import { BookCard } from '../Items/BookCard';
+import Loading from "../Items/Loading";
 
 const List = styled('box')(({ theme }) => ({
   background: '#334b63',
@@ -25,8 +27,13 @@ const ListItem = styled('box')(({ theme }) => ({
   padding: 15,
 }));
 
-export const SearchBookList = ({ bookState }) => {
-  const tabLabelSearch = `検索結果:${bookState.searchBooks.length}冊`
+export const SearchBookList = ({
+  hasMore,
+  searchList,
+  loadMore,
+}) => {
+  const tabLabelSearch = `検索結果:${searchList.length}冊`
+  const loader = <Loading />
 
   return (
     <TabContext value='search'>
@@ -40,13 +47,21 @@ export const SearchBookList = ({ bookState }) => {
         </TabList>
       </Box>
       <TabPanel value="search">
-        <List>
-          {bookState.searchBooks.map(book =>
-            <ListItem key={book.params.isbn.toString()}>
-              <BookCard book={book.params} />
-            </ListItem>
-          )}
-        </List>
+        <InfiniteScroll
+          hasMore={hasMore}
+          loader={loader}
+          loadMore={loadMore}
+          pageStart='1'
+          useWindow='false'
+        >
+          <List>
+            {searchList.map(book =>
+              <ListItem key={book.params.isbn.toString()}>
+                <BookCard book={book.params} />
+              </ListItem>
+            )}
+          </List>
+        </InfiniteScroll>
       </TabPanel>
     </TabContext>
   )
