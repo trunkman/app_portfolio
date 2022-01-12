@@ -174,6 +174,7 @@ module Api
           # トーク相手を検索
           Entry.where(room_id: current_entry.room_id).each do |entry|
             next if entry.user_id == current_user.id
+
             @other_user = User.find(entry.user_id)
             @message = Message.order(created_at: :desc).find_by(room_id: entry.room_id)
             # 未読メッセージがあるか確認

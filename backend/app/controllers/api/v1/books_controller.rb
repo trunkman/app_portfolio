@@ -62,7 +62,7 @@ module Api
       def search
         @books = RakutenWebService::Books::Book.search(title: params[:book][:title],
                                                        page: params[:book][:page],
-                                                       hits: 24 )
+                                                       hits: 24)
         if @books.nil?
           render json: { message: '検索に引っかかる本がありませんでした' },
                  status: :ok

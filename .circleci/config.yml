@@ -24,7 +24,7 @@ jobs:
     steps:
       - run:
           name: rubocopの構文規則チェック
-          command: rubocop -a
+          command: rubocop
   test:
     executor: default
     steps:

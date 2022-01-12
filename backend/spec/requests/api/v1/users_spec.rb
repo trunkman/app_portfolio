@@ -41,7 +41,7 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     expect(json['user']['email']).to eq(other_user.email)
     expect(json['following_ids'].length).to eq(1)
     expect(json['followers_ids'].length).to eq(1)
-    expect(json['followStatus']).to be_truthy
+    expect(json['follow_status']).to be_truthy
     expect(response.status).to eq(200)
   end
 
