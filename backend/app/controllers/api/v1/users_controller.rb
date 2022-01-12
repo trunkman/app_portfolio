@@ -173,15 +173,13 @@ module Api
         current_user.entries.each do |current_entry|
           # トーク相手を検索
           Entry.where(room_id: current_entry.room_id).each do |entry|
-            next unless entry.user_id != current_user.id
-
+            next if entry.user_id == current_user.id
             @other_user = User.find(entry.user_id)
             @message = Message.order(created_at: :desc).find_by(room_id: entry.room_id)
             # 未読メッセージがあるか確認
             check_message = current_user.passive_notifications.where(action: 'message', checked: false)
             @entries << { check_message: !check_message.blank?,
-                          message_content: @message.content,
-                          message_created_at: @message.created_at,
+                          message: @message,
                           other_user: @other_user,
                           room_id: entry.room_id }
           end

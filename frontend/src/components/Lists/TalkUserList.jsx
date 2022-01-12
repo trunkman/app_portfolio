@@ -63,9 +63,9 @@ export const TalkUserList = ({ entries, setOpen, }) => {
                 <Typography variant="h5">
                   <ListTitle>{entry.other_user.name}</ListTitle>
                 </Typography>
-                {entry.message_content &&
+                {entry.message &&
                   <Typography variant="subtitle1">
-                    <ListBody>{entry.message_content}</ListBody>
+                    <ListBody>{entry.message.content}</ListBody>
                   </Typography>
                 }
               </ListItemText>
