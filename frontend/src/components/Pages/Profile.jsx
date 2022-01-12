@@ -78,8 +78,8 @@ export const Profile = ({ userId }) => {
       });
   }
 
-  useEffect(() => { userInformation() }, [open, userId])
-  useEffect(() => { userMicropost() }, [tab, userId])
+  useEffect(() => { userInformation() }, [open, userId,])
+  useEffect(() => { userMicropost() }, [tab, userId, profileState.reRender])
 
   return (
     <Container>
@@ -126,6 +126,7 @@ export const Profile = ({ userId }) => {
                   profileState.microposts.map(micropost =>
                     <Micropost
                       commentCount={micropost.commentCount}
+                      dataFetcing={() => profileDispatch({ type: 'fetching' })}
                       likeStatus={micropost.likeStatus}
                       micropost={micropost.micropost}
                       user={profileState.user}
@@ -141,6 +142,7 @@ export const Profile = ({ userId }) => {
                   profileState.likedMicroposts.map(micropost =>
                     <Micropost
                       commentCount={micropost.commentCount}
+                      dataFetcing={() => profileDispatch({ type: 'fetching' })}
                       likeStatus={micropost.likeStatus}
                       micropost={micropost.liked_micropost}
                       user={micropost.user}
@@ -156,6 +158,7 @@ export const Profile = ({ userId }) => {
                   profileState.comments.map(comment =>
                     <Comment
                       comment={comment}
+                      dataFetcing={() => profileDispatch({ type: 'fetching' })}
                       user={profileState.user}
                     />
                   )

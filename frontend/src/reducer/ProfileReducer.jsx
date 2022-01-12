@@ -14,7 +14,7 @@ export const profileInitialState = {
 
 export const profileReducer = (state, action) => {
   switch (action.type) {
-    case 'fetchingProfile':
+    case 'fetching':
       return {
         ...state,
         fetchState: 'loading',
@@ -36,6 +36,7 @@ export const profileReducer = (state, action) => {
       return {
         ...state,
         fetchState: 'ok',
+        reRender: false,
         microposts: action.payload.microposts,
         likedMicroposts: action.payload.likedMicroposts,
         comments: action.payload.comments,

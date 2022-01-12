@@ -52,7 +52,7 @@ export const NotificationDialog = ({
         </DialogTitle>
         <DialogContent dividers>
           <DialogContentText >
-            {notificationState.notifications.length === 0
+            {!!notificationState.notifications
               ? <Typography>通知はありません</Typography>
               :
               <>

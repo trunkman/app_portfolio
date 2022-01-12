@@ -34,7 +34,11 @@ const ListBody = styled('box')(({ theme }) => ({
   paddingLeft: 6,
 }));
 
-export const Comment = ({ comment, user }) => {
+export const Comment = ({
+  comment,
+  dataFetcing,
+  user,
+}) => {
   const history = useHistory();
   const { authState } = useContext(AuthContext);
   const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState);
@@ -62,9 +66,9 @@ export const Comment = ({ comment, user }) => {
 
   // コメントを削除する
   const deleteSubmit = () => {
-    deleteComment(comment.id)
+    deleteComment(comment.id);
     handleClose();
-    history.push(`/users/${authState.loginUser.id}`)
+    dataFetcing();
   }
 
   // クリック時、投稿詳細を表示する

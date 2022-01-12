@@ -62,7 +62,6 @@ export const Timeline = ({ userId, loginUser }) => {
               <Micropost
                 commentCount={timeline.commentCount}
                 likeStatus={timeline.likeStatus}
-                loginUser={loginUser}
                 micropost={timeline.micropost}
                 dataFetcing={() => timelineDispatch({ type: 'fetching' })}
                 user={timeline.user}

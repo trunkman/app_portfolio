@@ -73,8 +73,8 @@ export const Micropost = ({
   const deleteSubmit = () => {
     deleteMicropost(micropost.id)
       .then(() => {
-        dataFetcing();
         dialogClose();
+        dataFetcing();
       })
   }
 
