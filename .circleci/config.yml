@@ -9,10 +9,10 @@ executors:
     docker:
       # ローカルテスト用
       # - image: app_api:latest
-      - image: ${AWS_ECR_ACCOUNT}/app_api
+      - image: ${AWS_ECR_ACCOUNT_URL}/app_api
         aws_auth:
-          aws_access_key_id: $AWS_ACCESS_KEY
-          aws_secret_access_key: $AWS_SECRET_KEY
+          aws_access_key_id: $AWS_ACCESS_KEY_ID
+          aws_secret_access_key: $AWS_SECRET_ACCESS_KEY	
         
 jobs:
   build:
@@ -45,10 +45,9 @@ workflows:
   api-deploy:
     jobs:
       - aws-ecr/build-and-push-image:
-          account-url: AWS_ECR_ACCOUNT
+          account-url: AWS_ECR_ACCOUNT_URL
           region: AWS_REGION
-          aws-access-key-id: AWS_ACCESS_KEY
-          aws-secret-access-key: AWS_SECRET_KEY
+          dockerfile: ./backend/Dockerfile
           repo: app_api
           tag: "${CIRCLE_SHA1}"
           filters:
@@ -58,16 +57,15 @@ workflows:
           requires:
             - aws-ecr/build-and-push-image
           family: 'sleepingdebtplan-3'
-          cluster-name: '${ESC_CLUSTER_ARN}' 
+          cluster-name: "${ESC_CLUSTER_ARN}"
           service-name: 'sleepingdebtplan-service'
-          container-image-name-updates: "container=api,tag=${AWS_ECR_ACCOUNT}/app_api:${CIRCLE_SHA1}"
+          container-image-name-updates: "container=api,tag=${CIRCLE_SHA1}"
   nginx-deploy:
     jobs:
       - aws-ecr/build-and-push-image:
-          account-url: AWS_ECR_ACCOUNT
+          account-url: AWS_ECR_ACCOUNT_URL
           region: AWS_REGION
-          aws-access-key-id: AWS_ACCESS_KEY
-          aws-secret-access-key: AWS_SECRET_KEY
+          dockerfile: ./nginx/Dockerfile
           repo: app_nginx
           tag: "${CIRCLE_SHA1}"
           filters:
@@ -77,6 +75,6 @@ workflows:
           requires:
             - aws-ecr/build-and-push-image
           family: 'sleepingdebtplan-3'
-          cluster-name: '${ESC_CLUSTER_ARN}' 
+          cluster-name: "${ESC_CLUSTER_ARN}"
           service-name: 'sleepingdebtplan-service'
-          container-image-name-updates: "container=nginx,tag=${AWS_ECR_ACCOUNT}/app_nginx:${CIRCLE_SHA1}"
+          container-image-name-updates: "container=nginx,tag=${CIRCLE_SHA1}"
