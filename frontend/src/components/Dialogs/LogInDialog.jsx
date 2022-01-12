@@ -37,7 +37,7 @@ export const LogInDialog = ({
       password: authState.password,
       remember_me: authState.remenberMe,
     }).then(data => {
-      handleLogin(data);
+      data && handleLogin(data);
       handleClose();
     }).catch(() => {
       alert('ログイン失敗');

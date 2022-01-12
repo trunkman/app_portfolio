@@ -19,22 +19,10 @@ const ContainedButton = styled('button')(({ theme }) => ({
   margin: '15px 0px',
 }));
 
-const OutinedButton = styled('button')(({ theme }) => ({
-  backgroundColor: theme.palette.background.paper,
-  borderColor: theme.palette.primary.main,
-  borderRadius: theme.shape.borderRadius,
-  color: theme.palette.primary.contrastText,
-  fontWeight: 'bold',
-  height: 30,
-  padding: '0px 20px',
-  margin: '15px 0px',
-}));
-
 const Title = styled('box')(({ theme }) => ({
   fontWeight: theme.typography.h2.fontWeight,
   letterSpacing: theme.typography.h2.letterSpacing,
 }));
-
 
 export const HomeRegister = ({
   handleOpenLogin,
@@ -53,7 +41,7 @@ export const HomeRegister = ({
     postLogIn({
       email: 'guest@example.com',
       password: 'foobar',
-      remenber_me: 1
+      remember_me: 1
     }).then(data => {
       handleLogin(data);
       history.push('/');
