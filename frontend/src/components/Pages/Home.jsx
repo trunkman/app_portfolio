@@ -14,6 +14,7 @@ import { SnackBar } from "../../components/Snackbars/Snackbar";
 import { HomeMessage } from "../../components/Items/HomeMessage";
 import { HomeRegister } from "../../components/Items/HomeRegister";
 // Image
+import CoverImage from "../../images/CoverImage.jpeg";
 import MainImage from "../../images/MainImage.png";
 
 const Container = styled('box')(() => ({

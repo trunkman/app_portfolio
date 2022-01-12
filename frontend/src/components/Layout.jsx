@@ -13,7 +13,7 @@ import { Book } from './Pages/Book';
 import { Diaries } from './Pages/Diaries';
 import { FollowFriends } from './Pages/FollowFriends';
 import { Header } from './Navigations/Header';
-import { Home } from './Pages/Home'
+import { Home } from './Pages/Home';
 import { MessageRoom } from './Pages/MessageRoom';
 import { Bookshelf } from './Pages/Bookshelf';
 import { PasswordReset } from './Pages/PasswordReset';
@@ -49,7 +49,7 @@ export const Layout = () => {
   const Notifications = () => {
     checkNotifications()
       .then(data =>
-        notificationDispatch({
+        data && notificationDispatch({
           type: 'check',
           payload: {
             checkAll: data.check_all,
@@ -97,7 +97,6 @@ export const Layout = () => {
                 passwordResetToken={match.params.passwordResetToken}
               />}
           />
-
           {authState.loginUser === null && <Loading />}
           {authState.loginUser !== null && authState.loggedIn === false
             ?

@@ -1,8 +1,9 @@
 # 睡眠補完計画
 **「睡眠負債を見える化」した睡眠管理アプリケーションです。**  
-**継続した睡眠時間を確保できない人を対象として、睡眠状況の記録、睡眠ノウハウの共有、睡眠モチベーションの向上を狙います。**
+**睡眠状況の記録、睡眠ノウハウの共有、仲間とのコミュニケーションで睡眠時間確保の向上を狙います。**
+<img width="1160" alt="AppImage" src="https://user-images.githubusercontent.com/90957668/149050562-6bf19abe-3925-4357-80d5-1e8b193d8880.png">
 
-URL: https://sleepingdebtplan.com  
+URL : https://sleepingdebtplan.com  
 ※ ゲストアカウントから簡単にログイン可能です  
 ※ 推奨: PC & ブラウザはGoogleChoromeです  
 
@@ -12,13 +13,11 @@ URL: https://sleepingdebtplan.com
 * Node.js (v14.18.0)
 * NGINX (1.20.2)
 * Materi-UI
-* 楽天ブックス書籍検索API
 ### バックエンド
 * Ruby (3.0.2)
 * Ruby on Rails (6.1.4.1)
 * Puma (5.4.0)
 * Rspec
-* FactoryBot
 * Rubocop
 ### インフラ・その他
 * AWS (ALB, Certificate Manager, CloudFront, VPC, ECR, ECS, Fargate, Public subnet, Private subnet, RDS, Route53, S3)
@@ -49,7 +48,7 @@ URL: https://sleepingdebtplan.com
   * 絵文字表示機能 
   * グラフ表示機能(Recharts)
 * 書籍検索機能(楽天ブックス書籍検索API)
-  * 無限スクロール機能
+  * 無限スクロール機能(react-infinite-scroller)
 * おすすめ本登録機能
 * ランキング機能
   * 平均睡眠時間
@@ -59,6 +58,9 @@ URL: https://sleepingdebtplan.com
 * 通知機能
   * いいね、コメント、トークルーム作成通知
   * 未読メッセージ通知
+
+## 画面遷移図
+アタリ
 
 ## テスト
 * Rspec/FactoryBot

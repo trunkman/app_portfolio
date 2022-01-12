@@ -16,29 +16,36 @@ const MessageWrapper = styled('box')(({ theme }) => ({
   paddingTop: 50,
   textAlign: 'center',
   width: '100%',
-  // backgroundColor: '#00376f',
 }));
 
 const SubTitle = styled('box')(({ theme }) => ({
   fontWeight: theme.typography.h5.fontWeight,
   letterSpacing: theme.typography.h5.letterSpacing,
+  lineHeight: 3,
 }));
 
 const SubBody = styled('box')(({ theme }) => ({
   fontWeight: theme.typography.subtitle1.fontWeight,
   letterSpacing: theme.typography.subtitle1.letterSpacing,
+  lineHeight: 2,
 }));
 
 export const HomeMessage = () => {
 
   return (
     <MessageWrapper>
+      <Typography variant="h4">
+        <SubTitle>《 About 》</SubTitle>
+      </Typography>
       <Typography variant="h5">
-        <SubTitle>" 睡眠補完計画 " の３つの魅力</SubTitle>
+        <SubBody>
+          日々の睡眠不足が借金のようにじわじわ積み重なる「睡眠負債」<br />
+          健康に多大な被害を及ぼす前に、このアプリで解消していきましょう。
+        </SubBody>
       </Typography>
       <Typography variant="subtitle1">
-        <Grid container sx={{ pt: 1 }}>
-          <Grid sm={12} md={4} sx={{ py: 3 }}>
+        <Grid container sx={{ pt: 3 }}>
+          <Grid item sm={12} md={4} sx={{ py: 3 }}>
             <SubBody>
               1. 簡単かつ見やすい睡眠日記
             </SubBody>
@@ -49,7 +56,7 @@ export const HomeMessage = () => {
               sx={{ pb: 3, width: '70%', mx: 'auto' }}
             />
           </Grid>
-          <Grid sm={12} md={4} sx={{ py: 3 }}>
+          <Grid item sm={12} md={4} sx={{ py: 3 }}>
             <SubBody>
               2. 良い睡眠本の共有
             </SubBody>
@@ -60,7 +67,7 @@ export const HomeMessage = () => {
               sx={{ pb: 3, width: '70%', mx: 'auto' }}
             />
           </Grid>
-          <Grid sm={12} md={4} sx={{ py: 3 }}>
+          <Grid item sm={12} md={4} sx={{ py: 3 }}>
             <SubBody>
               3. 同じ境遇の仲間とコミュニケーション
             </SubBody>
