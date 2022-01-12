@@ -1,17 +1,18 @@
-# 睡眠補完計画
+# 睡眠補完計画 (ポートフォリオ)
 **「睡眠負債を見える化」した睡眠管理アプリケーションです。**  
-**睡眠状況の記録、睡眠ノウハウの共有、仲間とのコミュニケーションで睡眠時間確保の向上を狙います。**
+**”フォグ式消費者行動モデル”の理論に基づいて、睡眠時間確保をサポートします。**
+
 <img width="1160" alt="AppImage" src="https://user-images.githubusercontent.com/90957668/149050562-6bf19abe-3925-4357-80d5-1e8b193d8880.png">
 
-URL : https://sleepingdebtplan.com  
+### URL : https://sleepingdebtplan.com  
 ※ ゲストアカウントから簡単にログイン可能です  
-※ 推奨: PC & ブラウザはGoogleChoromeです  
+※ 推奨: デバイス：PC、ブラウザ：Google Chorome  
 
 ## 使用技術
 ### フロントエンド
 * React (5.0.0)
 * Node.js (v14.18.0)
-* NGINX (1.20.2)
+* Nginx (1.20.2)
 * Materi-UI
 ### バックエンド
 * Ruby (3.0.2)
@@ -60,7 +61,7 @@ URL : https://sleepingdebtplan.com
   * 未読メッセージ通知
 
 ## 画面遷移図
-アタリ
+※後ほど追加
 
 ## テスト
 * Rspec/FactoryBot
