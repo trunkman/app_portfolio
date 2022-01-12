@@ -5,6 +5,7 @@ import { AuthContext } from "../../App";
 import Avatar from "@mui/material/Avatar";
 import Box from '@mui/material/Box';
 import CardMedia from '@mui/material/CardMedia';
+import Grid from '@mui/material/Grid';
 import IconButton from "@mui/material/IconButton";
 import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
@@ -25,7 +26,6 @@ import { MicropostDialog } from "../Dialogs/MicropostDialog";
 
 const ListItemWrapper = styled(ListItem)(() => ({
   display: 'flex',
-  flexWrap: 'wrap',
   marginTop: 2,
 }));
 
@@ -34,6 +34,12 @@ const ListBody = styled('box')(({ theme }) => ({
   letterSpacing: theme.typography.h6.letterSpacing,
   lineHeight: 2,
   paddingLeft: 6,
+}));
+
+const IconWrapper = styled('box')(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'flex-end',
+  paddingRight: 10,
 }));
 
 export const Micropost = ({
@@ -102,29 +108,30 @@ export const Micropost = ({
                 alt='Image'
                 component='img'
                 image={micropost.image_url}
-                sx={{ mt: 2, width: 200 }}
+                sx={{ mt: 2, maxHeight: 300, width: 200 }}
               />
             }
           </Typography>
         </Box>
-        {authState.loginUser.id === micropost.user_id && (
-          <IconButton onClick={() => dialogDispatch({ type: 'delete' })}>
-            <DeleteOutlinedIcon />
-          </IconButton>
-        )}
-        <LikeButton
-          loginUserId={authState.loginUser.id}
-          micropostId={micropost.id}
-          Status={likeStatus}
-        />
-        <CommentButton
-          commentCount={commentCount}
-          dataFetcing={dataFetcing}
-          loginUserId={authState.loginUser.id}
-          micropostId={micropost.id}
-        />
+        <IconWrapper>
+          {authState.loginUser.id === micropost.user_id && (
+            <IconButton onClick={() => dialogDispatch({ type: 'delete' })}>
+              <DeleteOutlinedIcon />
+            </IconButton>
+          )}
+          <LikeButton
+            loginUserId={authState.loginUser.id}
+            micropostId={micropost.id}
+            Status={likeStatus}
+          />
+          <CommentButton
+            commentCount={commentCount}
+            dataFetcing={dataFetcing}
+            loginUserId={authState.loginUser.id}
+            micropostId={micropost.id}
+          />
+        </IconWrapper>
       </ListItemWrapper >
-
       <MicropostDialog
         comments={postState.comments}
         handleClose={dialogClose}

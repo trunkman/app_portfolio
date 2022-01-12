@@ -64,7 +64,7 @@ export const MicropostDialog = ({
                     alt='Image'
                     component='img'
                     image={micropost.image_url}
-                    sx={{ width: 200, mt: 2 }}
+                    sx={{ mt: 2, width: 400 }}
                   />
                 }
               </Box>
