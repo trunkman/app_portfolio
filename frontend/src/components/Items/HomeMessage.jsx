@@ -1,5 +1,6 @@
 import React from "react"
 // Style
+import Box from '@mui/material/Box';
 import CardMedia from '@mui/material/CardMedia';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/system'
@@ -43,8 +44,15 @@ export const HomeMessage = () => {
           健康に多大な被害を及ぼす前に、このアプリで解消していきましょう。
         </SubBody>
       </Typography>
+      <Typography variant="h6">
+        <Box sx={{ pt: 15 }}>
+          <SubBody>
+            ~ "睡眠補完計画" 3つの特徴 ~
+          </SubBody>
+        </Box>
+      </Typography>
       <Typography variant="subtitle1">
-        <Grid container sx={{ pt: 3 }}>
+        <Grid container>
           <Grid item sm={12} md={4} sx={{ py: 3 }}>
             <SubBody>
               1. 簡単かつ見やすい睡眠日記

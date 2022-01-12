@@ -13,35 +13,36 @@ export const postLogIn = (params) => {
     withCredentials: true
   })
     .then(res => {
-      console.log('login', res)
-      return res.data
+      console.log('login', res);
+      return res.data;
     })
     .catch(error => {
-      console.log('loggIn', error)
-      return 'nil'
-    })
+      alert('ログイン失敗。Emailもしくはパスワードが間違っております。');
+      console.log('loggIn', error);
+      return 'nil';
+    });
 }
 
 // ログアウトするapi
 export const deleteLogout = () => {
   return axios.delete(logout, { withCredentials: true })
     .then(res => {
-      console.log('logout', res)
-      return res.data
+      console.log('logout', res);
+      return res.data;
     })
     .catch(error => {
-      console.log('logout', error)
-    })
+      console.log('logout', error);
+    });
 }
 
 // ログイン状態を追跡するapi
 export const fetchLoggedIn = () => {
   return axios.get(loggedIn, { withCredentials: true })
     .then(res => {
-      console.log('loggedIn', res)
-      return res.data
+      console.log('loggedIn', res);
+      return res.data;
     })
     .catch(error => {
-      console.log('loggedIn', error)
-    })
+      console.log('loggedIn', error);
+    });
 }

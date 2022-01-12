@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { useHistory } from 'react-router-dom';
 import { AuthContext } from "../../App";
 // Style
 import Button from '@mui/material/Button';
@@ -21,7 +20,6 @@ export const LogInDialog = ({
   handlePasswordReset,
   open,
 }) => {
-  const history = useHistory();
   const { authState, authDispatch } = useContext(AuthContext);
 
   const handleLogin = (data) => {
@@ -37,12 +35,9 @@ export const LogInDialog = ({
       password: authState.password,
       remember_me: authState.remenberMe,
     }).then(data => {
-      data && handleLogin(data);
+      data.logged_in && handleLogin(data);
       handleClose();
-    }).catch(() => {
-      alert('ログイン失敗');
-      handleClose();
-    })
+    });
   }
 
   // ログインのダイアログを返す

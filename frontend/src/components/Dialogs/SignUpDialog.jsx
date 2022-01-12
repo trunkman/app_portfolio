@@ -32,10 +32,10 @@ export const SignUpDialog = ({
       idealSleepingHours: authState.idealSleepingHours,
       remember_me: authState.remenberMe,
     }).then(data => {
-      alert(data.message)
-      handleClose()
+      alert(data.message);
+      handleClose();
     }).catch(() => {
-      alert('登録失敗')
+      alert('登録失敗');
     })
   }
 
