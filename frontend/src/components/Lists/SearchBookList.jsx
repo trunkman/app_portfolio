@@ -32,7 +32,6 @@ export const SearchBookList = ({
   searchList,
   loadMore,
 }) => {
-  const tabLabelSearch = `検索結果:${searchList.length}冊`
   const loader = <Loading />
 
   return (
@@ -40,7 +39,7 @@ export const SearchBookList = ({
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <TabList>
           <Tab
-            label={tabLabelSearch}
+            label='検索結果'
             value="search"
             sx={{ typography: 'h6', fontWeight: 'bold', width: 200 }}
           />
