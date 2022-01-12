@@ -53,6 +53,7 @@ export const recordReducer = (state, action) => {
       return recordInitialState;
     case 'preUpdate':
       return {
+        ...state,
         id: action.payload.id,
         date: action.payload.date,
         sleepingHours: action.payload.sleepingHours,

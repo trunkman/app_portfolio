@@ -16,7 +16,7 @@ const Title = styled('box')(({ theme }) => ({
 const Time = styled('box')(({ theme }) => ({
   fontWeight: theme.typography.h2.fontWeight,
   letterSpacing: theme.typography.h2.letterSpacing,
-  lineHeight: 1.7,
+  lineHeight: 3,
 }));
 
 const SubBody = styled('box')(({ theme }) => ({
@@ -61,7 +61,7 @@ export const SleepInfo = ({
             <Typography variant="h5">
               <Title>余剰睡眠は</Title>
             </Typography>
-            <Typography variant="h1">
+            <Typography variant="h2">
               <Time>{sleepSaving}時間</Time>
             </Typography>
           </>
@@ -72,7 +72,7 @@ export const SleepInfo = ({
             <Typography variant="h5">
               <Title>睡眠負債は</Title>
             </Typography>
-            <Typography variant="h1">
+            <Typography variant="h2">
               <Time>{sleepDebt !== null ? sleepDebt : 0}時間</Time>
             </Typography>
           </>
