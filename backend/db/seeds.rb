@@ -126,10 +126,14 @@ sixth_user.microposts.create!(content: '睡眠時間が低い日はやっぱり�
 first_user.microposts.create!(content: 'よく寝る子さんの睡眠グラフは面白い。安定していい睡眠を確保してほしい。')
 second_user.microposts.create!(content: 'わたしのグラフ山あり谷ありだ')
 third_user.microposts.create!(content: '初日はいい感じ。しばらく使って寝心地を確かめてみる')
+third_user.microposts.create!(content: '健康を保つには、やはり睡眠が大切',
+                              image_url: 'https://s3.ap-northeast-1.amazonaws.com/s3.sleepingdebtplan.com/micropost/book_context.png' )
 forth_user.microposts.create!(content: 'たしかにいつもより早く寝ることができた気がする。これからも続けてみよう')
 fifth_user.microposts.create!(content: '漫画を読み昨夜は深夜2時に就寝。呪術廻戦が止まらない。')
 sixth_user.microposts.create!(content: 'もう少しで睡眠負債がなくなるので、誘惑に負けずに早寝を目指す！！')
 
+second_user.microposts.create!(content: 'こんな寝室であれば、朝めっちゃ気持ちよさそうー！',
+                              image_url: 'https://s3.ap-northeast-1.amazonaws.com/s3.sleepingdebtplan.com/micropost/bedroom.jpg' )
 third_user.microposts.create!(content: '目覚めたとき、日の光を浴びるべき。セロトニンを活性化するため。幸せホルモンと言われており、癒し効果もあり一石二鳥')
 
 # フォロー
