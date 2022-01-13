@@ -20,8 +20,15 @@ const ContainedButton = styled('button')(({ theme }) => ({
 }));
 
 const Title = styled('box')(({ theme }) => ({
+  fontSize: theme.typography.h1.fontSize,
   fontWeight: theme.typography.h2.fontWeight,
   letterSpacing: theme.typography.h2.letterSpacing,
+}));
+
+const TitleTag = styled('box')(({ theme }) => ({
+  fontSize: theme.typography.h5.fontSize,
+  fontWeight: theme.typography.h5.fontWeight,
+  letterSpacing: theme.typography.h5.letterSpacing,
 }));
 
 export const HomeRegister = ({
@@ -51,12 +58,13 @@ export const HomeRegister = ({
   return (
     <Box sx={{ flexDirection: 'column' }}>
       <Box sx={{ textAlign: 'center', pb: 3 }} >
-        <Typography variant="h5" sx={{ pb: 2 }}>
-          <Title>
-            "睡眠負債"の返済を手助けする救済サービス
-          </Title>
+        <Typography sx={{ pb: 2 }}>
+          <TitleTag>
+            "睡眠負債"の返済を手助けする<br />
+            救済サービス
+          </TitleTag>
         </Typography>
-        <Typography variant="h2">
+        <Typography>
           <Title>
             睡眠補完計画
           </Title>

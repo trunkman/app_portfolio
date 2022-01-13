@@ -12,6 +12,7 @@ const preTheme = createTheme({
     }
   },
   typography: {
+
     h1: { letterSpacing: '.2em', fontWeight: 'bold' },
     h2: { letterSpacing: '.2em', fontWeight: 'bold' },
     h3: { letterSpacing: '.2em', fontWeight: 'bold' },
