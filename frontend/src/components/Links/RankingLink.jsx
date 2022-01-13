@@ -10,7 +10,10 @@ import ListItemText from "@material-ui/core/ListItemText";
 import StarOutlineOutlinedIcon from '@mui/icons-material/StarOutlineOutlined';
 
 
-export const RankingLink = ({ loginUserId }) => {
+export const RankingLink = ({
+  breakpoint,
+  handleDrawerClose,
+}) => {
   return (
     <>
       <Divider />
@@ -18,6 +21,7 @@ export const RankingLink = ({ loginUserId }) => {
         <ListItem
           button
           component={Link}
+          onClick={!breakpoint && (() => handleDrawerClose())}
           to={`/ranking`}
         >
           <ListItemIcon>

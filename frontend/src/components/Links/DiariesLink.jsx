@@ -10,7 +10,11 @@ import ListItemText from "@material-ui/core/ListItemText";
 import CalendarTodayRoundedIcon from '@mui/icons-material/CalendarTodayRounded';
 
 
-export const DiariesLink = ({ loginUserId }) => {
+export const DiariesLink = ({
+  breakpoint,
+  handleDrawerClose,
+  loginUserId
+}) => {
   return (
     <>
       <Divider />
@@ -18,6 +22,7 @@ export const DiariesLink = ({ loginUserId }) => {
         <ListItem
           button
           component={Link}
+          onClick={!breakpoint && (() => handleDrawerClose())}
           to={`/users/${loginUserId}/diaries`}
         >
           <ListItemIcon>

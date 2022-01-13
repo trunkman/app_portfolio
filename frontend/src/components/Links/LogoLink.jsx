@@ -8,11 +8,15 @@ import CardMedia from '@mui/material/CardMedia';
 import MainLogo from "../../images/MainLogo.png";
 // import AirlineSeatFlatAngledSharpIcon from '@mui/icons-material/AirlineSeatFlatAngledSharp';
 
-export const LogoLink = () => {
+export const LogoLink = (
+  breakpoint,
+  handleDrawerClose,
+) => {
   return (
     <Box>
       <Button
         component={Link}
+        onClick={!breakpoint && (() => handleDrawerClose())}
         to={`/`}
       >
         <CardMedia

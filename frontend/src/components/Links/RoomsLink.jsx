@@ -11,8 +11,10 @@ import MarkChatUnreadIcon from '@mui/icons-material/MarkChatUnread';
 import MessageOutlinedIcon from '@mui/icons-material/MessageOutlined';
 
 export const RoomsLink = ({
+  breakpoint,
   checkClese,
   checkNotifications,
+  handleDrawerClose,
   loginUserId,
 }) => {
 
@@ -23,8 +25,11 @@ export const RoomsLink = ({
         <ListItem
           button
           component={Link}
+          onClick={() => {
+            checkClese();
+            breakpoint && handleDrawerClose();
+          }}
           to={`/users/${loginUserId}/talk_rooms`}
-          onClick={() => checkClese()}
         >
           {checkNotifications &&
             <ListItemIcon>

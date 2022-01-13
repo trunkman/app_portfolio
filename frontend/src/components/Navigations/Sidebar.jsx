@@ -20,6 +20,7 @@ import { RoomsLink } from '../Links/RoomsLink';
 import { TimelineLink } from '../Links/TimelineLink';
 
 export const Sidebar = ({
+  breakpoint,
   checkClese,
   checkNotifications,
   open,
@@ -83,20 +84,48 @@ export const Sidebar = ({
         <>
           {authState.loggedIn &&
             <>
-              <AvatarLink loginUser={authState.loginUser} size="45" />
-              <DiariesLink loginUserId={authState.loginUser.id} />
-              <TimelineLink loginUserId={authState.loginUser.id} />
-              <BooksLink loginUserId={authState.loginUser.id} />
-              <FollowsLink loginUserId={authState.loginUser.id} />
-              <RoomsLink
-                checkClese={checkClese}
-                checkNotifications={checkNotifications}
+              <AvatarLink size="45"
+                breakpoint={breakpoint}
+                handleDrawerClose={handleDrawerClose}
+                loginUser={authState.loginUser}
+              />
+              <DiariesLink
+                breakpoint={breakpoint}
+                handleDrawerClose={handleDrawerClose}
                 loginUserId={authState.loginUser.id}
               />
-              <RankingLink />
+              <TimelineLink
+                breakpoint={breakpoint}
+                handleDrawerClose={handleDrawerClose}
+                loginUserId={authState.loginUser.id}
+              />
+              <BooksLink
+                breakpoint={breakpoint}
+                handleDrawerClose={handleDrawerClose}
+                loginUserId={authState.loginUser.id}
+              />
+              <FollowsLink
+                breakpoint={breakpoint}
+                handleDrawerClose={handleDrawerClose}
+                loginUserId={authState.loginUser.id}
+              />
+              <RoomsLink
+                breakpoint={breakpoint}
+                checkClese={checkClese}
+                checkNotifications={checkNotifications}
+                handleDrawerClose={handleDrawerClose}
+                loginUserId={authState.loginUser.id}
+              />
+              <RankingLink
+                breakpoint={breakpoint}
+                handleDrawerClose={handleDrawerClose}
+              />
             </>
           }
-          <HomeLink />
+          <HomeLink
+            breakpoint={breakpoint}
+            handleDrawerClose={handleDrawerClose}
+          />
         </>
       </Drawer>
     </>

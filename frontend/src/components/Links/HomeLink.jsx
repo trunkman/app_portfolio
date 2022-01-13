@@ -10,7 +10,10 @@ import ListItemText from "@material-ui/core/ListItemText";
 import HomeIcon from '@mui/icons-material/Home';
 
 
-export const HomeLink = () => {
+export const HomeLink = (
+  breakpoint,
+  handleDrawerClose,
+) => {
   return (
     <>
       <Divider />
@@ -18,6 +21,7 @@ export const HomeLink = () => {
         <ListItem
           button
           component={Link}
+          onClick={!breakpoint && (() => handleDrawerClose())}
           to={`/`}
         >
           <ListItemIcon>

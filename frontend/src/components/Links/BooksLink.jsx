@@ -10,7 +10,11 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ImportContactsOutlinedIcon from '@mui/icons-material/ImportContactsOutlined';
 
 
-export const BooksLink = ({ loginUserId }) => {
+export const BooksLink = ({
+  breakpoint,
+  handleDrawerClose,
+  loginUserId,
+}) => {
   return (
     <>
       <Divider />
@@ -18,6 +22,7 @@ export const BooksLink = ({ loginUserId }) => {
         <ListItem
           button
           component={Link}
+          onClick={!breakpoint && (() => handleDrawerClose())}
           to={`/users/${loginUserId}/books`}
         >
           <ListItemIcon>

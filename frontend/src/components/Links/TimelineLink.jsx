@@ -10,7 +10,11 @@ import ListItemText from "@material-ui/core/ListItemText";
 import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
 
 
-export const TimelineLink = ({ loginUserId }) => {
+export const TimelineLink = ({
+  breakpoint,
+  handleDrawerClose,
+  loginUserId
+}) => {
   return (
     <>
       <Divider />
@@ -18,6 +22,7 @@ export const TimelineLink = ({ loginUserId }) => {
         <ListItem
           button
           component={Link}
+          onClick={!breakpoint && (() => handleDrawerClose())}
           to={`/users/${loginUserId}/timeline`}
         >
           <ListItemIcon>

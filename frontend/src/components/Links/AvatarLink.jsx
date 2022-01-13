@@ -9,8 +9,11 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 
 export const AvatarLink = ({
+  breakpoint,
+  handleDrawerClose,
   loginUser,
 }) => {
+
   return (
     <>
       <Divider />
@@ -18,6 +21,7 @@ export const AvatarLink = ({
         <ListItem
           button
           component={Link}
+          onClick={!breakpoint && (() => handleDrawerClose())}
           to={`/users/${loginUser.id}`}
         >
           <ListItemIcon>

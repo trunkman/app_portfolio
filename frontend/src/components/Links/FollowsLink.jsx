@@ -10,7 +10,11 @@ import ListItemText from "@material-ui/core/ListItemText";
 import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 
 
-export const FollowsLink = ({ loginUserId }) => {
+export const FollowsLink = ({
+  breakpoint,
+  handleDrawerClose,
+  loginUserId
+}) => {
   return (
     <>
       <Divider />
@@ -18,6 +22,7 @@ export const FollowsLink = ({ loginUserId }) => {
         <ListItem
           button
           component={Link}
+          onClick={!breakpoint && (() => handleDrawerClose())}
           to={`/users/${loginUserId}/following`}
         >
           <ListItemIcon>
