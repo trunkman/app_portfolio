@@ -96,7 +96,7 @@ export const Micropost = ({
         </ListItemAvatar>
         <Box
           onClick={fetchDetailMicropost}
-          sx={{ cursor: 'pointer', flexGrow: 1, py: 2 }}
+          sx={{ cursor: 'pointer', py: 2, width: '100%' }}
         >
           <Typography>
             【 {user.name} 】 {micropost.created_at.substr(0, 16).replace('T', ' ')}

@@ -15,7 +15,6 @@ const ContainedButton = styled('button')(({ theme }) => ({
   fontWeight: 'bold',
   height: 30,
   padding: '0px 20px',
-  marginLeft: 20,
   marginTop: 10,
 }));
 

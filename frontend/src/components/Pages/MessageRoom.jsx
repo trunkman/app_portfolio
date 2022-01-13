@@ -24,6 +24,7 @@ const Container = styled('box')(() => ({
 }));
 
 const Title = styled('box')(({ theme }) => ({
+  fontSize: theme.typography.h3.fontSize,
   fontWeight: theme.typography.h3.fontWeight,
   letterSpacing: theme.typography.h3.letterSpacing,
   lineHeight: 3,
@@ -33,10 +34,10 @@ const MessageWrapper = styled('box')(() => ({
   display: 'flex',
   flexDirection: 'column-reverse',
   flexGrow: 1,
-  width: '100%',
   height: '100%',
-  overflow: "auto",
   marginBottom: 150,
+  maxWidth: 600,
+  width: '100%',
 }));
 
 export const MessageRoom = ({
@@ -44,6 +45,7 @@ export const MessageRoom = ({
   loginUser,
 }) => {
   const [messageState, messageDispatch] = useReducer(messageReducer, messageInitialState)
+
   // トークルームのメッセージ一覧を取得する
   const Messages = () => {
     fetchMessages(roomId)
@@ -64,18 +66,18 @@ export const MessageRoom = ({
 
   return (
     <Container>
-      <Typography variant="h3">
+      <Typography>
         <Title>{messageState.user.name}</Title>
       </Typography>
       {messageState.fetchState !== 'ok' ? <Loading /> :
-        <List id={"scroll-area"}>
+        <List sx={{ width: '100%' }}>
           <MessageWrapper>
             {messageState.messages.length === 0 ? (
               <ListItemText sx={{ pt: 4 }}>
                 <h3>トークしている人はいません。</h3>
               </ListItemText>
             ) : (
-              messageState.messages.map((message, index) =>
+              messageState.messages.map((message) =>
                 <Message
                   message={message}
                   loginUser={loginUser}

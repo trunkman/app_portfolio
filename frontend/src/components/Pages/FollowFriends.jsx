@@ -26,8 +26,16 @@ const Container = styled('box')(() => ({
 }));
 
 const Title = styled('box')(({ theme }) => ({
-  fontWeight: theme.typography.h3.fontWeight,
-  letterSpacing: theme.typography.h3.letterSpacing,
+  fontSize: theme.typography.h2.fontSize,
+  fontWeight: theme.typography.h2.fontWeight,
+  letterSpacing: theme.typography.h2.letterSpacing,
+  lineHeight: 2,
+}));
+
+const TitleTag = styled('box')(({ theme }) => ({
+  fontSize: theme.typography.h6.fontSize,
+  fontWeight: theme.typography.h6.fontWeight,
+  letterSpacing: theme.typography.h6.letterSpacing,
   lineHeight: 3,
 }));
 
@@ -72,8 +80,9 @@ export const FollowFriends = ({ userId, initialTab }) => {
 
   return (
     <Container>
-      <Typography variant="h3">
-        <Title>≪ {followState.user.name} ≫</Title>
+      <Typography>
+        <Title>≪ フォローフレンド ≫<br /></Title>
+        <TitleTag>~ {followState.user.name} ~</TitleTag>
       </Typography>
       <TabContext value={tab}>
         <Box>
@@ -84,12 +93,12 @@ export const FollowFriends = ({ userId, initialTab }) => {
             <Tab
               label="フォロー中"
               value="following"
-              sx={{ typography: 'h6', fontWeight: 'bold' }}
+              sx={{ typography: 'subtitle1', fontWeight: 'bold' }}
             />
             <Tab
               label="フォロワー"
               value="followers"
-              sx={{ typography: 'h6', fontWeight: 'bold' }}
+              sx={{ typography: 'subtitle1', fontWeight: 'bold' }}
             />
           </TabList>
         </Box>

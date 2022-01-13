@@ -13,6 +13,7 @@ const ContainedButton = styled('button')(({ theme }) => ({
   cursor: 'pointer',
   fontWeight: 'bold',
   height: 30,
+  marginRight: 20,
   marginTop: 10,
   padding: '0px 20px',
 }));
@@ -25,6 +26,7 @@ const OutinedButton = styled('button')(({ theme }) => ({
   cursor: 'pointer',
   fontWeight: 'bold',
   height: 30,
+  marginRight: 20,
   marginTop: 10,
   padding: '0px 20px',
 }));

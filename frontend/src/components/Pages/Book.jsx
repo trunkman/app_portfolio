@@ -18,15 +18,17 @@ const Container = styled('box')(() => ({
   maxWidth: 800,
   mx: 'auto',
   width: '100%',
+  padding: '0px 10px'
 }));
 
 const Title = styled('box')(({ theme }) => ({
-  fontWeight: theme.typography.h3.fontWeight,
-  letterSpacing: theme.typography.h3.letterSpacing,
-  lineHeight: 3,
+  fontSize: theme.typography.h4.fontSize,
+  fontWeight: theme.typography.h4.fontWeight,
+  letterSpacing: theme.typography.body1.letterSpacing,
 }));
 
-const TextBox = styled('box')(() => ({
+
+const TextBox = styled('box')(({ theme }) => ({
   flexDirection: 'column',
   width: '100%',
 }));
@@ -50,11 +52,11 @@ export const Book = ({ bookIsbn }) => {
 
   return (
     <Container>
-      <Typography variant="h3" sx={{ width: '100%' }}>
-        <Title>{book.title}</Title>
-        <Divider sx={{ border: 1, mb: 5 }} />
+      <Typography variant="h4" sx={{ width: '100%', py: 2 }}>
+        <Title>{book.title}<br /></Title>
+        <Divider sx={{ border: 1, my: 2 }} />
       </Typography>
-      <Box sx={{ width: 225, mr: 4 }}>
+      <Box sx={{ width: 250, mr: 4, mb: 4 }}>
         <CardMedia
           component="img"
           image={book.largeImageUrl}
@@ -63,12 +65,12 @@ export const Book = ({ bookIsbn }) => {
         />
       </Box>
       <Box>
-        <TextBox>
-          <Typography variant="h6" sx={{ pb: 1 }}>著者名 ： {book.author}</Typography>
-          <Typography variant="h6" sx={{ pb: 1 }}>出版社名 ： {book.publisherName}</Typography>
-          <Typography variant="h6" sx={{ pb: 1 }}>出版日 ： {book.salesDate}</Typography>
-          <Typography variant="h6" sx={{ pb: 1 }}>定価  ： {book.itemPrice}円</Typography>
-          <Typography variant="h6" sx={{ pb: 1 }}>URL  ：
+        <TextBox >
+          <Typography variant="h6" sx={{ pt: 1 }}>著者名 ： {book.author}</Typography>
+          <Typography variant="h6" sx={{ pt: 1 }}>出版社名 ： {book.publisherName}</Typography>
+          <Typography variant="h6" sx={{ pt: 1 }}>出版日 ： {book.salesDate}</Typography>
+          <Typography variant="h6" sx={{ pt: 1 }}>定価  ： {book.itemPrice}円</Typography>
+          <Typography variant="h6" sx={{ pt: 1 }}>URL  ：
             <Link
               target="_blank"
               href={book.itemUrl}

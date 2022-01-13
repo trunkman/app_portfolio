@@ -19,14 +19,16 @@ const ListItemWrapper = styled(ListItem)(() => ({
 }));
 
 const ListTitle = styled('box')(({ theme }) => ({
+  fontSize: theme.typography.h5.fontSize,
   fontWeight: theme.typography.h5.fontWeight,
   letterSpacing: theme.typography.h5.letterSpacing,
   lineHeight: 2,
 }));
 
 const ListBody = styled('box')(({ theme }) => ({
+  fontSize: theme.typography.subtitle1.fontSize,
   fontWeight: 'light',
-  letterSpacing: theme.typography.subtitle1.letterSpacing,
+  letterSpacing: theme.typography.body1.letterSpacing,
   lineHeight: 2,
 }));
 

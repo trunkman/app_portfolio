@@ -26,10 +26,18 @@ const Container = styled('box')(() => ({
 }));
 
 const Title = styled('box')(({ theme }) => ({
-  fontWeight: theme.typography.h3.fontWeight,
-  letterSpacing: theme.typography.h3.letterSpacing,
+  fontSize: theme.typography.h2.fontSize,
+  fontWeight: theme.typography.h2.fontWeight,
+  letterSpacing: theme.typography.h2.letterSpacing,
+  lineHeight: 2,
+}));
+
+
+const TitleTag = styled('box')(({ theme }) => ({
+  fontSize: theme.typography.h6.fontSize,
+  fontWeight: theme.typography.h6.fontWeight,
+  letterSpacing: theme.typography.h6.letterSpacing,
   lineHeight: 3,
-  paddingBottom: 2,
 }));
 
 export const Bookshelf = ({ userId }) => {
@@ -98,7 +106,8 @@ export const Bookshelf = ({ userId }) => {
       {bookState.fetchState !== 'ok' ? <Loading /> :
         <>
           <Typography variant="h3">
-            <Title>≪ {bookState.user.name}の睡眠本棚 ≫</Title>
+            <Title>≪ 睡眠本棚 ≫<br /></Title>
+            <TitleTag>~ {bookState.user.name} ~</TitleTag>
           </Typography>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', lexWrap: 'wrap' }}>
             <BookSearch

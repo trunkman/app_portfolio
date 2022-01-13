@@ -1,6 +1,5 @@
 import React, { useEffect, useReducer } from "react";
 // Style
-import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/system';
 import Typography from "@mui/material/Typography";
@@ -30,8 +29,16 @@ const Container = styled('box')(() => ({
 }));
 
 const Title = styled('box')(({ theme }) => ({
-  fontWeight: theme.typography.h3.fontWeight,
-  letterSpacing: theme.typography.h3.letterSpacing,
+  fontSize: theme.typography.h2.fontSize,
+  fontWeight: theme.typography.h2.fontWeight,
+  letterSpacing: theme.typography.h2.letterSpacing,
+  lineHeight: 2,
+}));
+
+const TitleTag = styled('box')(({ theme }) => ({
+  fontSize: theme.typography.h5.fontSize,
+  fontWeight: theme.typography.h5.fontWeight,
+  letterSpacing: theme.typography.h5.letterSpacing,
   lineHeight: 3,
 }));
 
@@ -87,8 +94,9 @@ export const Diaries = ({ userId }) => {
   return (
     <Container>
       {recordState.fetchState !== 'ok' && <Loading />}
-      <Typography variant="h3">
-        <Title>≪ {recordState.user.name}の睡眠日記 ≫</Title>
+      <Typography>
+        <Title>≪ 睡眠日記 ≫<br /></Title>
+        <TitleTag>~ {recordState.user.name} ~</TitleTag>
       </Typography>
       <Grid container>
         <Grid item xs={12} sm={5} sx={{

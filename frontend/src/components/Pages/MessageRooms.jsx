@@ -17,15 +17,16 @@ const Container = styled('box')(() => ({
   flexWrap: 'wrap',
   justifyContent: 'center',
   maxWidth: 600,
-  mx: 'auto',
+  padding: '0px 10px',
   textAlign: 'center',
   width: '100%',
 }));
 
 const Title = styled('box')(({ theme }) => ({
-  fontWeight: theme.typography.h3.fontWeight,
-  letterSpacing: theme.typography.h3.letterSpacing,
-  lineHeight: 3,
+  fontSize: theme.typography.h2.fontSize,
+  fontWeight: theme.typography.h2.fontWeight,
+  letterSpacing: theme.typography.h2.letterSpacing,
+  lineHeight: 2,
 }));
 
 export const MessageRooms = ({ userId }) => {
@@ -60,7 +61,7 @@ export const MessageRooms = ({ userId }) => {
   return (
     <>
       <Container>
-        <Typography variant="h3">
+        <Typography>
           <Title>≪ トークルーム ≫</Title>
         </Typography>
         {roomState.fetchState !== 'ok' ? <Loading /> :

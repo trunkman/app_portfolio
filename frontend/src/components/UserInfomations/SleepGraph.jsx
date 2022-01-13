@@ -24,6 +24,7 @@ const TabBox = styled('box')(() => ({
 }));
 
 const SubTitle = styled('box')(({ theme }) => ({
+  fontSize: theme.typography.h5.fontSize,
   fontWeight: theme.typography.h5.fontWeight,
   letterSpacing: theme.typography.h5.letterSpacing,
   lineHeight: 2,
@@ -69,7 +70,7 @@ export const SleepGraph = ({ diaries }) => {
 
   return (
     <>
-      <Typography variant="h5">
+      <Typography>
         <SubTitle>《睡眠時間の推移》</SubTitle>
       </Typography>
       <TabContext value={tab}>

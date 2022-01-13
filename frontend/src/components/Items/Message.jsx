@@ -7,17 +7,15 @@ import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar"
 import { styled } from '@mui/system';
 
-const ChatRow = styled('box')(() => ({
+const ChatRow = styled(ListItem)(() => ({
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'flex-start',
-  width: 550,
 }));
 
-const ChatReverse = styled('box')(() => ({
+const ChatReverse = styled(ListItem)(() => ({
   display: 'flex',
   flexDirection: 'row-reverse',
-  width: 550,
 }));
 
 export const Message = ({
@@ -29,47 +27,37 @@ export const Message = ({
 
   return (
     <>
-      <ListItem key={message.id.toString()}>
-        {message.user_id === loginUser.id ? (
-          <ChatReverse>
-            <ListItemAvatar>
-              <Avatar
-                cursor='pointer'
-                src={loginUser.avatar_url}
-                sx={{ cursor: 'pointer', height: 35, ml: 3, mt: 0.8, width: 35 }}
-                onClick={() => history.push(`/users/${loginUser.id}`)}
-              />
-            </ListItemAvatar>
-            <Box
-              sx={{
-                p: 1.5,
-                border: 0.1,
-                borderRadius: '4px',
-              }}>
-              {message.content}
-            </Box>
-          </ChatReverse>
-        ) : (
-          <ChatRow>
-            <ListItemAvatar>
-              <Avatar
-                cursor='pointer'
-                src={user.avatar_url}
-                sx={{ width: 35, height: 35 }}
-                onClick={() => history.push(`/users/${user.id}`)}
-              />
-            </ListItemAvatar>
-            <Box
-              sx={{
-                p: 1.5,
-                border: 0.1,
-                borderRadius: '4px',
-              }}>
-              {message.content}
-            </Box>
-          </ChatRow>
-        )}
-      </ListItem >
+      {message.user_id === loginUser.id
+        ?
+        <ChatReverse key={message.id.toString()}>
+          <ListItemAvatar>
+            <Avatar
+              cursor='pointer'
+              src={loginUser.avatar_url}
+              sx={{ cursor: 'pointer', height: 35, ml: 3, mt: 0.8, width: 35 }}
+              onClick={() => history.push(`/users/${loginUser.id}`)}
+            />
+          </ListItemAvatar>
+          <Box
+            sx={{ border: 0.1, borderRadius: '4px', p: 1.5 }}>
+            {message.content}
+          </Box>
+        </ChatReverse>
+        :
+        <ChatRow key={message.id.toString()}>
+          <ListItemAvatar>
+            <Avatar
+              cursor='pointer'
+              src={user.avatar_url}
+              sx={{ width: 35, height: 35 }}
+              onClick={() => history.push(`/users/${user.id}`)}
+            />
+          </ListItemAvatar>
+          <Box sx={{ border: 0.1, borderRadius: '4px', p: 1.5 }}>
+            {message.content}
+          </Box>
+        </ChatRow>
+      }
     </>
   )
 }

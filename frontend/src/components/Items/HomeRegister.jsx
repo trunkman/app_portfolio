@@ -37,13 +37,16 @@ export const HomeRegister = ({
 }) => {
   const history = useHistory();
   const { authState, authDispatch } = useContext(AuthContext);
+
+  // ログインする
   const handleLogin = (data) => {
     authDispatch({
       type: 'login',
       payload: data.user,
     })
   }
-  // ゲスト用のログインapi
+
+  // ゲスト用のログインする
   const guestLogin = () => {
     postLogIn({
       email: 'guest@example.com',

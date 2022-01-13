@@ -11,11 +11,12 @@ import { postMessage } from "../../apis/messages";
 
 const ChatWrapper = styled('box')(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
-  bottom: 5,
-  padding: '10px',
+  bottom: 0,
+  maxWidth: 600,
+  padding: '15px',
   position: 'fixed',
   textAlign: 'center',
-  width: 600,
+  width: '100%'
 }));
 
 const ChatField = styled(TextField)(({ theme }) => ({

@@ -8,18 +8,21 @@ import Typography from '@mui/material/Typography';
 import { RecordDialog } from "../../components/Dialogs/RecordDialog";
 
 const Title = styled('box')(({ theme }) => ({
+  fontSize: theme.typography.h5.fontSize,
   fontWeight: theme.typography.h5.fontWeight,
   letterSpacing: theme.typography.h5.letterSpacing,
   lineHeight: 1.7,
 }));
 
 const Time = styled('box')(({ theme }) => ({
+  fontSize: theme.typography.h2.fontSize,
   fontWeight: theme.typography.h2.fontWeight,
   letterSpacing: theme.typography.h2.letterSpacing,
   lineHeight: 3,
 }));
 
 const SubBody = styled('box')(({ theme }) => ({
+  fontSize: theme.typography.h6.fontSize,
   fontWeight: theme.typography.h6.fontWeight,
   letterSpacing: theme.typography.h6.letterSpacing,
   lineHeight: 2,
@@ -55,30 +58,30 @@ export const SleepInfo = ({
       <Box sx={{ px: 3, textAlign: "center" }}>
         {sleepSaving
           ? <>
-            <Typography variant="h5">
+            <Typography>
               <Title>{recordState.user.name}の</Title>
             </Typography>
-            <Typography variant="h5">
+            <Typography>
               <Title>余剰睡眠は</Title>
             </Typography>
-            <Typography variant="h2">
+            <Typography>
               <Time>{sleepSaving}時間</Time>
             </Typography>
           </>
           : <>
-            <Typography variant="h5">
+            <Typography>
               <Title>{recordState.user.name}の</Title>
             </Typography>
-            <Typography variant="h5">
+            <Typography>
               <Title>睡眠負債は</Title>
             </Typography>
-            <Typography variant="h2">
+            <Typography>
               <Time>{sleepDebt !== null ? sleepDebt : 0}時間</Time>
             </Typography>
           </>
         }
         <Box>
-          <Typography variant="h6">
+          <Typography>
             <SubBody>（理想睡眠時間：{recordState.user.ideal_sleeping_hours}時間）</SubBody>
           </Typography>
           {authState.loginUser.id == userId &&
