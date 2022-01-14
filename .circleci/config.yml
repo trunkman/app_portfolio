@@ -7,12 +7,12 @@ orbs:
 executors:
   default:
     docker:
-      # ローカルテスト用
-      # - image: app_api:latest
       - image: ${AWS_ECR_ACCOUNT_URL}/app_api
         aws_auth:
           aws_access_key_id: $AWS_ACCESS_KEY_ID
           aws_secret_access_key: $AWS_SECRET_ACCESS_KEY	
+      # ローカルテスト用
+      # - image: app_api:latest
         
 jobs:
   build:
@@ -35,7 +35,10 @@ jobs:
 workflows:
   check_and_test:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              only: main
       - syntax-check:
           requires:
             - build
