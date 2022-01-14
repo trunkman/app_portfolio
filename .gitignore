@@ -14,6 +14,10 @@
 /frontend/coverage
 /frontend/node_modules/.cache
 
+# docker
+docker-compose.yml
+docker-compose-prod.yml
+
 .DS_Store
 .env.local
 .env.development.local
