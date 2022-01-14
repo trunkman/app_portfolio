@@ -1,7 +1,7 @@
 FROM nginx:1.20.2-alpine
 
 RUN rm -f /etc/nginx/conf.d/*
-COPY ./nginx/nginx.conf /etc/nginx/conf.d/myapp.conf
+COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
 COPY ./frontend/build /var/www
 
 WORKDIR /usr/share/nginx/html
