@@ -1,6 +1,6 @@
-const DEFAULT_API_LOCALHOST = process.env.REACT_APP_ENV == 'production'
-  ? 'https://sleepingdebtplan.com/api/v1'
-  : 'http://localhost:3000/api/v1'
+const DEFAULT_API_LOCALHOST = process.env.REACT_APP_ENV == 'development'
+  ? 'http://localhost:3000/api/v1'
+  : 'https://sleepingdebtplan.com/api/v1'
 
 // StaticPagesController
 export const home = `${DEFAULT_API_LOCALHOST}/`;
