@@ -11,6 +11,7 @@ const useStyles = makeStyles(() =>
       justifyContent: 'center',
       width: '100%',
       paddingTop: 100,
+      paddingBottom: 100,
       '& > * + *': {
         margin: 0
       },

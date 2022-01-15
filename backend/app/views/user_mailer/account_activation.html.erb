@@ -1,12 +1,28 @@
-<h1>アカウント有効化メール</h1>
-
 <p><%= @user.name %>様</p>
 
+<p>「睡眠補完計画」の登録申し込みいただき、ありがとうございます。</p>
+
 <p>
-現在、仮登録の状態となります。<br>
-"睡眠補完計画"のアカウントを有効化するには下記リンクをクリックしてください。
+ユーザー登録の確認リンクを送ります。<br>
+下記リンクをクリックいただき、"睡眠補完計画"のアカウントを有効化してください。
 </p>
 
-<%= link_to "アカウント有効化はこちら",
-    "http://sleepingdebtplan.com:3001/account_activations/#{@user.activation_token}/edit?email=#{@user.email}"
+<%= link_to "アカウントを有効化する",
+    "https://sleepingdebtplan.com/account_activations/#{@user.activation_token}/edit?email=#{@user.email}"
+    # "http://localhost:8000/account_activations/#{@user.activation_token}/edit?email=#{@user.email}"
 %>
+
+<p>
+※ リンクの有効期限は発行して2時間です<br>
+※ ユーザー登録にお心当たりのない場合、このメールを破棄してください<br>
+※ このメールには返信できません
+<p>
+
+<p>
+========================================================<br>
+<br>
+「睡眠補完計画」<br>
+日々の睡眠不足が借金のようにじわじわ積み重なる「睡眠負債」の返済サポートサービス<br>
+<br>
+========================================================
+</p>

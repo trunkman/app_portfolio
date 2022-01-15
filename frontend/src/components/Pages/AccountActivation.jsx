@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 //Api
 import { styled } from '@mui/system'
 import { fetchAccountActivation } from '../../apis/accountActivations';
@@ -7,10 +7,14 @@ import { fetchAccountActivation } from '../../apis/accountActivations';
 import Typography from '@mui/material/Typography';
 
 const Title = styled('box')(({ theme }) => ({
-  fontSize: theme.typography.h3.fontSize,
-  fontWeight: theme.typography.h3.fontWeight,
-  letterSpacing: theme.typography.h3.letterSpacing,
+  display: 'flex',
+  fontSize: theme.typography.h4.fontSize,
+  fontWeight: theme.typography.h4.fontWeight,
+  letterSpacing: theme.typography.h4.letterSpacing,
   lineHeight: 2,
+  justifyContent: 'center',
+  paddingTop: 50,
+  textAlign: 'center',
 }));
 
 export const AccountActivation = ({ activationToken }) => {
@@ -23,7 +27,14 @@ export const AccountActivation = ({ activationToken }) => {
   // アカウントを有効化する
   const activation = () => {
     fetchAccountActivation(activationToken, queryEmail)
-      .then(() => history.push('/'));
+      .then(data => {
+        data && alert('ホーム画面からログインしてください');
+        history.push(`/`);
+      })
+      .catch(e => {
+        alert('アカウント有効化できませんでした');
+        history.push(`/`);
+      });
   }
 
   useEffect(() => activation(), [])
@@ -33,9 +44,6 @@ export const AccountActivation = ({ activationToken }) => {
       <Title>
         アカウントを有効化しました
       </Title>
-      <Link to={`/`}>
-        アカウントページはこちら
-      </Link>
     </Typography>
   );
 }
