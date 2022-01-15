@@ -67,7 +67,7 @@ sixth_user =
                password_confirmation: 'foobar',
                ideal_sleeping_hours: 7.50,
                profile: 'ゲストユーザー用のアカウントです。様々な人がこのアカウントを利用するので、その旨ご了承いただけると幸いです。',
-               avatar_url: 'https://s3.ap-northeast-1.amazonaws.com/s3.sleepingdebtplan.com/avatar/avatar_orange',
+               avatar_url: 'https://s3.ap-northeast-1.amazonaws.com/s3.sleepingdebtplan.com/avatar/avatar_orange.png',
                admin: false,
                activated: true,
                activated_at: Time.zone.now)
@@ -79,6 +79,7 @@ seventh_user =
                password_confirmation: 'password',
                ideal_sleeping_hours: 8.0,
                profile: '匿名希望。',
+               avatar_url: 'https://s3.ap-northeast-1.amazonaws.com/s3.sleepingdebtplan.com/avatar/avatar_boy.png',
                admin: false,
                activated: true,
                activated_at: Time.zone.now)
