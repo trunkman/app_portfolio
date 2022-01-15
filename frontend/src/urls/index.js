@@ -1,4 +1,4 @@
-const DEFAULT_API_LOCALHOST = process.env.REACT_APP_ENV == 'development'
+const DEFAULT_API_LOCALHOST = process.env.NODE_ENV == 'development'
   ? 'http://localhost:3000/api/v1'
   : 'https://sleepingdebtplan.com/api/v1'
 
