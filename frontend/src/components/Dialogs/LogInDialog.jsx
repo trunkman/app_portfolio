@@ -22,6 +22,7 @@ export const LogInDialog = ({
 }) => {
   const { authState, authDispatch } = useContext(AuthContext);
 
+  // ログイン関数
   const handleLogin = (data) => {
     authDispatch({
       type: 'login',
@@ -29,6 +30,7 @@ export const LogInDialog = ({
     })
   }
 
+  // ログインする
   const submitLogin = () => {
     postLogIn({
       email: authState.email,
@@ -71,6 +73,15 @@ export const LogInDialog = ({
             })
           }
         />
+        <Link
+          component="div"
+          variant="body2"
+          onClick={() => handlePasswordReset()}
+          sx={{ cursor: 'pointer', pb: 2 }}
+        >
+          パスワードを忘れてしまった方はこちら
+        </Link>
+
         <RememberMe
           remenberMe={authState.remenberMe}
           handleChange={e =>
@@ -80,13 +91,6 @@ export const LogInDialog = ({
             })
           }
         />
-        <Link
-          component="div"
-          variant="body2"
-          onClick={() => handlePasswordReset()}
-        >
-          パスワードを忘れてしまった方はこちら
-        </Link>
       </DialogContent>
       <DialogActions>
         <Button onClick={() => handleClose()}>

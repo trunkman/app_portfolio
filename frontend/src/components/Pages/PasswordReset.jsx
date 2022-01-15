@@ -23,9 +23,16 @@ const Container = styled('box')(() => ({
 }));
 
 const Title = styled('box')(({ theme }) => ({
-  fontSize: theme.typography.h2.fontSize,
-  fontWeight: theme.typography.h2.fontWeight,
-  letterSpacing: theme.typography.h2.letterSpacing,
+  fontSize: theme.typography.h3.fontSize,
+  fontWeight: theme.typography.h3.fontWeight,
+  letterSpacing: theme.typography.h3.letterSpacing,
+  lineHeight: 2,
+}));
+
+const TitleTag = styled('box')(({ theme }) => ({
+  fontSize: theme.typography.subtitle1.fontSize,
+  fontWeight: theme.typography.subtitle1.fontWeight,
+  letterSpacing: theme.typography.subtitle1.letterSpacing,
   lineHeight: 2,
 }));
 
@@ -46,7 +53,6 @@ export const PasswordReset = ({ passwordResetToken }) => {
   const search = useLocation().search;
   const query = new URLSearchParams(search);
   const queryEmail = query.get('email');
-
   const [password, setPassword] = useState('')
   const [passwordConfirmation, setpasswordConfirmaiton] = useState('')
 
@@ -70,7 +76,7 @@ export const PasswordReset = ({ passwordResetToken }) => {
           <Title>パスワード再設定</Title>
         </Typography>
         <Typography>
-          <b>新しいパスワードを入力してください。</b>
+          <TitleTag>新しいパスワードを入力してください。</TitleTag>
         </Typography>
         <Password
           password={password}

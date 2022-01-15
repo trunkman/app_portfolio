@@ -10,9 +10,13 @@ import DialogContentText from '@mui/material/DialogContentText';
 import { postPasswordReset } from '../../apis/passwordResets';
 // Formsコンポーネント
 import { Email } from '../Forms/Email';
+import Loading from '../Items/Loading';
 
 export const PasswordResetDialog = (props) => {
   const [email, setEmail] = useState('')
+  const [loading, setLoading] = useState(false)
+
+  // パスワード再設定メールを送る
   const handleSubmit = () => {
     postPasswordReset({ email: email })
       .then(data => {
@@ -32,13 +36,17 @@ export const PasswordResetDialog = (props) => {
         パスワード再設定画面
       </DialogTitle>
       <DialogContent>
-        <DialogContentText>
-          登録したメールアドレスを入力してください。
-        </DialogContentText>
-        <Email
-          email={email}
-          handleChange={e => setEmail(e.target.value)}
-        />
+        {loading ? <Loading /> :
+          <>
+            <DialogContentText>
+              登録したメールアドレスを入力してください。
+            </DialogContentText>
+            <Email
+              email={email}
+              handleChange={e => setEmail(e.target.value)}
+            />
+          </>
+        }
       </DialogContent>
       <DialogActions>
         <Button onClick={() => props.handleClose()}>
