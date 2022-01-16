@@ -94,8 +94,8 @@ export const SleepGraph = ({ diaries }) => {
           </TabList>
         </TabBox>
       </TabContext>
-      <Box sx={{ mt: 5 }}>
-        <ResponsiveContainer width={'100%'} height={400} marginTop={100}>
+      <Box sx={{ mt: 2 }}>
+        <ResponsiveContainer width={'100%'} height={450}>
           <ComposedChart data={dataGraph || diaries.slice(-7)}>
             <XAxis
               dataKey="startStr"
@@ -103,29 +103,35 @@ export const SleepGraph = ({ diaries }) => {
               tick={<CustomXAxisTick />}
             />
             <YAxis
+              axisLine={false}
               domain={[5, 'dataMax + 1']}
               label={{
-                value: '[ 睡眠時間 ]',
+                dy: 27,
+                dx: 5,
+                value: '[睡眠時間]',
                 fill: '#fff',
                 position: 'top',
               }}
+              padding={{ top: 40 }}
               tick={{ stroke: '#fff', fontSize: 12 }}
               tickCount={6}
+              tickLine={false}
               yAxisId={1}
+              width={40}
             />
             <Tooltip content={<CustomTooltip />} />
             <CartesianGrid
-              stroke={theme.palette.primary.dark}
+              stroke='#40566d'
               vertical={false}
             />
             <Area
-              yAxisId={1}
-              type="monotone"
               dataKey="groupId"
               dot={{ strokeWidth: 5 }}
               fillOpacity={1}
               fill="rgba(0, 172, 237, 0.2)"
               stroke={theme.palette.secondary.main}
+              type="monotone"
+              yAxisId={1}
             />
           </ComposedChart>
         </ResponsiveContainer>
