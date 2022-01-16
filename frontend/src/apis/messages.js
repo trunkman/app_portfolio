@@ -1,5 +1,5 @@
 import axios from "axios";
-import { messages } from "../urls";
+import { messages, messagePath } from "../urls";
 
 // メッセージを作成するapi
 export const postMessage = (params) => {
@@ -18,5 +18,17 @@ export const postMessage = (params) => {
     })
     .catch(error => {
       console.log('message#create', error);
+    });
+}
+
+// メッセージを削除するapi
+export const deleteMessage = (messageId) => {
+  return axios.delete(messagePath(messageId), { withCredentials: true })
+    .then(res => {
+      console.log('message#destroy', res);
+      return res.data;
+    })
+    .catch(error => {
+      console.log('message#destroy', error);
     });
 }
