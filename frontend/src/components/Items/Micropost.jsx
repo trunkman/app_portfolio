@@ -5,7 +5,6 @@ import { AuthContext } from "../../App";
 import Avatar from "@mui/material/Avatar";
 import Box from '@mui/material/Box';
 import CardMedia from '@mui/material/CardMedia';
-import Grid from '@mui/material/Grid';
 import IconButton from "@mui/material/IconButton";
 import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";

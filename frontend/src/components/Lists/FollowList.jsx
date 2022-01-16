@@ -1,71 +1,47 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
-// styled
-import Avatar from "@mui/material/Avatar";
-import Box from "@mui/material/Box";
-import ListItem from "@mui/material/ListItem";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import ListItemText from "@mui/material/ListItemText";
+// Style
 import { styled } from '@mui/system';
-import Typography from "@mui/material/Typography";
-// Component
-import { MessageRoomButton } from "../Buttons/MessageRoomButton";
-import { FollowButton } from "../Buttons/FollowButton";
+import ListItemText from "@mui/material/ListItemText";
+// Components
+import { FollowItem } from '../Items/FollowItem';
 
-const ListItemWrapper = styled(ListItem)(() => ({
-  alignItems: 'center',
+const MessageWrapper = styled('box')(() => ({
   display: 'flex',
-  borderRadius: 2,
+  flexDirection: 'column-reverse',
+  flexGrow: 1,
+  height: '100%',
+  marginBottom: 150,
+  maxWidth: 600,
+  width: '100%',
 }));
 
-const ListTitle = styled('box')(({ theme }) => ({
-  fontSize: theme.typography.h5.fontSize,
-  fontWeight: theme.typography.h5.fontWeight,
-  letterSpacing: theme.typography.h5.letterSpacing,
-  lineHeight: 2,
-}));
-
-const ListBody = styled('box')(({ theme }) => ({
-  fontSize: theme.typography.subtitle1.fontSize,
-  fontWeight: 'light',
-  letterSpacing: theme.typography.body1.letterSpacing,
-  lineHeight: 2,
-}));
-
-export const FollowList = ({ followStatus, user }) => {
-  const history = useHistory()
+export const FollowList = ({
+  tabStatus,
+  users,
+}) => {
 
   return (
-    <>
-      <ListItemWrapper key={user.id.toString()}>
-        <ListItemAvatar>
-          <Avatar
-            alt={user.name}
-            src={user.avatar_url}
-            sx={{ cursor: 'pointer', height: 70, width: 70 }}
-            onClick={() => history.push(`/users/${user.id}`)}
+    <MessageWrapper>
+      {users.length === 0 && tabStatus === 'following' &&
+        <ListItemText sx={{ pt: 4 }}>
+          <h3>気になる人をフォローしてみましょう。</h3>
+        </ListItemText>
+      }
+
+      {users.length === 0 && tabStatus === 'followers' &&
+        <ListItemText sx={{ pt: 4 }}>
+          <h3>フォロワーはまだいません。</h3>
+        </ListItemText>
+      }
+
+      {users.length !== 0 &&
+        users.map(followed =>
+          <FollowItem
+            user={followed.user}
+            followStatus={followed.followStatus}
           />
-        </ListItemAvatar>
-        <Box sx={{ py: 2, pl: 3, flexGrow: 1 }} >
-          <ListItemText>
-            <Typography variant="h5" sx={{ letterSpacing: 2 }}>
-              <ListTitle>{user.name}</ListTitle>
-            </Typography>
-            <Typography variant="subtitle1" >
-              <ListBody>{user.profile}</ListBody>
-            </Typography>
-          </ListItemText>
-          <Box>
-            <FollowButton
-              userId={user.id}
-              followStatus={followStatus}
-            />
-            <MessageRoomButton
-              userId={user.id}
-            />
-          </Box>
-        </Box>
-      </ListItemWrapper>
-    </>
+        )
+      }
+    </MessageWrapper>
   )
 }

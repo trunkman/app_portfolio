@@ -46,6 +46,7 @@ export const TalkUserList = ({ entries, setOpen, }) => {
           <h3>トークしている人はいません。</h3>
         </ListItemText>
       }
+
       {entries.length !== 0 &&
         entries.map(entry =>
           <ListWrapper key={entry.room_id.toString()}>

@@ -1,9 +1,9 @@
-import React, { useContext, useState, useEffect, useReducer } from "react";
+import React, { useContext, useState, useEffect, useReducer } from 'react';
 import { AuthContext } from '../../App';
 // Style
 import Box from '@mui/material/Box';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import List from "@mui/material/List";
+import List from '@mui/material/List';
 import { styled } from '@mui/system';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
@@ -13,15 +13,17 @@ import TabPanel from '@mui/lab/TabPanel';
 import CommentIcon from '@mui/icons-material/Comment';
 import NotesIcon from '@mui/icons-material/Notes';
 // Api
-import { fetchUser, fetchMicroposts } from "../../apis/users";
+import { fetchUser, fetchMicroposts } from '../../apis/users';
 // Reducer
 import { profileReducer, profileInitialState } from '../../reducer/ProfileReducer';
 // Component
-import { Comment } from "../Items/Comment";
-import { Loading } from "../Items/Loading"
-import { Micropost } from "../Items/Micropost";
-import { UserInfo } from "../UserInfomations/UserInfo";
-import { Typography } from "@mui/material";
+import { Comment } from '../Items/Comment';
+import { Loading } from '../Items/Loading'
+import { Micropost } from '../Items/Micropost';
+import { UserInfo } from '../UserInfomations/UserInfo';
+import { Typography } from '@mui/material';
+import { ProfileMicropostList } from '../Lists/ProfileMicropostList';
+import { ProfileCommentList } from '../Lists/ProfileCommentList';
 
 const Container = styled('box')(() => ({
   display: 'flex',
@@ -79,6 +81,9 @@ export const Profile = ({ userId }) => {
       });
   }
 
+  // データを再レンダーする
+  const dataFetcing = () => profileDispatch({ type: 'fetching' })
+
   useEffect(() => { userInformation() }, [open, userId,])
   useEffect(() => { userMicropost() }, [tab, userId, profileState.reRender])
 
@@ -122,47 +127,41 @@ export const Profile = ({ userId }) => {
           </Box>
           <TabPanel value="microposts" index={0}>
             <List>
-              {
-                profileState.fetchState !== 'ok' ? <Loading /> :
-                  profileState.microposts.map(micropost =>
-                    <Micropost
-                      commentCount={micropost.commentCount}
-                      dataFetcing={() => profileDispatch({ type: 'fetching' })}
-                      likeStatus={micropost.likeStatus}
-                      micropost={micropost.micropost}
-                      user={profileState.user}
-                    />
-                  )
+              {profileState.fetchState !== 'ok' && <Loading />}
+
+              {profileState.fetchState === 'ok' &&
+                <ProfileMicropostList
+                  dataFetcing={dataFetcing}
+                  microposts={profileState.microposts}
+                  tabStatus='micropost'
+                  user={profileState.user}
+                />
               }
             </List>
           </TabPanel>
           <TabPanel value="liked_microposts" index={1}>
             <List>
-              {
-                profileState.fetchState !== 'ok' ? <Loading /> :
-                  profileState.likedMicroposts.map(micropost =>
-                    <Micropost
-                      commentCount={micropost.commentCount}
-                      dataFetcing={() => profileDispatch({ type: 'fetching' })}
-                      likeStatus={micropost.likeStatus}
-                      micropost={micropost.liked_micropost}
-                      user={micropost.user}
-                    />
-                  )
+              {profileState.fetchState !== 'ok' && <Loading />}
+
+              {profileState.fetchState === 'ok' &&
+                <ProfileMicropostList
+                  dataFetcing={dataFetcing}
+                  microposts={profileState.likedMicroposts}
+                  tabStatus='like'
+                  user={profileState.user}
+                />
               }
             </List>
           </TabPanel>
           <TabPanel value="comments" index={2}>
             <List>
-              {
-                profileState.fetchState !== 'ok' ? <Loading /> :
-                  profileState.comments.map(comment =>
-                    <Comment
-                      comment={comment}
-                      dataFetcing={() => profileDispatch({ type: 'fetching' })}
-                      user={profileState.user}
-                    />
-                  )
+              {profileState.fetchState !== 'ok' && <Loading />}
+
+              {profileState.fetchState === 'ok' &&
+                <ProfileCommentList
+                  dataFetcing={dataFetcing}
+                  profileState={profileState}
+                />
               }
             </List>
           </TabPanel>
