@@ -74,7 +74,7 @@ export const MessageRoom = ({
           <MessageWrapper>
             {messageState.messages.length === 0 ? (
               <ListItemText sx={{ pt: 4 }}>
-                <h3>トークしている人はいません。</h3>
+                <h3>トークを始めましょう。</h3>
               </ListItemText>
             ) : (
               messageState.messages.map((message) =>

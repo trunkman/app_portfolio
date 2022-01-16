@@ -27,7 +27,7 @@ export const RoomsLink = ({
           component={Link}
           onClick={() => {
             checkClese();
-            breakpoint && handleDrawerClose();
+            !breakpoint && handleDrawerClose();
           }}
           to={`/users/${loginUserId}/talk_rooms`}
         >

@@ -12,11 +12,10 @@ const CardWrapper = styled(CardContent)(() => ({
   alignItems: 'center',
   display: 'flex',
   flexDirection: 'column',
-  margin: 'auto',
   width: 280,
 }));
 
-export const RankBookList = ({
+export const RankBookItem = ({
   book,
   rank,
   countStack,

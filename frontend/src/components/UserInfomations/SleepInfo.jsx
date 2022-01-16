@@ -15,10 +15,10 @@ const Title = styled('box')(({ theme }) => ({
 }));
 
 const Time = styled('box')(({ theme }) => ({
-  fontSize: theme.typography.h2.fontSize,
-  fontWeight: theme.typography.h2.fontWeight,
-  letterSpacing: theme.typography.h2.letterSpacing,
-  lineHeight: 3,
+  fontSize: theme.typography.h1.fontSize,
+  fontWeight: theme.typography.h1.fontWeight,
+  letterSpacing: theme.typography.h4.letterSpacing,
+  lineHeight: 2,
 }));
 
 const SubBody = styled('box')(({ theme }) => ({
@@ -38,7 +38,7 @@ const ContainedButton = styled('button')(({ theme }) => ({
   height: 30,
   width: 200,
   padding: '0px 20px',
-  marginTop: '30px',
+  margin: '30px 0px',
 }));
 
 export const SleepInfo = ({
@@ -55,7 +55,7 @@ export const SleepInfo = ({
 
   return (
     <>
-      <Box sx={{ px: 3, textAlign: "center" }}>
+      <Box sx={{ px: 3, py: 6, textAlign: "center" }}>
         {sleepSaving
           ? <>
             <Typography>
@@ -67,6 +67,9 @@ export const SleepInfo = ({
             <Typography>
               <Time>{sleepSaving}時間</Time>
             </Typography>
+            <Typography>
+              （実質睡眠時間と理想睡眠時間の差がプラスの時）
+            </Typography>
           </>
           : <>
             <Typography>
@@ -77,6 +80,9 @@ export const SleepInfo = ({
             </Typography>
             <Typography>
               <Time>{sleepDebt !== null ? sleepDebt : 0}時間</Time>
+            </Typography>
+            <Typography>
+              （実質睡眠時間と理想睡眠時間の差がマイナスの時）
             </Typography>
           </>
         }

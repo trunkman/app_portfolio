@@ -12,11 +12,10 @@ const CardWrapper = styled(CardContent)(() => ({
   alignItems: 'center',
   display: 'flex',
   flexDirection: 'column',
-  margin: 'auto',
   width: 280,
 }));
 
-export const RankUserList = ({
+export const RankUserItem = ({
   user,
   rank,
   average,

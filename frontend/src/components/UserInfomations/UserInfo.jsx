@@ -18,12 +18,14 @@ const Container = styled(Grid)(() => ({
 }));
 
 const NameField = styled('box')(({ theme }) => ({
+  fontSize: theme.typography.h4.fontSize,
   fontWeight: theme.typography.h4.fontWeight,
   letterSpacing: theme.typography.h4.letterSpacing,
   lineHeight: 2,
 }));
 
 const ProfileField = styled(Box)(({ theme }) => ({
+  fontSize: theme.typography.h6.fontSize,
   fontWeight: theme.typography.h6.fontWeight,
   letterSpacing: theme.typography.h6.letterSpacing,
   lineHeight: 2,
@@ -45,6 +47,7 @@ const ProfileItem = styled('box')(({ theme }) => ({
 }));
 
 const ItemText = styled('box')(({ theme }) => ({
+  fontSize: theme.typography.subtitle1.fontSize,
   fontWeight: theme.typography.subtitle1.fontWeight,
   letterSpacing: theme.typography.subtitle1.letterSpacing,
   lineHeight: 2,
@@ -71,7 +74,7 @@ export const UserInfo = ({
         <Grid xs={12} sm={9}>
           <Box sx={{ pl: 3, width: '100%' }}>
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-              <Typography variant="h4">
+              <Typography>
                 <NameField>
                   {profileState.user.name}
                 </NameField>
@@ -91,7 +94,7 @@ export const UserInfo = ({
                 )
               }
             </Box>
-            <Typography variant="subtitle1">
+            <Typography>
               <ProfileField>
                 {profileState.user.profile}
               </ProfileField>

@@ -23,7 +23,7 @@ export const LogoLink = (
           alt='MainLogo'
           component='img'
           image={MainLogo}
-          sx={{ height: 40, ml: 1.5 }}
+          sx={{ height: 35, ml: 1.5 }}
         />
       </Button>
     </Box>

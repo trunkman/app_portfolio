@@ -34,6 +34,7 @@ const Container = styled('box')(() => ({
 }));
 
 const Title = styled('box')(({ theme }) => ({
+  fontSize: theme.typography.h3.fontSize,
   fontWeight: theme.typography.h3.fontWeight,
   letterSpacing: theme.typography.h3.letterSpacing,
   lineHeight: 3,
@@ -83,7 +84,7 @@ export const Profile = ({ userId }) => {
 
   return (
     <Container>
-      <Typography variant="h3">
+      <Typography>
         <Title>≪ プロフィール ≫</Title>
       </Typography>
       <UserInfo

@@ -12,8 +12,8 @@ const ContainedButton = styled('button')(({ theme }) => ({
   cursor: 'pointer',
   fontWeight: 'bold',
   height: 30,
+  marginRight: 15,
   padding: '0px 20px',
-  marginTop: '10px',
 }));
 
 export const ProfileEditButton = ({

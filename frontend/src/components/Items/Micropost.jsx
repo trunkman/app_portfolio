@@ -94,15 +94,17 @@ export const Micropost = ({
             onClick={() => history.push(`/users/${user.id}`)}
           />
         </ListItemAvatar>
-        <Box
-          onClick={fetchDetailMicropost}
-          sx={{ cursor: 'pointer', py: 2, width: '100%' }}
-        >
+        <Box sx={{ py: 2, width: '100%' }}>
           <Typography>
             【 {user.name} 】 {micropost.created_at.substr(0, 16).replace('T', ' ')}
           </Typography>
           <Typography variant="h6">
-            <ListBody>{micropost.content}</ListBody>
+            <ListBody
+              onClick={fetchDetailMicropost}
+              sx={{ cursor: 'pointer' }}
+            >
+              {micropost.content}
+            </ListBody>
             {micropost.image_url &&
               <CardMedia
                 alt='Image'
@@ -112,25 +114,25 @@ export const Micropost = ({
               />
             }
           </Typography>
+          <IconWrapper>
+            {authState.loginUser.id === micropost.user_id && (
+              <IconButton onClick={() => dialogDispatch({ type: 'delete' })}>
+                <DeleteOutlinedIcon />
+              </IconButton>
+            )}
+            <LikeButton
+              loginUserId={authState.loginUser.id}
+              micropostId={micropost.id}
+              Status={likeStatus}
+            />
+            <CommentButton
+              commentCount={commentCount}
+              dataFetcing={dataFetcing}
+              loginUserId={authState.loginUser.id}
+              micropostId={micropost.id}
+            />
+          </IconWrapper>
         </Box>
-        <IconWrapper>
-          {authState.loginUser.id === micropost.user_id && (
-            <IconButton onClick={() => dialogDispatch({ type: 'delete' })}>
-              <DeleteOutlinedIcon />
-            </IconButton>
-          )}
-          <LikeButton
-            loginUserId={authState.loginUser.id}
-            micropostId={micropost.id}
-            Status={likeStatus}
-          />
-          <CommentButton
-            commentCount={commentCount}
-            dataFetcing={dataFetcing}
-            loginUserId={authState.loginUser.id}
-            micropostId={micropost.id}
-          />
-        </IconWrapper>
       </ListItemWrapper >
       <MicropostDialog
         comments={postState.comments}

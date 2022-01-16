@@ -23,7 +23,7 @@ const Container = styled('box')(() => ({
   flexWrap: 'wrap',
   justifyContent: 'center',
   maxWidth: 1000,
-  mx: 'auto',
+  overflow: 'auto',
   textAlign: 'center',
   width: '100%',
 }));
@@ -98,11 +98,11 @@ export const Diaries = ({ userId }) => {
         <Title>≪ 睡眠日記 ≫<br /></Title>
         <TitleTag>~ {recordState.user.name} ~</TitleTag>
       </Typography>
-      <Grid container>
+      <Grid container sx={{ alignItems: "center" }}>
         <Grid item xs={12} sm={5} sx={{
           alignItems: "center",
           justifyContent: 'center',
-          pt: 8
+          overflow: 'clip',
         }}>
           <SleepInfo
             handleClose={handleClose}

@@ -132,7 +132,6 @@ export const Header = ({
               ...(open && { display: 'none' }),
             }}
           >
-            <LogoLink />
           </Typography>
           <Box flexGrow={1}></Box>
           {authState.loggedIn &&

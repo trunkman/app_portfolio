@@ -9,12 +9,13 @@ import { theme } from '../../styled/theme'
 import Typography from "@mui/material/Typography";
 // Rechart
 import {
+  Area,
+  CartesianGrid,
   ComposedChart,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Area,
-  Tooltip,
 } from "recharts";
 
 const TabBox = styled('box')(() => ({
@@ -93,44 +94,41 @@ export const SleepGraph = ({ diaries }) => {
           </TabList>
         </TabBox>
       </TabContext>
-      <Box sx={{ pt: 5 }}>
-        <ComposedChart
-          width={1000}
-          height={450}
-          data={dataGraph || diaries.slice(-7)}
-        >
-          <XAxis
-            dataKey="startStr"
-            height={50}
-            tick={<CustomXAxisTick />}
-          />
-          <YAxis
-            domain={[5, 'dataMax + 1']}
-            label={{
-              value: '[ 睡 眠 時 間 ]',
-              angle: -90,
-              fill: '#fff',
-              position: 'insideLeft',
-            }}
-            tick={{ stroke: '#fff', fontSize: 12 }}
-            tickCount={6}
-            yAxisId={1}
-          />
-          <Tooltip content={<CustomTooltip />} />
-          <CartesianGrid
-            stroke={theme.palette.primary.dark}
-            vertical={false}
-          />
-          <Area
-            yAxisId={1}
-            type="monotone"
-            dataKey="groupId"
-            dot={{ strokeWidth: 5 }}
-            stroke={theme.palette.secondary.main}
-            fillOpacity={1}
-            fill="rgba(0, 172, 237, 0.2)"
-          />
-        </ComposedChart>
+      <Box sx={{ mt: 5 }}>
+        <ResponsiveContainer width={'100%'} height={400} marginTop={100}>
+          <ComposedChart data={dataGraph || diaries.slice(-7)}>
+            <XAxis
+              dataKey="startStr"
+              height={50}
+              tick={<CustomXAxisTick />}
+            />
+            <YAxis
+              domain={[5, 'dataMax + 1']}
+              label={{
+                value: '[ 睡眠時間 ]',
+                fill: '#fff',
+                position: 'top',
+              }}
+              tick={{ stroke: '#fff', fontSize: 12 }}
+              tickCount={6}
+              yAxisId={1}
+            />
+            <Tooltip content={<CustomTooltip />} />
+            <CartesianGrid
+              stroke={theme.palette.primary.dark}
+              vertical={false}
+            />
+            <Area
+              yAxisId={1}
+              type="monotone"
+              dataKey="groupId"
+              dot={{ strokeWidth: 5 }}
+              fillOpacity={1}
+              fill="rgba(0, 172, 237, 0.2)"
+              stroke={theme.palette.secondary.main}
+            />
+          </ComposedChart>
+        </ResponsiveContainer>
       </Box>
     </>
   )

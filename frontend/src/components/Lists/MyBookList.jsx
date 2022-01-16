@@ -14,7 +14,7 @@ const List = styled('box')(({ theme }) => ({
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'center',
-  width: 1000,
+  width: '100%',
 }));
 
 const ListItem = styled('box')(({ theme }) => ({
@@ -41,12 +41,12 @@ export const MyBookList = ({
             <Tab
               label={tabLabelRead}
               value="read"
-              sx={{ typography: 'h6', fontWeight: 'bold', width: 150 }}
+              sx={{ typography: 'h6', fontWeight: 'bold', width: 185 }}
             />
             <Tab
               label={tabLabelStack}
               value="stack"
-              sx={{ typography: 'h6', fontWeight: 'bold', width: 150 }}
+              sx={{ typography: 'h6', fontWeight: 'bold', width: 185 }}
             />
           </TabList>
         </Box>

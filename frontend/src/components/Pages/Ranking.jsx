@@ -13,8 +13,8 @@ import { fetchSleepHoursRank, fetchReadingRank, fetchReadBooksRank, fetchStackBo
 import { rankReducer, rankInitialState } from '../../reducer/RankingReducer'
 // Component
 import { Loading } from "../Items/Loading"
-import { RankBookList } from "../../components/Lists/RankBookList";
-import { RankUserList } from "../../components/Lists/RankUserList";
+import { RankBookItem } from "../Items/RankBookItem";
+import { RankUserItem } from "../Items/RankUserItem";
 
 const Container = styled('box')(() => ({
   alignItems: 'center',
@@ -26,6 +26,7 @@ const Container = styled('box')(() => ({
 }));
 
 const Title = styled('box')(({ theme }) => ({
+  fontSize: theme.typography.h3.fontSize,
   fontWeight: theme.typography.h3.fontWeight,
   letterSpacing: theme.typography.h3.letterSpacing,
   lineHeight: 3,
@@ -41,7 +42,7 @@ const TabBox = styled('box')(() => ({
   alignContent: 'center',
   display: 'flex',
   flexWrap: 'wrap',
-  justifyContent: 'spece_between',
+  justifyContent: 'space_between',
 }));
 
 export const Ranking = () => {
@@ -99,7 +100,7 @@ export const Ranking = () => {
 
   return (
     <Container>
-      <Typography variant="h3">
+      <Typography>
         <Title>≪ ランキング ≫</Title>
       </Typography>
       <TabContext value={tab}>
@@ -111,22 +112,23 @@ export const Ranking = () => {
             <Tab
               label="ユーザー平均睡眠時間"
               value="sleepingHours"
-              sx={{ typography: 'h6', fontWeight: 'bold' }}
-            />
+              sx={{ typography: 'subtitle1', fontWeight: 'bold' }}
+            >
+            </Tab>
             <Tab
               label="ユーザー読了数"
               value="reading"
-              sx={{ typography: 'h6', fontWeight: 'bold' }}
+              sx={{ typography: 'subtitle1', fontWeight: 'bold' }}
             />
             <Tab
               label="読了人気本"
               value="readBooks"
-              sx={{ typography: 'h6', fontWeight: 'bold' }}
+              sx={{ typography: 'subtitle1', fontWeight: 'bold' }}
             />
             <Tab
               label="積読人気本"
               value="stackBooks"
-              sx={{ typography: 'h6', fontWeight: 'bold' }}
+              sx={{ typography: 'subtitle1', fontWeight: 'bold' }}
             />
           </TabList>
         </Box>
@@ -138,7 +140,7 @@ export const Ranking = () => {
             {rankState.fetchState !== 'ok'
               ? <Loading />
               : rankState.sleepHours.map(sleepingHour =>
-                <RankUserList
+                <RankUserItem
                   user={sleepingHour.user}
                   rank={sleepingHour.rank}
                   average={sleepingHour.average}
@@ -155,7 +157,7 @@ export const Ranking = () => {
             {rankState.fetchState !== 'ok'
               ? <Loading />
               : rankState.reading.map(reading =>
-                <RankUserList
+                <RankUserItem
                   user={reading.user}
                   rank={reading.rank}
                   count={reading.count}
@@ -172,7 +174,7 @@ export const Ranking = () => {
             {rankState.fetchState !== 'ok'
               ? <Loading />
               : rankState.readBooks.map(readBooks =>
-                <RankBookList
+                <RankBookItem
                   book={readBooks.book}
                   rank={readBooks.rank}
                   countRead={readBooks.count}
@@ -189,7 +191,7 @@ export const Ranking = () => {
             {rankState.fetchState !== 'ok'
               ? <Loading />
               : rankState.stackBooks.map(stackBooks =>
-                <RankBookList
+                <RankBookItem
                   book={stackBooks.book}
                   rank={stackBooks.rank}
                   countStack={stackBooks.count}
