@@ -9,11 +9,11 @@ module Api
       def show
         # current_userが属するroomであるか判定
         if Entry.find_by(user_id: current_user.id, room_id: params[:id])
-          @messages = Message.where('room_id = ?', params[:id])
+          @messages = Message.where(room_id: params[:id])
           # 相手ユーザーの情報を取得
           other_user_id = Entry.select('user_id')
-                               .where('room_id = ?', params[:id])
-                               .where.not('user_id = ? ', current_user.id)
+                               .where(room_id: params[:id])
+                               .where.not(user_id: current_user.id)
           @other_user = User.find_by(id: other_user_id)
           # 未読メッセージがあれば既読にする
           @notifications = current_user.passive_notifications

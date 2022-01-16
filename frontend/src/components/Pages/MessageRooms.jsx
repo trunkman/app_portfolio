@@ -23,14 +23,15 @@ const Container = styled('box')(() => ({
 }));
 
 const Title = styled('box')(({ theme }) => ({
-  fontSize: theme.typography.h2.fontSize,
-  fontWeight: theme.typography.h2.fontWeight,
-  letterSpacing: theme.typography.h2.letterSpacing,
-  lineHeight: 2,
+  fontSize: theme.typography.h3.fontSize,
+  fontWeight: theme.typography.h3.fontWeight,
+  letterSpacing: theme.typography.h3.letterSpacing,
+  lineHeight: 3,
 }));
 
 export const MessageRooms = ({ userId }) => {
   const [roomState, roomDispatch] = useReducer(roomReducer, roomInitialState);
+
   // 削除確認ダイアログの開閉
   const [open, setOpen] = useState({
     isOpen: false,
@@ -64,7 +65,9 @@ export const MessageRooms = ({ userId }) => {
         <Typography>
           <Title>≪ トークルーム ≫</Title>
         </Typography>
-        {roomState.fetchState !== 'ok' ? <Loading /> :
+        {roomState.fetchState !== 'ok' && <Loading />}
+
+        {roomState.fetchState === 'ok' &&
           <TalkUserList
             entries={roomState.entries}
             setOpen={setOpen}
