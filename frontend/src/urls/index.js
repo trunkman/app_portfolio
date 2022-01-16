@@ -51,6 +51,7 @@ export const rooms = `${DEFAULT_API_LOCALHOST}/rooms`;
 export const roomPath = (roomId) => `${DEFAULT_API_LOCALHOST}/rooms/${roomId}`;
 // MessagesController
 export const messages = `${DEFAULT_API_LOCALHOST}/messages`;
+export const messagePath = (messageId) => `${DEFAULT_API_LOCALHOST}/messages/${messageId}`;
 // RecommendsController
 export const recommends = `${DEFAULT_API_LOCALHOST}/recommends`;
 export const recommendPath = (bookId) => `${DEFAULT_API_LOCALHOST}/recommends/${bookId}`;

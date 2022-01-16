@@ -2,15 +2,15 @@ import React, { useEffect, useReducer } from "react";
 // Style
 import { styled } from '@mui/system';
 import List from "@mui/material/List";
-import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
 // Api
 import { fetchMessages } from "../../apis/rooms"
+import { deleteMessage } from "../../apis/messages"
 // Reducer
 import { messageInitialState, messageReducer } from '../../reducer/MessageReducer';
 // Cpmponent
 import { Chat } from "../../components/Forms/Chat";
-import { Message } from "../Items/Message";
+import { MessageList } from "../Lists/MessageList";
 import { Loading } from '../Items/Loading';
 
 const Container = styled('box')(() => ({
@@ -28,16 +28,6 @@ const Title = styled('box')(({ theme }) => ({
   fontWeight: theme.typography.h3.fontWeight,
   letterSpacing: theme.typography.h3.letterSpacing,
   lineHeight: 3,
-}));
-
-const MessageWrapper = styled('box')(() => ({
-  display: 'flex',
-  flexDirection: 'column-reverse',
-  flexGrow: 1,
-  height: '100%',
-  marginBottom: 150,
-  maxWidth: 600,
-  width: '100%',
 }));
 
 export const MessageRoom = ({
@@ -60,6 +50,14 @@ export const MessageRoom = ({
       });
   }
 
+  // メッセージを削除する
+  const messageDelete = (messageId) => {
+    deleteMessage(messageId)
+      .then(() => {
+        messageDispatch({ type: 'fetching' })
+      });
+  }
+
   useEffect(() => {
     Messages();
   }, [messageState.reRender])
@@ -69,23 +67,15 @@ export const MessageRoom = ({
       <Typography>
         <Title>{messageState.user.name}</Title>
       </Typography>
-      {messageState.fetchState !== 'ok' ? <Loading /> :
+      {messageState.fetchState !== 'ok' && <Loading />}
+
+      {messageState.fetchState === 'ok' &&
         <List sx={{ width: '100%' }}>
-          <MessageWrapper>
-            {messageState.messages.length === 0 ? (
-              <ListItemText sx={{ pt: 4 }}>
-                <h3>トークを始めましょう。</h3>
-              </ListItemText>
-            ) : (
-              messageState.messages.map((message) =>
-                <Message
-                  message={message}
-                  loginUser={loginUser}
-                  user={messageState.user}
-                />
-              )
-            )}
-          </MessageWrapper>
+          <MessageList
+            messageState={messageState}
+            messageDelete={messageDelete}
+            loginUser={loginUser}
+          />
         </List>
       }
       <Chat
