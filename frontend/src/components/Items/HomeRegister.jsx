@@ -22,7 +22,7 @@ const ContainedButton = styled('button')(({ theme }) => ({
 const Title = styled('box')(({ theme }) => ({
   fontSize: theme.typography.h1.fontSize,
   fontWeight: theme.typography.h2.fontWeight,
-  letterSpacing: theme.typography.h2.letterSpacing,
+  letterSpacing: theme.typography.h6.letterSpacing,
 }));
 
 const TitleTag = styled('box')(({ theme }) => ({

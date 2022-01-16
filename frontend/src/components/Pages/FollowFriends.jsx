@@ -26,10 +26,10 @@ const Container = styled('box')(() => ({
 }));
 
 const Title = styled('box')(({ theme }) => ({
-  fontSize: theme.typography.h2.fontSize,
-  fontWeight: theme.typography.h2.fontWeight,
-  letterSpacing: theme.typography.h2.letterSpacing,
-  lineHeight: 2,
+  fontSize: theme.typography.h3.fontSize,
+  fontWeight: theme.typography.h3.fontWeight,
+  letterSpacing: theme.typography.h3.letterSpacing,
+  lineHeight: 3,
 }));
 
 const TitleTag = styled('box')(({ theme }) => ({
@@ -73,9 +73,7 @@ export const FollowFriends = ({ userId, initialTab }) => {
 
   useEffect(() => {
     followDispatch({ type: 'fetching' });
-    tab === 'following'
-      ? Following()
-      : Followers()
+    tab === 'following' ? Following() : Followers()
   }, [tab, userId])
 
   return (
@@ -103,25 +101,23 @@ export const FollowFriends = ({ userId, initialTab }) => {
           </TabList>
         </Box>
         <TabPanel value="following">
-          {
-            followState.fetchState !== 'ok' ? <Loading /> :
-              followState.following.map(followed =>
-                <FollowList
-                  user={followed.user}
-                  followStatus={followed.followStatus}
-                />
-              )
+          {followState.fetchState !== 'ok' && <Loading />}
+
+          {followState.fetchState === 'ok' &&
+            <FollowList
+              tabStatus='following'
+              users={followState.following}
+            />
           }
         </TabPanel>
         <TabPanel value="followers">
-          {
-            followState.fetchState !== 'ok' ? <Loading /> :
-              followState.followers.map(follower =>
-                <FollowList
-                  user={follower.user}
-                  followStatus={follower.followStatus}
-                />
-              )
+          {followState.fetchState !== 'ok' && <Loading />}
+
+          {followState.fetchState === 'ok' &&
+            <FollowList
+              tabStatus='followers'
+              users={followState.followers}
+            />
           }
         </TabPanel>
       </TabContext>

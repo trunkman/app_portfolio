@@ -26,18 +26,24 @@ const Container = styled('box')(() => ({
 }));
 
 const Title = styled('box')(({ theme }) => ({
-  fontSize: theme.typography.h2.fontSize,
-  fontWeight: theme.typography.h2.fontWeight,
-  letterSpacing: theme.typography.h2.letterSpacing,
-  lineHeight: 2,
+  fontSize: theme.typography.h3.fontSize,
+  fontWeight: theme.typography.h3.fontWeight,
+  letterSpacing: theme.typography.h3.letterSpacing,
+  lineHeight: 3,
 }));
-
 
 const TitleTag = styled('box')(({ theme }) => ({
   fontSize: theme.typography.h6.fontSize,
   fontWeight: theme.typography.h6.fontWeight,
   letterSpacing: theme.typography.h6.letterSpacing,
   lineHeight: 3,
+}));
+
+const BookWrapper = styled('box')(() => ({
+  display: 'flex',
+  // flexDirection: 'row-reverse',
+  justifyContent: 'space-between',
+  flexWrap: 'wrap'
 }));
 
 export const Bookshelf = ({ userId }) => {
@@ -103,23 +109,26 @@ export const Bookshelf = ({ userId }) => {
 
   return (
     <Container>
-      {bookState.fetchState !== 'ok' ? <Loading /> :
+      {bookState.fetchState !== 'ok' && <Loading />}
+
+      {bookState.fetchState === 'ok' &&
         <>
           <Typography variant="h3">
             <Title>≪ 睡眠本棚 ≫<br /></Title>
             <TitleTag>~ {bookState.user.name} ~</TitleTag>
           </Typography>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', lexWrap: 'wrap' }}>
+          <BookWrapper>
+            <BookRecommend
+              book={bookState.recommendBook}
+              notRecommend={notRecommend}
+            />
             <BookSearch
               handleChange={e => setKeyword(e.target.value)}
               handleSubmit={() => searchBooks(1)}
               keyword={keyword}
             />
-            <BookRecommend
-              book={bookState.recommendBook}
-              notRecommend={notRecommend}
-            />
-          </Box>
+          </BookWrapper>
+
           {bookState.searchBooks.length !== 0 &&
             <SearchBookList
               bookDispatch={bookDispatch}
@@ -128,6 +137,7 @@ export const Bookshelf = ({ userId }) => {
               loadMore={loadMore}
             />
           }
+
           {bookState.searchBooks.length === 0 &&
             <MyBookList
               bookState={bookState}

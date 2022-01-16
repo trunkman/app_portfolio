@@ -10,6 +10,7 @@ const Wrapper = styled('box')(() => ({
   display: 'flex',
   flexDirection: 'column',
   marginLeft: 20,
+  paddingBottom: '20px'
 }));
 
 export const BookSearch = ({

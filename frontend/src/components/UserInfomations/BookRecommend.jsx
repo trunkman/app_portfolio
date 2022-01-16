@@ -28,7 +28,7 @@ export const BookRecommend = ({ book, notRecommend }) => {
   return (
     <>
       {book !== null &&
-        <Box sx={{ display: 'flex' }}>
+        <Box sx={{ display: 'flex', py: 3, px: 1 }}>
           <TextWrapper>
             <Typography variant="subtitl1">
               ★ おすすめ睡眠本
