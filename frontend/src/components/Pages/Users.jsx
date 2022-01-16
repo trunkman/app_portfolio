@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 // styled
+import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import { styled } from '@mui/system';
 import ListItem from "@mui/material/ListItem";
@@ -9,7 +10,6 @@ import ListItemText from "@mui/material/ListItemText";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 // Icon
-import AccountCircle from "@mui/icons-material/AccountCircle";
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 // Api
 import { fetchUsers, deleteUser } from "../../apis/users";
@@ -24,9 +24,10 @@ const Container = styled('box')(() => ({
 }));
 
 const Title = styled('box')(({ theme }) => ({
-  fontWeight: theme.typography.h3.fontWeight,
-  letterSpacing: theme.typography.h3.letterSpacing,
-  lineHeight: 3,
+  fontSize: theme.typography.h2.fontSize,
+  fontWeight: theme.typography.h2.fontWeight,
+  letterSpacing: theme.typography.h2.letterSpacing,
+  lineHeight: 2,
 }));
 
 const ListItemWrapper = styled(ListItem)(() => ({
@@ -36,12 +37,14 @@ const ListItemWrapper = styled(ListItem)(() => ({
 }));
 
 const ListTitle = styled('box')(({ theme }) => ({
+  fontSize: theme.typography.h5.fontSize,
   fontWeight: theme.typography.h5.fontWeight,
   letterSpacing: theme.typography.h5.letterSpacing,
   lineHeight: 2,
 }));
 
 const ListBody = styled('box')(({ theme }) => ({
+  fontSize: theme.typography.subtitle1.fontSize,
   fontWeight: 'light',
   letterSpacing: theme.typography.subtitle1.letterSpacing,
   lineHeight: 2,
@@ -70,17 +73,19 @@ export const Users = ({ loginUser }) => {
   return (
     <Container>
       <Typography variant="h3">
-        <Title>ユーザー一覧</Title>
+        <Title>ユーザーリスト</Title>
       </Typography>
       {users.map(user =>
         <ListItemWrapper key={user.id.toString()} >
           <ListItemAvatar>
-            <AccountCircle sx={{ fontSize: 60 }} />
+            <Avatar
+              alt={user.name}
+              src={user.avatar_url}
+              sx={{ cursor: 'pointer', height: 70, width: 70 }}
+              onClick={() => history.push(`/users/${user.id}`)}
+            />
           </ListItemAvatar>
-          <Box
-            onClick={() => history.push(`/users/${user.id}`)}
-            sx={{ py: 3, pl: 3, flexGrow: 1 }}
-          >
+          <Box sx={{ py: 3, pl: 3, flexGrow: 1 }}>
             <ListItemText>
               <Typography variant="h5">
                 <ListTitle>{user.name}</ListTitle>

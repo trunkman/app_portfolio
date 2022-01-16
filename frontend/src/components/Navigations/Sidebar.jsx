@@ -18,6 +18,7 @@ import { LogoLink } from '../Links/LogoLink';
 import { RankingLink } from '../Links/RankingLink';
 import { RoomsLink } from '../Links/RoomsLink';
 import { TimelineLink } from '../Links/TimelineLink';
+import { UsersLink } from '../Links/UsersLink';
 
 export const Sidebar = ({
   breakpoint,
@@ -28,6 +29,7 @@ export const Sidebar = ({
   handleDrawerClose,
 }) => {
   const { authState } = useContext(AuthContext)
+
   const openedMixin = (theme) => ({
     width: drawerWidth,
     transition: theme.transitions.create('width', {
@@ -36,6 +38,7 @@ export const Sidebar = ({
     }),
     overflowX: 'hidden',
   });
+
   const closedMixin = (theme) => ({
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
@@ -47,6 +50,7 @@ export const Sidebar = ({
       width: `calc(${theme.spacing(9)} - 4px)`,
     },
   });
+
   const DrawerHeader = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
@@ -54,6 +58,7 @@ export const Sidebar = ({
     padding: theme.spacing(0, 1),
     ...theme.mixins.toolbar,
   }));
+
   const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
     ({ theme, open }) => ({
       width: drawerWidth,
@@ -122,6 +127,10 @@ export const Sidebar = ({
               />
             </>
           }
+          <UsersLink
+            breakpoint={breakpoint}
+            handleDrawerClose={handleDrawerClose}
+          />
           <HomeLink
             breakpoint={breakpoint}
             handleDrawerClose={handleDrawerClose}
