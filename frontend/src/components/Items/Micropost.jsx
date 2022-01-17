@@ -1,27 +1,27 @@
-import React, { useContext, useReducer } from "react";
-import { useHistory } from "react-router";
-import { AuthContext } from "../../App";
+import React, { useContext, useReducer } from 'react';
+import { useHistory } from 'react-router';
+import { AuthContext } from '../../App';
 // Style
-import Avatar from "@mui/material/Avatar";
+import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import CardMedia from '@mui/material/CardMedia';
-import IconButton from "@mui/material/IconButton";
-import ListItem from "@mui/material/ListItem";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
+import IconButton from '@mui/material/IconButton';
+import ListItem from '@mui/material/ListItem';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
 import { styled } from '@mui/system';
-import Typography from "@mui/material/Typography";
+import Typography from '@mui/material/Typography';
 // Icon
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 // Api
-import { fetchMicropost, deleteMicropost } from "../../apis/microposts";
+import { fetchMicropost, deleteMicropost } from '../../apis/microposts';
 // Reducer
 import { dialogReducer, dialogInitialState } from '../../reducer/DialogReducer'
 import { postReducer, postInitialState } from '../../reducer/PostReducer'
 // Component
-import { LikeButton } from "../Buttons/LikeButton";
-import { CommentButton } from "../Buttons/CommentButton";
-import { DeleteDialog } from "../Dialogs/DeleteDialog";
-import { MicropostDialog } from "../Dialogs/MicropostDialog";
+import { LikeButton } from '../Buttons/LikeButton';
+import { CommentButton } from '../Buttons/CommentButton';
+import { DeleteDialog } from '../Dialogs/DeleteDialog';
+import { MicropostDialog } from '../Dialogs/MicropostDialog';
 
 const ListItemWrapper = styled(ListItem)(() => ({
   display: 'flex',

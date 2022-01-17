@@ -1,14 +1,14 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect, useReducer } from 'react';
 // Style
 import Box from '@mui/material/Box';
 import { styled } from '@mui/system';
-import Typography from "@mui/material/Typography";
+import Typography from '@mui/material/Typography';
 // Api
-import { fetchTimeline } from "../../apis/users";
+import { fetchTimeline } from '../../apis/users';
 // Reducer
 import { timelineInitialState, timelineReducer } from '../../reducer/TimelineReducer';
 // Cpmponent
-import { Micropost } from "../Items/Micropost";
+import { Micropost } from '../Items/Micropost';
 import { Loading } from '../Items/Loading';
 
 const Container = styled('box')(() => ({
@@ -53,12 +53,14 @@ export const Timeline = ({ userId, loginUser }) => {
         </Typography>
         <Box>
           {timelineState.fetchState !== 'ok' && <Loading />}
-          {timelineState.fetchState === 'ok' && timelineState.timeline.length === 0
-            ?
+
+          {timelineState.fetchState === 'ok' && timelineState.timeline.length === 0 &&
             <Box sx={{ pt: 4 }}>
               <h3>投稿はありません。</h3>
             </Box>
-            :
+          }
+
+          {timelineState.fetchState === 'ok' && timelineState.timeline.length !== 0 &&
             timelineState.timeline.map(timeline =>
               <Micropost
                 commentCount={timeline.commentCount}
