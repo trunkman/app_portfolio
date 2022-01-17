@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState, useEffect, useReducer } from 'react';
 // Style
 import { styled } from '@mui/system'
-import Typography from "@mui/material/Typography";
+import Typography from '@mui/material/Typography';
 // Api
 import { deleteRecommend } from '../../apis/recommends'
 import { fetchUserBooks } from '../../apis/users';
@@ -11,7 +11,7 @@ import { bookInitialState, bookReducer } from '../../reducer/BookReducer';
 // Component
 import { BookMyList } from '../Lists/BookMyList';
 import { BookSearch } from '../Items/BookSearch';
-import { BookSearchList } from "../Lists/BookSearchList";
+import { BookSearchList } from '../Lists/BookSearchList';
 import { BookRecommend } from '../UserInfomations/BookRecommend';
 import { Loading } from '../Items/Loading';
 
@@ -69,7 +69,6 @@ export const Bookshelf = ({ userId }) => {
 
   // 検索したキーワードに該当本を取得する
   const searchBooks = (page) => {
-    bookDispatch({ type: 'posting' });
     fetchSearchBooks({
       keyword: keyword,
       page: page,
@@ -129,7 +128,6 @@ export const Bookshelf = ({ userId }) => {
 
           {bookState.searchBooks.length !== 0 &&
             <BookSearchList
-              // bookDispatch={bookDispatch}
               hasMore={hasMore}
               searchList={searchList}
               loadMore={loadMore}

@@ -1,5 +1,5 @@
-import React from "react";
-import InfiniteScroll from "react-infinite-scroller"
+import React from 'react';
+import InfiniteScroll from 'react-infinite-scroller'
 // Style
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -10,7 +10,7 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 // Component
 import { BookCard } from '../Items/BookCard';
-import Loading from "../Items/Loading";
+import Loading from '../Items/Loading';
 
 const BookList = styled(Grid)(() => ({
   display: 'flex',
@@ -41,7 +41,7 @@ export const BookSearchList = ({
           hasMore={hasMore}
           loader={loader}
           loadMore={loadMore}
-          pageStart={1}
+          pageStart={0}
           useWindow='false'
         >
           <BookList container spacing={2}>
