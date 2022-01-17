@@ -2,6 +2,7 @@ import React from "react";
 import InfiniteScroll from "react-infinite-scroller"
 // Style
 import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 import { styled } from '@mui/system'
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
@@ -11,23 +12,13 @@ import TabPanel from '@mui/lab/TabPanel';
 import { BookCard } from '../Items/BookCard';
 import Loading from "../Items/Loading";
 
-const List = styled('box')(({ theme }) => ({
-  background: '#334b63',
+const BookList = styled(Grid)(() => ({
   display: 'flex',
-  flexWrap: 'wrap',
-  justifyContent: 'center',
-  width: 1000,
+  justifyContent: 'space-evenly',
+  width: '100%',
 }));
 
-const ListItem = styled('box')(({ theme }) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  width: 250,
-  height: 385,
-  padding: 15,
-}));
-
-export const SearchBookList = ({
+export const BookSearchList = ({
   hasMore,
   searchList,
   loadMore,
@@ -41,7 +32,7 @@ export const SearchBookList = ({
           <Tab
             label='検索結果'
             value="search"
-            sx={{ typography: 'h6', fontWeight: 'bold', width: 200 }}
+            sx={{ typography: 'h6', fontWeight: 'bold', width: 300 }}
           />
         </TabList>
       </Box>
@@ -50,16 +41,21 @@ export const SearchBookList = ({
           hasMore={hasMore}
           loader={loader}
           loadMore={loadMore}
-          pageStart='1'
+          pageStart={1}
           useWindow='false'
         >
-          <List>
+          <BookList container spacing={2}>
             {searchList.map(book =>
-              <ListItem key={book.params.isbn.toString()}>
+              <Grid
+                item sm={6} md={3}
+                key={book.params.isbn.toString()}
+                display='flex'
+                justifyContent='center'
+              >
                 <BookCard book={book.params} />
-              </ListItem>
+              </Grid>
             )}
-          </List>
+          </BookList>
         </InfiniteScroll>
       </TabPanel>
     </TabContext>

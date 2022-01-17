@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useReducer } from "react";
 // Style
-import Box from '@mui/material/Box';
 import { styled } from '@mui/system'
 import Typography from "@mui/material/Typography";
 // Api
@@ -10,11 +9,11 @@ import { fetchSearchBooks } from '../../apis/books';
 // Reducer
 import { bookInitialState, bookReducer } from '../../reducer/BookReducer';
 // Component
-import { MyBookList } from '../Lists/MyBookList';
+import { BookMyList } from '../Lists/BookMyList';
 import { BookSearch } from '../Items/BookSearch';
+import { BookSearchList } from "../Lists/BookSearchList";
 import { BookRecommend } from '../UserInfomations/BookRecommend';
 import { Loading } from '../Items/Loading';
-import { SearchBookList } from "../Lists/SearchBookList";
 
 const Container = styled('box')(() => ({
   display: 'flex',
@@ -41,7 +40,6 @@ const TitleTag = styled('box')(({ theme }) => ({
 
 const BookWrapper = styled('box')(() => ({
   display: 'flex',
-  // flexDirection: 'row-reverse',
   justifyContent: 'space-between',
   flexWrap: 'wrap'
 }));
@@ -130,8 +128,8 @@ export const Bookshelf = ({ userId }) => {
           </BookWrapper>
 
           {bookState.searchBooks.length !== 0 &&
-            <SearchBookList
-              bookDispatch={bookDispatch}
+            <BookSearchList
+              // bookDispatch={bookDispatch}
               hasMore={hasMore}
               searchList={searchList}
               loadMore={loadMore}
@@ -139,7 +137,7 @@ export const Bookshelf = ({ userId }) => {
           }
 
           {bookState.searchBooks.length === 0 &&
-            <MyBookList
+            <BookMyList
               bookState={bookState}
               setTab={setTab}
               tab={tab}
