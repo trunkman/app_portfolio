@@ -40,7 +40,7 @@ module Api
         @message = current_user.messages.find_by(id: params[:id])
         if @message.nil?
           render json: { message: 'あなたのメッセージではありません' },
-                  status: :forbidden
+                 status: :forbidden
         end
       end
     end

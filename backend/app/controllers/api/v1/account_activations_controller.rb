@@ -5,7 +5,7 @@ module Api
     class AccountActivationsController < ApplicationController
       def edit
         user = User.find_by(email: params[:email])
-        if user 
+        if user
           user.activate
           log_in user
           render json: { logged_in: true, user: user },

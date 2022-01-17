@@ -6,11 +6,11 @@ RSpec.describe 'Api::V1::MessagesController', type: :request do
   let(:user) { FactoryBot.create(:user) }
   let(:other_user) { FactoryBot.create(:user) }
   let(:room) { FactoryBot.create(:room) }
-  let(:message) { user.messages.create({ room_id: room.id, content: 'Lorem ipsum' })}
+  let(:message) { user.messages.create({ room_id: room.id, content: 'Lorem ipsum' }) }
   let(:params) { { message: { room_id: room.id, content: 'Lorem ipsum' } } }
 
   it 'チャットでメッセージを送る' do
-    room  # トークルームを作戦
+    room # トークルームを作戦
     other_user.entries.create(room_id: room.id)
     log_in_as(user)
     expect { post api_v1_messages_path, params: params }.to change(Message, :count).by(1)
@@ -33,14 +33,13 @@ RSpec.describe 'Api::V1::MessagesController', type: :request do
   it '未ログインではメッセージを削除できない' do
     message
     delete api_v1_message_path(message)
-    expect(response.status).to eq(401)  
+    expect(response.status).to eq(401)
   end
-  
+
   it '他ユーザーはメッセージを削除できない' do
     message
     log_in_as(other_user)
     delete api_v1_message_path(message)
     expect(response.status).to eq(403)
   end
-
 end
