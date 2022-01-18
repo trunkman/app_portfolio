@@ -130,4 +130,5 @@ Rails.application.configure do
 
   config.hosts << 'localhost'
   config.hosts << 'sleepingdebtplan.com'
+  config.hosts << 'test.sleepingdebtplan.com'
 end
