@@ -3,6 +3,7 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     origins 'sleepingdebtplan.com', 'sleepingdebtplan.com:3001', 'sleepingdebtplan.com:8000',
+            'test.sleepingdebtplan.com',
             'localhost', 'localhost:8000'
     resource '*',
              headers: :any,

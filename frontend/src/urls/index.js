@@ -1,6 +1,15 @@
+// let DEFAULT_API_LOCALHOST = null
+// if (process.env.NODE_ENV === 'development') {
+//   DEFAULT_API_LOCALHOST = 'http://localhost:3000/api/v1'
+// } else if (process.env.REACT_APP_ENV === 'test') {
+//   DEFAULT_API_LOCALHOST = 'http://test.sleepingdebtplan.com/api/v1'
+// } else {
+//   DEFAULT_API_LOCALHOST = 'https://sleepingdebtplan.com/api/v1'
+// }
+
 const DEFAULT_API_LOCALHOST = process.env.NODE_ENV == 'development'
   ? 'http://localhost:3000/api/v1'
-  : 'https://sleepingdebtplan.com/api/v1'
+  : 'http://test.sleepingdebtplan.com/api/v1'
 
 // StaticPagesController
 export const home = `${DEFAULT_API_LOCALHOST}/`;
