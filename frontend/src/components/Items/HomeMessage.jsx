@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid';
 import { styled } from '@mui/system'
 import Typography from '@mui/material/Typography';
 // Image
+import SubImage0 from "../../images/SubImage0.png";
 import SubImage1 from "../../images/SubImage1.png";
 import SubImage2 from "../../images/SubImage2.png";
 import SubImage3 from "../../images/SubImage3.png";
@@ -20,10 +21,10 @@ const MessageWrapper = styled('box')(() => ({
 }));
 
 const SubTitle = styled('box')(({ theme }) => ({
-  fontSize: theme.typography.h3.fontSize,
-  fontWeight: theme.typography.h3.fontWeight,
-  letterSpacing: theme.typography.h3.letterSpacing,
-  lineHeight: 3,
+  fontSize: theme.typography.h4.fontSize,
+  fontWeight: theme.typography.h4.fontWeight,
+  letterSpacing: theme.typography.h4.letterSpacing,
+  lineHeight: 2,
 }));
 
 const ThirdTitle = styled('box')(({ theme }) => ({
@@ -45,57 +46,78 @@ export const HomeMessage = () => {
   return (
     <MessageWrapper>
       <Typography>
-        <SubTitle>《 About 》</SubTitle>
+        <Box sx={{ pt: 6 }}>
+          <SubTitle>
+            ~ 睡眠負債とは ~
+          </SubTitle>
+        </Box>
       </Typography>
       <Typography>
-        <SubBody>
-          日々の睡眠不足が借金のようにじわじわ積み重なる「睡眠負債」<br />
-          健康に多大な被害を及ぼす前に、このアプリで解消していきましょう。
-        </SubBody>
+        <Box item sm={12} md={4} sx={{ pb: 15 }}>
+          <CardMedia
+            alt='SubImage1'
+            component='img'
+            image={SubImage0}
+            sx={{ pb: 3, width: 300, mx: 'auto' }}
+          />
+          <SubBody>
+            「睡眠負債」とは、日々の睡眠不足が借金のように積み重なること。<br />
+            睡眠時間が不足が健康に多大な被害を及ぼすことにつながります。
+          </SubBody>
+        </Box>
       </Typography>
+
       <Typography>
-        <Box sx={{ pt: 15, pb: 3 }}>
-          <ThirdTitle>
-            ~ "睡眠補完計画" 3つの特徴 ~
-          </ThirdTitle>
+        <Box>
+          <SubTitle>
+            ~ 睡眠補完計画のコンセプト ~
+          </SubTitle>
         </Box>
       </Typography>
       <Typography>
         <Grid container>
-          <Grid item sm={12} md={4} sx={{ py: 3 }}>
+          <Grid item sm={12} md={4} sx={{ py: 4 }}>
             <SubBody>
-              1. 簡単かつ見やすい睡眠日記
+              1. 記録する睡眠情報は最低限に
             </SubBody>
             <CardMedia
               alt='SubImage1'
               component='img'
               image={SubImage1}
-              sx={{ pb: 3, width: '70%', mx: 'auto' }}
+              sx={{ width: '70%', mx: 'auto' }}
             />
           </Grid>
-          <Grid item sm={12} md={4} sx={{ py: 3 }}>
+          <Grid item sm={12} md={4} sx={{ py: 4 }}>
             <SubBody>
-              2. 良い睡眠本の共有
+              2. 良い睡眠本はみんなで共有
             </SubBody>
             <CardMedia
               alt='SubImage1'
               component='img'
               image={SubImage2}
-              sx={{ pb: 3, width: '70%', mx: 'auto' }}
+              sx={{ width: '70%', mx: 'auto' }}
             />
           </Grid>
-          <Grid item sm={12} md={4} sx={{ py: 3 }}>
+          <Grid item sm={12} md={4} sx={{ py: 4 }}>
             <SubBody>
-              3. 同じ境遇の仲間とコミュニケーション
+              3. 同じ境遇の仲間と励まし合う
             </SubBody>
             <CardMedia
               alt='SubImage1'
               component='img'
               image={SubImage3}
-              sx={{ pb: 3, width: '70%', mx: 'auto' }}
+              sx={{ width: '70%', mx: 'auto' }}
             />
           </Grid>
         </Grid>
+      </Typography>
+      <Typography>
+        <Box sx={{ pb: 10 }}>
+          <SubBody>
+            ”フォグ式消費者行動モデル”の理論に基づき<br />
+            継続して睡眠時間を記録し、良質な睡眠生活を目指しましょう。
+          </SubBody>
+        </Box>
       </Typography>
     </MessageWrapper >
   )

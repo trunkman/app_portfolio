@@ -46,7 +46,7 @@ export const HomeRegister = ({
     })
   }
 
-  // ゲスト用のログインする
+  // ゲスト用にログインする
   const guestLogin = () => {
     postLogIn({
       email: 'guest@example.com',
@@ -60,11 +60,11 @@ export const HomeRegister = ({
 
   return (
     <Box sx={{ flexDirection: 'column' }}>
-      <Box sx={{ textAlign: 'center', pb: 3 }} >
+      <Box sx={{ textAlign: 'center' }} >
         <Typography sx={{ pb: 2 }}>
           <TitleTag>
-            "睡眠負債"の返済を手助けする<br />
-            救済サービス
+            "睡眠時間"の確保を手助けする<br />
+            webサービス
           </TitleTag>
         </Typography>
         <Typography>
@@ -78,7 +78,6 @@ export const HomeRegister = ({
           display: 'flex',
           flexWrap: 'wrap',
           justifyContent: 'space-evenly',
-          mb: 3,
         }}>
           <ContainedButton onClick={() => handleOpenSignup()}>
             新規登録

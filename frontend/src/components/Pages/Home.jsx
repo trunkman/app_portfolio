@@ -19,7 +19,6 @@ import MainImage from "../../images/MainImage.png";
 const Container = styled('box')(() => ({
   alignItems: 'center',
   display: 'flex',
-  flexDirection: 'row-reverse',
   flexWrap: 'wrap',
   justifyContent: 'space-evenly',
   maxWidth: 1000,
@@ -33,18 +32,18 @@ export const Home = () => {
   return (
     <>
       <Container>
+        <Box>
+          <HomeRegister
+            handleOpenLogin={() => dialogDispatch({ type: 'login' })}
+            handleOpenSignup={() => dialogDispatch({ type: 'signup' })}
+          />
+        </Box>
         <Box sx={{ maxWidth: 350 }}>
           <CardMedia
             alt='MainImage'
             component='img'
             image={MainImage}
-            sx={{ py: 10, width: '100%' }}
-          />
-        </Box>
-        <Box>
-          <HomeRegister
-            handleOpenLogin={() => dialogDispatch({ type: 'login' })}
-            handleOpenSignup={() => dialogDispatch({ type: 'signup' })}
+            sx={{ py: 5, width: '100%' }}
           />
         </Box>
         <HomeMessage />
