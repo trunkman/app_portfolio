@@ -38,7 +38,7 @@ workflows:
       - build:
           filters:
             branches:
-              only: main
+              only: release
       - syntax-check:
           requires:
             - build
