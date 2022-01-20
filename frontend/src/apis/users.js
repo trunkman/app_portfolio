@@ -49,7 +49,6 @@ export const postSignUp = (params) => {
     })
     .catch(error => {
       console.log('signup', error);
-      return 'nil';
     });
 }
 

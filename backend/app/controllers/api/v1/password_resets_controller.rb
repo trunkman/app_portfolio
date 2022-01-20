@@ -12,7 +12,7 @@ module Api
         if @user
           @user.create_reset_digest
           @user.send_password_reset_email
-          render json: { message: 'パスワードリセットを送信しました' },
+          render json: { message: 'パスワード再設定メールを送信しました' },
                  status: :ok
         else
           render json: { message: 'アカウントが見つかりませんでした' },

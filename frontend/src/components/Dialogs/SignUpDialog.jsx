@@ -41,11 +41,10 @@ export const SignUpDialog = ({
       handleClose();
     }).catch(() => {
       setLoading(false);
-      alert('登録失敗');
-    })
+      alert('登録した情報に誤りがあります');
+    });
   }
 
-  // 新規登録ダイアログの内容を返す
   return (
     <Dialog
       open={open}
@@ -54,9 +53,11 @@ export const SignUpDialog = ({
       <DialogTitle>
         新規登録
       </DialogTitle>
-      <DialogContent>
-        {loading ? <Loading /> :
-          <>
+      {loading && <Loading />}
+
+      {!loading &&
+        <>
+          <DialogContent>
             <DialogContentText>
               下記項目を入力し「登録する」を押してください。
             </DialogContentText>
@@ -114,17 +115,17 @@ export const SignUpDialog = ({
                 })
               }
             />
-          </>
-        }
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={() => handleClose()}>
-          閉じる
-        </Button>
-        <Button onClick={submitSignup} type='submit'>
-          登録する
-        </Button>
-      </DialogActions>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={() => handleClose()}>
+              閉じる
+            </Button>
+            <Button onClick={submitSignup} type='submit'>
+              登録する
+            </Button>
+          </DialogActions>
+        </>
+      }
     </Dialog>
   );
 }

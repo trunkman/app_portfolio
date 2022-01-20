@@ -18,15 +18,19 @@ export const PasswordResetDialog = (props) => {
 
   // パスワード再設定メールを送る
   const handleSubmit = () => {
+    setLoading(true)
     postPasswordReset({ email: email })
       .then(data => {
-        alert('パスワード再設定のメールを送りました')
+        setLoading(false);
+        alert(data.message);
         props.handleClose();
         setEmail('');
-      })
+      }).catch(() => {
+        setLoading(false);
+        alert('入力したメールアドレスに誤りがあります。');
+      });
   }
 
-  // パスワードリセットのダイアログを返す
   return (
     <Dialog
       open={props.open}
@@ -35,9 +39,11 @@ export const PasswordResetDialog = (props) => {
       <DialogTitle>
         パスワード再設定画面
       </DialogTitle>
-      <DialogContent>
-        {loading ? <Loading /> :
-          <>
+      {loading && <Loading />}
+
+      {!loading &&
+        <>
+          <DialogContent>
             <DialogContentText>
               登録したメールアドレスを入力してください。
             </DialogContentText>
@@ -45,17 +51,17 @@ export const PasswordResetDialog = (props) => {
               email={email}
               handleChange={e => setEmail(e.target.value)}
             />
-          </>
-        }
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={() => props.handleClose()}>
-          閉じる
-        </Button>
-        <Button type='submit' onClick={handleSubmit}>
-          送信する
-        </Button>
-      </DialogActions>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={() => props.handleClose()}>
+              閉じる
+            </Button>
+            <Button type='submit' onClick={handleSubmit}>
+              送信する
+            </Button>
+          </DialogActions>
+        </>
+      }
     </Dialog>
   );
 }
