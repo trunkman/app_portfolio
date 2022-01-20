@@ -76,7 +76,6 @@ export const Sidebar = ({
     }),
   );
 
-
   return (
     <>
       <Drawer variant="permanent" open={open}>
@@ -86,56 +85,54 @@ export const Sidebar = ({
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </DrawerHeader>
-        <>
-          {authState.loggedIn &&
-            <>
-              <AvatarLink size="45"
-                breakpoint={breakpoint}
-                handleDrawerClose={handleDrawerClose}
-                loginUser={authState.loginUser}
-              />
-              <DiariesLink
-                breakpoint={breakpoint}
-                handleDrawerClose={handleDrawerClose}
-                loginUserId={authState.loginUser.id}
-              />
-              <TimelineLink
-                breakpoint={breakpoint}
-                handleDrawerClose={handleDrawerClose}
-                loginUserId={authState.loginUser.id}
-              />
-              <BooksLink
-                breakpoint={breakpoint}
-                handleDrawerClose={handleDrawerClose}
-                loginUserId={authState.loginUser.id}
-              />
-              <FollowsLink
-                breakpoint={breakpoint}
-                handleDrawerClose={handleDrawerClose}
-                loginUserId={authState.loginUser.id}
-              />
-              <RoomsLink
-                breakpoint={breakpoint}
-                checkClese={checkClese}
-                checkNotifications={checkNotifications}
-                handleDrawerClose={handleDrawerClose}
-                loginUserId={authState.loginUser.id}
-              />
-              <RankingLink
-                breakpoint={breakpoint}
-                handleDrawerClose={handleDrawerClose}
-              />
-            </>
-          }
-          <UsersLink
-            breakpoint={breakpoint}
-            handleDrawerClose={handleDrawerClose}
-          />
-          <HomeLink
-            breakpoint={breakpoint}
-            handleDrawerClose={handleDrawerClose}
-          />
-        </>
+        {authState.loggedIn &&
+          <>
+            <AvatarLink size="45"
+              breakpoint={breakpoint}
+              handleDrawerClose={handleDrawerClose}
+              loginUser={authState.loginUser}
+            />
+            <DiariesLink
+              breakpoint={breakpoint}
+              handleDrawerClose={handleDrawerClose}
+              loginUserId={authState.loginUser.id}
+            />
+            <TimelineLink
+              breakpoint={breakpoint}
+              handleDrawerClose={handleDrawerClose}
+              loginUserId={authState.loginUser.id}
+            />
+            <BooksLink
+              breakpoint={breakpoint}
+              handleDrawerClose={handleDrawerClose}
+              loginUserId={authState.loginUser.id}
+            />
+            <FollowsLink
+              breakpoint={breakpoint}
+              handleDrawerClose={handleDrawerClose}
+              loginUserId={authState.loginUser.id}
+            />
+            <RoomsLink
+              breakpoint={breakpoint}
+              checkClese={checkClese}
+              checkNotifications={checkNotifications}
+              handleDrawerClose={handleDrawerClose}
+              loginUserId={authState.loginUser.id}
+            />
+            <RankingLink
+              breakpoint={breakpoint}
+              handleDrawerClose={handleDrawerClose}
+            />
+            <UsersLink
+              breakpoint={breakpoint}
+              handleDrawerClose={handleDrawerClose}
+            />
+            <HomeLink
+              breakpoint={breakpoint}
+              handleDrawerClose={handleDrawerClose}
+            />
+          </>
+        }
       </Drawer>
     </>
   )

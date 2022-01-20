@@ -22,7 +22,6 @@ import { postReducer, postInitialState } from '../../reducer/PostReducer'
 import { recordReducer, recordInitialState } from '../../reducer/RecordReducer';
 // Component
 import { AccountButton } from '../Buttons/AccountButton'
-import { LogoLink } from '../Links/LogoLink';
 import { NotificationButton } from '../Buttons/NotificationButton';
 import { NotificationDialog } from "../Dialogs/NotificationDialog";
 import { MicropostDialog } from "../Dialogs/MicropostDialog";
@@ -46,8 +45,10 @@ export const Header = ({
   const [postState, postDispatch] = useReducer(postReducer, postInitialState);
   const [recordState, recordDispatch] = useReducer(recordReducer, recordInitialState);
 
+  // ダイアログを閉じる
   const dialogClose = () => dialogDispatch({ type: 'close' });
-  // ログアウトする関数
+
+  // ログアウトする
   const submitLogout = () => {
     deleteLogout()
       .then(() => {
@@ -55,7 +56,8 @@ export const Header = ({
         history.push(`/`);
       });
   };
-  // アカウント削除を行う関数
+
+  // アカウント削除を行う
   const submitDelete = () => {
     deleteUser(authState.loginUser.id)
       .then(() => {
@@ -63,7 +65,8 @@ export const Header = ({
         history.push(`/`);
       });
   };
-  // 投稿詳細(コメント付き)を取得する関数
+
+  // 投稿詳細(コメント付き)を取得する
   const fetchDetailMicropost = (micropostId) => {
     postDispatch({ type: 'fetching' })
     fetchMicropost(micropostId)
@@ -80,7 +83,8 @@ export const Header = ({
         dialogDispatch({ type: 'micropost' });
       });
   }
-  // 通知一覧を取得&ダイアログを開く関数
+
+  // 通知一覧を取得する
   const notifications = () => {
     fetchNotifications()
       .then(data => {
@@ -92,6 +96,7 @@ export const Header = ({
         dialogDispatch({ type: 'notification' })
       });
   }
+
   // AppBarのstyle
   const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',

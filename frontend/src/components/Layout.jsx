@@ -39,6 +39,7 @@ const MainContainer = styled('box')(() => ({
 export const Layout = () => {
   const { authState } = useContext(AuthContext);
   const [notificationState, notificationDispatch] = useReducer(notificationReducer, notificationInitialState);
+
   // Sidebar開閉する関数群
   const drawerWidth = 240;
   const breakpoint = window.innerWidth > 1000
@@ -81,7 +82,6 @@ export const Layout = () => {
         drawerWidth={drawerWidth}
         handleDrawerClose={handleDrawerClose}
       />
-
       <MainContainer>
         <Switch>
           <Route exact path="/">
@@ -99,13 +99,15 @@ export const Layout = () => {
                 passwordResetToken={match.params.passwordResetToken}
               />}
           />
-          {authState.loginUser === null && <Loading />}
-          {authState.loginUser !== null && authState.loggedIn === false
-            ?
+          {!authState.loginUser && <Loading />}
+
+          {authState.loginUser && authState.loggedIn === false &&
             <Route path="/">
               <Home />
             </Route>
-            :
+          }
+
+          {authState.loginUser && authState.loggedIn === true &&
             <>
               <Route exact path="/users/:id"
                 render={({ match }) =>
@@ -116,64 +118,62 @@ export const Layout = () => {
                   />
                 }
               />
-
               <Route exact path="/users/:id/timeline"
-                render={({ match }) => <Timeline
-                  loginUser={authState.loginUser}
-                  userId={match.params.id}
-                />}
+                render={({ match }) =>
+                  <Timeline
+                    loginUser={authState.loginUser}
+                    userId={match.params.id}
+                  />}
               />
-
               <Route exact path="/users/:id/talk_rooms"
-                render={({ match }) => <MessageRooms
-                  loginUser={authState.loginUser}
-                  userId={match.params.id} //不要なら削除
-                />}
+                render={({ match }) =>
+                  <MessageRooms
+                    loginUser={authState.loginUser}
+                    userId={match.params.id}
+                  />}
               />
-
               <Route exact path="/users/:id/following"
-                render={({ match }) => <FollowFriends
-                  userId={match.params.id}
-                  initialTab='following'
-                />}
+                render={({ match }) =>
+                  <FollowFriends
+                    userId={match.params.id}
+                    initialTab='following'
+                  />}
               />
-
               <Route exact path="/users/:id/followers"
-                render={({ match }) => <FollowFriends
-                  userId={match.params.id}
-                  initialTab='followers'
-                />}
+                render={({ match }) =>
+                  <FollowFriends
+                    userId={match.params.id}
+                    initialTab='followers'
+                  />}
               />
-
               <Route exact path="/users/:id/books"
-                render={({ match }) => <Bookshelf
-                  userId={match.params.id}
-                />}
+                render={({ match }) =>
+                  <Bookshelf
+                    userId={match.params.id}
+                  />}
               />
-
               <Route exact path="/users/:id/diaries"
-                render={({ match }) => <Diaries
-                  userId={match.params.id}
-                />}
+                render={({ match }) =>
+                  <Diaries
+                    userId={match.params.id}
+                  />}
               />
-
               <Route exact path="/ranking">
                 <Ranking />
               </Route>
-
               <Route exact path="/talk_rooms/:id"
-                render={({ match }) => <MessageRoom
-                  roomId={match.params.id}
-                  loginUser={authState.loginUser}
-                />}
+                render={({ match }) =>
+                  <MessageRoom
+                    roomId={match.params.id}
+                    loginUser={authState.loginUser}
+                  />}
               />
-
               <Route exact path="/books/:isbn"
-                render={({ match }) => <Book
-                  bookIsbn={match.params.isbn}
-                />}
+                render={({ match }) =>
+                  <Book
+                    bookIsbn={match.params.isbn}
+                  />}
               />
-
               <Route exact path="/users">
                 <Users
                   isLoggedIn={authState.loggedIn}
