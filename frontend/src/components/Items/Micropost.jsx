@@ -28,9 +28,16 @@ const ListItemWrapper = styled(ListItem)(() => ({
   marginTop: 2,
 }));
 
+const ListTitle = styled('box')(({ theme }) => ({
+  fontWeight: 'bold',
+  letterSpacing: theme.typography.body1.letterSpacing,
+  lineHeight: 2,
+  paddingBottom: 1,
+}));
+
 const ListBody = styled('box')(({ theme }) => ({
   fontWeight: 'light',
-  letterSpacing: theme.typography.h6.letterSpacing,
+  letterSpacing: theme.typography.body1.letterSpacing,
   lineHeight: 2,
   paddingLeft: 6,
 }));
@@ -95,9 +102,9 @@ export const Micropost = ({
         </ListItemAvatar>
         <Box sx={{ py: 2, width: '100%' }}>
           <Typography>
-            【 {user.name} 】 {micropost.created_at.substr(0, 16).replace('T', ' ')}
+            <ListTitle>【 {user.name} 】 {micropost.created_at.substr(0, 16).replace('T', ' ')}</ListTitle>
           </Typography>
-          <Typography variant="h6">
+          <Typography>
             <ListBody
               onClick={fetchDetailMicropost}
               sx={{ cursor: 'pointer' }}
@@ -109,7 +116,8 @@ export const Micropost = ({
                 alt='Image'
                 component='img'
                 image={micropost.image_url}
-                sx={{ mt: 2, maxHeight: 300, width: 200 }}
+                onClick={fetchDetailMicropost}
+                sx={{ cursor: 'pointer', mt: 2, maxHeight: 300, width: 200 }}
               />
             }
           </Typography>

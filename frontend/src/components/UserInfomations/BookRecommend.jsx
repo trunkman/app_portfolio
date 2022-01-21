@@ -20,7 +20,7 @@ const TextWrapper = styled('box')(() => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
-  padding: ' 0px 20px',
+  padding: ' 0px 10px',
 }));
 
 export const BookRecommend = ({ book, notRecommend }) => {

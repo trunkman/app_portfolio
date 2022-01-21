@@ -20,9 +20,16 @@ const ListWrapper = styled(ListItem)(() => ({
   margitTop: 2,
 }));
 
+const ListTitle = styled('box')(({ theme }) => ({
+  fontWeight: 'bold',
+  letterSpacing: theme.typography.body1.letterSpacing,
+  lineHeight: 2,
+  paddingBottom: 1,
+}));
+
 const ListBody = styled('box')(({ theme }) => ({
   fontWeight: 'light',
-  letterSpacing: theme.typography.h6.letterSpacing,
+  letterSpacing: theme.typography.body1.letterSpacing,
   lineHeight: 2,
   paddingLeft: 6,
 }));
@@ -44,7 +51,11 @@ export const MicropostDialog = ({
           onClose={() => handleClose()}
         >
           <DialogTitle>
-            <ListWrapper key={micropost.id.toString()}>
+            <Typography><b>投稿内容</b></Typography>
+            <ListWrapper
+              key={micropost.id.toString()}
+              sx={{ my: 2, borderTop: 0.2 }}
+            >
               <ListItemAvatar>
                 <Avatar
                   src={user.avatar_url}
@@ -52,11 +63,11 @@ export const MicropostDialog = ({
                   onClick={() => history.push(`/users/${user.id}`)}
                 />
               </ListItemAvatar>
-              <Box sx={{ py: 2, flexGrow: 1 }}>
-                <Typography variant="h6">
-                  【 {user.name} さん 】 {micropost.created_at.substr(0, 19).replace('T', ' ')}
+              <Box sx={{ pb: 2, flexGrow: 1 }}>
+                <Typography>
+                  <ListTitle>【 {user.name} 】 {micropost.created_at.substr(0, 16).replace('T', ' ')}</ListTitle>
                 </Typography>
-                <Typography variant="h5" sx={{ pl: 1 }}>
+                <Typography sx={{ pl: 1 }}>
                   <ListBody>{micropost.content}</ListBody>
                 </Typography>
                 {micropost.image_url &&
@@ -64,7 +75,7 @@ export const MicropostDialog = ({
                     alt='Image'
                     component='img'
                     image={micropost.image_url}
-                    sx={{ mt: 2, width: 400 }}
+                    sx={{ mt: 2, width: '90%' }}
                   />
                 }
               </Box>
@@ -72,8 +83,8 @@ export const MicropostDialog = ({
           </DialogTitle>
           <DialogContent>
             {comments.length !== 0 &&
-              <Box sx={{ pl: 10 }}>
-                <h3>コメント</h3>
+              <Box>
+                <Typography><b>コメント</b></Typography>
                 {
                   comments.map(comment =>
                     <ListWrapper
@@ -87,11 +98,11 @@ export const MicropostDialog = ({
                           onClick={() => history.push(`/users/${comment.user.id}`)}
                         />
                       </ListItemAvatar>
-                      <Box sx={{ pt: 2, flexGrow: 1 }} >
+                      <Box sx={{ pt: 1, flexGrow: 1 }} >
                         <Typography>
-                          【 {comment.user.name} さん 】 {comment.comment.created_at.substr(0, 19).replace('T', ' ')}
+                          <ListTitle>【 {comment.user.name} 】 {comment.comment.created_at.substr(0, 16).replace('T', ' ')}</ListTitle>
                         </Typography>
-                        <Typography variant="h6" sx={{ pl: 1 }}>
+                        <Typography sx={{ pl: 1 }}>
                           <ListBody>{comment.comment.content}</ListBody>
                         </Typography>
                       </Box>
