@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer, useState } from 'react';
 // Style
 import Box from '@mui/material/Box';
 import { styled } from '@mui/system';
@@ -12,9 +12,9 @@ import { fetchSleepHoursRank, fetchReadingRank, fetchReadBooksRank, fetchStackBo
 // Reducer
 import { rankReducer, rankInitialState } from '../../reducer/RankingReducer'
 // Component
-import { Loading } from "../Items/Loading"
-import { RankBookItem } from "../Items/RankBookItem";
-import { RankUserItem } from "../Items/RankUserItem";
+import { Loading } from '../Items/Loading'
+import { RankBookList } from '../Lists/RankBookList';
+import { RankUserList } from '../Lists/RankUserList';
 
 const Container = styled('box')(() => ({
   alignItems: 'center',
@@ -33,6 +33,7 @@ const Title = styled('box')(({ theme }) => ({
 }));
 
 const SubTitle = styled('box')(({ theme }) => ({
+  fontSize: theme.typography.h5.fontSize,
   fontWeight: theme.typography.h5.fontWeight,
   letterSpacing: theme.typography.h5.letterSpacing,
   lineHeight: 3,
@@ -110,93 +111,81 @@ export const Ranking = () => {
             variant="fullWidth"
           >
             <Tab
-              label="ユーザー平均睡眠時間"
+              label="平均睡眠時間"
               value="sleepingHours"
-              sx={{ typography: 'subtitle1', fontWeight: 'bold' }}
+              sx={{ typography: 'subtitle2', fontWeight: 'bold' }}
             >
             </Tab>
             <Tab
-              label="ユーザー読了数"
+              label="読了数"
               value="reading"
-              sx={{ typography: 'subtitle1', fontWeight: 'bold' }}
+              sx={{ typography: 'subtitle2', fontWeight: 'bold' }}
             />
             <Tab
               label="読了人気本"
               value="readBooks"
-              sx={{ typography: 'subtitle1', fontWeight: 'bold' }}
+              sx={{ typography: 'subtitle2', fontWeight: 'bold' }}
             />
             <Tab
               label="積読人気本"
               value="stackBooks"
-              sx={{ typography: 'subtitle1', fontWeight: 'bold' }}
+              sx={{ typography: 'subtitle2', fontWeight: 'bold' }}
             />
           </TabList>
         </Box>
         <TabPanel value="sleepingHours">
-          <Typography variant="h5" sx={{ width: '100%' }}>
-            <SubTitle>【ユーザー平均睡眠時間】</SubTitle>
+          <Typography>
+            <SubTitle>~ ユーザー平均睡眠時間 ~</SubTitle>
           </Typography>
           <TabBox>
-            {rankState.fetchState !== 'ok'
-              ? <Loading />
-              : rankState.sleepHours.map(sleepingHour =>
-                <RankUserItem
-                  user={sleepingHour.user}
-                  rank={sleepingHour.rank}
-                  average={sleepingHour.average}
-                />
-              )
+            {rankState.fetchState !== 'ok' && <Loading />}
+
+            {rankState.fetchState === 'ok' &&
+              <RankUserList
+                users={rankState.sleepHours}
+              />
             }
           </TabBox>
         </TabPanel>
         <TabPanel value="reading">
-          <Typography variant="h5" sx={{ width: '100%' }}>
-            <SubTitle>【ユーザー読了数】</SubTitle>
+          <Typography>
+            <SubTitle>~ ユーザー読了数 ~</SubTitle>
           </Typography>
           <TabBox>
-            {rankState.fetchState !== 'ok'
-              ? <Loading />
-              : rankState.reading.map(reading =>
-                <RankUserItem
-                  user={reading.user}
-                  rank={reading.rank}
-                  count={reading.count}
-                />
-              )
+            {rankState.fetchState !== 'ok' && <Loading />}
+
+            {rankState.fetchState === 'ok' &&
+              <RankUserList
+                users={rankState.reading}
+              />
             }
           </TabBox>
         </TabPanel>
         <TabPanel value="readBooks">
-          <Typography variant="h5" sx={{ width: '100%' }}>
-            <SubTitle>【読了人気本】</SubTitle>
+          <Typography>
+            <SubTitle>~ 読了人気本 ~</SubTitle>
           </Typography>
           <TabBox>
-            {rankState.fetchState !== 'ok'
-              ? <Loading />
-              : rankState.readBooks.map(readBooks =>
-                <RankBookItem
-                  book={readBooks.book}
-                  rank={readBooks.rank}
-                  countRead={readBooks.count}
-                />
-              )
+            {rankState.fetchState !== 'ok' && <Loading />}
+
+            {rankState.fetchState === 'ok' &&
+              <RankBookList
+                books={rankState.readBooks}
+              />
             }
           </TabBox>
         </TabPanel>
         <TabPanel value="stackBooks">
-          <Typography variant="h5" sx={{ width: '100%' }}>
-            <SubTitle>【積読人気本】</SubTitle>
+          <Typography>
+            <SubTitle>~ 積読人気本 ~</SubTitle>
           </Typography>
           <TabBox>
-            {rankState.fetchState !== 'ok'
-              ? <Loading />
-              : rankState.stackBooks.map(stackBooks =>
-                <RankBookItem
-                  book={stackBooks.book}
-                  rank={stackBooks.rank}
-                  countStack={stackBooks.count}
-                />
-              )
+            {rankState.fetchState !== 'ok' && <Loading />}
+
+            {rankState.fetchState === 'ok' &&
+              <RankBookList
+                books={rankState.stackBooks}
+              />
             }
           </TabBox>
         </TabPanel>
