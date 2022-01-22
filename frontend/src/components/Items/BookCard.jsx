@@ -1,12 +1,12 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 // Style
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { styled } from '@mui/system'
 import Typography from '@mui/material/Typography';
 
-const CardArea = styled('box')(() => ({
+const CardWrapper = styled('box')(() => ({
   alignContent: 'center',
   cursor: 'pointer',
   display: 'flex',
@@ -18,7 +18,7 @@ export const BookCard = ({ book }) => {
   const history = useHistory();
 
   return (
-    <CardArea onClick={() => history.push(`/books/${book.isbn}`)}>
+    <CardWrapper onClick={() => history.push(`/books/${book.isbn}`)}>
       <CardMedia
         component="img"
         image={book.largeImageUrl}
@@ -29,6 +29,6 @@ export const BookCard = ({ book }) => {
           {book.title}
         </Typography>
       </CardContent>
-    </CardArea>
+    </CardWrapper>
   );
 }

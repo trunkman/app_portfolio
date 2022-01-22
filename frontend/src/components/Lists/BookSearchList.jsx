@@ -41,7 +41,7 @@ export const BookSearchList = ({
           hasMore={hasMore}
           loader={loader}
           loadMore={loadMore}
-          pageStart={0}
+          pageStart={1}
           useWindow='false'
         >
           <BookList container spacing={2}>
