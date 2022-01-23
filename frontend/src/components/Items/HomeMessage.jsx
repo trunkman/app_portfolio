@@ -61,8 +61,9 @@ export const HomeMessage = () => {
             sx={{ pb: 3, width: 300, mx: 'auto' }}
           />
           <SubBody>
-            「睡眠負債」とは、日々の睡眠不足が借金のように積み重なること。<br />
-            睡眠時間が不足が健康に多大な被害を及ぼすことにつながります。
+            "睡眠負債"とは睡眠不足が借金のように積み重なること。<br />
+            健康に多大な被害を及ぼすことになるので、<br />
+            日々の睡眠時間を確保することがなにより大切です。
           </SubBody>
         </Box>
       </Typography>
@@ -78,7 +79,7 @@ export const HomeMessage = () => {
         <Grid container>
           <Grid item sm={12} md={4} sx={{ py: 4 }}>
             <SubBody>
-              1. 記録する睡眠情報は最低限に
+              1. 記録したデータを見える化
             </SubBody>
             <CardMedia
               alt='SubImage1'
@@ -89,7 +90,7 @@ export const HomeMessage = () => {
           </Grid>
           <Grid item sm={12} md={4} sx={{ py: 4 }}>
             <SubBody>
-              2. 良い睡眠本はみんなで共有
+              2. 良い睡眠本をみんなで共有
             </SubBody>
             <CardMedia
               alt='SubImage1'
@@ -114,8 +115,8 @@ export const HomeMessage = () => {
       <Typography>
         <Box sx={{ pb: 10 }}>
           <SubBody>
-            ”フォグ式消費者行動モデル”の理論に基づき<br />
-            継続して睡眠時間を記録し、良質な睡眠生活を目指しましょう。
+            手軽に、簡単に、継続して睡眠時間を記録し、<br />
+            良質な睡眠生活を目指しましょう。
           </SubBody>
         </Box>
       </Typography>
