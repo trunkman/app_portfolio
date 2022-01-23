@@ -31,10 +31,8 @@ export const ProfileMicropostList = ({
             commentCount={micropost.commentCount}
             dataFetcing={dataFetcing}
             likeStatus={micropost.likeStatus}
-            micropost={
-              tabStatus === 'micropost' ? micropost.micropost : micropost.liked_micropost
-            }
-            user={user}
+            micropost={tabStatus === 'micropost' ? micropost.micropost : micropost.liked_micropost}
+            user={tabStatus === 'micropost' ? user : micropost.user}
           />
         )
       }

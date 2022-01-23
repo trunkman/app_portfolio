@@ -23,13 +23,19 @@ import { MicropostDialog } from "../Dialogs/MicropostDialog";
 
 const ListItemWrapper = styled(ListItem)(() => ({
   display: 'flex',
-  flexWrap: 'wrap',
   marginTop: 2,
+}));
+
+const ListTitle = styled('box')(({ theme }) => ({
+  fontWeight: 'bold',
+  letterSpacing: theme.typography.body1.letterSpacing,
+  lineHeight: 2,
+  paddingBottom: 1,
 }));
 
 const ListBody = styled('box')(({ theme }) => ({
   fontWeight: 'light',
-  letterSpacing: theme.typography.h6.letterSpacing,
+  letterSpacing: theme.typography.body1.letterSpacing,
   lineHeight: 2,
   paddingLeft: 6,
 }));
@@ -87,24 +93,32 @@ export const Comment = ({
             onClick={() => history.push(`/users/${user.id}`)}
           />
         </ListItemAvatar>
-        <Box
-          onClick={handleClick}
-          sx={{ cursor: 'pointer', flexGrow: 1, py: 2 }}
-        >
+        <Box sx={{ py: 2, width: '100%' }} >
           <Typography>
-            【 {user.name} 】 {comment.created_at.substr(0, 16).replace('T', ' ')}
+            <ListTitle>【 {user.name} 】 {comment.created_at.substr(0, 16).replace('T', ' ')}</ListTitle>
           </Typography>
-          <Typography variant="h6" sx={{ pl: 1 }}>
-            <ListBody>{comment.content}</ListBody>
+          <Typography>
+            <ListBody
+              onClick={handleClick}
+              sx={{ cursor: 'pointer' }}
+            >
+              {comment.content}
+            </ListBody>
           </Typography>
         </Box>
-        {authState.loginUser.id === comment.user_id && (
+        {authState.loginUser.id === comment.user_id &&
           <IconButton onClick={() => dialogDispatch({ type: 'delete' })}>
             <DeleteOutlinedIcon />
           </IconButton>
-        )}
+        }
       </ListItemWrapper >
 
+      <DeleteDialog
+        handleClose={handleClose}
+        handleDelete={deleteSubmit}
+        message={'コメントを削除'}
+        open={dialogState.delete}
+      />
       {postState.micropost !== '' &&
         <MicropostDialog
           comments={postState.comments}
@@ -115,12 +129,6 @@ export const Comment = ({
           user={postState.user}
         />
       }
-      <DeleteDialog
-        handleClose={handleClose}
-        handleDelete={deleteSubmit}
-        message={'コメントを削除'}
-        open={dialogState.delete}
-      />
     </>
   )
 }
