@@ -31,13 +31,6 @@ const Title = styled('box')(({ theme }) => ({
   lineHeight: 3,
 }));
 
-const TitleTag = styled('box')(({ theme }) => ({
-  fontSize: theme.typography.h6.fontSize,
-  fontWeight: theme.typography.h6.fontWeight,
-  letterSpacing: theme.typography.h6.letterSpacing,
-  lineHeight: 3,
-}));
-
 const BookWrapper = styled('box')(() => ({
   display: 'flex',
   justifyContent: 'space-between',
@@ -110,19 +103,19 @@ export const Bookshelf = ({ userId }) => {
 
       {bookState.fetchState === 'ok' &&
         <>
-          <Typography variant="h3">
-            <Title>≪ 睡眠本棚 ≫<br /></Title>
-            <TitleTag>~ {bookState.user.name} ~</TitleTag>
+          <Typography>
+            <Title>≪ 睡眠本棚 ≫</Title>
           </Typography>
           <BookWrapper>
-            <BookRecommend
-              book={bookState.recommendBook}
-              notRecommend={notRecommend}
-            />
             <BookSearch
+              bookState={bookState}
               handleChange={e => setKeyword(e.target.value)}
               handleSubmit={() => searchBooks(1)}
               keyword={keyword}
+            />
+            <BookRecommend
+              book={bookState.recommendBook}
+              notRecommend={notRecommend}
             />
           </BookWrapper>
 

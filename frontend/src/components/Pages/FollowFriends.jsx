@@ -1,5 +1,7 @@
-import React, { useState, useReducer, useEffect } from "react";
-// styles
+import React, { useState, useReducer, useEffect } from 'react';
+import { useHistory } from 'react-router';
+// Style
+import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/system'
 import Tab from '@mui/material/Tab';
@@ -8,8 +10,8 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import Typography from '@mui/material/Typography';
 // Api
-import { fetchFollowing } from "../../apis/users";
-import { fetchFollowers } from "../../apis/users";
+import { fetchFollowing } from '../../apis/users';
+import { fetchFollowers } from '../../apis/users';
 // Reducer
 import { followInitialState, followReducer } from '../../reducer/FollowReducer';
 // コンポーネント
@@ -32,6 +34,12 @@ const Title = styled('box')(({ theme }) => ({
   lineHeight: 3,
 }));
 
+const TitleWrapper = styled('box')(() => ({
+  display: 'flex',
+  justifyContent: 'center',
+  paddingBottom: 5,
+}));
+
 const TitleTag = styled('box')(({ theme }) => ({
   fontSize: theme.typography.h6.fontSize,
   fontWeight: theme.typography.h6.fontWeight,
@@ -40,6 +48,7 @@ const TitleTag = styled('box')(({ theme }) => ({
 }));
 
 export const FollowFriends = ({ userId, initialTab }) => {
+  const history = useHistory();
   const [tab, setTab] = useState(initialTab);
   const [followState, followDispatch] = useReducer(followReducer, followInitialState);
 
@@ -80,8 +89,17 @@ export const FollowFriends = ({ userId, initialTab }) => {
     <Container>
       <Typography>
         <Title>≪ フォローフレンド ≫<br /></Title>
-        <TitleTag>~ {followState.user.name} ~</TitleTag>
       </Typography>
+      <TitleWrapper>
+        <Avatar
+          src={followState.user.avatar_url}
+          sx={{ cursor: 'pointer', height: 35, mt: 0.4, mx: 2, width: 35 }}
+          onClick={() => history.push(`/users/${followState.user.id}`)}
+        />
+        <Typography>
+          <TitleTag>{followState.user.name}</TitleTag>
+        </Typography>
+      </TitleWrapper>
       <TabContext value={tab}>
         <Box>
           <TabList

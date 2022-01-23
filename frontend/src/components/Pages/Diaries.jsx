@@ -35,13 +35,6 @@ const Title = styled('box')(({ theme }) => ({
   lineHeight: 3,
 }));
 
-const TitleTag = styled('box')(({ theme }) => ({
-  fontSize: theme.typography.h5.fontSize,
-  fontWeight: theme.typography.h5.fontWeight,
-  letterSpacing: theme.typography.h5.letterSpacing,
-  lineHeight: 3,
-}));
-
 export const Diaries = ({ userId }) => {
   const [dialogState, dialogDispatch] = useReducer(dialogReducer, dialogInitialState);
   const [recordState, recordDispatch] = useReducer(recordReducer, recordInitialState);
@@ -95,8 +88,7 @@ export const Diaries = ({ userId }) => {
     <Container>
       {recordState.fetchState !== 'ok' && <Loading />}
       <Typography>
-        <Title>≪ 睡眠日記 ≫<br /></Title>
-        <TitleTag>~ {recordState.user.name} ~</TitleTag>
+        <Title>≪ 睡眠日記 ≫</Title>
       </Typography>
       <Grid container sx={{ alignItems: "center" }}>
         <Grid item xs={12} sm={5} sx={{

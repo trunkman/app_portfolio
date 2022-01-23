@@ -2,6 +2,7 @@ import React from "react"
 import { useHistory } from "react-router-dom";
 // Style
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/system';
 import Typography from "@mui/material/Typography";
@@ -38,7 +39,7 @@ const ProfileList = styled('box')(() => ({
   justifyContent: 'space-evenly',
 }));
 
-const ProfileItem = styled('box')(({ theme }) => ({
+const ProfileItem = styled(Button)(() => ({
   alignItems: 'center',
   cursor: 'pointer',
   display: 'flex',
@@ -47,9 +48,9 @@ const ProfileItem = styled('box')(({ theme }) => ({
 }));
 
 const ItemText = styled('box')(({ theme }) => ({
-  fontSize: theme.typography.subtitle1.fontSize,
+  fontSize: theme.typography.subtitle2.fontSize,
   fontWeight: theme.typography.subtitle1.fontWeight,
-  letterSpacing: theme.typography.subtitle1.letterSpacing,
+  letterSpacing: theme.typography.subtitle2.letterSpacing,
   lineHeight: 2,
   padding: '0px 10px'
 }));
@@ -72,26 +73,25 @@ export const UserInfo = ({
           />
         </Grid>
         <Grid xs={12} sm={9}>
-          <Box sx={{ pl: 3, width: '100%' }}>
+          <Box sx={{ pl: 1, width: '100%' }}>
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
               <Typography>
                 <NameField>
                   {profileState.user.name}
                 </NameField>
               </Typography>
-              {
-                loginUser.id === profileState.user.id ? (
-                  <ProfileEditButton
-                    dataUserFetch={profileState.dataUserFetch}
-                    setOpen={setOpen}
-                    open={open}
-                  />
-                ) : (
-                  <FollowButton
-                    userId={profileState.user.id}
-                    followStatus={profileState.followStatus}
-                  />
-                )
+              {loginUser.id === profileState.user.id &&
+                <ProfileEditButton
+                  dataUserFetch={profileState.dataUserFetch}
+                  setOpen={setOpen}
+                  open={open}
+                />
+              }
+              {loginUser.id !== profileState.user.id &&
+                <FollowButton
+                  userId={profileState.user.id}
+                  followStatus={profileState.followStatus}
+                />
               }
             </Box>
             <Typography>

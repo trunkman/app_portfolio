@@ -27,7 +27,7 @@ const Title = styled('box')(({ theme }) => ({
   lineHeight: 3,
 }));
 
-export const Timeline = ({ userId, loginUser }) => {
+export const Timeline = ({ userId }) => {
   const [timelineState, timelineDispatch] = useReducer(timelineReducer, timelineInitialState);
 
   // 投稿一覧を取得する
