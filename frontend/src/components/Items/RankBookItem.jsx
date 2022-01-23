@@ -30,7 +30,7 @@ export const RankBookItem = ({
         component="img"
         image={book.largeImageUrl}
         alt={book.title}
-        sx={{ mb: 1 }}
+        sx={{ mb: 1, mx: 'auto', width: 150 }}
       />
       <Typography variant="subtitle1" color="text.secondary">
         {book.title}
