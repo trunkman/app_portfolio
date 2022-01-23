@@ -97,12 +97,12 @@ export const Sidebar = ({
               handleDrawerClose={handleDrawerClose}
               loginUserId={authState.loginUser.id}
             />
-            <TimelineLink
+            <BooksLink
               breakpoint={breakpoint}
               handleDrawerClose={handleDrawerClose}
               loginUserId={authState.loginUser.id}
             />
-            <BooksLink
+            <TimelineLink
               breakpoint={breakpoint}
               handleDrawerClose={handleDrawerClose}
               loginUserId={authState.loginUser.id}

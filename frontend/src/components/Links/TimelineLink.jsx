@@ -1,14 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 // Style
 import Divider from '@mui/material/Divider';
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
 // Icon
-import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
-
+import DynamicFeedIcon from '@mui/icons-material/DynamicFeed';
 
 export const TimelineLink = ({
   breakpoint,
@@ -26,7 +25,7 @@ export const TimelineLink = ({
           to={`/users/${loginUserId}/timeline`}
         >
           <ListItemIcon>
-            <FormatListBulletedOutlinedIcon
+            <DynamicFeedIcon
               color='primary'
               sx={{ ml: 1 }}
             />
