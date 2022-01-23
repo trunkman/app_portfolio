@@ -1,5 +1,5 @@
 # 睡眠補完計画 (ポートフォリオ)
-**「睡眠負債を見える化」した睡眠管理アプリケーションです。**  
+**睡眠時間確保のための睡眠管理アプリケーションです。**  
 **”フォグ式消費者行動モデル”の理論に基づいて、睡眠時間確保をサポートします。**
 
 <img width="1160" alt="AppImage" src="https://user-images.githubusercontent.com/90957668/149050562-6bf19abe-3925-4357-80d5-1e8b193d8880.png">
@@ -21,12 +21,12 @@
 * Rspec
 * Rubocop
 ### インフラ・その他
-* AWS (ALB, Certificate Manager, CloudFront, VPC, ECR, ECS, Fargate, Public subnet, Private subnet, RDS, Route53, S3)
+* AWS (ALB, Certificate Manager, CloudFront, ECR, ECS, Fargate, NAT Gateway, Public subnet, Private subnet, RDS, Route53, S3, VPC, WAF)
 * Docker / Docer-compose
 * CircleCI (自動ビルド, 自動テスト, 自動デプロイ)
 
 ## インフラ構成図
-![20220110-インフラ構成図](https://user-images.githubusercontent.com/90957668/148783455-64854cfb-e4af-4861-96f5-eb3af32406ae.jpg)
+![20220122-インフラ構成図](https://user-images.githubusercontent.com/90957668/150514947-7e575f46-a9dd-454d-9731-abb7df472265.jpg)
 
 ## ER図
 ![20220110-ER図](https://user-images.githubusercontent.com/90957668/148783446-e9d86abf-6584-4ec1-9dfe-b061938bd203.jpg)
@@ -40,8 +40,13 @@
 * パスワード再設定機能
 * 投稿機能
   * 画像投稿(S3)
+  * 投稿一覧機能(フォローユーザー&自己)
+  * 自己投稿一覧機能
 * いいね機能
+  * 自己いいね一覧機能
 * コメント機能
+  * コメント数表示機能
+  * 自己コメント一覧機能
 * フォロー機能
 * ダイレクトメッセージ機能
 * 日記機能
@@ -57,12 +62,15 @@
   * 人気の読了本
   * 人気の積読本
 * 通知機能
-  * いいね、コメント、トークルーム作成通知
+  * いいね通知
+  * コメント通知
+  * フォロー通知
+  * トークルーム作成通知
   * 未読メッセージ通知
 * レスポンシブ対応
 
 ## 画面遷移図
-※
+![20220121-画面遷移図](https://user-images.githubusercontent.com/90957668/150514937-22d54542-bd28-4ac6-b505-7e38c48f3576.jpg)
 
 ## テスト
 * Rspec/FactoryBot
@@ -70,6 +78,5 @@
   * 統合テスト
 
 ## 今後改善すべき点
-* Twitter連携機能の導入
 * E2Eテストの導入
 * Terraformによるインフラのコード化
