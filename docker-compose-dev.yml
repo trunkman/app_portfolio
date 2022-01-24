@@ -50,7 +50,6 @@ services:
       REACT_APP_AWS_BUCKET: ${REACT_APP_AWS_BUCKET}
       REACT_APP_AWS_SECRET_KEY: ${REACT_APP_AWS_SECRET_KEY}
       REACT_APP_AWS_REGION: ${REACT_APP_AWS_REGION}
-      REACT_APP_ENV: development
     tty: true
     stdin_open: true
   db:
@@ -61,7 +60,7 @@ services:
       - "3306:3306"
     command: --default-authentication-plugin=mysql_native_password
     environment:
-      MYSQL_ROOT_PASSWORD: mysqlpass
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
     tty: true
     stdin_open: true
 
