@@ -9,6 +9,7 @@
 /backend/.env
 
 # frontend
+/frontend/build
 /frontend/.pnp
 /frontend/.pnp.js
 /frontend/coverage
