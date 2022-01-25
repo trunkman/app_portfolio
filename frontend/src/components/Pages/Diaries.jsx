@@ -18,10 +18,7 @@ import { SleepGraph } from "../UserInfomations/SleepGraph";
 import { Loading } from '../Items/Loading';
 
 const Container = styled('box')(() => ({
-  alignItems: 'center',
   flexDirection: 'end',
-  flexWrap: 'wrap',
-  justifyContent: 'center',
   maxWidth: 1000,
   overflow: 'auto',
   textAlign: 'center',
@@ -91,9 +88,10 @@ export const Diaries = ({ userId }) => {
         <Title>≪ 睡眠日記 ≫</Title>
       </Typography>
       <Grid container sx={{ alignItems: "center" }}>
-        <Grid item xs={12} sm={5} sx={{
+        <Grid item sm={12} md={5} sx={{
           alignItems: "center",
           justifyContent: 'center',
+          mx: 'auto',
           overflow: 'clip',
         }}>
           <SleepInfo

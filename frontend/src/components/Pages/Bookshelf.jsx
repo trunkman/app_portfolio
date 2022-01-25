@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useReducer } from 'react';
 // Style
+import Grid from '@mui/material/Grid';
 import { styled } from '@mui/system'
 import Typography from '@mui/material/Typography';
 // Api
@@ -31,10 +32,10 @@ const Title = styled('box')(({ theme }) => ({
   lineHeight: 3,
 }));
 
-const BookWrapper = styled('box')(() => ({
+const BookWrapper = styled(Grid)(() => ({
   display: 'flex',
   justifyContent: 'space-between',
-  flexWrap: 'wrap'
+  textAlign: 'start',
 }));
 
 export const Bookshelf = ({ userId }) => {
@@ -106,17 +107,21 @@ export const Bookshelf = ({ userId }) => {
           <Typography>
             <Title>≪ 睡眠本棚 ≫</Title>
           </Typography>
-          <BookWrapper>
-            <BookSearch
-              bookState={bookState}
-              handleChange={e => setKeyword(e.target.value)}
-              handleSubmit={() => searchBooks(1)}
-              keyword={keyword}
-            />
-            <BookRecommend
-              book={bookState.recommendBook}
-              notRecommend={notRecommend}
-            />
+          <BookWrapper container>
+            <Grid sm={12} md={6}>
+              <BookSearch
+                bookState={bookState}
+                handleChange={e => setKeyword(e.target.value)}
+                handleSubmit={() => searchBooks(1)}
+                keyword={keyword}
+              />
+            </Grid>
+            <Grid sm={12} md={6}>
+              <BookRecommend
+                book={bookState.recommendBook}
+                notRecommend={notRecommend}
+              />
+            </Grid>
           </BookWrapper>
 
           {bookState.searchBooks.length !== 0 &&
