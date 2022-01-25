@@ -1,8 +1,8 @@
 # 睡眠補完計画 (ポートフォリオ)
-**睡眠時間確保のための睡眠管理アプリケーションです。**  
+**睡眠時間確保のための睡眠管理WEBサービスです。**  
 **”フォグ式消費者行動モデル”の理論に基づいて、睡眠時間確保をサポートします。**
 
-<img width="1160" alt="AppImage" src="https://user-images.githubusercontent.com/90957668/149050562-6bf19abe-3925-4357-80d5-1e8b193d8880.png">
+<img width="1153" alt="スクリーンショット 2022-01-25 23 34 09" src="https://user-images.githubusercontent.com/90957668/150996789-0c69c181-ceda-4c64-abf4-7e3107aee9dd.png">
 
 ### URL : https://sleepingdebtplan.com  
 ※ ゲストアカウントから簡単にログイン可能です  
@@ -21,9 +21,9 @@
 * Rspec
 * Rubocop
 ### インフラ・その他
-* AWS (ALB, Certificate Manager, CloudFront, ECR, ECS, Fargate, NAT Gateway, Public subnet, Private subnet, RDS, Route53, S3, VPC, WAF)
-* Docker / Docer-compose
-* CircleCI (自動ビルド, 自動テスト, 自動デプロイ)
+* AWS (ALB, Certificate Manager, CloudFront, EC2, ECR, ECS, Fargate, NAT Gateway, Public subnet, Private subnet, RDS (MySQL), Route53, S3, VPC, WAF)
+* Docker / Docker-compose
+* CircleCI (自動テスト, 自動ビルド, 自動デプロイ)
 
 ## インフラ構成図
 ![20220122-インフラ構成図](https://user-images.githubusercontent.com/90957668/150514947-7e575f46-a9dd-454d-9731-abb7df472265.jpg)
@@ -37,28 +37,26 @@
 * ゲストユーザー機能
 * 自動ログイン(Remember me)機能
 * メール認証機能
-* パスワード再設定機能
+* パスワード再設定機能 (メール送信)
+* アカウント削除機能（管理者＆自己のみ）
 * 投稿機能
-  * 画像投稿(S3)
-  * 投稿一覧機能(フォローユーザー&自己)
-  * 自己投稿一覧機能
+  * 画像投稿 (S3)
 * いいね機能
-  * 自己いいね一覧機能
 * コメント機能
   * コメント数表示機能
-  * 自己コメント一覧機能
 * フォロー機能
+* タイムライン機能 (フォローユーザー&自己)
 * ダイレクトメッセージ機能
-* 日記機能
+* 日記投稿機能
   * カレンダー表示機能
-  * 絵文字表示機能 
+  * 絵文字表示機能 (EmojiMart)
   * グラフ表示機能(Recharts)
-* 書籍検索機能(楽天ブックス書籍検索API)
-  * 無限スクロール機能(react-infinite-scroller)
+* 書籍検索機能 (楽天ブックス書籍検索API)
+  * 無限スクロール機能 (react-infinite-scroller)
 * おすすめ本登録機能
 * ランキング機能
-  * 平均睡眠時間
-  * 睡眠本読書数
+  * ユーザー平均睡眠時間
+  * ユーザー睡眠本読書数
   * 人気の読了本
   * 人気の積読本
 * 通知機能
@@ -70,11 +68,11 @@
 * レスポンシブ対応
 
 ## 画面遷移図
-![20220121-画面遷移図](https://user-images.githubusercontent.com/90957668/150514937-22d54542-bd28-4ac6-b505-7e38c48f3576.jpg)
+![20220125-画面遷移図](https://user-images.githubusercontent.com/90957668/150994957-6c180b6d-e018-490d-9a55-2d31922e16d2.jpg)
 
 ## テスト
-* Rspec/FactoryBot
-  * 単体テスト(正常系、異常系)
+* Rspec/FactoryBot (正常系、異常系)
+  * 単体テスト
   * 統合テスト
 
 ## 今後改善すべき点
