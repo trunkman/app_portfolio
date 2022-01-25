@@ -172,15 +172,3 @@ export const fetchRooms = (userId) => {
       console.log('users#rooms', error);
     });
 }
-
-// ランキング一覧を取得するapi
-// export const fetchRnking = (params) => {
-//   return axios.get(userRnking(userId), { withCredentials: true })
-//     .then(res => {
-//       console.log('users#rooms', res);
-//       return res.data;
-//     })
-//     .catch(error => {
-//       console.log('users#rooms', error);
-//     });
-// }
