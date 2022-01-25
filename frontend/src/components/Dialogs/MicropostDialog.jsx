@@ -1,21 +1,20 @@
 import React from 'react';
-import { useHistory } from "react-router";
+import { useHistory } from 'react-router';
 // Style
-import Avatar from "@mui/material/Avatar";
+import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import CardMedia from '@mui/material/CardMedia';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
-import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
-import ListItem from "@mui/material/ListItem";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
+import ListItem from '@mui/material/ListItem';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
 import { styled } from '@mui/system';
-import Typography from "@mui/material/Typography";
+import Typography from '@mui/material/Typography';
 
 const ListWrapper = styled(ListItem)(() => ({
-  alignItems: "center",
+  alignItems: 'center',
   display: 'flex',
   margitTop: 2,
 }));
@@ -50,7 +49,7 @@ export const MicropostDialog = ({
           open={open}
           onClose={() => handleClose()}
         >
-          <DialogTitle>
+          <DialogContent>
             <Typography><b>投稿内容</b></Typography>
             <ListWrapper
               key={micropost.id.toString()}
@@ -80,8 +79,6 @@ export const MicropostDialog = ({
                 }
               </Box>
             </ListWrapper >
-          </DialogTitle>
-          <DialogContent>
             {comments.length !== 0 &&
               <Box>
                 <Typography><b>コメント</b></Typography>
