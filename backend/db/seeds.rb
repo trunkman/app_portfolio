@@ -254,12 +254,12 @@ sixth_user.diaries.create(date: '2022-01-23', sleeping_hours: 8.0, feeling: 'neu
 sixth_user.diaries.create(date: '2022-01-24', sleeping_hours: 8.0, feeling: 'satisfied')
 sixth_user.diaries.create(date: '2022-01-25', sleeping_hours: 8.0, feeling: 'satisfied')
 
-seventh_user.diaries.create(date: '2022-01-20', sleeping_hours: 8.0, feeling: 'neutral_face')
-seventh_user.diaries.create(date: '2022-01-21', sleeping_hours: 9.0, feeling: 'neutral_face')
-seventh_user.diaries.create(date: '2022-01-22', sleeping_hours: 9.0, feeling: 'satisfied')
-seventh_user.diaries.create(date: '2022-01-23', sleeping_hours: 8.5, feeling: 'satisfied')
-seventh_user.diaries.create(date: '2022-01-24', sleeping_hours: 8.0, feeling: 'satisfied')
-seventh_user.diaries.create(date: '2022-01-25', sleeping_hours: 7.5, feeling: 'neutral_face')
+seventh_user.diaries.create(date: '2022-01-20', sleeping_hours: 7.0, feeling: 'neutral_face')
+seventh_user.diaries.create(date: '2022-01-21', sleeping_hours: 8.0, feeling: 'neutral_face')
+seventh_user.diaries.create(date: '2022-01-22', sleeping_hours: 8.0, feeling: 'satisfied')
+seventh_user.diaries.create(date: '2022-01-23', sleeping_hours: 7.5, feeling: 'satisfied')
+seventh_user.diaries.create(date: '2022-01-24', sleeping_hours: 7.0, feeling: 'satisfied')
+seventh_user.diaries.create(date: '2022-01-25', sleeping_hours: 6.5, feeling: 'neutral_face')
 
 eighth_user.diaries.create(date: '2022-01-20', sleeping_hours: 8.0, feeling: 'satisfied')
 eighth_user.diaries.create(date: '2022-01-21', sleeping_hours: 5.5, feeling: 'neutral_face')
