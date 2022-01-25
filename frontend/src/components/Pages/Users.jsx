@@ -73,7 +73,7 @@ export const Users = ({ loginUser }) => {
   return (
     <Container>
       <Typography variant="h3">
-        <Title>ユーザーリスト</Title>
+        <Title>≪ ユーザーリスト ≫</Title>
       </Typography>
       {users.map(user =>
         <ListItemWrapper key={user.id.toString()} >
