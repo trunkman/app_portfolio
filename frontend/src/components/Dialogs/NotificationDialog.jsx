@@ -52,9 +52,11 @@ export const NotificationDialog = ({
         </DialogTitle>
         <DialogContent dividers>
           <DialogContentText >
-            {!!notificationState.notifications
-              ? <Typography>通知はありません</Typography>
-              :
+            {!notificationState.notifications.length &&
+              <Typography>通知はありません</Typography>
+            }
+
+            {!!notificationState.notifications.length &&
               <>
                 <List>
                   {notificationState.notifications.map(element =>

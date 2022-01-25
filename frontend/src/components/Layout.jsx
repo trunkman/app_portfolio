@@ -48,6 +48,7 @@ export const Layout = () => {
   const handleDrawerOpen = () => setOpen(true);
   const handleDrawerClose = () => setOpen(false);
 
+  // 新規通知を取得する
   const Notifications = () => {
     checkNotifications()
       .then(data =>
@@ -63,7 +64,7 @@ export const Layout = () => {
 
   useEffect(() => {
     Notifications();
-  }, [])
+  }, [authState.loginUser])
 
   return (
     <BrowserRouter>

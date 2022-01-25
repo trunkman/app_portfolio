@@ -2,7 +2,7 @@ import React from "react";
 // Style
 import Link from '@mui/material/Link';
 import ListItem from "@material-ui/core/ListItem";
-
+import { Typography } from "@mui/material";
 
 export const NotificationComment = ({
   handleClick,
@@ -15,22 +15,24 @@ export const NotificationComment = ({
     <>
       {
         <ListItem key={notification.id.toString()}>
-          <Link
-            href={`/users/${visitor_user.id}`}
-            onClick={() => handleClose()}
-            underline='hover'
-          >
-            {visitor_user.name}
-          </Link>
-          さんがあなたの
-          <Link
-            href='#'
-            onClick={() => handleClick(notification.micropost_id)}
-            underline='hover'
-          >
-            投稿
-          </Link>
-          にコメントしました。
+          <Typography>
+            <Link
+              href={`/users/${visitor_user.id}`}
+              onClick={() => handleClose()}
+              underline='hover'
+            >
+              {visitor_user.name}
+            </Link>
+            さんがあなたの
+            <Link
+              href='#'
+              onClick={() => handleClick(notification.micropost_id)}
+              underline='hover'
+            >
+              投稿
+            </Link>
+            にコメントしました。
+          </Typography>
         </ListItem>
       }
 
