@@ -52,7 +52,6 @@ export const MessageRooms = ({ userId }) => {
   // トークルームを削除する
   const handleDelete = () => {
     deleteRoom(open.roomId)
-      .then(() => setOpen({ isOpen: false }));
   }
 
   useEffect(() => {
