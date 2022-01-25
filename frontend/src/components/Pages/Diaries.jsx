@@ -98,7 +98,7 @@ export const Diaries = ({ userId }) => {
         }}>
           <SleepInfo
             handleClose={handleClose}
-            handoleOpen={() => dialogDispatch({ type: 'record' })}
+            handleOpen={() => dialogDispatch({ type: 'record' })}
             open={dialogState.record}
             recordDispatch={recordDispatch}
             recordState={recordState}

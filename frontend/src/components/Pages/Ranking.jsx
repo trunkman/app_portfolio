@@ -46,6 +46,12 @@ const TabBox = styled('box')(() => ({
   justifyContent: 'space_between',
 }));
 
+const TabLabel = styled(Tab)(({ theme }) => ({
+  fontSize: theme.typography.subtitle1.fontSize,
+  fontWeight: theme.typography.subtitle1.fontWeight,
+  letterSpacing: 1,
+}));
+
 export const Ranking = () => {
   const [tab, setTab] = useState('sleepingHours');
   const [rankState, rankDispatch] = useReducer(rankReducer, rankInitialState);
@@ -110,26 +116,21 @@ export const Ranking = () => {
             onChange={(event, newTab) => { setTab(newTab) }}
             variant="fullWidth"
           >
-            <Tab
+            <TabLabel
               label="平均睡眠時間"
               value="sleepingHours"
-              sx={{ typography: 'subtitle2', fontWeight: 'bold' }}
-            >
-            </Tab>
-            <Tab
+            />
+            <TabLabel
               label="読了数"
               value="reading"
-              sx={{ typography: 'subtitle2', fontWeight: 'bold' }}
             />
-            <Tab
+            <TabLabel
               label="読了人気本"
               value="readBooks"
-              sx={{ typography: 'subtitle2', fontWeight: 'bold' }}
             />
-            <Tab
+            <TabLabel
               label="積読人気本"
               value="stackBooks"
-              sx={{ typography: 'subtitle2', fontWeight: 'bold' }}
             />
           </TabList>
         </Box>
