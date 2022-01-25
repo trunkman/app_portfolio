@@ -32,12 +32,6 @@ const Title = styled('box')(({ theme }) => ({
   lineHeight: 3,
 }));
 
-const BookWrapper = styled(Grid)(() => ({
-  display: 'flex',
-  justifyContent: 'space-between',
-  textAlign: 'start',
-}));
-
 export const Bookshelf = ({ userId }) => {
   const [keyword, setKeyword] = useState('');
   const [tab, setTab] = useState('read');
@@ -107,7 +101,7 @@ export const Bookshelf = ({ userId }) => {
           <Typography>
             <Title>≪ 睡眠本棚 ≫</Title>
           </Typography>
-          <BookWrapper container>
+          <Grid container sx={{ textAlign: 'start' }}>
             <Grid sm={12} md={6}>
               <BookSearch
                 bookState={bookState}
@@ -122,7 +116,7 @@ export const Bookshelf = ({ userId }) => {
                 notRecommend={notRecommend}
               />
             </Grid>
-          </BookWrapper>
+          </Grid>
 
           {bookState.searchBooks.length !== 0 &&
             <BookSearchList

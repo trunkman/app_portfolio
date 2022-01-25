@@ -11,7 +11,7 @@ export const SearchForm = ({ handleChange, keyword }) => {
         autoFocus
         label="書籍名を入力してください"
         margin="dense"
-        sx={{ width: '60vmin', }}
+        sx={{ width: '50vmin' }}
         type="text"
         onChange={handleChange}
         value={keyword}

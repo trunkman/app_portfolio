@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 // Style
 import Box from '@mui/material/Box';
 import CardActionArea from '@mui/material/CardActionArea';
@@ -7,20 +7,18 @@ import CardMedia from '@mui/material/CardMedia';
 import { styled } from '@mui/system'
 import Typography from '@mui/material/Typography';
 // Component
-import { RecommendReleaseButton } from "../Buttons/RecommendReleaseButton";
-
-const CardWrapper = styled(CardActionArea)(() => ({
-  background: '#334b63',
-  display: 'flex',
-  flexDirection: 'column',
-  width: 120,
-}));
+import { RecommendReleaseButton } from '../Buttons/RecommendReleaseButton';
 
 const TextWrapper = styled('box')(() => ({
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'flex-start',
   padding: ' 0px 10px',
+}));
+
+const CardWrapper = styled(CardActionArea)(() => ({
+  display: 'flex',
+  flexDirection: 'column',
+  width: 120,
 }));
 
 export const BookRecommend = ({ book, notRecommend }) => {
@@ -28,7 +26,7 @@ export const BookRecommend = ({ book, notRecommend }) => {
   return (
     <>
       {book !== null &&
-        <Box sx={{ display: 'flex', py: 3, px: 1 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'flex-end', py: 3, px: 1 }}>
           <TextWrapper>
             <Typography variant="subtitl1">
               ★ おすすめ睡眠本
@@ -47,7 +45,7 @@ export const BookRecommend = ({ book, notRecommend }) => {
             <CardMedia
               component="img"
               image={book.largeImageUrl}
-              sx={{ width: '100%' }}
+              sx={{ width: '100%', mr: 1 }}
               alt={book.title}
             />
           </CardWrapper>
