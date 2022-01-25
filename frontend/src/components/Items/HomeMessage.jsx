@@ -71,7 +71,7 @@ export const HomeMessage = () => {
       <Typography>
         <Box>
           <SubTitle>
-            ~ 睡眠補完計画のコンセプト ~
+            ~ コンセプト ~
           </SubTitle>
         </Box>
       </Typography>
