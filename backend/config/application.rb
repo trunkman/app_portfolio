@@ -35,5 +35,6 @@ module Backend
     end
 
     config.hosts << '.example.com'
+    config.time_zone = 'Tokyo'
   end
 end
