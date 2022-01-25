@@ -16,8 +16,10 @@ module Api
                                .where.not(user_id: current_user.id)
           @other_user = User.find_by(id: other_user_id)
           # 未読メッセージがあれば既読にする
-          @notifications = current_user.passive_notifications
-          @notifications.where(action: 'message', checked: false).each do |notification|
+          @notifications = current_user.passive_notifications.where(visitor_id: @other_user.id,
+                                                                    action: 'message',
+                                                                    checked: false)
+          @notifications.each do |notification|
             notification.update_attribute(:checked, true)
           end
           render json: { messages: @messages, user: @other_user },

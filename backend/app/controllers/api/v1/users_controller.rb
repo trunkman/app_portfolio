@@ -178,11 +178,13 @@ module Api
             @other_user = User.find(entry.user_id)
             @message = Message.order(created_at: :desc).find_by(room_id: entry.room_id)
             # 未読メッセージがあるか確認
-            check_message = current_user.passive_notifications.where(action: 'message', checked: false)
+            check_message = current_user.passive_notifications.where(visitor_id: @other_user.id,
+                                                                     action: 'message',
+                                                                     checked: false)
             next if @message.nil?
 
             @entries << { message_created_at: @message[:created_at],
-                          check_message: !check_message.blank?,
+                          check_message: check_message.any?,
                           message: @message,
                           other_user: @other_user,
                           room_id: entry.room_id }
