@@ -1,25 +1,25 @@
-import React, { useContext, useReducer } from "react";
-import { useHistory } from "react-router";
-import { AuthContext } from "../../App";
+import React, { useContext, useReducer } from 'react';
+import { useHistory } from 'react-router';
+import { AuthContext } from '../../App';
 // Style
-import Avatar from "@mui/material/Avatar";
+import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
-import ListItem from "@mui/material/ListItem";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import IconButton from "@mui/material/IconButton";
+import ListItem from '@mui/material/ListItem';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/system';
-import Typography from "@mui/material/Typography";
+import Typography from '@mui/material/Typography';
 // Icon
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 // Api
-import { deleteComment } from "../../apis/comments";
-import { fetchMicropost } from "../../apis/microposts";
+import { deleteComment } from '../../apis/comments';
+import { fetchMicropost } from '../../apis/microposts';
 // Reducer
 import { dialogReducer, dialogInitialState } from '../../reducer/DialogReducer'
 import { postReducer, postInitialState } from '../../reducer/PostReducer'
 // Component
-import { DeleteDialog } from "../Dialogs/DeleteDialog";
-import { MicropostDialog } from "../Dialogs/MicropostDialog";
+import { DeleteDialog } from '../Dialogs/DeleteDialog';
+import { MicropostDialog } from '../Dialogs/MicropostDialog';
 
 const ListItemWrapper = styled(ListItem)(() => ({
   display: 'flex',
@@ -38,6 +38,12 @@ const ListBody = styled('box')(({ theme }) => ({
   letterSpacing: theme.typography.body1.letterSpacing,
   lineHeight: 2,
   paddingLeft: 6,
+}));
+
+const IconWrapper = styled('box')(({ }) => ({
+  display: 'flex',
+  justifyContent: 'flex-end',
+  paddingRight: 10,
 }));
 
 export const Comment = ({
@@ -105,12 +111,14 @@ export const Comment = ({
               {comment.content}
             </ListBody>
           </Typography>
+          <IconWrapper>
+            {authState.loginUser.id === comment.user_id &&
+              <IconButton onClick={() => dialogDispatch({ type: 'delete' })}>
+                <DeleteOutlinedIcon />
+              </IconButton>
+            }
+          </IconWrapper>
         </Box>
-        {authState.loginUser.id === comment.user_id &&
-          <IconButton onClick={() => dialogDispatch({ type: 'delete' })}>
-            <DeleteOutlinedIcon />
-          </IconButton>
-        }
       </ListItemWrapper >
 
       <DeleteDialog

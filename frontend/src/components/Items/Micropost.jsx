@@ -42,7 +42,7 @@ const ListBody = styled('box')(({ theme }) => ({
   paddingLeft: 6,
 }));
 
-const IconWrapper = styled('box')(({ theme }) => ({
+const IconWrapper = styled('box')(({ }) => ({
   display: 'flex',
   justifyContent: 'flex-end',
   paddingRight: 10,
@@ -117,7 +117,7 @@ export const Micropost = ({
                 component='img'
                 image={micropost.image_url}
                 onClick={fetchDetailMicropost}
-                sx={{ cursor: 'pointer', mt: 2, maxHeight: 300, width: 200 }}
+                sx={{ cursor: 'pointer', my: 1, maxHeight: 300, width: 200 }}
               />
             }
           </Typography>
