@@ -18,7 +18,7 @@ const Container = styled('box')(() => ({
   maxWidth: 800,
   mx: 'auto',
   width: '100%',
-  padding: '0px 10px'
+  padding: '0px 10px',
 }));
 
 const Title = styled('box')(({ theme }) => ({
@@ -56,7 +56,7 @@ export const Book = ({ bookIsbn }) => {
         <Title>{book.title}<br /></Title>
         <Divider sx={{ border: 1, my: 2 }} />
       </Typography>
-      <Box sx={{ width: 250, mr: 4, mb: 4 }}>
+      <Box sx={{ width: 250, mb: 4, mx: 'auto' }}>
         <CardMedia
           component="img"
           image={book.largeImageUrl}
@@ -64,7 +64,7 @@ export const Book = ({ bookIsbn }) => {
           alt={book.title}
         />
       </Box>
-      <Box>
+      <Box sx={{ ml: 4 }}>
         <TextBox >
           <Typography variant="h6" sx={{ pt: 1 }}>著者名 ： {book.author}</Typography>
           <Typography variant="h6" sx={{ pt: 1 }}>出版社名 ： {book.publisherName}</Typography>
