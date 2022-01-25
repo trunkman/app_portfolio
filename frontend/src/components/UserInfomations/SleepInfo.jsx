@@ -58,7 +58,7 @@ const ContainedButton = styled('button')(({ theme }) => ({
 
 export const SleepInfo = ({
   handleClose,
-  handoleOpen,
+  handleOpen,
   open,
   recordDispatch,
   recordState,
@@ -84,18 +84,21 @@ export const SleepInfo = ({
         </UserWrapper>
         <Typography>
           <Title>
-            {!!sleepDebt ? '睡眠負債' : '余剰睡眠'}
+            {!sleepSaving && '睡眠負債'}
+            {sleepSaving && '貯蓄した睡眠'}
           </Title>
         </Typography>
         <Typography>
-          <Time>{!!sleepDebt ? sleepDebt : sleepSaving}時間</Time>
+          <Time>
+            {sleepDebt}
+            {sleepSaving}
+            {!sleepDebt && !sleepSaving && 0}
+            時間</Time>
         </Typography>
         <Box sx={{ py: 0.5 }} />
         <Typography variant='body2'>
-          {!!sleepDebt
-            ? '(理想睡眠時間 x 記録日数) - 実質睡眠時間合計 の差'
-            : '実質睡眠時間合計 - (理想睡眠時間 x 記録日数) の差'
-          }
+          {!sleepSaving && '(理想睡眠時間 x 記録日数) - 実質睡眠時間合計 の差'}
+          {sleepSaving && '実質睡眠時間合計 - (理想睡眠時間 x 記録日数) の差'}
         </Typography>
         <Box sx={{ py: 1.3 }} />
         <Typography>
@@ -113,7 +116,7 @@ export const SleepInfo = ({
             {/* <ContainedButton>
                 ツイッターに投稿する
               </ContainedButton> */}
-            <ContainedButton onClick={() => handoleOpen()}>
+            <ContainedButton onClick={() => handleOpen()}>
               睡眠日記を書く
             </ContainedButton>
           </Box>
