@@ -5,7 +5,7 @@ import { microposts, micropostPath } from "../urls";
 export const fetchMicropost = (micropostId) => {
   return axios.get(micropostPath(micropostId), { withCredentials: true })
     .then(res => {
-      console.log('micropost#show', res);
+      // console.log('micropost#show', res);
       return res.data;
     })
     .catch(error => {
@@ -25,7 +25,7 @@ export const postMicropost = (params) => {
     withCredentials: true
   })
     .then(res => {
-      console.log('micropost#create', res);
+      // console.log('micropost#create', res);
       return res.data;
     })
     .catch(error => {
@@ -37,7 +37,7 @@ export const postMicropost = (params) => {
 export const deleteMicropost = (micropostId) => {
   return axios.delete(micropostPath(micropostId), { withCredentials: true })
     .then(res => {
-      console.log('micropost#destroy', res);
+      // console.log('micropost#destroy', res);
       return res.data;
     })
     .catch(error => {

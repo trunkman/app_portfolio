@@ -8,7 +8,7 @@ export const postFollow = (params) => {
     withCredentials: true
   })
     .then(res => {
-      console.log('relationships#create', res);
+      // console.log('relationships#create', res);
       return res.data;
     })
     .catch(error => {
@@ -19,7 +19,7 @@ export const postFollow = (params) => {
 export const deleteUnfollow = (userId) => {
   return axios.delete(relationshipPath(userId), { withCredentials: true })
     .then(res => {
-      console.log('relationships#destroy', res);
+      // console.log('relationships#destroy', res);
       return res.data;
     })
     .catch(error => {

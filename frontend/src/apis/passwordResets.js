@@ -1,6 +1,7 @@
 import axios from "axios";
 import { passwordResets, passwordResetPath } from "../urls";
 
+// パスワード再設定メールを送るapi
 export const postPasswordReset = (params) => {
   return axios.post(passwordResets, {
     password_reset: {
@@ -8,7 +9,7 @@ export const postPasswordReset = (params) => {
     }
   })
     .then(res => {
-      console.log('passwordReset#create', res);
+      // console.log('passwordReset#create', res);
       return res.data;
     })
     .catch(error => {
@@ -16,6 +17,7 @@ export const postPasswordReset = (params) => {
     });
 }
 
+// パスワードを再設定するapi
 export const patchPasswordReset = (params) => {
   return axios.patch(passwordResetPath(params.passwordResetToken), {
     user: {
@@ -25,7 +27,7 @@ export const patchPasswordReset = (params) => {
     }
   })
     .then(res => {
-      console.log('passwordReset#patch', res);
+      // console.log('passwordReset#patch', res);
       return res.data;
     })
     .catch(error => {

@@ -5,7 +5,7 @@ import { rooms, roomPath } from "../urls";
 export const fetchMessages = (roomId) => {
   return axios.get(roomPath(roomId), { withCredentials: true })
     .then(res => {
-      console.log('rooms#show', res);
+      // console.log('rooms#show', res);
       return res.data;
     })
     .catch(error => {
@@ -21,7 +21,7 @@ export const postRoom = (params) => {
     withCredentials: true
   })
     .then(res => {
-      console.log('rooms#create', res);
+      // console.log('rooms#create', res);
       return res.data;
     })
     .catch(error => {
@@ -33,7 +33,7 @@ export const postRoom = (params) => {
 export const deleteRoom = (roomId) => {
   return axios.delete(roomPath(roomId), { withCredentials: true })
     .then(res => {
-      console.log('rooms#destroy', res)
+      // console.log('rooms#destroy', res)
       return res.data;
     })
     .catch(error => {

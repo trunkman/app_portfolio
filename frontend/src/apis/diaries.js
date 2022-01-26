@@ -13,12 +13,12 @@ export const postDiary = (params) => {
     withCredentials: true
   })
     .then(res => {
-      console.log('diaries#create', res);
+      // console.log('diaries#create', res);
       return res.data;
     })
     .catch(error => {
       console.log('diaries#create', error);
-      alert('すでに登録された日付の睡眠日記です');
+      alert('登録内容に誤りがございます');
     });
 }
 
@@ -34,7 +34,7 @@ export const patchDiary = (params) => {
     withCredentials: true
   })
     .then(res => {
-      console.log('diaries#update', res);
+      // console.log('diaries#update', res);
       return res.data;
     })
     .catch(error => {
@@ -46,7 +46,7 @@ export const patchDiary = (params) => {
 export const deleteDiary = (diaryId) => {
   return axios.delete(diaryPath(diaryId), { withCredentials: true })
     .then(res => {
-      console.log('diaries#delete', res);
+      // console.log('diaries#delete', res);
       return res.data;
     })
     .catch(error => {
@@ -58,7 +58,7 @@ export const deleteDiary = (diaryId) => {
 export const fetchSleepDebt = (userId) => {
   return axios.get(sleepDebt(userId), { withCredentials: true })
     .then(res => {
-      console.log('diaries#sleep_debt', res)
+      // console.log('diaries#sleep_debt', res)
       return res.data
     })
     .catch(error => {

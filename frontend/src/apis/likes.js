@@ -12,7 +12,7 @@ export const postLike = (params) => {
     withCredentials: true
   })
     .then(res => {
-      console.log('likes#create', res);
+      // console.log('likes#create', res);
       return res.data;
     })
     .catch(error => {
@@ -31,7 +31,7 @@ export const postUnlike = (params) => {
     withCredentials: true
   })
     .then(res => {
-      console.log('likes#destroy', res);
+      // console.log('likes#destroy', res);
       return res.data;
     })
     .catch(error => {

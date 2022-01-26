@@ -11,7 +11,7 @@ export const postRecommend = (params) => {
     withCredentials: true
   })
     .then(res => {
-      console.log('recommends#create', res);
+      // console.log('recommends#create', res);
       return res.data;
     })
     .catch(error => {
@@ -23,7 +23,7 @@ export const postRecommend = (params) => {
 export const deleteRecommend = (bookId) => {
   return axios.delete(recommendPath(bookId), { withCredentials: true })
     .then(res => {
-      console.log('recommends#destroy', res);
+      // console.log('recommends#destroy', res);
       return res.data;
     })
     .catch(error => {

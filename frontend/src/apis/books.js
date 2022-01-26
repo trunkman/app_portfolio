@@ -5,7 +5,7 @@ import { books, bookSearch, bookPath } from "../urls";
 export const fetchBook = (bookIsbn) => {
   return axios.get(bookPath(bookIsbn), { withCredentials: true })
     .then(res => {
-      console.log('books#show', res);
+      // console.log('books#show', res);
       return res.data;
     }).catch(error => {
       console.log('books#show', error);
@@ -34,7 +34,7 @@ export const postBook = (params) => {
     withCredentials: true
   })
     .then(res => {
-      console.log('books#create', res);
+      // console.log('books#create', res);
       return res.data;
     })
     .catch(error => {
@@ -50,7 +50,7 @@ export const updateBook = (params) => {
     withCredentials: true
   })
     .then(res => {
-      console.log('books#update', res);
+      // console.log('books#update', res);
       return res.data;
     })
     .catch(error => {
@@ -69,7 +69,7 @@ export const fetchSearchBooks = (params) => {
     withCredentials: true
   })
     .then(res => {
-      console.log('books#search', res);
+      // console.log('books#search', res);
       return res.data;
     })
     .catch(error => {

@@ -9,7 +9,7 @@ export const postAvatarImage = (params) => {
     withCredentials: true
   })
     .then(res => {
-      console.log('images#avatar', res);
+      // console.log('images#avatar', res);
       return res.data;
     })
     .catch(error => {

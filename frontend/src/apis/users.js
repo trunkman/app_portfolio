@@ -10,7 +10,7 @@ import {
 export const fetchUsers = () => {
   return axios.get(users, { withCredentials: true })
     .then(res => {
-      console.log('users#index', res);
+      // console.log('users#index', res);
       return res.data;
     })
     .catch(error => {
@@ -22,7 +22,7 @@ export const fetchUsers = () => {
 export const fetchUser = (userId) => {
   return axios.get(userPath(userId), { withCredentials: true })
     .then(res => {
-      console.log('users#show', res);
+      // console.log('users#show', res);
       return res.data;
     })
     .catch(error => {
@@ -44,7 +44,7 @@ export const postSignUp = (params) => {
     withCredentials: true
   })
     .then(res => {
-      console.log('signup', res);
+      // console.log('signup', res);
       return res.data;
     })
     .catch(error => {
@@ -68,7 +68,7 @@ export const patchUpdate = (params) => {
   })
     .then(res => {
       if (res.data) {
-        console.log('users#update', res);
+        // console.log('users#update', res);
         return res.data;
       }
     })
@@ -81,7 +81,7 @@ export const patchUpdate = (params) => {
 export const deleteUser = (userId) => {
   return axios.delete(userPath(userId), { withCredentials: true })
     .then(res => {
-      console.log('users#destroy', res);
+      // console.log('users#destroy', res);
       return res.data;
     })
     .catch(error => {
@@ -93,7 +93,7 @@ export const deleteUser = (userId) => {
 export const fetchMicroposts = (userId) => {
   return axios.get(userMicroposts(userId), { withCredentials: true })
     .then(res => {
-      console.log('users#microposts', res);
+      // console.log('users#microposts', res);
       return res.data;
     })
     .catch(error => {
@@ -105,7 +105,7 @@ export const fetchMicroposts = (userId) => {
 export const fetchFollowing = (userId) => {
   return axios.get(following(userId), { withCredentials: true })
     .then(res => {
-      console.log('user#following', res);
+      // console.log('user#following', res);
       return res.data;
     })
     .catch(error => {
@@ -117,7 +117,7 @@ export const fetchFollowing = (userId) => {
 export const fetchFollowers = (userId) => {
   return axios.get(followers(userId), { withCredentials: true })
     .then(res => {
-      console.log('user#followers', res);
+      // console.log('user#followers', res);
       return res.data;
     })
     .catch(error => {
@@ -129,7 +129,7 @@ export const fetchFollowers = (userId) => {
 export const fetchUserDiaries = (userId) => {
   return axios.get(userDiaries(userId), { withCredentials: true })
     .then(res => {
-      console.log('users#diaries', res);
+      // console.log('users#diaries', res);
       return res.data;
     })
     .catch(error => {
@@ -141,7 +141,7 @@ export const fetchUserDiaries = (userId) => {
 export const fetchTimeline = (userId) => {
   return axios.get(userTimeline(userId), { withCredentials: true })
     .then(res => {
-      console.log('users#timeline', res);
+      // console.log('users#timeline', res);
       return res.data;
     })
     .catch(error => {
@@ -153,7 +153,7 @@ export const fetchTimeline = (userId) => {
 export const fetchUserBooks = (userId) => {
   return axios.get(userBooks(userId), { withCredentials: true })
     .then(res => {
-      console.log('users#books', res);
+      // console.log('users#books', res);
       return res.data;
     })
     .catch(error => {
@@ -165,7 +165,7 @@ export const fetchUserBooks = (userId) => {
 export const fetchRooms = (userId) => {
   return axios.get(userRooms(userId), { withCredentials: true })
     .then(res => {
-      console.log('users#rooms', res);
+      // console.log('users#rooms', res);
       return res.data;
     })
     .catch(error => {

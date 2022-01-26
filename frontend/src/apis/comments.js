@@ -13,7 +13,7 @@ export const postComment = (params) => {
     withCredentials: true
   })
     .then(res => {
-      console.log('comments#create', res);
+      // console.log('comments#create', res);
       return res.data;
     })
     .catch(error => {
@@ -25,7 +25,7 @@ export const postComment = (params) => {
 export const deleteComment = (commentId) => {
   return axios.delete(commentPath(commentId), { withCredentials: true })
     .then(res => {
-      console.log('comments#destroy', res);
+      // console.log('comments#destroy', res);
       return res.data;
     })
     .catch(error => {

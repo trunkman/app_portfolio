@@ -5,7 +5,7 @@ import { notifications, notificationsDelete, notificationsCheck } from "../urls"
 export const fetchNotifications = () => {
   return axios.get(notifications, { withCredentials: true })
     .then(res => {
-      console.log('notifications#index', res);
+      // console.log('notifications#index', res);
       return res.data;
     })
     .catch(error => {
@@ -17,7 +17,7 @@ export const fetchNotifications = () => {
 export const deleteNotifications = () => {
   return axios.delete(notificationsDelete, { withCredentials: true })
     .then(res => {
-      console.log('notifications#all_delete', res);
+      // console.log('notifications#all_delete', res);
       return res.data;
     })
     .catch(error => {
@@ -29,7 +29,7 @@ export const deleteNotifications = () => {
 export const checkNotifications = () => {
   return axios.get(notificationsCheck, { withCredentials: true })
     .then(res => {
-      console.log('notifications#check', res);
+      // console.log('notifications#check', res);
       return res.data;
     })
     .catch(error => {

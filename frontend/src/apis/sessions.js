@@ -13,7 +13,7 @@ export const postLogIn = (params) => {
     withCredentials: true
   })
     .then(res => {
-      console.log('login', res);
+      // console.log('login', res);
       return res.data;
     })
     .catch(error => {
@@ -27,7 +27,7 @@ export const postLogIn = (params) => {
 export const deleteLogout = () => {
   return axios.delete(logout, { withCredentials: true })
     .then(res => {
-      console.log('logout', res);
+      // console.log('logout', res);
       return res.data;
     })
     .catch(error => {
@@ -39,7 +39,7 @@ export const deleteLogout = () => {
 export const fetchLoggedIn = () => {
   return axios.get(loggedIn, { withCredentials: true })
     .then(res => {
-      console.log('loggedIn', res);
+      // console.log('loggedIn', res);
       return res.data;
     })
     .catch(error => {

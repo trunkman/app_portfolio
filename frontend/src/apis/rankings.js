@@ -5,7 +5,7 @@ import { sleepingHours, reading, readBooks, stackBooks } from "../urls";
 export const fetchSleepHoursRank = () => {
   return axios.get(sleepingHours, { withCredentials: true })
     .then(res => {
-      console.log('rankings#sleeping_hours', res);
+      // console.log('rankings#sleeping_hours', res);
       return res.data;
     })
     .catch(error => {
@@ -17,7 +17,7 @@ export const fetchSleepHoursRank = () => {
 export const fetchReadingRank = () => {
   return axios.get(reading, { withCredentials: true })
     .then(res => {
-      console.log('rankings#reading', res);
+      // console.log('rankings#reading', res);
       return res.data;
     })
     .catch(error => {
@@ -29,7 +29,7 @@ export const fetchReadingRank = () => {
 export const fetchReadBooksRank = () => {
   return axios.get(readBooks, { withCredentials: true })
     .then(res => {
-      console.log('rankings#read_books', res);
+      // console.log('rankings#read_books', res);
       return res.data;
     })
     .catch(error => {
@@ -41,7 +41,7 @@ export const fetchReadBooksRank = () => {
 export const fetchStackBooksRank = () => {
   return axios.get(stackBooks, { withCredentials: true })
     .then(res => {
-      console.log('rankings#stack_books', res);
+      // console.log('rankings#stack_books', res);
       return res.data;
     })
     .catch(error => {

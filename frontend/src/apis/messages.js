@@ -13,7 +13,7 @@ export const postMessage = (params) => {
     withCredentials: true
   })
     .then(res => {
-      console.log('message#create', res);
+      // console.log('message#create', res);
       return res.data;
     })
     .catch(error => {
@@ -25,7 +25,7 @@ export const postMessage = (params) => {
 export const deleteMessage = (messageId) => {
   return axios.delete(messagePath(messageId), { withCredentials: true })
     .then(res => {
-      console.log('message#destroy', res);
+      // console.log('message#destroy', res);
       return res.data;
     })
     .catch(error => {
