@@ -13,7 +13,7 @@
 * React (5.0.0)
 * Node.js (v14.18.0)
 * Nginx (1.20.2)
-* Materi-UI
+* Material-UI
 ### バックエンド
 * Ruby (3.0.2)
 * Ruby on Rails (6.1.4.1)
