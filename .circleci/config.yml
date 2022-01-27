@@ -44,12 +44,11 @@ jobs:
   nginx-build-and-push:
     executor:
       name: aws-ecr/default
-    environment:
-      REACT_APP_AWS_ACCESS_KEY: '${REACT_APP_AWS_ACCESS_KEY}'
-      REACT_APP_AWS_BUCKET: '${REACT_APP_AWS_BUCKET}'
-      REACT_APP_AWS_SECRET_KEY: '${REACT_APP_AWS_SECRET_KEY}'
-      REACT_APP_AWS_REGION: '${REACT_APP_AWS_REGION}'
     steps:
+      - run: echo 'export REACT_APP_AWS_ACCESS_KEY=${REACT_APP_AWS_ACCESS_KEY}' >> $BASH_ENV
+      - run: echo 'export REACT_APP_AWS_BUCKET=${REACT_APP_AWS_BUCKET}' >> $BASH_ENV
+      - run: echo 'export REACT_APP_AWS_SECRET_KEY=${REACT_APP_AWS_SECRET_KEY}' >> $BASH_ENV
+      - run: echo 'export REACT_APP_AWS_REGION=${REACT_APP_AWS_REGION}' >> $BASH_ENV
       - aws-ecr/build-and-push-image:
           account-url: AWS_ECR_ACCOUNT_URL
           region: AWS_REGION
