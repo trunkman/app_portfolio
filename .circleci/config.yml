@@ -31,38 +31,6 @@ jobs:
       - run:
           name: rspecのテスト
           command: rspec
-  api-build-and-push:
-    executor:
-      name: aws-ecr/default
-    steps:
-      - aws-ecr/build-and-push-image:
-          account-url: AWS_ECR_ACCOUNT_URL
-          region: AWS_REGION
-          dockerfile: ./backend/Dockerfile
-          repo: app_api
-          tag: '${CIRCLE_SHA1}'
-  nginx-build-and-push:
-    executor:
-      name: aws-ecr/default
-    steps:
-      - run:
-          name: set up environment
-          command: |
-            echo 'export REACT_APP_AWS_ACCESS_KEY=${REACT_APP_AWS_ACCESS_KEY}' >> $BASH_ENV
-            echo 'export REACT_APP_AWS_BUCKET=${REACT_APP_AWS_BUCKET}' >> $BASH_ENV
-            echo 'export REACT_APP_AWS_SECRET_KEY=${REACT_APP_AWS_SECRET_KEY}' >> $BASH_ENV
-            echo 'export REACT_APP_AWS_REGION=${REACT_APP_AWS_REGION}' >> $BASH_ENV
-            source $BASH_ENV
-      - run:
-          name: confirm current Environment Variable at Runtime
-          command: |
-            echo ${REACT_APP_AWS_REGION}
-      - aws-ecr/build-and-push-image:
-          account-url: AWS_ECR_ACCOUNT_URL
-          region: AWS_REGION
-          dockerfile: ./nginx/Dockerfile
-          repo: app_nginx
-          tag: '${CIRCLE_SHA1}'
 
 workflows:
   check_and_test:
@@ -77,29 +45,40 @@ workflows:
       - test:
           requires:
             - build
-  api-build-push-deploy:
+  api-deploy:
     jobs:
-      - api-build-and-push:
+      - aws-ecr/build-and-push-image:
+          account-url: AWS_ECR_ACCOUNT_URL
+          region: AWS_REGION
+          dockerfile: ./backend/Dockerfile
+          repo: app_api
+          tag: "${CIRCLE_SHA1}"
           filters:
             branches:
               only: main
       - aws-ecs/deploy-service-update:
           requires:
-            - api-build-and-push
+            - aws-ecr/build-and-push-image
           family: 'sleepingdebtplan-3'
-          cluster-name: '${ESC_CLUSTER_ARN}'
+          cluster-name: "${ESC_CLUSTER_ARN}"
           service-name: 'sleepingdebtplan-service'
-          container-image-name-updates: 'container=api,tag=${CIRCLE_SHA1}'
-  nginx-build-push-deploy:
+          container-image-name-updates: "container=api,tag=${CIRCLE_SHA1}"
+  nginx-deploy:
     jobs:
-      - nginx-build-and-push:
+      - aws-ecr/build-and-push-image:
+          account-url: AWS_ECR_ACCOUNT_URL
+          region: AWS_REGION
+          dockerfile: ./nginx/Dockerfile
+          repo: app_nginx
+          tag: "${CIRCLE_SHA1}"
+          extra-build-args: '--build-arg REACT_APP_AWS_ACCESS_KEY=${REACT_APP_AWS_ACCESS_KEY} --build-arg REACT_APP_AWS_BUCKET=${REACT_APP_AWS_BUCKET} --build-arg REACT_APP_AWS_SECRET_KEY=${REACT_APP_AWS_SECRET_KEY} --build-arg REACT_APP_AWS_REGION=${REACT_APP_AWS_REGION}'
           filters:
             branches:
               only: main
       - aws-ecs/deploy-service-update:
           requires:
-            - nginx-build-and-push
+            - aws-ecr/build-and-push-image
           family: 'sleepingdebtplan-3'
-          cluster-name: '${ESC_CLUSTER_ARN}'
+          cluster-name: "${ESC_CLUSTER_ARN}"
           service-name: 'sleepingdebtplan-service'
-          container-image-name-updates: 'container=nginx,tag=${CIRCLE_SHA1}'
+          container-image-name-updates: "container=nginx,tag=${CIRCLE_SHA1}"
