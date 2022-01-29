@@ -27,7 +27,7 @@ export const ReadButton = ({
   const history = useHistory();
   const { authState } = useContext(AuthContext);
 
-  // 本を登録する
+  // 本を登録する(booleanがtrue：読了、false:積読)
   const handleClick = boolean => {
     // ユーザー未登録本の場合、CreateでDBに登録する
     !subscribed && (
@@ -37,8 +37,9 @@ export const ReadButton = ({
         book: book,
       })
         .then(data => {
-          data.message && alert(data.message)
-          history.push(`/users/${authState.loginUser.id}/books`)
+          data.subscription.read
+            ? history.push(`/users/${authState.loginUser.id}/read_books`)
+            : history.push(`/users/${authState.loginUser.id}/stack_books`)
         })
     );
     // ユーザー登録済み本の場合、UpdateでDBを更新する
@@ -48,8 +49,9 @@ export const ReadButton = ({
         book: book,
       })
         .then(data => {
-          data.message && alert(data.message)
-          history.push(`/users/${authState.loginUser.id}/books`)
+          data.subscription.read
+            ? history.push(`/users/${authState.loginUser.id}/read_books`)
+            : history.push(`/users/${authState.loginUser.id}/stack_books`)
         })
     );
   }

@@ -32,9 +32,9 @@ const Title = styled('box')(({ theme }) => ({
   lineHeight: 3,
 }));
 
-export const Bookshelf = ({ userId }) => {
+export const Bookshelf = ({ userId, initialTab }) => {
   const [keyword, setKeyword] = useState('');
-  const [tab, setTab] = useState('read');
+  const [tab, setTab] = useState(initialTab);
   const [bookState, bookDispatch] = useReducer(bookReducer, bookInitialState);
   const [hasMore, setHasMore] = useState(true);
   const [searchList, setSearchList] = useState(bookState.searchBooks);

@@ -111,11 +111,11 @@ export const UserInfo = ({
                   <ItemText>フォロワー</ItemText>
                   <ItemText>{profileState.followersIds.length} 人</ItemText>
                 </ProfileItem>
-                <ProfileItem onClick={() => history.push(`/users/${profileState.user.id}/books`)}>
+                <ProfileItem onClick={() => history.push(`/users/${profileState.user.id}/read_books`)}>
                   <ItemText>読了本</ItemText>
                   <ItemText>{profileState.readBooks.length} 冊</ItemText>
                 </ProfileItem>
-                <ProfileItem onClick={() => history.push(`/users/${profileState.user.id}/books`)}>
+                <ProfileItem onClick={() => history.push(`/users/${profileState.user.id}/stack_books`)}>
                   <ItemText>積読本</ItemText>
                   <ItemText>{profileState.stackBooks.length} 冊</ItemText>
                 </ProfileItem>

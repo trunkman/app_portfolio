@@ -147,10 +147,18 @@ export const Layout = () => {
                     initialTab='followers'
                   />}
               />
-              <Route exact path="/users/:id/books"
+              <Route exact path="/users/:id/read_books"
                 render={({ match }) =>
                   <Bookshelf
                     userId={match.params.id}
+                    initialTab='read'
+                  />}
+              />
+              <Route exact path="/users/:id/stack_books"
+                render={({ match }) =>
+                  <Bookshelf
+                    userId={match.params.id}
+                    initialTab='stack'
                   />}
               />
               <Route exact path="/users/:id/diaries"

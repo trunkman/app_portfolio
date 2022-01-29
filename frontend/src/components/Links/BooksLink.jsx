@@ -23,7 +23,7 @@ export const BooksLink = ({
           button
           component={Link}
           onClick={!breakpoint && (() => handleDrawerClose())}
-          to={`/users/${loginUserId}/books`}
+          to={`/users/${loginUserId}/read_books`}
         >
           <ListItemIcon>
             <ImportContactsOutlinedIcon
