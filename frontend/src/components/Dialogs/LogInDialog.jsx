@@ -22,7 +22,7 @@ export const LogInDialog = ({
 }) => {
   const { authState, authDispatch } = useContext(AuthContext);
 
-  // ログイン関数
+  // ログインする
   const handleLogin = (data) => {
     authDispatch({
       type: 'login',
@@ -30,12 +30,12 @@ export const LogInDialog = ({
     })
   }
 
-  // ログインする
+  // ログインするデータを送り、ログインする
   const submitLogin = () => {
     postLogIn({
       email: authState.email,
       password: authState.password,
-      remember_me: authState.remenberMe,
+      remember_me: authState.rememberMe ? '1' : '0',
     }).then(data => {
       data.logged_in && handleLogin(data);
       handleClose();
@@ -81,13 +81,12 @@ export const LogInDialog = ({
         >
           パスワードを忘れてしまった方はこちら
         </Link>
-
         <RememberMe
-          remenberMe={authState.remenberMe}
+          rememberMe={authState.rememberMe}
           handleChange={e =>
             authDispatch({
               type: 'rememberMe',
-              payload: (e.target.value)
+              payload: e.target.checked,
             })
           }
         />

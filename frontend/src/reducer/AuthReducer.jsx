@@ -5,7 +5,7 @@ export const authInitialState = {
   passwordConfirmation: '',
   idealSleepingHours: '',
   profile: '',
-  rememberMe: '1',
+  rememberMe: true,
   loginUser: null,
   loggedIn: false,
   // Snackbarの表示に関わる
@@ -95,7 +95,7 @@ export const authReducer = (state, action) => {
         email: '',
         password: '',
         passwordConfirmation: '',
-        rememberMe: '1',
+        rememberMe: 'true',
       };
     case 'closeSnackbar':
       return {

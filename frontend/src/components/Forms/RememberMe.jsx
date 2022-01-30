@@ -2,13 +2,13 @@ import React from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
-export const RememberMe = (rememberMe, handleChange) => {
+export const RememberMe = ({ rememberMe, handleChange }) => {
 
   // 返り値：RememberMeのチェックボックス
   return (
     <FormControlLabel
       control={
-        <Checkbox defaultChecked
+        <Checkbox
           checked={rememberMe}
           onChange={handleChange}
           inputProps={{ 'aria-label': 'controlled' }}

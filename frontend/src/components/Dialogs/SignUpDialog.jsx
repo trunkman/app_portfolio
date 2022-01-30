@@ -15,7 +15,6 @@ import { Email } from '../Forms/Email';
 import Loading from '../Items/Loading';
 import { Password } from '../Forms/Password';
 import { PasswordConfirmation } from '../Forms/PasswordConfirmation';
-import { RememberMe } from '../Forms/RememberMe';
 import { IdealSleepingHours } from '../Forms/IdealSleepingHours';
 
 export const SignUpDialog = ({
@@ -103,15 +102,6 @@ export const SignUpDialog = ({
                 authDispatch({
                   type: 'passwordConfirmation',
                   payload: e.target.value,
-                })
-              }
-            />
-            <RememberMe
-              remenberMe={authState.remenberMe}
-              handleChange={e =>
-                authDispatch({
-                  type: 'rememberMe',
-                  payload: (e.target.value)
                 })
               }
             />

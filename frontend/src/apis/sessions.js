@@ -18,7 +18,7 @@ export const postLogIn = (params) => {
     })
     .catch(error => {
       alert('ログイン失敗。Emailもしくはパスワードが間違っております。');
-      console.log('loggIn', error);
+      console.log('login', error);
       return 'nil';
     });
 }
