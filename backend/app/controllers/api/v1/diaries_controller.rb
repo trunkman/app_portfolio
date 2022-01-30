@@ -6,6 +6,7 @@ module Api
       before_action :logged_in_user, only: %i[create update destroy sleep_debt]
       before_action :correct_user,   only: %i[update destroy]
 
+      # 睡眠日記を作成する
       def create
         @diary = current_user.diaries.build(diary_params)
         if @diary.save
@@ -17,36 +18,38 @@ module Api
         end
       end
 
+      # 睡眠日記を更新する
       def update
         @diary.update(diary_params)
         render json: { diary: @diary },
                status: :ok
       end
-
+      
+      # 睡眠日記を削除する
       def destroy
         @diary.destroy
         render json: { message: '日記の削除が完了しました' },
                status: :ok
       end
 
+      # 睡眠負債/貯蓄した睡眠を算出して返す
       def sleep_debt
         @user = User.find(params[:id])
         @diaries = @user.diaries
-        # 理想の合計睡眠時間を計算
+        # 理想の合計睡眠時間
         ideal_total_time = @user.ideal_sleeping_hours * @diaries.count
         # 実際の合計睡眠時間
         total_time = 0
         @diaries.each do |diary|
           total_time += diary.sleeping_hours
         end
-        # 睡眠負債かどうか判定
+        # 睡眠負債/貯蓄した睡眠時間かどうか判定
         if ideal_total_time > total_time
           sleep_debt = ideal_total_time - total_time
           render json: { sleep_debt: sleep_debt.round(2) },
                  status: :ok
         else
           sleep_saving = total_time - ideal_total_time
-
           render json: { sleep_saving: sleep_saving.round(2) },
                  status: :ok
         end

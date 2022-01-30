@@ -6,9 +6,11 @@ module Api
       before_action :logged_in_user, only: %i[show create destroy]
       before_action :correct_user,   only: [:destroy]
 
+      # 投稿を表示する
       def show
         @micropost = Micropost.find(params[:id])
         @user = @micropost.user
+        # いいねとコメント情報を追加
         likeStatus = current_user.liked?(@micropost)
         @comments = []
         @micropost.comments.each do |comment|
@@ -22,6 +24,7 @@ module Api
                status: :ok
       end
 
+      # 投稿を作成する
       def create
         @micropost = current_user.microposts.build(micropost_params)
         if @micropost.save
@@ -33,6 +36,7 @@ module Api
         end
       end
 
+      # 投稿を削除する
       def destroy
         @micropost.destroy
         render json: { message: '投稿を削除しました' },

@@ -8,13 +8,16 @@ module Api
                                               diaries timeline rooms books ]
       before_action :correct_user,   only: %i[edit update]
 
+      # ユーザー一覧を表示する
       def index
         @users = User.where(activated: true)
         render json: { users: @users }, status: :ok
       end
 
+      # ユーザープロフィールを表示する
       def show
         @user = User.find(params[:id])
+        # フォロワー・マイブック情報等を追加
         @following_ids = @user.following_ids
         @followers_ids = @user.follower_ids
         follow_status = current_user.following?(@user)
@@ -33,6 +36,7 @@ module Api
         end
       end
 
+      # ユーザーを作成し、アカウント有効化メールを送信する
       def create
         @user = User.new(user_params)
         if @user.save
@@ -45,6 +49,7 @@ module Api
         end
       end
 
+      # ユーザー情報を更新する
       def update
         @user = User.find(params[:id])
         if @user.update(user_params)
@@ -56,6 +61,7 @@ module Api
         end
       end
 
+      # ユーザー情報を削除する
       def destroy
         @user = User.find(params[:id])
         if current_user?(@user) || current_user.admin?
@@ -68,10 +74,10 @@ module Api
         end
       end
 
-      # 投稿&コメント一覧を返す
+      # 投稿&いいねした投稿&コメント一覧を返す
       def microposts
         @user = User.find(params[:id])
-        # 投稿の取得
+        # 投稿の追加
         @microposts = []
         @user.microposts.each do |post|
           likeStatus = current_user.liked?(post)
@@ -80,7 +86,7 @@ module Api
                            likeStatus: likeStatus,
                            commentCount: commentCount }
         end
-        # いいねした投稿の取得
+        # いいねした投稿の追加
         @liked_microposts = []
         @user.liked_microposts.each do |post|
           user = post.user
@@ -90,7 +96,7 @@ module Api
                                  commentCount: commentCount,
                                  user: user }
         end
-        # コメントの取得
+        # コメントの追加
         @comments = @user.comments
         render json: { microposts: @microposts,
                        liked_microposts: @liked_microposts,
@@ -102,7 +108,7 @@ module Api
       def following
         @user = User.find(params[:id])
         @following = []
-        # current_userによるフォロー有無の判定
+        # ログインユーザーによるフォロー有無の判定
         @user.following.each do |user|
           @following << { user: user, followStatus: current_user.following?(user) }
         end
@@ -114,7 +120,7 @@ module Api
       def followers
         @user = User.find(params[:id])
         @followers = []
-        # current_userによるフォロー有無の判定
+        # ログインユーザーによるフォロー有無の判定
         @user.followers.each do |user|
           @followers << { user: user, followStatus: current_user.following?(user) }
         end
@@ -122,11 +128,11 @@ module Api
                status: :ok
       end
 
-      # 日記情報一覧を返す
+      # 睡眠日記一覧を返す
       def diaries
         @user = User.find(params[:id])
         @diaries = @user.diaries
-        # 必要な日記情報に調整する
+        # 利用しやすいように日記情報を調整
         modification_diaries = []
         @diaries.map do |diary|
           # 感情によってcolorを決定
@@ -135,7 +141,7 @@ module Api
           when 'neutral_face' then color = '#03a9f4'
           when 'dizzy_face' then color = '#007ac1'
           end
-          # Rechartに合わせてハッシュのkeysを設定
+          # Rechartが利用できるようにハッシュのkeysを設定
           modification_diaries << { color: color,
                                     groupId: diary.sleeping_hours,
                                     id: diary.id,
@@ -154,9 +160,9 @@ module Api
         @timeline = []
         @user.feed.each do |micropost|
           user = User.find(micropost.user_id)
-          # current_userによるいいね有無の判定
+          # ログインユーザーにによるいいね有無の判定
           likeStatus = current_user.liked?(micropost)
-          # micropostのコメント数を検索
+          # 投稿に対するコメント数を検索
           commentCount = micropost.comment_ids.length
           @timeline << { micropost: micropost,
                          likeStatus: likeStatus,
@@ -182,7 +188,7 @@ module Api
                                                                      action: 'message',
                                                                      checked: false)
             next if @message.nil?
-
+            # 利用しやすいようにentry情報を調整
             @entries << { message_created_at: @message[:created_at],
                           check_message: check_message.any?,
                           message: @message,
@@ -190,7 +196,7 @@ module Api
                           room_id: entry.room_id }
           end
         end
-        # message最新順に並び替える
+        # メッセージを最新順に並び替える
         @entries.sort_by! { |entry| entry[:message_created_at] }.reverse!
         render json: { entries: @entries },
                status: :ok

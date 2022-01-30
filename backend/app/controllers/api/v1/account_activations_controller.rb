@@ -3,6 +3,7 @@
 module Api
   module V1
     class AccountActivationsController < ApplicationController
+      # アカウントを有効化する
       def edit
         user = User.find_by(email: params[:email])
         if user

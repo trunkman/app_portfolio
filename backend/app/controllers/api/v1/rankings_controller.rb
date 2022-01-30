@@ -5,8 +5,8 @@ module Api
     class RankingsController < ApplicationController
       before_action :logged_in_user, only: %i[sleeping_hours reading read_books stack_books]
 
+      # ユーザー平均睡眠時間を算出し、上位6人を返す
       def sleeping_hours
-        # 睡眠平均時間の上位6人を検索
         @ranks = Diary.select('user_id, AVG(sleeping_hours) as average')
                       .group('user_id')
                       .order(average: :desc)
@@ -23,8 +23,8 @@ module Api
                status: :ok
       end
 
+      # ユーザー読了数を算出し、上位6人を返す
       def reading
-        # 読了数の上位6人を返す
         @ranks = Subscription.where(read: true)
                              .select('user_id, COUNT(user_id) as count_users')
                              .group('user_id')
@@ -44,8 +44,8 @@ module Api
                status: :ok
       end
 
+      # 読了本の人気を算出し、人気6冊を返す
       def read_books
-        # 読了本で人気6冊を検索
         @ranks = Subscription.where(read: true)
                              .select('book_id, COUNT(book_id) as count_books')
                              .group('book_id')
@@ -65,8 +65,8 @@ module Api
                status: :ok
       end
 
+      # 積読本の人気を算出し、人気6冊を検索
       def stack_books
-        # 積読本で人気6冊を検索
         @ranks = Subscription.where(read: false)
                              .select('book_id, COUNT(book_id) as count_books')
                              .group('book_id')
@@ -85,8 +85,6 @@ module Api
         render json: { stack_books_rank: stack_books_rank },
                status: :ok
       end
-
-      def sleep_debt; end
     end
   end
 end

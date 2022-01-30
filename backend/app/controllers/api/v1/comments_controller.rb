@@ -10,8 +10,8 @@ module Api
       def create
         @comment = current_user.comments.build(comment_params)
         if @comment.save
-          # 通知を作成
           @micropost = Micropost.find(params[:comment][:micropost_id])
+          # 通知を作成
           @micropost.create_notification_comment!(current_user, @comment.id)
           render json: { comment: @comment },
                  status: :created

@@ -3,7 +3,7 @@
 module Api
   module V1
     class SessionsController < ApplicationController
-      # ログインするアクション
+      # ログインする
       def create
         user = User.find_by(email: params[:session][:email].downcase)
         if user&.authenticate(params[:session][:password])
@@ -22,7 +22,7 @@ module Api
         end
       end
 
-      # ログアウトするアクション
+      # ログアウトする
       def destroy
         if logged_in?
           log_out
@@ -31,7 +31,7 @@ module Api
         end
       end
 
-      # ログイン状態を返すアクション
+      # ログイン状態を返す
       def logged_in
         if current_user
           render json: { logged_in: true, user: @current_user },
