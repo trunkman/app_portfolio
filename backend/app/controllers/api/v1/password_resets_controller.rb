@@ -7,6 +7,7 @@ module Api
       before_action :valid_user,       only: %i[update]
       before_action :check_expiration, only: %i[update]
 
+      # パスワード再設定メールを送る
       def create
         @user = User.find_by(email: params[:password_reset][:email].downcase)
         if @user
@@ -20,6 +21,7 @@ module Api
         end
       end
 
+      # パスワード再設定する
       def update
         if params[:user][:password].empty?
           render json: { message: 'パスワードが空です' }
@@ -34,10 +36,12 @@ module Api
 
       private
 
+      # Strong Parameters
       def user_params
         params.require(:user).permit(:email, :password, :password_confirmation)
       end
 
+      # ユーザーを取得する
       def get_user
         @user = User.find_by(email: params[:user][:email])
       end
@@ -45,13 +49,17 @@ module Api
       # 有効なユーザーかどうか確認する
       def valid_user
         unless @user&.activated? && @user&.authenticated?(:reset, params[:id])
-          render json: {}, status: :unprocessable_entity
+          render json: { message: '有効化されたユーザーではありません' },
+                 status: :unprocessable_entity
         end
       end
 
       # トークンが期限切れかどうか確認する
       def check_expiration
-        render json: { message: 'トークンの有効期限が切れています' } if @user.password_reset_expired?
+        if @user.password_reset_expired?
+          render json: { message: 'トークンの有効期限が切れています' },
+                 status: :ok
+        end 
       end
     end
   end

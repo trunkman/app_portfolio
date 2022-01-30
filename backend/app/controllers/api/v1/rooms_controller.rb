@@ -7,7 +7,7 @@ module Api
 
       # トークルームを返す
       def show
-        # current_userが属するroomであるか判定
+        # ログインユーザーが属するroomであるか判定
         if Entry.find_by(user_id: current_user.id, room_id: params[:id])
           @messages = Message.where(room_id: params[:id])
           # 相手ユーザーの情報を取得
@@ -32,7 +32,7 @@ module Api
 
       # トークルームを作成する
       def create
-        # それぞれのユーザーのEntriesを取得
+        # それぞれのユーザーのEntries(中間テーブル)を取得
         @user = User.find(params[:room][:user_id])
         @user_entries = @user.entries
         @current_user_entries = current_user.entries
@@ -64,7 +64,7 @@ module Api
         params.require(:room).permit(:user_id)
       end
 
-      # current_userとuserが共有するRoomを検索
+      # ログインユーザーと相手ユーザーが共有するRoomを検索
       def shared_room_check
         @current_user_entries.each do |current_user_entry|
           @user_entries.each do |user_entry|
