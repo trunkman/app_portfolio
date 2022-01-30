@@ -24,7 +24,7 @@ module Api
       def all_delete
         @checked_notifications = current_user.passive_notifications.where(checked: true)
         if @checked_notifications.destroy_all
-          render json: { message: '通知を削除しました' },
+          render json: { notifications: [], message: '通知を削除しました' },
                  status: :ok
         else
           render json: { message: '削除する通知がありませんでした' },

@@ -27,14 +27,13 @@ export const NotificationDialog = ({
 
   // チェック済み通知をすべて削除する
   const allDelete = () => {
-    notificationState.notifications.length &&
-      deleteNotifications()
-        .then(data => {
-          notificationDispatch({
-            type: 'fetchSuccess',
-            payload: data.notifications,
-          });
+    deleteNotifications()
+      .then(data => {
+        notificationDispatch({
+          type: 'fetchSuccess',
+          payload: data.notifications,
         });
+      });
     handleClose();
   }
 
@@ -99,9 +98,11 @@ export const NotificationDialog = ({
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={allDelete}>
-            通知削除
-          </Button>
+          {!!notificationState.notifications.length &&
+            <Button onClick={allDelete}>
+              通知削除
+            </Button>
+          }
           <Button onClick={() => { handleClose() }}>
             閉じる
           </Button>
