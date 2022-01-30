@@ -9,7 +9,6 @@ if (process.env.NODE_ENV === 'development') {
 
 // StaticPagesController
 export const home = `${DEFAULT_API_LOCALHOST}/`;
-export const contact = `${DEFAULT_API_LOCALHOST}/`; //未使用
 // SessionssController
 export const login = `${DEFAULT_API_LOCALHOST}/login`;
 export const logout = `${DEFAULT_API_LOCALHOST}/logout`;
