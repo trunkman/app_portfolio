@@ -3,9 +3,9 @@
 module Api
   module V1
     class ImagesController < ApplicationController
+      # アバター画像を登録する
       def avatar
-        avatar_url = params[:image][:avatar_url]
-        if current_user.update(avatar_url: avatar_url)
+        if current_user.update(image_params)
           render json: { message: current_user.avatar_url },
                  status: :ok
         else
