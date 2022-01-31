@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :book do
+  factory :book, class: Book do
     title { 'ブックタイトル' }
     author { '著者' }
     publisherName { '出版社' }
     itemPrice { 1000 }
-    isbn { '0123456789012' }
+    sequence(:isbn) { |n| "#{n}123456789012" }
   end
 
   factory :read_book, class: Book do
@@ -31,7 +31,7 @@ FactoryBot.define do
     publisherName { '出版社' }
     itemPrice { 1000 }
     # 9人以上はisbnの桁がずれるため使用不可
-    sequence(:isbn) { |n| "#{n}234567890123" }
+    sequence(:isbn) { |n| "#{n}789012345678" }
   end
 
   factory :another_book, class: Book do
