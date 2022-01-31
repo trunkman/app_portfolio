@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Api::V1::RecommendsController', type: :request do
+RSpec.describe 'Api::V1::RankingController', type: :request do
   let(:user) { FactoryBot.create(:user) }
   let(:second_user) { FactoryBot.create(:user) }
   let(:third_user) { FactoryBot.create(:user) }
