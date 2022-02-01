@@ -149,11 +149,6 @@ class User < ApplicationRecord
     end
   end
 
-  # Avatar画像のURLを取得する
-  def file_url
-    Aws::S3::Object.new(ENV['S3_BUCKET'], avatar).public_url
-  end
-
   private
 
   # 有効化トークンとダイジェストの作成および代入
