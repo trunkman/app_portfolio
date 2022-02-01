@@ -13,14 +13,14 @@ class Entry < ApplicationRecord
   # トークルームの通知を作成する
   def create_notification_entry!(current_user, other_user_id)
     # すでにトークルーム作成の通知があるかを検索
-    notification_entried = Notification.where(['visitor_id = ? AND visited_id = ? AND entry_id = ? AND action = ? ',
-                                               current_user.id, other_user_id, id, 'entry'])
+    notification_entried = Notification.where(visitor_id: current_user.id, 
+                                              visited_id: other_user_id,
+                                              entry_id: id, 
+                                              action: 'entry')
     if notification_entried.blank?
-      notification = current_user.active_notifications.new(
-        visited_id: other_user_id,
-        entry_id: id,
-        action: 'entry'
-      )
+      notification = current_user.active_notifications.new(visited_id: other_user_id,
+                                                           entry_id: id,
+                                                           action: 'entry')
       notification.save if notification.valid?
     end
   end

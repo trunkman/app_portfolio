@@ -14,11 +14,9 @@ class Message < ApplicationRecord
 
   # メッセージの通知を作成する
   def create_notification_message!(current_user, other_user_id)
-    notification = current_user.active_notifications.new(
-      visited_id: other_user_id,
-      message_id: id,
-      action: 'message'
-    )
+    notification = current_user.active_notifications.new(visited_id: other_user_id,
+                                                         message_id: id,
+                                                         action: 'message')
     notification.save if notification.valid?
   end
 end
