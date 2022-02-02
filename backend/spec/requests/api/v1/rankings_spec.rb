@@ -11,13 +11,13 @@ RSpec.describe 'Api::V1::RankingController', type: :request do
   let(:sixth_user) { FactoryBot.create(:user) }
   let(:seventh_user) { FactoryBot.create(:user) }
 
-  let(:book) { FactoryBot.create(:one_book) }
-  let(:second_book) { FactoryBot.create(:another_book) }
-  let(:third_book) { FactoryBot.create(:other_book) }
-  let(:fourth_book) { FactoryBot.create(:another_book) }
-  let(:fifth_book) { FactoryBot.create(:other_book) }
-  let(:sixth_book) { FactoryBot.create(:another_book) }
-  let(:seventh_book) { FactoryBot.create(:other_book) }
+  let(:book) { FactoryBot.create(:book) }
+  let(:second_book) { FactoryBot.create(:book) }
+  let(:third_book) { FactoryBot.create(:book) }
+  let(:fourth_book) { FactoryBot.create(:book) }
+  let(:fifth_book) { FactoryBot.create(:book) }
+  let(:sixth_book) { FactoryBot.create(:book) }
+  let(:seventh_book) { FactoryBot.create(:book) }
 
   let(:diary_params) { { date: '1999/12/31', sleeping_hours: 7.5, feeling: 'satisfied' } }
   let(:book_params) { { book_id: book.id, read: true } }
