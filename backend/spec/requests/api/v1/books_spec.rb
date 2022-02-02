@@ -6,15 +6,17 @@ RSpec.describe 'Api::V1::BooksController', type: :request do
   let(:user)       { FactoryBot.create(:user) }
   let(:book)       { FactoryBot.create(:book) }
   let(:params) do
-    { book: { title: 'ブックタイトル', isbn: '9876543210987' },
+    { book: { title: 'ブックタイトル', isbn: '23456789098765' },
       registration: nil }
   end
   let(:params_registration) do
-    { book: { title: 'ブックタイトル', isbn: '1234567890123' },
+    { book: { title: 'ブックタイトル', isbn: '12345678909876' },
       registration: true }
   end
 
   it '本の詳細ページを返す' do
+    # 楽天apiを利用するためisbnを指定
+    book = Book.create(title: 'ブックタイトル', isbn: '9784797395846')
     log_in_as(user)
     # ユーザーと登録本を紐付ける
     user.subscriptions.create(book_id: book.id)
@@ -37,7 +39,7 @@ RSpec.describe 'Api::V1::BooksController', type: :request do
   end
 
   it '新しい本を登録する(DBへすでに登録済みのケース)' do
-    book
+    Book.create(title: 'ブックタイトル', isbn: '12345678909876')
     log_in_as(user)
     expect { post api_v1_books_path, params: params_registration }.to change(Book, :count).by(0)
     expect(response.status).to eq(201)

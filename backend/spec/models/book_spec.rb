@@ -20,11 +20,6 @@ RSpec.describe Book, type: :model do
     expect(book).not_to be_valid
   end
 
-  it 'ISBNは13桁より多くてはならない' do
-    book.isbn = '1' * 14
-    expect(book).not_to be_valid
-  end
-
   it 'ISBNは13桁より短くてはならない' do
     book.isbn = '1' * 12
     expect(book).not_to be_valid

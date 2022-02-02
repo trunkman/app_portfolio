@@ -7,6 +7,6 @@ class Book < ApplicationRecord
   # バリデーション
   validates :title, presence: true
   validates :isbn, presence: true,
-                   length: { maximum: 13, minimum: 13 },
+                   length: { minimum: 13 },
                    uniqueness: true
 end
