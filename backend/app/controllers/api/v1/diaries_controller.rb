@@ -35,21 +35,15 @@ module Api
       # 睡眠負債/貯蓄した睡眠を算出して返す
       def sleep_debt
         @user = User.find(params[:id])
-        @diaries = @user.diaries
-        # 理想の合計睡眠時間
-        ideal_total_time = @user.ideal_sleeping_hours * @diaries.count
-        # 実際の合計睡眠時間
-        total_time = 0
-        @diaries.each do |diary|
-          total_time += diary.sleeping_hours
-        end
-        # 睡眠負債/貯蓄した睡眠時間かどうか判定
-        if ideal_total_time > total_time
-          sleep_debt = ideal_total_time - total_time
+        user_sleep_time
+        # 理想の合計睡眠時間の方が多い場合、sleep_debtとして返す
+        if @ideal_total_time > @total_time
+          sleep_debt = @ideal_total_time - @total_time
           render json: { sleep_debt: sleep_debt.round(2) },
                  status: :ok
+        # 実際の合計睡眠時間の方が多い場合、sleep_savingとして返す
         else
-          sleep_saving = total_time - ideal_total_time
+          sleep_saving = @total_time - @ideal_total_time
           render json: { sleep_saving: sleep_saving.round(2) },
                  status: :ok
         end
@@ -68,6 +62,18 @@ module Api
         if @diary.nil?
           render json: { message: 'あなたの日記は見当たりませんでした' },
                  status: :forbidden
+        end
+      end
+
+      # 理想の合計睡眠時間と実際の合計睡眠時間を算出する
+      def user_sleep_time
+        @diaries = @user.diaries
+        # 理想の合計睡眠時間
+        @ideal_total_time = @user.ideal_sleeping_hours * @diaries.count
+        # 実際の合計睡眠時間
+        @total_time = 0
+        @diaries.each do |diary|
+          @total_time += diary.sleeping_hours
         end
       end
     end
