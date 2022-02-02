@@ -10,4 +10,13 @@ class Diary < ApplicationRecord
   validates :sleeping_hours, presence: true
   validates :feeling, presence: true
   validates_uniqueness_of :date, scope: :user_id
+
+  # ユーザー平均睡眠時間を算出し、上位順に返す
+  def self.user_rank_average(count)
+    select('user_id, AVG(sleeping_hours) as average')
+    .group('user_id')
+    .order(average: :desc)
+    .first(count)
+  end
+
 end

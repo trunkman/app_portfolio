@@ -7,17 +7,16 @@ module Api
 
       # ユーザー平均睡眠時間を算出し、上位6人を返す
       def sleeping_hours
-        @ranks = Diary.select('user_id, AVG(sleeping_hours) as average')
-                      .group('user_id')
-                      .order(average: :desc)
-                      .first(6)
+        @ranks = Diary.user_rank_average(6)
+        # ユーザー情報を付与
         sleeping_hours_rank = []
-        # User情報を付与
         @ranks.each_with_index do |rank, i|
           @user = User.find(rank.user_id)
-          sleeping_hours_rank << { average: rank.average.round(2),
-                                   rank: i + 1,
-                                   user: @user }
+          sleeping_hours_rank << { 
+            average: rank.average.round(2),
+            rank: i + 1,
+            user: @user
+          }
         end
         render json: { sleeping_hours_rank: sleeping_hours_rank },
                status: :ok
@@ -25,13 +24,9 @@ module Api
 
       # ユーザー読了数を算出し、上位6人を返す
       def reading
-        @ranks = Subscription.where(read: true)
-                             .select('user_id, COUNT(user_id) as count_users')
-                             .group('user_id')
-                             .order(count_users: :desc)
-                             .first(6)
+        @ranks = Subscription.user_reading_rank(6)
+        # ユーザー情報を付与
         reading_rank = []
-        # User情報を付与
         @ranks.each_with_index do |rank, i|
           @user = User.find(rank.user_id)
           reading_rank << {
@@ -46,13 +41,9 @@ module Api
 
       # 読了本の人気を算出し、人気6冊を返す
       def read_books
-        @ranks = Subscription.where(read: true)
-                             .select('book_id, COUNT(book_id) as count_books')
-                             .group('book_id')
-                             .order(count_books: :desc)
-                             .first(6)
+        @ranks = Subscription.read_book_rank(6)
+        # 本の情報を付与
         read_books_rank = []
-        # Book情報を付与
         @ranks.each_with_index do |rank, i|
           @book = Book.find(rank.book_id)
           read_books_rank << {
@@ -67,13 +58,9 @@ module Api
 
       # 積読本の人気を算出し、人気6冊を検索
       def stack_books
-        @ranks = Subscription.where(read: false)
-                             .select('book_id, COUNT(book_id) as count_books')
-                             .group('book_id')
-                             .order(count_books: :desc)
-                             .first(6)
+        @ranks = Subscription.stack_book_rank(6)
+        # 本の情報を付与
         stack_books_rank = []
-        # Book情報を付与
         @ranks.each_with_index do |rank, i|
           @book = Book.find(rank.book_id)
           stack_books_rank << {
