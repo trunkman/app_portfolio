@@ -3,6 +3,8 @@
 module Api
   module V1
     class AccountActivationsController < ApplicationController
+      before_action :user_exists,   only: [:edit]
+
       # アカウントを有効化する
       def edit
         user = User.find_by(email: params[:email])
@@ -16,6 +18,16 @@ module Api
                  status: :unprocessable_entity
         end
       end
+
+      private
+
+        def user_exists
+          unless User.exists?(email: params[:email])
+            render json: { errors: {message: 'このアカウントユーザーは存在しません'}},
+            status: :forbidden
+          end
+        end
+
     end
   end
 end
