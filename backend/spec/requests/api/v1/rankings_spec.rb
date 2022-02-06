@@ -38,7 +38,7 @@ RSpec.describe 'Api::V1::RankingController', type: :request do
     expect(json['sleeping_hours_rank'].length).to eq(6)
     expect(json['sleeping_hours_rank'][0]['average']).to eq(10)
     expect(json['sleeping_hours_rank'][0]['rank']).to eq(1)
-    expect(json['sleeping_hours_rank'][0]['user']['email']).to eq(second_user.email)
+    expect(json['sleeping_hours_rank'][0]['user']['name']).to eq(second_user.name)
     expect(response.status).to eq(200)
   end
 
@@ -65,7 +65,7 @@ RSpec.describe 'Api::V1::RankingController', type: :request do
     expect(json['reading_rank'].length).to eq(6)
     expect(json['reading_rank'][0]['count']).to eq(2)
     expect(json['reading_rank'][0]['rank']).to eq(1)
-    expect(json['reading_rank'][0]['user']['email']).to eq(second_user.email)
+    expect(json['reading_rank'][0]['user']['name']).to eq(second_user.name)
     expect(response.status).to eq(200)
   end
 

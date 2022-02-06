@@ -18,7 +18,7 @@ module Api
           @comments << { comment: comment, user: user }
         end
         render json: { micropost: @micropost,
-                       user: @user,
+                       user: @user.civilized,
                        likeStatus: likeStatus,
                        comments: @comments },
                status: :ok

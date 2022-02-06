@@ -149,6 +149,10 @@ class User < ApplicationRecord
     end
   end
 
+  def civilized
+    slice(:id, :name, :admin, :profile, :ideal_sleeping_hours, :avatar_url)
+  end
+
   private
 
   # 有効化トークンとダイジェストの作成および代入

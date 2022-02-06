@@ -14,7 +14,7 @@ module Api
         modify_notifications = []
         @notifications.each do |notification|
           @user = User.find(notification.visitor_id)
-          modify_notifications << { notification: notification, visitor_user: @user }
+          modify_notifications << { notification: notification, visitor_user: @user.civilized }
         end
         render json: { notifications: modify_notifications },
                status: :ok

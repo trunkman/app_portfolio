@@ -11,7 +11,7 @@ module Api
         if user
           user.activate
           log_in user
-          render json: { logged_in: true, user: user },
+          render json: { logged_in: true, user: user.civilized },
                  status: :create
         else
           render json: { errors: user.errors.full_messages },

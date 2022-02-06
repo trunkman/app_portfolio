@@ -28,9 +28,11 @@ module Api
         elsif @user.update(user_params)
           log_in @user
           @user.update_attribute(:reset_digest, nil)
-          render json: { user: @user }, status: :ok
+          render json: { user: @user.civilized },
+                 status: :ok
         else
-          render json: { message: '無効なパスワードです' }
+          render json: { message: '無効なパスワードです' },
+                 status: :unprocessable_entity
         end
       end
 

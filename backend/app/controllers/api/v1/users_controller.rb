@@ -10,8 +10,11 @@ module Api
 
       # ユーザー一覧を表示する
       def index
-        @users = User.where(activated: true)
-        render json: { users: @users }, status: :ok
+        users = User.where(activated: true)
+        users_civilized = users.map do |user|
+          user.civilized
+        end
+        render json: { users: users_civilized }, status: :ok
       end
 
       # ユーザープロフィールを表示する
@@ -23,7 +26,7 @@ module Api
         follow_status = current_user.following?(@user)
         @subscriptions = @user.subscriptions
         if @user.activated?
-          render json: { user: @user,
+          render json: { user: @user.civilized,
                          following_ids: @following_ids,
                          followers_ids: @followers_ids,
                          follow_status: follow_status,
@@ -53,7 +56,7 @@ module Api
       def update
         @user = User.find(params[:id])
         if @user.update(user_params)
-          render json: { user: @user },
+          render json: { user: @user.civilized },
                  status: :ok
         else
           render json: { message: '更新する情報に誤りがあります' },
@@ -94,7 +97,7 @@ module Api
           @liked_microposts << { liked_micropost: post,
                                  likeStatus: true,
                                  commentCount: commentCount,
-                                 user: user }
+                                 user: user.civilized }
         end
         # コメントの追加
         @comments = @user.comments
@@ -110,9 +113,9 @@ module Api
         @following = []
         # ログインユーザーによるフォロー有無の判定
         @user.following.each do |user|
-          @following << { user: user, followStatus: current_user.following?(user) }
+          @following << { user: user.civilized, followStatus: current_user.following?(user) }
         end
-        render json: { user: @user, following: @following },
+        render json: { user: @user.civilized, following: @following },
                status: :ok
       end
 
@@ -122,9 +125,9 @@ module Api
         @followers = []
         # ログインユーザーによるフォロー有無の判定
         @user.followers.each do |user|
-          @followers << { user: user, followStatus: current_user.following?(user) }
+          @followers << { user: user.civilized, followStatus: current_user.following?(user) }
         end
-        render json: { user: @user, followers: @followers },
+        render json: { user: @user.civilized, followers: @followers },
                status: :ok
       end
 
@@ -150,7 +153,7 @@ module Api
                                     title: diary.feeling }
         end
         modification_diaries.sort_by! { |v| v[:start] }
-        render json: { user: @user, diaries: modification_diaries },
+        render json: { user: @user.civilized, diaries: modification_diaries },
                status: :ok
       end
 
@@ -167,7 +170,7 @@ module Api
           @timeline << { micropost: micropost,
                          likeStatus: likeStatus,
                          commentCount: commentCount,
-                         user: user }
+                         user: user.civilized }
         end
         render json: { timeline: @timeline },
                status: :ok
@@ -192,7 +195,7 @@ module Api
             @entries << { message_created_at: @message[:created_at],
                           check_message: check_message.any?,
                           message: @message,
-                          other_user: @other_user,
+                          other_user: @other_user.civilized,
                           room_id: entry.room_id }
           end
         end
@@ -218,7 +221,7 @@ module Api
             stack_books << Book.find(subscription.book_id)
           end
         end
-        render json: { user: @user,
+        render json: { user: @user.civilized,
                        recommend_book: @recommend_book,
                        read_books: read_books,
                        stack_books: stack_books },

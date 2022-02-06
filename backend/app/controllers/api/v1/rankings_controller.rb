@@ -15,7 +15,7 @@ module Api
           sleeping_hours_rank << { 
             average: rank.average.round(2),
             rank: i + 1,
-            user: @user
+            user: @user.civilized
           }
         end
         render json: { sleeping_hours_rank: sleeping_hours_rank },
@@ -32,7 +32,7 @@ module Api
           reading_rank << {
             count: rank.count_users,
             rank: i + 1,
-            user: @user
+            user: @user.civilized
           }
         end
         render json: { reading_rank: reading_rank },

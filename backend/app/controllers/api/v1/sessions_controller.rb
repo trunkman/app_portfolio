@@ -10,7 +10,7 @@ module Api
           if user.activated?
             log_in user
             params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-            render json: { logged_in: true, user: user },
+            render json: { logged_in: true, user: user.civilized },
                    status: :created
           else
             render json: { message: 'activatedされていません' },
@@ -34,7 +34,7 @@ module Api
       # ログイン状態を返す
       def logged_in
         if current_user
-          render json: { logged_in: true, user: @current_user },
+          render json: { logged_in: true, user: @current_user.civilized },
                  status: :ok
         else
           render json: { logged_in: false, message: 'ログインしていません' },

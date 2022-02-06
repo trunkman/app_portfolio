@@ -22,7 +22,7 @@ module Api
           @notifications.each do |notification|
             notification.update_attribute(:checked, true)
           end
-          render json: { messages: @messages, user: @other_user },
+          render json: { messages: @messages, user: @other_user.civilized },
                  status: :ok
         else
           render json: { message: 'あなたのトークルームではありません' },

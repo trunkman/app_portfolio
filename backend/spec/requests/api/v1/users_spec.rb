@@ -38,7 +38,7 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     log_in_as(user)
     # other_userのプロフィールを取得
     get api_v1_user_path(other_user)
-    expect(json['user']['email']).to eq(other_user.email)
+    expect(json['user']['name']).to eq(other_user.name)
     expect(json['following_ids'].length).to eq(1)
     expect(json['followers_ids'].length).to eq(1)
     expect(json['follow_status']).to be_truthy
@@ -68,7 +68,7 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     log_in_as(user)
     patch api_v1_user_path(user), params: params
     expect(response.status).to eq(200)
-    expect(json['user']['email']).to eq('example@example.com')
+    expect(json['user']['name']).to eq('exampleユーザー')
   end
 
   it 'ユーザー情報を登録できなかった時、エラーを返す' do
@@ -222,7 +222,7 @@ RSpec.describe 'Api::V1::UsersController', type: :request do
     log_in_as(user)
     get rooms_api_v1_user_path(user)
     expect(json['entries'].length).to eq(1)
-    expect(json['entries'][0]['other_user']['email']).to eq(other_user.email)
+    expect(json['entries'][0]['other_user']['name']).to eq(other_user.name)
     expect(json['entries'][0]['other_user']['id']).to eq(other_user.id)
     expect(json['entries'][0]['check_message']).to be_truthy
     expect(response.status).to eq(200)
