@@ -21,12 +21,12 @@
 * Rspec
 * Rubocop
 ### インフラ・その他
-* AWS (ALB, Certificate Manager, CloudFront, EC2, ECR, ECS, Fargate, NAT Gateway, Public subnet, Private subnet, RDS (MySQL), Route53, S3, VPC, WAF)
+* AWS (ALB, Certificate Manager, CloudFront, EC2, ECR, ECS, Fargate, Public subnet, Private subnet, RDS (MySQL), Route53, S3, VPC, WAF)
 * Docker / Docker-compose
 * CircleCI (自動テスト, 自動ビルド, 自動デプロイ)
 
 ## インフラ構成図
-![20220122-インフラ構成図](https://user-images.githubusercontent.com/90957668/150514947-7e575f46-a9dd-454d-9731-abb7df472265.jpg)
+![20220207-インフラ構成図](https://user-images.githubusercontent.com/90957668/152974275-01ad0dfa-384e-4821-ae93-b6c8191dc23a.jpg)
 
 ## ER図
 ![20220110-ER図](https://user-images.githubusercontent.com/90957668/148783446-e9d86abf-6584-4ec1-9dfe-b061938bd203.jpg)
