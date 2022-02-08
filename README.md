@@ -26,7 +26,7 @@
 * CircleCI (自動テスト, 自動ビルド, 自動デプロイ)
 
 ## インフラ構成図
-![20220207-インフラ構成図](https://user-images.githubusercontent.com/90957668/152974275-01ad0dfa-384e-4821-ae93-b6c8191dc23a.jpg)
+![20220208-インフラ構成図](https://user-images.githubusercontent.com/90957668/152975866-24f98a34-dc4b-4a0d-8fe7-fc19f4e42b6c.jpg)
 
 ## ER図
 ![20220110-ER図](https://user-images.githubusercontent.com/90957668/148783446-e9d86abf-6584-4ec1-9dfe-b061938bd203.jpg)
